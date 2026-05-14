@@ -1,0 +1,456 @@
+/**
+ * 당첨 확인 — QR 스캔 or 직접 입력.
+ *
+ * QR (native only): expo-camera의 CameraView로 영수증 QR을 인식, qrParse로
+ * 회차 + 5게임을 추출해 보관함에 일괄 저장.
+ * 직접 입력: 회차 + 6개 번호 그리드 입력 후 즉시 등수 판정.
+ *
+ * Web에서는 expo-camera가 getUserMedia를 쓰지만 dev 환경에선 부정확하므로
+ * QR 탭을 비활성화하고 "모바일에서 사용하세요" 힌트를 보여준다.
+ */
+import React, { useMemo, useState } from 'react';
+import { Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
+import { T } from '@/src/components/Text';
+import { AppBar } from '@/src/components/AppBar';
+import { BallRow } from '@/src/components/BallRow';
+import { Button } from '@/src/components/Button';
+import { Card } from '@/src/components/Card';
+import { Chip } from '@/src/components/Chip';
+import { Disclaimer } from '@/src/components/Disclaimer';
+import { Icon } from '@/src/components/Icons';
+import { NumPicker } from '@/src/components/NumPicker';
+import { useHistory } from '@/src/data/historyStore';
+import { useSavedNumbers } from '@/src/store/savedNumbers';
+import { rank, hits as hitsFn } from '@/src/data/lotto';
+import { parseReceiptUrl, type ParsedReceipt } from '@/src/lib/qrParse';
+import { useTheme } from '@/src/design/theme';
+import { palette, radius } from '@/src/design/tokens';
+
+type Tab = 'qr' | 'manual';
+
+export default function Check() {
+  const t = useTheme();
+  const router = useRouter();
+  const [tab, setTab] = useState<Tab>(Platform.OS === 'web' ? 'manual' : 'qr');
+  const isWeb = Platform.OS === 'web';
+
+  return (
+    <SafeAreaView style={[styles.root, { backgroundColor: t.bgCanvas }]} edges={['top']}>
+      <AppBar title="당첨 확인" />
+      <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
+        {/* Tab selector */}
+        <View style={styles.tabBar}>
+          <TabBtn
+            label="QR 스캔"
+            active={tab === 'qr'}
+            disabled={isWeb}
+            onPress={() => setTab('qr')}
+          />
+          <TabBtn
+            label="직접 입력"
+            active={tab === 'manual'}
+            onPress={() => setTab('manual')}
+          />
+        </View>
+
+        {tab === 'qr' ? (
+          isWeb ? <WebHint /> : <QrTab />
+        ) : (
+          <ManualTab />
+        )}
+
+        <Disclaimer />
+        <View style={{ height: 4 }} />
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+// ─── Tab buttons ─────────────────────────────────────────────────────────────
+
+function TabBtn({ label, active, disabled, onPress }: { label: string; active: boolean; disabled?: boolean; onPress: () => void }) {
+  const t = useTheme();
+  return (
+    <Pressable
+      onPress={onPress}
+      disabled={disabled}
+      style={({ pressed }) => [
+        styles.tab,
+        {
+          backgroundColor: active ? t.bgInverse : t.bgSurface,
+          opacity: disabled ? 0.5 : pressed ? 0.9 : 1,
+        },
+      ]}
+    >
+      <T
+        variant="label1n"
+        style={{ color: active ? (t.scheme === 'dark' ? t.fgPrimary : '#fff') : t.fgSecondary, fontWeight: '600' }}
+        allowFontScaling={false}
+      >
+        {label}
+      </T>
+    </Pressable>
+  );
+}
+
+function WebHint() {
+  return (
+    <Card padding={24}>
+      <View style={{ alignItems: 'center', gap: 10 }}>
+        <Icon.qr color={palette.blue700} size={36} />
+        <T variant="heading2" color="primary">QR 스캔은 모바일에서</T>
+        <T variant="body2r" color="tertiary" style={{ textAlign: 'center' }}>
+          웹 브라우저에서는 영수증 QR을 인식하기 어려워요. 모바일 앱에서
+          QR로 빠르게 5게임을 한 번에 저장할 수 있습니다.
+        </T>
+      </View>
+    </Card>
+  );
+}
+
+// ─── QR tab ──────────────────────────────────────────────────────────────────
+
+function QrTab() {
+  const t = useTheme();
+  const addMany = useSavedNumbers((s) => s.addMany);
+  const [parsed, setParsed] = useState<ParsedReceipt | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [permission, setPermission] = useState<'undetermined' | 'granted' | 'denied'>('undetermined');
+  const [hasScanned, setHasScanned] = useState(false);
+
+  // Lazy import expo-camera so it doesn't break Web tree-shake.
+  const CameraView = React.useMemo(() => {
+    try {
+      // Dynamic import — keep out of static graph.
+      // @ts-ignore
+      const mod = require('expo-camera');
+      return { CameraView: mod.CameraView, useCameraPermissions: mod.useCameraPermissions };
+    } catch {
+      return null;
+    }
+  }, []);
+
+  // Camera permission flow.
+  const [perm, requestPerm] = (CameraView?.useCameraPermissions?.() ?? [null, async () => null]) as [
+    { granted: boolean } | null,
+    () => Promise<{ granted: boolean }>,
+  ];
+
+  React.useEffect(() => {
+    if (perm) setPermission(perm.granted ? 'granted' : 'denied');
+  }, [perm]);
+
+  const onScanned = ({ data }: { data: string }) => {
+    if (hasScanned) return;
+    const r = parseReceiptUrl(data);
+    if (!r) {
+      setError('QR을 인식했지만 형식이 맞지 않아요. 다시 시도해 주세요.');
+      return;
+    }
+    setHasScanned(true);
+    setError(null);
+    setParsed(r);
+  };
+
+  const saveAll = () => {
+    if (!parsed) return;
+    const receiptId = `r_${Date.now()}`;
+    const res = addMany(
+      parsed.games.map((g) => ({
+        nums: g.nums,
+        round: parsed.round,
+        source: 'qr' as const,
+        label: g.label,
+        receiptId,
+      })),
+    );
+    setParsed(null);
+    setHasScanned(false);
+    setError(res.added > 0 ? null : '이미 저장한 영수증이에요.');
+  };
+
+  if (!CameraView) {
+    return <WebHint />;
+  }
+
+  if (parsed) {
+    return (
+      <Card padding={14}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 8 }}>
+          <T variant="heading2" color="primary">영수증 인식 완료</T>
+          <Chip label={`${parsed.round}회`} tone="accent" />
+        </View>
+        <View style={{ gap: 10 }}>
+          {parsed.games.map((g) => (
+            <View key={g.label} style={[styles.gameLine, { borderColor: t.borderDivider }]}>
+              <View style={[styles.label, { backgroundColor: palette.softFill }]}>
+                <T variant="caption2" color="secondary" style={{ fontWeight: '700' }}>{g.label}</T>
+              </View>
+              <Chip label={g.type === 'auto' ? '자동' : '수동'} compact tone={g.type === 'auto' ? 'accent' : 'neutral'} />
+              <View style={{ flex: 1 }}>
+                <BallRow nums={g.nums} size="sm" />
+              </View>
+            </View>
+          ))}
+        </View>
+        <View style={{ flexDirection: 'row', gap: 8, marginTop: 14 }}>
+          <Button title="다시 스캔" variant="outline" size="md" onPress={() => { setParsed(null); setHasScanned(false); }} />
+          <View style={{ flex: 1 }}>
+            <Button title={`${parsed.games.length}게임 보관함에 저장`} variant="primary" size="md" full onPress={saveAll} />
+          </View>
+        </View>
+      </Card>
+    );
+  }
+
+  if (permission === 'undetermined') {
+    return (
+      <Card padding={20}>
+        <T variant="heading2" color="primary" style={{ marginBottom: 6 }}>카메라 권한이 필요해요</T>
+        <T variant="body2r" color="tertiary" style={{ marginBottom: 14 }}>
+          영수증 QR을 인식하려면 카메라 사용 권한을 허용해 주세요.
+        </T>
+        <Button title="권한 요청" variant="primary" full onPress={() => requestPerm()} />
+      </Card>
+    );
+  }
+
+  if (permission === 'denied') {
+    return (
+      <Card padding={20}>
+        <T variant="heading2" color="primary" style={{ marginBottom: 6 }}>권한이 거부됐어요</T>
+        <T variant="body2r" color="tertiary" style={{ marginBottom: 14 }}>
+          기기 설정에서 카메라 권한을 허용해 주세요. 직접 입력으로도 확인할 수 있습니다.
+        </T>
+      </Card>
+    );
+  }
+
+  const Camera = CameraView.CameraView;
+  return (
+    <View style={styles.cameraFrame}>
+      <Camera
+        style={{ width: '100%', height: 320 }}
+        facing="back"
+        onBarcodeScanned={onScanned}
+        barcodeScannerSettings={{ barcodeTypes: ['qr'] }}
+      />
+      {/* Reticle overlay */}
+      <View pointerEvents="none" style={styles.reticle}>
+        <View style={[styles.corner, styles.cornerTL]} />
+        <View style={[styles.corner, styles.cornerTR]} />
+        <View style={[styles.corner, styles.cornerBL]} />
+        <View style={[styles.corner, styles.cornerBR]} />
+      </View>
+      {error && (
+        <View style={styles.errorBar}>
+          <T variant="caption1" style={{ color: '#fff' }}>{error}</T>
+        </View>
+      )}
+    </View>
+  );
+}
+
+// ─── Manual tab ──────────────────────────────────────────────────────────────
+
+function ManualTab() {
+  const t = useTheme();
+  const latest = useHistory((s) => s.getLatest());
+  const earliest = useHistory((s) => s.earliestRound);
+  const latestRound = useHistory((s) => s.latestRound);
+  const add = useSavedNumbers((s) => s.add);
+  const [round, setRound] = useState<number>(latestRound || 1);
+  const [selected, setSelected] = useState<number[]>([]);
+  const [toast, setToast] = useState<string | null>(null);
+
+  React.useEffect(() => {
+    if (latestRound && !round) setRound(latestRound);
+  }, [latestRound, round]);
+
+  React.useEffect(() => {
+    if (!toast) return;
+    const id = setTimeout(() => setToast(null), 2200);
+    return () => clearTimeout(id);
+  }, [toast]);
+
+  const draw = useHistory((s) => round ? s.getRound(round) : null);
+
+  const result = useMemo(() => {
+    if (selected.length !== 6 || !draw) return null;
+    const r = rank(selected, draw.nums, draw.bonus);
+    const hs = hitsFn(selected, draw.nums);
+    return { rank: r, hits: hs };
+  }, [selected, draw]);
+
+  const toggle = (n: number) => {
+    setSelected((s) => {
+      if (s.includes(n)) return s.filter((x) => x !== n);
+      if (s.length >= 6) return s;
+      return [...s, n].sort((a, b) => a - b);
+    });
+  };
+
+  const stepRound = (delta: number) => {
+    setRound((r) => Math.max(earliest || 1, Math.min(latestRound, r + delta)));
+  };
+
+  const save = () => {
+    if (selected.length !== 6) return;
+    const res = add({ nums: selected, round, source: 'manual' });
+    if (res.ok) {
+      setToast(result?.rank != null ? `${result.rank}등 당첨! 보관함에 저장됨` : '보관함에 저장했어요');
+      setSelected([]);
+    } else if (res.reason === 'duplicate') {
+      setToast('이미 저장한 번호예요');
+    } else {
+      setToast('보관함이 가득 찼어요');
+    }
+  };
+
+  return (
+    <View style={{ gap: 12 }}>
+      {/* Round picker */}
+      <Card padding={14}>
+        <T variant="caption1" color="tertiary" style={{ marginBottom: 6 }}>확인할 회차</T>
+        <View style={styles.roundRow}>
+          <Pressable onPress={() => stepRound(-1)} hitSlop={8} style={styles.stepBtn}>
+            <T variant="title3" color="secondary">−</T>
+          </Pressable>
+          <View style={{ alignItems: 'center', flex: 1 }}>
+            <T variant="title2" color="primary" style={{ fontWeight: '700' }}>{round}회</T>
+            {draw && <T variant="caption1" color="tertiary">{draw.date}</T>}
+          </View>
+          <Pressable onPress={() => stepRound(+1)} hitSlop={8} style={styles.stepBtn}>
+            <T variant="title3" color="secondary">+</T>
+          </Pressable>
+        </View>
+        {draw && (
+          <View style={{ marginTop: 12, alignItems: 'center' }}>
+            <T variant="caption1" color="tertiary" style={{ marginBottom: 6 }}>당첨번호</T>
+            <BallRow nums={draw.nums} bonus={draw.bonus} size="sm" />
+          </View>
+        )}
+      </Card>
+
+      {/* Number picker */}
+      <Card padding={14}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+          <T variant="label1n" color="primary" style={{ fontWeight: '600' }}>내 번호 6개 선택</T>
+          <T variant="caption1" color="tertiary">{selected.length}/6</T>
+        </View>
+        <NumPicker mode="multi" selected={selected} onToggle={toggle} />
+        {selected.length > 0 && (
+          <View style={{ marginTop: 14, alignItems: 'center' }}>
+            <BallRow nums={[...selected, ...Array(6 - selected.length).fill(0)].slice(0, 6).map((n) => n || 0)} size="sm" hits={result?.hits} />
+          </View>
+        )}
+      </Card>
+
+      {/* Result card */}
+      {result && (
+        <Card padding={16} style={{ backgroundColor: result.rank != null ? '#e6f9ee' : palette.softFill }}>
+          {result.rank != null ? (
+            <>
+              <T variant="title3" style={{ color: palette.green700, fontWeight: '800' }}>
+                🎉 {result.rank}등 당첨!
+              </T>
+              <T variant="body2r" color="secondary" style={{ marginTop: 4 }}>
+                {result.hits.length}개 번호가 당첨번호와 일치했어요.
+              </T>
+            </>
+          ) : (
+            <>
+              <T variant="heading2" color="primary">아쉽지만 미당첨</T>
+              <T variant="body2r" color="tertiary" style={{ marginTop: 4 }}>
+                일치 {result.hits.length}개. 다음 회차에 다시 도전!
+              </T>
+            </>
+          )}
+        </Card>
+      )}
+
+      <Button
+        title={selected.length === 6 ? '보관함에 저장' : `번호 ${6 - selected.length}개 더 선택`}
+        variant="primary"
+        size="lg"
+        full
+        disabled={selected.length !== 6}
+        onPress={save}
+      />
+
+      {toast && (
+        <Card padding={12} style={{ backgroundColor: palette.softFill }}>
+          <T variant="label1n" color="primary">{toast}</T>
+        </Card>
+      )}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  root: { flex: 1 },
+  tabBar: {
+    flexDirection: 'row',
+    gap: 4,
+    padding: 4,
+    backgroundColor: 'rgba(112,115,124,0.08)',
+    borderRadius: radius.lg,
+  },
+  tab: {
+    flex: 1,
+    height: 38,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: radius.md,
+  },
+  cameraFrame: {
+    height: 320,
+    borderRadius: radius.xl,
+    overflow: 'hidden',
+    backgroundColor: '#000',
+    position: 'relative',
+  },
+  reticle: {
+    position: 'absolute',
+    left: 50, right: 50, top: 50, bottom: 50,
+  },
+  corner: {
+    position: 'absolute',
+    width: 28, height: 28,
+    borderColor: '#fff',
+  },
+  cornerTL: { top: 0, left: 0, borderTopWidth: 3, borderLeftWidth: 3 },
+  cornerTR: { top: 0, right: 0, borderTopWidth: 3, borderRightWidth: 3 },
+  cornerBL: { bottom: 0, left: 0, borderBottomWidth: 3, borderLeftWidth: 3 },
+  cornerBR: { bottom: 0, right: 0, borderBottomWidth: 3, borderRightWidth: 3 },
+  errorBar: {
+    position: 'absolute',
+    left: 16, right: 16, bottom: 16,
+    backgroundColor: 'rgba(255,66,66,0.92)',
+    paddingVertical: 10, paddingHorizontal: 14,
+    borderRadius: radius.md,
+  },
+  gameLine: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    paddingVertical: 8,
+    borderTopWidth: 1,
+  },
+  label: {
+    width: 22, height: 22, borderRadius: 6,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  roundRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  stepBtn: {
+    width: 44, height: 44, borderRadius: 12,
+    alignItems: 'center', justifyContent: 'center',
+    backgroundColor: 'rgba(112,115,124,0.08)',
+  },
+});
