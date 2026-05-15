@@ -15,7 +15,7 @@ import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { ThemeProvider } from '@/src/design/theme';
+import { ThemeProvider, useTheme } from '@/src/design/theme';
 import { FONT_ASSETS } from '@/src/design/fonts';
 import { useHistory } from '@/src/data/historyStore';
 
@@ -64,7 +64,7 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <ThemeProvider>
-        <StatusBar style="auto" />
+        <ThemedStatusBar />
         <Stack screenOptions={{ headerShown: false, animation: 'fade' }}>
           <Stack.Screen name="index" />
           <Stack.Screen name="onboarding" />
@@ -82,8 +82,21 @@ export default function RootLayout() {
           <Stack.Screen name="weekly" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="number-stats" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="predict" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="analysis-methods" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="same-date" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="pattern-analysis" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="regression" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="scan" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="pro-gen" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="pro-analysis" options={{ animation: 'slide_from_right' }} />
         </Stack>
       </ThemeProvider>
     </SafeAreaProvider>
   );
+}
+
+/** 테마 설정(`darkMode`)에 따라 상태바 아이콘 색을 자동 전환. */
+function ThemedStatusBar() {
+  const t = useTheme();
+  return <StatusBar style={t.scheme === 'dark' ? 'light' : 'dark'} />;
 }

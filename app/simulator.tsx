@@ -266,6 +266,29 @@ export default function Simulator() {
     setRule((r) => ({ ...r, [field]: [] }));
   }, []);
 
+  /**
+   * "평균치 자동 적용" — 역대 당첨번호의 가장 흔한 분포를 한 번에 적용.
+   * 포함/제외(사용자 선택)는 건드리지 않고, 통계 조건만 채운다.
+   *
+   * 기준 (6/45 역대 분포):
+   *   합 100~175, 끝수합 14~33, AC 7~10
+   *   홀짝·저고: 3:3, 4:2, 2:4 (역대 가장 흔한 3가지)
+   *   연속수: 1(없음), 2(2연속)만 허용
+   *   이월수: 0, 1개 (평균 ~1개)
+   */
+  const applyAverages = useCallback(() => {
+    setRule((r) => ({
+      ...r,
+      sumMin: 100, sumMax: 175,
+      tailSumMin: 14, tailSumMax: 33,
+      acMin: 7, acMax: 10,
+      oddEvenAllow: ['3:3', '4:2', '2:4'],
+      highLowAllow: ['3:3', '4:2', '2:4'],
+      longestRunAllow: [1, 2],
+      carryOverAllow: [0, 1],
+    }));
+  }, []);
+
   // Debounced count preview
   // ⚠️ Race condition 방지: 사용자가 빠르게 옵션을 누르면 여러 countOrSample이
   // 병렬로 실행될 수 있다. 각 실행에 token을 부여하고 끝났을 때 자신이 마지막
@@ -403,6 +426,28 @@ export default function Simulator() {
               <Chip label={`제외 ${rule.exclude.length}`} tone={rule.exclude.length > 0 ? 'danger' : 'neutral'} />
             </View>
           </Card>
+
+          {/* 평균치 자동 적용 — 한 번에 통계 평균 조건 채워 넣기 */}
+          <Pressable
+            onPress={applyAverages}
+            style={({ pressed }) => [
+              styles.autoCard,
+              { backgroundColor: palette.green700, opacity: pressed ? 0.92 : 1 },
+            ]}
+          >
+            <View style={styles.autoIcon}>
+              <T allowFontScaling={false} style={{ fontSize: 22 }}>✨</T>
+            </View>
+            <View style={{ flex: 1 }}>
+              <T variant="label1n" style={{ color: '#fff', fontWeight: '800' }}>
+                평균치 자동 적용
+              </T>
+              <T variant="caption1" style={{ color: 'rgba(255,255,255,0.8)', marginTop: 2, lineHeight: 16 }}>
+                역대 당첨 통계의 평균 패턴(합·AC·홀짝·저고·연속수·이월) 한 번에 적용
+              </T>
+            </View>
+            <Icon.chev color="rgba(255,255,255,0.9)" />
+          </Pressable>
 
           {/* Number picker tri-state */}
           <Card padding={14}>
@@ -687,6 +732,19 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  autoCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+    borderRadius: radius.xl,
+  },
+  autoIcon: {
+    width: 40, height: 40, borderRadius: 12,
+    backgroundColor: 'rgba(255,255,255,0.18)',
+    alignItems: 'center', justifyContent: 'center',
   },
   bottomBar: {
     position: 'absolute',

@@ -71,12 +71,12 @@ export default function Pick() {
     setSaved({});
   };
 
-  // 의미 부여 모드는 시드 입력이 있어야만 자동 생성. 나머지 모드는 진입 즉시 1회 생성.
+  // 자동 생성은 하지 않는다 — 사용자가 "5개 만들기" 버튼을 직접 눌러야 생성.
+  // 모드 변경 시에는 이전 결과를 비워서 사용자가 새 모드로 다시 누르도록 유도.
   useEffect(() => {
-    if (mode === 'meaning' && parseSeedInput(seedInput).length === 0) return;
-    regenerate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mode, seedInput]);
+    setPicks([]);
+    setSaved({});
+  }, [mode]);
 
   useEffect(() => {
     if (!toast) return;
@@ -131,7 +131,7 @@ export default function Pick() {
             <TextInput
               value={seedInput}
               onChangeText={setSeedInput}
-              placeholder="예: 19960628"
+              placeholder="예: 20001225"
               placeholderTextColor={t.fgTertiary}
               keyboardType="number-pad"
               maxLength={20}
@@ -177,17 +177,32 @@ export default function Pick() {
           </View>
         )}
 
+        {/* 빈 상태 — 첫 진입 시 안내 */}
+        {picks.length === 0 && mode !== 'meaning' && (
+          <Card padding={28}>
+            <View style={{ alignItems: 'center', gap: 8 }}>
+              <T allowFontScaling={false} style={{ fontSize: 40 }}>{meta.emoji}</T>
+              <T variant="heading2" color="primary" style={{ textAlign: 'center', fontWeight: '800' }}>
+                준비됐어요
+              </T>
+              <T variant="body2r" color="tertiary" style={{ textAlign: 'center', lineHeight: 22 }}>
+                아래 버튼을 눌러{'\n'}{info.label} 방식으로 5개 조합을 만들어 보세요.
+              </T>
+            </View>
+          </Card>
+        )}
+
         {/* 빈 상태 (의미 부여, 시드 없을 때) */}
         {mode === 'meaning' && !meaningReady && (
           <Card padding={28}>
             <T variant="body2r" color="tertiary" style={{ textAlign: 'center', lineHeight: 22 }}>
-              위에 의미 있는 숫자를 입력하면{'\n'}자동으로 조합을 만들어 드려요.
+              위에 의미 있는 숫자를 입력하고{'\n'}아래 버튼을 눌러 5개 조합을 만들어 보세요.
             </T>
           </Card>
         )}
 
         <Button
-          title={picks.length > 0 ? '5개 새로 만들기' : '5개 만들기'}
+          title={picks.length > 0 ? '5개 다시 만들기' : '5개 만들기'}
           variant="primary"
           size="lg"
           full

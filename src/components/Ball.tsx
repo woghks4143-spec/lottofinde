@@ -64,22 +64,24 @@ export function Ball({
     </View>
   );
 
-  if (!dashedRing) return inner;
-
-  // 강조 ring: ball 외곽에 점선 SVG circle을 absolute로 얹는다.
+  // ⚠️ ball 외부 wrap 사이즈를 dashedRing 여부와 무관하게 동일하게 유지해야
+  // 같은 행 안에서 ring 있는 ball/없는 ball의 baseline이 어긋나지 않는다.
+  // ringPad(4px)만큼의 outer가 항상 있고, dashedRing=true일 때만 SVG circle을 얹는다.
   return (
     <View style={[{ width: wrap, height: wrap, alignItems: 'center', justifyContent: 'center' }, style]}>
-      <Svg width={wrap} height={wrap} style={{ position: 'absolute', top: 0, left: 0 }} pointerEvents="none">
-        <Circle
-          cx={wrap / 2}
-          cy={wrap / 2}
-          r={d / 2 + 2.5}
-          fill="none"
-          stroke={ringColor}
-          strokeWidth={2}
-          strokeDasharray="3,3"
-        />
-      </Svg>
+      {dashedRing && (
+        <Svg width={wrap} height={wrap} style={{ position: 'absolute', top: 0, left: 0 }} pointerEvents="none">
+          <Circle
+            cx={wrap / 2}
+            cy={wrap / 2}
+            r={d / 2 + 2.5}
+            fill="none"
+            stroke={ringColor}
+            strokeWidth={2}
+            strokeDasharray="3,3"
+          />
+        </Svg>
+      )}
       {inner}
     </View>
   );

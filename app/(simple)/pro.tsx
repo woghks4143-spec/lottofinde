@@ -1,21 +1,21 @@
 /**
- * PRO 탭 — 결제 잠금 영역의 진입점.
+ * PRO 탭 — 두 섹션으로 나뉜 PRO 기능 카탈로그.
  *
- * 현재는 콘텐츠가 아직 확정되지 않아 "곧 만나요" 안내 + 결제 안내 화면을
- * placeholder로 두고, 사용자가 PRO에 들어갈 분석 기능을 정의하면 그때
- * 본격적으로 채운다.
+ * 세로 1: PRO 조합 생성 (헤더 카드 + 기능 미리보기 4개)
+ * 세로 2: PRO 번호 분석 (헤더 카드 + 기능 미리보기 4개)
  *
- * 디자인 방향:
- *   - 깊은 보라/네이비 hero (Expert 모드의 purple 액센트와 결을 맞춤)
- *   - 황금색 강조 (crown 아이콘 + "PRO" 배지)
- *   - 미리보기 카드 4~5장 (각 기능 타이틀 + 잠금 자물쇠) — 추후 실제 메뉴로 교체
+ * 헤더 카드를 탭하면 각 상세 페이지로 이동:
+ *   - /pro-gen      : PRO 조합 생성
+ *   - /pro-analysis : PRO 번호 분석
+ *
+ * 결제 시스템은 정식 출시 후 연동.
  */
 import React from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
 import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
-import { Button } from '@/src/components/Button';
 import { Card } from '@/src/components/Card';
 import { Chip } from '@/src/components/Chip';
 import { Disclaimer } from '@/src/components/Disclaimer';
@@ -28,9 +28,25 @@ const GOLD = '#e8b04e';
 const GOLD_SOFT = '#fff4dc';
 const GOLD_DARK = '#a37116';
 
+type Feature = { emoji: string; title: string; desc: string };
+
+const GEN_FEATURES: Feature[] = [
+  { emoji: '🧠', title: 'AI 패턴 학습',     desc: '최근 회차 흐름을 학습한 가중 추천' },
+  { emoji: '🎯', title: '정밀 조합 엔진',   desc: '합·끝수합·AC·홀짝·연속수 동시 최적화' },
+  { emoji: '🔁', title: '회차 가중 추출',   desc: '최근성과 미출현을 균형 있게 반영' },
+  { emoji: '👤', title: '개인 맞춤 룰',     desc: '저장한 룰을 결합해 자동 조합' },
+];
+
+const ANALYSIS_FEATURES: Feature[] = [
+  { emoji: '📈', title: '심층 회차 리포트', desc: '회차별 분포·이상치·핵심 지표 요약' },
+  { emoji: '🧬', title: '고급 패턴 분석',   desc: '다중 패턴 교차로 적중 후보 추출' },
+  { emoji: '🔮', title: '확률 가중 예측',   desc: '통계 모델 기반 다음 회차 시나리오' },
+  { emoji: '🗺️', title: '번호 관계 지도',   desc: '궁합·반발 네트워크 한눈에 보기' },
+];
+
 export default function Pro() {
   const t = useTheme();
-  // 결제 상태는 아직 시스템 미연동. 항상 isLocked = true.
+  const router = useRouter();
   const isLocked = true;
 
   return (
@@ -48,7 +64,7 @@ export default function Pro() {
           </View>
         }
       />
-      <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
+      <ScrollView contentContainerStyle={{ padding: 16, gap: 16, paddingBottom: 24 }}>
         {/* Hero */}
         <View style={styles.hero}>
           <View style={styles.heroIconWrap}>
@@ -67,38 +83,26 @@ export default function Pro() {
           </View>
         </View>
 
-        {/* 곧 만나요 카드 — 콘텐츠 미확정 */}
-        <Card padding={20}>
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 }}>
-            <View style={[styles.lockChip, { backgroundColor: GOLD_SOFT }]}>
-              <Icon.lock color={GOLD_DARK} size={14} weight={2.2} />
-            </View>
-            <T variant="headline1" color="primary">PRO 콘텐츠 준비 중</T>
-          </View>
-          <T variant="body2r" color="secondary" style={{ lineHeight: 22 }}>
-            PRO 전용 분석 기능을 구성 중입니다. 정식 공개 시 가장 먼저 알려드릴게요.
-          </T>
-          <View style={{ marginTop: 14, gap: 8 }}>
-            <Bullet>📈 곧 추가될 고급 통계 도구</Bullet>
-            <Bullet>🎯 정밀한 패턴 매칭 분석</Bullet>
-            <Bullet>📊 회차별 심층 비교 리포트</Bullet>
-            <Bullet>🔔 우선 알림 & 광고 없는 사용 경험</Bullet>
-          </View>
-        </Card>
+        {/* 섹션 1: PRO 조합 생성 */}
+        <ProSection
+          emoji="🎰"
+          title="PRO 조합 생성"
+          subtitle="고급 알고리즘으로 더 정밀한 조합"
+          features={GEN_FEATURES}
+          onPress={() => router.push('/pro-gen' as any)}
+        />
 
-        {/* Placeholder 잠금 카드 4장 (실제 메뉴는 추후 정의 후 교체) */}
-        <View style={{ gap: 10 }}>
-          <T variant="caption1" color="tertiary" style={{ marginTop: 8, marginBottom: 2, letterSpacing: 0.4 }}>
-            COMING SOON
-          </T>
-          <LockedItem title="기능 1" subtitle="추후 공개" />
-          <LockedItem title="기능 2" subtitle="추후 공개" />
-          <LockedItem title="기능 3" subtitle="추후 공개" />
-          <LockedItem title="기능 4" subtitle="추후 공개" />
-        </View>
+        {/* 섹션 2: PRO 번호 분석 */}
+        <ProSection
+          emoji="📊"
+          title="PRO 번호 분석"
+          subtitle="심층 통계 + 고급 패턴 분석"
+          features={ANALYSIS_FEATURES}
+          onPress={() => router.push('/pro-analysis' as any)}
+        />
 
-        {/* 결제 CTA — 아직 비활성 */}
-        <View style={{ marginTop: 12, gap: 10 }}>
+        {/* 결제 CTA */}
+        <View style={{ marginTop: 4, gap: 10 }}>
           <Pressable
             disabled={isLocked}
             style={({ pressed }) => [
@@ -122,29 +126,67 @@ export default function Pro() {
   );
 }
 
-function Bullet({ children }: { children: React.ReactNode }) {
+/** PRO 섹션 — 헤더 카드(탭 가능) + 기능 미리보기 그리드. */
+function ProSection({ emoji, title, subtitle, features, onPress }: {
+  emoji: string;
+  title: string;
+  subtitle: string;
+  features: Feature[];
+  onPress: () => void;
+}) {
   return (
-    <T variant="body2r" color="secondary" style={{ lineHeight: 22 }}>
-      {children}
-    </T>
+    <View style={{ gap: 10 }}>
+      {/* 섹션 헤더 — 탭하면 상세 페이지 이동 */}
+      <Pressable onPress={onPress} style={({ pressed }) => [{ opacity: pressed ? 0.92 : 1 }]}>
+        <Card padding={16}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <View style={[styles.proIcon, { backgroundColor: GOLD_SOFT }]}>
+              <T allowFontScaling={false} style={{ fontSize: 26 }}>{emoji}</T>
+            </View>
+            <View style={{ flex: 1 }}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                <T variant="headline2" color="primary" style={{ fontWeight: '800' }}>{title}</T>
+                <View style={[styles.proBadge, { backgroundColor: GOLD }]}>
+                  <T variant="caption2" style={{ color: '#fff', fontSize: 9.5, fontWeight: '800', letterSpacing: 0.4 }} allowFontScaling={false}>
+                    PRO
+                  </T>
+                </View>
+              </View>
+              <T variant="caption1" color="tertiary" style={{ marginTop: 4 }}>{subtitle}</T>
+            </View>
+            <Icon.chev color={GOLD_DARK} size={16} weight={2} />
+          </View>
+        </Card>
+      </Pressable>
+
+      {/* 기능 미리보기 — 잠금 상태로 노출 */}
+      <View style={styles.featureGrid}>
+        {features.map((f, i) => (
+          <FeatureTile key={i} feature={f} />
+        ))}
+      </View>
+    </View>
   );
 }
 
-function LockedItem({ title, subtitle }: { title: string; subtitle: string }) {
+/** 잠금 상태의 기능 미리보기 타일. */
+function FeatureTile({ feature }: { feature: Feature }) {
   const t = useTheme();
   return (
-    <Card padding={14}>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-        <View style={[styles.itemIcon, { backgroundColor: palette.softFill }]}>
-          <Icon.lock color={t.fgTertiary} size={16} weight={2} />
+    <View style={[styles.featureTile, { backgroundColor: t.bgSurface, borderColor: t.borderDivider }]}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+        <T allowFontScaling={false} style={{ fontSize: 18 }}>{feature.emoji}</T>
+        <View style={[styles.featureLockPill, { backgroundColor: GOLD_SOFT }]}>
+          <Icon.lock color={GOLD_DARK} size={9} weight={2.2} />
         </View>
-        <View style={{ flex: 1 }}>
-          <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>{title}</T>
-          <T variant="caption1" color="tertiary" style={{ marginTop: 2 }}>{subtitle}</T>
-        </View>
-        <Chip label="PRO" tone="purple" compact />
       </View>
-    </Card>
+      <T variant="label1n" color="primary" style={{ fontWeight: '700', marginTop: 8 }} numberOfLines={1}>
+        {feature.title}
+      </T>
+      <T variant="caption2" color="tertiary" style={{ marginTop: 2, lineHeight: 16 }} numberOfLines={2}>
+        {feature.desc}
+      </T>
+    </View>
   );
 }
 
@@ -178,12 +220,30 @@ const styles = StyleSheet.create({
     paddingVertical: 3,
     borderRadius: radius.pill,
   },
-  lockChip: {
-    width: 32, height: 32, borderRadius: 10,
+  proIcon: {
+    width: 48, height: 48, borderRadius: radius.md,
     alignItems: 'center', justifyContent: 'center',
   },
-  itemIcon: {
-    width: 36, height: 36, borderRadius: 10,
+  proBadge: {
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: radius.pill,
+  },
+  featureGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  featureTile: {
+    flexBasis: '48%',
+    flexGrow: 1,
+    minWidth: 0,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    padding: 12,
+  },
+  featureLockPill: {
+    width: 16, height: 16, borderRadius: 8,
     alignItems: 'center', justifyContent: 'center',
   },
   cta: {

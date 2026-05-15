@@ -1,7 +1,8 @@
 /**
- * 내 번호 — 보관함. 회차별 그룹 + 당첨 등수 + CSV 내보내기.
+ * 내 번호 — 보관함. 회차별 그룹 + 당첨 등수.
  *
  * 회차가 추첨된 후 자동으로 등수 매겨주고, 950건 넘으면 한도 경고 배너.
+ * (CSV 내보내기는 사용자가 캡처를 더 선호해 제거 — 데이터는 AsyncStorage에서 직접 export 가능.)
  */
 import React, { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
@@ -17,7 +18,6 @@ import { Disclaimer } from '@/src/components/Disclaimer';
 import { Icon } from '@/src/components/Icons';
 import { useHistory } from '@/src/data/historyStore';
 import { useSavedNumbers, type SavedGame } from '@/src/store/savedNumbers';
-import { saveCsv, toCsv } from '@/src/lib/csv';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
 
@@ -32,13 +32,29 @@ export default function Mine() {
   const getRound = useHistory((s) => s.getRound);
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const [winsOnly, setWinsOnly] = useState(false);
+  /** 출처 필터 — 전체 / 앱 생성(gen·simulator·manual) / QR 스캔. */
+  const [sourceFilter, setSourceFilter] = useState<'all' | 'app' | 'qr'>('all');
 
   // Sync result for any newly available draw.
   useEffect(() => { syncResults(); }, [historyLatest, games.length, syncResults]);
 
+  /** 출처 필터로 게임 좁히기. 'app'은 qr이 아닌 모든 것. */
+  const sourceFiltered = useMemo(() => {
+    if (sourceFilter === 'all') return games;
+    if (sourceFilter === 'qr') return games.filter((g) => g.source === 'qr');
+    return games.filter((g) => g.source !== 'qr');
+  }, [games, sourceFilter]);
+
+  // 출처별 카운트 (탭 라벨에 표시)
+  const counts = useMemo(() => ({
+    all: games.length,
+    app: games.filter((g) => g.source !== 'qr').length,
+    qr: games.filter((g) => g.source === 'qr').length,
+  }), [games]);
+
   // Group games by round (null → "다음 회차").
   const groups = useMemo(() => {
-    const filtered = winsOnly ? games.filter((g) => g.result?.rank != null) : games;
+    const filtered = winsOnly ? sourceFiltered.filter((g) => g.result?.rank != null) : sourceFiltered;
     const byRound = new Map<number | 'next', SavedGame[]>();
     for (const g of filtered) {
       const k = g.round ?? 'next';
@@ -52,29 +68,8 @@ export default function Mine() {
         if (b === 'next') return 1;
         return (b as number) - (a as number);
       });
-  }, [games, winsOnly]);
+  }, [sourceFiltered, winsOnly]);
 
-  const onExport = async () => {
-    if (games.length === 0) return;
-    const rows = games.map((g) => ({
-      round: g.round ?? '',
-      saved_at: new Date(g.createdAt).toISOString().slice(0, 10),
-      label: g.label ?? '',
-      source: g.source,
-      n1: g.nums[0], n2: g.nums[1], n3: g.nums[2],
-      n4: g.nums[3], n5: g.nums[4], n6: g.nums[5],
-      rank: g.result?.rank ?? '',
-      hits: g.result?.hits.join(' ') ?? '',
-      payout: g.result?.payout ?? 0,
-      memo: g.memo ?? '',
-    }));
-    const csv = toCsv(rows, [
-      'round', 'saved_at', 'label', 'source',
-      'n1', 'n2', 'n3', 'n4', 'n5', 'n6',
-      'rank', 'hits', 'payout', 'memo',
-    ]);
-    await saveCsv(`saved-numbers-${Date.now()}.csv`, csv);
-  };
 
   const empty = games.length === 0;
   const aboveLimit = games.length >= 950;
@@ -85,11 +80,11 @@ export default function Mine() {
         title="내 번호"
         trailing={
           <>
+            <IconBtn onPress={() => router.push('/scan' as any)}>
+              <Icon.qr color={t.fgSecondary} />
+            </IconBtn>
             <IconBtn onPress={() => setWinsOnly((v) => !v)}>
               <Icon.filter color={winsOnly ? t.fgAccent : t.fgSecondary} />
-            </IconBtn>
-            <IconBtn onPress={onExport}>
-              <Icon.download color={t.fgSecondary} />
             </IconBtn>
           </>
         }
@@ -121,6 +116,43 @@ export default function Mine() {
           )}
         </Card>
 
+        {/* 출처별 segmented 탭 — 전체 / 앱 생성 / QR 스캔 */}
+        {games.length > 0 && (
+          <View style={[styles.segWrap, { backgroundColor: t.bgSurface2 }]}>
+            {(['all', 'app', 'qr'] as const).map((k) => {
+              const on = sourceFilter === k;
+              const label = k === 'all' ? '전체' : k === 'app' ? '앱 생성' : 'QR 스캔';
+              const count = counts[k];
+              return (
+                <Pressable
+                  key={k}
+                  onPress={() => setSourceFilter(k)}
+                  style={({ pressed }) => [
+                    styles.segBtn,
+                    on && [styles.segBtnActive, { backgroundColor: t.bgSurface }],
+                    { opacity: pressed ? 0.85 : 1 },
+                  ]}
+                >
+                  <T
+                    variant="caption1"
+                    style={{ color: on ? palette.blue700 : t.fgSecondary, fontWeight: on ? '800' : '600' }}
+                    allowFontScaling={false}
+                  >
+                    {label}
+                  </T>
+                  <T
+                    variant="caption2"
+                    style={{ color: on ? palette.blue700 : t.fgTertiary, fontWeight: '700', fontSize: 10.5, marginLeft: 4 }}
+                    allowFontScaling={false}
+                  >
+                    {count}
+                  </T>
+                </Pressable>
+              );
+            })}
+          </View>
+        )}
+
         {winsOnly && (
           <View style={styles.filterBar}>
             <Chip label="당첨만 보기" tone="accent" />
@@ -138,12 +170,26 @@ export default function Mine() {
               </View>
               <T variant="heading2" color="primary">저장한 번호가 없어요</T>
               <T variant="body2r" color="tertiary" style={{ textAlign: 'center' }}>
-                QR 스캔이나 직접 입력으로 추가해 보세요.
+                구매한 로또 영수증의 QR을 스캔하거나{'\n'}직접 입력으로 번호를 추가해 보세요.
               </T>
-              <View style={{ flexDirection: 'row', gap: 8, marginTop: 8 }}>
-                <Button title="번호 받기" variant="primary" onPress={() => router.push('/(simple)/gen' as any)} />
-                <Button title="당첨 확인" variant="outline" onPress={() => router.push('/(simple)/check' as any)} />
+              <View style={{ marginTop: 8, gap: 8, alignSelf: 'stretch' }}>
+                <Button title="QR 스캔으로 저장" variant="primary" full onPress={() => router.push('/scan' as any)} />
+                <Button title="직접 입력으로 저장" variant="outline" full onPress={() => router.push('/(simple)/check' as any)} />
               </View>
+            </View>
+          </Card>
+        ) : groups.length === 0 ? (
+          /* 필터로 좁혀서 0개일 때 — 전체는 있지만 현재 출처/당첨만 조건 미충족 */
+          <Card padding={28}>
+            <View style={{ alignItems: 'center', gap: 8 }}>
+              <T variant="heading2" color="primary">
+                {sourceFilter === 'qr' ? 'QR 스캔으로 저장한 번호가 없어요'
+                  : sourceFilter === 'app' ? '앱에서 생성한 번호가 없어요'
+                  : '조건에 맞는 번호가 없어요'}
+              </T>
+              <T variant="caption1" color="tertiary" style={{ textAlign: 'center' }}>
+                다른 출처 탭을 선택하거나 필터를 해제해 보세요
+              </T>
             </View>
           </Card>
         ) : (
@@ -223,16 +269,6 @@ export default function Mine() {
           })
         )}
 
-        {!empty && (
-          <Button
-            title="CSV로 내보내기"
-            variant="outline"
-            size="md"
-            full
-            onPress={onExport}
-          />
-        )}
-
         <Disclaimer short />
       </ScrollView>
     </SafeAreaView>
@@ -240,7 +276,7 @@ export default function Mine() {
 }
 
 function sourceLabel(s: SavedGame['source']): string {
-  return s === 'qr' ? 'QR' : s === 'manual' ? '수동' : s === 'gen' ? '번호 받기' : '시뮬레이터';
+  return s === 'qr' ? 'QR' : s === 'manual' ? '수동' : s === 'gen' ? '조합 생성' : '시뮬레이터';
 }
 
 function short(iso: string): string {
@@ -268,6 +304,29 @@ const styles = StyleSheet.create({
   divider: { width: 1, height: 32, backgroundColor: 'rgba(112,115,124,0.2)' },
   warn: { padding: 10, marginTop: 12, borderRadius: radius.sm, borderWidth: 1 },
   filterBar: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 4 },
+
+  // 출처 segmented
+  segWrap: {
+    flexDirection: 'row',
+    padding: 3,
+    borderRadius: radius.pill,
+    gap: 2,
+  },
+  segBtn: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 8,
+    borderRadius: radius.pill,
+  },
+  segBtnActive: {
+    shadowColor: '#000',
+    shadowOpacity: 0.10,
+    shadowOffset: { width: 0, height: 1 },
+    shadowRadius: 2,
+    elevation: 2,
+  },
   emptyIcon: {
     width: 56, height: 56, borderRadius: 16,
     alignItems: 'center', justifyContent: 'center',

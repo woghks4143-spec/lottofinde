@@ -45,7 +45,7 @@ const AUTO: Entry[] = GEN_MODES.map((m) => ({
   href: `/pick?mode=${m.id}`,
 }));
 
-// 직접/조건 — 3개
+// 직접/조건 — 4개
 const MANUAL: Entry[] = [
   {
     emoji: '🧩',
@@ -67,6 +67,13 @@ const MANUAL: Entry[] = [
     title: '가중치 뽑기',
     desc: '1~45 각 번호의 확률을 직접 조정해 정밀하게 뽑기',
     href: '/weighted-pick',
+  },
+  {
+    emoji: '⚙️',
+    bg: 'rgba(0,152,178,0.12)',
+    title: '시뮬레이터',
+    desc: '조건(포함·제외·합·AC 등)으로 조합 추출 + 룰 저장',
+    href: '/simulator',
   },
 ];
 

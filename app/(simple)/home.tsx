@@ -30,44 +30,59 @@ export default function SimpleHome() {
   const [expanded, setExpanded] = useState(false);
   if (!draw) return null; // hydrate not done yet (very rare; <16ms)
 
+  // 라이트/다크에 따라 회차 배너 색 세트를 분기. 다크모드는 기존 logo-black 톤,
+  // 라이트모드는 흰 카드 + 다크 텍스트로 주변 화면과 조화롭게.
+  const isLight = t.scheme === 'light';
+  const bn = {
+    bg:         isLight ? t.bgSurface     : palette.neutral950,
+    border:     isLight ? t.borderWeak    : 'transparent',
+    fg:         isLight ? t.fgPrimary     : '#fff',
+    fgMuted:    isLight ? t.fgSecondary   : 'rgba(255,255,255,0.7)',
+    fgTertiary: isLight ? t.fgTertiary    : 'rgba(255,255,255,0.55)',
+    fgFaint:    isLight ? t.fgDisabled    : 'rgba(255,255,255,0.45)',
+    divider:    isLight ? t.borderDivider : 'rgba(255,255,255,0.08)',
+    pillBg:     isLight ? t.bgSurface2    : 'rgba(255,255,255,0.12)',
+    softBg:     isLight ? t.bgSurface2    : 'rgba(255,255,255,0.06)',
+    link:       isLight ? t.fgAccent      : palette.blue300,
+  };
+
   return (
     <SafeAreaView style={[styles.root, { backgroundColor: t.bgCanvas }]} edges={['top']}>
       <AppBar
         title="안녕하세요 👋"
         trailing={
-          <>
-            <IconBtn onPress={() => {}}><Icon.bell color={t.fgSecondary} /></IconBtn>
-            <IconBtn onPress={() => router.push('/(simple)/more' as any)}><Icon.cog color={t.fgSecondary} /></IconBtn>
-          </>
+          <IconBtn onPress={() => router.push('/(simple)/features' as any)}>
+            <Icon.cog color={t.fgSecondary} />
+          </IconBtn>
         }
       />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12 }}>
         {/* Latest-round banner */}
-        <View style={[styles.banner, { backgroundColor: palette.neutral950 }]}>
+        <View style={[styles.banner, { backgroundColor: bn.bg, borderWidth: isLight ? 1 : 0, borderColor: bn.border }]}>
           <View style={styles.bannerHead}>
-            <T variant="caption1" style={{ color: 'rgba(255,255,255,0.6)', fontWeight: '600' }}>
+            <T variant="caption1" style={{ color: bn.fgMuted, fontWeight: '600' }}>
               제 {draw.round}회 · {koreanDate(draw.date)}
             </T>
-            <View style={styles.bannerPill}>
-              <T variant="caption1" style={{ color: '#fff', fontSize: 11, fontWeight: '700' }}>최신 결과</T>
+            <View style={[styles.bannerPill, { backgroundColor: bn.pillBg }]}>
+              <T variant="caption1" style={{ color: bn.fg, fontSize: 11, fontWeight: '700' }}>최신 결과</T>
             </View>
           </View>
           <BallRow nums={draw.nums} bonus={draw.bonus} size="md" />
 
           {/* 회차 한눈에: 합·끝수·홀짝·저고·AC (펼치면 십합·앞세수·뒷세수 추가) */}
-          <View style={styles.analysisRow}>
-            <Metric label="합" value={String(total(draw.nums))} hint={sumHint(total(draw.nums))} />
-            <Metric label="끝수" value={String(tailSum(draw.nums))} />
-            <Metric label="홀짝" value={oddEvenLabel(draw.nums)} />
-            <Metric label="저고" value={highLowLabel(draw.nums)} />
-            <Metric label="AC" value={String(ac(draw.nums))} hint={acHint(ac(draw.nums))} />
+          <View style={[styles.analysisRow, { borderTopColor: bn.divider }]}>
+            <Metric label="합" value={String(total(draw.nums))} hint={sumHint(total(draw.nums))} bn={bn} />
+            <Metric label="끝수" value={String(tailSum(draw.nums))} bn={bn} />
+            <Metric label="홀짝" value={oddEvenLabel(draw.nums)} bn={bn} />
+            <Metric label="저고" value={highLowLabel(draw.nums)} bn={bn} />
+            <Metric label="AC" value={String(ac(draw.nums))} hint={acHint(ac(draw.nums))} bn={bn} />
           </View>
 
           {expanded && (
-            <View style={styles.analysisRowExtra}>
-              <Metric label="십합" value={String(tensSum(draw.nums))} />
-              <Metric label="앞세수합" value={String(firstThreeSum(draw.nums))} />
-              <Metric label="뒷세수합" value={String(lastThreeSum(draw.nums))} />
+            <View style={[styles.analysisRowExtra, { borderTopColor: bn.divider }]}>
+              <Metric label="십합" value={String(tensSum(draw.nums))} bn={bn} />
+              <Metric label="앞세수합" value={String(firstThreeSum(draw.nums))} bn={bn} />
+              <Metric label="뒷세수합" value={String(lastThreeSum(draw.nums))} bn={bn} />
             </View>
           )}
 
@@ -76,9 +91,9 @@ export default function SimpleHome() {
             <Pressable
               onPress={() => setExpanded((v) => !v)}
               hitSlop={6}
-              style={({ pressed }) => [styles.expandBtn, { opacity: pressed ? 0.7 : 1 }]}
+              style={({ pressed }) => [styles.expandBtn, { backgroundColor: bn.softBg, opacity: pressed ? 0.7 : 1 }]}
             >
-              <T variant="caption1" style={{ color: 'rgba(255,255,255,0.78)', fontWeight: '600' }} allowFontScaling={false}>
+              <T variant="caption1" style={{ color: bn.fgMuted, fontWeight: '600' }} allowFontScaling={false}>
                 {expanded ? '간단히 ▴' : '자세히 보기 ▾'}
               </T>
             </Pressable>
@@ -87,17 +102,17 @@ export default function SimpleHome() {
               hitSlop={6}
               style={({ pressed }) => [styles.detailLink, { opacity: pressed ? 0.7 : 1 }]}
             >
-              <T variant="caption1" style={{ color: palette.blue300, fontWeight: '700' }} allowFontScaling={false}>
+              <T variant="caption1" style={{ color: bn.link, fontWeight: '700' }} allowFontScaling={false}>
                 회차 상세 →
               </T>
             </Pressable>
           </View>
 
-          <View style={[styles.row, { marginTop: 14, borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.08)', paddingTop: 12 }]}>
-            <T variant="label1r" style={{ color: 'rgba(255,255,255,0.7)' }}>1등 당첨금</T>
-            <T variant="label1n" style={{ color: '#fff', fontWeight: '700' }}>
+          <View style={[styles.row, { marginTop: 14, borderTopWidth: 1, borderTopColor: bn.divider, paddingTop: 12 }]}>
+            <T variant="label1r" style={{ color: bn.fgMuted }}>1등 당첨금</T>
+            <T variant="label1n" style={{ color: bn.fg, fontWeight: '700' }}>
               {formatWon(draw.firstWinAmount ?? 0)}
-              {draw.firstWinners ? <T variant="caption1" style={{ color: 'rgba(255,255,255,0.55)' }}>{`  ${draw.firstWinners}명`}</T> : null}
+              {draw.firstWinners ? <T variant="caption1" style={{ color: bn.fgTertiary }}>{`  ${draw.firstWinners}명`}</T> : null}
             </T>
           </View>
         </View>
@@ -107,45 +122,57 @@ export default function SimpleHome() {
           <Tile
             tone="accent"
             cap="Recommend"
-            title="번호 받기"
+            title="조합 생성"
             icon={<Icon.sparkle color="#fff" size={22} />}
             onPress={() => router.push('/(simple)/gen' as any)}
           />
           <Tile
             tone="dark"
             cap="Scan"
-            title="QR 당첨 확인"
-            icon={<Icon.qr color="#fff" size={22} weight={1.8} />}
-            onPress={() => router.push('/(simple)/check' as any)}
-          />
-          <Tile
-            wide
-            cap="Saved"
-            title="내 번호"
-            sub={`저장 ${savedCount}건`}
-            icon={<Icon.history color={t.fgSecondary} size={22} />}
-            onPress={() => router.push('/(simple)/mine' as any)}
+            title="QR 스캔 저장"
+            icon={<Icon.qr color={isLight ? t.fgPrimary : '#fff'} size={22} weight={1.8} />}
+            onPress={() => router.push('/scan' as any)}
           />
         </View>
 
-        {/* Saved-count summary */}
-        <Pressable onPress={() => router.push('/(simple)/mine' as any)}>
-          <Card padding={14}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-              <View style={[styles.checkIcon, { backgroundColor: t.bgSuccessSoft }]}>
-                <Icon.check color={palette.green700} size={16} weight={3} />
-              </View>
-              <View style={{ flex: 1 }}>
-                <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
-                  {savedCount > 0 ? `저장한 번호 ${savedCount}건` : '저장한 번호 없음'}
+        {/* 내 번호 — wide hero 카드. 큰 숫자로 시각 강조 */}
+        <Pressable
+          onPress={() => router.push('/(simple)/mine' as any)}
+          style={({ pressed }) => [styles.savedHero, { backgroundColor: palette.purple500, opacity: pressed ? 0.92 : 1 }]}
+        >
+          <View style={styles.savedIconWrap}>
+            <Icon.history color="#fff" size={26} weight={1.8} />
+          </View>
+          <View style={{ flex: 1, marginLeft: 14 }}>
+            <T variant="caption1" style={{ color: 'rgba(255,255,255,0.7)', letterSpacing: 1.1, fontWeight: '600' }} allowFontScaling={false}>
+              SAVED
+            </T>
+            {savedCount > 0 ? (
+              <>
+                <View style={styles.savedCountRow}>
+                  <T variant="title1" style={{ color: '#fff', fontWeight: '900', letterSpacing: -0.5 }} allowFontScaling={false}>
+                    {savedCount}
+                  </T>
+                  <T variant="headline2" style={{ color: '#fff', fontWeight: '700', marginLeft: 4 }} allowFontScaling={false}>
+                    건 저장
+                  </T>
+                </View>
+                <T variant="caption1" style={{ color: 'rgba(255,255,255,0.75)', marginTop: 2 }}>
+                  회차별 당첨 결과 확인하기
                 </T>
-                <T variant="caption1" color="tertiary" style={{ marginTop: 2 }}>
-                  {savedCount > 0 ? '내 번호 탭에서 회차별로 확인하세요' : 'QR 스캔이나 직접 입력으로 추가해 보세요'}
+              </>
+            ) : (
+              <>
+                <T variant="headline2" style={{ color: '#fff', fontWeight: '800', marginTop: 2 }}>
+                  내 번호
                 </T>
-              </View>
-              <Icon.chev color={t.fgTertiary} />
-            </View>
-          </Card>
+                <T variant="caption1" style={{ color: 'rgba(255,255,255,0.75)', marginTop: 2 }}>
+                  QR 스캔 또는 직접 입력으로 추가
+                </T>
+              </>
+            )}
+          </View>
+          <Icon.chev color="rgba(255,255,255,0.9)" />
         </Pressable>
 
         {isMockData && (
@@ -182,9 +209,21 @@ function Tile({
   wide?: boolean;
 }) {
   const t = useTheme();
-  const bg = tone === 'accent' ? t.bgAccent : tone === 'dark' ? palette.neutral900 : t.bgSurface;
-  const fg = tone ? '#fff' : t.fgPrimary;
-  const capFg = tone ? 'rgba(255,255,255,0.7)' : t.fgTertiary;
+  const isLight = t.scheme === 'light';
+  // tone='accent': 항상 파란 브랜드 컬러 (둘 다 모드에서 동일)
+  // tone='dark': 다크 모드는 검은 카드, 라이트 모드는 흰 표면 + 검은 텍스트
+  // tone=undefined: 일반 카드 표면
+  const isDarkTile = tone === 'dark';
+  const isAccent = tone === 'accent';
+  const bg = isAccent ? t.bgAccent
+           : isDarkTile ? (isLight ? t.bgSurface : palette.neutral900)
+           : t.bgSurface;
+  const fg = isAccent ? '#fff'
+           : isDarkTile ? (isLight ? t.fgPrimary : '#fff')
+           : t.fgPrimary;
+  const capFg = isAccent ? 'rgba(255,255,255,0.7)'
+              : isDarkTile ? (isLight ? t.fgTertiary : 'rgba(255,255,255,0.7)')
+              : t.fgTertiary;
   return (
     <Pressable
       onPress={onPress}
@@ -193,8 +232,8 @@ function Tile({
         wide && { width: '100%', height: 96, flexDirection: 'row', alignItems: 'center', gap: 16 },
         {
           backgroundColor: bg,
-          borderColor: tone ? 'transparent' : t.borderWeak,
-          borderWidth: tone ? 0 : 1,
+          borderColor: isAccent ? 'transparent' : (isDarkTile && !isLight ? 'transparent' : t.borderWeak),
+          borderWidth: isAccent ? 0 : (isDarkTile && !isLight ? 0 : 1),
         },
       ]}
     >
@@ -211,20 +250,23 @@ function Tile({
 }
 
 /**
- * Single metric pill rendered inside the dark banner.
- * Big white value on top, small label/hint beneath.
+ * 회차 배너 안 개별 메트릭.
+ * 다크모드: 흰 텍스트 / 라이트모드: 일반 텍스트 — `bn` 컬러 세트로 받아옴.
  */
-function Metric({ label, value, hint }: { label: string; value: string; hint?: string }) {
+type BannerColors = {
+  fg: string; fgMuted: string; fgTertiary: string; fgFaint: string;
+};
+function Metric({ label, value, hint, bn }: { label: string; value: string; hint?: string; bn: BannerColors }) {
   return (
     <View style={styles.metric}>
-      <T variant="caption1" style={{ color: 'rgba(255,255,255,0.55)', fontSize: 10.5, letterSpacing: 0.4 }} allowFontScaling={false}>
+      <T variant="caption1" style={{ color: bn.fgTertiary, fontSize: 10.5, letterSpacing: 0.4 }} allowFontScaling={false}>
         {label}
       </T>
-      <T variant="headline2" style={{ color: '#fff', fontWeight: '700', marginTop: 2 }} allowFontScaling={false}>
+      <T variant="headline2" style={{ color: bn.fg, fontWeight: '700', marginTop: 2 }} allowFontScaling={false}>
         {value}
       </T>
       {hint && (
-        <T variant="caption2" style={{ color: 'rgba(255,255,255,0.45)', fontSize: 9.5, marginTop: 2 }} allowFontScaling={false}>
+        <T variant="caption2" style={{ color: bn.fgFaint, fontSize: 9.5, marginTop: 2 }} allowFontScaling={false}>
           {hint}
         </T>
       )}
@@ -270,7 +312,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   bannerPill: {
-    backgroundColor: 'rgba(255,255,255,0.12)',
     paddingHorizontal: 8, paddingVertical: 4, borderRadius: 99,
   },
   analysisRow: {
@@ -279,7 +320,6 @@ const styles = StyleSheet.create({
     marginTop: 16,
     paddingTop: 14,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(255,255,255,0.08)',
   },
   analysisRowExtra: {
     flexDirection: 'row',
@@ -287,7 +327,6 @@ const styles = StyleSheet.create({
     marginTop: 12,
     paddingTop: 12,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(255,255,255,0.05)',
   },
   detailRow: {
     flexDirection: 'row',
@@ -298,7 +337,6 @@ const styles = StyleSheet.create({
   expandBtn: {
     paddingVertical: 4, paddingHorizontal: 8,
     borderRadius: radius.sm,
-    backgroundColor: 'rgba(255,255,255,0.06)',
   },
   detailLink: {
     paddingVertical: 4, paddingHorizontal: 8,
@@ -319,6 +357,28 @@ const styles = StyleSheet.create({
     padding: 18,
     borderRadius: 18,
     justifyContent: 'space-between',
+  },
+
+  // 내 번호 wide hero
+  savedHero: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 18,
+    borderRadius: 18,
+    minHeight: 96,
+  },
+  savedIconWrap: {
+    width: 52,
+    height: 52,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255,255,255,0.15)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  savedCountRow: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    marginTop: 2,
   },
   checkIcon: {
     width: 44, height: 44, borderRadius: 12,
