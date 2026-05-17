@@ -5,7 +5,7 @@
  * (CSV 내보내기는 사용자가 캡처를 더 선호해 제거 — 데이터는 AsyncStorage에서 직접 export 가능.)
  */
 import React, { useEffect, useMemo, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Modal, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { T } from '@/src/components/Text';
@@ -26,10 +26,33 @@ export default function Mine() {
   const router = useRouter();
   const games = useSavedNumbers((s) => s.games);
   const remove = useSavedNumbers((s) => s.remove);
+  const removeRound = useSavedNumbers((s) => s.removeRound);
+  const clear = useSavedNumbers((s) => s.clear);
   const syncResults = useSavedNumbers((s) => s.syncResults);
   const totalPayout = useSavedNumbers((s) => s.totalPayout);
   const historyLatest = useHistory((s) => s.latestRound);
   const getRound = useHistory((s) => s.getRound);
+
+  /** 삭제 확인 모달 상태 — 전체/회차 둘 다 처리. */
+  const [confirm, setConfirm] = useState<
+    | { kind: 'all'; count: number }
+    | { kind: 'round'; round: number | null; count: number }
+    | null
+  >(null);
+
+  const askClearAll = () => setConfirm({ kind: 'all', count: games.length });
+  const askClearRound = (round: number | null, count: number) =>
+    setConfirm({ kind: 'round', round, count });
+
+  const doConfirm = () => {
+    if (!confirm) return;
+    if (confirm.kind === 'all') {
+      clear();
+    } else {
+      removeRound(confirm.round);
+    }
+    setConfirm(null);
+  };
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const [winsOnly, setWinsOnly] = useState(false);
   /** 출처 필터 — 전체 / 앱 생성(gen·simulator·manual) / QR 스캔. */
@@ -72,7 +95,8 @@ export default function Mine() {
 
 
   const empty = games.length === 0;
-  const aboveLimit = games.length >= 950;
+  // 5,000 한도의 95% 이상이면 경고 (4,750+)
+  const aboveLimit = games.length >= 4750;
 
   return (
     <SafeAreaView style={[styles.root, { backgroundColor: t.bgCanvas }]} edges={['top']}>
@@ -96,7 +120,7 @@ export default function Mine() {
             <View>
               <T variant="caption1" color="tertiary">저장 게임</T>
               <T variant="title3" color="primary" style={{ fontWeight: '700' }}>
-                {games.length} <T variant="caption1" color="tertiary">/ 1,000</T>
+                {games.length} <T variant="caption1" color="tertiary">/ 5,000</T>
               </T>
             </View>
             <View style={styles.divider} />
@@ -110,11 +134,43 @@ export default function Mine() {
           {aboveLimit && (
             <View style={[styles.warn, { backgroundColor: t.bgWarnSoft, borderColor: t.borderWarn }]}>
               <T variant="caption1" style={{ color: t.fgWarn }} allowFontScaling={false}>
-                ⚠️ 보관함이 거의 가득 찼어요 ({games.length}/1,000). 오래된 항목을 정리해 주세요.
+                ⚠️ 보관함이 거의 가득 찼어요 ({games.length}/5,000). 오래된 항목을 정리해 주세요.
               </T>
             </View>
           )}
         </Card>
+
+        {/* 한도 안내 카드 — 항상 표시 (작은 부가 정보) */}
+        <View style={[styles.infoCard, { backgroundColor: t.bgSurface2, borderColor: t.borderDivider }]}>
+          <T allowFontScaling={false} style={{ fontSize: 14 }}>💡</T>
+          <View style={{ flex: 1, marginLeft: 8 }}>
+            <T variant="caption1" color="primary" style={{ fontWeight: '800', fontSize: 12 }} allowFontScaling={false}>
+              저장 한도 5,000건
+            </T>
+            <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ marginTop: 2, lineHeight: 15, fontSize: 11 }}>
+              앱을 쾌적하게 쓸 수 있도록 5,000건으로 제한했어요. 스크롤이나 필터가 느려진다고 느끼면 오래된 조합을 삭제하면 다시 빨라집니다.
+            </T>
+          </View>
+        </View>
+
+        {/* 전체 삭제 — 보관함에 항목이 있을 때만 노출 */}
+        {!empty && (
+          <Pressable
+            onPress={askClearAll}
+            style={({ pressed }) => [
+              styles.actionBtn,
+              {
+                borderColor: 'rgba(255,66,66,0.35)',
+                backgroundColor: 'rgba(255,66,66,0.06)',
+                opacity: pressed ? 0.85 : 1,
+              },
+            ]}
+          >
+            <T variant="caption1" allowFontScaling={false} style={{ color: palette.red500, fontWeight: '800', fontSize: 12 }}>
+              🗑 전체 삭제
+            </T>
+          </Pressable>
+        )}
 
         {/* 출처별 segmented 탭 — 전체 / 앱 생성 / QR 스캔 */}
         {games.length > 0 && (
@@ -174,7 +230,7 @@ export default function Mine() {
               </T>
               <View style={{ marginTop: 8, gap: 8, alignSelf: 'stretch' }}>
                 <Button title="QR 스캔으로 저장" variant="primary" full onPress={() => router.push('/scan' as any)} />
-                <Button title="직접 입력으로 저장" variant="outline" full onPress={() => router.push('/(simple)/check' as any)} />
+                <Button title="직접 입력으로 저장" variant="outline" full onPress={() => router.push('/manual-pick' as any)} />
               </View>
             </View>
           </Card>
@@ -202,33 +258,46 @@ export default function Mine() {
             const isOpen = expanded[headerKey] ?? roundKey === 'next';
             return (
               <Card key={headerKey} padding={0}>
-                <Pressable
-                  onPress={() => setExpanded((s) => ({ ...s, [headerKey]: !isOpen }))}
-                  style={styles.groupHeader}
-                >
-                  <View style={{ flex: 1 }}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-                      <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
-                        {round == null ? '다음 회차' : `${round}회`}
-                      </T>
-                      {draw && (
-                        <T variant="caption1" color="tertiary">{short(draw.date)}</T>
-                      )}
+                <View style={{ flexDirection: 'row', alignItems: 'stretch' }}>
+                  <Pressable
+                    onPress={() => setExpanded((s) => ({ ...s, [headerKey]: !isOpen }))}
+                    style={[styles.groupHeader, { flex: 1 }]}
+                  >
+                    <View style={{ flex: 1 }}>
+                      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                        <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
+                          {round == null ? '다음 회차' : `${round}회`}
+                        </T>
+                        {draw && (
+                          <T variant="caption1" color="tertiary">{short(draw.date)}</T>
+                        )}
+                      </View>
+                      <View style={{ flexDirection: 'row', gap: 6, marginTop: 6 }}>
+                        <Chip label={`${items.length}게임`} compact />
+                        {wins.length > 0 && (
+                          <Chip label={`${wins.length}건 당첨`} tone="success" compact />
+                        )}
+                        {totalPayoutGroup > 0 && (
+                          <Chip label={`${formatWon(totalPayoutGroup)}`} tone="accent" compact />
+                        )}
+                      </View>
                     </View>
-                    <View style={{ flexDirection: 'row', gap: 6, marginTop: 6 }}>
-                      <Chip label={`${items.length}게임`} compact />
-                      {wins.length > 0 && (
-                        <Chip label={`${wins.length}건 당첨`} tone="success" compact />
-                      )}
-                      {totalPayoutGroup > 0 && (
-                        <Chip label={`${formatWon(totalPayoutGroup)}`} tone="accent" compact />
-                      )}
+                    <View style={{ transform: [{ rotate: isOpen ? '90deg' : '0deg' }] }}>
+                      <Icon.chev color={t.fgTertiary} weight={2} />
                     </View>
-                  </View>
-                  <View style={{ transform: [{ rotate: isOpen ? '90deg' : '0deg' }] }}>
-                    <Icon.chev color={t.fgTertiary} weight={2} />
-                  </View>
-                </Pressable>
+                  </Pressable>
+                  {/* 회차 삭제 — 헤더에서 바로 (펼치지 않아도 가능) */}
+                  <Pressable
+                    onPress={() => askClearRound(round, items.length)}
+                    style={({ pressed }) => [
+                      styles.groupDelBtn,
+                      { borderColor: t.borderDivider, opacity: pressed ? 0.6 : 1 },
+                    ]}
+                    hitSlop={6}
+                  >
+                    <Icon.close color={palette.red500} size={16} weight={2.2} />
+                  </Pressable>
+                </View>
                 {isOpen && (
                   <View style={styles.groupBody}>
                     {draw && (
@@ -271,12 +340,66 @@ export default function Mine() {
 
         <Disclaimer short />
       </ScrollView>
+
+      {/* 삭제 확인 모달 — 좌측 빨강 보더 + 깔끔한 타이포그래피 */}
+      <Modal visible={!!confirm} transparent animationType="fade" onRequestClose={() => setConfirm(null)}>
+        <Pressable style={styles.modalBackdrop} onPress={() => setConfirm(null)}>
+          <Pressable style={[styles.modalCard, { backgroundColor: t.bgSurface }]} onPress={(e) => e.stopPropagation()}>
+            {/* 좌측 빨강 보더 + 경고 라벨 */}
+            <View style={styles.modalLeftBorder} />
+            <View style={{ flex: 1, padding: 24 }}>
+              <View style={[styles.warnLabel, { backgroundColor: 'rgba(255,66,66,0.10)' }]}>
+                <T variant="caption2" allowFontScaling={false} style={{ color: palette.red500, fontWeight: '800', fontSize: 10, letterSpacing: 0.4 }}>
+                  ⚠ 영구 삭제
+                </T>
+              </View>
+              <T variant="title3" color="primary" style={{ fontWeight: '900', marginTop: 12, fontSize: 19 }}>
+                {confirm?.kind === 'all'
+                  ? '보관함 전체 삭제'
+                  : confirm?.kind === 'round'
+                  ? (confirm.round == null ? '다음 회차' : `${confirm.round}회`) + ' 전체 삭제'
+                  : ''}
+              </T>
+              <T variant="body2r" color="secondary" style={{ marginTop: 6, lineHeight: 21 }}>
+                {confirm && (
+                  <>
+                    <T variant="body2r" color="primary" style={{ fontWeight: '800' }}>{confirm.count}개</T>
+                    의 조합이 사라지고, 되돌릴 수 없습니다.
+                  </>
+                )}
+              </T>
+              <View style={{ flexDirection: 'row', gap: 8, marginTop: 22 }}>
+                <Pressable
+                  onPress={() => setConfirm(null)}
+                  style={({ pressed }) => [
+                    styles.modalBtn,
+                    { backgroundColor: t.bgSurface2, opacity: pressed ? 0.85 : 1 },
+                  ]}
+                >
+                  <T variant="body2n" color="primary" style={{ fontWeight: '700' }}>취소</T>
+                </Pressable>
+                <Pressable
+                  onPress={doConfirm}
+                  style={({ pressed }) => [
+                    styles.modalBtn,
+                    styles.modalBtnDanger,
+                    { opacity: pressed ? 0.85 : 1 },
+                  ]}
+                >
+                  <Icon.close color="#fff" size={14} weight={2.8} />
+                  <T variant="body2n" style={{ color: '#fff', fontWeight: '800', marginLeft: 6 }}>삭제</T>
+                </Pressable>
+              </View>
+            </View>
+          </Pressable>
+        </Pressable>
+      </Modal>
     </SafeAreaView>
   );
 }
 
 function sourceLabel(s: SavedGame['source']): string {
-  return s === 'qr' ? 'QR' : s === 'manual' ? '수동' : s === 'gen' ? '조합 생성' : '시뮬레이터';
+  return s === 'qr' ? 'QR' : s === 'manual' ? '수동' : s === 'gen' ? '조합 생성' : '조합 필터링';
 }
 
 function short(iso: string): string {
@@ -303,6 +426,67 @@ const styles = StyleSheet.create({
   summaryRow: { flexDirection: 'row', alignItems: 'center', gap: 16 },
   divider: { width: 1, height: 32, backgroundColor: 'rgba(112,115,124,0.2)' },
   warn: { padding: 10, marginTop: 12, borderRadius: radius.sm, borderWidth: 1 },
+  infoCard: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: radius.md,
+    borderWidth: 1,
+  },
+  actionBtn: {
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  // 회차 헤더 우측 삭제 버튼 (펼치지 않아도 삭제 가능)
+  groupDelBtn: {
+    width: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderLeftWidth: 1,
+  },
+
+  // 삭제 확인 모달 — 깔끔 버전
+  modalBackdrop: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.55)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  modalCard: {
+    width: '100%',
+    maxWidth: 360,
+    borderRadius: radius.xl + 2,
+    overflow: 'hidden',
+    flexDirection: 'row',
+  },
+  modalLeftBorder: {
+    width: 4,
+    backgroundColor: palette.red500,
+  },
+  warnLabel: {
+    alignSelf: 'flex-start',
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: radius.pill,
+  },
+  modalBtn: {
+    flex: 1,
+    height: 48,
+    borderRadius: radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
+  modalBtnDanger: {
+    backgroundColor: palette.red500,
+  },
   filterBar: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 4 },
 
   // 출처 segmented

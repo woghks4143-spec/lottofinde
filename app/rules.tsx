@@ -44,11 +44,11 @@ export default function Rules() {
               </View>
               <T variant="heading2" color="primary">아직 저장한 룰이 없어요</T>
               <T variant="body2r" color="tertiary" style={{ textAlign: 'center' }}>
-                시뮬레이터에서 조건을 만들어 저장하면 여기서 다시 꺼내 쓸 수 있어요.
+                조합 필터링에서 조건을 만들어 저장하면 여기서 다시 꺼내 쓸 수 있어요.
               </T>
               <View style={{ marginTop: 8 }}>
                 <Button
-                  title="시뮬레이터 열기"
+                  title="조합 필터링 열기"
                   variant="primary"
                   onPress={() => router.push('/simulator' as any)}
                 />
@@ -75,7 +75,7 @@ export default function Rules() {
               <View style={{ flexDirection: 'row', gap: 8, marginTop: 12 }}>
                 <View style={{ flex: 1 }}>
                   <Button
-                    title="시뮬레이터로 열기"
+                    title="조합 필터링으로 열기"
                     variant="outline"
                     size="sm"
                     full

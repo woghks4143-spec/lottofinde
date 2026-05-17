@@ -37,13 +37,6 @@ export default function Analysis() {
   // ─── 통계 분석 — 빈도/출현 기반 ─────────────────────────────────
   const STATS: Entry[] = [
     {
-      emoji: '📈',
-      bg: 'rgba(0,102,255,0.10)',
-      title: '번호별 통계',
-      desc: '1~45 각 번호의 전체 출현 + 궁합수 + 미출현',
-      href: '/number-stats',
-    },
-    {
       emoji: '📊',
       bg: 'rgba(0,191,64,0.10)',
       title: '특정 주간 출현',
@@ -170,7 +163,7 @@ export default function Analysis() {
             🔧 회차 & 참고
           </T>
           <T variant="caption1" color="tertiary" style={{ marginTop: 2 }}>
-            회차 상세, 시뮬레이터, 용어 풀이
+            회차 상세, 용어 풀이
           </T>
         </View>
         {TOOLS.map((e, i) => renderEntry(e, `t-${i}`))}

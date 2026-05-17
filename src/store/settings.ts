@@ -74,14 +74,28 @@ export const useSettings = create<SettingsState>()(
 
 /**
  * Recommendation logic for the H1 result screen.
- * Returns 'expert' when the user signals analyst behaviour, else 'simple'.
- * Mirrors PRD H1 KPI target: Expert conversion ≥ 15%.
+ *
+ * 사용 경험(Q1)을 가장 우선시한다. 초보자가 "통계 분석에 관심 있다"고 한들
+ * 아직 로또 자체를 모르기 때문에 인지 부담이 큰 Expert 모드를 강요하면
+ * 이탈 위험이 크다. 따라서:
+ *
+ *   - newbie (아직 사본 적 없음)    → 무조건 Simple
+ *   - sometimes (가끔 사봄)         → 무조건 Simple
+ *   - weekly (매주 산다) + stats 선택 → Expert
+ *   - weekly + stats 미선택          → Simple
+ *   - expert (자칭 전문가/오래 해봄) → Expert
+ *
+ * PRD H1 KPI: Expert 전환 ≥ 15% 유지.
  */
 export function recommendMode(
   q1: Q1Answer | null,
   q2: Q2Answer[],
 ): AppMode {
-  if (q1 === 'expert') return 'expert';                 // self-id'd analyst
-  if (q2.includes('stats')) return 'expert';            // wants stats tools
+  // 자칭 전문가는 무조건 Expert
+  if (q1 === 'expert') return 'expert';
+  // 초보 (안 사봤거나 가끔 산다) → 인지 부담 최소화 위해 Simple
+  if (q1 === 'newbie' || q1 === 'sometimes') return 'simple';
+  // 매주 구매자 — 통계 도구 선택 시에만 Expert
+  if (q1 === 'weekly' && q2.includes('stats')) return 'expert';
   return 'simple';
 }

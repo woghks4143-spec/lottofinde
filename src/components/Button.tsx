@@ -49,7 +49,10 @@ export function Button({
     : '#fff';
   const fg =
     disabled ? t.fgDisabled
-    : variant === 'primary' || variant === 'dark' ? t.fgOnAccent
+    : variant === 'primary' ? t.fgOnAccent
+    // dark variant uses bgInverse as background → use bgCanvas as text
+    // so it's always opposite contrast in both themes
+    : variant === 'dark' ? t.bgCanvas
     : variant === 'outline' ? t.fgAccent
     : t.fgSecondary;
   const border = variant === 'outline' ? t.fgAccent : 'transparent';

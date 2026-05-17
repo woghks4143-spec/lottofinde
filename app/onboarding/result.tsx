@@ -80,7 +80,7 @@ const GUIDES: Record<GuideKey, {
       },
       {
         emoji: '🧩',
-        title: '조건 조합 + 시뮬레이터',
+        title: '조건 조합 + 조합 필터링',
         desc: '고정수·예상수·제외수로 정밀 추출. 룰 저장 후 매주 재실행 가능.',
       },
       {

@@ -71,8 +71,8 @@ const MANUAL: Entry[] = [
   {
     emoji: '⚙️',
     bg: 'rgba(0,152,178,0.12)',
-    title: '시뮬레이터',
-    desc: '조건(포함·제외·합·AC 등)으로 조합 추출 + 룰 저장',
+    title: '조합 필터링',
+    desc: '조건(포함·제외·합·AC·이월 등)으로 조합 필터링 + 룰 저장',
     href: '/simulator',
   },
 ];

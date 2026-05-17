@@ -55,17 +55,16 @@ export function NumPicker({
         const bg =
           state === 'in' ? palette.blue500
           : state === 'out' ? palette.red500
-          : state === 'selected' ? palette.blue50
+          : state === 'selected' ? palette.blue500
           : t.bgSurface;
         const fg =
-          state === 'in' || state === 'out' ? '#fff'
-          : state === 'selected' ? palette.blue700
+          state === 'in' || state === 'out' || state === 'selected' ? '#fff'
           : t.fgSecondary;
         const border =
           state === 'neutral' ? t.borderWeak : 'transparent';
-        const ringColor = mode === 'triState' && state === 'neutral'
-          ? ballColor(n)
-          : undefined;
+        // 미선택(neutral) 셀에 로또공 색 dot 표시 — 1-10 노랑, 11-20 파랑,
+        // 21-30 빨강, 31-40 회색, 41-45 초록. 어느 구간 번호인지 한눈에 식별.
+        const ringColor = state === 'neutral' ? ballColor(n) : undefined;
         return (
           <Pressable
             key={n}

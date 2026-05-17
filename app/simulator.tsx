@@ -385,7 +385,7 @@ export default function Simulator() {
   return (
     <SafeAreaView style={[styles.root, { backgroundColor: t.bgCanvas }]} edges={['top']}>
       <AppBar
-        title={phase === 'edit' ? '시뮬레이터' : '시뮬레이터 결과'}
+        title={phase === 'edit' ? '조합 필터링' : '조합 필터링 결과'}
         onBack={phase === 'results' ? () => setPhase('edit') : goBack}
         trailing={
           phase === 'edit' ? (
@@ -630,7 +630,7 @@ export default function Simulator() {
                 </Pressable>
               </View>
               <T variant="caption1" color="tertiary" style={{ marginTop: 2 }}>
-                선택하면 시뮬레이터에 불러와요
+                선택하면 조합 필터링에 불러와요
               </T>
             </View>
             {allRules.length === 0 ? (

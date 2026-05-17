@@ -140,7 +140,7 @@ export default function Scan() {
                 모바일 앱에서 카메라로 빠르게 저장해 보세요.
               </T>
               <View style={{ marginTop: 8 }}>
-                <Button title="직접 입력으로 추가하기" variant="outline" onPress={() => router.push('/(simple)/check' as any)} />
+                <Button title="직접 입력으로 추가하기" variant="outline" onPress={() => router.push('/manual-pick' as any)} />
               </View>
             </View>
           </Card>
@@ -245,7 +245,7 @@ export default function Scan() {
         {/* 직접 입력 진입 */}
         {!parsed && (
           <Pressable
-            onPress={() => router.push('/(simple)/check' as any)}
+            onPress={() => router.push('/manual-pick' as any)}
             style={({ pressed }) => [
               styles.manualLink,
               { borderColor: t.borderDivider, opacity: pressed ? 0.85 : 1 },
@@ -264,7 +264,7 @@ export default function Scan() {
         {toast && (
           <View style={[styles.toast, { backgroundColor: t.bgInverse }]}>
             <Icon.check color={palette.green500} size={16} weight={2.5} />
-            <T variant="caption1" style={{ color: t.scheme === 'dark' ? t.fgPrimary : '#fff', fontWeight: '700', marginLeft: 6 }}>
+            <T variant="caption1" style={{ color: t.bgCanvas, fontWeight: '700', marginLeft: 6 }}>
               {toast}
             </T>
           </View>

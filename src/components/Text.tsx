@@ -38,7 +38,7 @@ export function T({
     success: t.fgSuccess,
     warn: t.fgWarn,
     onAccent: t.fgOnAccent,
-    inverse: t.scheme === 'dark' ? t.fgPrimary : '#fff',
+    inverse: t.bgCanvas,
   };
   const base: TextStyle = type[variant];
   // Only scale body & label tiers, not heading/title/display.

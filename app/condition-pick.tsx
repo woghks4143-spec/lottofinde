@@ -326,7 +326,7 @@ export default function ConditionPick() {
 
       {toast && (
         <View style={[styles.toast, { backgroundColor: t.bgInverse }]} pointerEvents="none">
-          <T variant="label1n" style={{ color: t.scheme === 'dark' ? t.fgPrimary : '#fff' }}>{toast}</T>
+          <T variant="label1n" style={{ color: t.bgCanvas, fontWeight: '700' }}>{toast}</T>
         </View>
       )}
     </SafeAreaView>

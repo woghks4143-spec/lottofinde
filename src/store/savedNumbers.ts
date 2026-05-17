@@ -34,7 +34,9 @@ export type SavedGame = {
   };
 };
 
-const LIMIT = 1000;
+// 5,000건 — AsyncStorage 안전 범위 (~1.5MB) 내에서 일반 사용자가
+// 충분히 쓸 수 있는 한도. 그 이상에서는 필터·정렬 등이 체감상 느려질 수 있음.
+const LIMIT = 5000;
 
 function genId(): string {
   // crypto.randomUUID is widely available (web, RN 0.71+) but guard anyway.
@@ -56,6 +58,8 @@ type SavedNumbersState = {
     => { added: number; skipped: number; reasons: Array<'limit' | 'duplicate'> };
 
   remove: (id: string) => void;
+  /** 특정 회차의 모든 게임 일괄 삭제. round=null 은 "다음 회차" 그룹. */
+  removeRound: (round: number | null) => { removed: number };
   clear: () => void;
   byRound: (round: number | null) => SavedGame[];
   totalPayout: () => number;
@@ -111,6 +115,12 @@ export const useSavedNumbers = create<SavedNumbersState>()(
       },
 
       remove: (id) => set({ games: get().games.filter((g) => g.id !== id) }),
+      removeRound: (round) => {
+        const before = get().games.length;
+        const next = get().games.filter((g) => g.round !== round);
+        set({ games: next });
+        return { removed: before - next.length };
+      },
       clear: () => set({ games: [] }),
       byRound: (round) => get().games.filter((g) => g.round === round),
       totalPayout: () => get().games.reduce((s, g) => s + (g.result?.payout ?? 0), 0),

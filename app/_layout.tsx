@@ -80,7 +80,6 @@ export default function RootLayout() {
           <Stack.Screen name="combo" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="glossary" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="weekly" options={{ animation: 'slide_from_right' }} />
-          <Stack.Screen name="number-stats" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="predict" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="analysis-methods" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="same-date" options={{ animation: 'slide_from_right' }} />
@@ -89,6 +88,16 @@ export default function RootLayout() {
           <Stack.Screen name="scan" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="pro-gen" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="pro-analysis" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="pro-filter" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="pro-weekly" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="pro-compat" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="pro-cross" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="pro-mc" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="pro-network" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="pro-regression" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="pro-analysis-methods" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="pro-predict" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="pro-performance" options={{ animation: 'slide_from_right' }} />
         </Stack>
       </ThemeProvider>
     </SafeAreaProvider>

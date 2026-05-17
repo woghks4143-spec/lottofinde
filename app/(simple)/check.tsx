@@ -40,20 +40,21 @@ export default function Check() {
     <SafeAreaView style={[styles.root, { backgroundColor: t.bgCanvas }]} edges={['top']}>
       <AppBar title="당첨 확인" />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
-        {/* Tab selector */}
-        <View style={styles.tabBar}>
-          <TabBtn
-            label="QR 스캔"
-            active={tab === 'qr'}
-            disabled={isWeb}
-            onPress={() => setTab('qr')}
-          />
-          <TabBtn
-            label="직접 입력"
-            active={tab === 'manual'}
-            onPress={() => setTab('manual')}
-          />
-        </View>
+        {/* Tab selector — 웹에서는 QR 스캔이 불가하므로 직접 입력만 노출 */}
+        {!isWeb && (
+          <View style={[styles.tabBar, { backgroundColor: t.bgSurface2, borderColor: t.borderDivider }]}>
+            <TabBtn
+              label="QR 스캔"
+              active={tab === 'qr'}
+              onPress={() => setTab('qr')}
+            />
+            <TabBtn
+              label="직접 입력"
+              active={tab === 'manual'}
+              onPress={() => setTab('manual')}
+            />
+          </View>
+        )}
 
         {tab === 'qr' ? (
           isWeb ? <WebHint /> : <QrTab />
@@ -70,23 +71,23 @@ export default function Check() {
 
 // ─── Tab buttons ─────────────────────────────────────────────────────────────
 
-function TabBtn({ label, active, disabled, onPress }: { label: string; active: boolean; disabled?: boolean; onPress: () => void }) {
+function TabBtn({ label, active, onPress }: { label: string; active: boolean; onPress: () => void }) {
   const t = useTheme();
   return (
     <Pressable
       onPress={onPress}
-      disabled={disabled}
       style={({ pressed }) => [
         styles.tab,
-        {
-          backgroundColor: active ? t.bgInverse : t.bgSurface,
-          opacity: disabled ? 0.5 : pressed ? 0.9 : 1,
-        },
+        active && { backgroundColor: t.bgSurface, borderColor: palette.purple500 },
+        { opacity: pressed ? 0.9 : 1 },
       ]}
     >
       <T
         variant="label1n"
-        style={{ color: active ? (t.scheme === 'dark' ? t.fgPrimary : '#fff') : t.fgSecondary, fontWeight: '600' }}
+        style={{
+          color: active ? palette.purple500 : t.fgSecondary,
+          fontWeight: active ? '800' : '600',
+        }}
         allowFontScaling={false}
       >
         {label}
@@ -393,17 +394,19 @@ const styles = StyleSheet.create({
   root: { flex: 1 },
   tabBar: {
     flexDirection: 'row',
-    gap: 4,
-    padding: 4,
-    backgroundColor: 'rgba(112,115,124,0.08)',
-    borderRadius: radius.lg,
+    gap: 3,
+    padding: 3,
+    borderRadius: radius.md,
+    borderWidth: 1,
   },
   tab: {
     flex: 1,
     height: 38,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: radius.md,
+    borderRadius: radius.sm,
+    borderWidth: 1,
+    borderColor: 'transparent',
   },
   cameraFrame: {
     height: 320,

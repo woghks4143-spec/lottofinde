@@ -1,14 +1,13 @@
 /**
- * PRO 탭 — 두 섹션으로 나뉜 PRO 기능 카탈로그.
+ * PRO 탭 — 카탈로그 메인.
  *
- * 세로 1: PRO 조합 생성 (헤더 카드 + 기능 미리보기 4개)
- * 세로 2: PRO 번호 분석 (헤더 카드 + 기능 미리보기 4개)
+ * 12개 PRO 기능을 한 화면에서 발견할 수 있는 카탈로그.
+ * 각 카드는 "← 일반: XX" 매핑으로 "이게 업그레이드된 기능이구나"를 즉시 알려준다.
  *
- * 헤더 카드를 탭하면 각 상세 페이지로 이동:
- *   - /pro-gen      : PRO 조합 생성
- *   - /pro-analysis : PRO 번호 분석
+ *   히어로 (👑 골드 + 다크) → 가치 칩 → 조합 생성 6개 → 번호 분석 6개 → 비교표
  *
- * 결제 시스템은 정식 출시 후 연동.
+ * 카드 탭 → 해당 기능의 디테일 페이지 (/pro-ai 등)
+ * 섹션 헤더 우상단 "자세히 보기 →" → 카탈로그 깊이 페이지 (/pro-gen, /pro-analysis)
  */
 import React from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
@@ -17,37 +16,40 @@ import { useRouter } from 'expo-router';
 import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
 import { Card } from '@/src/components/Card';
-import { Chip } from '@/src/components/Chip';
 import { Disclaimer } from '@/src/components/Disclaimer';
 import { Icon } from '@/src/components/Icons';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
 
-// PRO 골드 톤 (브랜드 컬러로 고정 — 추후 디자인 시스템에 추가 검토)
+// ─── PRO 골드 톤 ─────────────────────────────────────────────────
 const GOLD = '#e8b04e';
 const GOLD_SOFT = '#fff4dc';
 const GOLD_DARK = '#a37116';
 
-type Feature = { emoji: string; title: string; desc: string };
+type Feature = {
+  emoji: string;
+  title: string;
+  subtitle: string;
+  fromFree: string;
+  tag: string;
+  href: string;
+};
 
 const GEN_FEATURES: Feature[] = [
-  { emoji: '🧠', title: 'AI 패턴 학습',     desc: '최근 회차 흐름을 학습한 가중 추천' },
-  { emoji: '🎯', title: '정밀 조합 엔진',   desc: '합·끝수합·AC·홀짝·연속수 동시 최적화' },
-  { emoji: '🔁', title: '회차 가중 추출',   desc: '최근성과 미출현을 균형 있게 반영' },
-  { emoji: '👤', title: '개인 맞춤 룰',     desc: '저장한 룰을 결합해 자동 조합' },
+  { emoji: '🎛️', title: '조합 필터링', subtitle: '13가지 필터로 정밀하게 조합 추출', fromFree: '조합 필터링', tag: 'PRO', href: '/pro-filter' },
 ];
 
 const ANALYSIS_FEATURES: Feature[] = [
-  { emoji: '📈', title: '심층 회차 리포트', desc: '회차별 분포·이상치·핵심 지표 요약' },
-  { emoji: '🧬', title: '고급 패턴 분석',   desc: '다중 패턴 교차로 적중 후보 추출' },
-  { emoji: '🔮', title: '확률 가중 예측',   desc: '통계 모델 기반 다음 회차 시나리오' },
-  { emoji: '🗺️', title: '번호 관계 지도',   desc: '궁합·반발 네트워크 한눈에 보기' },
+  { emoji: '🌟', title: '솔이 예상수 PRO',  subtitle: '10가지 분석법 앙상블 → 20수 예측 + 백테스트', fromFree: '예상수 10수 분석', tag: 'PRO', href: '/pro-predict' },
+  { emoji: '📊', title: '주간 출현 PRO',    subtitle: '회차 범위 자유 + 4단계 티어 + 시계열 추이',   fromFree: '특정 주간 출현',  tag: 'PRO', href: '/pro-weekly' },
+  { emoji: '🤝', title: '궁합수 PRO',       subtitle: '다중 번호 + 트리오 + 자동 추천 조합',         fromFree: '궁합수 분석',     tag: 'PRO', href: '/pro-compat' },
+  { emoji: '🔁', title: '회귀분석 PRO',     subtitle: '회귀률 TOP 10 + 최근 연속 회귀 TOP 10 (탭 전환)', fromFree: '회귀 분석',   tag: 'PRO', href: '/pro-regression' },
+  { emoji: '🧪', title: '분석법 비교 PRO',  subtitle: '종합·동일날짜·이월수·이웃수·-45 + 끝수·시루', fromFree: '분석법 비교',    tag: 'PRO', href: '/pro-analysis-methods' },
 ];
 
 export default function Pro() {
   const t = useTheme();
   const router = useRouter();
-  const isLocked = true;
 
   return (
     <SafeAreaView style={[styles.root, { backgroundColor: t.bgCanvas }]} edges={['top']}>
@@ -56,69 +58,90 @@ export default function Pro() {
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
             <Icon.crown color={GOLD} size={20} weight={2} />
             <T variant="heading1" color="primary">PRO</T>
-            <View style={[styles.betaPill, { backgroundColor: GOLD_SOFT }]}>
-              <T variant="caption2" style={{ color: GOLD_DARK, fontSize: 10, fontWeight: '700' }} allowFontScaling={false}>
-                준비 중
+            <View style={[styles.previewPill, { backgroundColor: palette.green500 }]}>
+              <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 9.5, fontWeight: '800' }}>
+                미리보기
               </T>
             </View>
           </View>
         }
       />
-      <ScrollView contentContainerStyle={{ padding: 16, gap: 16, paddingBottom: 24 }}>
-        {/* Hero */}
-        <View style={styles.hero}>
-          <View style={styles.heroIconWrap}>
-            <Icon.crown color="#fff" size={32} weight={2} />
+      <ScrollView contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 24 }}>
+
+        {/* Premium Hero */}
+        <View style={[styles.hero, { backgroundColor: palette.neutral950 }]}>
+          {/* 골드 후광 */}
+          <View style={styles.heroGlow} />
+          <View style={styles.crownWrap}>
+            <Icon.crown color={GOLD} size={36} weight={2} />
           </View>
-          <T variant="title2" style={{ color: '#fff', fontWeight: '800', marginTop: 12, textAlign: 'center' }}>
-            더 깊은 분석을 만나보세요
+          <T variant="caption1" allowFontScaling={false} style={{ color: GOLD, letterSpacing: 3, fontWeight: '800', marginTop: 14, fontSize: 10.5 }}>
+            PREMIUM
           </T>
-          <T variant="body2r" style={{ color: 'rgba(255,255,255,0.78)', marginTop: 6, textAlign: 'center', lineHeight: 22 }}>
-            전문가 수준의 패턴 분석과 고급 통계 도구를{'\n'}PRO에서 잠금 해제할 수 있습니다.
+          <T variant="title1" style={{ color: '#fff', fontWeight: '900', marginTop: 6, textAlign: 'center', letterSpacing: -0.3 }}>
+            전문가용 분석 스튜디오
           </T>
-          <View style={styles.heroChips}>
-            <Chip label="광고 없음" tone="invert" />
-            <Chip label="고급 분석" tone="invert" />
-            <Chip label="우선 업데이트" tone="invert" />
+          <T variant="body2r" style={{ color: 'rgba(255,255,255,0.72)', marginTop: 8, textAlign: 'center', lineHeight: 22 }}>
+            머신러닝 기반 12가지 도구로{'\n'}
+            일반 모드보다 6배 정밀하게.
+          </T>
+
+          {/* 가치 칩 4개 */}
+          <View style={styles.valueChips}>
+            <ValueChip emoji="🤖" label="AI 모델" />
+            <ValueChip emoji="∞" label="무제한" />
+            <ValueChip emoji="👤" label="맞춤 학습" />
+            <ValueChip emoji="📊" label="자동 백테스트" />
           </View>
         </View>
 
-        {/* 섹션 1: PRO 조합 생성 */}
-        <ProSection
+        {/* 활성화 상태 배너 */}
+        <View style={[styles.statusBanner, { backgroundColor: 'rgba(0,191,64,0.08)', borderColor: 'rgba(0,191,64,0.3)' }]}>
+          <Icon.check color={palette.green700} size={14} weight={2.8} />
+          <T variant="caption1" style={{ color: palette.green700, fontWeight: '800', marginLeft: 6 }} allowFontScaling={false}>
+            모든 PRO 기능 활성화됨 · 미리보기 모드
+          </T>
+        </View>
+
+        {/* ─── 조합 생성 섹션 ─────────────────────────────────── */}
+        <SectionHeader
           emoji="🎰"
-          title="PRO 조합 생성"
-          subtitle="고급 알고리즘으로 더 정밀한 조합"
-          features={GEN_FEATURES}
-          onPress={() => router.push('/pro-gen' as any)}
+          title="조합 생성"
+          count={GEN_FEATURES.length}
+          onMore={() => router.push('/pro-gen' as any)}
         />
-
-        {/* 섹션 2: PRO 번호 분석 */}
-        <ProSection
-          emoji="📊"
-          title="PRO 번호 분석"
-          subtitle="심층 통계 + 고급 패턴 분석"
-          features={ANALYSIS_FEATURES}
-          onPress={() => router.push('/pro-analysis' as any)}
-        />
-
-        {/* 결제 CTA */}
-        <View style={{ marginTop: 4, gap: 10 }}>
-          <Pressable
-            disabled={isLocked}
-            style={({ pressed }) => [
-              styles.cta,
-              { backgroundColor: GOLD, opacity: pressed ? 0.92 : 1 },
-            ]}
-          >
-            <Icon.lock color="#fff" size={16} weight={2.5} />
-            <T variant="body1n" style={{ color: '#fff', fontWeight: '800', marginLeft: 8 }}>
-              곧 만나요
-            </T>
-          </Pressable>
-          <T variant="caption1" color="tertiary" style={{ textAlign: 'center' }}>
-            결제 시스템은 정식 출시 이후 연동됩니다.
-          </T>
+        <View style={{ gap: 8 }}>
+          {GEN_FEATURES.map((f) => (
+            <ProFeatureRow key={f.href} feature={f} onPress={() => router.push(f.href as any)} />
+          ))}
         </View>
+
+        {/* ─── 번호 분석 섹션 ─────────────────────────────────── */}
+        <SectionHeader
+          emoji="📊"
+          title="번호 분석"
+          count={ANALYSIS_FEATURES.length}
+          onMore={() => router.push('/pro-analysis' as any)}
+        />
+        <View style={{ gap: 8 }}>
+          {ANALYSIS_FEATURES.map((f) => (
+            <ProFeatureRow key={f.href} feature={f} onPress={() => router.push(f.href as any)} />
+          ))}
+        </View>
+
+        {/* ─── 무료 vs PRO 비교 ─────────────────────────────── */}
+        <Card padding={18} style={{ marginTop: 4 }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+            <Icon.crown color={GOLD} size={18} weight={2} />
+            <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
+              무료 vs PRO 한눈에
+            </T>
+          </View>
+          <T variant="caption1" color="tertiary" style={{ marginBottom: 12 }}>
+            무엇이 달라지는지 비교
+          </T>
+          <CompareTable t={t} />
+        </Card>
 
         <Disclaimer short />
       </ScrollView>
@@ -126,136 +149,253 @@ export default function Pro() {
   );
 }
 
-/** PRO 섹션 — 헤더 카드(탭 가능) + 기능 미리보기 그리드. */
-function ProSection({ emoji, title, subtitle, features, onPress }: {
+/* ═══════════════════════════════════════════════════════════════════════════
+   섹션 헤더 — "🎰 조합 생성" + 우측 "자세히 보기 →"
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+function SectionHeader({ emoji, title, count, onMore }: {
   emoji: string;
   title: string;
-  subtitle: string;
-  features: Feature[];
-  onPress: () => void;
+  count: number;
+  onMore: () => void;
 }) {
   return (
-    <View style={{ gap: 10 }}>
-      {/* 섹션 헤더 — 탭하면 상세 페이지 이동 */}
-      <Pressable onPress={onPress} style={({ pressed }) => [{ opacity: pressed ? 0.92 : 1 }]}>
-        <Card padding={16}>
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
-            <View style={[styles.proIcon, { backgroundColor: GOLD_SOFT }]}>
-              <T allowFontScaling={false} style={{ fontSize: 26 }}>{emoji}</T>
-            </View>
-            <View style={{ flex: 1 }}>
-              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-                <T variant="headline2" color="primary" style={{ fontWeight: '800' }}>{title}</T>
-                <View style={[styles.proBadge, { backgroundColor: GOLD }]}>
-                  <T variant="caption2" style={{ color: '#fff', fontSize: 9.5, fontWeight: '800', letterSpacing: 0.4 }} allowFontScaling={false}>
-                    PRO
-                  </T>
-                </View>
-              </View>
-              <T variant="caption1" color="tertiary" style={{ marginTop: 4 }}>{subtitle}</T>
-            </View>
-            <Icon.chev color={GOLD_DARK} size={16} weight={2} />
-          </View>
-        </Card>
-      </Pressable>
-
-      {/* 기능 미리보기 — 잠금 상태로 노출 */}
-      <View style={styles.featureGrid}>
-        {features.map((f, i) => (
-          <FeatureTile key={i} feature={f} />
-        ))}
+    <View style={styles.sectionHead}>
+      <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
+        <T allowFontScaling={false} style={{ fontSize: 22 }}>{emoji}</T>
+        <T variant="heading2" color="primary" style={{ fontWeight: '800' }}>
+          {title}
+        </T>
+        <T variant="caption1" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 11 }}>
+          {count}개 기능
+        </T>
       </View>
+      <Pressable onPress={onMore} hitSlop={8} style={({ pressed }) => [{ opacity: pressed ? 0.6 : 1 }]}>
+        <T variant="caption1" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800' }}>
+          자세히 →
+        </T>
+      </Pressable>
     </View>
   );
 }
 
-/** 잠금 상태의 기능 미리보기 타일. */
-function FeatureTile({ feature }: { feature: Feature }) {
+/* ═══════════════════════════════════════════════════════════════════════════
+   PRO 기능 행 — 좌측 골드 보더 + 이모지 + 제목 + 태그 + 부제 + ← 일반: XX
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+function ProFeatureRow({ feature, onPress }: { feature: Feature; onPress: () => void }) {
   const t = useTheme();
   return (
-    <View style={[styles.featureTile, { backgroundColor: t.bgSurface, borderColor: t.borderDivider }]}>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-        <T allowFontScaling={false} style={{ fontSize: 18 }}>{feature.emoji}</T>
-        <View style={[styles.featureLockPill, { backgroundColor: GOLD_SOFT }]}>
-          <Icon.lock color={GOLD_DARK} size={9} weight={2.2} />
+    <Pressable onPress={onPress} style={({ pressed }) => [{ opacity: pressed ? 0.92 : 1 }]}>
+      <View style={[styles.featRow, { backgroundColor: t.bgSurface, borderColor: t.borderDivider }]}>
+        {/* 좌측 골드 보더 — 4px */}
+        <View style={[styles.featBorder, { backgroundColor: GOLD }]} />
+
+        {/* 이모지 박스 */}
+        <View style={[styles.featIcon, { backgroundColor: GOLD_SOFT }]}>
+          <T allowFontScaling={false} style={{ fontSize: 22 }}>{feature.emoji}</T>
         </View>
+
+        {/* 콘텐츠 */}
+        <View style={{ flex: 1, gap: 3 }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+            <T variant="headline2" color="primary" style={{ fontWeight: '800' }} numberOfLines={1}>
+              {feature.title}
+            </T>
+            <View style={[styles.featTag, { backgroundColor: GOLD }]}>
+              <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 9 }}>
+                {feature.tag}
+              </T>
+            </View>
+          </View>
+          <T variant="caption1" color="secondary" style={{ fontSize: 12, lineHeight: 16 }} numberOfLines={1}>
+            {feature.subtitle}
+          </T>
+        </View>
+
+        {/* Chev */}
+        <Icon.chev color={GOLD} size={16} weight={2.2} />
       </View>
-      <T variant="label1n" color="primary" style={{ fontWeight: '700', marginTop: 8 }} numberOfLines={1}>
-        {feature.title}
+    </Pressable>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   가치 칩 — 히어로 안의 4개 칩
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+function ValueChip({ emoji, label }: { emoji: string; label: string }) {
+  return (
+    <View style={styles.valueChip}>
+      <T allowFontScaling={false} style={{ fontSize: 12 }}>{emoji}</T>
+      <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '700', fontSize: 10.5, marginLeft: 4 }}>
+        {label}
       </T>
-      <T variant="caption2" color="tertiary" style={{ marginTop: 2, lineHeight: 16 }} numberOfLines={2}>
-        {feature.desc}
-      </T>
+    </View>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   무료 vs PRO 비교표
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+function CompareTable({ t }: { t: ReturnType<typeof useTheme> }) {
+  const rows: { label: string; free: string; pro: string }[] = [
+    { label: '조합 생성 방식',    free: '10개',  pro: '18개+' },
+    { label: '룰 저장 한도',      free: '10개',  pro: '∞ 무제한' },
+    { label: '자동 백테스트',     free: '✗',     pro: '✓' },
+    { label: 'AI 종합 추천',      free: '✗',     pro: '✓' },
+    { label: '회귀 분석 범위',    free: '1~100', pro: '1~500' },
+    { label: 'Monte Carlo',     free: '✗',     pro: '1만회 ✓' },
+    { label: '교차 필터',        free: '✗',     pro: '✓' },
+    { label: '맞춤 학습',        free: '✗',     pro: '✓' },
+    { label: '광고',             free: '있음',  pro: '없음' },
+  ];
+
+  return (
+    <View>
+      <View style={[styles.compHead, { borderBottomColor: t.borderDivider }]}>
+        <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ flex: 2, fontSize: 11 }}>기능</T>
+        <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', fontSize: 11 }}>무료</T>
+        <T variant="caption2" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', fontSize: 11, color: GOLD_DARK, fontWeight: '800' }}>
+          PRO
+        </T>
+      </View>
+      {rows.map((r, i) => (
+        <View
+          key={i}
+          style={[styles.compRow, i < rows.length - 1 && { borderBottomWidth: 1, borderBottomColor: t.borderDivider }]}
+        >
+          <T variant="caption1" color="primary" style={{ flex: 2, fontWeight: '600' }}>{r.label}</T>
+          <T variant="caption1" color="tertiary" allowFontScaling={false} style={{ flex: 1, textAlign: 'center' }}>{r.free}</T>
+          <T variant="caption1" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', color: GOLD_DARK, fontWeight: '800' }}>{r.pro}</T>
+        </View>
+      ))}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   root: { flex: 1 },
-  hero: {
-    backgroundColor: palette.neutral950,
-    borderRadius: radius.xl + 2,
-    padding: 24,
-    alignItems: 'center',
-  },
-  heroIconWrap: {
-    width: 68, height: 68, borderRadius: 20,
-    backgroundColor: GOLD,
-    alignItems: 'center', justifyContent: 'center',
-    shadowColor: GOLD,
-    shadowOpacity: 0.4,
-    shadowOffset: { width: 0, height: 6 },
-    shadowRadius: 16,
-    elevation: 8,
-  },
-  heroChips: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 6,
-    marginTop: 16,
-    justifyContent: 'center',
-  },
-  betaPill: {
+
+  previewPill: {
     paddingHorizontal: 8,
     paddingVertical: 3,
     borderRadius: radius.pill,
   },
-  proIcon: {
-    width: 48, height: 48, borderRadius: radius.md,
-    alignItems: 'center', justifyContent: 'center',
+
+  // ── Premium Hero ───────────────────────────────────────────
+  hero: {
+    borderRadius: radius.xl + 4,
+    paddingVertical: 28,
+    paddingHorizontal: 24,
+    alignItems: 'center',
+    overflow: 'hidden',
+    position: 'relative',
   },
-  proBadge: {
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: radius.pill,
+  heroGlow: {
+    position: 'absolute',
+    top: -50,
+    width: 220,
+    height: 220,
+    borderRadius: 110,
+    backgroundColor: GOLD,
+    opacity: 0.08,
   },
-  featureGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  featureTile: {
-    flexBasis: '48%',
-    flexGrow: 1,
-    minWidth: 0,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    padding: 12,
-  },
-  featureLockPill: {
-    width: 16, height: 16, borderRadius: 8,
-    alignItems: 'center', justifyContent: 'center',
-  },
-  cta: {
-    height: 56,
-    borderRadius: radius.lg,
-    flexDirection: 'row',
+  crownWrap: {
+    width: 78,
+    height: 78,
+    borderRadius: 24,
+    backgroundColor: 'rgba(232,176,78,0.16)',
+    borderWidth: 1.5,
+    borderColor: 'rgba(232,176,78,0.4)',
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: GOLD,
-    shadowOpacity: 0.3,
-    shadowOffset: { width: 0, height: 4 },
-    shadowRadius: 12,
-    elevation: 6,
+    shadowOpacity: 0.5,
+    shadowOffset: { width: 0, height: 6 },
+    shadowRadius: 18,
+    elevation: 10,
+  },
+  valueChips: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+    marginTop: 18,
+    justifyContent: 'center',
+  },
+  valueChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: radius.pill,
+    backgroundColor: 'rgba(232,176,78,0.18)',
+    borderWidth: 1,
+    borderColor: 'rgba(232,176,78,0.35)',
+  },
+
+  // ── 활성화 배너 ───────────────────────────────────────────
+  statusBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: radius.md,
+    borderWidth: 1,
+  },
+
+  // ── 섹션 헤더 ─────────────────────────────────────────────
+  sectionHead: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 8,
+    paddingHorizontal: 2,
+  },
+
+  // ── PRO 기능 행 ──────────────────────────────────────────
+  featRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: 14,
+    paddingRight: 14,
+    paddingVertical: 12,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    overflow: 'hidden',
+    gap: 12,
+  },
+  featBorder: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: 4,
+  },
+  featIcon: {
+    width: 44,
+    height: 44,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  featTag: {
+    paddingHorizontal: 6,
+    paddingVertical: 1.5,
+    borderRadius: radius.pill,
+  },
+
+  // ── 비교표 ───────────────────────────────────────────────
+  compHead: {
+    flexDirection: 'row',
+    paddingBottom: 6,
+    borderBottomWidth: 1,
+  },
+  compRow: {
+    flexDirection: 'row',
+    paddingVertical: 9,
+    alignItems: 'center',
   },
 });
