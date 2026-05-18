@@ -141,7 +141,7 @@ export function generateUserCombos(round: number, deviceSeed: string): number[][
  * URL: https://raw.githubusercontent.com/{owner}/{repo}/main/weekly_combos/round_NNNN.json
  */
 const GITHUB_RAW_BASE =
-  'https://raw.githubusercontent.com/woghks4143-spec/lottofinde/main/weekly_combos';
+  'https://raw.githubusercontent.com/woghks4143-spec/lottofinde-combos/main';
 
 export type WeeklyPool = {
   round: number;
