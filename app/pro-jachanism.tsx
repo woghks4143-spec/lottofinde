@@ -29,7 +29,7 @@ import { palette, radius } from '@/src/design/tokens';
 import {
   POOL_SIZE, POOL_SIZE_DISPLAY, USER_LIMIT, BACKTEST_BASE_N,
   computeBacktest, generateUserCombos, fmtCount,
-  getDayStatus, msToNextReceive, formatCountdown,
+  getDayStatus, msToNextReceive, msToReceiveEnd, formatCountdown,
   fetchWeeklyPool, pickUserCombosFromPool,
   type BacktestStats, type JachanismStatus,
 } from '@/src/lib/jachanism';
@@ -156,11 +156,17 @@ export default function ProJachanism() {
     return counts;
   }, [status, entry, drawsMap, targetRound]);
 
-  /** 카운트다운 (잠금 상태일 때). */
+  /** 카운트다운: 잠금이면 다음 수요일까지, active면 토요일 20시까지. */
   const countdown = useMemo(() => {
-    if (status !== 'locked') return null;
-    const ms = msToNextReceive();
-    return ms != null ? formatCountdown(ms) : null;
+    if (status === 'locked') {
+      const ms = msToNextReceive();
+      return ms != null ? formatCountdown(ms) : null;
+    }
+    if (status === 'active') {
+      const ms = msToReceiveEnd();
+      return ms != null ? formatCountdown(ms) : null;
+    }
+    return null;
   }, [status]);
 
   const saveAllCombos = () => {
