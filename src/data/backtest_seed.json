@@ -1,0 +1,12 @@
+{
+  "latestRound": 1223,
+  "rank1": 0,
+  "rank2": 3,
+  "rank3": 70,
+  "rank4": 3428,
+  "rank5": 57780,
+  "roundsTested": 30,
+  "totalCombosTested": 2550000,
+  "computedAt": 1779110534292,
+  "algorithm": "JACKPOT_UNION_lite_v2"
+}

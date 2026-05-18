@@ -11,6 +11,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
+import backtestSeed from '@/src/data/backtest_seed.json';
 
 export type JachanismEntry = {
   round: number;
@@ -52,12 +53,29 @@ function genSeed(): string {
   return `${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
 }
 
+/**
+ * 출시 시점에 미리 계산된 30회차 백테스트 시드.
+ * Python 스크립트(backtest.py)가 생성한 결과이며, app/src/data/backtest_seed.json에 번들됨.
+ * 첫 실행 사용자는 계산 대기 없이 즉시 통계를 본다.
+ */
+const seedCache: BacktestCache = {
+  latestRound: backtestSeed.latestRound,
+  rank1: backtestSeed.rank1,
+  rank2: backtestSeed.rank2,
+  rank3: backtestSeed.rank3,
+  rank4: backtestSeed.rank4,
+  rank5: backtestSeed.rank5,
+  roundsTested: backtestSeed.roundsTested,
+  totalCombosTested: backtestSeed.totalCombosTested,
+  computedAt: backtestSeed.computedAt,
+};
+
 export const useJachanism = create<JachanismState>()(
   persist(
     (set, get) => ({
       deviceSeed: genSeed(),
       weekly: {},
-      backtest: null,
+      backtest: seedCache,  // 번들된 30회 결과 (latestRound 일치 시 즉시 사용)
       computing: false,
 
       receive: (round, combos) =>
@@ -81,8 +99,18 @@ export const useJachanism = create<JachanismState>()(
       setComputing: (b) => set({ computing: b }),
     }),
     {
-      name: 'lottofinder.jachanism.v1',
+      name: 'lottofinder.jachanism.v2',  // v2: 번들 백테스트 시드 도입
       storage: createJSONStorage(() => AsyncStorage),
+      version: 2,
+      // 기존 persist 데이터에 backtest가 없거나 latestRound 불일치면 seed 사용
+      merge: (persistedState, currentState) => {
+        const merged = { ...currentState, ...(persistedState as Partial<JachanismState>) };
+        const p = persistedState as Partial<JachanismState> | undefined;
+        if (!p?.backtest || p.backtest.latestRound !== seedCache.latestRound) {
+          merged.backtest = seedCache;
+        }
+        return merged;
+      },
       // deviceSeed는 첫 마운트 시 store가 만든 값으로 영속됨 → 이후엔 그대로 사용
     },
   ),
