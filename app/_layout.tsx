@@ -97,6 +97,7 @@ export default function RootLayout() {
           <Stack.Screen name="pro-regression" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="pro-analysis-methods" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="pro-predict" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="pro-jachanism" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="pro-performance" options={{ animation: 'slide_from_right' }} />
         </Stack>
       </ThemeProvider>

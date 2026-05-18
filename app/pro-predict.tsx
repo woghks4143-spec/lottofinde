@@ -875,10 +875,10 @@ export default function ProPredict() {
           </T>
           <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8, marginTop: 8 }}>
             <T variant="title2" allowFontScaling={false} style={{ fontWeight: '900', color: overallAccuracy.avg >= 3 ? palette.red500 : overallAccuracy.avg >= 2.5 ? GOLD_DARK : t.fgSecondary }}>
-              {overallAccuracy.avg.toFixed(2)}점
+              {overallAccuracy.avg.toFixed(2)}개
             </T>
             <T variant="caption1" color="tertiary" style={{ fontSize: 12 }}>
-              평균 적중 / 6.5점 만점 (보너스 0.5)
+              평균 적중 / 6.5개 만점 (보너스 0.5)
             </T>
           </View>
         </Card>

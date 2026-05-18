@@ -71,7 +71,18 @@ export default function ProGen() {
           </T>
         </View>
 
-        {/* ─── 1. 조합 필터링 (PRO) ─────────────────────────────── */}
+        {/* ─── 1. 귀찮이즘 조합 (PRO 전용) ─────────────────────── */}
+        <ProFeatureCard
+          emoji="✨"
+          tag="PRO"
+          title="귀찮이즘 조합"
+          fromFree="— (PRO 전용)"
+          desc="분석이 귀찮은 분을 위한 PRO 멤버십 전용 기능. 매주 일요일 통계 분석 자동 실행 → 수요일 00:00부터 분석 결과 50조합 받기 → 토요일 추첨 후 등수 결과 자동 확인. (참고용 — 당첨 보장 X)"
+          preview={<PreviewJachanism />}
+          onPress={() => router.push('/pro-jachanism' as any)}
+        />
+
+        {/* ─── 2. 조합 필터링 (PRO) ─────────────────────────────── */}
         <ProFeatureCard
           emoji="🎛️"
           tag="PRO"
@@ -88,6 +99,66 @@ export default function ProGen() {
         <Disclaimer short />
       </ScrollView>
     </SafeAreaView>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   미리보기 — 귀찮이즘 조합 (주간 사이클)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+function PreviewJachanism() {
+  const t = useTheme();
+  const days = [
+    { d: '일', state: '분석', color: palette.purple500 },
+    { d: '월', state: '대기', color: '#999' },
+    { d: '화', state: '대기', color: '#999' },
+    { d: '수', state: '받기', color: palette.green700, active: true },
+    { d: '목', state: '받기', color: palette.green700, active: true },
+    { d: '금', state: '받기', color: palette.green700, active: true },
+    { d: '토', state: '추첨', color: palette.red500 },
+  ];
+  return (
+    <View>
+      <View style={{ flexDirection: 'row', gap: 4, marginBottom: 10 }}>
+        {days.map((d) => (
+          <View
+            key={d.d}
+            style={[
+              styles.dayChip,
+              {
+                backgroundColor: d.active ? d.color + '20' : t.bgSurface,
+                borderColor: d.active ? d.color : t.borderDivider,
+                borderWidth: d.active ? 1.5 : 1,
+              },
+            ]}
+          >
+            <T
+              variant="caption2"
+              allowFontScaling={false}
+              style={{ fontSize: 10, fontWeight: '800', color: d.active ? d.color : '#888' }}
+            >
+              {d.d}
+            </T>
+            <T
+              variant="caption2"
+              allowFontScaling={false}
+              style={{ fontSize: 8, color: d.active ? d.color : '#aaa', marginTop: 1 }}
+            >
+              {d.state}
+            </T>
+          </View>
+        ))}
+      </View>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+        <T allowFontScaling={false} style={{ fontSize: 14 }}>✨</T>
+        <T variant="caption2" allowFontScaling={false} style={{ fontSize: 11, color: GOLD_DARK, fontWeight: '800' }}>
+          50조합 / 주
+        </T>
+        <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10.5, color: '#888' }}>
+          · 약 84,253조합 풀에서
+        </T>
+      </View>
+    </View>
   );
 }
 
@@ -285,6 +356,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
 
+  dayChip: {
+    flex: 1,
+    paddingVertical: 6,
+    paddingHorizontal: 2,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   groupChip: {
     flexDirection: 'row',
     alignItems: 'center',

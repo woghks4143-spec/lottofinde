@@ -290,16 +290,18 @@ export default function ProFilter() {
   }), [filter]);
   const totalActive = activeCounts.num + activeCounts.sum + activeCounts.consec + activeCounts.math + activeCounts.round;
 
-  // 깔때기 계산 (번호 정확, 나머지는 rejection sampling)
+  // 깔때기 계산 (번호 정확, 나머지는 rejection sampling).
+  // 시드된 RNG → 같은 필터면 항상 같은 추정치 (페이지 재진입 / 평균치 재적용 시 일관)
   const funnel = useMemo(() => {
     const TOTAL = 8145060;
     const numTotal = exactNumFilterCount(filter);
     if (numTotal === 0) return { total: TOTAL, num: 0, sum: 0, consec: 0, math: 0, final: 0, finalPct: 0 };
 
     const trials = 4000;
+    const rng = mulberry32(hashFilter(filter));
     let pSum = 0, pConsec = 0, pMath = 0, pAll = 0;
     for (let i = 0; i < trials; i++) {
-      const c = sampleFromPool(filter);
+      const c = sampleFromPool(filter, rng);
       if (!c) continue;
       if (!passSumFilter(c, filter)) continue;
       pSum++;
@@ -1316,7 +1318,49 @@ function hintFg(m: NumberMode): string {
    샘플링 & 필터 평가
    ═══════════════════════════════════════════════════════════════════════════ */
 
-function sampleFromPool(f: Filter): number[] | null {
+/**
+ * 시드된 PRNG (Mulberry32) — funnel 추정에서 결정론적 결과를 보장하기 위해 사용.
+ * 같은 시드 → 같은 시퀀스. generate()에선 Math.random()을 그대로 써서 매번 다른
+ * 조합이 나오도록 분리한다.
+ */
+function mulberry32(seed: number): () => number {
+  let a = seed >>> 0;
+  return () => {
+    a = (a + 0x6d2b79f5) | 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/** 필터 전체 상태를 32비트 해시로 변환 → funnel 시드. */
+function hashFilter(f: Filter): number {
+  const arr = (xs: (number | string)[]) => [...xs].sort().join(',');
+  const s = [
+    arr(f.pool), arr(f.fixed), arr(f.exclude),
+    f.sumMin, f.sumMax, f.tailMin, f.tailMax,
+    arr(f.oddAllow), arr(f.lowAllow), arr(f.acAllow),
+    arr(f.sameTailAllow), arr(f.consecAllow),
+    arr(f.poolTails), arr(f.requiredTails),
+    arr(f.decade0Allow), arr(f.decade1Allow), arr(f.decade2Allow),
+    arr(f.decade3Allow), arr(f.decade4Allow),
+    arr(f.excludeGoongs), arr(f.includeGoongs),
+    f.segMax, f.cornerMatch,
+    arr(f.primeAllow), arr(f.compositeAllow), arr(f.twinAllow),
+    arr(f.squareAllow), arr(f.mult3Allow), arr(f.mult4Allow), arr(f.mult5Allow),
+    arr(f.carryAllow), arr(f.neighborAllow), arr(f.comp45Allow),
+  ].join('|');
+  // FNV-1a 32-bit
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function sampleFromPool(f: Filter, rng: () => number = Math.random): number[] | null {
   // 제외수 + 제외 궁 + 풀 끝수에 안 들어가는 번호를 합쳐서 효과 제외 셋 구성
   // (구간별 개수 필터는 sampling 후 passConsecFilter에서 검증)
   const excludeSet = new Set(f.exclude);
@@ -1345,7 +1389,7 @@ function sampleFromPool(f: Filter): number[] | null {
   if (needed < 0 || remaining.length < needed) return null;
   const arr = [...remaining];
   for (let i = 0; i < needed; i++) {
-    const j = i + Math.floor(Math.random() * (arr.length - i));
+    const j = i + Math.floor(rng() * (arr.length - i));
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return [...fixed, ...arr.slice(0, needed)].sort((a, b) => a - b);

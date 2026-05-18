@@ -9,7 +9,7 @@
  * 카드 탭 → 해당 기능의 디테일 페이지 (/pro-ai 등)
  * 섹션 헤더 우상단 "자세히 보기 →" → 카탈로그 깊이 페이지 (/pro-gen, /pro-analysis)
  */
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -18,6 +18,14 @@ import { AppBar } from '@/src/components/AppBar';
 import { Card } from '@/src/components/Card';
 import { Disclaimer } from '@/src/components/Disclaimer';
 import { Icon } from '@/src/components/Icons';
+import { useHistory } from '@/src/data/historyStore';
+import { useJachanism } from '@/src/store/jachanism';
+import {
+  POOL_SIZE_DISPLAY, USER_LIMIT, BACKTEST_BASE_N,
+  computeBacktest,
+  getDayStatus, msToNextReceive, formatCountdown, fmtCount,
+  type JachanismStatus,
+} from '@/src/lib/jachanism';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
 
@@ -36,7 +44,8 @@ type Feature = {
 };
 
 const GEN_FEATURES: Feature[] = [
-  { emoji: '🎛️', title: '조합 필터링', subtitle: '13가지 필터로 정밀하게 조합 추출', fromFree: '조합 필터링', tag: 'PRO', href: '/pro-filter' },
+  { emoji: '✨', title: '귀찮이즘 조합', subtitle: '주간 자동 분석 50조합 (수~금 받기)', fromFree: '— (PRO 전용)', tag: 'PRO', href: '/pro-jachanism' },
+  { emoji: '🎛️', title: '조합 필터링',  subtitle: '13가지 필터로 정밀하게 조합 추출',     fromFree: '조합 필터링',  tag: 'PRO', href: '/pro-filter' },
 ];
 
 const ANALYSIS_FEATURES: Feature[] = [
@@ -112,7 +121,11 @@ export default function Pro() {
         />
         <View style={{ gap: 8 }}>
           {GEN_FEATURES.map((f) => (
-            <ProFeatureRow key={f.href} feature={f} onPress={() => router.push(f.href as any)} />
+            f.href === '/pro-jachanism' ? (
+              <JachanismCard key={f.href} onPress={() => router.push(f.href as any)} />
+            ) : (
+              <ProFeatureRow key={f.href} feature={f} onPress={() => router.push(f.href as any)} />
+            )
           ))}
         </View>
 
@@ -215,6 +228,155 @@ function ProFeatureRow({ feature, onPress }: { feature: Feature; onPress: () => 
 
         {/* Chev */}
         <Icon.chev color={GOLD} size={16} weight={2.2} />
+      </View>
+    </Pressable>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   귀찮이즘 조합 카드 — 카탈로그에서 바로 상태 + 30회 결과 + 풀 정보 확인
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+function JachanismCard({ onPress }: { onPress: () => void }) {
+  const t = useTheme();
+  const latestRound = useHistory((s) => s.latestRound);
+  const drawsMap = useHistory((s) => s.draws);
+  const targetRound = latestRound + 1;
+  const entry = useJachanism((s) => s.weekly[targetRound]);
+  const backtest = useJachanism((s) => s.backtest);
+  const computing = useJachanism((s) => s.computing);
+  const setBacktest = useJachanism((s) => s.setBacktest);
+  const setComputing = useJachanism((s) => s.setComputing);
+
+  // 캐시가 없으면 카탈로그에서도 백테스트 트리거 (computing 플래그로 중복 방지)
+  useEffect(() => {
+    if (!latestRound) return;
+    if (backtest && backtest.latestRound === latestRound) return;
+    if (computing) return;
+    let cancelled = false;
+    (async () => {
+      setComputing(true);
+      try {
+        const stats = await computeBacktest(drawsMap, latestRound, BACKTEST_BASE_N);
+        if (!cancelled) setBacktest({ latestRound, ...stats });
+      } catch {
+        if (!cancelled) setComputing(false);
+      }
+    })();
+    return () => { cancelled = true; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [latestRound]);
+
+  const status: JachanismStatus = useMemo(() => {
+    if (drawsMap[targetRound]) return 'done';
+    return getDayStatus();
+  }, [drawsMap, targetRound]);
+
+  const countdown = useMemo(() => {
+    if (status !== 'locked') return null;
+    const ms = msToNextReceive();
+    return ms != null ? formatCountdown(ms) : null;
+  }, [status]);
+
+  const statsReady = backtest != null && backtest.latestRound === latestRound;
+
+  // 상태별 표시
+  const statusInfo = useMemo(() => {
+    if (status === 'done') {
+      return { label: '🎉 결과 보기', bg: palette.red500 + '20', color: palette.red500 };
+    }
+    if (status === 'drawing') {
+      return { label: '⏳ 추첨 진행', bg: '#ea580c20', color: '#ea580c' };
+    }
+    if (status === 'active') {
+      if (entry) {
+        return { label: '✅ 받기 완료', bg: palette.blue700 + '20', color: palette.blue700 };
+      }
+      return { label: '✨ 받기 가능', bg: palette.green700 + '20', color: palette.green700 };
+    }
+    // locked
+    return { label: `🔒 ${countdown ?? '대기'}`, bg: '#88888820', color: '#888' };
+  }, [status, entry, countdown]);
+
+  // 등수별 색상
+  const rankColors = [palette.red500, '#ea580c', GOLD_DARK, palette.blue700, palette.green700];
+
+  return (
+    <Pressable onPress={onPress} style={({ pressed }) => [{ opacity: pressed ? 0.92 : 1 }]}>
+      <View style={[styles.jachanCard, { backgroundColor: t.bgSurface, borderColor: t.borderDivider }]}>
+        {/* 좌측 골드 보더 */}
+        <View style={[styles.featBorder, { backgroundColor: GOLD }]} />
+
+        {/* 헤더 — 아이콘 + 제목 + 상태 칩 */}
+        <View style={styles.jachanHeader}>
+          <View style={[styles.featIcon, { backgroundColor: GOLD_SOFT }]}>
+            <T allowFontScaling={false} style={{ fontSize: 22 }}>✨</T>
+          </View>
+          <View style={{ flex: 1 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+              <T variant="headline2" color="primary" style={{ fontWeight: '800' }}>
+                귀찮이즘 조합
+              </T>
+              <View style={[styles.featTag, { backgroundColor: GOLD }]}>
+                <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 9 }}>
+                  PRO
+                </T>
+              </View>
+            </View>
+            <T variant="caption1" color="secondary" style={{ fontSize: 12, lineHeight: 16, marginTop: 2 }}>
+              주간 자동 분석 50조합 · 수~금 받기
+            </T>
+          </View>
+          <View style={[styles.statusChip, { backgroundColor: statusInfo.bg }]}>
+            <T variant="caption2" allowFontScaling={false} style={{ color: statusInfo.color, fontWeight: '800', fontSize: 10 }}>
+              {statusInfo.label}
+            </T>
+          </View>
+        </View>
+
+        {/* 30회 결과 — 실측 또는 분석 중 */}
+        <View style={[styles.jachanStats, { borderTopColor: t.borderDivider }]}>
+          <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10, fontWeight: '700', marginBottom: 6 }}>
+            📊 최근 {BACKTEST_BASE_N}회 분석 결과 {statsReady ? '(실측)' : ''}
+          </T>
+          {statsReady && backtest ? (
+            <View style={styles.rankMiniRow}>
+              {[backtest.rank1, backtest.rank2, backtest.rank3, backtest.rank4, backtest.rank5].map((count, i) => (
+                <View key={i} style={[styles.rankMini, { backgroundColor: rankColors[i] + '15' }]}>
+                  <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, color: rankColors[i], fontWeight: '700' }}>
+                    {i + 1}등
+                  </T>
+                  <T variant="caption2" allowFontScaling={false} style={{ fontSize: 11, color: rankColors[i], fontWeight: '900', marginTop: 2 }}>
+                    {fmtCount(count, true)}
+                  </T>
+                </View>
+              ))}
+            </View>
+          ) : (
+            <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10.5, paddingVertical: 8 }}>
+              과거 회차 백테스트 분석 중... 페이지 진입 시 자동 완료
+            </T>
+          )}
+        </View>
+
+        {/* 풀 정보 — 한 줄 */}
+        <View style={styles.jachanInfo}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, flex: 1 }}>
+            <T allowFontScaling={false} style={{ fontSize: 11 }}>👤</T>
+            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10.5, color: t.fgSecondary, fontWeight: '600' }}>
+              최대 {USER_LIMIT}조합/주
+            </T>
+          </View>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+            <T allowFontScaling={false} style={{ fontSize: 11 }}>📦</T>
+            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10.5, color: GOLD_DARK, fontWeight: '800' }}>
+              {POOL_SIZE_DISPLAY}
+            </T>
+            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 9.5, color: t.fgTertiary, marginLeft: 2 }}>
+              조합 풀
+            </T>
+          </View>
+        </View>
       </View>
     </Pressable>
   );
@@ -356,6 +518,55 @@ const styles = StyleSheet.create({
   },
 
   // ── PRO 기능 행 ──────────────────────────────────────────
+  // ── 귀찮이즘 카드 (확장형) ───────────────────────────
+  jachanCard: {
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    overflow: 'hidden',
+    paddingTop: 12,
+  },
+  jachanHeader: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    paddingLeft: 14,
+    paddingRight: 12,
+    paddingBottom: 12,
+    gap: 12,
+  },
+  statusChip: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: radius.pill,
+    alignSelf: 'flex-start',
+  },
+  jachanStats: {
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    borderTopWidth: 1,
+  },
+  rankMiniRow: {
+    flexDirection: 'row',
+    gap: 4,
+  },
+  rankMini: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 4,
+    paddingVertical: 6,
+    borderRadius: radius.sm,
+    minHeight: 44,
+  },
+  jachanInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 14,
+    paddingBottom: 12,
+    paddingTop: 4,
+    gap: 8,
+  },
+
   featRow: {
     flexDirection: 'row',
     alignItems: 'center',
