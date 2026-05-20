@@ -10,6 +10,7 @@ import { useRouter } from 'expo-router';
 import { useSafeBack } from '@/src/lib/navigation';
 import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
+import { Ball } from '@/src/components/Ball';
 import { BallRow } from '@/src/components/BallRow';
 import { Card } from '@/src/components/Card';
 import { Chip } from '@/src/components/Chip';
@@ -55,7 +56,7 @@ export default function ProGen() {
             일반 조합 필터링으로는 불가능한 다차원 + 회차 관계 + 패턴 조건까지.
           </T>
           <View style={styles.heroChips}>
-            <Chip label="🎛️ 13가지 필터" tone="invert" />
+            <Chip label="🎛️ 다중 필터" tone="invert" />
             <Chip label="📊 깔때기 시각화" tone="invert" />
             <Chip label="∞ 프리셋 저장" tone="invert" />
           </View>
@@ -88,9 +89,20 @@ export default function ProGen() {
           tag="PRO"
           title="조합 필터링"
           fromFree="조합 필터링"
-          desc="13가지 필터(번호·통계·패턴·회차 관계)를 다단계로 조합해 정밀한 조건의 조합만 추출. 필터별 후보 감소를 깔때기로 시각화하고 프리셋으로 저장/재사용."
+          desc="5그룹(번호·합계·연속·수학 속성·회차 관계)의 다중 필터를 조합해 정밀한 조건의 조합만 추출. 필터별 후보 감소를 깔때기로 시각화하고 프리셋으로 저장·재사용."
           preview={<PreviewFilter />}
           onPress={() => router.push('/pro-filter' as any)}
+        />
+
+        {/* ─── 3. 핀더분석 조합 (PRO) ──────────────────────────── */}
+        <ProFeatureCard
+          emoji="🔮"
+          tag="PRO"
+          title="핀더분석 조합"
+          fromFree="— (PRO 전용)"
+          desc="PRO 모드의 번호 분석 결과(출현 분석·패턴 분석·예상수 분석법)에서 원하는 항목만 골라서 조합 추출. 여러 분석에 공통으로 나오는 번호는 자동으로 가중치가 올라가요. 예상 제외수도 토글로 제외 가능."
+          preview={<PreviewFinderCombo />}
+          onPress={() => router.push('/pro-finder-combo' as any)}
         />
 
         {/* 비교표 */}
@@ -233,6 +245,86 @@ function FunnelRow({ label, value, pct, t, accent }: {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   미리보기 — 핀더분석 조합
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+function PreviewFinderCombo() {
+  // mock — 분석 선택 + 가중치 합쳐진 풀 미리보기
+  const sources = [
+    { label: '추천 TOP 10', selected: true, color: palette.blue500 },
+    { label: 'JH필터 3', selected: true, color: palette.purple500 },
+    { label: '이월수', selected: true, color: GOLD },
+    { label: '회귀 분석', selected: false, color: '#888' },
+  ];
+  // 가상의 풀 (중복 가중치 시각화)
+  const poolNums = [
+    { n: 7, w: 3 },
+    { n: 12, w: 2 },
+    { n: 18, w: 1 },
+    { n: 23, w: 2 },
+    { n: 33, w: 1 },
+    { n: 41, w: 1 },
+  ];
+  return (
+    <View style={{ gap: 8 }}>
+      {/* 선택 체크박스 */}
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6 }}>
+        {sources.map((s) => (
+          <View
+            key={s.label}
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 4,
+              paddingHorizontal: 7,
+              paddingVertical: 3,
+              borderRadius: 99,
+              backgroundColor: s.selected ? s.color + '20' : 'transparent',
+              borderWidth: 1,
+              borderColor: s.selected ? s.color : 'rgba(127,127,127,0.25)',
+            }}
+          >
+            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 9, fontWeight: '900', color: s.selected ? s.color : '#999' }}>
+              {s.selected ? '✓' : '○'}
+            </T>
+            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, fontWeight: '700', color: s.selected ? s.color : '#888' }}>
+              {s.label}
+            </T>
+          </View>
+        ))}
+      </View>
+      {/* 풀 미리보기 (가중치 ×N) */}
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+        <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, fontWeight: '700', color: '#888' }}>
+          풀:
+        </T>
+        {poolNums.map((p) => (
+          <View key={p.n} style={{ position: 'relative' }}>
+            <Ball n={p.n} size="xs" />
+            {p.w > 1 && (
+              <View style={{
+                position: 'absolute',
+                top: -3, right: -3,
+                backgroundColor: palette.red500,
+                borderRadius: 6,
+                paddingHorizontal: 3,
+                paddingVertical: 0,
+                minWidth: 12,
+                alignItems: 'center',
+              }}>
+                <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 7, fontWeight: '900' }}>
+                  ×{p.w}
+                </T>
+              </View>
+            )}
+          </View>
+        ))}
+      </View>
+    </View>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
    공통 보조 컴포넌트
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -280,11 +372,13 @@ function ProFeatureCard({ emoji, tag, title, fromFree, desc, preview, onPress }:
 function ComparisonTable() {
   const t = useTheme();
   const rows = [
-    { label: '필터 차원',         free: '8개',     pro: '13개' },
-    { label: '회차 관계 필터',     free: '이월수만', pro: '4종' },
-    { label: '패턴 필터',         free: '✗',       pro: '4종' },
-    { label: '깔때기 시각화',     free: '✗',       pro: '✓' },
-    { label: '프리셋 저장',       free: '✗',       pro: '∞ 무제한' },
+    { label: '조합 생성 도구',    free: '랜덤·가중·통계 등', pro: '귀찮이즘 · 필터링 · 핀더분석' },
+    { label: '주간 자동 분석',    free: '✗',                pro: '귀찮이즘 조합 50개/주' },
+    { label: '필터 그룹',         free: '제한적',            pro: '5그룹 다중 필터' },
+    { label: '회차 관계 필터',     free: '이월수만',          pro: '다양한 회차 관계' },
+    { label: '깔때기 시각화',     free: '✗',                pro: '✓' },
+    { label: '핀더분석 조합',     free: '✗',                pro: '다중 분석 합성 추출' },
+    { label: '프리셋 저장',       free: '✗',                pro: '∞ 무제한' },
   ];
   return (
     <Card padding={16}>

@@ -49,8 +49,9 @@ export function Ball({
         !dashedRing && style,
       ]}
     >
-      {/* Inner highlights (top white sheen + bottom dark rim) for tactile look */}
-      {!outline && <View pointerEvents="none" style={[styles.sheen, { borderRadius: d / 2 }]} />}
+      {/* 평평한 솔리드 공 디자인 — 동행복권 공식 컬러를 그대로 사용.
+          이전엔 sheen(흰 위/검은 아래 테두리)이 있었으나 작은 사이즈와 옅은 색
+          (회색/연파랑)에서 색이 빠진 것처럼 보이는 부작용이 있어 제거. */}
       <Text
         style={[
           styles.text,
@@ -91,27 +92,18 @@ const styles = StyleSheet.create({
   base: {
     alignItems: 'center',
     justifyContent: 'center',
+    // 가벼운 그림자만 유지 — 평면 디자인이지만 살짝 떠 있는 느낌.
     shadowColor: '#000',
-    shadowOpacity: 0.18,
+    shadowOpacity: 0.12,
     shadowOffset: { width: 0, height: 1 },
     shadowRadius: 2,
-    elevation: 2,
+    elevation: 1,
   },
   outline: {
     borderWidth: 1.5,
     borderColor: 'rgba(112,115,124,0.22)',
     shadowOpacity: 0,
     elevation: 0,
-  },
-  sheen: {
-    position: 'absolute',
-    inset: 0,
-    // RN doesn't support `inset` shorthand pre-0.71, fall back to t/r/b/l:
-    top: 0, right: 0, bottom: 0, left: 0,
-    borderTopWidth: 2,
-    borderTopColor: 'rgba(255,255,255,0.35)',
-    borderBottomWidth: 2,
-    borderBottomColor: 'rgba(0,0,0,0.18)',
   },
   text: {
     fontFamily: FONT_FAMILY.extrabold,

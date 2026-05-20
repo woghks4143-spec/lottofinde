@@ -1,12 +1,12 @@
 /**
  * 귀찮이즘 조합 — PRO 멤버십 전용 주간 자동 분석 기능.
  *
- * 매주 토요일 추첨 후 일요일 분석 → 수~금 받기 → 토 추첨.
- * 한 회차당 받은 조합 50개를 보관하며, 추첨 완료 후 등수 결과를 함께 표시한다.
+ * 매주 월요일 분석 → 수~토 20시 받기 → 토 20:35 추첨.
+ * 한 회차당 최대 50조합까지 받을 수 있으며, 원하는 만큼 나눠 받을 수 있다.
+ * (예: 10개 받고 나중에 20개 더 받기. 단 한 회차 총합 50개 한도.)
  *
  * deviceSeed는 첫 실행 시 1회만 생성·영속되어, 같은 기기는 같은 회차에서
- * 항상 동일한 50조합을 생성한다. (실제 서비스에서는 서버가 사용자별 unique
- * 조합을 발급하지만, 클라이언트 단독 운영 시에도 기기 단위 안정성을 보장.)
+ * 항상 동일한 조합 순서를 가진다.
  */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
@@ -15,8 +15,12 @@ import backtestSeed from '@/src/data/backtest_seed.json';
 
 export type JachanismEntry = {
   round: number;
+  /** 최초 받기 시각 (이후 추가 수령해도 갱신 X). */
   receivedAt: number;
-  combos: number[][]; // 50조합, 각 조합 6개 번호 (오름차순)
+  /** 마지막 추가 수령 시각. */
+  lastReceivedAt: number;
+  /** 현재까지 받은 조합들 (오름차순 6번호씩). 최대 50개. */
+  combos: number[][];
 };
 
 /** 백테스트 캐시 — latestRound 기준 1회 계산 후 영속. */
@@ -38,7 +42,7 @@ type JachanismState = {
   /** 백테스트 계산 중 중복 실행 방지 플래그. */
   computing: boolean;
 
-  /** 조합 50개를 해당 회차에 기록. */
+  /** 조합 N개를 해당 회차에 추가 (이미 받은 게 있으면 append). */
   receive: (round: number, combos: number[][]) => void;
   has: (round: number) => boolean;
   /** 개발/테스트용: 특정 회차 받기 기록 삭제. */
@@ -79,12 +83,14 @@ export const useJachanism = create<JachanismState>()(
       computing: false,
 
       receive: (round, combos) =>
-        set((state) => ({
-          weekly: {
-            ...state.weekly,
-            [round]: { round, receivedAt: Date.now(), combos },
-          },
-        })),
+        set((state) => {
+          const prev = state.weekly[round];
+          const now = Date.now();
+          const merged = prev
+            ? { round, receivedAt: prev.receivedAt, lastReceivedAt: now, combos: [...prev.combos, ...combos] }
+            : { round, receivedAt: now, lastReceivedAt: now, combos };
+          return { weekly: { ...state.weekly, [round]: merged } };
+        }),
 
       has: (round) => round in get().weekly,
 

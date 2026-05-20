@@ -60,6 +60,55 @@ export function expectedLatestRound(today: Date = new Date()): number {
   return 1 + Math.floor((sat - start) / (7 * 86_400_000));
 }
 
+/**
+ * 현재 시각이 동행복권 추첨 결과 공개 윈도우 안인지 확인한다.
+ *
+ * 공식 일정 (KST 기준):
+ *   - 토요일 20:35 — MBC 추첨 생방송
+ *   - 토요일 20:40~20:50 — 당첨번호 공개
+ *   - 토요일 20:50~21:00 — 등위별 인원/당첨금 공개
+ *   - 토요일 21:00~다음날 새벽 — 1·2등 배출 판매점 공개
+ *
+ * 이 함수는 "새 회차 데이터가 나올 가능성이 있는 시간대"를 반환한다:
+ *   - 토요일 20:30 ~ 다음날(일) 03:00 KST → true (적극 페치)
+ *   - 그 외 시간 → false (이미 최신, 페치 스킵)
+ *
+ * 일요일~금요일 + 토요일 새벽~저녁은 새 회차가 나올 리 없으므로 페치하지 않는다.
+ * → 동행복권 서버 부하 ↓, 사용자 데이터/배터리 ↓
+ */
+export function isDrawWindow(now: Date = new Date()): boolean {
+  // KST = UTC+9. 서버/디바이스 타임존 무관하게 계산.
+  const kstMs = now.getTime() + 9 * 3600_000;
+  const kst = new Date(kstMs);
+  const dow = kst.getUTCDay(); // 0=일, 6=토
+  const hour = kst.getUTCHours();
+  const min = kst.getUTCMinutes();
+
+  // 토요일 20:30 이후
+  if (dow === 6 && (hour > 20 || (hour === 20 && min >= 30))) return true;
+  // 일요일 03:00 이전
+  if (dow === 0 && hour < 3) return true;
+  return false;
+}
+
+/**
+ * 다음 토요일 20:30 KST까지 남은 밀리초.
+ * 추첨 윈도우 밖에서 "다음 추첨까지 N시간" 같은 UI에 쓸 수 있다.
+ */
+export function msUntilNextDraw(now: Date = new Date()): number {
+  const kstMs = now.getTime() + 9 * 3600_000;
+  const kst = new Date(kstMs);
+  const dow = kst.getUTCDay();
+  const daysUntilSat = (6 - dow + 7) % 7;
+  const target = new Date(kst);
+  target.setUTCDate(kst.getUTCDate() + daysUntilSat);
+  target.setUTCHours(20, 30, 0, 0);
+  if (target.getTime() <= kst.getTime()) {
+    target.setUTCDate(target.getUTCDate() + 7);
+  }
+  return target.getTime() - kst.getTime();
+}
+
 async function fetchWithTimeout(url: string): Promise<Response> {
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), TIMEOUT_MS);

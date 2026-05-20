@@ -40,12 +40,12 @@ export default function ProAnalysis() {
       />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
 
-        {/* ─── 0. 솔이 예상수 PRO (메인 추천) ───────────────── */}
+        {/* ─── 0. 핀더 예상 제외수 PRO (메인 추천) ───────────────── */}
         <ProFeatureCard
           emoji="🌟"
           tag="PRO"
-          title="솔이 예상수 PRO"
-          desc="일반 모드의 예상수 10수 분석을 넘어 10가지 분석법(이월수·이웃수·-45·동일날짜·궁합수 Lift·회귀 패턴·끝수·시루 등)을 백테스트 가중치로 합쳐서 20수 예측. 최근 30회 시스템 정확도 + 메소드별 정밀도 표시."
+          title="핀더 예상 제외수"
+          desc="핀더 예상 20수 + 예상 제외수 3개를 한 화면에서. 최근 30회 평균 매칭과 적중 분포로 통계 검증. 회차 이동으로 과거 시점 분석도 가능."
           preview={<PreviewPredict />}
           onPress={() => router.push('/pro-predict' as any)}
         />
@@ -85,7 +85,7 @@ export default function ProAnalysis() {
         <ProFeatureCard
           emoji="📊"
           tag="PRO"
-          title="주간 출현 PRO"
+          title="주간 출현"
           desc="일반 모드의 5/10/15/20/30주 고정 칩을 넘어 회차 범위 자유 지정 + 4단계 티어(자주/보통이상/보통이하/거의안나옴) + 번호별 시계열 추이 + 두 기간 비교 + 평이한 인사이트까지."
           preview={<PreviewWeekly />}
           onPress={() => router.push('/pro-weekly' as any)}
@@ -95,8 +95,8 @@ export default function ProAnalysis() {
         <ProFeatureCard
           emoji="🤝"
           tag="PRO"
-          title="궁합수 PRO"
-          desc="일반 모드의 단일 번호 분석을 넘어 다중 번호(최대 5개) 합산 궁합 + 궁합 트리오 TOP 10(3개 짝궁) + 자동 추천 조합 5개 생성 + 평균 대비 궁합 강도까지."
+          title="궁합수"
+          desc="일반 모드의 단일 번호 분석을 넘어 다중 번호(최대 5개) 합산 궁합 + 짝궁 TOP 10 + 안 어울리는 번호 BOTTOM 5 + 궁합 트리오 TOP 10까지."
           preview={<PreviewCompat />}
           onPress={() => router.push('/pro-compat' as any)}
         />
@@ -105,7 +105,7 @@ export default function ProAnalysis() {
         <ProFeatureCard
           emoji="🔁"
           tag="PRO"
-          title="회귀분석 PRO"
+          title="회귀분석"
           desc="일반 모드의 100회귀 단순 리스트를 넘어 1~500회귀까지 확장 + 두 가지 TOP 10 랭킹(📊 회귀률 / 🔥 최근 연속 회귀)을 같은 카드에서 탭 전환. 행 탭으로 K 즉시 적용."
           preview={<PreviewRegression />}
           onPress={() => router.push('/pro-regression' as any)}
@@ -115,10 +115,30 @@ export default function ProAnalysis() {
         <ProFeatureCard
           emoji="🧪"
           tag="PRO"
-          title="분석법 비교 PRO"
+          title="분석법 비교"
           desc="종합·동일날짜·이월수·이웃수·-45 다섯 가지 분석법을 한 화면에서 회차 이동(◀▶ 또는 회차 직접 입력)으로 비교. 추첨 예정 회차에서는 다음 회차 후보를, 추첨 완료 회차에서는 실제 매칭 결과를 점선 강조로 표시."
           preview={<PreviewMethods />}
           onPress={() => router.push('/pro-analysis-methods' as any)}
+        />
+
+        {/* ─── 5. 패턴 분석 PRO ────────────────────────────── */}
+        <ProFeatureCard
+          emoji="🎯"
+          tag="PRO"
+          title="패턴 분석"
+          desc="JH필터 10종을 종합 시트에서 한 번에 확인하거나, 각 필터별 시트에서 회차별 결과·과거 적중 이력을 비교 분석. 회차 이동(◀▶ / 직접 입력)으로 자유로운 분석."
+          preview={<PreviewPattern />}
+          onPress={() => router.push('/pro-pattern-analysis' as any)}
+        />
+
+        {/* ─── 6. 출현 분석 PRO ────────────────────────────── */}
+        <ProFeatureCard
+          emoji="🎨"
+          tag="PRO"
+          title="출현 분석"
+          desc="1번 ~ 45번 각 번호의 출현 패턴을 한눈에. 통계 지표 TOP · 상위 10 · 구간 비교 · 회차 이동으로 과거 시점 분석까지. 정렬 4종(번호순·출현 많음·장기 미출현·임박도)으로 관점 전환."
+          preview={<PreviewAppearance />}
+          onPress={() => router.push('/pro-appearance-stats' as any)}
         />
 
         {/* 비교표 */}
@@ -209,7 +229,7 @@ function PreviewCompat() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   미리보기 — 솔이 예상수 PRO
+   미리보기 — 핀더 예상 제외수 PRO
    ═══════════════════════════════════════════════════════════════════════════ */
 
 function PreviewPredict() {
@@ -219,7 +239,7 @@ function PreviewPredict() {
     <View style={{ gap: 8 }}>
       <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 6 }}>
         <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, fontWeight: '800', color: GOLD_DARK }}>
-          🌟 솔이 예상수 TOP 10
+          🌟 핀더 예상 제외수 TOP 10
         </T>
         <T variant="caption2" allowFontScaling={false} style={{ fontSize: 9, color: '#888', fontWeight: '600' }}>
           (20수 중)
@@ -334,6 +354,77 @@ function PreviewMethods() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   미리보기 — 패턴 분석 PRO
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+function PreviewPattern() {
+  // mock — JH필터 4종 미리보기 칩 (크기 다양함)
+  const filters = [
+    { label: 'JH필터 1', size: 13, color: palette.green700 },
+    { label: 'JH필터 3', size: 13, color: palette.purple500 },
+    { label: 'JH필터 5', size: 25, color: palette.blue700 },
+    { label: 'JH필터 7', size: 32, color: '#a37116' },
+  ];
+  return (
+    <View style={{ gap: 8 }}>
+      {filters.map((f) => (
+        <View key={f.label} style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+          <View style={{
+            paddingHorizontal: 8, paddingVertical: 2,
+            borderRadius: 99,
+            backgroundColor: f.color + '20',
+            minWidth: 70, alignItems: 'center',
+          }}>
+            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, fontWeight: '800', color: f.color }}>
+              {f.label}
+            </T>
+          </View>
+          <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10.5, color: '#888', fontWeight: '600' }}>
+            영역 {f.size}개
+          </T>
+          <View style={{ flex: 1 }} />
+          <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, color: palette.red500, fontWeight: '800' }}>
+            {Math.floor(Math.random() * 3) + 1}개 출현
+          </T>
+        </View>
+      ))}
+    </View>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   미리보기 — 출현 분석 PRO
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+function PreviewAppearance() {
+  // mock — 3개 번호의 stat 카드 미리보기 (막대 + 임박도)
+  const rows = [
+    { n: 7, count: 172, ratio: 0.95, stars: 5, label: '🚨' },
+    { n: 23, count: 156, ratio: 0.86, stars: 3, label: '🌙' },
+    { n: 41, count: 148, ratio: 0.81, stars: 2, label: '🔥' },
+  ];
+  return (
+    <View style={{ gap: 8 }}>
+      {rows.map((r) => (
+        <View key={r.n} style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+          <T allowFontScaling={false} style={{ fontSize: 12, width: 16 }}>{r.label}</T>
+          <Ball n={r.n} size="xs" />
+          <View style={{ flex: 1, height: 6, borderRadius: 3, backgroundColor: 'rgba(127,127,127,0.18)', overflow: 'hidden' }}>
+            <View style={{ width: `${r.ratio * 100}%`, height: '100%', backgroundColor: palette.blue500 }} />
+          </View>
+          <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, color: palette.blue700, fontWeight: '800', minWidth: 36 }}>
+            {r.count}회
+          </T>
+          <T variant="caption2" allowFontScaling={false} style={{ fontSize: 9, color: palette.red500, fontWeight: '800' }}>
+            {'★'.repeat(r.stars)}
+          </T>
+        </View>
+      ))}
+    </View>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
    공통 컴포넌트
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -380,20 +471,18 @@ function ProFeatureCard({ emoji, tag, title, desc, preview, onPress }: {
 function ComparisonTable() {
   const t = useTheme();
   const rows = [
-    { label: '예상수 분석',     free: '10수 (8방법)',        pro: '20수 (10방법 + 백테스트)' },
+    { label: '예상수 분석',     free: '10수',                pro: '20수 + 예상 제외수 3개' },
     { label: '회차 범위',       free: '5/10/15/20/30 고정', pro: '1~전체 자유 지정' },
-    { label: '티어 분류',       free: '상위/하위 5',         pro: '4단계' },
-    { label: '시계열 추이',     free: '✗',                  pro: '번호별 추이 차트' },
+    { label: '티어 분류',       free: '상위/하위 5',         pro: '4단계 + 시계열 추이' },
     { label: '궁합수 선택',     free: '1개만',               pro: '최대 5개 합산' },
     { label: '궁합 점수',       free: '단순 횟수',           pro: 'Lift (우연 대비 배수)' },
-    { label: '궁합 트리오',     free: '✗',                  pro: 'TOP 10 (3개 짝궁)' },
-    { label: '회귀 K 범위',     free: '1~100',               pro: '1~500 (5배 확장)' },
-    { label: '회귀률 TOP 10',   free: '✗',                  pro: '평균 이월률 순위' },
-    { label: '최근 연속 회귀 TOP 10', free: '✗',            pro: '진행 중 K-streak' },
-    { label: '랭킹 → K 전환',   free: '✗',                  pro: '행 탭 즉시 전환' },
-    { label: '분석법 비교 (5종)', free: '✓',                pro: '✓ + 끝수·시루 추가' },
-    { label: '자동 추천 조합',  free: '✗',                  pro: '5개 자동 생성' },
-    { label: '자동 인사이트',   free: '✗',                  pro: '✓' },
+    { label: '궁합 트리오',     free: '✗',                  pro: 'TOP 10' },
+    { label: '안 어울리는 번호', free: 'BOTTOM 5',            pro: 'BOTTOM 5 (다중 번호)' },
+    { label: '회귀 K 범위',     free: '1~100',               pro: '1~500' },
+    { label: '회귀 TOP 10',    free: '✗',                  pro: '회귀률 + 연속 회귀' },
+    { label: '분석법 비교',     free: '5종',                pro: '7종 (+끝수·시루)' },
+    { label: '패턴 분석',       free: '4종 위치 패턴',       pro: 'JH필터 10종 + 종합' },
+    { label: '출현 분석',       free: '히트맵',              pro: '추천 TOP 10 + 구간 추천' },
   ];
   return (
     <Card padding={16}>

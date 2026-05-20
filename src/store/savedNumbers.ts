@@ -14,7 +14,7 @@ import type { Rank } from '@/src/data/lotto';
 import { rank, sort6 } from '@/src/data/lotto';
 import { useHistory } from '@/src/data/historyStore';
 
-export type GameSource = 'qr' | 'manual' | 'gen' | 'simulator';
+export type GameSource = 'qr' | 'manual' | 'gen' | 'simulator' | 'jachanism';
 export type GameLabel = 'A' | 'B' | 'C' | 'D' | 'E';
 
 export type SavedGame = {

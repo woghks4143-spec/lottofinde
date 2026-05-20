@@ -2,7 +2,7 @@
  * 기능 탭 — 부가 기능 hub + 화면 설정.
  *
  * 1) 화면 설정 — 테마(시스템/라이트/다크), 큰 글씨
- * 2) 기능 — 당첨 확인, 가중치 뽑기, 판매점, 알림(준비중) 등
+ * 2) 기능 — 판매점, 알림, 데이터 백업, 책임 있는 구매
  */
 import React from 'react';
 import { Linking, Pressable, ScrollView, StyleSheet, Switch, View } from 'react-native';
@@ -36,18 +36,6 @@ export default function Features() {
 
   const entries: Entry[] = [
     {
-      emoji: '✅',
-      title: '당첨 확인',
-      desc: 'QR 스캔 또는 직접 입력으로 회차 매칭 확인',
-      onPress: () => router.push('/(simple)/check' as any),
-    },
-    {
-      emoji: '🎛️',
-      title: '가중치 뽑기',
-      desc: '1~45 각 번호의 확률을 직접 조정해 뽑기',
-      onPress: () => router.push('/weighted-pick' as any),
-    },
-    {
       emoji: '📍',
       title: '판매점 찾기',
       desc: '동행복권 공식 판매점 안내',
@@ -56,22 +44,38 @@ export default function Features() {
     {
       emoji: '🔔',
       title: '알림 설정',
-      desc: '추첨 임박·당첨 결과 푸시 알림',
-      onPress: () => {},
-      comingSoon: true,
+      desc: '추첨 임박·당첨 결과 등 주간 알림',
+      onPress: () => router.push('/notifications' as any),
     },
     {
       emoji: '💾',
       title: '데이터 백업',
-      desc: '내 번호·룰을 파일로 백업/복원',
-      onPress: () => {},
-      comingSoon: true,
+      desc: '내 번호·룰을 JSON 파일로 백업/복원',
+      onPress: () => router.push('/data-backup' as any),
     },
     {
-      emoji: 'ℹ️',
+      emoji: '🛡️',
       title: '책임 있는 구매',
-      desc: '복권은 책임 있는 범위에서 즐겨주세요',
-      onPress: () => Linking.openURL('https://www.dhlottery.co.kr/contents.do?method=responsibilityGame1').catch(() => {}),
+      desc: '도박 자기 진단 · 1336 상담 연결',
+      onPress: () => router.push('/responsible-purchase' as any),
+    },
+    {
+      emoji: '📮',
+      title: '문의하기',
+      desc: '오류 신고 · 기능 제안 · 결제 문의',
+      onPress: () => router.push('/contact' as any),
+    },
+    {
+      emoji: '📄',
+      title: '이용약관',
+      desc: '서비스 이용 조건 및 결제 정책',
+      onPress: () => router.push('/terms-of-service' as any),
+    },
+    {
+      emoji: '🔒',
+      title: '개인정보처리방침',
+      desc: '저장하는 정보와 처리 방식',
+      onPress: () => router.push('/privacy-policy' as any),
     },
   ];
 

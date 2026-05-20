@@ -56,11 +56,12 @@ export const palette = {
 
 // ─── Lotto ball colors (Dong-Haeng official palette) ───────────────────────
 // 1-10 yellow, 11-20 blue, 21-30 red, 31-40 gray, 41-45 green
+// gray는 공식 톤(#aaaaaa)보다 조금 진하게 — 흰 배경에서 가독성 향상.
 export const ballPalette = {
   yellow: '#fbc400',
   blue: '#69c8f2',
   red: '#ff7272',
-  gray: '#aaaaaa',
+  gray: '#8b8b8d',
   green: '#b0d840',
 } as const;
 

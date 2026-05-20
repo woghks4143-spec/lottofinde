@@ -208,24 +208,45 @@ export async function fetchWeeklyPool(round: number): Promise<WeeklyPool | null>
 }
 
 /**
- * 회차의 주간 풀에서 deviceSeed로 결정적 USER_LIMIT개를 뽑아온다.
- * 풀이 없으면 null → generateUserCombos로 폴백 가능.
+ * 회차의 주간 풀에서 deviceSeed로 결정적 USER_LIMIT개 슬롯을 뽑은 뒤,
+ * 그중 [offset, offset+count) 범위만 반환. 부분 수령 시 다음 N개를 가져올 때 사용.
+ *
+ * deviceSeed × round 시드는 고정이므로, 같은 기기는 항상 같은 순서로 50개를 받는다.
  */
 export function pickUserCombosFromPool(
   pool: WeeklyPool,
   round: number,
   deviceSeed: string,
+  offset = 0,
+  count = USER_LIMIT,
 ): number[][] {
   const seed = hashString(`${deviceSeed}_${round}`);
   const rng = mulberry32(seed);
-  // Fisher-Yates partial shuffle: 앞 USER_LIMIT개만 섞기
   const idx = Array.from({ length: pool.combos.length }, (_, i) => i);
-  const take = Math.min(USER_LIMIT, idx.length);
-  for (let i = 0; i < take; i++) {
+  const totalSlots = Math.min(USER_LIMIT, idx.length);
+  for (let i = 0; i < totalSlots; i++) {
     const j = i + Math.floor(rng() * (idx.length - i));
     [idx[i], idx[j]] = [idx[j], idx[i]];
   }
-  return idx.slice(0, take).map((i) => pool.combos[i].slice().sort((a, b) => a - b));
+  const start = Math.max(0, Math.min(offset, totalSlots));
+  const end = Math.max(start, Math.min(offset + count, totalSlots));
+  return idx.slice(start, end).map((i) => pool.combos[i].slice().sort((a, b) => a - b));
+}
+
+/**
+ * 로컬 폴백용 — 회차 N개를 deviceSeed로 결정적 생성. offset/count로 부분 수령 지원.
+ * 풀(GitHub)이 없을 때 사용.
+ */
+export function generateUserCombosRange(
+  round: number,
+  deviceSeed: string,
+  offset = 0,
+  count = USER_LIMIT,
+): number[][] {
+  const all = generateUserCombos(round, deviceSeed);
+  const start = Math.max(0, Math.min(offset, all.length));
+  const end = Math.max(start, Math.min(offset + count, all.length));
+  return all.slice(start, end);
 }
 
 /* ─── 백테스트 ──────────────────────────────────────── */
@@ -301,9 +322,10 @@ export async function computeBacktest(
 
 /* ─── 표시 포맷 ─────────────────────────────────────── */
 
-/** 숫자 → "1,234개" 또는 "1.2K개" 표기 (compact: 카드용 짧은 표기). */
-export function fmtCount(n: number, compact = false): string {
-  if (compact && n >= 10000) return `${Math.round(n / 1000).toLocaleString()}K개`;
-  if (compact && n >= 1000) return `${(n / 1000).toFixed(1)}K개`;
+/**
+ * 숫자 → "1,234개" 표기 (시니어 친화: K/M 약어 없이 풀숫자 + 쉼표).
+ * compact 인자는 하위 호환을 위해 받지만 무시한다.
+ */
+export function fmtCount(n: number, _compact = false): string {
   return `${n.toLocaleString()}개`;
 }

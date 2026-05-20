@@ -27,7 +27,15 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "permissions": ["CAMERA", "ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"]
+      "permissions": [
+        "CAMERA",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
     },
     "web": {
       "output": "static",
@@ -43,7 +51,9 @@
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
-          "dark": { "backgroundColor": "#0a0b0d" }
+          "dark": {
+            "backgroundColor": "#0a0b0d"
+          }
         }
       ],
       [
@@ -69,11 +79,19 @@
         {
           "locationAlwaysAndWhenInUsePermission": "근처 판매점을 찾아드리기 위해 위치를 사용합니다."
         }
-      ]
+      ],
+      "expo-sqlite"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": false
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "203eb7f8-8654-4f81-b003-d32c97c036cf"
+      }
+    },
+    "owner": "finde4143"
   }
 }

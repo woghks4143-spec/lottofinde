@@ -216,7 +216,7 @@ export default function ProWeekly() {
   if (!slices || !analysis) {
     return (
       <SafeAreaView style={[styles.root, { backgroundColor: t.bgCanvas }]} edges={['top']}>
-        <AppBar title="주간 출현 PRO" onBack={goBack} />
+        <AppBar title="주간 출현" onBack={goBack} />
         <View style={{ padding: 24 }}>
           <T variant="body2r" color="secondary">데이터가 부족합니다.</T>
         </View>
@@ -230,7 +230,7 @@ export default function ProWeekly() {
         title={
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
             <Icon.crown color={GOLD} size={16} weight={2} />
-            <T variant="heading1" color="primary">주간 출현 PRO</T>
+            <T variant="heading1" color="primary">주간 출현</T>
           </View>
         }
         onBack={goBack}
@@ -411,15 +411,15 @@ export default function ProWeekly() {
                     },
                   ]}
                 >
-                  <T variant="label1n" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 13 }}>
+                  <T variant="label1n" compact allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 13 }}>
                     {n}
                   </T>
-                  <T variant="caption2" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.85)', fontSize: 8.5, marginTop: 1, fontWeight: '700' }}>
+                  <T variant="caption2" compact allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.85)', fontSize: 8.5, marginTop: 1, fontWeight: '700' }}>
                     {count}회
                   </T>
                   {compareMode && (
                     <View style={styles.changeBadge}>
-                      <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 7.5, fontWeight: '800' }}>
+                      <T variant="caption2" compact allowFontScaling={false} style={{ color: '#fff', fontSize: 7.5, fontWeight: '800' }}>
                         {fmtChange(analysis.changeMap.get(n) || 0)}
                       </T>
                     </View>

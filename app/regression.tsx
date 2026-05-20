@@ -179,6 +179,7 @@ export default function Regression() {
                       >
                         <T
                           variant="caption1"
+                          compact
                           allowFontScaling={false}
                           style={{
                             color: active ? '#fff' : t.fgPrimary,

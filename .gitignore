@@ -60,4 +60,5 @@ logs/
 # IDE / OS
 .vscode/
 .idea/
+.claude/
 Thumbs.db

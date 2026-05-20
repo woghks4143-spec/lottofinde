@@ -50,6 +50,13 @@ export default function Analysis() {
       desc: '어떤 번호가 가장 자주 함께 나왔는지',
       href: '/compat',
     },
+    {
+      emoji: '🎨',
+      bg: 'rgba(58,161,255,0.10)',
+      title: '출현 분석',
+      desc: '최근 회차별 1~45번 출현 패턴을 한눈에',
+      href: '/appearance-heatmap',
+    },
   ];
 
   // ─── 패턴 분석 — 회차 간 관계 + 위치 패턴 ─────────────────────

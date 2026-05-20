@@ -21,8 +21,7 @@ import { Disclaimer } from '@/src/components/Disclaimer';
 import { Icon } from '@/src/components/Icons';
 import { NumPicker } from '@/src/components/NumPicker';
 import { useHistory } from '@/src/data/historyStore';
-import { coOccurrence, sort6 } from '@/src/data/lotto';
-import { useSavedNumbers } from '@/src/store/savedNumbers';
+import { coOccurrence } from '@/src/data/lotto';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
 
@@ -45,21 +44,6 @@ export default function ProCompat() {
 
   const [picked, setPicked] = useState<number[]>([7, 13, 27]);
   const [range, setRange] = useState<Range>('all');
-  const [refreshSeed, setRefreshSeed] = useState(0);
-  const addMany = useSavedNumbers((s) => s.addMany);
-  const addOne = useSavedNumbers((s) => s.add);
-  const [savedToast, setSavedToast] = useState<string | null>(null);
-  // 추천 조합별 저장 여부 — refreshSeed/picked/range 변경 시 리셋
-  const [savedSet, setSavedSet] = useState<Record<number, boolean>>({});
-
-  useEffect(() => {
-    setSavedSet({});
-  }, [refreshSeed, picked, range]);
-
-  const showToast = (msg: string) => {
-    setSavedToast(msg);
-    setTimeout(() => setSavedToast(null), 2200);
-  };
 
   // newest-first 회차 배열
   const allDraws = useMemo(() => {
@@ -121,6 +105,16 @@ export default function ProCompat() {
     return items;
   }, [coMatrix, picked, draws]);
 
+  /** 안 어울리는 번호 BOTTOM 5 — lift가 가장 낮은 5개 (덜 함께 나온 번호). */
+  const worstPartners = useMemo(() => {
+    if (partners.length === 0) return [];
+    return [...partners].sort((a, b) => a.lift - b.lift).slice(0, 5);
+  }, [partners]);
+  const maxPartnerLiftBottom = Math.max(
+    ...worstPartners.map((p) => p.lift),
+    0.01,
+  );
+
   /** 궁합 트리오 — 같은 회차에 자주 함께 등장한 3개 묶음. */
   const trios = useMemo(() => {
     const counter = new Map<string, number>();
@@ -145,226 +139,6 @@ export default function ProCompat() {
     return items.slice(0, 10);
   }, [draws]);
 
-  /**
-   * 자동 추천 조합 5개 — 한쪽으로 쏠리지 않게 3-Phase로 구성.
-   *
-   *   1) 경험적 베이스라인: 과거 회차에서 picked가 한 번이라도 나온 회차의
-   *      "나머지 번호" 중 TOP-15 짝궁이 평균 몇 개 들어갔는지 측정 → 타겟치.
-   *   2) Phase A — 짝궁 (TOP-15에서 점수가중, 타겟 ± 1 jitter개).
-   *   3) Phase B — 트리오 확장 (picked 2개 이상 등장한 회차의 나머지 번호,
-   *      50% 확률로 1개, 동행 횟수 가중).
-   *   4) Phase C — 균형 채우기 (전체 빈도 가중, 짝궁 풀 번호엔 0.3 페널티).
-   *   5) 현실성 필터: 합 100~175, 홀짝 0:6/6:0 아님, 최대 연속 ≤ 3.
-   */
-  const recommendations = useMemo(() => {
-    if (picked.length === 0 || partners.length === 0) return [];
-    const pickedSet = new Set(picked);
-
-    // ─── 1) 경험적 베이스라인 측정 ────────────────────────
-    const topCompSet = new Set(partners.slice(0, 15).map((p) => p.n));
-    let totalComp = 0;
-    let drawCount = 0;
-    for (const d of draws) {
-      const hits = d.nums.filter((n) => pickedSet.has(n)).length;
-      if (hits === 0) continue;
-      const others = d.nums.filter((n) => !pickedSet.has(n));
-      totalComp += others.filter((n) => topCompSet.has(n)).length;
-      drawCount++;
-    }
-    const empiricalAvgComp = drawCount > 0 ? totalComp / drawCount : 1.5;
-
-    // ─── 전체 빈도 (균형 채우기용) ──────────────────────
-    const overallFreq = new Array(46).fill(0);
-    for (const d of draws) for (const n of d.nums) overallFreq[n]++;
-
-    // ─── 트리오 확장 풀 ─────────────────────────────────
-    // picked 2개 이상이 같은 회차에 등장했을 때, 그 회차의 나머지 번호들을
-    // 동시출현 횟수로 가중. 트리오 표시(top10)와 무관하게 draws 전체에서 탐색.
-    const trioExtensions: number[] = [];
-    const trioExtWeights = new Map<number, number>();
-    if (picked.length >= 2) {
-      for (const d of draws) {
-        const pickedHits = d.nums.filter((n) => pickedSet.has(n)).length;
-        if (pickedHits >= 2) {
-          for (const n of d.nums) {
-            if (!pickedSet.has(n)) {
-              trioExtWeights.set(n, (trioExtWeights.get(n) ?? 0) + 1);
-            }
-          }
-        }
-      }
-      const sorted = Array.from(trioExtWeights.entries())
-        .filter(([, s]) => s >= 2) // 최소 2회 이상 동행
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 10);
-      for (const [n] of sorted) trioExtensions.push(n);
-    }
-
-    // ─── 현실성 검증 ────────────────────────────────────
-    const isRealistic = (nums: number[]) => {
-      const sum = nums.reduce((a, b) => a + b, 0);
-      if (sum < 100 || sum > 175) return false;
-      const odd = nums.filter((n) => n % 2 === 1).length;
-      if (odd === 0 || odd === 6) return false;
-      let maxC = 1, cur = 1;
-      for (let i = 1; i < nums.length; i++) {
-        if (nums[i] === nums[i - 1] + 1) {
-          cur++;
-          if (cur > maxC) maxC = cur;
-        } else cur = 1;
-      }
-      return maxC <= 3;
-    };
-
-    // 가중 인덱스 추출 (weights 배열의 인덱스 반환)
-    const weightedIdx = (weights: number[]): number => {
-      const total = weights.reduce((a, b) => a + b, 0);
-      if (total <= 0) return Math.floor(Math.random() * weights.length);
-      let r = Math.random() * total;
-      for (let i = 0; i < weights.length; i++) {
-        r -= weights[i];
-        if (r <= 0) return i;
-      }
-      return weights.length - 1;
-    };
-
-    type Meta = { comp: number; trio: number; bal: number };
-
-    // ─── 한 조합 빌드 ──────────────────────────────────
-    const buildOne = (): { combo: number[]; meta: Meta } | null => {
-      for (let attempt = 0; attempt < 50; attempt++) {
-        const chosen = new Set<number>(picked);
-        const need = 6 - chosen.size;
-        if (need <= 0) {
-          return {
-            combo: sort6(Array.from(chosen).slice(0, 6)),
-            meta: { comp: 0, trio: 0, bal: 0 },
-          };
-        }
-
-        // 타겟 짝궁 수: 경험치 ± jitter, 상한은 need-1 (need=1일 땐 need)
-        const baseTarget = Math.round(empiricalAvgComp);
-        const jitter = Math.floor(Math.random() * 3) - 1; // -1, 0, +1
-        const cap = need > 1 ? need - 1 : need;
-        const targetComp = Math.max(0, Math.min(cap, baseTarget + jitter));
-
-        let compCount = 0, trioCount = 0, balCount = 0;
-
-        // Phase A — 짝궁 (TOP-15에서 Lift 가중)
-        const compPool = partners.slice(0, 15).filter((p) => !chosen.has(p.n));
-        for (let i = 0; i < targetComp && compPool.length > 0; i++) {
-          const avail = compPool.filter((p) => !chosen.has(p.n));
-          if (avail.length === 0) break;
-          // Lift 차이를 더 강조하기 위해 제곱 (1.5배 vs 0.8배의 차이를 더 크게)
-          const weights = avail.map((p) => Math.max(0.05, p.lift * p.lift));
-          const idx = weightedIdx(weights);
-          chosen.add(avail[idx].n);
-          compCount++;
-        }
-
-        // Phase B — 트리오 확장 (50% 확률, 1개, 가중 추출)
-        if (chosen.size < 6 && trioExtensions.length > 0 && Math.random() < 0.5) {
-          const avail = trioExtensions.filter((n) => !chosen.has(n));
-          if (avail.length > 0) {
-            const ws = avail.map((n) => Math.max(1, trioExtWeights.get(n) ?? 1));
-            const idx = weightedIdx(ws);
-            chosen.add(avail[idx]);
-            trioCount++;
-          }
-        }
-
-        // Phase C — 균형 채우기 (전체 빈도 가중 + 짝궁 풀 페널티)
-        while (chosen.size < 6) {
-          const candidates: number[] = [];
-          const weights: number[] = [];
-          for (let n = 1; n <= 45; n++) {
-            if (chosen.has(n)) continue;
-            candidates.push(n);
-            const inComp = topCompSet.has(n);
-            weights.push(Math.max(1, overallFreq[n]) * (inComp ? 0.3 : 1.0));
-          }
-          if (candidates.length === 0) break;
-          const idx = weightedIdx(weights);
-          chosen.add(candidates[idx]);
-          balCount++;
-        }
-
-        const combo = sort6(Array.from(chosen));
-        if (isRealistic(combo)) return { combo, meta: { comp: compCount, trio: trioCount, bal: balCount } };
-      }
-      return null;
-    };
-
-    // ─── 5개 조합 만들기 (중복 제거) ─────────────────────
-    const results: Array<{ nums: number[]; meta: Meta }> = [];
-    const seen = new Set<string>();
-    let attempts = 0;
-    while (results.length < 5 && attempts < 100) {
-      attempts++;
-      const r = buildOne();
-      if (!r) continue;
-      const key = r.combo.join(',');
-      if (seen.has(key)) continue;
-      seen.add(key);
-      results.push({ nums: r.combo, meta: r.meta });
-    }
-    return results;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [picked, partners, draws, refreshSeed]);
-
-  /** 평이한 인사이트. */
-  const insights = useMemo(() => {
-    type Ins = { emoji: string; text: string; color: string };
-    const list: Ins[] = [];
-    if (picked.length === 0 || partners.length === 0) return list;
-
-    const pickedTxt =
-      picked.length === 1
-        ? `${picked[0]}번`
-        : picked.length <= 3
-        ? `${picked.join('·')}번`
-        : `${picked.slice(0, 3).join('·')} 등 ${picked.length}개 번호`;
-
-    const top = partners[0];
-    if (top && top.lift >= 1.0) {
-      list.push({
-        emoji: '🤝',
-        text: `${pickedTxt}과 ${top.n}번이 우연보다 ${top.lift.toFixed(2)}배 자주 같이 나왔어요 (실제 ${top.raw}회)`,
-        color: palette.blue700,
-      });
-    }
-
-    // 한 번도 같이 안 나온 번호 (raw === 0)
-    const zero = partners.filter((p) => p.raw === 0).map((p) => p.n);
-    if (zero.length > 0) {
-      let zText: string;
-      if (zero.length === 1) zText = `${zero[0]}번이 한 번도 같이 안 나왔어요`;
-      else if (zero.length <= 3) zText = `${zero.join('·')}번이 한 번도 같이 안 나왔어요`;
-      else zText = `${zero.slice(0, 3).join('·')} 등 ${zero.length}개 번호가 한 번도 같이 안 나왔어요`;
-      list.push({ emoji: '💔', text: zText, color: '#888' });
-    }
-
-    // 강도 분석 — TOP 3 Lift 평균이 1.0(우연) 대비 얼마나 강한가
-    if (partners.length >= 3) {
-      const top3LiftAvg = (partners[0].lift + partners[1].lift + partners[2].lift) / 3;
-      if (top3LiftAvg >= 1.4) {
-        list.push({
-          emoji: '🔥',
-          text: `TOP 3 짝궁이 우연보다 평균 ${top3LiftAvg.toFixed(2)}배 — 궁합이 뚜렷한 조합이에요`,
-          color: palette.red500,
-        });
-      } else if (top3LiftAvg < 1.15) {
-        list.push({
-          emoji: '🌫',
-          text: `TOP 3 짝궁도 우연 수준(${top3LiftAvg.toFixed(2)}배) — 특별히 강한 궁합은 없어요`,
-          color: '#888',
-        });
-      }
-    }
-
-    return list;
-  }, [picked, partners]);
-
   // ─── 핸들러 ─────────────────────────────────────────────
   const toggleNumber = (n: number) => {
     if (picked.includes(n)) {
@@ -375,44 +149,6 @@ export default function ProCompat() {
   };
 
   const clearPicked = () => setPicked([]);
-
-  const saveAllRecommendations = () => {
-    if (recommendations.length === 0) return;
-    // 아직 저장 안 한 것만 골라서 저장
-    const pending = recommendations
-      .map((r, i) => ({ r, i }))
-      .filter((x) => !savedSet[x.i]);
-    if (pending.length === 0) return;
-    const games = pending.map(({ r }) => ({
-      nums: r.nums,
-      source: 'gen' as const,
-      round: null,
-    }));
-    const res = addMany(games);
-    // 새로 저장된 만큼만 savedSet에 반영 (중복은 reason='duplicate'로 스킵됨)
-    setSavedSet((prev) => {
-      const next = { ...prev };
-      pending.forEach(({ i }) => { next[i] = true; });
-      return next;
-    });
-    showToast(`보관함에 ${res.added}개 저장됨${res.skipped > 0 ? ` (${res.skipped}개 중복)` : ''}`);
-  };
-
-  const saveOneRecommendation = (idx: number, nums: number[]) => {
-    if (savedSet[idx]) return; // 이미 저장됨
-    const res = addOne({ nums, source: 'gen', round: null });
-    if (res.ok) {
-      setSavedSet((prev) => ({ ...prev, [idx]: true }));
-      showToast('보관함에 저장됨');
-    } else if (res.reason === 'duplicate') {
-      setSavedSet((prev) => ({ ...prev, [idx]: true })); // 이미 다른 경로로 저장된 거 — UI에 반영
-      showToast('이미 저장된 조합이에요');
-    } else {
-      showToast('보관함이 가득 찼어요 (5000개)');
-    }
-  };
-
-  const refreshRecommendations = () => setRefreshSeed((s) => s + 1);
 
   const maxPartnerLift = Math.max(0.01, partners[0]?.lift ?? 1);
   const maxTrioCount = Math.max(1, trios[0]?.c ?? 1);
@@ -435,7 +171,7 @@ export default function ProCompat() {
         title={
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
             <Icon.crown color={GOLD} size={18} weight={2} />
-            <T variant="heading1" color="primary">궁합수 PRO</T>
+            <T variant="heading1" color="primary">궁합수</T>
           </View>
         }
         onBack={goBack}
@@ -538,25 +274,6 @@ export default function ProCompat() {
           )}
         </Card>
 
-        {/* 인사이트 */}
-        {insights.length > 0 && (
-          <Card padding={14}>
-            <T variant="label1n" color="primary" style={{ fontWeight: '700', marginBottom: 10 }}>
-              💡 한눈에 보기
-            </T>
-            <View style={{ gap: 8 }}>
-              {insights.map((ins, i) => (
-                <View key={i} style={[styles.insRow, { backgroundColor: ins.color + '11' }]}>
-                  <T allowFontScaling={false} style={{ fontSize: 18, marginRight: 8 }}>{ins.emoji}</T>
-                  <T variant="caption1" color="primary" style={{ flex: 1, lineHeight: 18, fontWeight: '600' }}>
-                    {ins.text}
-                  </T>
-                </View>
-              ))}
-            </View>
-          </Card>
-        )}
-
         {/* 짝궁 TOP 10 — Lift 기반 (빈도 편향 제거) */}
         {picked.length > 0 && (
           <Card padding={16}>
@@ -583,110 +300,32 @@ export default function ProCompat() {
           </Card>
         )}
 
-        {/* 자동 추천 조합 5개 */}
-        {recommendations.length > 0 && (() => {
-          const savedCount = Object.values(savedSet).filter(Boolean).length;
-          const allSaved = savedCount === recommendations.length;
-          return (
-            <Card padding={16}>
-              {/* 제목 + 부제 */}
-              <View>
-                <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
-                  ✨ 자동 추천 조합 {recommendations.length}개
-                </T>
-                <T variant="caption1" color="tertiary" style={{ marginTop: 2, fontSize: 11.5 }}>
-                  {savedCount > 0
-                    ? `${savedCount} / ${recommendations.length} 저장됨 · 실제 회차 패턴 기반`
-                    : '실제 회차 패턴 기반: 선택 + 짝궁 + 트리오 + 균형으로 구성'}
-                </T>
-              </View>
-
-              {/* 액션 버튼 묶음 — 다시 만들기 + 모두 저장 (1:1 분할) */}
-              <View style={styles.recActions}>
-                <Pressable
-                  onPress={refreshRecommendations}
-                  style={({ pressed }) => [
-                    styles.refreshBtn,
-                    { borderColor: GOLD, backgroundColor: t.bgSurface, opacity: pressed ? 0.8 : 1 },
-                  ]}
-                >
-                  <T allowFontScaling={false} style={{ fontSize: 13, marginRight: 4 }}>🔄</T>
-                  <T variant="caption1" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 12 }}>
-                    다시 만들기
-                  </T>
-                </Pressable>
-                <Pressable
-                  onPress={saveAllRecommendations}
-                  disabled={allSaved}
-                  style={({ pressed }) => [
-                    styles.saveAllBtn,
-                    {
-                      backgroundColor: allSaved ? palette.green500 : GOLD,
-                      opacity: pressed && !allSaved ? 0.85 : 1,
-                    },
-                  ]}
-                >
-                  <Icon.check color="#fff" size={13} weight={2.8} />
-                  <T variant="caption1" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 12, marginLeft: 5 }}>
-                    {allSaved ? '저장 완료' : '모두 저장'}
-                  </T>
-                </Pressable>
-              </View>
-
-              {/* 조합 행 — 단일 Card 내부에서 recRow Views로 구분 */}
-              <View style={{ marginTop: 12, gap: 8 }}>
-                {recommendations.map((r, i) => (
-                  <View
-                    key={i}
-                    style={[
-                      styles.recRow,
-                      { backgroundColor: t.bgSurface2, borderColor: t.borderDivider },
-                    ]}
-                  >
-                    <View style={styles.labelBox}>
-                      <T variant="caption2" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 11 }}>
-                        #{i + 1}
-                      </T>
-                    </View>
-                    <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: 4 }}>
-                      {r.nums.map((n) => {
-                        const isPicked = picked.includes(n);
-                        return (
-                          <Ball
-                            key={n}
-                            n={n}
-                            size="sm"
-                            dashedRing={isPicked}
-                            dashedRingColor={GOLD}
-                          />
-                        );
-                      })}
-                    </View>
-                    <Pressable
-                      onPress={() => saveOneRecommendation(i, r.nums)}
-                      disabled={savedSet[i]}
-                      style={({ pressed }) => [
-                        styles.saveDot,
-                        {
-                          backgroundColor: savedSet[i] ? palette.green500 : 'rgba(232,176,78,0.18)',
-                          opacity: pressed ? 0.85 : 1,
-                        },
-                      ]}
-                    >
-                      {savedSet[i]
-                        ? <Icon.check color="#fff" size={12} weight={3} />
-                        : <Icon.plus color={GOLD_DARK} size={12} weight={2.5} />}
-                    </Pressable>
-                  </View>
-                ))}
-              </View>
-
-              <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ marginTop: 10, fontSize: 10.5 }}>
-                ✦ 노란 점선은 직접 선택한 번호 · 합 100~175, 홀짝/연속수 현실성 필터 적용
+        {/* 안 어울리는 번호 BOTTOM 5 — Lift 가장 낮음 */}
+        {picked.length > 0 && worstPartners.length > 0 && (
+          <Card padding={16}>
+            <View>
+              <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
+                💔 안 어울리는 번호 BOTTOM 5
               </T>
-            </Card>
-          );
-        })()}
+              <T variant="caption1" color="tertiary" style={{ marginTop: 2, fontSize: 11.5 }}>
+                선택한 {picked.length}개 번호와 가장 적게 함께 나온 번호
+              </T>
+            </View>
+            <View style={{ marginTop: 12, gap: 8 }}>
+              {worstPartners.map((p, i) => (
+                <PartnerRow
+                  key={p.n}
+                  rank={i + 1}
+                  n={p.n}
+                  lift={p.lift}
+                  raw={p.raw}
+                  max={maxPartnerLiftBottom}
+                  worst
+                />
+              ))}
+            </View>
+          </Card>
+        )}
 
         {/* 궁합 트리오 TOP 10 */}
         <Card padding={16}>
@@ -713,15 +352,6 @@ export default function ProCompat() {
 
         <Disclaimer />
       </ScrollView>
-
-      {/* 저장 토스트 */}
-      {savedToast && (
-        <View style={[styles.toast, { backgroundColor: t.bgInverse }]} pointerEvents="none">
-          <T variant="label1n" style={{ color: t.bgCanvas, fontWeight: '700' }} allowFontScaling={false}>
-            {savedToast}
-          </T>
-        </View>
-      )}
     </SafeAreaView>
   );
 }
@@ -731,18 +361,21 @@ export default function ProCompat() {
    ═══════════════════════════════════════════════════════════════════════════ */
 
 function PartnerRow({
-  rank, n, lift, raw, max,
+  rank, n, lift, raw, max, worst,
 }: {
   rank: number;
   n: number;
   lift: number;   // 기하평균 Lift — 정렬 기준
   raw: number;    // 합산 동시출현 (참고용)
   max: number;    // 최상위 lift (bar 너비 계산)
+  worst?: boolean; // BOTTOM 5 모드 — 빨강 톤
 }) {
   const t = useTheme();
   const pct = Math.max(6, (lift / max) * 100);
-  const isStrong = lift >= 1.3;
-  const isWeak = lift < 1.0;
+  const isStrong = !worst && lift >= 1.3;
+  const isWeak = !worst && lift < 1.0;
+  const barColor = worst ? palette.red500 : isStrong ? GOLD : isWeak ? '#999' : palette.blue500;
+  const valColor = worst ? palette.red500 : isStrong ? GOLD_DARK : isWeak ? '#888' : palette.blue700;
   return (
     <View style={styles.barRow}>
       <T variant="caption1" color="tertiary" style={{ width: 18, textAlign: 'center', fontWeight: '700' }} allowFontScaling={false}>
@@ -753,10 +386,7 @@ function PartnerRow({
         <View
           style={[
             styles.barFill,
-            {
-              backgroundColor: isStrong ? GOLD : isWeak ? '#999' : palette.blue500,
-              width: `${pct}%`,
-            },
+            { backgroundColor: barColor, width: `${pct}%` },
           ]}
         />
       </View>
@@ -764,10 +394,7 @@ function PartnerRow({
         <T
           variant="label2"
           allowFontScaling={false}
-          style={{
-            fontWeight: '800',
-            color: isStrong ? GOLD_DARK : isWeak ? '#888' : palette.blue700,
-          }}
+          style={{ fontWeight: '800', color: valColor }}
         >
           {lift.toFixed(2)}배
         </T>
@@ -849,13 +476,6 @@ const styles = StyleSheet.create({
   },
 
   cardHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-
-  insRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 10,
-    borderRadius: radius.md,
-  },
 
   barRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   barTrack: { flex: 1, height: 10, borderRadius: 5, overflow: 'hidden' },

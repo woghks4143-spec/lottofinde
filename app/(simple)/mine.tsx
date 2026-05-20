@@ -55,24 +55,27 @@ export default function Mine() {
   };
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const [winsOnly, setWinsOnly] = useState(false);
-  /** 출처 필터 — 전체 / 앱 생성(gen·simulator·manual) / QR 스캔. */
-  const [sourceFilter, setSourceFilter] = useState<'all' | 'app' | 'qr'>('all');
+  /** 출처 필터 — 전체 / 앱 생성 / QR 스캔 / 귀찮이즘(PRO). */
+  const [sourceFilter, setSourceFilter] = useState<'all' | 'app' | 'qr' | 'jachanism'>('all');
 
   // Sync result for any newly available draw.
   useEffect(() => { syncResults(); }, [historyLatest, games.length, syncResults]);
 
-  /** 출처 필터로 게임 좁히기. 'app'은 qr이 아닌 모든 것. */
+  /** 출처 필터로 게임 좁히기. */
   const sourceFiltered = useMemo(() => {
     if (sourceFilter === 'all') return games;
     if (sourceFilter === 'qr') return games.filter((g) => g.source === 'qr');
-    return games.filter((g) => g.source !== 'qr');
+    if (sourceFilter === 'jachanism') return games.filter((g) => g.source === 'jachanism');
+    // 'app' = 앱에서 생성한 모든 것 (qr·jachanism 제외)
+    return games.filter((g) => g.source !== 'qr' && g.source !== 'jachanism');
   }, [games, sourceFilter]);
 
   // 출처별 카운트 (탭 라벨에 표시)
   const counts = useMemo(() => ({
     all: games.length,
-    app: games.filter((g) => g.source !== 'qr').length,
+    app: games.filter((g) => g.source !== 'qr' && g.source !== 'jachanism').length,
     qr: games.filter((g) => g.source === 'qr').length,
+    jachanism: games.filter((g) => g.source === 'jachanism').length,
   }), [games]);
 
   // Group games by round (null → "다음 회차").
@@ -172,12 +175,15 @@ export default function Mine() {
           </Pressable>
         )}
 
-        {/* 출처별 segmented 탭 — 전체 / 앱 생성 / QR 스캔 */}
+        {/* 출처별 segmented 탭 — 전체 / 앱 생성 / QR 스캔 / 귀찮이즘(있을 때만) */}
         {games.length > 0 && (
           <View style={[styles.segWrap, { backgroundColor: t.bgSurface2 }]}>
-            {(['all', 'app', 'qr'] as const).map((k) => {
+            {(counts.jachanism > 0
+              ? (['all', 'app', 'qr', 'jachanism'] as const)
+              : (['all', 'app', 'qr'] as const)
+            ).map((k) => {
               const on = sourceFilter === k;
-              const label = k === 'all' ? '전체' : k === 'app' ? '앱 생성' : 'QR 스캔';
+              const label = k === 'all' ? '전체' : k === 'app' ? '앱 생성' : k === 'qr' ? 'QR 스캔' : '✨ 귀찮이즘';
               const count = counts[k];
               return (
                 <Pressable
@@ -241,6 +247,7 @@ export default function Mine() {
               <T variant="heading2" color="primary">
                 {sourceFilter === 'qr' ? 'QR 스캔으로 저장한 번호가 없어요'
                   : sourceFilter === 'app' ? '앱에서 생성한 번호가 없어요'
+                  : sourceFilter === 'jachanism' ? '귀찮이즘 조합에서 받은 번호가 없어요'
                   : '조건에 맞는 번호가 없어요'}
               </T>
               <T variant="caption1" color="tertiary" style={{ textAlign: 'center' }}>
@@ -399,7 +406,12 @@ export default function Mine() {
 }
 
 function sourceLabel(s: SavedGame['source']): string {
-  return s === 'qr' ? 'QR' : s === 'manual' ? '수동' : s === 'gen' ? '조합 생성' : '조합 필터링';
+  if (s === 'qr') return 'QR';
+  if (s === 'manual') return '수동';
+  if (s === 'gen') return '조합 생성';
+  if (s === 'simulator') return '조합 필터링';
+  if (s === 'jachanism') return '✨ 귀찮이즘';
+  return '기타';
 }
 
 function short(iso: string): string {

@@ -1,5 +1,5 @@
 /**
- * 솔이 예상수 PRO — /pro-predict
+ * 핀더 예상 제외수 — /pro-predict
  *
  * 모든 분석법(일반 + PRO, 중복 제거)을 합쳐서 20수 예상.
  * 백테스트로 각 분석법의 최근 정확도를 측정해 가중치를 부여하고, 가중 투표
@@ -19,15 +19,15 @@ import { Disclaimer } from '@/src/components/Disclaimer';
 import { Icon } from '@/src/components/Icons';
 import { useHistory } from '@/src/data/historyStore';
 import type { Draw } from '@/src/data/lotto';
-import { useSavedNumbers } from '@/src/store/savedNumbers';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
+import { computeExclusionPicks, backtestExclusion } from '@/src/lib/exclusionFilter';
 
 const GOLD = '#e8b04e';
 const GOLD_DARK = '#a37116';
 const TRAIN_N = 60;          // 가중치 학습 윈도우 — lift 추정 안정화
 const TEST_N = 30;           // 정확도 검증 윈도우 (target - 30 ~ target - 1)
-const TOP_PICKS = 20;        // 솔이 예상수 개수
+const TOP_PICKS = 20;        // 핀더 예상 제외수 개수
 const RANDOM = 6 / 45;       // 우연 정밀도
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -363,13 +363,7 @@ export default function ProPredict() {
   const [round, setRound] = useState<number>(upcomingRound);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [pickerInput, setPickerInput] = useState('');
-  const addMany = useSavedNumbers((s) => s.addMany);
-  const addOne = useSavedNumbers((s) => s.add);
-  const [savedToast, setSavedToast] = useState<string | null>(null);
 
-  // 조합 생성 state — 버튼 누르면 5개 생성해 보여주고, 사용자가 개별/전체 저장
-  const [combos, setCombos] = useState<number[][]>([]);
-  const [comboSavedSet, setComboSavedSet] = useState<Record<number, boolean>>({});
 
   const isUpcoming = round === upcomingRound;
 
@@ -501,12 +495,6 @@ export default function ProPredict() {
 
   const { backtest, prediction, overallAccuracy } = ensemble;
 
-  /** 회차 변경 시 조합 초기화. */
-  useEffect(() => {
-    setCombos([]);
-    setComboSavedSet({});
-  }, [round]);
-
   /** 분석 대상 회차 정보. */
   const targetInfo = useMemo(() => {
     if (isUpcoming) {
@@ -530,6 +518,32 @@ export default function ProPredict() {
     return { mainHits, bonusHit, score };
   }, [targetInfo, prediction]);
 
+  /** 예상 제외수 3개 — 직전 회차 + 누적 회차 기반. */
+  const exclusion = useMemo(() => {
+    const prev = drawsMap[round - 1] ?? null;
+    const history: Draw[] = [];
+    for (let r = earliestRound; r < round; r++) {
+      if (drawsMap[r]) history.push(drawsMap[r]);
+    }
+    const picks = computeExclusionPicks(prev, history, 3);
+
+    // 분석 대상 회차가 추첨 완료 상태면 적중 개수 측정
+    let hits: number | null = null;
+    let hitNums: number[] = [];
+    if (targetInfo?.nums) {
+      const tSet = new Set(targetInfo.nums);
+      hitNums = picks.filter((n) => tSet.has(n));
+      hits = hitNums.length;
+    }
+
+    return { picks, hits, hitNums };
+  }, [round, drawsMap, earliestRound, targetInfo]);
+
+  /** 제외수 백테스트 (최근 30회) — latestRound 변경 시 1회만 계산. */
+  const exclusionBacktest = useMemo(() => {
+    return backtestExclusion(drawsMap, latestRound, 30);
+  }, [drawsMap, latestRound]);
+
   const goPrev = () => { if (round > earliestRound) setRound(round - 1); };
   const goNext = () => { if (round < upcomingRound) setRound(round + 1); };
 
@@ -545,77 +559,6 @@ export default function ProPredict() {
     jumpTo(n);
   };
 
-  const showToast = (msg: string) => {
-    setSavedToast(msg);
-    setTimeout(() => setSavedToast(null), 2200);
-  };
-
-  /** 20수에서 5개 조합 생성해 state에 저장 (자동 저장 X). */
-  const generateCombos = () => {
-    if (prediction.length < 6) return;
-    const nums = prediction.map((p) => p.n);
-    const newCombos: number[][] = [];
-    const seen = new Set<string>();
-
-    for (let attempt = 0; attempt < 50 && newCombos.length < 5; attempt++) {
-      const pick: number[] = [];
-      const pool = [...nums];
-      while (pick.length < 6 && pool.length > 0) {
-        const weights = pool.map((p) => {
-          const idx = nums.indexOf(p);
-          return idx >= 0 ? Math.max(1, prediction[idx].score) : 1;
-        });
-        const total = weights.reduce((a, b) => a + b, 0);
-        let r = Math.random() * total;
-        let idx = 0;
-        for (let i = 0; i < pool.length; i++) {
-          r -= weights[i];
-          if (r <= 0) { idx = i; break; }
-        }
-        pick.push(pool[idx]);
-        pool.splice(idx, 1);
-      }
-      pick.sort((a, b) => a - b);
-      const key = pick.join(',');
-      if (!seen.has(key)) {
-        seen.add(key);
-        newCombos.push(pick);
-      }
-    }
-    setCombos(newCombos);
-    setComboSavedSet({});
-  };
-
-  const saveOneCombo = (i: number) => {
-    if (comboSavedSet[i]) return;
-    const c = combos[i];
-    if (!c) return;
-    const res = addOne({ nums: c, source: 'gen', round: null });
-    if (res.ok) {
-      setComboSavedSet((prev) => ({ ...prev, [i]: true }));
-      showToast('보관함에 저장됨');
-    } else if (res.reason === 'duplicate') {
-      setComboSavedSet((prev) => ({ ...prev, [i]: true }));
-      showToast('이미 저장된 조합이에요');
-    } else {
-      showToast('보관함이 가득 찼어요 (5000개)');
-    }
-  };
-
-  const saveAllCombos = () => {
-    const pending = combos
-      .map((c, i) => ({ c, i }))
-      .filter((x) => !comboSavedSet[x.i]);
-    if (pending.length === 0) return;
-    const games = pending.map(({ c }) => ({ nums: c, source: 'gen' as const, round: null }));
-    const res = addMany(games);
-    setComboSavedSet((prev) => {
-      const next = { ...prev };
-      pending.forEach(({ i }) => { next[i] = true; });
-      return next;
-    });
-    showToast(`보관함에 ${res.added}개 저장됨${res.skipped > 0 ? ` (${res.skipped}개 중복)` : ''}`);
-  };
 
   if (!targetInfo) {
     return (
@@ -624,7 +567,7 @@ export default function ProPredict() {
           title={
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
               <Icon.crown color={GOLD} size={18} weight={2} />
-              <T variant="heading1" color="primary">솔이 예상수 PRO</T>
+              <T variant="heading1" color="primary">핀더 예상 제외수</T>
             </View>
           }
           onBack={goBack}
@@ -644,7 +587,7 @@ export default function ProPredict() {
         title={
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
             <Icon.crown color={GOLD} size={18} weight={2} />
-            <T variant="heading1" color="primary">솔이 예상수 PRO</T>
+            <T variant="heading1" color="primary">핀더 예상 제외수</T>
           </View>
         }
         onBack={goBack}
@@ -716,15 +659,15 @@ export default function ProPredict() {
           />
         </View>
 
-        {/* 솔이 예상수 20수 카드 */}
+        {/* 핀더 예상 제외수 20수 카드 */}
         <Card padding={16}>
           <View style={styles.cardHead}>
             <View style={{ flex: 1 }}>
               <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
-                🌟 솔이 예상수 PRO 20수
+                🌟 핀더 예상 제외수 20수
               </T>
               <T variant="caption1" color="tertiary" style={{ marginTop: 2, fontSize: 11.5 }}>
-                10가지 분석법 가중 투표 결과
+                통계상 출현률 높은 20개 번호
               </T>
             </View>
             {targetHits != null && (() => {
@@ -773,114 +716,110 @@ export default function ProPredict() {
             </T>
           )}
 
-          <Pressable
-            onPress={generateCombos}
-            style={({ pressed }) => [styles.saveBtn, { backgroundColor: GOLD, opacity: pressed ? 0.85 : 1 }]}
-          >
-            <Icon.plus color="#fff" size={14} weight={2.5} />
-            <T variant="caption1" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', marginLeft: 6, fontSize: 12 }}>
-              예상수에서 조합 5개 만들기
+          {/* 최근 30회 평균 매칭 — 백테스트 결과 */}
+          <View style={styles.exclusionStatBox}>
+            <T variant="caption1" color="primary" style={{ fontWeight: '700', fontSize: 11.5, marginBottom: 8 }}>
+              📊 최근 {overallAccuracy.rounds}회 평균 매칭 (백테스트)
             </T>
-          </Pressable>
+            <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
+              <T
+                variant="title2"
+                allowFontScaling={false}
+                style={{
+                  fontWeight: '900',
+                  color: overallAccuracy.avg >= 3 ? palette.red500
+                       : overallAccuracy.avg >= 2.5 ? GOLD_DARK
+                       : t.fgSecondary,
+                }}
+              >
+                {overallAccuracy.avg.toFixed(2)}개
+              </T>
+              <T variant="caption1" color="tertiary" style={{ fontSize: 12 }}>
+                평균 적중 / 6.5개 만점 (보너스 0.5)
+              </T>
+            </View>
+          </View>
         </Card>
 
-        {/* 추천 조합 5개 — 생성 후 표시, 사용자가 개별/전체 저장 선택 */}
-        {combos.length > 0 && (() => {
-          const savedCount = Object.values(comboSavedSet).filter(Boolean).length;
-          const allSaved = savedCount === combos.length;
-          return (
-            <Card padding={16}>
-              <View>
-                <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
-                  ✨ 추천 조합 {combos.length}개
+        {/* 예상 제외수 3개 카드 */}
+        <Card padding={16}>
+          <View style={styles.cardHead}>
+            <View style={{ flex: 1 }}>
+              <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
+                🚫 예상 제외수 3개
+              </T>
+              <T variant="caption1" color="tertiary" style={{ marginTop: 2, fontSize: 11.5 }}>
+                통계상 출현률 낮은 3개 번호
+              </T>
+            </View>
+            {exclusion.hits != null && (
+              <View
+                style={[
+                  styles.hitBadge,
+                  {
+                    backgroundColor:
+                      exclusion.hits === 0 ? palette.green700
+                      : exclusion.hits === 1 ? '#888'
+                      : exclusion.hits === 2 ? '#ea580c'
+                      : palette.red500,
+                  },
+                ]}
+              >
+                <T variant="label1n" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 14 }}>
+                  {exclusion.hits}개
                 </T>
-                <T variant="caption1" color="tertiary" style={{ marginTop: 2, fontSize: 11.5 }}>
-                  {savedCount > 0
-                    ? `${savedCount} / ${combos.length} 저장됨 · 솔이 예상수 20수 기반`
-                    : '솔이 예상수 20수에서 점수 가중 추출'}
+                <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 9, fontWeight: '700', opacity: 0.85, marginTop: -2 }}>
+                  적중
                 </T>
               </View>
-
-              <View style={styles.comboActions}>
-                <Pressable
-                  onPress={generateCombos}
-                  style={({ pressed }) => [
-                    styles.refreshBtn,
-                    { borderColor: GOLD, backgroundColor: t.bgSurface, opacity: pressed ? 0.8 : 1 },
-                  ]}
-                >
-                  <T allowFontScaling={false} style={{ fontSize: 13, marginRight: 4 }}>🔄</T>
-                  <T variant="caption1" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 12 }}>
-                    다시 만들기
-                  </T>
-                </Pressable>
-                <Pressable
-                  onPress={saveAllCombos}
-                  disabled={allSaved}
-                  style={({ pressed }) => [
-                    styles.saveAllBtn,
-                    {
-                      backgroundColor: allSaved ? palette.green500 : GOLD,
-                      opacity: pressed && !allSaved ? 0.85 : 1,
-                    },
-                  ]}
-                >
-                  <Icon.check color="#fff" size={13} weight={2.8} />
-                  <T variant="caption1" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 12, marginLeft: 5 }}>
-                    {allSaved ? '저장 완료' : '모두 저장'}
-                  </T>
-                </Pressable>
-              </View>
-
-              <View style={{ marginTop: 12, gap: 8 }}>
-                {combos.map((c, i) => (
-                  <View
-                    key={i}
-                    style={[styles.comboRow, { backgroundColor: t.bgSurface2, borderColor: t.borderDivider }]}
-                  >
-                    <View style={styles.labelBox}>
-                      <T variant="caption2" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 11 }}>
-                        #{i + 1}
-                      </T>
-                    </View>
-                    <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: 4 }}>
-                      {c.map((n) => <Ball key={n} n={n} size="sm" />)}
-                    </View>
-                    <Pressable
-                      onPress={() => saveOneCombo(i)}
-                      disabled={comboSavedSet[i]}
-                      style={({ pressed }) => [
-                        styles.saveDot,
-                        {
-                          backgroundColor: comboSavedSet[i] ? palette.green500 : 'rgba(232,176,78,0.18)',
-                          opacity: pressed ? 0.85 : 1,
-                        },
-                      ]}
-                    >
-                      {comboSavedSet[i]
-                        ? <Icon.check color="#fff" size={12} weight={3} />
-                        : <Icon.plus color={GOLD_DARK} size={12} weight={2.5} />}
-                    </Pressable>
-                  </View>
-                ))}
-              </View>
-            </Card>
-          );
-        })()}
-
-        {/* 종합 정확도 — 본번호 + 보너스 0.5 가중 */}
-        <Card padding={14}>
-          <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
-            📊 시스템 정확도 (최근 {overallAccuracy.rounds}회 백테스트)
-          </T>
-          <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8, marginTop: 8 }}>
-            <T variant="title2" allowFontScaling={false} style={{ fontWeight: '900', color: overallAccuracy.avg >= 3 ? palette.red500 : overallAccuracy.avg >= 2.5 ? GOLD_DARK : t.fgSecondary }}>
-              {overallAccuracy.avg.toFixed(2)}개
-            </T>
-            <T variant="caption1" color="tertiary" style={{ fontSize: 12 }}>
-              평균 적중 / 6.5개 만점 (보너스 0.5)
-            </T>
+            )}
           </View>
+
+          {/* 제외수 3개 가로 나열 */}
+          <View style={styles.exclusionRow}>
+            {exclusion.picks.length === 0 ? (
+              <T variant="caption1" color="tertiary" style={{ fontStyle: 'italic' }}>
+                직전 회차 데이터 부족
+              </T>
+            ) : (
+              exclusion.picks.map((n) => {
+                const isHit = exclusion.hitNums.includes(n);
+                return (
+                  <View key={n} style={styles.exclusionCell}>
+                    <Ball
+                      n={n}
+                      size="lg"
+                      dashedRing={isHit}
+                      dashedRingColor={isHit ? palette.red500 : undefined}
+                    />
+                    {isHit && (
+                      <T variant="caption2" allowFontScaling={false} style={{ color: palette.red500, fontSize: 10, fontWeight: '800', marginTop: 4 }}>
+                        출현
+                      </T>
+                    )}
+                  </View>
+                );
+              })
+            )}
+          </View>
+
+          {/* 백테스트 분포 — 최근 30회 적중 개수별 카운트 */}
+          {exclusionBacktest.windowSize > 0 && (
+            <View style={styles.exclusionStatBox}>
+              <T variant="caption1" color="primary" style={{ fontWeight: '700', fontSize: 11.5, marginBottom: 8 }}>
+                최근 {exclusionBacktest.windowSize}회 적중 분포 (실측)
+              </T>
+              <View style={styles.exclusionStatRow}>
+                <StatChip label="0개" count={exclusionBacktest.hit0} total={exclusionBacktest.windowSize} tone="success" />
+                <StatChip label="1개" count={exclusionBacktest.hit1} total={exclusionBacktest.windowSize} tone="neutral" />
+                <StatChip label="2개" count={exclusionBacktest.hit2} total={exclusionBacktest.windowSize} tone="warning" />
+                <StatChip label="3개" count={exclusionBacktest.hit3} total={exclusionBacktest.windowSize} tone="danger" />
+              </View>
+              <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10, marginTop: 6 }}>
+                ✓ 적중 0개 = 제외 성공 · 통계 분석 결과로 당첨을 보장하지 않음
+              </T>
+            </View>
+          )}
         </Card>
 
         <Disclaimer />
@@ -926,14 +865,45 @@ export default function ProPredict() {
         </View>
       </Modal>
 
-      {savedToast && (
-        <View style={[styles.toast, { backgroundColor: t.bgInverse }]} pointerEvents="none">
-          <T variant="label1n" style={{ color: t.bgCanvas, fontWeight: '700' }} allowFontScaling={false}>
-            {savedToast}
-          </T>
-        </View>
-      )}
     </SafeAreaView>
+  );
+}
+
+/** 백테스트 분포 칩 — "0개 21회" 같이 라벨+카운트 표시. */
+function StatChip({ label, count, total, tone }: {
+  label: string; count: number; total: number;
+  tone: 'success' | 'neutral' | 'warning' | 'danger';
+}) {
+  const color =
+    tone === 'success' ? palette.green700 :
+    tone === 'warning' ? '#ea580c' :
+    tone === 'danger'  ? palette.red500 :
+    /* neutral */         '#888';
+  const bg =
+    tone === 'success' ? 'rgba(0,191,64,0.12)' :
+    tone === 'warning' ? 'rgba(234,88,12,0.12)' :
+    tone === 'danger'  ? 'rgba(248,72,79,0.12)' :
+    /* neutral */         'rgba(127,127,127,0.10)';
+  const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+  return (
+    <View style={{
+      flex: 1,
+      backgroundColor: bg,
+      paddingVertical: 8,
+      paddingHorizontal: 6,
+      borderRadius: radius.md,
+      alignItems: 'center',
+    }}>
+      <T variant="caption2" allowFontScaling={false} style={{ color, fontSize: 10, fontWeight: '700' }}>
+        {label}
+      </T>
+      <T variant="label1n" allowFontScaling={false} style={{ color, fontSize: 16, fontWeight: '900', marginTop: 2 }}>
+        {count}
+      </T>
+      <T variant="caption2" allowFontScaling={false} style={{ color, fontSize: 9, opacity: 0.7, marginTop: 1 }}>
+        {pct}%
+      </T>
+    </View>
   );
 }
 
@@ -996,6 +966,28 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
     marginTop: 14,
+  },
+
+  // 예상 제외수 카드
+  exclusionRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 24,
+    marginTop: 14,
+    marginBottom: 8,
+  },
+  exclusionCell: {
+    alignItems: 'center',
+  },
+  exclusionStatBox: {
+    marginTop: 14,
+    paddingTop: 14,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(127,127,127,0.15)',
+  },
+  exclusionStatRow: {
+    flexDirection: 'row',
+    gap: 6,
   },
   predCell: {
     width: '20%',

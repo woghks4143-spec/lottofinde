@@ -245,7 +245,7 @@ export default function Weekly() {
                   <View style={[styles.countBar, { backgroundColor: t.borderDivider }]}>
                     <View style={[styles.countFill, { width: `${Math.max(ratio * 100, 6)}%`, backgroundColor: col.fill }]} />
                   </View>
-                  <T variant="caption2" style={{ fontSize: 10, color: col.text, fontWeight: col.bold ? '800' : '600', minWidth: 16, textAlign: 'right' }} allowFontScaling={false}>
+                  <T variant="caption2" compact style={{ fontSize: 10, color: col.text, fontWeight: col.bold ? '800' : '600', minWidth: 16, textAlign: 'right' }} allowFontScaling={false}>
                     {c}
                   </T>
                 </View>

@@ -147,20 +147,32 @@ export default function Scan() {
         ) : parsed ? (
           /* 파싱 성공 — 미리보기 + 저장 CTA */
           <Card padding={16}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <T variant="heading2" color="primary" style={{ fontWeight: '800' }}>인식 완료</T>
-              <Chip label={`${parsed.round}회`} tone="accent" />
+            {/* 회차 번호를 큰 타이틀로 강조 ("인식 완료" 텍스트 대신) */}
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
+              <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 4 }}>
+                <T variant="title3" color="primary" style={{ fontWeight: '800' }}>
+                  제 {parsed.round}회
+                </T>
+                <T variant="caption1" color="tertiary" style={{ fontWeight: '600' }}>
+                  영수증 인식됨
+                </T>
+              </View>
+              <Chip label={`${parsed.games.length}게임`} tone="accent" compact />
             </View>
-            <View style={{ gap: 8 }}>
+            <View style={{ gap: 10 }}>
               {parsed.games.map((g) => (
                 <View key={g.label} style={[styles.gameLine, { borderColor: t.borderDivider }]}>
-                  <View style={[styles.label, { backgroundColor: palette.softFill }]}>
-                    <T variant="caption2" color="secondary" style={{ fontWeight: '800' }}>{g.label}</T>
+                  {/* 헤더 행: A 라벨 + 자동/수동 칩 */}
+                  <View style={styles.gameLineHeader}>
+                    <View style={[styles.label, { backgroundColor: palette.softFill }]}>
+                      <T variant="caption2" color="secondary" style={{ fontWeight: '800' }} allowFontScaling={false}>
+                        {g.label}
+                      </T>
+                    </View>
+                    <Chip label={g.type === 'auto' ? '자동' : '수동'} compact tone={g.type === 'auto' ? 'accent' : 'neutral'} />
                   </View>
-                  <Chip label={g.type === 'auto' ? '자동' : '수동'} compact tone={g.type === 'auto' ? 'accent' : 'neutral'} />
-                  <View style={{ flex: 1 }}>
-                    <BallRow nums={g.nums} size="sm" />
-                  </View>
+                  {/* 공 6개 — 별도 라인으로 빼서 좁은 화면에서도 안 잘리게 */}
+                  <BallRow nums={g.nums} size="sm" />
                 </View>
               ))}
             </View>
@@ -316,14 +328,18 @@ const styles = StyleSheet.create({
   },
 
   gameLine: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-    paddingVertical: 8,
+    // 헤더(라벨 + 칩) + 공 행을 세로로 쌓아서 좁은 폰에서도 공이 안 잘리게.
+    gap: 8,
+    paddingVertical: 10,
     borderTopWidth: 1,
   },
+  gameLineHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
   label: {
-    width: 24, height: 24, borderRadius: 6,
+    width: 26, height: 26, borderRadius: 6,
     alignItems: 'center', justifyContent: 'center',
   },
 

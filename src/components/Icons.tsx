@@ -177,6 +177,14 @@ export const Icon = {
       <Path d="M5 11h14v10H5z" />
     </Base>
   ),
+  /** 새로고침 — 원형 화살표 두 개 (Heroicons arrow-path 스타일). */
+  refresh: (p: IP) => (
+    <Base {...p}>
+      <Path d="M4 4v5h5" />
+      <Path d="M20 20v-5h-5" />
+      <Path d="M5.07 9A8 8 0 0 1 19 7.5M18.93 15A8 8 0 0 1 5 16.5" />
+    </Base>
+  ),
 };
 
 export type IconName = keyof typeof Icon;

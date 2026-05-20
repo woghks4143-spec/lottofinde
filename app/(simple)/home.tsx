@@ -2,8 +2,8 @@
  * Simple home — dark "latest round" banner + 4 big tiles + weekly summary.
  * Source: prototype/flow-h1.jsx → H1_SimpleHome
  */
-import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
+import { Animated, Easing, Platform, Pressable, ScrollView, StyleSheet, ToastAndroid, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { T } from '@/src/components/Text';
@@ -28,6 +28,54 @@ export default function SimpleHome() {
   const isMockData = useHistory((s) => s.isMock);
   const savedCount = useSavedNumbers((s) => s.games.length);
   const [expanded, setExpanded] = useState(false);
+
+  // 새로고침 버튼 상태 — 페치 중에는 아이콘이 회전한다.
+  const [refreshing, setRefreshing] = useState(false);
+  const spin = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (!refreshing) { spin.stopAnimation(); spin.setValue(0); return; }
+    spin.setValue(0);
+    const loop = Animated.loop(
+      Animated.timing(spin, {
+        toValue: 1,
+        duration: 900,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      }),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [refreshing, spin]);
+
+  const showToast = (msg: string) => {
+    if (Platform.OS === 'android') ToastAndroid.show(msg, ToastAndroid.SHORT);
+    else if (Platform.OS === 'web' && typeof window !== 'undefined') {
+      // 웹에서는 alert가 거슬리니까 console만. (네이티브 토스트는 ios에 없음)
+      console.log('[refresh]', msg);
+    }
+  };
+
+  const onRefresh = async () => {
+    if (refreshing) return;
+    setRefreshing(true);
+    try {
+      const res = await useHistory.getState().autoUpdate({ force: true });
+      if (res.skipped === 'web') {
+        showToast('웹에서는 자동 갱신을 지원하지 않아요');
+      } else if (res.added > 0) {
+        showToast(`새 회차 ${res.added}개 업데이트 완료`);
+      } else if (res.enriched > 0) {
+        showToast('당첨금·판매점 정보 업데이트 완료');
+      } else {
+        showToast('이미 최신 상태예요');
+      }
+    } catch {
+      showToast('업데이트 실패 — 잠시 후 다시 시도해주세요');
+    } finally {
+      setRefreshing(false);
+    }
+  };
+
   if (!draw) return null; // hydrate not done yet (very rare; <16ms)
 
   // 라이트/다크에 따라 회차 배너 색 세트를 분기. 다크모드는 기존 logo-black 톤,
@@ -51,9 +99,25 @@ export default function SimpleHome() {
       <AppBar
         title="안녕하세요 👋"
         trailing={
-          <IconBtn onPress={() => router.push('/(simple)/features' as any)}>
-            <Icon.cog color={t.fgSecondary} />
-          </IconBtn>
+          <>
+            <IconBtn onPress={onRefresh}>
+              <Animated.View
+                style={{
+                  transform: [{
+                    rotate: spin.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: ['0deg', '360deg'],
+                    }),
+                  }],
+                }}
+              >
+                <Icon.refresh color={refreshing ? palette.purple500 : t.fgSecondary} />
+              </Animated.View>
+            </IconBtn>
+            <IconBtn onPress={() => router.push('/(simple)/features' as any)}>
+              <Icon.cog color={t.fgSecondary} />
+            </IconBtn>
+          </>
         }
       />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12 }}>
@@ -67,7 +131,10 @@ export default function SimpleHome() {
               <T variant="caption1" style={{ color: bn.fg, fontSize: 11, fontWeight: '700' }}>최신 결과</T>
             </View>
           </View>
-          <BallRow nums={draw.nums} bonus={draw.bonus} size="md" />
+          {/* 공 사이즈는 sm — 좁은 폰 화면(360px)에서도 보너스 공까지 한 줄에 들어옴 */}
+          <View style={{ alignItems: 'center', marginVertical: 4 }}>
+            <BallRow nums={draw.nums} bonus={draw.bonus} size="sm" />
+          </View>
 
           {/* 회차 한눈에: 합·끝수·홀짝·저고·AC (펼치면 십합·앞세수·뒷세수 추가) */}
           <View style={[styles.analysisRow, { borderTopColor: bn.divider }]}>
@@ -94,7 +161,7 @@ export default function SimpleHome() {
               style={({ pressed }) => [styles.expandBtn, { backgroundColor: bn.softBg, opacity: pressed ? 0.7 : 1 }]}
             >
               <T variant="caption1" style={{ color: bn.fgMuted, fontWeight: '600' }} allowFontScaling={false}>
-                {expanded ? '간단히 ▴' : '자세히 보기 ▾'}
+                {expanded ? '간단히 닫기' : '자세히 보기'}
               </T>
             </Pressable>
             <Pressable
@@ -103,8 +170,9 @@ export default function SimpleHome() {
               style={({ pressed }) => [styles.detailLink, { opacity: pressed ? 0.7 : 1 }]}
             >
               <T variant="caption1" style={{ color: bn.link, fontWeight: '700' }} allowFontScaling={false}>
-                회차 상세 →
+                회차 상세
               </T>
+              <Icon.chev color={bn.link} size={14} weight={2.2} />
             </Pressable>
           </View>
 
@@ -340,6 +408,9 @@ const styles = StyleSheet.create({
   },
   detailLink: {
     paddingVertical: 4, paddingHorizontal: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 2,
   },
   metric: {
     flex: 1,

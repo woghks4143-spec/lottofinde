@@ -215,7 +215,7 @@ export default function ProRegression() {
         title={
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
             <Icon.crown color={GOLD} size={18} weight={2} />
-            <T variant="heading1" color="primary">회귀분석 PRO</T>
+            <T variant="heading1" color="primary">회귀분석</T>
           </View>
         }
         onBack={goBack}
@@ -604,7 +604,7 @@ export default function ProRegression() {
                           },
                         ]}
                       >
-                        <T variant="caption1" allowFontScaling={false} style={{
+                        <T variant="caption1" compact allowFontScaling={false} style={{
                           color: active ? '#fff' : t.fgPrimary,
                           fontWeight: active ? '800' : '600',
                           fontSize: n >= 100 ? 10 : 12, // 3자리 숫자는 살짝 작게

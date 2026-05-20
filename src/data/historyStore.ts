@@ -20,7 +20,7 @@ import { persist, createJSONStorage } from 'zustand/middleware';
 import { Platform } from 'react-native';
 import type { Draw } from './lotto';
 import seed from './rounds.json';
-import { fetchRoundFull, fetchSince } from './dhlottery';
+import { fetchRoundFull, fetchSince, isDrawWindow, expectedLatestRound } from './dhlottery';
 import { DEMO_ROUND_EXTRAS } from './dhlotteryDemo';
 
 type SeedFile = {
@@ -65,8 +65,15 @@ type HistoryState = {
   topUp: () => Promise<{ added: number }>;
   /** 등위별 정보 + 판매점을 fetchRoundFull로 채워넣음. 이미 채워졌으면 noop. */
   enrichRound: (n: number) => Promise<boolean>;
-  /** 새 회차가 나왔는지 확인하고 부가 정보까지 가져옴 (앱 포커스/주기 트리거). */
-  autoUpdate: () => Promise<{ added: number; enriched: number }>;
+  /**
+   * 새 회차가 나왔는지 확인하고 부가 정보까지 가져옴 (앱 포커스/주기 트리거).
+   *
+   * 효율 최적화:
+   *   - 추첨 윈도우 밖(일~금, 토요일 추첨 전)에는 페치 자체를 스킵
+   *   - 단, 최신 회차에 prizes/topStores가 비어있으면 요일 무관하게 enrich 시도
+   *   - `force: true`로 호출하면 위 가드 무시 (사용자 수동 새로고침용)
+   */
+  autoUpdate: (opts?: { force?: boolean }) => Promise<{ added: number; enriched: number; skipped?: 'window' | 'web' }>;
   ingest: (newDraws: Draw[]) => number;
   /** 기존 회차 1건을 새 정보로 머지 (enrich 결과 반영). */
   upsertRound: (d: Draw) => void;
@@ -159,8 +166,48 @@ export const useHistory = create<HistoryState>()(
         return true;
       },
 
-      autoUpdate: async () => {
-        if (Platform.OS === 'web') return { added: 0, enriched: 0 };
+      autoUpdate: async (opts) => {
+        if (Platform.OS === 'web') return { added: 0, enriched: 0, skipped: 'web' };
+        const force = opts?.force === true;
+
+        // 효율 가드: 추첨 윈도우 밖이면 페치 스킵.
+        // 단, 다음 경우는 catch-up으로 페치 시도:
+        //   1) 최신 회차의 부가 정보(등위/판매점)가 비어있는 경우
+        //   2) 로컬 최신 회차가 예상 최신 회차보다 뒤처진 경우
+        //      (사용자가 오래 앱을 안 켰거나 시드가 오래된 케이스)
+        if (!force && !isDrawWindow()) {
+          const latest = get().getLatest();
+          const expectedLatest = expectedLatestRound();
+          const isBehind = latest && latest.round < expectedLatest;
+          const needsEnrich = latest && (!latest.prizes || !latest.topStores || latest.topStores.length === 0);
+
+          if (!isBehind && !needsEnrich) {
+            return { added: 0, enriched: 0, skipped: 'window' };
+          }
+
+          // catch-up 경로: 뒤처진 회차 따라잡기 + 최신 회차 enrich
+          let added = 0;
+          if (isBehind) {
+            try {
+              for await (const d of fetchSince(latest!.round, expectedLatest - latest!.round + 2)) {
+                get().ingest([d]);
+                added++;
+              }
+            } catch {
+              // swallow
+            }
+          }
+          let enriched = 0;
+          const curLatest = get().getLatest();
+          if (curLatest) {
+            const ok = await get().enrichRound(curLatest.round);
+            if (ok) enriched++;
+          }
+          set({ lastFetchedAt: Date.now() });
+          return { added, enriched };
+        }
+
+        // 추첨 윈도우 안 (or force=true): 풀 페치
         // 1) 새 회차 발견 → 기본 정보 ingest
         const { added } = await get().topUp();
         // 2) 신규로 들어온 최신 회차들에 부가 정보 채우기 (최근 추가된 회차만)
@@ -170,6 +217,14 @@ export const useHistory = create<HistoryState>()(
           for (let i = 0; i < added; i++) {
             const r = cur - i;
             const ok = await get().enrichRound(r);
+            if (ok) enriched++;
+          }
+        } else {
+          // 새 회차는 없었지만 추첨 윈도우 안이므로 최신 회차 부가 정보 재확인
+          // (당첨번호만 먼저 올라오고 등위/판매점이 뒤따라 올라오는 케이스 대응)
+          const latest = get().getLatest();
+          if (latest && (!latest.prizes || !latest.topStores || latest.topStores.length === 0)) {
+            const ok = await get().enrichRound(latest.round);
             if (ok) enriched++;
           }
         }

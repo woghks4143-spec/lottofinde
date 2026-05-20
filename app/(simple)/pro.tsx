@@ -44,16 +44,19 @@ type Feature = {
 };
 
 const GEN_FEATURES: Feature[] = [
-  { emoji: '✨', title: '귀찮이즘 조합', subtitle: '주간 자동 분석 50조합 (수~금 받기)', fromFree: '— (PRO 전용)', tag: 'PRO', href: '/pro-jachanism' },
-  { emoji: '🎛️', title: '조합 필터링',  subtitle: '13가지 필터로 정밀하게 조합 추출',     fromFree: '조합 필터링',  tag: 'PRO', href: '/pro-filter' },
+  { emoji: '✨', title: '귀찮이즘 조합', subtitle: '주간 자동 분석 50조합 (수~토 받기)', fromFree: '— (PRO 전용)', tag: 'PRO', href: '/pro-jachanism' },
+  { emoji: '🎛️', title: '조합 필터링',  subtitle: '5그룹 다중 필터로 정밀하게 조합 추출', fromFree: '조합 필터링',  tag: 'PRO', href: '/pro-filter' },
+  { emoji: '🔮', title: '핀더분석 조합', subtitle: '원하는 분석 결과만 골라서 조합 추출',  fromFree: '— (PRO 전용)', tag: 'PRO', href: '/pro-finder-combo' },
 ];
 
 const ANALYSIS_FEATURES: Feature[] = [
-  { emoji: '🌟', title: '솔이 예상수 PRO',  subtitle: '10가지 분석법 앙상블 → 20수 예측 + 백테스트', fromFree: '예상수 10수 분석', tag: 'PRO', href: '/pro-predict' },
-  { emoji: '📊', title: '주간 출현 PRO',    subtitle: '회차 범위 자유 + 4단계 티어 + 시계열 추이',   fromFree: '특정 주간 출현',  tag: 'PRO', href: '/pro-weekly' },
-  { emoji: '🤝', title: '궁합수 PRO',       subtitle: '다중 번호 + 트리오 + 자동 추천 조합',         fromFree: '궁합수 분석',     tag: 'PRO', href: '/pro-compat' },
-  { emoji: '🔁', title: '회귀분석 PRO',     subtitle: '회귀률 TOP 10 + 최근 연속 회귀 TOP 10 (탭 전환)', fromFree: '회귀 분석',   tag: 'PRO', href: '/pro-regression' },
-  { emoji: '🧪', title: '분석법 비교 PRO',  subtitle: '종합·동일날짜·이월수·이웃수·-45 + 끝수·시루', fromFree: '분석법 비교',    tag: 'PRO', href: '/pro-analysis-methods' },
+  { emoji: '🌟', title: '핀더 예상 제외수',  subtitle: '핀더 예상 20수 + 예상 제외수 3개 + 적중 분포',     fromFree: '예상수 10수 분석', tag: 'PRO', href: '/pro-predict' },
+  { emoji: '📊', title: '주간 출현',    subtitle: '회차 범위 자유 + 4단계 티어 + 시계열 추이',   fromFree: '특정 주간 출현',  tag: 'PRO', href: '/pro-weekly' },
+  { emoji: '🤝', title: '궁합수',       subtitle: '다중 번호 + 짝궁 TOP 10 + 안 어울리는 BOTTOM 5 + 트리오', fromFree: '궁합수 분석',     tag: 'PRO', href: '/pro-compat' },
+  { emoji: '🔁', title: '회귀분석',     subtitle: '회귀률 TOP 10 + 최근 연속 회귀 TOP 10 (탭 전환)', fromFree: '회귀 분석',   tag: 'PRO', href: '/pro-regression' },
+  { emoji: '🧪', title: '분석법 비교',  subtitle: '종합·동일날짜·이월수·이웃수·-45 + 끝수·시루', fromFree: '분석법 비교',    tag: 'PRO', href: '/pro-analysis-methods' },
+  { emoji: '🎯', title: '패턴 분석',    subtitle: 'JH필터 10종 + 종합 시트 · 회차별 결과 비교',           fromFree: '패턴 분석',      tag: 'PRO', href: '/pro-pattern-analysis' },
+  { emoji: '🎨', title: '출현 분석',    subtitle: '1~45번 출현 통계 · 주기·빈도·구간 분석',                fromFree: '출현 분석',      tag: 'PRO', href: '/pro-appearance-stats' },
 ];
 
 export default function Pro() {
@@ -78,31 +81,7 @@ export default function Pro() {
       <ScrollView contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 24 }}>
 
         {/* Premium Hero */}
-        <View style={[styles.hero, { backgroundColor: palette.neutral950 }]}>
-          {/* 골드 후광 */}
-          <View style={styles.heroGlow} />
-          <View style={styles.crownWrap}>
-            <Icon.crown color={GOLD} size={36} weight={2} />
-          </View>
-          <T variant="caption1" allowFontScaling={false} style={{ color: GOLD, letterSpacing: 3, fontWeight: '800', marginTop: 14, fontSize: 10.5 }}>
-            PREMIUM
-          </T>
-          <T variant="title1" style={{ color: '#fff', fontWeight: '900', marginTop: 6, textAlign: 'center', letterSpacing: -0.3 }}>
-            전문가용 분석 스튜디오
-          </T>
-          <T variant="body2r" style={{ color: 'rgba(255,255,255,0.72)', marginTop: 8, textAlign: 'center', lineHeight: 22 }}>
-            머신러닝 기반 12가지 도구로{'\n'}
-            일반 모드보다 6배 정밀하게.
-          </T>
-
-          {/* 가치 칩 4개 */}
-          <View style={styles.valueChips}>
-            <ValueChip emoji="🤖" label="AI 모델" />
-            <ValueChip emoji="∞" label="무제한" />
-            <ValueChip emoji="👤" label="맞춤 학습" />
-            <ValueChip emoji="📊" label="자동 백테스트" />
-          </View>
-        </View>
+        <PremiumHero scheme={t.scheme} />
 
         {/* 활성화 상태 배너 */}
         <View style={[styles.statusBanner, { backgroundColor: 'rgba(0,191,64,0.08)', borderColor: 'rgba(0,191,64,0.3)' }]}>
@@ -159,6 +138,62 @@ export default function Pro() {
         <Disclaimer short />
       </ScrollView>
     </SafeAreaView>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Premium Hero — 다크 배경 + 부드러운 호흡 골드 후광
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+function PremiumHero({ scheme }: { scheme: 'light' | 'dark' }) {
+  const isLight = scheme === 'light';
+
+  // 라이트 모드: 샴페인 크림 (고급 초대장 같은 따뜻한 톤)
+  // 다크 모드:  웜 차콜 (오크 골드 케이스 같은 따뜻한 어두움)
+  const heroBg = isLight ? '#f4ead4' : '#1c1814';
+  const titleColor = isLight ? '#2c2316' : '#ffffff';
+  const bodyColor = isLight ? 'rgba(58, 47, 30, 0.78)' : 'rgba(255,255,255,0.72)';
+  const goldText = isLight ? '#a37116' : GOLD;
+
+  return (
+    <View style={[styles.hero, { backgroundColor: heroBg }]}>
+      {/* 정적 골드 워시 — 왕관 뒤를 은은하게 비추는 라운드 그라데이션 */}
+      <View
+        style={[
+          styles.heroGoldWash,
+          { backgroundColor: GOLD, opacity: isLight ? 0.12 : 0.08 },
+        ]}
+      />
+
+      <View
+        style={[
+          styles.crownWrap,
+          isLight && {
+            backgroundColor: 'rgba(232,176,78,0.22)',
+            borderColor: 'rgba(163,113,22,0.45)',
+          },
+        ]}
+      >
+        <Icon.crown color={isLight ? '#a37116' : GOLD} size={36} weight={2} />
+      </View>
+      <T variant="caption1" allowFontScaling={false} style={{ color: goldText, letterSpacing: 3, fontWeight: '800', marginTop: 14, fontSize: 10.5 }}>
+        PREMIUM
+      </T>
+      <T variant="title1" style={{ color: titleColor, fontWeight: '900', marginTop: 6, textAlign: 'center', letterSpacing: -0.3 }}>
+        전문가용 분석 스튜디오
+      </T>
+      <T variant="body2r" style={{ color: bodyColor, marginTop: 8, textAlign: 'center', lineHeight: 22 }}>
+        통계 분석 기반 10가지 도구로{'\n'}
+        더 깊이 있는 회차별 분석.
+      </T>
+
+      <View style={styles.valueChips}>
+        <ValueChip emoji="📊" label="정밀 분석" lightMode={isLight} />
+        <ValueChip emoji="∞" label="무제한" lightMode={isLight} />
+        <ValueChip emoji="🔍" label="회차 자유" lightMode={isLight} />
+        <ValueChip emoji="🎯" label="실측 백테스트" lightMode={isLight} />
+      </View>
+    </View>
   );
 }
 
@@ -324,7 +359,7 @@ function JachanismCard({ onPress }: { onPress: () => void }) {
               </View>
             </View>
             <T variant="caption1" color="secondary" style={{ fontSize: 12, lineHeight: 16, marginTop: 2 }}>
-              주간 자동 분석 50조합 · 수~금 받기
+              주간 자동 분석 50조합 · 수~토 받기
             </T>
           </View>
           <View style={[styles.statusChip, { backgroundColor: statusInfo.bg }]}>
@@ -346,8 +381,15 @@ function JachanismCard({ onPress }: { onPress: () => void }) {
                   <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, color: rankColors[i], fontWeight: '700' }}>
                     {i + 1}등
                   </T>
-                  <T variant="caption2" allowFontScaling={false} style={{ fontSize: 11, color: rankColors[i], fontWeight: '900', marginTop: 2 }}>
-                    {fmtCount(count, true)}
+                  <T
+                    variant="caption2"
+                    allowFontScaling={false}
+                    numberOfLines={1}
+                    adjustsFontSizeToFit
+                    minimumFontScale={0.6}
+                    style={{ fontSize: 11, color: rankColors[i], fontWeight: '900', marginTop: 2 }}
+                  >
+                    {fmtCount(count)}
                   </T>
                 </View>
               ))}
@@ -386,11 +428,28 @@ function JachanismCard({ onPress }: { onPress: () => void }) {
    가치 칩 — 히어로 안의 4개 칩
    ═══════════════════════════════════════════════════════════════════════════ */
 
-function ValueChip({ emoji, label }: { emoji: string; label: string }) {
+function ValueChip({ emoji, label, lightMode }: { emoji: string; label: string; lightMode?: boolean }) {
   return (
-    <View style={styles.valueChip}>
+    <View
+      style={[
+        styles.valueChip,
+        lightMode && {
+          backgroundColor: 'rgba(163, 113, 22, 0.10)',
+          borderColor: 'rgba(163, 113, 22, 0.28)',
+        },
+      ]}
+    >
       <T allowFontScaling={false} style={{ fontSize: 12 }}>{emoji}</T>
-      <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '700', fontSize: 10.5, marginLeft: 4 }}>
+      <T
+        variant="caption2"
+        allowFontScaling={false}
+        style={{
+          color: lightMode ? '#5a4a30' : '#fff',
+          fontWeight: '700',
+          fontSize: 10.5,
+          marginLeft: 4,
+        }}
+      >
         {label}
       </T>
     </View>
@@ -403,15 +462,15 @@ function ValueChip({ emoji, label }: { emoji: string; label: string }) {
 
 function CompareTable({ t }: { t: ReturnType<typeof useTheme> }) {
   const rows: { label: string; free: string; pro: string }[] = [
-    { label: '조합 생성 방식',    free: '10개',  pro: '18개+' },
-    { label: '룰 저장 한도',      free: '10개',  pro: '∞ 무제한' },
-    { label: '자동 백테스트',     free: '✗',     pro: '✓' },
-    { label: 'AI 종합 추천',      free: '✗',     pro: '✓' },
-    { label: '회귀 분석 범위',    free: '1~100', pro: '1~500' },
-    { label: 'Monte Carlo',     free: '✗',     pro: '1만회 ✓' },
-    { label: '교차 필터',        free: '✗',     pro: '✓' },
-    { label: '맞춤 학습',        free: '✗',     pro: '✓' },
-    { label: '광고',             free: '있음',  pro: '없음' },
+    { label: '조합 생성 도구',    free: '1개',          pro: '3개' },
+    { label: '번호 분석 도구',    free: '5개',          pro: '7개' },
+    { label: '귀찮이즘 조합',     free: '✗',           pro: '주간 50조합' },
+    { label: '핀더분석 조합',     free: '✗',           pro: '다중 분석 합성' },
+    { label: '회귀 분석 범위',    free: '1~100',        pro: '1~500' },
+    { label: '회차 이동 분석',    free: '제한',         pro: '전 회차 자유' },
+    { label: '예상 제외수',       free: '✗',           pro: '✓' },
+    { label: 'JH필터 패턴',       free: '✗',           pro: '10종' },
+    { label: '실측 백테스트',     free: '제한',         pro: '30~100회' },
   ];
 
   return (
@@ -455,14 +514,13 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     position: 'relative',
   },
-  heroGlow: {
+  /** 정적 골드 워시 — 왕관 뒤에서 은은하게 비추는 라운드 그라데이션. */
+  heroGoldWash: {
     position: 'absolute',
-    top: -50,
-    width: 220,
-    height: 220,
-    borderRadius: 110,
-    backgroundColor: GOLD,
-    opacity: 0.08,
+    top: -60,
+    width: 240,
+    height: 240,
+    borderRadius: 120,
   },
   crownWrap: {
     width: 78,

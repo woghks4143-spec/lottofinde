@@ -130,7 +130,7 @@ export default function ProAnalysisMethods() {
   const titleNode = (
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
       <Icon.crown color={GOLD} size={18} weight={2} />
-      <T variant="heading1" color="primary">분석법 비교 PRO</T>
+      <T variant="heading1" color="primary">분석법 비교</T>
     </View>
   );
 

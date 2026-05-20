@@ -2,7 +2,7 @@
  * 귀찮이즘 조합 PRO — /pro-jachanism
  *
  * 주간 운영 사이클:
- *   토요일 추첨 → 일요일 자동 분석 (서버) → 수요일 00:00 받기 시작 → 금요일 받기 마감
+ *   토요일 추첨 → 월요일 09:00 자동 분석 → 수요일 00:00 받기 시작 → 토요일 20:00 받기 마감
  *   → 토요일 추첨 → 결과 확인 → 다시 일요일 사이클 시작
  *
  * 사용자는 회차당 50조합을 받을 수 있고, 받은 조합은 영속 저장되어 추첨 후
@@ -28,7 +28,7 @@ import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
 import {
   POOL_SIZE, POOL_SIZE_DISPLAY, USER_LIMIT, BACKTEST_BASE_N,
-  computeBacktest, generateUserCombos, fmtCount,
+  computeBacktest, generateUserCombosRange, fmtCount,
   getDayStatus, msToNextReceive, msToReceiveEnd, formatCountdown,
   fetchWeeklyPool, pickUserCombosFromPool,
   type BacktestStats, type JachanismStatus,
@@ -61,9 +61,7 @@ export default function ProJachanism() {
   const setComputing = useJachanism((s) => s.setComputing);
 
   const addMany = useSavedNumbers((s) => s.addMany);
-  const addOne = useSavedNumbers((s) => s.add);
 
-  const [savedSet, setSavedSet] = useState<Record<number, boolean>>({});
   const [toast, setToast] = useState<string | null>(null);
   const [progress, setProgress] = useState<{ done: number; total: number } | null>(null);
 
@@ -120,24 +118,48 @@ export default function ProJachanism() {
   }, [drawsMap, targetRound]);
 
 
-  /** 받기 액션 — GitHub 주간 풀 우선, 실패 시 로컬 폴백. */
+  /** 현재까지 받은 조합 수 / 남은 수령 가능 수. */
+  const receivedCount = entry?.combos.length ?? 0;
+  const remainingCount = Math.max(0, USER_LIMIT - receivedCount);
+
+  /** 선택한 수령 개수 (사용자가 [5개] 같은 칩을 누르면 세팅, [조합받기] 누르면 실행). */
+  const [selectedCount, setSelectedCount] = useState<number | null>(null);
+
+  /** 받기 액션 — 자동으로 보관함에 저장. */
   const [receiving, setReceiving] = useState(false);
   const handleReceive = async () => {
-    if (entry || status !== 'active' || receiving) return;
+    if (status !== 'active' || receiving) return;
+    if (selectedCount == null) return;
+    const take = Math.max(1, Math.min(selectedCount, remainingCount));
+    if (take === 0) return;
     setReceiving(true);
     try {
-      // 1순위: GitHub 주간 풀 (Python 분석기가 매주 일요일 업로드)
+      const offset = receivedCount;
+      // 1순위: GitHub 주간 풀
       const pool = await fetchWeeklyPool(targetRound);
       let combos: number[][];
       if (pool && pool.combos.length >= USER_LIMIT) {
-        combos = pickUserCombosFromPool(pool, targetRound, deviceSeed);
+        combos = pickUserCombosFromPool(pool, targetRound, deviceSeed, offset, take);
       } else {
-        // 폴백: 로컬 알고리즘 (오프라인/풀 미준비 시)
-        combos = generateUserCombos(targetRound, deviceSeed);
+        // 폴백: 로컬 알고리즘
+        combos = generateUserCombosRange(targetRound, deviceSeed, offset, take);
       }
+      // 1) 회차 기록에 저장
       receive(targetRound, combos);
-      setSavedSet({});
-      showToast('50조합 받기 완료');
+      // 2) 보관함에 자동 저장 (귀찮이즘 source로 표시)
+      const games = combos.map((c) => ({
+        nums: c,
+        source: 'jachanism' as const,
+        round: targetRound,
+      }));
+      const res = addMany(games);
+      // 칩 선택 초기화
+      setSelectedCount(null);
+      showToast(
+        `${combos.length}조합 받기·저장 완료` +
+        (res.skipped > 0 ? ` (${res.skipped}개 중복)` : '') +
+        (receivedCount + combos.length >= USER_LIMIT ? ' · 한도 도달' : '')
+      );
     } finally {
       setReceiving(false);
     }
@@ -168,37 +190,6 @@ export default function ProJachanism() {
     }
     return null;
   }, [status]);
-
-  const saveAllCombos = () => {
-    if (!entry) return;
-    const pending = entry.combos
-      .map((c, i) => ({ c, i }))
-      .filter((x) => !savedSet[x.i]);
-    if (pending.length === 0) return;
-    const games = pending.map(({ c }) => ({ nums: c, source: 'gen' as const, round: null }));
-    const res = addMany(games);
-    setSavedSet((prev) => {
-      const next = { ...prev };
-      pending.forEach(({ i }) => { next[i] = true; });
-      return next;
-    });
-    showToast(`보관함에 ${res.added}개 저장됨${res.skipped > 0 ? ` (${res.skipped}개 중복)` : ''}`);
-  };
-
-  const saveOneCombo = (i: number) => {
-    if (!entry || savedSet[i]) return;
-    const c = entry.combos[i];
-    const res = addOne({ nums: c, source: 'gen', round: null });
-    if (res.ok) {
-      setSavedSet((prev) => ({ ...prev, [i]: true }));
-      showToast('보관함에 저장됨');
-    } else if (res.reason === 'duplicate') {
-      setSavedSet((prev) => ({ ...prev, [i]: true }));
-      showToast('이미 저장된 조합이에요');
-    } else {
-      showToast('보관함이 가득 찼어요 (5000개)');
-    }
-  };
 
   /* ─── 렌더 ─────────────────────────────────────────────── */
 
@@ -231,7 +222,7 @@ export default function ProJachanism() {
 
           {status === 'locked' && (
             <View style={styles.heroBody}>
-              <T allowFontScaling={false} style={{ fontSize: 56, marginBottom: 8 }}>🔒</T>
+              <T allowFontScaling={false} style={styles.heroEmoji}>🔒</T>
               <T variant="title2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900' }}>
                 분석 진행 중
               </T>
@@ -248,36 +239,49 @@ export default function ProJachanism() {
             </View>
           )}
 
-          {status === 'active' && !entry && (
+          {status === 'active' && remainingCount > 0 && (
             <View style={styles.heroBody}>
-              <T allowFontScaling={false} style={{ fontSize: 56, marginBottom: 8 }}>✨</T>
+              <T allowFontScaling={false} style={styles.heroEmoji}>{receivedCount === 0 ? '✨' : '🎁'}</T>
               <T variant="title2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900' }}>
-                이번 주 분석 완료
+                {receivedCount === 0 ? '이번 주 분석 완료' : `${receivedCount}개 받음 · ${remainingCount}개 더 받기 가능`}
               </T>
               <T variant="body2r" style={{ color: 'rgba(255,255,255,0.65)', marginTop: 6, textAlign: 'center' }}>
-                통계 분석 풀에서 50조합 받기 (참고용)
+                받고 싶은 개수를 골라주세요 (이번 주 최대 50개)
               </T>
+              <ReceiveCountPicker
+                remaining={remainingCount}
+                selected={selectedCount}
+                disabled={receiving}
+                onSelect={setSelectedCount}
+              />
               <Pressable
                 onPress={handleReceive}
-                disabled={receiving}
+                disabled={selectedCount == null || receiving}
                 style={({ pressed }) => [
                   styles.receiveBtn,
-                  { backgroundColor: GOLD, opacity: receiving ? 0.7 : pressed ? 0.85 : 1 },
+                  {
+                    backgroundColor: GOLD,
+                    opacity: selectedCount == null ? 0.4 : receiving ? 0.7 : pressed ? 0.85 : 1,
+                  },
                 ]}
               >
                 <Icon.sparkle color="#fff" size={16} weight={2.5} />
                 <T variant="label1n" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', marginLeft: 6, fontSize: 15 }}>
-                  {receiving ? '받는 중...' : '50조합 받기'}
+                  {receiving
+                    ? '받는 중...'
+                    : selectedCount != null
+                      ? `${selectedCount}개 조합받기`
+                      : '개수를 먼저 골라주세요'}
                 </T>
               </Pressable>
             </View>
           )}
 
-          {status === 'active' && entry && (
+          {status === 'active' && remainingCount === 0 && (
             <View style={styles.heroBody}>
-              <T allowFontScaling={false} style={{ fontSize: 56, marginBottom: 8 }}>✅</T>
+              <T allowFontScaling={false} style={styles.heroEmoji}>✅</T>
               <T variant="title2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900' }}>
-                이번 주 받기 완료
+                이번 주 50조합 받기 완료
               </T>
               <T variant="body2r" style={{ color: 'rgba(255,255,255,0.65)', marginTop: 6, textAlign: 'center' }}>
                 아래에서 50조합 확인 · 보관함 저장 가능
@@ -287,7 +291,7 @@ export default function ProJachanism() {
 
           {status === 'drawing' && (
             <View style={styles.heroBody}>
-              <T allowFontScaling={false} style={{ fontSize: 56, marginBottom: 8 }}>⏳</T>
+              <T allowFontScaling={false} style={styles.heroEmoji}>⏳</T>
               <T variant="title2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900' }}>
                 추첨 진행 중
               </T>
@@ -299,7 +303,7 @@ export default function ProJachanism() {
 
           {status === 'done' && (
             <View style={styles.heroBody}>
-              <T allowFontScaling={false} style={{ fontSize: 56, marginBottom: 8 }}>🎉</T>
+              <T allowFontScaling={false} style={styles.heroEmoji}>🎉</T>
               <T variant="title2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900' }}>
                 {targetRound}회 추첨 완료
               </T>
@@ -314,7 +318,7 @@ export default function ProJachanism() {
         {status === 'done' && entry && rankBreakdown && (
           <Card padding={16}>
             <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
-              🏆 내 50조합 등수 결과
+              🏆 내 받은 조합 {entry.combos.length}개 등수 결과
             </T>
             <T variant="caption1" color="tertiary" style={{ marginTop: 2, fontSize: 11.5 }}>
               {targetRound}회 추첨 기준 · 자동 분석 결과 (참고용)
@@ -329,105 +333,65 @@ export default function ProJachanism() {
           </Card>
         )}
 
-        {/* 받은 조합 50개 카드 */}
-        {entry && (() => {
-          const savedCount = Object.values(savedSet).filter(Boolean).length;
-          const allSaved = savedCount === entry.combos.length;
-          return (
-            <Card padding={16}>
-              <View>
-                <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
-                  ✨ 받은 조합 {entry.combos.length}개
-                </T>
-                <T variant="caption1" color="tertiary" style={{ marginTop: 2, fontSize: 11.5 }}>
-                  {savedCount > 0
-                    ? `${savedCount} / ${entry.combos.length} 저장됨 · ${targetRound}회 자동 분석`
-                    : `${targetRound}회 자동 분석 결과 (참고용)`}
-                </T>
-              </View>
+        {/* 받은 조합 카드 — 자동 저장됨 (보관함에 즉시 반영) */}
+        {entry && (
+          <Card padding={16}>
+            <View>
+              <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
+                ✨ 받은 조합 {entry.combos.length}개
+              </T>
+              <T variant="caption1" color="tertiary" style={{ marginTop: 2, fontSize: 11.5 }}>
+                💾 보관함 자동 저장 · 내 번호에서 회차별로 확인 가능
+              </T>
+            </View>
 
-              <View style={styles.comboActions}>
-                <Pressable
-                  onPress={saveAllCombos}
-                  disabled={allSaved}
-                  style={({ pressed }) => [
-                    styles.saveAllBtn,
-                    {
-                      backgroundColor: allSaved ? palette.green500 : GOLD,
-                      opacity: pressed && !allSaved ? 0.85 : 1,
-                    },
-                  ]}
-                >
-                  <Icon.check color="#fff" size={13} weight={2.8} />
-                  <T variant="caption1" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 12, marginLeft: 5 }}>
-                    {allSaved ? '모두 저장됨' : '모두 저장'}
-                  </T>
-                </Pressable>
-              </View>
-
-              <View style={{ marginTop: 12, gap: 8 }}>
-                {entry.combos.map((c, i) => {
-                  // 추첨 완료 시 등수 표시
-                  const drawn = status === 'done' ? drawsMap[targetRound] : null;
-                  const r = drawn ? computeRank(c, drawn.nums, drawn.bonus) : null;
-                  return (
-                    <View
-                      key={i}
-                      style={[styles.comboRow, {
-                        backgroundColor: t.bgSurface2,
-                        borderColor: r != null && r <= 3 ? GOLD : t.borderDivider,
-                        borderWidth: r != null && r <= 3 ? 2 : 1,
-                      }]}
-                    >
-                      <View style={styles.labelBox}>
-                        <T variant="caption2" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 11 }}>
-                          #{i + 1}
+            <View style={{ marginTop: 12, gap: 8 }}>
+              {entry.combos.map((c, i) => {
+                // 추첨 완료 시 등수 표시
+                const drawn = status === 'done' ? drawsMap[targetRound] : null;
+                const r = drawn ? computeRank(c, drawn.nums, drawn.bonus) : null;
+                return (
+                  <View
+                    key={i}
+                    style={[styles.comboRow, {
+                      backgroundColor: t.bgSurface2,
+                      borderColor: r != null && r <= 3 ? GOLD : t.borderDivider,
+                      borderWidth: r != null && r <= 3 ? 2 : 1,
+                    }]}
+                  >
+                    <View style={styles.labelBox}>
+                      <T variant="caption2" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 11 }}>
+                        #{i + 1}
+                      </T>
+                    </View>
+                    <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: 4 }}>
+                      {c.map((n) => {
+                        const isMain = drawn?.nums.includes(n);
+                        const isBonus = !isMain && drawn?.bonus === n;
+                        return (
+                          <Ball
+                            key={n}
+                            n={n}
+                            size="sm"
+                            dashedRing={isMain || isBonus}
+                            dashedRingColor={isMain ? palette.red500 : isBonus ? palette.purple500 : undefined}
+                          />
+                        );
+                      })}
+                    </View>
+                    {r != null && (
+                      <View style={[styles.rankPill, { backgroundColor: r === 1 ? palette.red500 : r === 2 ? '#ea580c' : r === 3 ? GOLD_DARK : r === 4 ? palette.blue700 : palette.green700 }]}>
+                        <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 10 }}>
+                          {r}등
                         </T>
                       </View>
-                      <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: 4 }}>
-                        {c.map((n) => {
-                          const isMain = drawn?.nums.includes(n);
-                          const isBonus = !isMain && drawn?.bonus === n;
-                          return (
-                            <Ball
-                              key={n}
-                              n={n}
-                              size="sm"
-                              dashedRing={isMain || isBonus}
-                              dashedRingColor={isMain ? palette.red500 : isBonus ? palette.purple500 : undefined}
-                            />
-                          );
-                        })}
-                      </View>
-                      {r != null && (
-                        <View style={[styles.rankPill, { backgroundColor: r === 1 ? palette.red500 : r === 2 ? '#ea580c' : r === 3 ? GOLD_DARK : r === 4 ? palette.blue700 : palette.green700 }]}>
-                          <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 10 }}>
-                            {r}등
-                          </T>
-                        </View>
-                      )}
-                      <Pressable
-                        onPress={() => saveOneCombo(i)}
-                        disabled={savedSet[i]}
-                        style={({ pressed }) => [
-                          styles.saveDot,
-                          {
-                            backgroundColor: savedSet[i] ? palette.green500 : 'rgba(232,176,78,0.18)',
-                            opacity: pressed ? 0.85 : 1,
-                          },
-                        ]}
-                      >
-                        {savedSet[i]
-                          ? <Icon.check color="#fff" size={12} weight={3} />
-                          : <Icon.plus color={GOLD_DARK} size={12} weight={2.5} />}
-                      </Pressable>
-                    </View>
-                  );
-                })}
-              </View>
-            </Card>
-          );
-        })()}
+                    )}
+                  </View>
+                );
+              })}
+            </View>
+          </Card>
+        )}
 
         {/* 이번 주 분석 풀 — 총 풀 + 내 한도 (남은 조합은 백엔드 연동 시 추가) */}
         <Card padding={14}>
@@ -511,7 +475,7 @@ export default function ProJachanism() {
           </T>
           <View style={{ gap: 6 }}>
             <InfoLine icon="📊" text={`매주 일요일 통계 분석 자동 실행 (${POOL_SIZE_DISPLAY} 조합 풀)`} />
-            <InfoLine icon="📅" text="수요일 00:00부터 분석 결과 50조합 받기" />
+            <InfoLine icon="📅" text="수요일 00:00 ~ 토요일 20:00까지 50조합 받기" />
             <InfoLine icon="🎉" text="토요일 추첨 후 등수 결과 자동 확인" />
             <InfoLine icon="💎" text="PRO 멤버십 가입 시 모든 PRO 분석 기능 무제한" />
           </View>
@@ -594,6 +558,55 @@ function InfoLine({ icon, text }: { icon: string; text: string }) {
   );
 }
 
+/** 받기 개수 선택 칩. 선택만 하고 실제 받기는 별도 버튼에서 트리거. */
+function ReceiveCountPicker({
+  remaining, selected, disabled, onSelect,
+}: {
+  remaining: number;
+  selected: number | null;
+  disabled: boolean;
+  onSelect: (count: number) => void;
+}) {
+  // 기본 옵션: 5, 10, 20, 남은 전체 (중복/한도 초과는 자동 제거)
+  const presets = Array.from(new Set([5, 10, 20, remaining]))
+    .filter((n) => n >= 1 && n <= remaining)
+    .sort((a, b) => a - b);
+
+  return (
+    <View style={styles.pickerWrap}>
+      {presets.map((n) => {
+        const isMax = n === remaining;
+        const on = selected === n;
+        const baseBg = isMax ? 'rgba(232,176,78,0.15)' : 'rgba(255,255,255,0.10)';
+        const baseBorder = isMax ? 'rgba(232,176,78,0.5)' : 'rgba(255,255,255,0.20)';
+        return (
+          <Pressable
+            key={n}
+            onPress={() => !disabled && onSelect(n)}
+            disabled={disabled}
+            style={({ pressed }) => [
+              styles.pickerBtn,
+              {
+                backgroundColor: on ? GOLD : baseBg,
+                borderColor: on ? GOLD : baseBorder,
+                opacity: disabled ? 0.5 : pressed ? 0.8 : 1,
+              },
+            ]}
+          >
+            <T
+              variant="label1n"
+              allowFontScaling={false}
+              style={{ color: '#fff', fontWeight: '800', fontSize: 14 }}
+            >
+              {isMax && n > 1 ? `남은 ${n}개 전체` : `${n}개`}
+            </T>
+          </Pressable>
+        );
+      })}
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
   root: { flex: 1 },
 
@@ -608,7 +621,14 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
   },
   heroBody: {
-    alignItems: 'center', paddingVertical: 16,
+    alignItems: 'center', paddingVertical: 20,
+  },
+  /** emoji는 lineHeight = fontSize × 1.2로 명시해서 텍스트와 겹침 방지. */
+  heroEmoji: {
+    fontSize: 56,
+    lineHeight: 72,
+    marginBottom: 16,
+    textAlign: 'center',
   },
   countdownPill: {
     marginTop: 14,
@@ -628,6 +648,23 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
 
+  // 받기 개수 선택 picker
+  pickerWrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: 8,
+    marginTop: 18,
+  },
+  pickerBtn: {
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderRadius: radius.pill,
+    borderWidth: 1.5,
+    minWidth: 70,
+    alignItems: 'center',
+  },
+
   // 등수 결과
   rankRow: {
     flexDirection: 'row', alignItems: 'center',
@@ -636,19 +673,9 @@ const styles = StyleSheet.create({
     gap: 8,
   },
 
-  // 조합 액션 + 행
-  comboActions: { marginTop: 12 },
-  saveAllBtn: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
-    paddingHorizontal: 12, paddingVertical: 10,
-    borderRadius: radius.pill,
-  },
+  // 조합 행
   labelBox: {
     width: 32, height: 28, borderRadius: 8,
-    alignItems: 'center', justifyContent: 'center',
-  },
-  saveDot: {
-    width: 30, height: 30, borderRadius: 10,
     alignItems: 'center', justifyContent: 'center',
   },
   rankPill: {
