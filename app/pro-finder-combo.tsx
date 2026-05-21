@@ -416,18 +416,18 @@ export default function ProFinderCombo() {
       <AppBar title={titleNode} onBack={goBack} />
 
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
-        {/* 회차 네비 */}
-        <View style={[styles.heroCard, { backgroundColor: palette.neutral950 }]}>
+        {/* 회차 네비 (라이트/다크 자동 분기) */}
+        <View style={[styles.heroCard, { backgroundColor: t.bgHero }]}>
           <View style={styles.targetHead}>
             <Pressable
               onPress={() => round > earliestRound + 1 && setRound(round - 1)}
               disabled={round <= earliestRound + 1}
               style={({ pressed }) => [styles.navArrow, {
-                backgroundColor: 'rgba(255,255,255,0.10)',
+                backgroundColor: t.bgOnHeroPill,
                 opacity: round <= earliestRound + 1 ? 0.3 : pressed ? 0.6 : 1,
               }]}
             >
-              <T variant="label1n" style={{ color: '#fff', fontWeight: '800' }} allowFontScaling={false}>‹</T>
+              <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }} allowFontScaling={false}>‹</T>
             </Pressable>
             <View style={{ flex: 1, alignItems: 'center' }}>
               {isUpcoming ? (
@@ -437,12 +437,12 @@ export default function ProFinderCombo() {
                   </T>
                 </View>
               ) : (
-                <T variant="caption1" style={{ color: 'rgba(255,255,255,0.6)' }}>분석 대상</T>
+                <T variant="caption1" style={{ color: t.fgOnHeroMuted }}>분석 대상</T>
               )}
-              <T variant="title2" style={{ color: '#fff', fontWeight: '900', marginTop: 4 }}>
+              <T variant="title2" style={{ color: t.fgOnHero, fontWeight: '900', marginTop: 4 }}>
                 제 {round}회
               </T>
-              <T variant="caption1" style={{ color: 'rgba(255,255,255,0.55)', marginTop: 2 }}>
+              <T variant="caption1" style={{ color: t.fgOnHeroFaint, marginTop: 2 }}>
                 {targetDate ? targetDate : '예정'}{isUpcoming ? ' (예정)' : ''}
               </T>
             </View>
@@ -450,11 +450,11 @@ export default function ProFinderCombo() {
               onPress={() => round < upcomingRound && setRound(round + 1)}
               disabled={round >= upcomingRound}
               style={({ pressed }) => [styles.navArrow, {
-                backgroundColor: 'rgba(255,255,255,0.10)',
+                backgroundColor: t.bgOnHeroPill,
                 opacity: round >= upcomingRound ? 0.3 : pressed ? 0.6 : 1,
               }]}
             >
-              <T variant="label1n" style={{ color: '#fff', fontWeight: '800' }} allowFontScaling={false}>›</T>
+              <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }} allowFontScaling={false}>›</T>
             </Pressable>
           </View>
         </View>

@@ -178,8 +178,8 @@ export default function ProCompat() {
       />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
 
-        {/* Hero — 선택한 번호 + 분석 범위 */}
-        <View style={[styles.hero, { backgroundColor: palette.neutral950 }]}>
+        {/* Hero — 선택한 번호 + 분석 범위 (라이트/다크 자동 분기) */}
+        <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
           <View style={styles.heroTopRow}>
             <View style={[styles.heroBadge, { backgroundColor: GOLD }]}>
               <Icon.crown color="#fff" size={12} weight={2.5} />
@@ -187,18 +187,18 @@ export default function ProCompat() {
                 PRO
               </T>
             </View>
-            <T variant="caption1" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.55)', fontSize: 11 }}>
+            <T variant="caption1" allowFontScaling={false} style={{ color: t.fgOnHeroFaint, fontSize: 11 }}>
               {range === 'all'
                 ? `전체 ${earliestRound}~${latestRound}회`
                 : `최근 ${range}회 (${(latestRound ?? 0) - range + 1}~${latestRound})`}
             </T>
           </View>
-          <T variant="caption1" style={{ color: 'rgba(255,255,255,0.6)', fontWeight: '600', marginTop: 10 }}>
+          <T variant="caption1" style={{ color: t.fgOnHeroMuted, fontWeight: '600', marginTop: 10 }}>
             선택한 번호 ({picked.length}/{MAX_PICK})
           </T>
           <View style={styles.heroBalls}>
             {picked.length === 0 ? (
-              <T variant="body2r" style={{ color: 'rgba(255,255,255,0.5)', marginTop: 4 }}>
+              <T variant="body2r" style={{ color: t.fgOnHeroFaint, marginTop: 4 }}>
                 1~5개 번호를 골라보세요
               </T>
             ) : (

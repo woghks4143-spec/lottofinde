@@ -83,9 +83,9 @@ export default function Compat() {
       <AppBar title="궁합수 분석" onBack={goBack} />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
 
-        {/* Hero: 선택 번호 + 출현 통계 (선택 범위 기준) */}
-        <View style={[styles.hero, { backgroundColor: palette.neutral950 }]}>
-          <T variant="caption1" style={{ color: 'rgba(255,255,255,0.6)', fontWeight: '600' }}>
+        {/* Hero: 선택 번호 + 출현 통계 (선택 범위 기준) — 라이트/다크 자동 분기 */}
+        <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
+          <T variant="caption1" style={{ color: t.fgOnHeroMuted, fontWeight: '600' }}>
             분석 대상 번호
           </T>
           <View style={styles.heroRow}>
@@ -95,14 +95,14 @@ export default function Compat() {
               </T>
             </View>
             <View style={{ flex: 1 }}>
-              <T variant="title3" style={{ color: '#fff', fontWeight: '800' }}>
+              <T variant="title3" style={{ color: t.fgOnHero, fontWeight: '800' }}>
                 {selected}번
               </T>
-              <T variant="caption1" style={{ color: 'rgba(255,255,255,0.78)', marginTop: 4 }}>
+              <T variant="caption1" style={{ color: t.fgOnHeroMuted, marginTop: 4 }}>
                 {draws.length}회차 중 {selectedAppearance}회 출현
                 {'  '}({draws.length > 0 ? ((selectedAppearance / draws.length) * 100).toFixed(1) : '0.0'}%)
               </T>
-              <T variant="caption1" style={{ color: 'rgba(255,255,255,0.55)', marginTop: 2, fontSize: 11 }}>
+              <T variant="caption1" style={{ color: t.fgOnHeroFaint, marginTop: 2, fontSize: 11 }}>
                 {range === 'all'
                   ? `전체 ${earliestRound}~${latestRound}회차`
                   : `최근 ${range}회차 (${latestRound - range + 1}~${latestRound}회)`}

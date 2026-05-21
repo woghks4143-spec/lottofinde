@@ -50,6 +50,9 @@ export default function ConditionPick() {
   const [picks, setPicks] = useState<number[][]>([]);
   const [savedSet, setSavedSet] = useState<Record<number, boolean>>({});
   const [toast, setToast] = useState<string | null>(null);
+  // 1~45 그리드 너비 측정 → 7컬럼 정확히 분할
+  const [gridW, setGridW] = useState(0);
+  const cellSize = gridW > 0 ? Math.floor((gridW - 6 * 6) / 7) : 40;
 
   const fixedSet = useMemo(() => new Set(fixed), [fixed]);
   const candSet = useMemo(() => new Set(candidates), [candidates]);
@@ -197,8 +200,19 @@ export default function ConditionPick() {
               </Pressable>
             )}
           </View>
-          <View style={styles.grid}>
-            {Array.from({ length: 45 }, (_, i) => i + 1).map((n) => {
+          <View
+            style={styles.grid}
+            onLayout={(e) => setGridW(e.nativeEvent.layout.width)}
+          >
+            {Array.from({ length: 49 }, (_, i) => i + 1).map((n) => {
+              if (n > 45) {
+                return (
+                  <View
+                    key={n}
+                    style={[styles.cellEmpty, { width: cellSize, height: cellSize }]}
+                  />
+                );
+              }
               const state = stateOf(n);
               const info = state ? MODE_INFO[state] : null;
               return (
@@ -207,6 +221,7 @@ export default function ConditionPick() {
                   onPress={() => toggle(n)}
                   style={({ pressed }) => [
                     styles.cell,
+                    { width: cellSize, height: cellSize },
                     state ? { backgroundColor: info!.color }
                           : { backgroundColor: 'transparent', borderColor: t.borderWeak, borderWidth: 1 },
                     { opacity: pressed ? 0.85 : 1 },
@@ -223,7 +238,7 @@ export default function ConditionPick() {
                     style={{
                       color: state ? '#fff' : t.fgSecondary,
                       fontWeight: '700',
-                      fontSize: 14,
+                      fontSize: Math.max(12, Math.min(15, cellSize * 0.36)),
                       textDecorationLine: state === 'excluded' ? 'line-through' : 'none',
                     }}
                     allowFontScaling={false}
@@ -237,7 +252,7 @@ export default function ConditionPick() {
           <View style={styles.legendRow}>
             <Legend color={palette.blue500} label="고정수" />
             <Legend color={palette.green500} label="예상수" />
-            <Legend color={palette.red500} label="제외수" strike />
+            <Legend color={palette.red500} label="제외수" />
           </View>
         </Card>
 
@@ -257,34 +272,34 @@ export default function ConditionPick() {
           </T>
         </Card>
 
-        {/* 게임 수 */}
+        {/* 게임 수 — 라벨 위, 칩 4개는 아래에 균등 분포 */}
         <Card padding={14}>
-          <View style={styles.gameRow}>
-            <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>게임 수</T>
-            <View style={{ flexDirection: 'row', gap: 6 }}>
-              {GAME_OPTIONS.map((c) => (
-                <Pressable
-                  key={c}
-                  onPress={() => setGameCount(c)}
-                  style={({ pressed }) => [
-                    styles.gameChip,
-                    {
-                      backgroundColor: gameCount === c ? t.bgAccent : t.bgSurface,
-                      borderColor: gameCount === c ? 'transparent' : t.borderWeak,
-                      opacity: pressed ? 0.85 : 1,
-                    },
-                  ]}
+          <T variant="label1n" color="primary" style={{ fontWeight: '700', marginBottom: 10 }}>
+            게임 수
+          </T>
+          <View style={styles.gameChips}>
+            {GAME_OPTIONS.map((c) => (
+              <Pressable
+                key={c}
+                onPress={() => setGameCount(c)}
+                style={({ pressed }) => [
+                  styles.gameChip,
+                  {
+                    backgroundColor: gameCount === c ? t.bgAccent : t.bgSurface,
+                    borderColor: gameCount === c ? 'transparent' : t.borderWeak,
+                    opacity: pressed ? 0.85 : 1,
+                  },
+                ]}
+              >
+                <T
+                  variant="label1n"
+                  style={{ color: gameCount === c ? '#fff' : t.fgSecondary, fontWeight: '700' }}
+                  allowFontScaling={false}
                 >
-                  <T
-                    variant="label1n"
-                    style={{ color: gameCount === c ? '#fff' : t.fgSecondary, fontWeight: '700' }}
-                    allowFontScaling={false}
-                  >
-                    {c}게임
-                  </T>
-                </Pressable>
-              ))}
-            </View>
+                  {c}게임
+                </T>
+              </Pressable>
+            ))}
           </View>
         </Card>
 
@@ -381,13 +396,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 6,
+    justifyContent: 'center', // 7×7 그리드 가운데 정렬
   },
   cell: {
-    width: 40, height: 40,
+    // width/height는 인라인으로 cellSize 부여 (동적 계산)
     borderRadius: radius.md,
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
+  },
+  cellEmpty: {
+    backgroundColor: 'transparent',
+    opacity: 0,
   },
   cellDot: {
     position: 'absolute',
@@ -406,8 +426,14 @@ const styles = StyleSheet.create({
   legendItem: { flexDirection: 'row', alignItems: 'center' },
   legendDot: { width: 10, height: 10, borderRadius: 5 },
   gameRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  // 게임 수 칩 4개 — 가로 한 줄에 균등 분포 (flex: 1)
+  gameChips: {
+    flexDirection: 'row',
+    gap: 8,
+  },
   gameChip: {
-    height: 32,
+    flex: 1, // 4개 칩이 균등하게 너비 차지
+    height: 34,
     paddingHorizontal: 12,
     borderRadius: radius.pill,
     borderWidth: 1,

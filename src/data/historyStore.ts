@@ -153,7 +153,9 @@ export const useHistory = create<HistoryState>()(
           return true;
         }
         const st = get().enrichState[n];
-        if (st === 'loading' || st === 'done') return st === 'done';
+        // 'loading' 중일 때만 중복 호출 방지. 'failed'는 재시도 허용 (네트워크 일시
+        // 장애나 추첨 직후 정보가 아직 안 올라온 케이스 대응).
+        if (st === 'loading') return false;
 
         set((s) => ({ enrichState: { ...s.enrichState, [n]: 'loading' } }));
         const full = await fetchRoundFull(n);

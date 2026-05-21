@@ -206,8 +206,8 @@ export default function ProJachanism() {
       />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
 
-        {/* Hero — 상태별 메인 카드 */}
-        <View style={[styles.hero, { backgroundColor: palette.neutral950 }]}>
+        {/* Hero — 상태별 메인 카드 (라이트/다크 자동 분기) */}
+        <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
           <View style={styles.heroTopRow}>
             <View style={[styles.heroBadge, { backgroundColor: GOLD }]}>
               <Icon.crown color="#fff" size={12} weight={2.5} />
@@ -215,7 +215,7 @@ export default function ProJachanism() {
                 PRO 멤버십
               </T>
             </View>
-            <T variant="caption1" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.55)', fontSize: 11 }}>
+            <T variant="caption1" allowFontScaling={false} style={{ color: t.fgOnHeroFaint, fontSize: 11 }}>
               {targetRound}회 자동 분석
             </T>
           </View>
@@ -223,10 +223,10 @@ export default function ProJachanism() {
           {status === 'locked' && (
             <View style={styles.heroBody}>
               <T allowFontScaling={false} style={styles.heroEmoji}>🔒</T>
-              <T variant="title2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900' }}>
+              <T variant="title2" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900' }}>
                 분석 진행 중
               </T>
-              <T variant="body2r" style={{ color: 'rgba(255,255,255,0.65)', marginTop: 6, textAlign: 'center' }}>
+              <T variant="body2r" style={{ color: t.fgOnHeroMuted, marginTop: 6, textAlign: 'center' }}>
                 수요일 00:00부터 받을 수 있어요
               </T>
               {countdown && (
@@ -242,10 +242,10 @@ export default function ProJachanism() {
           {status === 'active' && remainingCount > 0 && (
             <View style={styles.heroBody}>
               <T allowFontScaling={false} style={styles.heroEmoji}>{receivedCount === 0 ? '✨' : '🎁'}</T>
-              <T variant="title2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900' }}>
+              <T variant="title2" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900' }}>
                 {receivedCount === 0 ? '이번 주 분석 완료' : `${receivedCount}개 받음 · ${remainingCount}개 더 받기 가능`}
               </T>
-              <T variant="body2r" style={{ color: 'rgba(255,255,255,0.65)', marginTop: 6, textAlign: 'center' }}>
+              <T variant="body2r" style={{ color: t.fgOnHeroMuted, marginTop: 6, textAlign: 'center' }}>
                 받고 싶은 개수를 골라주세요 (이번 주 최대 50개)
               </T>
               <ReceiveCountPicker
@@ -280,10 +280,10 @@ export default function ProJachanism() {
           {status === 'active' && remainingCount === 0 && (
             <View style={styles.heroBody}>
               <T allowFontScaling={false} style={styles.heroEmoji}>✅</T>
-              <T variant="title2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900' }}>
+              <T variant="title2" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900' }}>
                 이번 주 50조합 받기 완료
               </T>
-              <T variant="body2r" style={{ color: 'rgba(255,255,255,0.65)', marginTop: 6, textAlign: 'center' }}>
+              <T variant="body2r" style={{ color: t.fgOnHeroMuted, marginTop: 6, textAlign: 'center' }}>
                 아래에서 50조합 확인 · 보관함 저장 가능
               </T>
             </View>
@@ -292,10 +292,10 @@ export default function ProJachanism() {
           {status === 'drawing' && (
             <View style={styles.heroBody}>
               <T allowFontScaling={false} style={styles.heroEmoji}>⏳</T>
-              <T variant="title2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900' }}>
+              <T variant="title2" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900' }}>
                 추첨 진행 중
               </T>
-              <T variant="body2r" style={{ color: 'rgba(255,255,255,0.65)', marginTop: 6, textAlign: 'center' }}>
+              <T variant="body2r" style={{ color: t.fgOnHeroMuted, marginTop: 6, textAlign: 'center' }}>
                 토요일 20:35 추첨 후 결과 공개
               </T>
             </View>
@@ -304,10 +304,10 @@ export default function ProJachanism() {
           {status === 'done' && (
             <View style={styles.heroBody}>
               <T allowFontScaling={false} style={styles.heroEmoji}>🎉</T>
-              <T variant="title2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900' }}>
+              <T variant="title2" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900' }}>
                 {targetRound}회 추첨 완료
               </T>
-              <T variant="body2r" style={{ color: 'rgba(255,255,255,0.65)', marginTop: 6, textAlign: 'center' }}>
+              <T variant="body2r" style={{ color: t.fgOnHeroMuted, marginTop: 6, textAlign: 'center' }}>
                 받은 조합의 등수 결과를 확인하세요
               </T>
             </View>

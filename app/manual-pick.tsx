@@ -20,6 +20,7 @@ import { useRouter } from 'expo-router';
 import { useSafeBack } from '@/src/lib/navigation';
 import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
+import { Ball } from '@/src/components/Ball';
 import { BallRow } from '@/src/components/BallRow';
 import { Button } from '@/src/components/Button';
 import { Card } from '@/src/components/Card';
@@ -175,13 +176,13 @@ export default function ManualPick() {
         {/* 분석 결과 — 6개 선택 시 */}
         {isComplete && evalResult && (
           <>
-            {/* 선택한 조합 미리보기 */}
+            {/* 선택한 조합 미리보기 — 좁은 폰에서도 안 잘리도록 md + 좁은 gap */}
             <Card padding={16}>
               <T variant="caption1" color="tertiary" style={{ marginBottom: 10 }}>
                 선택한 조합
               </T>
               <View style={{ alignItems: 'center' }}>
-                <BallRow nums={selected} size="lg" />
+                <BallRow nums={selected} size="md" style={{ gap: 4 }} />
               </View>
             </Card>
 
@@ -315,19 +316,21 @@ export default function ManualPick() {
                 추가 정보
               </T>
               <View style={styles.infoRow}>
-                <View style={{ flex: 1 }}>
+                <View style={styles.infoCol}>
                   <T variant="caption1" color="tertiary">직전 회차 이월수</T>
                   <T variant="heading2" color="primary" style={{ fontWeight: '800', marginTop: 4 }}>
                     {carryOver.length}개
                   </T>
                   {carryOver.length > 0 && (
-                    <T variant="caption2" color="tertiary" style={{ marginTop: 2, fontSize: 11 }}>
-                      {carryOver.join(', ')}
-                    </T>
+                    <View style={styles.carryBalls}>
+                      {carryOver.map((n) => (
+                        <Ball key={n} n={n} size="xs" ringPad={1} />
+                      ))}
+                    </View>
                   )}
                 </View>
                 <View style={{ width: 1, backgroundColor: t.borderDivider, marginHorizontal: 12 }} />
-                <View style={{ flex: 1 }}>
+                <View style={styles.infoCol}>
                   <T variant="caption1" color="tertiary">역대 매칭</T>
                   <View style={{ flexDirection: 'row', gap: 4, marginTop: 6, flexWrap: 'wrap' }}>
                     {rankCounts.r1 + rankCounts.r2 + rankCounts.r3 + rankCounts.r4 + rankCounts.r5 === 0 ? (
@@ -346,27 +349,34 @@ export default function ManualPick() {
               </View>
             </Card>
 
-            {/* 액션 */}
-            <View style={{ flexDirection: 'row', gap: 8 }}>
-              <View style={{ flex: 1 }}>
-                <Button
-                  title={saved ? '저장됨 ✓' : '보관함에 저장'}
-                  variant={saved ? 'outline' : 'primary'}
-                  size="lg"
-                  full
-                  disabled={saved}
-                  onPress={onSave}
-                />
-              </View>
-            </View>
+            {/* 액션 — 자세한 분석 보기를 위에, 보관함 저장을 아래에. 둘 다 가운데 정렬. */}
             <Pressable
               onPress={() => router.push(`/combo?nums=${selected.join(',')}` as any)}
-              style={({ pressed }) => [styles.detailLink, { opacity: pressed ? 0.85 : 1 }]}
+              style={({ pressed }) => [
+                styles.detailLinkBtn,
+                {
+                  backgroundColor: t.bgAccentSoft,
+                  borderColor: palette.blue500,
+                  opacity: pressed ? 0.85 : 1,
+                },
+              ]}
             >
-              <T variant="label1n" style={{ color: palette.blue700, fontWeight: '700' }}>
-                자세한 분석 보기 →
+              <T
+                variant="label1n"
+                allowFontScaling={false}
+                style={{ color: palette.blue700, fontWeight: '800', textAlign: 'center' }}
+              >
+                자세한 분석 보기
               </T>
             </Pressable>
+            <Button
+              title={saved ? '저장됨 ✓' : '보관함에 저장'}
+              variant={saved ? 'outline' : 'primary'}
+              size="lg"
+              full
+              disabled={saved}
+              onPress={onSave}
+            />
           </>
         )}
 
@@ -567,9 +577,24 @@ const styles = StyleSheet.create({
     alignItems: 'center', justifyContent: 'center',
   },
   infoRow: { flexDirection: 'row', alignItems: 'flex-start' },
+  infoCol: { flex: 1, alignItems: 'flex-start' },
+  carryBalls: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 4,
+    marginTop: 8,
+  },
   detailLink: {
     paddingVertical: 12,
     alignItems: 'center',
+  },
+  // "자세한 분석 보기" 버튼 — outline 스타일로 보관함 저장 위에 배치
+  detailLinkBtn: {
+    height: 52,
+    borderRadius: radius.md,
+    borderWidth: 1.5,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   toast: {
     position: 'absolute',

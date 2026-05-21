@@ -147,34 +147,34 @@ export default function WeightedPick() {
           </T>
         </Card>
 
-        {/* 게임 수 선택 */}
+        {/* 게임 수 선택 — 라벨 위, 칩 4개는 아래에 균등 분포 */}
         <Card padding={14}>
-          <View style={styles.headRow}>
-            <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>게임 수</T>
-            <View style={{ flexDirection: 'row', gap: 6 }}>
-              {GAME_OPTIONS.map((n) => (
-                <Pressable
-                  key={n}
-                  onPress={() => setGameCount(n)}
-                  style={({ pressed }) => [
-                    styles.gameChip,
-                    {
-                      backgroundColor: gameCount === n ? t.bgAccent : t.bgSurface,
-                      borderColor: gameCount === n ? 'transparent' : t.borderWeak,
-                      opacity: pressed ? 0.85 : 1,
-                    },
-                  ]}
+          <T variant="label1n" color="primary" style={{ fontWeight: '700', marginBottom: 10 }}>
+            게임 수
+          </T>
+          <View style={styles.gameChips}>
+            {GAME_OPTIONS.map((n) => (
+              <Pressable
+                key={n}
+                onPress={() => setGameCount(n)}
+                style={({ pressed }) => [
+                  styles.gameChip,
+                  {
+                    backgroundColor: gameCount === n ? t.bgAccent : t.bgSurface,
+                    borderColor: gameCount === n ? 'transparent' : t.borderWeak,
+                    opacity: pressed ? 0.85 : 1,
+                  },
+                ]}
+              >
+                <T
+                  variant="label1n"
+                  style={{ color: gameCount === n ? '#fff' : t.fgSecondary, fontWeight: '700' }}
+                  allowFontScaling={false}
                 >
-                  <T
-                    variant="label1n"
-                    style={{ color: gameCount === n ? '#fff' : t.fgSecondary, fontWeight: '700' }}
-                    allowFontScaling={false}
-                  >
-                    {n}게임
-                  </T>
-                </Pressable>
-              ))}
-            </View>
+                  {n}게임
+                </T>
+              </Pressable>
+            ))}
           </View>
         </Card>
 
@@ -352,7 +352,7 @@ function WeightSliderRow({
 
       <T
         variant="label1n"
-        style={{ minWidth: 24, textAlign: 'right', fontWeight: '800', color: valueColor }}
+        style={{ minWidth: 26, textAlign: 'center', fontWeight: '800', color: valueColor, fontSize: 15 }}
         allowFontScaling={false}
       >
         {value}
@@ -372,8 +372,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  // 게임 수 칩 4개 — 가로 한 줄에 균등 분포 (flex: 1)
+  gameChips: {
+    flexDirection: 'row',
+    gap: 8,
+  },
   gameChip: {
-    height: 32,
+    flex: 1, // 4개 칩이 균등하게 너비 차지
+    height: 34,
     paddingHorizontal: 12,
     borderRadius: radius.pill,
     borderWidth: 1,

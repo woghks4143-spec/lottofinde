@@ -301,9 +301,9 @@ export default function Glossary() {
       <ScrollView ref={scrollRef} contentContainerStyle={{ padding: 16, gap: 14, paddingBottom: 24 }}>
 
         {/* 인트로 — 사용 안내 */}
-        <Card padding={16}>
-          <T variant="heading2" color="primary">로또 용어 사전</T>
-          <T variant="body2r" color="secondary" style={{ marginTop: 6, lineHeight: 22 }}>
+        <Card padding={18}>
+          <T variant="heading1" color="primary" style={{ fontWeight: '800' }}>📖 로또 용어 사전</T>
+          <T variant="body2r" color="secondary" style={{ marginTop: 8, lineHeight: 22 }}>
             로또 6/45 분석에 자주 쓰이는 용어를 모았어요.
             각 용어마다 짧은 정의·예시·통계적 의미를 함께 정리했습니다.
           </T>
@@ -311,12 +311,12 @@ export default function Glossary() {
 
         {/* 섹션별 용어 */}
         {SECTIONS.map((section) => (
-          <View key={section.id} style={{ gap: 10 }}>
+          <View key={section.id} style={{ gap: 12 }}>
             <View style={styles.sectionHead}>
-              <T variant="heading2" color="primary">
-                {section.emoji}  {section.title}
+              <T variant="heading1" color="primary" style={{ fontWeight: '800', fontSize: 20 }}>
+                {section.emoji} {section.title}
               </T>
-              <T variant="caption1" color="tertiary" style={{ marginTop: 2 }}>
+              <T variant="caption1" color="tertiary" style={{ marginTop: 4, fontSize: 12.5 }}>
                 {section.hint}
               </T>
             </View>
@@ -341,32 +341,59 @@ export default function Glossary() {
 // ─── TermCard ────────────────────────────────────────────────────────────────
 
 function TermCard({ term, focused }: { term: Term; focused: boolean }) {
+  const t = useTheme();
+  const toneColor = term.tone === 'accent' ? palette.blue500
+    : term.tone === 'purple' ? palette.purple500
+    : term.tone === 'danger' ? palette.red500
+    : null;
+
   return (
     <Card
-      padding={16}
+      padding={18}
       style={focused ? { borderColor: palette.blue500, borderWidth: 2 } : undefined}
     >
-      <T variant="headline1" color="primary">{term.title}</T>
-      <T variant="body2r" color="secondary" style={{ marginTop: 8, lineHeight: 22 }}>
+      {/* 제목 — 더 크고 굵게 */}
+      <View style={styles.titleRow}>
+        {toneColor && <View style={[styles.toneDot, { backgroundColor: toneColor }]} />}
+        <T variant="heading2" color="primary" style={{ fontWeight: '800', flex: 1 }}>
+          {term.title}
+        </T>
+      </View>
+
+      {/* 한 줄 정의 — 본문 사이즈 키움 (body2r → body1r) */}
+      <T variant="body1r" color="primary" style={{ marginTop: 8, lineHeight: 24, fontWeight: '500' }}>
         {term.oneLiner}
       </T>
 
-      {/* 예시 */}
+      {/* 예시 카드 — 공 크기 sm으로 키움 + padding 여유 */}
       <View style={[styles.exampleCard, { backgroundColor: palette.softFill }]}>
-        <T variant="caption1" color="tertiary" style={{ fontWeight: '700', marginBottom: 6 }}>
+        <T variant="label1n" allowFontScaling={false} style={{ fontWeight: '800', marginBottom: 10, fontSize: 12, color: t.fgSecondary, letterSpacing: 0.5 }}>
           예시
         </T>
         <View style={styles.exampleBalls}>
-          {term.example.combo.map((n) => <Ball key={n} n={n} size="xs" />)}
+          {term.example.combo.map((n) => <Ball key={n} n={n} size="sm" ringPad={2} />)}
         </View>
-        <T variant="caption1" color="primary" style={{ marginTop: 8, fontWeight: '600' }}>
+        <T variant="label1n" color="primary" style={{ marginTop: 12, fontWeight: '700', fontSize: 14, lineHeight: 20 }}>
           → {term.example.result}
         </T>
       </View>
 
-      <T variant="caption1" color="secondary" style={{ marginTop: 10, lineHeight: 18 }}>
+      {/* 통계적 의미 — 본문 가독성 ↑ */}
+      <T variant="body2r" color="secondary" style={{ marginTop: 14, lineHeight: 21 }}>
         {term.meaning}
       </T>
+
+      {/* 강조 조건이 있으면 카드 형태로 표시 */}
+      {term.highlightWhen && toneColor && (
+        <View style={[styles.highlightCard, { backgroundColor: `${toneColor}14`, borderColor: toneColor }]}>
+          <T variant="caption1" allowFontScaling={false} style={{ color: toneColor, fontWeight: '800', fontSize: 11.5, letterSpacing: 0.3 }}>
+            🎯 강조 조건
+          </T>
+          <T variant="caption1" color="secondary" style={{ marginTop: 4, lineHeight: 18, fontSize: 12.5 }}>
+            {term.highlightWhen}
+          </T>
+        </View>
+      )}
     </Card>
   );
 }
@@ -376,18 +403,38 @@ function TermCard({ term, focused }: { term: Term; focused: boolean }) {
 const styles = StyleSheet.create({
   root: { flex: 1 },
   sectionHead: {
-    marginTop: 6,
-    marginBottom: 2,
-  },
-  exampleCard: {
     marginTop: 10,
-    padding: 12,
-    borderRadius: radius.md,
+    marginBottom: 4,
+    paddingHorizontal: 4,
+  },
+  // 제목 옆 작은 색 dot — 톤(accent/purple/danger) 시각화
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  toneDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+  },
+  // 예시 카드 — 공이 들어가는 강조 영역
+  exampleCard: {
+    marginTop: 14,
+    padding: 14,
+    borderRadius: radius.lg,
   },
   exampleBalls: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 6,
     alignItems: 'center',
+  },
+  // 강조 조건 카드 — 톤 색으로 부드러운 배경 + 보더
+  highlightCard: {
+    marginTop: 12,
+    padding: 10,
+    borderRadius: radius.md,
+    borderWidth: 1,
   },
 });

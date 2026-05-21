@@ -132,8 +132,8 @@ export default function ProAppearanceStats() {
       <AppBar title={titleNode} onBack={goBack} />
 
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
-        {/* 헤더 카드 — 회차 네비게이션 */}
-        <View style={[styles.heroCard, { backgroundColor: palette.neutral950 }]}>
+        {/* 헤더 카드 — 회차 네비게이션 (라이트/다크 자동 분기) */}
+        <View style={[styles.heroCard, { backgroundColor: t.bgHero }]}>
           <View style={styles.heroTopRow}>
             <View style={[styles.heroBadge, { backgroundColor: GOLD }]}>
               <Icon.crown color="#fff" size={12} weight={2.5} />
@@ -141,7 +141,7 @@ export default function ProAppearanceStats() {
                 PRO
               </T>
             </View>
-            <T variant="caption2" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.55)', fontSize: 11 }}>
+            <T variant="caption2" allowFontScaling={false} style={{ color: t.fgOnHeroFaint, fontSize: 11 }}>
               1번 ~ 45번 출현 분석
             </T>
           </View>
@@ -151,18 +151,18 @@ export default function ProAppearanceStats() {
               onPress={() => round > earliestRound && setRound(round - 1)}
               disabled={round <= earliestRound}
               style={({ pressed }) => [styles.navArrow, {
-                backgroundColor: 'rgba(255,255,255,0.10)',
+                backgroundColor: t.bgOnHeroPill,
                 opacity: round <= earliestRound ? 0.3 : pressed ? 0.6 : 1,
               }]}
             >
-              <T variant="label1n" style={{ color: '#fff', fontWeight: '800' }} allowFontScaling={false}>‹</T>
+              <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }} allowFontScaling={false}>‹</T>
             </Pressable>
             <View style={{ flex: 1, alignItems: 'center' }}>
-              <T variant="caption1" style={{ color: 'rgba(255,255,255,0.6)' }}>분석 기준 회차</T>
-              <T variant="title2" style={{ color: '#fff', fontWeight: '900', marginTop: 4 }}>
+              <T variant="caption1" style={{ color: t.fgOnHeroMuted }}>분석 기준 회차</T>
+              <T variant="title2" style={{ color: t.fgOnHero, fontWeight: '900', marginTop: 4 }}>
                 제 {round}회
               </T>
-              <T variant="caption1" style={{ color: 'rgba(255,255,255,0.55)', marginTop: 2 }}>
+              <T variant="caption1" style={{ color: t.fgOnHeroFaint, marginTop: 2 }}>
                 {targetDraw ? `${targetDraw.date} · ` : ''}1회 ~ {round}회 ({totalRoundsAnalyzed}회 데이터)
               </T>
             </View>
@@ -170,18 +170,18 @@ export default function ProAppearanceStats() {
               onPress={() => round < latestRound && setRound(round + 1)}
               disabled={round >= latestRound}
               style={({ pressed }) => [styles.navArrow, {
-                backgroundColor: 'rgba(255,255,255,0.10)',
+                backgroundColor: t.bgOnHeroPill,
                 opacity: round >= latestRound ? 0.3 : pressed ? 0.6 : 1,
               }]}
             >
-              <T variant="label1n" style={{ color: '#fff', fontWeight: '800' }} allowFontScaling={false}>›</T>
+              <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }} allowFontScaling={false}>›</T>
             </Pressable>
           </View>
 
           {/* 다음 회차 적중 검증 안내 */}
           {nextDraw && (
             <View style={styles.nextDrawBox}>
-              <T variant="caption2" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.55)', fontSize: 10.5, marginBottom: 4 }}>
+              <T variant="caption2" allowFontScaling={false} style={{ color: t.fgOnHeroFaint, fontSize: 10.5, marginBottom: 4 }}>
                 ⏭ 다음 {nextDraw.round}회 본번호 (적중 검증용)
               </T>
               <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 4 }}>

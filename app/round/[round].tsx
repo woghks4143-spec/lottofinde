@@ -53,6 +53,7 @@ export default function RoundDetail() {
   const enrichRound = useHistory((s) => s.enrichRound);
 
   // 회차 진입 시 등위/판매점 정보가 없으면 백그라운드로 페치 (네이티브만).
+  // failed 상태에서도 재시도 — 사용자가 페이지 들어왔다 나갔다 하면 자동 재시도.
   useEffect(() => {
     if (!draw) return;
     if (Platform.OS === 'web') return;
@@ -60,6 +61,12 @@ export default function RoundDetail() {
     if (hasFull) return;
     enrichRound(round).catch(() => {});
   }, [round, draw?.prizes, draw?.topStores, enrichRound]);
+
+  // 사용자가 직접 새로고침 — 추첨 직후 등위/판매점이 늦게 올라온 경우 수동 갱신용.
+  const handleRefresh = () => {
+    if (Platform.OS === 'web') return;
+    enrichRound(round).catch(() => {});
+  };
 
   // 회차 점프 다이얼로그
   const [pickerOpen, setPickerOpen] = useState(false);
@@ -152,6 +159,7 @@ export default function RoundDetail() {
     };
   }, [draw, prevDraw]);
 
+  // 회차 이동 — 애니메이션 없이 즉시 변경.
   const goPrev = () => {
     if (round > earliestRound) router.replace(`/round/${round - 1}` as any);
   };
@@ -163,37 +171,32 @@ export default function RoundDetail() {
     <SafeAreaView style={[styles.root, { backgroundColor: t.bgCanvas }]} edges={['top']}>
       <AppBar
         onBack={goBack}
-        title={
-          <Pressable
-            onPress={() => { setPickerInput(String(round)); setPickerOpen(true); }}
-            style={({ pressed }) => [styles.titleBtn, { backgroundColor: pressed ? t.bgSurface2 : 'transparent' }]}
-            hitSlop={6}
-          >
-            <T variant="heading1" color="primary" style={{ fontWeight: '800' }}>
-              {round}회 상세
-            </T>
-            <T variant="caption1" color="tertiary" style={{ marginLeft: 6, fontSize: 14, fontWeight: '700' }} allowFontScaling={false}>
-              ▾
-            </T>
-          </Pressable>
-        }
+        title={`${round}회 상세`}
         trailing={
-          <IconBtn onPress={() => { setPickerInput(String(round)); setPickerOpen(true); }}>
-            <Icon.filter color={t.fgSecondary} />
-          </IconBtn>
+          <View style={{ flexDirection: 'row', gap: 4 }}>
+            {/* 등위/판매점 새로고침 — 추첨 직후 정보가 늦게 올라온 경우 수동 갱신 */}
+            {Platform.OS !== 'web' && (
+              <IconBtn onPress={handleRefresh}>
+                <Icon.refresh color={enrichState === 'loading' ? palette.purple500 : t.fgSecondary} />
+              </IconBtn>
+            )}
+            <IconBtn onPress={() => { setPickerInput(String(round)); setPickerOpen(true); }}>
+              <Icon.filter color={t.fgSecondary} />
+            </IconBtn>
+          </View>
         }
       />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 + 64 /* 하단 고정 네비 높이 보정 */ }}>
 
-        {/* Hero: 회차 정보 + 당첨번호 */}
-        <View style={[styles.hero, { backgroundColor: palette.neutral950 }]}>
+        {/* Hero: 회차 정보 + 당첨번호 (라이트/다크 자동 분기) */}
+        <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
           <View style={styles.heroHead}>
             <View>
-              <T variant="caption1" style={{ color: 'rgba(255,255,255,0.6)', fontWeight: '600' }}>
+              <T variant="caption1" style={{ color: t.fgOnHeroMuted, fontWeight: '600' }}>
                 {koreanDate(draw.date)}
               </T>
-              <T variant="title2" style={{ color: '#fff', fontWeight: '800', marginTop: 2 }}>
-                제 {draw.round}회 당첨번호
+              <T variant="title3" style={{ color: t.fgOnHero, fontWeight: '800', marginTop: 2 }}>
+                {draw.round}회 당첨번호
               </T>
             </View>
             {round === latestRound && (
@@ -204,21 +207,22 @@ export default function RoundDetail() {
               </View>
             )}
           </View>
-          <View style={{ marginTop: 16, alignItems: 'center' }}>
-            <BallRow nums={draw.nums} bonus={draw.bonus} size="lg" />
+          {/* 당첨번호 — sm + gap 3으로 좁은 폰에서도 여유롭게 */}
+          <View style={{ marginTop: 14, alignItems: 'center' }}>
+            <BallRow nums={draw.nums} bonus={draw.bonus} size="sm" style={{ gap: 3 }} />
           </View>
           {draw.firstWinAmount ? (
-            <View style={[styles.heroFoot, { borderTopColor: 'rgba(255,255,255,0.08)' }]}>
-              <T variant="label1r" style={{ color: 'rgba(255,255,255,0.7)' }}>1등 당첨금</T>
-              <T variant="label1n" style={{ color: '#fff', fontWeight: '700' }}>
+            <View style={[styles.heroFoot, { borderTopColor: t.borderOnHero }]}>
+              <T variant="label1r" style={{ color: t.fgOnHeroMuted }}>1등 당첨금</T>
+              <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '700' }}>
                 {formatWon(draw.firstWinAmount)}
-                {draw.firstWinners ? <T variant="caption1" style={{ color: 'rgba(255,255,255,0.55)' }}>{`  ${draw.firstWinners}명`}</T> : null}
+                {draw.firstWinners ? <T variant="caption1" style={{ color: t.fgOnHeroFaint }}>{`  ${draw.firstWinners}명`}</T> : null}
               </T>
             </View>
           ) : null}
           {draw.totalSales ? (
             <View style={styles.heroSales}>
-              <T variant="caption1" style={{ color: 'rgba(255,255,255,0.55)' }}>
+              <T variant="caption1" style={{ color: t.fgOnHeroFaint }}>
                 총 판매금액 {formatWon(draw.totalSales)}
               </T>
             </View>
@@ -247,19 +251,20 @@ export default function RoundDetail() {
             <StatCell label="저:고" value={hlLabel} />
           </View>
           <View style={[styles.statFootRow, { borderTopColor: t.borderDivider }]}>
-            <View style={{ flex: 1 }}>
+            {/* 3개 메트릭 — 가운데 정렬로 통일 (다른 StatCell들과 일관성) */}
+            <View style={{ flex: 1, alignItems: 'center' }}>
               <T variant="caption1" color="tertiary" style={{ fontSize: 11 }}>표준편차</T>
               <T variant="label1n" color="primary" style={{ fontWeight: '800', marginTop: 2 }} allowFontScaling={false}>
                 {sdV.toFixed(1)}
               </T>
             </View>
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, alignItems: 'center' }}>
               <T variant="caption1" color="tertiary" style={{ fontSize: 11 }}>연속수</T>
               <T variant="label1n" color="primary" style={{ fontWeight: '800', marginTop: 2 }} allowFontScaling={false}>
                 {consec}쌍
               </T>
             </View>
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, alignItems: 'center' }}>
               <T variant="caption1" color="tertiary" style={{ fontSize: 11 }}>총합 등급</T>
               <T variant="label1n" color="primary" style={{ fontWeight: '800', marginTop: 2 }} allowFontScaling={false}>
                 {sumBand(sumV)}
@@ -935,9 +940,11 @@ const styles = StyleSheet.create({
   empty: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 32 },
   hero: { borderRadius: radius.xl + 2, padding: 18 },
   heroHead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' },
+  // "최신" pill — 라이트 모드의 라벤더 hero 위에서도 잘 보이도록 강한 보라색
   latestPill: {
-    backgroundColor: 'rgba(255,255,255,0.12)',
-    paddingHorizontal: 8, paddingVertical: 4, borderRadius: 99,
+    backgroundColor: palette.purple500,
+    paddingHorizontal: 10, paddingVertical: 4, borderRadius: 99,
+    minWidth: 44, alignItems: 'center', justifyContent: 'center',
   },
   heroFoot: {
     flexDirection: 'row',

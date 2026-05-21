@@ -41,18 +41,18 @@ export default function ProGen() {
       />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
 
-        {/* Hero */}
-        <View style={[styles.hero, { backgroundColor: palette.neutral950 }]}>
+        {/* Hero — 라이트/다크 자동 분기 */}
+        <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
           <View style={[styles.heroBadge, { backgroundColor: GOLD }]}>
             <Icon.crown color="#fff" size={14} weight={2.5} />
             <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 10.5, marginLeft: 4, letterSpacing: 0.4 }}>
               PRO
             </T>
           </View>
-          <T variant="title2" style={{ color: '#fff', fontWeight: '800', marginTop: 14 }}>
+          <T variant="title2" style={{ color: t.fgOnHero, fontWeight: '800', marginTop: 14 }}>
             프로페셔널 조합 엔진
           </T>
-          <T variant="body2r" style={{ color: 'rgba(255,255,255,0.82)', marginTop: 8, lineHeight: 22 }}>
+          <T variant="body2r" style={{ color: t.fgOnHeroMuted, marginTop: 8, lineHeight: 22 }}>
             일반 조합 필터링으로는 불가능한 다차원 + 회차 관계 + 패턴 조건까지.
           </T>
           <View style={styles.heroChips}>

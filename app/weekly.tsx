@@ -231,9 +231,14 @@ export default function Weekly() {
           </View>
 
           <View style={[styles.grid, { marginTop: 14 }]}>
-            {(sortMode === 'natural'
-              ? Array.from({ length: 45 }, (_, i) => i + 1)
-              : rankedNums
+            {/* 3컬럼 세로 우선 정렬 — flexWrap이 가로로 채우는 특성을 이용해
+                [1,16,31,2,17,32,...] 순으로 데이터 재배열 → 시각적으로 1~15가
+                좌측 컬럼, 16~30 중앙, 31~45 우측에 세로로 표시됨. */}
+            {reorderVertical(
+              sortMode === 'natural'
+                ? Array.from({ length: 45 }, (_, i) => i + 1)
+                : rankedNums,
+              3,
             ).map((n) => {
               const c = freq.count[n];
               const ratio = maxCount > 0 ? c / maxCount : 0;
@@ -241,11 +246,11 @@ export default function Weekly() {
               const col = colorForRank(rank, t.fgSecondary);
               return (
                 <View key={n} style={styles.gridCell}>
-                  <Ball n={n} size="xs" />
+                  <Ball n={n} size="xs" ringPad={1} />
                   <View style={[styles.countBar, { backgroundColor: t.borderDivider }]}>
                     <View style={[styles.countFill, { width: `${Math.max(ratio * 100, 6)}%`, backgroundColor: col.fill }]} />
                   </View>
-                  <T variant="caption2" compact style={{ fontSize: 10, color: col.text, fontWeight: col.bold ? '800' : '600', minWidth: 16, textAlign: 'right' }} allowFontScaling={false}>
+                  <T variant="caption1" compact style={{ fontSize: 12, color: col.text, fontWeight: col.bold ? '800' : '700', minWidth: 18, textAlign: 'right' }} allowFontScaling={false}>
                     {c}
                   </T>
                 </View>
@@ -261,6 +266,27 @@ export default function Weekly() {
 }
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
+
+/**
+ * 가로 wrap 그리드에 데이터를 "세로 우선"으로 보여주기 위한 재배열 헬퍼.
+ *
+ * flexWrap='wrap'은 데이터를 가로 행 단위로 채우므로, 사용자 입장에서
+ * 1~15가 좌측 컬럼·16~30이 중간·31~45가 우측 컬럼으로 보이게 하려면
+ * 입력 순서를 [1,16,31, 2,17,32, ...] 형태로 변환해줘야 한다.
+ *
+ * 예) 45개 + 3컬럼 → 행 15개. col=0 채우고 col=1 채우고 col=2 채움.
+ */
+function reorderVertical<T>(arr: T[], cols: number): T[] {
+  const rows = Math.ceil(arr.length / cols);
+  const out: T[] = [];
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const idx = c * rows + r;
+      if (idx < arr.length) out.push(arr[idx]);
+    }
+  }
+  return out;
+}
 
 /**
  * 3단계 색상 매핑 — Top 5 / Bottom 5 / 보통.
@@ -431,23 +457,22 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   gridCell: {
-    width: '18.5%', // 5컬럼 + gap 보정
-    minWidth: 60,
-    flexGrow: 1,
-    flexBasis: '18%',
+    // 3컬럼 + 좁은 폰에서도 들어가도록 width 31% + gap 6.
+    // 3 × 31 = 93%, 2 × 6 = 12px → 좁은 폰(360px)에서도 안 wrap.
+    width: '31%',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
-    paddingVertical: 4,
+    gap: 5,
+    paddingVertical: 5,
   },
   countBar: {
     flex: 1,
-    height: 4,
-    borderRadius: 2,
+    height: 6,
+    borderRadius: 3,
     overflow: 'hidden',
   },
   countFill: {
     height: '100%',
-    borderRadius: 2,
+    borderRadius: 3,
   },
 });

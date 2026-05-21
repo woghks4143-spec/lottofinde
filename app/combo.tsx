@@ -151,13 +151,14 @@ export default function Combo() {
       <AppBar title="조합 상세" onBack={goBack} />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
 
-        {/* Hero — 조합 ball만 (지표는 아래 분석결과로) */}
-        <View style={[styles.hero, { backgroundColor: palette.neutral950 }]}>
-          <T variant="caption1" style={{ color: 'rgba(255,255,255,0.6)', fontWeight: '600' }}>
+        {/* Hero — 조합 ball만 (지표는 아래 분석결과로). 라이트/다크 자동 분기.
+            공 사이즈 md — lg는 너무 커서 좁은 폰에서 잘림. */}
+        <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
+          <T variant="caption1" style={{ color: t.fgOnHeroMuted, fontWeight: '600' }}>
             추천 조합
           </T>
-          <View style={{ marginTop: 14, alignItems: 'center' }}>
-            <BallRow nums={sortedNums} size="lg" />
+          <View style={{ marginTop: 12, alignItems: 'center' }}>
+            <BallRow nums={sortedNums} size="md" style={{ gap: 4 }} />
           </View>
         </View>
 
@@ -178,10 +179,11 @@ export default function Combo() {
               </View>
             </View>
             <View style={{ marginTop: 10, marginBottom: 14, alignItems: 'flex-start' }}>
-              <T variant="caption1" color="tertiary" style={{ marginBottom: 6 }}>
+              <T variant="caption1" color="tertiary" style={{ marginBottom: 8 }}>
                 직전 회차 당첨번호
               </T>
-              <BallRow nums={latestDraw.nums} bonus={latestDraw.bonus} size="xs" />
+              {/* xs → sm 으로 키움, gap도 살짝 좁혀서 좁은 폰에서 한 줄에 들어옴 */}
+              <BallRow nums={latestDraw.nums} bonus={latestDraw.bonus} size="sm" style={{ gap: 4 }} />
             </View>
             <CompareRow
               label="이월수 (동행)"
@@ -353,9 +355,16 @@ export default function Combo() {
 function DetailRow({ label, subLabel, nums }: { label: string; subLabel?: string; nums: number[] }) {
   return (
     <View style={styles.detailRow}>
-      <View style={{ width: 80 }}>
-        <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>{label}</T>
-        {subLabel && <T variant="caption1" color="tertiary" style={{ marginTop: 2 }}>{subLabel}</T>}
+      {/* 라벨 + 보조라벨을 가로 한 줄로 — 공과 텍스트가 같은 baseline에서 자연스럽게 정렬 */}
+      <View style={styles.detailLabel}>
+        <T variant="label1n" color="primary" style={{ fontWeight: '700' }} allowFontScaling={false}>
+          {label}
+        </T>
+        {subLabel && (
+          <T variant="caption1" color="tertiary" allowFontScaling={false} style={{ marginLeft: 6, fontSize: 11.5 }}>
+            {subLabel}
+          </T>
+        )}
       </View>
       <View style={styles.detailBalls}>
         {nums.length > 0
@@ -415,27 +424,16 @@ function MatchRow({
   const sortedWinning = [...winning].sort((a, b) => a - b);
   return (
     <View style={[styles.matchRow, { borderColor: t.borderDivider }]}>
-      <View style={{ width: 70 }}>
-        <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>{hit.round}회</T>
-        <T variant="caption2" color="tertiary" style={{ fontSize: 10, marginTop: 2 }}>{hit.date}</T>
-      </View>
+      {/* 회차/공/등수칩 모두 가운데 정렬된 한 줄 — width 고정으로 행/열 정렬 일관성 확보 */}
+      <T variant="caption1" color="primary" style={styles.matchRound} allowFontScaling={false}>
+        {hit.round}회
+      </T>
       <View style={styles.matchBalls}>
         {sortedWinning.map((n) => (
-          <Ball
-            key={n}
-            n={n}
-            size="xs"
-            dashedRing={mySet.has(n)}
-            dashedRingColor={palette.blue500}
-          />
+          <Ball key={n} n={n} size="xs" ringPad={1} muted={!mySet.has(n)} />
         ))}
-        <T variant="caption1" style={{ color: t.fgTertiary, marginHorizontal: 2 }} allowFontScaling={false}>+</T>
-        <Ball
-          n={bonus}
-          size="xs"
-          dashedRing={mySet.has(bonus)}
-          dashedRingColor={palette.blue500}
-        />
+        <T variant="caption1" style={{ color: t.fgTertiary, marginHorizontal: 1, fontSize: 11 }} allowFontScaling={false}>+</T>
+        <Ball n={bonus} size="xs" ringPad={1} muted={!mySet.has(bonus)} />
       </View>
       <Chip label={`${hit.rank}등`} tone={tone} compact />
     </View>
@@ -674,6 +672,8 @@ const styles = StyleSheet.create({
   hero: { borderRadius: radius.xl + 2, padding: 18 },
   cardHead: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   detailRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 8, gap: 12 },
+  // 라벨 + sub 가로 정렬, 너비 80px 고정 — 라벨 영역이 1줄이 되어 공과 자연스럽게 가운데 정렬됨
+  detailLabel: { width: 80, flexDirection: 'row', alignItems: 'baseline' },
   detailBalls: { flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
   statRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   compareHead: { flexDirection: 'row', alignItems: 'center', gap: 8 },
@@ -689,15 +689,24 @@ const styles = StyleSheet.create({
   matchRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
-    paddingVertical: 8,
+    gap: 8,
+    paddingVertical: 10,
+  },
+  matchRound: {
+    // "1234회"가 한 줄에 들어가도록 width + fontSize 정밀 조정.
+    width: 44,
+    fontWeight: '800',
+    fontSize: 13,
+    flexShrink: 0,
   },
   matchBalls: {
+    // space-around로 공들이 가용 공간 안에서 균등하게 분포 → 한 줄에 깔끔하게.
+    // 점선이 없어진 만큼 공 사이 간격은 자동 분배에 맡김.
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 1,
-    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    flexWrap: 'nowrap',
   },
   moreBtn: {
     marginTop: 8,

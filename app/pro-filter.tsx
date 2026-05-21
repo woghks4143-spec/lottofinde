@@ -413,19 +413,19 @@ export default function ProFilter() {
       />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 120 }}>
 
-        {/* 헤더 — 깔때기 */}
-        <View style={[styles.hero, { backgroundColor: palette.neutral950 }]}>
+        {/* 헤더 — 깔때기 (라이트/다크 자동 분기) */}
+        <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
           <View style={[styles.proPill, { backgroundColor: GOLD }]}>
             <Icon.crown color="#fff" size={12} weight={2.5} />
             <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 10, marginLeft: 3 }}>PRO</T>
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'baseline', marginTop: 12, gap: 8 }}>
-            <T variant="display2" style={{ color: '#fff', fontWeight: '900' }}>
+            <T variant="display2" style={{ color: t.fgOnHero, fontWeight: '900' }}>
               {funnel.final.toLocaleString()}
             </T>
-            <T variant="body2r" style={{ color: 'rgba(255,255,255,0.7)' }}>개 매칭</T>
+            <T variant="body2r" style={{ color: t.fgOnHeroMuted }}>개 매칭</T>
           </View>
-          <T variant="caption1" style={{ color: 'rgba(255,255,255,0.6)', marginTop: 2 }}>
+          <T variant="caption1" style={{ color: t.fgOnHeroMuted, marginTop: 2 }}>
             필터 {totalActive}개 활성 · 전체 {funnel.total.toLocaleString()}개 중
           </T>
 

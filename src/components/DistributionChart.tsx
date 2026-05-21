@@ -73,8 +73,11 @@ export function DistributionChart({
     return { mean, stddev, maxBin, total, myFreq, pct };
   }, [values, min, max, current]);
 
-  // 현재 위치 비율 (0~1) — 차트에서의 가로 위치
-  const cursorRatio = (current - min) / Math.max(1, max - min);
+  // 현재 위치 비율 (0~1) — 차트에서의 가로 위치.
+  // 각 bin은 차트의 1/binCount 만큼의 너비를 차지하므로, current 값에 +0.5를
+  // 더해 해당 bin의 **가운데**가 cursor 위치가 되도록 보정.
+  const binCount = Math.max(1, max - min + 1);
+  const cursorRatio = (current - min + 0.5) / binCount;
 
   return (
     <Card padding={16}>

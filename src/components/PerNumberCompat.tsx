@@ -58,19 +58,27 @@ export function PerNumberCompat({ nums, allDraws }: { nums: number[]; allDraws: 
         조합 각 번호와 가장 자주 함께 나온 번호
       </T>
 
-      {/* 행 6개 */}
+      {/* 행 6개 — 메인 공도 짝꿍과 동일한 column 구조로 만들어 공의 vertical 위치를 맞춤.
+          모든 공이 같은 ringPad={1} + 행 alignItems: 'flex-start' → 공의 top이 일치. */}
       <View style={{ gap: 8 }}>
         {rows.map(({ n, companions }) => (
           <View key={n} style={[styles.row, { borderColor: t.borderDivider }]}>
-            <Ball n={n} size="sm" />
-            <T variant="caption1" color="tertiary" style={{ marginHorizontal: 6 }} allowFontScaling={false}>
+            {/* 메인 공 — 짝꿍과 동일한 column wrap (텍스트 자리는 투명 placeholder로 height 통일) */}
+            <View style={styles.companionItem}>
+              <Ball n={n} size="sm" ringPad={1} />
+              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10.5, marginTop: 3, opacity: 0 }}>
+                {/* 짝꿍의 "N회" 텍스트 자리와 동일한 layout 확보용 */}
+                0회
+              </T>
+            </View>
+            <T variant="caption1" color="tertiary" style={styles.arrow} allowFontScaling={false}>
               ↔
             </T>
             <View style={styles.companions}>
               {companions.map((x) => (
                 <View key={x.n} style={styles.companionItem}>
-                  <Ball n={x.n} size="xs" />
-                  <T variant="caption2" color="tertiary" style={{ fontSize: 9.5, marginTop: 2 }} allowFontScaling={false}>
+                  <Ball n={x.n} size="sm" ringPad={1} />
+                  <T variant="caption2" color="tertiary" style={{ fontSize: 10.5, marginTop: 3, fontWeight: '600' }} allowFontScaling={false}>
                     {x.c}회
                   </T>
                 </View>
@@ -106,18 +114,24 @@ export function PerNumberCompat({ nums, allDraws }: { nums: number[]; allDraws: 
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
-    alignItems: 'center',
+    // flex-start: 메인 공과 짝꿍 공이 모두 행 top에서 시작 → 공 vertical 위치 일치
+    alignItems: 'flex-start',
     paddingVertical: 6,
   },
   companions: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
   companionItem: {
     alignItems: 'center',
     minWidth: 32,
+  },
+  // ↔ 화살표는 공의 vertical center에 오도록 살짝 marginTop
+  arrow: {
+    marginHorizontal: 6,
+    marginTop: 8,
   },
   buddyBox: {
     marginTop: 14,

@@ -89,30 +89,42 @@ export function CombinationCard({
           <BallRow nums={nums} size="md" />
         </View>
 
-        {/* 3행: 요약 칩 + 상세 링크 */}
+        {/* 3행: 요약 칩 (지표별 색 구분) + 상세 링크 (자세히 칩) */}
         <View style={[styles.bottomRow, { borderTopColor: t.borderDivider }]}>
-          <MetaPill label="합" value={String(sum)} />
-          <MetaPill label="홀짝" value={oe} />
-          <MetaPill label="저고" value={hl} />
-          <MetaPill label="AC" value={String(acV)} />
+          <MetaPill label="합" value={String(sum)} tone="blue" />
+          <MetaPill label="홀짝" value={oe} tone="purple" />
+          <MetaPill label="저고" value={hl} tone="green" />
+          <MetaPill label="AC" value={String(acV)} tone="amber" />
           <View style={{ flex: 1 }} />
-          <T variant="caption1" style={{ color: palette.blue700, fontWeight: '700' }}>
-            자세히 →
-          </T>
+          {/* "자세히"도 칩 스타일로 통일 — 화살표 없이 일관된 디자인 */}
+          <View style={[styles.detailChip, { backgroundColor: palette.blue50 }]}>
+            <T variant="caption1" allowFontScaling={false} style={{ color: palette.blue700, fontWeight: '800', fontSize: 12 }}>
+              자세히
+            </T>
+          </View>
         </View>
       </Card>
     </Pressable>
   );
 }
 
-function MetaPill({ label, value }: { label: string; value: string }) {
-  const t = useTheme();
+type PillTone = 'blue' | 'purple' | 'green' | 'amber';
+
+const PILL_TONES: Record<PillTone, { bg: string; labelFg: string; valueFg: string }> = {
+  blue:   { bg: 'rgba(0,102,255,0.08)',   labelFg: 'rgba(0,75,192,0.65)',  valueFg: palette.blue700 },
+  purple: { bg: 'rgba(101,65,242,0.08)',  labelFg: 'rgba(101,65,242,0.70)', valueFg: palette.purple500 },
+  green:  { bg: 'rgba(0,191,64,0.10)',    labelFg: 'rgba(0,138,46,0.70)',   valueFg: palette.green700 },
+  amber:  { bg: 'rgba(251,196,0,0.12)',   labelFg: 'rgba(122,88,0,0.75)',   valueFg: '#7a5800' },
+};
+
+function MetaPill({ label, value, tone }: { label: string; value: string; tone: PillTone }) {
+  const c = PILL_TONES[tone];
   return (
-    <View style={[styles.pill, { backgroundColor: 'rgba(112,115,124,0.10)' }]}>
-      <T variant="caption2" style={{ fontSize: 10, color: t.fgTertiary }} allowFontScaling={false}>
+    <View style={[styles.pill, { backgroundColor: c.bg }]}>
+      <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, color: c.labelFg, fontWeight: '700' }}>
         {label}
       </T>
-      <T variant="caption1" color="primary" style={{ fontWeight: '800', marginLeft: 5, fontSize: 13 }} allowFontScaling={false}>
+      <T variant="caption1" allowFontScaling={false} style={{ fontWeight: '800', marginLeft: 4, fontSize: 12.5, color: c.valueFg }}>
         {value}
       </T>
     </View>
@@ -141,7 +153,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'baseline',
     paddingVertical: 4,
-    paddingHorizontal: 10,
+    paddingHorizontal: 9,
+    borderRadius: radius.pill,
+  },
+  detailChip: {
+    paddingVertical: 5,
+    paddingHorizontal: 12,
     borderRadius: radius.pill,
   },
   saveBtn: {

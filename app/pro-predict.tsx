@@ -595,18 +595,18 @@ export default function ProPredict() {
 
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
 
-        {/* Hero — 분석 대상 회차 네비게이터 */}
-        <View style={[styles.hero, { backgroundColor: palette.neutral950 }]}>
+        {/* Hero — 분석 대상 회차 네비게이터 (라이트/다크 자동 분기) */}
+        <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
           <View style={styles.heroNav}>
             <Pressable
               onPress={goPrev}
               disabled={round <= earliestRound}
               style={({ pressed }) => [styles.navArrow, {
-                backgroundColor: 'rgba(255,255,255,0.10)',
+                backgroundColor: t.bgOnHeroPill,
                 opacity: round <= earliestRound ? 0.3 : pressed ? 0.6 : 1,
               }]}
             >
-              <T variant="label1n" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800' }}>‹</T>
+              <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '800' }}>‹</T>
             </Pressable>
             <View style={{ flex: 1, alignItems: 'center' }}>
               {isUpcoming ? (
@@ -616,12 +616,12 @@ export default function ProPredict() {
                   </T>
                 </View>
               ) : (
-                <T variant="caption1" style={{ color: 'rgba(255,255,255,0.6)' }}>분석 대상</T>
+                <T variant="caption1" style={{ color: t.fgOnHeroMuted }}>분석 대상</T>
               )}
-              <T variant="title3" style={{ color: '#fff', fontWeight: '800', marginTop: 4 }}>
+              <T variant="title3" style={{ color: t.fgOnHero, fontWeight: '800', marginTop: 4 }}>
                 제 {targetInfo.round}회
               </T>
-              <T variant="caption1" style={{ color: 'rgba(255,255,255,0.55)', marginTop: 2 }}>
+              <T variant="caption1" style={{ color: t.fgOnHeroFaint, marginTop: 2 }}>
                 {targetInfo.date}{isUpcoming ? ' (예정)' : ''}
               </T>
             </View>
@@ -629,11 +629,11 @@ export default function ProPredict() {
               onPress={goNext}
               disabled={round >= upcomingRound}
               style={({ pressed }) => [styles.navArrow, {
-                backgroundColor: 'rgba(255,255,255,0.10)',
+                backgroundColor: t.bgOnHeroPill,
                 opacity: round >= upcomingRound ? 0.3 : pressed ? 0.6 : 1,
               }]}
             >
-              <T variant="label1n" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800' }}>›</T>
+              <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '800' }}>›</T>
             </Pressable>
           </View>
         </View>

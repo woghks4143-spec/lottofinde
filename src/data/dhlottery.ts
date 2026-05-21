@@ -24,14 +24,29 @@ const ENDPOINT_JSON  = 'https://www.dhlottery.co.kr/common.do?method=getLottoNum
 const ENDPOINT_PRIZE = 'https://www.dhlottery.co.kr/gameResult.do?method=byWin&drwNo=';
 const ENDPOINT_STORE = 'https://www.dhlottery.co.kr/store.do?method=topStore&pageGubun=L645&drwNo=';
 
+/** GitHub Action으로 매주 자동 수집되는 enriched 데이터 — 동행복권 봇 차단 우회용. */
+const ENDPOINT_GH_ENRICHED = 'https://raw.githubusercontent.com/woghks4143-spec/lottofinde/main/data/enriched/';
+
 const TIMEOUT_MS = 10_000;
 const RETRY_LIMIT = 3;
 
-/** 동행복권이 봇을 차단하지 않도록 일반 브라우저 헤더 흉내. */
-const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36';
+/** 동행복권이 봇을 차단하지 않도록 일반 브라우저 헤더 흉내.
+ *  봇 감지 페이지(iSwaitPage/tracer)를 우회하기 위해 더 풍부한 헤더 + Referer 추가. */
+const UA = 'Mozilla/5.0 (Linux; Android 13; SM-S918N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36';
 const COMMON_HEADERS: Record<string, string> = {
   'User-Agent': UA,
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
   'Accept-Language': 'ko-KR,ko;q=0.9,en;q=0.8',
+  'Accept-Encoding': 'gzip, deflate, br',
+  'Referer': 'https://dhlottery.co.kr/',
+  'Sec-Ch-Ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+  'Sec-Ch-Ua-Mobile': '?1',
+  'Sec-Ch-Ua-Platform': '"Android"',
+  'Sec-Fetch-Dest': 'document',
+  'Sec-Fetch-Mode': 'navigate',
+  'Sec-Fetch-Site': 'same-origin',
+  'Sec-Fetch-User': '?1',
+  'Upgrade-Insecure-Requests': '1',
 };
 
 type DhJsonResponse = {
@@ -177,7 +192,8 @@ export async function fetchPrizes(drwNo: number): Promise<{
   totalSales?: number;
 } | null> {
   if (Platform.OS === 'web') return null; // CORS
-  const html = await fetchTextWithRetry(`${ENDPOINT_PRIZE}${drwNo}`);
+  const url = `${ENDPOINT_PRIZE}${drwNo}`;
+  const html = await fetchTextWithRetry(url);
   if (!html) return null;
   return parseGameResultHtml(html);
 }
@@ -185,13 +201,33 @@ export async function fetchPrizes(drwNo: number): Promise<{
 /** 1·2등 당첨 판매점. 실패 시 빈 배열. */
 export async function fetchTopStores(drwNo: number): Promise<WinningStore[]> {
   if (Platform.OS === 'web') return [];
-  const html = await fetchTextWithRetry(`${ENDPOINT_STORE}${drwNo}`);
+  const url = `${ENDPOINT_STORE}${drwNo}`;
+  const html = await fetchTextWithRetry(url);
   if (!html) return [];
   return parseTopStoreHtml(html);
 }
 
 /**
+ * GitHub Action으로 매주 자동 수집된 enriched 데이터를 raw.githubusercontent.com에서 받음.
+ * 동행복권이 봇 차단을 강화한 경우의 fallback. 서버에서 미리 파싱해둔 JSON이라 안정적.
+ */
+async function fetchFromGitHub(drwNo: number): Promise<Draw | null> {
+  if (Platform.OS === 'web') return null;
+  const url = `${ENDPOINT_GH_ENRICHED}${drwNo}.json?t=${Date.now()}`;
+  try {
+    const res = await fetchWithTimeout(url);
+    if (!res.ok) return null;
+    const json = await res.json();
+    if (!json || !json.round || !Array.isArray(json.nums)) return null;
+    return json as Draw;
+  } catch {
+    return null;
+  }
+}
+
+/**
  * 한 회차의 모든 정보 (JSON + HTML 2종)를 병렬 페치해 합쳐 반환.
+ * 동행복권 봇 차단이 강해지면 직접 fetch가 봇 페이지를 받음 → GitHub fallback으로 보완.
  * 기본 정보(JSON)가 실패하면 null. 부가 정보(HTML)는 실패해도 기본 정보로 반환.
  */
 export async function fetchRoundFull(drwNo: number): Promise<Draw | null> {
@@ -202,6 +238,29 @@ export async function fetchRoundFull(drwNo: number): Promise<Draw | null> {
   ]);
 
   const basic = basicRes.status === 'fulfilled' ? basicRes.value : null;
+  // 직접 fetch에서 등위/판매점이 안 나왔으면 GitHub fallback 시도
+  const directPrize = prizeRes.status === 'fulfilled' ? prizeRes.value : null;
+  const directStores = storeRes.status === 'fulfilled' ? storeRes.value : [];
+  const needsFallback = !directPrize || directStores.length === 0;
+
+  if (needsFallback) {
+    const gh = await fetchFromGitHub(drwNo);
+    if (gh) {
+      // GitHub 데이터를 기본/등위/판매점 모두 우선. 직접 fetch한 게 있으면 그 위에 머지.
+      const merged: Draw = { ...gh };
+      if (basic) {
+        // basic의 totalSales가 더 신선할 수 있음
+        if (basic.totalSales && !merged.totalSales) merged.totalSales = basic.totalSales;
+      }
+      if (directPrize) {
+        merged.prizes = directPrize.prizes;
+        if (directPrize.totalSales) merged.totalSales = directPrize.totalSales;
+      }
+      if (directStores.length > 0) merged.topStores = directStores;
+      return merged;
+    }
+  }
+
   if (!basic) return null;
 
   const draw: Draw = { ...basic };

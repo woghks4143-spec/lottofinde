@@ -1,21 +1,26 @@
 /**
- * 시뮬레이터 엔진 — DFS + 가지치기 + reservoir sampling.
+ * 시뮬레이터 엔진 — iterative DFS + 가지치기 + reservoir sampling.
  *
  * C(45, 6) = 8,145,060이라 단순 열거는 모바일에서도 무리. include/exclude를
  * domain에서 미리 제거하고, DFS 진행 중 합 범위에 들 수 없으면 가지치기한다.
  * 6개 완성 시점에서 AC/끝수합/홀짝/연속수/동행수를 마지막 검증.
  *
+ * 성능 최적화:
+ *   - **iterative DFS** (async/await 재귀 제거) — 매 노드마다 Promise 생성 X
+ *   - **prefix sum** — smallestKSum O(k) → O(1)
+ *   - **maxRemTable 사전 계산** — 변하지 않는 큰값 N개 합을 미리
+ *   - **100k 노드마다 yield** — Promise overhead 최소화
+ *
  * 채택된 combo를 모두 메모리에 들고 있을 필요는 없으므로 reservoir sampling
  * (Algorithm L)로 sampleSize개만 보관. PRD F-006이 정한 1,000,000건 카운트
  * 상한을 넘으면 `truncated=true`로 멈춤.
- *
- * UI 반응성을 위해 50ms마다 setTimeout(0)로 yield. 진행률 콜백 지원.
  */
 import { ac, longestConsecutive, sort6, tailSum, total, type Draw } from '@/src/data/lotto';
 import { migrateRule, type Rule, type Ratio } from '@/src/store/rules';
 
 const HARD_CAP = 1_000_000;
-const YIELD_INTERVAL_MS = 50;
+/** UI 반응성과 추출 속도의 균형 — 100,000 DFS 노드마다 한 번 yield. */
+const YIELD_NODES = 100_000;
 
 export type Filter = {
   include: Set<number>;
@@ -122,8 +127,8 @@ export async function countOrSample(
 ): Promise<SimResult> {
   const startedAt = Date.now();
 
-  // Build domain ascending: [1..45] − exclude − include
-  const inc = [...filter.include].filter((n) => n >= 1 && n <= 45);
+  // include는 사전 정렬 — 매 채택마다 sort 호출 회피.
+  const inc = [...filter.include].filter((n) => n >= 1 && n <= 45).sort((a, b) => a - b);
   const incSet = new Set(inc);
   const domain: number[] = [];
   for (let n = 1; n <= 45; n++) {
@@ -137,75 +142,105 @@ export async function countOrSample(
   }
 
   const incSum = inc.reduce((s, n) => s + n, 0);
-
-  const reservoir: number[][] = [];
-  let count = 0;
-  let truncated = false;
-  let lastYield = Date.now();
   const wantSamples = mode === 'sample';
 
-  // DFS state: picks of indices into `domain`. We pick in increasing index
-  // order to enumerate combinations (not permutations).
-  const sel: number[] = []; // selected domain indices
+  // ─── 사전 계산 — DFS 매 노드에서의 합 계산을 O(1)로 ────────────────────────
+  // prefixSum[i] = domain[0..i-1] 합. smallestKSum(from, k) = prefixSum[from+k] - prefixSum[from]
+  const prefixSum = new Array(domain.length + 1);
+  prefixSum[0] = 0;
+  for (let i = 0; i < domain.length; i++) prefixSum[i + 1] = prefixSum[i] + domain[i];
+
+  // 남은 슬롯 k에 대해 도메인 끝에서 가장 큰 k개의 합 — 변하지 않으므로 사전 계산.
+  const maxRemTable = new Array(slotsRemaining + 1).fill(0);
+  for (let k = 0; k <= slotsRemaining; k++) {
+    let s = 0;
+    for (let i = domain.length - 1; i > domain.length - 1 - k && i >= 0; i--) s += domain[i];
+    maxRemTable[k] = s;
+  }
+
+  // ─── iterative DFS — async/await 재귀 제거로 Promise overhead ↓ ─────────────
+  // 스택: sel[depth] = 도메인 인덱스, nextI[depth] = 다음 시도 i. depth는 sel.length.
+  const sel = new Array(slotsRemaining); // selected domain indices
+  const nextI = new Array(slotsRemaining + 1); // [d] = depth d에서 다음 시도할 도메인 인덱스
+  let depth = 0;
   let curSum = incSum;
+  let count = 0;
+  let truncated = false;
+  let nodesSinceYield = 0;
+  const reservoir: number[][] = [];
 
-  async function dfs(startIdx: number): Promise<void> {
-    if (count >= HARD_CAP) { truncated = true; return; }
+  nextI[0] = 0;
 
-    // Yield to event loop periodically so UI stays responsive.
-    if (Date.now() - lastYield > YIELD_INTERVAL_MS) {
-      lastYield = Date.now();
+  outer: while (true) {
+    nodesSinceYield++;
+    if (nodesSinceYield >= YIELD_NODES) {
+      nodesSinceYield = 0;
       onProgress?.(count);
+      // 이벤트 루프에 양보 — UI 갱신 / 입력 처리
       await new Promise<void>((r) => setTimeout(r, 0));
-      if (count >= HARD_CAP) { truncated = true; return; }
+      if (count >= HARD_CAP) { truncated = true; break; }
     }
 
-    if (sel.length === slotsRemaining) {
-      // Assemble the full 6-number candidate.
+    if (depth === slotsRemaining) {
+      // 6개 완성 — 검증 후 채택
       const combo = inc.slice();
-      for (const idx of sel) combo.push(domain[idx]);
+      for (let d = 0; d < slotsRemaining; d++) combo.push(domain[sel[d]]);
+      // inc는 정렬됨, sel은 ascending 순서로 채워짐 → 두 정렬된 배열을 merge
       combo.sort((a, b) => a - b);
       if (fullyValid(combo, filter)) {
         count++;
-        if (count >= HARD_CAP) { truncated = true; return; }
+        if (count >= HARD_CAP) { truncated = true; break; }
         if (wantSamples) {
           if (reservoir.length < sampleSize) {
             reservoir.push(combo);
           } else {
-            // Algorithm R: replace position j with prob k/i (1-based "i = count")
             const j = Math.floor(Math.random() * count);
             if (j < sampleSize) reservoir[j] = combo;
           }
         }
       }
-      return;
+      // 한 단계 위로 backtrack
+      if (depth === 0) break;
+      depth--;
+      curSum -= domain[sel[depth]];
+      continue;
     }
 
-    const need = slotsRemaining - sel.length;
-    // Loop over choices for the next slot.
-    const lastChoice = domain.length - need; // we still need `need` slots
-    for (let i = startIdx; i <= lastChoice; i++) {
-      const v = domain[i];
-      // Sum-prune: with `need` slots left, min possible sum from `domain[i..]` is
-      // sum of `need` smallest (i.e. domain[i], domain[i+1], …), max is `need`
-      // largest (i.e. domain[lastChoice], …, last).
-      const minRem = smallestKSum(domain, i, need);
-      const maxRem = largestKSum(domain, domain.length - 1, need);
-      if (curSum + minRem > filter.sumMax) return; // sums only grow ⇒ all later i fail too
-      if (curSum + maxRem < filter.sumMin) {
-        // raising i can only lower min sum further but raises start; check next i instead of return.
-        continue;
-      }
-      sel.push(i);
-      curSum += v;
-      await dfs(i + 1);
-      curSum -= v;
-      sel.pop();
-      if (count >= HARD_CAP) return;
+    const i = nextI[depth];
+    const need = slotsRemaining - depth;
+    const lastChoice = domain.length - need;
+
+    if (i > lastChoice) {
+      // 이 레벨 종료, 한 단계 위로
+      if (depth === 0) break;
+      depth--;
+      curSum -= domain[sel[depth]];
+      continue;
     }
+
+    // sum prune (O(1) prefix sum 사용)
+    const minRem = prefixSum[i + need] - prefixSum[i];
+    if (curSum + minRem > filter.sumMax) {
+      // sums only grow → 이 레벨 종료
+      if (depth === 0) break;
+      depth--;
+      curSum -= domain[sel[depth]];
+      continue;
+    }
+    const maxRem = maxRemTable[need];
+    if (curSum + maxRem < filter.sumMin) {
+      nextI[depth] = i + 1;
+      continue;
+    }
+
+    // 채택: i를 선택, 다음 레벨로 진입
+    sel[depth] = i;
+    curSum += domain[i];
+    nextI[depth] = i + 1;          // 부모의 다음 iteration용
+    depth++;
+    nextI[depth] = i + 1;          // 새 레벨 시작
   }
 
-  await dfs(0);
   onProgress?.(count);
   return { count, samples: reservoir, truncated, elapsedMs: Date.now() - startedAt };
 }

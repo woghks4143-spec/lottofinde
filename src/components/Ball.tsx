@@ -21,22 +21,32 @@ export function Ball({
   n,
   size = 'md',
   outline,
+  muted,
   dashedRing,
   dashedRingColor,
+  ringPad: ringPadProp,
   style,
 }: {
   n: number;
   size?: BallSize;
   outline?: boolean;
+  /**
+   * 색은 유지하되 옅게 표현 — 흰 배경 + 그 번호 컬러로 보더 + 컬러 글자.
+   * "조합과 매칭 안 된 공"처럼 한 줄에서 비매칭 항목을 자연스럽게 약화시킬 때.
+   */
+  muted?: boolean;
   /** 강조 표시 — 외곽에 점선 ring을 그린다 (조합 일치 번호 강조용). */
   dashedRing?: boolean;
   dashedRingColor?: string;
+  /** 공 바깥쪽 패딩 (px). 기본 4. 좁은 공간에선 0~2로 줄여서 콤팩트하게. */
+  ringPad?: number;
   style?: StyleProp<ViewStyle>;
 }) {
   const { d, f } = SIZE[size];
-  const bg = outline ? '#fff' : ballColor(n);
+  const baseColor = ballColor(n);
+  const bg = outline || muted ? '#fff' : baseColor;
 
-  const ringPad = 4;       // ball 바깥으로 4px 여백
+  const ringPad = ringPadProp ?? 4;
   const wrap = d + ringPad * 2;
   const ringColor = dashedRingColor ?? '#0066ff';
 
@@ -46,6 +56,13 @@ export function Ball({
         styles.base,
         { width: d, height: d, borderRadius: d / 2, backgroundColor: bg },
         outline && styles.outline,
+        muted && {
+          // muted: 색은 유지하되 흰 배경 + 그 번호 색의 보더로 옅게 표현
+          borderWidth: 1.5,
+          borderColor: baseColor,
+          shadowOpacity: 0,
+          elevation: 0,
+        },
         !dashedRing && style,
       ]}
     >
@@ -55,8 +72,11 @@ export function Ball({
       <Text
         style={[
           styles.text,
-          { fontSize: f, color: outline ? '#46474c' : '#fff' },
-          outline && { fontFamily: FONT_FAMILY.semibold },
+          {
+            fontSize: f,
+            color: outline ? '#46474c' : muted ? baseColor : '#fff',
+          },
+          (outline || muted) && { fontFamily: FONT_FAMILY.semibold },
         ]}
         allowFontScaling={false}
       >
@@ -67,15 +87,28 @@ export function Ball({
 
   // ⚠️ ball 외부 wrap 사이즈를 dashedRing 여부와 무관하게 동일하게 유지해야
   // 같은 행 안에서 ring 있는 ball/없는 ball의 baseline이 어긋나지 않는다.
-  // ringPad(4px)만큼의 outer가 항상 있고, dashedRing=true일 때만 SVG circle을 얹는다.
+  //
+  // dashedRing은 항상 공 **외부**에 그린다. SVG 캔버스를 ringPad와 무관하게 충분히
+  // 크게(d+8) 잡아 어떤 ringPad에서도 점선이 잘리지 않는다.
+  // 인접 공과 점선이 겹치지 않으려면 BallRow나 부모에서 공 사이 gap을 4 이상으로.
+  const ringCanvas = d + 8;
+  const ringOffset = (wrap - ringCanvas) / 2; // 음수일 수 있음 (wrap < ringCanvas)
+  const ringR = d / 2 + 2; // 공보다 2px 외부 (시인성 + 인접 침범 최소화)
+
   return (
     <View style={[{ width: wrap, height: wrap, alignItems: 'center', justifyContent: 'center' }, style]}>
+      {inner}
       {dashedRing && (
-        <Svg width={wrap} height={wrap} style={{ position: 'absolute', top: 0, left: 0 }} pointerEvents="none">
+        <Svg
+          width={ringCanvas}
+          height={ringCanvas}
+          style={{ position: 'absolute', top: ringOffset, left: ringOffset }}
+          pointerEvents="none"
+        >
           <Circle
-            cx={wrap / 2}
-            cy={wrap / 2}
-            r={d / 2 + 2.5}
+            cx={ringCanvas / 2}
+            cy={ringCanvas / 2}
+            r={ringR}
             fill="none"
             stroke={ringColor}
             strokeWidth={2}
@@ -83,7 +116,6 @@ export function Ball({
           />
         </Svg>
       )}
-      {inner}
     </View>
   );
 }

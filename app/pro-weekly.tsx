@@ -237,16 +237,16 @@ export default function ProWeekly() {
       />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
 
-        {/* 히어로 — 상황 한 줄로 요약 */}
-        <View style={[styles.hero, { backgroundColor: palette.neutral950 }]}>
+        {/* 히어로 — 상황 한 줄로 요약 (라이트/다크 자동 분기) */}
+        <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
           <View style={[styles.proPill, { backgroundColor: GOLD }]}>
             <Icon.crown color="#fff" size={12} weight={2.5} />
             <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 10, marginLeft: 3 }}>PRO</T>
           </View>
-          <T variant="title3" style={{ color: '#fff', fontWeight: '800', marginTop: 12 }}>
+          <T variant="title3" style={{ color: t.fgOnHero, fontWeight: '800', marginTop: 12 }}>
             최근 {weeks}회차에서…
           </T>
-          <T variant="caption1" style={{ color: 'rgba(255,255,255,0.6)', marginTop: 2 }}>
+          <T variant="caption1" style={{ color: t.fgOnHeroMuted, marginTop: 2 }}>
             {slices.recentRange[0]}회 ~ {slices.recentRange[1]}회 분석 결과
           </T>
 
@@ -255,12 +255,12 @@ export default function ProWeekly() {
             <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10 }}>
               <T allowFontScaling={false} style={{ fontSize: 22 }}>🔥</T>
               <View style={{ flex: 1 }}>
-                <T variant="caption2" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.6)', fontSize: 10.5 }}>
+                <T variant="caption2" allowFontScaling={false} style={{ color: t.fgOnHeroMuted, fontSize: 10.5 }}>
                   가장 자주 나온 번호
                 </T>
                 <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 4 }}>
                   <Ball n={analysis.topNum} size="sm" />
-                  <T variant="label1n" style={{ color: '#fff', fontWeight: '800' }}>
+                  <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }}>
                     {analysis.topCount}회 출현
                   </T>
                 </View>
@@ -271,12 +271,12 @@ export default function ProWeekly() {
             <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10 }}>
               <T allowFontScaling={false} style={{ fontSize: 22 }}>🧊</T>
               <View style={{ flex: 1 }}>
-                <T variant="caption2" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.6)', fontSize: 10.5 }}>
+                <T variant="caption2" allowFontScaling={false} style={{ color: t.fgOnHeroMuted, fontSize: 10.5 }}>
                   가장 안 나온 번호
                 </T>
                 <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 4, flexWrap: 'wrap' }}>
                   {analysis.minNums.slice(0, 5).map((n) => <Ball key={n} n={n} size="sm" />)}
-                  <T variant="label1n" style={{ color: '#fff', fontWeight: '800' }}>
+                  <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }}>
                     {analysis.minCount}회 {analysis.minCount === 0 ? '(한 번도 안 나옴)' : ''}
                   </T>
                 </View>
@@ -510,7 +510,7 @@ export default function ProWeekly() {
                 <T variant="body2n" color="secondary" style={{ fontWeight: '700' }}>취소</T>
               </Pressable>
               <Pressable onPress={applyCustom} style={[styles.modalBtn, { backgroundColor: GOLD, borderColor: GOLD }]}>
-                <T variant="body2n" style={{ color: '#fff', fontWeight: '800' }}>적용</T>
+                <T variant="body2n" style={{ color: t.fgOnHero, fontWeight: '800' }}>적용</T>
               </Pressable>
             </View>
           </Pressable>

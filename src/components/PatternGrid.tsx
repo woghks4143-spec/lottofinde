@@ -9,12 +9,15 @@
  *
  * 결과: 영상보다 정보 밀도가 높고 가독성이 좋다.
  */
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { T } from './Text';
 import { Card } from './Card';
 import { useTheme } from '@/src/design/theme';
 import { ballColor, palette, radius } from '@/src/design/tokens';
+
+const GRID_GAP = 4;
+const GRID_COLS = 7;
 
 const SEGMENTS: Array<[number, number, string]> = [
   [1, 10, '1~10'],
@@ -27,6 +30,13 @@ const SEGMENTS: Array<[number, number, string]> = [
 export function PatternGrid({ nums }: { nums: number[] }) {
   const t = useTheme();
   const mySet = new Set(nums);
+
+  // 격자 너비를 측정해서 셀 크기를 정확히 계산 → 항상 7컬럼 보장.
+  // 부모(카드) 너비/사이드바 너비에 따라 % 계산이 어긋나는 문제 해결.
+  const [gridW, setGridW] = useState(0);
+  const cellSize = gridW > 0
+    ? Math.floor((gridW - (GRID_COLS - 1) * GRID_GAP) / GRID_COLS)
+    : 0;
 
   // 구간별 개수 — 분포 사이드바
   const segCounts = SEGMENTS.map(([lo, hi]) => {
@@ -47,14 +57,19 @@ export function PatternGrid({ nums }: { nums: number[] }) {
       </T>
 
       <View style={styles.row}>
-        {/* 좌측 구간 사이드바 */}
+        {/* 좌측 구간 사이드바 — 라벨 너비 고정으로 게이지 시작점 정렬 */}
         <View style={styles.segCol}>
           {SEGMENTS.map(([lo, hi, label], i) => {
             const c = segCounts[i];
             const fill = (c / maxSeg) * 100;
             return (
               <View key={label} style={styles.segItem}>
-                <T variant="caption1" color={c > 0 ? 'primary' : 'tertiary'} style={{ fontSize: 11, fontWeight: '700' }} allowFontScaling={false}>
+                <T
+                  variant="caption1"
+                  color={c > 0 ? 'primary' : 'tertiary'}
+                  style={styles.segLabel}
+                  allowFontScaling={false}
+                >
                   {label}
                 </T>
                 <View style={[styles.segTrack, { backgroundColor: t.borderDivider }]}>
@@ -68,7 +83,7 @@ export function PatternGrid({ nums }: { nums: number[] }) {
                     ]}
                   />
                 </View>
-                <T variant="caption1" color={c > 0 ? 'accent' : 'tertiary'} style={{ fontWeight: '700', minWidth: 18, textAlign: 'right', fontSize: 11 }} allowFontScaling={false}>
+                <T variant="caption1" color={c > 0 ? 'accent' : 'tertiary'} style={styles.segCount} allowFontScaling={false}>
                   {c}
                 </T>
               </View>
@@ -76,15 +91,24 @@ export function PatternGrid({ nums }: { nums: number[] }) {
           })}
         </View>
 
-        {/* 우측 격자 */}
-        <View style={styles.grid}>
-          {Array.from({ length: 45 }, (_, i) => i + 1).map((n) => {
+        {/* 우측 7×7 격자 — 7행 × 7열 = 49칸 (45개 숫자 + 4개 빈 칸).
+            onLayout으로 측정한 너비 기반으로 셀 크기 동적 계산 → 항상 정확히 7컬럼. */}
+        <View
+          style={styles.grid}
+          onLayout={(e) => setGridW(e.nativeEvent.layout.width)}
+        >
+          {cellSize > 0 && Array.from({ length: 49 }, (_, i) => i + 1).map((n) => {
+            // 46~49는 빈 자리 — 시각적 자리 차지하되 표시 X
+            if (n > 45) {
+              return <View key={n} style={[{ width: cellSize, height: cellSize }, styles.cellEmpty]} />;
+            }
             const hit = mySet.has(n);
             return (
               <View
                 key={n}
                 style={[
                   styles.cell,
+                  { width: cellSize, height: cellSize },
                   hit
                     ? { backgroundColor: ballColor(n) }
                     : { backgroundColor: 'transparent', borderColor: t.borderDivider, borderWidth: 1 },
@@ -94,9 +118,9 @@ export function PatternGrid({ nums }: { nums: number[] }) {
                   variant="caption1"
                   style={{
                     color: hit ? '#fff' : t.fgTertiary,
-                    fontWeight: hit ? '800' : '500',
-                    fontSize: 10.5,
-                    opacity: hit ? 1 : 0.55,
+                    fontWeight: hit ? '800' : '600',
+                    fontSize: Math.max(10, Math.min(13, cellSize * 0.42)),
+                    opacity: hit ? 1 : 0.7,
                   }}
                   allowFontScaling={false}
                 >
@@ -107,35 +131,32 @@ export function PatternGrid({ nums }: { nums: number[] }) {
           })}
         </View>
       </View>
-
-      {/* 하단 요약 */}
-      <View style={[styles.summaryRow, { borderTopColor: t.borderDivider }]}>
-        <T variant="caption1" color="tertiary">
-          {summaryText(segCounts)}
-        </T>
-      </View>
     </Card>
   );
 }
 
-/** "1~10 1개 · 11~20 1개 · 21~30 2개 · 31~40 1개 · 41~45 1개" 한 줄 요약. */
-function summaryText(counts: number[]): string {
-  return counts
-    .map((c, i) => `${SEGMENTS[i][2]} ${c}`)
-    .join(' · ');
-}
-
 const styles = StyleSheet.create({
-  row: { flexDirection: 'row', gap: 12 },
+  row: { flexDirection: 'row', gap: 10, alignItems: 'flex-start' },
   segCol: {
-    width: 130,
-    gap: 8,
-    justifyContent: 'space-between',
+    width: 108,
+    gap: 10,
   },
   segItem: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 6,
+  },
+  // 라벨 너비 고정 — "1~10"부터 "41~45"까지 모두 같은 시작점에서 게이지가 시작.
+  segLabel: {
+    fontSize: 11,
+    fontWeight: '700',
+    width: 44,
+  },
+  segCount: {
+    fontWeight: '700',
+    minWidth: 12,
+    textAlign: 'right',
+    fontSize: 11,
   },
   segTrack: {
     flex: 1,
@@ -147,22 +168,21 @@ const styles = StyleSheet.create({
     height: '100%',
     borderRadius: 2,
   },
+  // 7열 그리드 — 셀 크기는 onLayout으로 측정한 너비 기반 동적 계산.
   grid: {
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 3,
+    gap: GRID_GAP,
   },
   cell: {
-    width: '10.5%',
-    aspectRatio: 1,
+    // width/height는 인라인으로 동적 부여 (cellSize).
     borderRadius: radius.sm,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  summaryRow: {
-    marginTop: 14,
-    paddingTop: 12,
-    borderTopWidth: 1,
+  cellEmpty: {
+    backgroundColor: 'transparent',
+    opacity: 0,
   },
 });

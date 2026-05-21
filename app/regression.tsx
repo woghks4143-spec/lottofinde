@@ -12,7 +12,7 @@
  * 통계/분포/평균 같은 심층 분석은 PRO 버전에서 제공.
  */
 import React, { useMemo, useState } from 'react';
-import { FlatList, Modal, Pressable, StyleSheet, View } from 'react-native';
+import { FlatList, Pressable, StyleSheet, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSafeBack } from '@/src/lib/navigation';
 import { T } from '@/src/components/Text';
@@ -25,7 +25,8 @@ import type { Draw } from '@/src/data/lotto';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
 
-const QUICK_KS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const QUICK_KS = [1, 3, 5, 10] as const;
+const MIN_K = 1;
 const MAX_K = 100;
 
 type Row = {
@@ -42,7 +43,8 @@ export default function Regression() {
   const earliestRound = useHistory((s) => s.earliestRound);
 
   const [k, setK] = useState<number>(1);
-  const [pickerOpen, setPickerOpen] = useState(false);
+  // K 입력 박스의 임시 상태 — focus 시 비워서 기존 값에 덧붙는 현상 방지.
+  const [editingK, setEditingK] = useState<string | null>(null);
 
   /** 모든 회차에 대해 (target, target-K) 쌍의 이월 번호 계산. 최신 → 과거. */
   const rows: Row[] = useMemo(() => {
@@ -61,7 +63,6 @@ export default function Regression() {
 
   const pickK = (n: number) => {
     setK(n);
-    setPickerOpen(false);
   };
 
   return (
@@ -77,35 +78,86 @@ export default function Regression() {
         windowSize={10}
         ListHeaderComponent={
           <View style={{ padding: 16, paddingBottom: 8, gap: 12 }}>
-            {/* 회귀 선택 chip row */}
+            {/* 회귀 선택 — 빠른 칩 4개 + Stepper(−/+) 조합.
+                자주 쓰는 값은 칩으로 한 번에, 11~100 같은 값은 ± 버튼으로 정밀 조정.
+                10×10 그리드는 셀이 작아 잘못 누르기 쉬워서 제거. */}
             <View>
               <T variant="caption1" color="tertiary" style={{ letterSpacing: 0.4, marginBottom: 8 }}>
                 회귀 선택
               </T>
+              {/* 빠른 칩 4개 — 균등 분포 */}
               <View style={styles.chipRow}>
                 {QUICK_KS.map((n) => (
                   <KChip key={n} k={n} active={n === k} onPress={() => pickK(n)} />
                 ))}
+              </View>
+              {/* Stepper — 1씩 증감하면서 1~100 자유롭게 */}
+              <View style={[styles.stepperRow, { borderColor: t.borderWeak, backgroundColor: t.bgSurface }]}>
                 <Pressable
-                  onPress={() => setPickerOpen(true)}
-                  style={[
-                    styles.chip,
-                    {
-                      borderColor: k > 10 ? palette.purple500 : t.borderNormal,
-                      backgroundColor: k > 10 ? palette.purple500 : t.bgSurface,
-                    },
+                  onPress={() => pickK(Math.max(MIN_K, k - 1))}
+                  disabled={k <= MIN_K}
+                  hitSlop={8}
+                  style={({ pressed }) => [
+                    styles.stepperBtn,
+                    { backgroundColor: t.bgSurface2, opacity: k <= MIN_K ? 0.35 : pressed ? 0.7 : 1 },
                   ]}
                 >
-                  <T
-                    variant="caption1"
-                    style={{
-                      color: k > 10 ? '#fff' : t.fgSecondary,
-                      fontWeight: '700',
-                    }}
-                  >
-                    {k > 10 ? `${k}` : '더 보기'}
+                  <T variant="title3" allowFontScaling={false} style={{ color: t.fgPrimary, fontWeight: '800', fontSize: 22 }}>
+                    −
                   </T>
-                  <Icon.chev color={k > 10 ? '#fff' : t.fgTertiary} size={11} weight={2.2} />
+                </Pressable>
+                <View style={styles.stepperValue}>
+                  {/* 숫자 부분을 직접 입력 가능 — focus 시 박스를 비워서 기존 값에
+                      덧붙는 현상 방지. blur 시 입력값을 1~100으로 clamp 후 K 반영. */}
+                  <TextInput
+                    value={editingK !== null ? editingK : String(k)}
+                    onFocus={() => setEditingK('')}
+                    onChangeText={(text) => {
+                      // 숫자만 (다른 문자 무시), 최대 3자리
+                      const digits = text.replace(/[^0-9]/g, '').slice(0, 3);
+                      setEditingK(digits);
+                    }}
+                    onBlur={() => {
+                      if (editingK !== null && editingK !== '') {
+                        const n = parseInt(editingK, 10);
+                        if (Number.isFinite(n)) {
+                          setK(Math.max(MIN_K, Math.min(MAX_K, n)));
+                        }
+                      }
+                      setEditingK(null);
+                    }}
+                    onSubmitEditing={() => {
+                      // 키보드의 완료/엔터 버튼 — 즉시 적용 후 blur 효과
+                      if (editingK !== null && editingK !== '') {
+                        const n = parseInt(editingK, 10);
+                        if (Number.isFinite(n)) {
+                          setK(Math.max(MIN_K, Math.min(MAX_K, n)));
+                        }
+                      }
+                      setEditingK(null);
+                    }}
+                    keyboardType="number-pad"
+                    returnKeyType="done"
+                    maxLength={3}
+                    allowFontScaling={false}
+                    style={styles.stepperInput}
+                  />
+                  <T variant="caption1" color="tertiary" allowFontScaling={false} style={{ fontSize: 12, marginLeft: 4 }}>
+                    회귀
+                  </T>
+                </View>
+                <Pressable
+                  onPress={() => pickK(Math.min(MAX_K, k + 1))}
+                  disabled={k >= MAX_K}
+                  hitSlop={8}
+                  style={({ pressed }) => [
+                    styles.stepperBtn,
+                    { backgroundColor: t.bgSurface2, opacity: k >= MAX_K ? 0.35 : pressed ? 0.7 : 1 },
+                  ]}
+                >
+                  <T variant="title3" allowFontScaling={false} style={{ color: t.fgPrimary, fontWeight: '800', fontSize: 22 }}>
+                    +
+                  </T>
                 </Pressable>
               </View>
             </View>
@@ -136,68 +188,6 @@ export default function Regression() {
         }
       />
 
-      {/* 회귀 picker modal (1~100) */}
-      <Modal
-        visible={pickerOpen}
-        transparent
-        animationType="fade"
-        onRequestClose={() => setPickerOpen(false)}
-      >
-        <Pressable style={styles.modalBackdrop} onPress={() => setPickerOpen(false)}>
-          <Pressable
-            style={[styles.modalCard, { backgroundColor: t.bgSurface }]}
-            onPress={(e) => e.stopPropagation()}
-          >
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-              <T variant="headline2" color="primary" style={{ fontWeight: '800' }}>
-                회귀 선택
-              </T>
-              <Pressable onPress={() => setPickerOpen(false)} hitSlop={8}>
-                <Icon.close color={t.fgSecondary} size={20} weight={2} />
-              </Pressable>
-            </View>
-            <T variant="caption1" color="tertiary" style={{ marginTop: 4, marginBottom: 12 }}>
-              1 ~ {MAX_K}회귀 중 선택
-            </T>
-            <View style={{ gap: 6 }}>
-              {Array.from({ length: 10 }).map((_, row) => (
-                <View key={row} style={{ flexDirection: 'row', gap: 6 }}>
-                  {Array.from({ length: 10 }).map((_, col) => {
-                    const n = row * 10 + col + 1;
-                    const active = n === k;
-                    return (
-                      <Pressable
-                        key={col}
-                        onPress={() => pickK(n)}
-                        style={[
-                          styles.gridCell,
-                          {
-                            backgroundColor: active ? palette.purple500 : t.bgSurface2,
-                            borderColor: active ? palette.purple500 : t.borderDivider,
-                          },
-                        ]}
-                      >
-                        <T
-                          variant="caption1"
-                          compact
-                          allowFontScaling={false}
-                          style={{
-                            color: active ? '#fff' : t.fgPrimary,
-                            fontWeight: active ? '800' : '600',
-                            fontSize: 12,
-                          }}
-                        >
-                          {n}
-                        </T>
-                      </Pressable>
-                    );
-                  })}
-                </View>
-              ))}
-            </View>
-          </Pressable>
-        </Pressable>
-      </Modal>
     </SafeAreaView>
   );
 }
@@ -281,19 +271,49 @@ const styles = StyleSheet.create({
 
   chipRow: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 6,
+    gap: 8,
   },
   chip: {
-    minWidth: 36,
-    height: 32,
+    flex: 1, // 4개 칩 균등 분포
+    height: 36,
     borderRadius: radius.pill,
-    paddingHorizontal: 12,
+    paddingHorizontal: 8,
     borderWidth: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  // Stepper — 빠른 칩으로 부족할 때 정밀 조정 (1~100)
+  stepperRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 10,
+    padding: 6,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+  },
+  stepperBtn: {
+    width: 48,
+    height: 44,
+    borderRadius: radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  stepperValue: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    justifyContent: 'center',
     gap: 2,
+  },
+  // 숫자 직접 입력용 — TextInput을 큰 숫자처럼 보이게 스타일
+  stepperInput: {
+    color: palette.purple500,
+    fontWeight: '900',
+    fontSize: 22,
+    textAlign: 'center',
+    minWidth: 56,
+    padding: 0, // RN-Web 기본 padding 제거
   },
 
   header: {
@@ -324,26 +344,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  modalBackdrop: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.55)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  modalCard: {
-    width: '100%',
-    maxWidth: 380,
-    borderRadius: radius.xl,
-    padding: 20,
-  },
-  gridCell: {
-    flex: 1,
-    aspectRatio: 1,
-    minWidth: 26,
-    borderRadius: radius.sm,
-    borderWidth: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 });

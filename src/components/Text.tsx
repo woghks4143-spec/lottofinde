@@ -62,6 +62,30 @@ export function T({
   let finalStyle: TextStyle = flat.color != null
     ? flat
     : { ...flat, color: COLOR_MAP[color] };
+
+  // 이모지(😀🎯⚙️ 등)는 폰트 크기보다 살짝 크게 렌더되어 lineHeight가 fontSize에
+  // 비해 부족하면 위·아래가 잘린다. 흔한 케이스:
+  //   <T style={{ fontSize: 24 }}>🎯</T>  ← 인라인 fontSize 24, 그러나 variant base
+  //   인 body2n의 lineHeight 22가 상속됨 → fontSize > lineHeight → 잘림.
+  // 보완 정책:
+  //   - fontSize ≥ 20 (이모지 사용 사이즈): lineHeight가 fontSize의 1.3배 미만이면
+  //     강제로 1.6배로 재설정 + textAlignVertical: 'center' 적용.
+  //   - 일반 텍스트(< 20): lineHeight 미지정인 경우만 1.4배로 보완.
+  if (typeof finalStyle.fontSize === 'number') {
+    const fs = finalStyle.fontSize;
+    if (fs >= 20) {
+      const lh = finalStyle.lineHeight;
+      if (lh == null || lh < fs * 1.3) {
+        finalStyle = { ...finalStyle, lineHeight: Math.ceil(fs * 1.6) };
+      }
+      if ((finalStyle as any).textAlignVertical == null) {
+        finalStyle = { ...finalStyle, textAlignVertical: 'center' } as TextStyle;
+      }
+    } else if (finalStyle.lineHeight == null) {
+      finalStyle = { ...finalStyle, lineHeight: Math.ceil(fs * 1.4) };
+    }
+  }
+
   if (t.senior && !compact && typeof finalStyle.fontSize === 'number') {
     const bump = seniorBump(finalStyle.fontSize);
     const newSize = finalStyle.fontSize + bump;

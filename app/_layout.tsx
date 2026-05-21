@@ -77,7 +77,7 @@ export default function RootLayout() {
           <Stack.Screen name="index" />
           <Stack.Screen name="onboarding" />
           <Stack.Screen name="(simple)" />
-          <Stack.Screen name="round/[round]" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="round/[round]" options={{ animation: 'none' }} />
           <Stack.Screen name="compat" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="weighted-pick" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="pick" options={{ animation: 'slide_from_right' }} />

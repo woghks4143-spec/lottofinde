@@ -124,16 +124,18 @@ export default function SimpleHome() {
         {/* Latest-round banner */}
         <View style={[styles.banner, { backgroundColor: bn.bg, borderWidth: isLight ? 1 : 0, borderColor: bn.border }]}>
           <View style={styles.bannerHead}>
-            <T variant="caption1" style={{ color: bn.fgMuted, fontWeight: '600' }}>
-              제 {draw.round}회 · {koreanDate(draw.date)}
+            <T variant="label1n" style={{ color: bn.fgMuted, fontWeight: '700', fontSize: 14.5 }}>
+              {draw.round}회 · {koreanDate(draw.date)}
             </T>
             <View style={[styles.bannerPill, { backgroundColor: bn.pillBg }]}>
-              <T variant="caption1" style={{ color: bn.fg, fontSize: 11, fontWeight: '700' }}>최신 결과</T>
+              <T variant="caption1" allowFontScaling={false} style={{ color: bn.fg, fontSize: 11, fontWeight: '700', textAlign: 'center' }}>
+                최신 결과
+              </T>
             </View>
           </View>
-          {/* 공 사이즈는 sm — 좁은 폰 화면(360px)에서도 보너스 공까지 한 줄에 들어옴 */}
-          <View style={{ alignItems: 'center', marginVertical: 4 }}>
-            <BallRow nums={draw.nums} bonus={draw.bonus} size="sm" />
+          {/* 공 영역 — 박스 없이 가운데 정렬, 살짝 작은 사이즈 + 좁은 간격으로 균형. */}
+          <View style={{ alignItems: 'center', marginTop: 14, marginBottom: 4 }}>
+            <BallRow nums={draw.nums} bonus={draw.bonus} size="sm" style={{ gap: 3 }} />
           </View>
 
           {/* 회차 한눈에: 합·끝수·홀짝·저고·AC (펼치면 십합·앞세수·뒷세수 추가) */}
@@ -327,14 +329,14 @@ type BannerColors = {
 function Metric({ label, value, hint, bn }: { label: string; value: string; hint?: string; bn: BannerColors }) {
   return (
     <View style={styles.metric}>
-      <T variant="caption1" style={{ color: bn.fgTertiary, fontSize: 10.5, letterSpacing: 0.4 }} allowFontScaling={false}>
+      <T variant="caption2" style={{ color: bn.fgTertiary, fontSize: 9.5, letterSpacing: 0.3 }} allowFontScaling={false}>
         {label}
       </T>
-      <T variant="headline2" style={{ color: bn.fg, fontWeight: '700', marginTop: 2 }} allowFontScaling={false}>
+      <T variant="label1n" style={{ color: bn.fg, fontWeight: '700', marginTop: 1, fontSize: 14 }} allowFontScaling={false}>
         {value}
       </T>
       {hint && (
-        <T variant="caption2" style={{ color: bn.fgFaint, fontSize: 9.5, marginTop: 2 }} allowFontScaling={false}>
+        <T variant="caption2" style={{ color: bn.fgFaint, fontSize: 9, marginTop: 1 }} allowFontScaling={false}>
           {hint}
         </T>
       )}
@@ -380,13 +382,16 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   bannerPill: {
-    paddingHorizontal: 8, paddingVertical: 4, borderRadius: 99,
+    paddingHorizontal: 10, paddingVertical: 4, borderRadius: 99,
+    minWidth: 56,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   analysisRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 16,
-    paddingTop: 14,
+    marginTop: 14,
+    paddingTop: 12,
     borderTopWidth: 1,
   },
   analysisRowExtra: {

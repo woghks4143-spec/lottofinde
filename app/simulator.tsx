@@ -14,6 +14,7 @@ import { useSafeBack } from '@/src/lib/navigation';
 import { T } from '@/src/components/Text';
 import { AppBar, IconBtn } from '@/src/components/AppBar';
 import { BallRow } from '@/src/components/BallRow';
+import { CombinationCard } from '@/src/components/CombinationCard';
 import { Button } from '@/src/components/Button';
 import { Card } from '@/src/components/Card';
 import { Chip } from '@/src/components/Chip';
@@ -44,6 +45,9 @@ const LONGEST_RUN_OPTIONS: { id: number; label: string }[] = [
   { id: 5, label: '5연속' },
   { id: 6, label: '6연속' },
 ];
+
+/** 시뮬레이터에서 한 번에 뽑을 게임 수 — 가중치 뽑기와 동일한 UX. */
+const SIM_GAME_OPTIONS = [10, 30, 50, 100] as const;
 
 /** 이월수 정확한 개수 multi-select 옵션. */
 const CARRY_OPTIONS: { id: number; label: string }[] = [
@@ -221,6 +225,8 @@ export default function Simulator() {
   const [showSave, setShowSave] = useState(false);
   const [saveName, setSaveName] = useState(rule.name);
   const [showRuleList, setShowRuleList] = useState(false);
+  // 사용자가 한 번에 뽑을 게임 수 — 가중치 뽑기와 동일한 UX 패턴.
+  const [gameCount, setGameCount] = useState<number>(100);
 
   /** 저장된 룰을 시뮬레이터에 로드. 자동 마이그레이션 적용. */
   const loadRule = useCallback((id: string) => {
@@ -330,7 +336,7 @@ export default function Simulator() {
     setCalculating(true);
     try {
       const filter = ruleToFilter(rule, latestDraw);
-      const res = await countOrSample(filter, 'sample', 100);
+      const res = await countOrSample(filter, 'sample', gameCount);
       setSamples(res.samples);
       setTruncated(res.truncated);
       setPhase('results');
@@ -397,9 +403,7 @@ export default function Simulator() {
                 <Icon.download color={t.fgSecondary} />
               </IconBtn>
             </View>
-          ) : (
-            <IconBtn onPress={exportSamples}><Icon.download color={t.fgSecondary} /></IconBtn>
-          )
+          ) : null
         }
       />
       {phase === 'edit' ? (
@@ -526,6 +530,39 @@ export default function Simulator() {
             emptyHint="선택된 개수가 없어요 — 어떤 이월수든 허용합니다."
           />
 
+          {/* 게임 수 선택 — 라벨 위, 칩 4개는 아래에 균등 분포 (가중치 뽑기와 동일 UX).
+              칩 안 텍스트는 숫자만 표시 ("100게임"이 두 줄로 나오는 문제 방지). */}
+          <Card padding={14}>
+            <T variant="label1n" color="primary" style={{ fontWeight: '700', marginBottom: 10 }}>
+              뽑을 게임 수
+            </T>
+            <View style={styles.gameChips}>
+              {SIM_GAME_OPTIONS.map((n) => (
+                <Pressable
+                  key={n}
+                  onPress={() => setGameCount(n)}
+                  style={({ pressed }) => [
+                    styles.gameChip,
+                    {
+                      backgroundColor: gameCount === n ? t.bgAccent : t.bgSurface,
+                      borderColor: gameCount === n ? 'transparent' : t.borderWeak,
+                      opacity: pressed ? 0.85 : 1,
+                    },
+                  ]}
+                >
+                  <T
+                    variant="label1n"
+                    numberOfLines={1}
+                    style={{ color: gameCount === n ? '#fff' : t.fgSecondary, fontWeight: '700' }}
+                    allowFontScaling={false}
+                  >
+                    {n}
+                  </T>
+                </Pressable>
+              ))}
+            </View>
+          </Card>
+
           <Disclaimer />
         </ScrollView>
       ) : (
@@ -545,39 +582,19 @@ export default function Simulator() {
               </T>
             )}
           </Card>
+          {/* 결과 조합 카드들 — CombinationCard로 일관된 UX (저장 +버튼, 카드 탭하면 상세 분석) */}
           {samples.map((nums, i) => (
-            <Card key={i} padding={12}>
-              <View style={styles.sampleRow}>
-                <T variant="caption2" color="tertiary" style={{ minWidth: 24 }}>{i + 1}</T>
-                <View style={{ flex: 1 }}>
-                  <BallRow nums={nums} size="sm" />
-                  <T variant="caption2" color="tertiary" style={{ marginTop: 4 }}>
-                    합 {total(nums)} · 끝수 {tailSum(nums)} · AC {ac(nums)} · 홀짝 {oddEvenLabel(nums)} · 저고 {highLowLabel(nums)}
-                  </T>
-                </View>
-                <Pressable
-                  onPress={() => saveSample(i)}
-                  disabled={savedSet[i]}
-                  style={({ pressed }) => [
-                    styles.saveDot,
-                    {
-                      backgroundColor: savedSet[i] ? palette.green500 : t.bgAccentSoft,
-                      opacity: pressed ? 0.85 : 1,
-                    },
-                  ]}
-                >
-                  {savedSet[i]
-                    ? <Icon.check color="#fff" size={14} weight={3} />
-                    : <Icon.plus color={palette.blue700} size={14} weight={2.5} />}
-                </Pressable>
-              </View>
-            </Card>
+            <CombinationCard
+              key={i}
+              label={String(i + 1)}
+              nums={nums}
+              onSave={() => saveSample(i)}
+              saved={savedSet[i]}
+            />
           ))}
-          <View style={{ flexDirection: 'row', gap: 8, marginTop: 8 }}>
-            <Button title="다시 100개" variant="outline" onPress={generate} />
-            <View style={{ flex: 1 }}>
-              <Button title="전체 CSV 내보내기" variant="dark" full onPress={exportSamples} />
-            </View>
+          {/* 하단 액션 — CSV 제거, "다시 N게임"만 풀폭 버튼으로 */}
+          <View style={{ marginTop: 8 }}>
+            <Button title={`다시 ${gameCount}게임`} variant="primary" size="lg" full onPress={generate} />
           </View>
           <Disclaimer />
         </ScrollView>
@@ -605,8 +622,8 @@ export default function Simulator() {
                 : previewCount === 0
                 ? '조건에 맞는 조합이 없어요'
                 : truncated
-                ? '그대로 100개 추출하기'
-                : `${previewCount.toLocaleString()}개 중 100개 생성`
+                ? `그대로 ${gameCount}게임 추출하기`
+                : `${previewCount.toLocaleString()}개 중 ${gameCount}게임 생성`
             }
             variant="primary"
             size="lg"
@@ -685,16 +702,13 @@ export default function Simulator() {
             />
             {isExistingRule ? (
               <>
-                <T variant="caption1" color="tertiary" style={{ marginTop: 14, marginBottom: 4 }}>
-                  현재 작업 중인 룰을 어떻게 할까요?
+                <T variant="caption1" color="tertiary" style={{ marginTop: 14, marginBottom: 8, textAlign: 'center' }}>
+                  현재 작업 중인 룰을 어떻게 저장할까요?
                 </T>
-                <View style={{ flexDirection: 'row', gap: 8, marginTop: 8 }}>
-                  <View style={{ flex: 1 }}>
-                    <Button title="새 룰로 추가" variant="outline" full onPress={saveAsNew} />
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <Button title="이 룰 덮어쓰기" variant="primary" full onPress={updateExisting} />
-                  </View>
+                {/* 세로 배치 — 두 버튼 텍스트가 한 줄에 안 잘리고, 각 버튼 글씨도 가운데 정렬 */}
+                <View style={{ gap: 8 }}>
+                  <Button title="이 룰에 덮어쓰기" variant="primary" full onPress={updateExisting} />
+                  <Button title="새 룰로 추가하기" variant="outline" full onPress={saveAsNew} />
                 </View>
                 <Pressable onPress={() => setShowSave(false)} hitSlop={6} style={{ marginTop: 10, alignSelf: 'center' }}>
                   <T variant="caption1" color="tertiary" style={{ fontWeight: '600' }}>취소</T>
@@ -756,6 +770,20 @@ const styles = StyleSheet.create({
   saveDot: {
     width: 32, height: 32, borderRadius: 10,
     alignItems: 'center', justifyContent: 'center',
+  },
+  // 게임 수 칩 4개 — 가로 한 줄에 균등 분포 (flex: 1)
+  gameChips: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  gameChip: {
+    flex: 1,
+    height: 34,
+    paddingHorizontal: 8,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   modalOverlay: {
     position: 'absolute',

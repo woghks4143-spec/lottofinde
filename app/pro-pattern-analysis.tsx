@@ -132,18 +132,18 @@ export default function ProPatternAnalysis() {
 
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
 
-        {/* 분석 대상 hero */}
-        <View style={[styles.targetCard, { backgroundColor: palette.neutral950 }]}>
+        {/* 분석 대상 hero (라이트/다크 자동 분기) */}
+        <View style={[styles.targetCard, { backgroundColor: t.bgHero }]}>
           <View style={styles.targetHead}>
             <Pressable
               onPress={() => round > earliestRound && setRound(round - 1)}
               disabled={round <= earliestRound}
               style={({ pressed }) => [styles.navArrow, {
-                backgroundColor: 'rgba(255,255,255,0.10)',
+                backgroundColor: t.bgOnHeroPill,
                 opacity: round <= earliestRound ? 0.3 : pressed ? 0.6 : 1,
               }]}
             >
-              <T variant="label1n" style={{ color: '#fff', fontWeight: '800' }} allowFontScaling={false}>‹</T>
+              <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }} allowFontScaling={false}>‹</T>
             </Pressable>
             <View style={{ flex: 1, alignItems: 'center' }}>
               {isUpcoming ? (
@@ -153,12 +153,12 @@ export default function ProPatternAnalysis() {
                   </T>
                 </View>
               ) : (
-                <T variant="caption1" style={{ color: 'rgba(255,255,255,0.6)' }}>분석 대상</T>
+                <T variant="caption1" style={{ color: t.fgOnHeroMuted }}>분석 대상</T>
               )}
-              <T variant="title3" style={{ color: '#fff', fontWeight: '800', marginTop: 4 }}>
+              <T variant="title3" style={{ color: t.fgOnHero, fontWeight: '800', marginTop: 4 }}>
                 제 {target.round}회
               </T>
-              <T variant="caption1" style={{ color: 'rgba(255,255,255,0.55)', marginTop: 2 }}>
+              <T variant="caption1" style={{ color: t.fgOnHeroFaint, marginTop: 2 }}>
                 {target.date}{isUpcoming ? ' (예정)' : ''}
               </T>
             </View>
@@ -166,17 +166,17 @@ export default function ProPatternAnalysis() {
               onPress={() => round < upcomingRound && setRound(round + 1)}
               disabled={round >= upcomingRound}
               style={({ pressed }) => [styles.navArrow, {
-                backgroundColor: 'rgba(255,255,255,0.10)',
+                backgroundColor: t.bgOnHeroPill,
                 opacity: round >= upcomingRound ? 0.3 : pressed ? 0.6 : 1,
               }]}
             >
-              <T variant="label1n" style={{ color: '#fff', fontWeight: '800' }} allowFontScaling={false}>›</T>
+              <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }} allowFontScaling={false}>›</T>
             </Pressable>
           </View>
           <View style={{ marginTop: 14, alignItems: 'center' }}>
             {isUpcoming ? (
               <View style={styles.upcomingNumsBox}>
-                <T variant="caption1" style={{ color: 'rgba(255,255,255,0.6)', textAlign: 'center' }}>
+                <T variant="caption1" style={{ color: t.fgOnHeroMuted, textAlign: 'center' }}>
                   당첨번호 발표 전 — 직전 {latestRound}회 기반 필터 영역 표시
                 </T>
               </View>

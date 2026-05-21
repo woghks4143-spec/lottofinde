@@ -222,8 +222,8 @@ export default function ProRegression() {
       />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
 
-        {/* Hero — 분석 대상 회차 + K 요약 */}
-        <View style={[styles.hero, { backgroundColor: palette.neutral950 }]}>
+        {/* Hero — 분석 대상 회차 + K 요약 (라이트/다크 자동 분기) */}
+        <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
           <View style={styles.heroTopRow}>
             <View style={[styles.heroBadge, { backgroundColor: GOLD }]}>
               <Icon.crown color="#fff" size={12} weight={2.5} />
@@ -231,7 +231,7 @@ export default function ProRegression() {
                 PRO
               </T>
             </View>
-            <T variant="caption1" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.55)', fontSize: 11 }}>
+            <T variant="caption1" allowFontScaling={false} style={{ color: t.fgOnHeroFaint, fontSize: 11 }}>
               {earliestRound}~{latestRound}회 · 분석 {draws.length}회차
             </T>
           </View>
@@ -242,11 +242,11 @@ export default function ProRegression() {
               onPress={goPrev}
               disabled={round <= earliestRound}
               style={({ pressed }) => [styles.navArrow, {
-                backgroundColor: 'rgba(255,255,255,0.10)',
+                backgroundColor: t.bgOnHeroPill,
                 opacity: round <= earliestRound ? 0.3 : pressed ? 0.6 : 1,
               }]}
             >
-              <T variant="label1n" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800' }}>‹</T>
+              <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '800' }}>‹</T>
             </Pressable>
             <View style={{ flex: 1, alignItems: 'center' }}>
               {isUpcoming ? (
@@ -256,14 +256,14 @@ export default function ProRegression() {
                   </T>
                 </View>
               ) : (
-                <T variant="caption1" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.6)' }}>
+                <T variant="caption1" allowFontScaling={false} style={{ color: t.fgOnHeroMuted }}>
                   분석 대상
                 </T>
               )}
-              <T variant="title3" style={{ color: '#fff', fontWeight: '800', marginTop: 4 }}>
+              <T variant="title3" style={{ color: t.fgOnHero, fontWeight: '800', marginTop: 4 }}>
                 제 {round}회
               </T>
-              <T variant="caption1" style={{ color: 'rgba(255,255,255,0.55)', marginTop: 2 }}>
+              <T variant="caption1" style={{ color: t.fgOnHeroFaint, marginTop: 2 }}>
                 {targetDate}{isUpcoming ? ' (예정)' : ''}
               </T>
             </View>
@@ -271,30 +271,30 @@ export default function ProRegression() {
               onPress={goNext}
               disabled={round >= upcomingRound}
               style={({ pressed }) => [styles.navArrow, {
-                backgroundColor: 'rgba(255,255,255,0.10)',
+                backgroundColor: t.bgOnHeroPill,
                 opacity: round >= upcomingRound ? 0.3 : pressed ? 0.6 : 1,
               }]}
             >
-              <T variant="label1n" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800' }}>›</T>
+              <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '800' }}>›</T>
             </Pressable>
           </View>
 
           {/* K 요약 — 선택한 회차 시점의 K-회귀 통계 */}
           <View style={styles.heroKBlock}>
             <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
-              <T variant="title2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 24 }}>
+              <T variant="title2" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900', fontSize: 24 }}>
                 {k}회귀
               </T>
-              <T variant="caption1" style={{ color: 'rgba(255,255,255,0.55)' }}>
+              <T variant="caption1" style={{ color: t.fgOnHeroFaint }}>
                 · {k}회차 전과 비교
               </T>
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8, marginTop: 6 }}>
-              <T variant="caption1" allowFontScaling={false} style={{ color: '#fff', fontWeight: '700', fontSize: 12 }}>
+              <T variant="caption1" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '700', fontSize: 12 }}>
                 평균 {kAnalysis.avg.toFixed(2)}개 이월
               </T>
               <T variant="caption1" allowFontScaling={false} style={{
-                color: kAnalysis.lift >= 1.05 ? GOLD : kAnalysis.lift < 0.95 ? 'rgba(255,255,255,0.55)' : 'rgba(255,255,255,0.78)',
+                color: kAnalysis.lift >= 1.05 ? GOLD : kAnalysis.lift < 0.95 ? t.fgOnHeroFaint : t.fgOnHeroMuted,
                 fontWeight: '800',
                 fontSize: 12,
               }}>

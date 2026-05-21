@@ -79,9 +79,17 @@ export type SemanticTheme = {
   bgCanvas: string; bgSurface: string; bgSurface2: string; bgInverse: string;
   bgAccentSoft: string; bgAccent: string;
   bgDangerSoft: string; bgSuccessSoft: string; bgWarnSoft: string;
+  /** Hero/강조 카드 배경 — 라이트: 부드러운 보라톤, 다크: 거의 블랙. */
+  bgHero: string;
   fgStrong: string; fgPrimary: string; fgSecondary: string; fgTertiary: string; fgDisabled: string;
   fgOnAccent: string; fgAccent: string; fgAccentStrong: string;
   fgDanger: string; fgSuccess: string; fgWarn: string; fgLink: string;
+  /** Hero 카드 위에 올라가는 텍스트 색상 — 라이트/다크에 따라 자동 분기. */
+  fgOnHero: string; fgOnHeroMuted: string; fgOnHeroFaint: string;
+  /** Hero 카드 내부 sub-pill 배경 — 라이트: 더 진한 보라, 다크: 흰색 알파. */
+  bgOnHeroPill: string;
+  /** Hero 카드 내부 divider 라인 색상. */
+  borderOnHero: string;
   borderNormal: string; borderStrong: string; borderWeak: string;
   borderDivider: string; borderHard: string; borderWarn: string;
 };
@@ -96,6 +104,9 @@ export const light: SemanticTheme = {
   bgDangerSoft: '#ffeded',
   bgSuccessSoft: '#e6f9ee',
   bgWarnSoft: '#fffbe6',
+  // 라이트 모드 hero — 부드러운 라벤더 톤. 흰 카드와 명확히 구분되면서도 너무
+  // 어둡지 않아 일반 모드 화면에 자연스럽게 녹아든다.
+  bgHero: '#e8e3fa',
 
   fgStrong: palette.neutral900,
   fgPrimary: palette.neutral900,
@@ -109,6 +120,12 @@ export const light: SemanticTheme = {
   fgSuccess: palette.green500,
   fgWarn: '#7a5800',
   fgLink: palette.blue500,
+  // hero 위 텍스트 — 라이트 모드 hero가 밝아서 어두운 텍스트가 필요.
+  fgOnHero: palette.neutral900,
+  fgOnHeroMuted: 'rgba(23,23,25,0.68)',
+  fgOnHeroFaint: 'rgba(23,23,25,0.45)',
+  bgOnHeroPill: 'rgba(101,65,242,0.16)',
+  borderOnHero: 'rgba(101,65,242,0.18)',
 
   borderNormal: palette.softBorder,
   borderStrong: palette.softBorderStrong,
@@ -126,12 +143,18 @@ export const dark: SemanticTheme = {
   bgSurface2: palette.neutral850,
   bgInverse: palette.white,
   bgAccentSoft: 'rgba(0,102,255,0.16)',
+  bgHero: palette.neutral950,
 
   fgStrong: '#f7f7f8',
   fgPrimary: '#ececee',
   fgSecondary: 'rgba(247,247,248,0.78)',
   fgTertiary: 'rgba(247,247,248,0.50)',
   fgDisabled: 'rgba(247,247,248,0.28)',
+  fgOnHero: '#ffffff',
+  fgOnHeroMuted: 'rgba(255,255,255,0.70)',
+  fgOnHeroFaint: 'rgba(255,255,255,0.50)',
+  bgOnHeroPill: 'rgba(255,255,255,0.12)',
+  borderOnHero: 'rgba(255,255,255,0.10)',
 
   borderNormal: 'rgba(247,247,248,0.16)',
   borderDivider: 'rgba(247,247,248,0.10)',
