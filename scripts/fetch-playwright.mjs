@@ -206,21 +206,33 @@ async function newStealthContext(browser) {
  *  하지만 먼저 메인 페이지를 한 번 방문해서 봇 감지 challenge를 통과 + 세션 쿠키
  *  얻은 후, 그 컨텍스트에서 JSON/HTML 직접 fetch.
  */
-async function enrichRound(context, drwNo) {
+/** page.evaluate로 페이지 안에서 fetch 호출 — 브라우저 fingerprint 그대로라 봇 감지 회피력 높음. */
+async function fetchInPage(page, url, asJson = false) {
+  return page.evaluate(async ({ u, j }) => {
+    try {
+      const res = await fetch(u, {
+        credentials: 'include',
+        headers: { 'Accept': j ? 'application/json,*/*' : 'text/html,*/*' },
+      });
+      const text = await res.text();
+      return { ok: res.ok, status: res.status, text };
+    } catch (e) {
+      return { ok: false, status: 0, text: '', error: String(e) };
+    }
+  }, { u: url, j: asJson });
+}
+
+async function enrichRound(page, drwNo) {
   console.log(`\n[enrich] round ${drwNo} — start`);
   const out = {};
 
   try {
-    // 1) 기본 정보 (JSON) — context.request로 직접 HTTP fetch (메인 페이지에서 얻은
-    //    세션 쿠키 자동 적용됨)
+    // 1) 기본 정보 (JSON) — 페이지 안에서 fetch 호출 (실제 브라우저 컨텍스트)
     console.log(`[enrich] ${drwNo} basic...`);
-    const basicRes = await context.request.get(URL_BASIC(drwNo), {
-      timeout: 30_000,
-      headers: { 'Accept': 'application/json,*/*' },
-    });
-    if (basicRes.ok()) {
+    const basic = await fetchInPage(page, URL_BASIC(drwNo), true);
+    if (basic.ok) {
       try {
-        const j = await basicRes.json();
+        const j = JSON.parse(basic.text);
         if (j.returnValue === 'success') {
           const nums = [j.drwtNo1, j.drwtNo2, j.drwtNo3, j.drwtNo4, j.drwtNo5, j.drwtNo6].sort((a, b) => a - b);
           Object.assign(out, {
@@ -237,19 +249,18 @@ async function enrichRound(context, drwNo) {
           console.warn(`[enrich] ${drwNo} basic returnValue:`, j.returnValue);
         }
       } catch (e) {
-        const text = await basicRes.text();
-        console.warn(`[enrich] ${drwNo} basic non-JSON. start:`, text.slice(0, 200));
+        console.warn(`[enrich] ${drwNo} basic non-JSON. start:`, basic.text.slice(0, 200));
       }
     } else {
-      console.warn(`[enrich] ${drwNo} basic HTTP ${basicRes.status()}`);
+      console.warn(`[enrich] ${drwNo} basic HTTP ${basic.status} ${basic.error || ''}`);
     }
     if (!out.round) return null;
 
-    // 2) 등위별 정보 (HTML) — context.request로 직접 fetch
+    // 2) 등위별 정보 (HTML) — 페이지 안에서 fetch
     console.log(`[enrich] ${drwNo} prizes...`);
-    const prizeRes = await context.request.get(URL_PRIZE(drwNo), { timeout: 30_000 });
-    if (prizeRes.ok()) {
-      const html = await prizeRes.text();
+    const prizeRes = await fetchInPage(page, URL_PRIZE(drwNo), false);
+    if (prizeRes.ok) {
+      const html = prizeRes.text;
       const prizeData = parseGameResultHtml(html);
       if (prizeData) {
         out.prizes = prizeData.prizes;
@@ -262,14 +273,14 @@ async function enrichRound(context, drwNo) {
         console.warn(`[enrich] ${drwNo} prizes parse fail (tbl_data=${has_tbl}, 1등=${has_1deung}, iSwait=${has_iSwait}, len=${html.length})`);
       }
     } else {
-      console.warn(`[enrich] ${drwNo} prizes HTTP ${prizeRes.status()}`);
+      console.warn(`[enrich] ${drwNo} prizes HTTP ${prizeRes.status}`);
     }
 
-    // 3) 판매점 정보 (HTML) — context.request로 직접 fetch
+    // 3) 판매점 정보 (HTML) — 페이지 안에서 fetch
     console.log(`[enrich] ${drwNo} stores...`);
-    const storeRes = await context.request.get(URL_STORE(drwNo), { timeout: 30_000 });
-    if (storeRes.ok()) {
-      const html = await storeRes.text();
+    const storeRes = await fetchInPage(page, URL_STORE(drwNo), false);
+    if (storeRes.ok) {
+      const html = storeRes.text;
       const stores = parseTopStoreHtml(html);
       if (stores.length > 0) {
         out.topStores = stores;
@@ -281,7 +292,7 @@ async function enrichRound(context, drwNo) {
         console.warn(`[enrich] ${drwNo} stores empty (table=${has_table}, 상호=${has_상호}, iSwait=${has_iSwait}, len=${html.length})`);
       }
     } else {
-      console.warn(`[enrich] ${drwNo} stores HTTP ${storeRes.status()}`);
+      console.warn(`[enrich] ${drwNo} stores HTTP ${storeRes.status}`);
     }
   } catch (e) {
     console.error(`[enrich] ${drwNo} error:`, e.message);
@@ -317,17 +328,16 @@ async function main() {
   });
   const context = await newStealthContext(browser);
 
-  // 메인 페이지 한 번 방문 — 세션 쿠키 + 봇 감지 challenge 통과. 그 후 모든 회차는
-  // context.request로 직접 HTTP fetch (쿠키 자동 유지).
-  console.log('[enrich] warming up — visiting main page for session cookie...');
+  // 메인 페이지 1회 방문 → 그 페이지 안에서 fetch 호출 (브라우저 fingerprint 그대로).
+  // 페이지를 닫지 않고 enrichRound로 전달해서 같은 브라우저 컨텍스트에서 모든 회차 처리.
+  console.log('[enrich] warming up — visiting main page...');
+  const page = await context.newPage();
   try {
-    const warmupPage = await context.newPage();
-    await warmupPage.goto('https://www.dhlottery.co.kr/common.do?method=main', {
+    await page.goto('https://www.dhlottery.co.kr/common.do?method=main', {
       waitUntil: 'domcontentloaded',
       timeout: 30_000,
     });
-    await warmupPage.waitForTimeout(2500);
-    await warmupPage.close();
+    await page.waitForTimeout(2500);
     console.log('[enrich] warmup done.');
   } catch (e) {
     console.warn('[enrich] warmup fail:', e.message);
@@ -336,7 +346,7 @@ async function main() {
   let success = 0, fail = 0;
   for (const r of targets) {
     try {
-      const data = await enrichRound(context, r);
+      const data = await enrichRound(page, r);
       if (!data) { fail++; continue; }
       const outFile = path.join(OUT_DIR, `${r}.json`);
       await fs.writeFile(outFile, JSON.stringify(data, null, 2));
@@ -350,6 +360,7 @@ async function main() {
     await new Promise((res) => setTimeout(res, 1000));
   }
 
+  await page.close();
   await context.close();
   await browser.close();
 
