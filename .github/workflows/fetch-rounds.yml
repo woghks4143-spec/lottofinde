@@ -1,10 +1,10 @@
 name: Fetch round data
 
-# 매주 토요일 21:30 KST (= UTC 12:30) 자동 실행 + 수동 실행 가능
+# 매주 토요일 22:00 KST (= UTC 13:00) 자동 실행 + 수동 실행 가능.
+# 추첨 21:30 후 +30분 여유로 등위/판매점 정보가 완전히 올라온 후 수집.
 on:
   schedule:
-    # 분 시 일 월 요일 (UTC 기준)
-    - cron: '30 12 * * 6'
+    - cron: '0 13 * * 6'
   workflow_dispatch:
     inputs:
       round:
@@ -20,7 +20,7 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # 데이터 변경사항 git push 권한
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -30,14 +30,19 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Run enrich script
+      - name: Install Playwright + Chromium
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Run Playwright enrich script
         run: |
           if [ -n "${{ github.event.inputs.round }}" ]; then
-            node scripts/fetch-enriched.mjs --round=${{ github.event.inputs.round }}
+            node scripts/fetch-playwright.mjs --round=${{ github.event.inputs.round }}
           elif [ -n "${{ github.event.inputs.recent }}" ]; then
-            node scripts/fetch-enriched.mjs --recent=${{ github.event.inputs.recent }}
+            node scripts/fetch-playwright.mjs --recent=${{ github.event.inputs.recent }}
           else
-            node scripts/fetch-enriched.mjs
+            node scripts/fetch-playwright.mjs
           fi
 
       - name: Commit and push
