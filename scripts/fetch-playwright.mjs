@@ -199,83 +199,92 @@ async function newStealthContext(browser) {
   return context;
 }
 
-/** 한 회차 정보 모두 수집. */
+/** 한 회차 정보 모두 수집.
+ *
+ *  핵심: page.goto가 동행복권의 redirect 정책으로 인해 JSON URL을 메인 페이지로
+ *  돌려보내는 문제 회피. 대신 context.request로 HTTP만 직접 호출.
+ *  하지만 먼저 메인 페이지를 한 번 방문해서 봇 감지 challenge를 통과 + 세션 쿠키
+ *  얻은 후, 그 컨텍스트에서 JSON/HTML 직접 fetch.
+ */
 async function enrichRound(context, drwNo) {
   console.log(`\n[enrich] round ${drwNo} — start`);
-  const page = await context.newPage();
   const out = {};
 
   try {
-    // 1) 기본 정보 (JSON)
+    // 1) 기본 정보 (JSON) — context.request로 직접 HTTP fetch (메인 페이지에서 얻은
+    //    세션 쿠키 자동 적용됨)
     console.log(`[enrich] ${drwNo} basic...`);
-    const respBasic = await page.goto(URL_BASIC(drwNo), { waitUntil: 'networkidle', timeout: 30_000 });
-    if (!respBasic || !respBasic.ok()) {
-      console.warn(`[enrich] ${drwNo} basic HTTP ${respBasic?.status()}`);
-    }
-    // JSON 응답은 body 안에 raw text로 들어옴 (pre 태그)
-    const basicText = await page.evaluate(() => document.body.innerText);
-    try {
-      const j = JSON.parse(basicText);
-      if (j.returnValue === 'success') {
-        const nums = [j.drwtNo1, j.drwtNo2, j.drwtNo3, j.drwtNo4, j.drwtNo5, j.drwtNo6].sort((a, b) => a - b);
-        Object.assign(out, {
-          round: j.drwNo,
-          date: j.drwNoDate,
-          nums,
-          bonus: j.bnusNo,
-          firstWinAmount: j.firstWinamnt,
-          firstWinners: j.firstPrzwnerCo,
-          totalSales: j.totSellamnt,
-        });
-        console.log(`[enrich] ${drwNo} basic ✓ (${j.drwNoDate})`);
-      } else {
-        console.warn(`[enrich] ${drwNo} basic returnValue !== success`);
+    const basicRes = await context.request.get(URL_BASIC(drwNo), {
+      timeout: 30_000,
+      headers: { 'Accept': 'application/json,*/*' },
+    });
+    if (basicRes.ok()) {
+      try {
+        const j = await basicRes.json();
+        if (j.returnValue === 'success') {
+          const nums = [j.drwtNo1, j.drwtNo2, j.drwtNo3, j.drwtNo4, j.drwtNo5, j.drwtNo6].sort((a, b) => a - b);
+          Object.assign(out, {
+            round: j.drwNo,
+            date: j.drwNoDate,
+            nums,
+            bonus: j.bnusNo,
+            firstWinAmount: j.firstWinamnt,
+            firstWinners: j.firstPrzwnerCo,
+            totalSales: j.totSellamnt,
+          });
+          console.log(`[enrich] ${drwNo} basic ✓ (${j.drwNoDate})`);
+        } else {
+          console.warn(`[enrich] ${drwNo} basic returnValue:`, j.returnValue);
+        }
+      } catch (e) {
+        const text = await basicRes.text();
+        console.warn(`[enrich] ${drwNo} basic non-JSON. start:`, text.slice(0, 200));
       }
-    } catch (e) {
-      console.warn(`[enrich] ${drwNo} basic JSON parse fail. body start:`, basicText.slice(0, 200));
+    } else {
+      console.warn(`[enrich] ${drwNo} basic HTTP ${basicRes.status()}`);
     }
-    if (!out.round) {
-      // 기본 정보가 없으면 의미 없음
-      await page.close();
-      return null;
-    }
+    if (!out.round) return null;
 
-    // 2) 등위별 정보 (HTML)
+    // 2) 등위별 정보 (HTML) — context.request로 직접 fetch
     console.log(`[enrich] ${drwNo} prizes...`);
-    await page.goto(URL_PRIZE(drwNo), { waitUntil: 'domcontentloaded', timeout: 30_000 });
-    // 봇 감지 인터스티셜 회피: 실제 데이터 로드 대기
-    await page.waitForTimeout(2000);
-    const prizeHtml = await page.content();
-    const prizeData = parseGameResultHtml(prizeHtml);
-    if (prizeData) {
-      out.prizes = prizeData.prizes;
-      if (prizeData.totalSales && !out.totalSales) out.totalSales = prizeData.totalSales;
-      console.log(`[enrich] ${drwNo} prizes ✓ (${Object.keys(prizeData.prizes).length} ranks)`);
+    const prizeRes = await context.request.get(URL_PRIZE(drwNo), { timeout: 30_000 });
+    if (prizeRes.ok()) {
+      const html = await prizeRes.text();
+      const prizeData = parseGameResultHtml(html);
+      if (prizeData) {
+        out.prizes = prizeData.prizes;
+        if (prizeData.totalSales && !out.totalSales) out.totalSales = prizeData.totalSales;
+        console.log(`[enrich] ${drwNo} prizes ✓ (${Object.keys(prizeData.prizes).length} ranks)`);
+      } else {
+        const has_tbl = html.includes('tbl_data');
+        const has_1deung = html.includes('1등');
+        const has_iSwait = html.includes('iSwaitPage');
+        console.warn(`[enrich] ${drwNo} prizes parse fail (tbl_data=${has_tbl}, 1등=${has_1deung}, iSwait=${has_iSwait}, len=${html.length})`);
+      }
     } else {
-      // 디버그용 — HTML 일부 로그
-      const has_tbl = prizeHtml.includes('tbl_data');
-      const has_1deung = prizeHtml.includes('1등');
-      console.warn(`[enrich] ${drwNo} prizes parse fail (has_tbl_data=${has_tbl}, has_1등=${has_1deung}, len=${prizeHtml.length})`);
+      console.warn(`[enrich] ${drwNo} prizes HTTP ${prizeRes.status()}`);
     }
 
-    // 3) 판매점 정보 (HTML)
+    // 3) 판매점 정보 (HTML) — context.request로 직접 fetch
     console.log(`[enrich] ${drwNo} stores...`);
-    await page.goto(URL_STORE(drwNo), { waitUntil: 'domcontentloaded', timeout: 30_000 });
-    await page.waitForTimeout(2000);
-    const storeHtml = await page.content();
-    const stores = parseTopStoreHtml(storeHtml);
-    if (stores.length > 0) {
-      out.topStores = stores;
-      console.log(`[enrich] ${drwNo} stores ✓ (${stores.length})`);
+    const storeRes = await context.request.get(URL_STORE(drwNo), { timeout: 30_000 });
+    if (storeRes.ok()) {
+      const html = await storeRes.text();
+      const stores = parseTopStoreHtml(html);
+      if (stores.length > 0) {
+        out.topStores = stores;
+        console.log(`[enrich] ${drwNo} stores ✓ (${stores.length})`);
+      } else {
+        const has_table = html.includes('<table');
+        const has_상호 = html.includes('상호');
+        const has_iSwait = html.includes('iSwaitPage');
+        console.warn(`[enrich] ${drwNo} stores empty (table=${has_table}, 상호=${has_상호}, iSwait=${has_iSwait}, len=${html.length})`);
+      }
     } else {
-      const has_table = storeHtml.includes('<table');
-      const has_상호 = storeHtml.includes('상호');
-      console.warn(`[enrich] ${drwNo} stores empty (has_table=${has_table}, has_상호=${has_상호}, len=${storeHtml.length})`);
+      console.warn(`[enrich] ${drwNo} stores HTTP ${storeRes.status()}`);
     }
   } catch (e) {
     console.error(`[enrich] ${drwNo} error:`, e.message);
-  } finally {
-    await page.close();
   }
 
   return out.round ? out : null;
@@ -307,6 +316,22 @@ async function main() {
     ],
   });
   const context = await newStealthContext(browser);
+
+  // 메인 페이지 한 번 방문 — 세션 쿠키 + 봇 감지 challenge 통과. 그 후 모든 회차는
+  // context.request로 직접 HTTP fetch (쿠키 자동 유지).
+  console.log('[enrich] warming up — visiting main page for session cookie...');
+  try {
+    const warmupPage = await context.newPage();
+    await warmupPage.goto('https://www.dhlottery.co.kr/common.do?method=main', {
+      waitUntil: 'domcontentloaded',
+      timeout: 30_000,
+    });
+    await warmupPage.waitForTimeout(2500);
+    await warmupPage.close();
+    console.log('[enrich] warmup done.');
+  } catch (e) {
+    console.warn('[enrich] warmup fail:', e.message);
+  }
 
   let success = 0, fail = 0;
   for (const r of targets) {
