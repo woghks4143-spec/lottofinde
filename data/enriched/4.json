@@ -1,0 +1,37 @@
+{
+  "round": 4,
+  "date": "2002-12-28",
+  "nums": [
+    14,
+    27,
+    30,
+    31,
+    40,
+    42
+  ],
+  "bonus": 2,
+  "totalSales": 5271464000,
+  "prizes": {
+    "second": {
+      "amount": 211191200,
+      "winners": 1
+    },
+    "third": {
+      "amount": 7282400,
+      "winners": 29
+    },
+    "fourth": {
+      "amount": 152100,
+      "winners": 2777
+    },
+    "fifth": {
+      "amount": 10000,
+      "winners": 52382
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

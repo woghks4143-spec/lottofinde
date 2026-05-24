@@ -27,12 +27,13 @@ import { useJachanism } from '@/src/store/jachanism';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
 import {
-  POOL_SIZE, POOL_SIZE_DISPLAY, USER_LIMIT, BACKTEST_BASE_N,
-  computeBacktest, generateUserCombosRange, fmtCount,
+  POOL_SIZE, POOL_SIZE_DISPLAY, USER_LIMIT, BACKTEST_BASE_N, BACKTEST_BASE_LABEL,
+  generateUserCombosRange, fmtCount,
   getDayStatus, msToNextReceive, msToReceiveEnd, formatCountdown,
-  fetchWeeklyPool, pickUserCombosFromPool,
+  fetchWeeklyPool, pickUserCombosFromPool, fetchPrecomputedBacktest,
   type BacktestStats, type JachanismStatus,
 } from '@/src/lib/jachanism';
+import { fetchPoolState, allocateSlots, type PoolState } from '@/src/lib/firebase';
 
 const GOLD = '#e8b04e';
 const GOLD_SOFT = '#fff4dc';
@@ -70,27 +71,25 @@ export default function ProJachanism() {
     setTimeout(() => setToast(null), 2200);
   };
 
-  // 백테스트 계산 트리거 — 캐시가 없거나 latestRound가 바뀌었으면 비동기 계산
+  // 백테스트 결과 fetch — 서버(GitHub raw)에서 사전 계산된 결과만 받음.
+  // 매주 월요일 GitHub Actions가 갱신 → 사용자는 기다리지 않고 즉시 결과 표시.
   useEffect(() => {
     if (!latestRound) return;
-    if (backtestCache && backtestCache.latestRound === latestRound) return;
-    if (computing) return;
+    if (
+      backtestCache &&
+      backtestCache.latestRound === latestRound &&
+      backtestCache.roundsTested === BACKTEST_BASE_N
+    ) return; // 이미 최신 결과 캐시됨
 
     let cancelled = false;
     (async () => {
-      setComputing(true);
-      try {
-        const stats = await computeBacktest(
-          drawsMap, latestRound, BACKTEST_BASE_N,
-          (d, t) => { if (!cancelled) setProgress({ done: d, total: t }); },
-        );
-        if (!cancelled) {
-          setBacktest({ latestRound, ...stats });
-          setProgress(null);
-        }
-      } catch {
-        if (!cancelled) setComputing(false);
+      const stats = await fetchPrecomputedBacktest();
+      if (cancelled) return;
+      if (stats) {
+        // 서버 결과로 캐시 갱신
+        setBacktest({ latestRound, ...stats });
       }
+      // 서버 결과 없으면 기존 캐시 유지 (또는 번들 seed)
     })();
 
     return () => { cancelled = true; };
@@ -99,6 +98,8 @@ export default function ProJachanism() {
 
   const backtestStats: BacktestStats | null = useMemo(() => {
     if (!backtestCache || backtestCache.latestRound !== latestRound) return null;
+    // 30회짜리 옛 캐시 또는 분석 회차 수 변경된 경우 → invalid, 다시 계산 대기
+    if (backtestCache.roundsTested !== BACKTEST_BASE_N) return null;
     return {
       rank1: backtestCache.rank1,
       rank2: backtestCache.rank2,
@@ -122,10 +123,30 @@ export default function ProJachanism() {
   const receivedCount = entry?.combos.length ?? 0;
   const remainingCount = Math.max(0, USER_LIMIT - receivedCount);
 
+  /** Firebase에서 실시간 풀 상태 (total + 전 세계 누적 consumed). */
+  const [poolState, setPoolState] = useState<PoolState | null>(null);
+  const refreshPoolState = async () => {
+    if (!targetRound) return;
+    const state = await fetchPoolState(targetRound);
+    if (state) setPoolState(state);
+  };
+  useEffect(() => {
+    if (!targetRound) return;
+    let cancelled = false;
+    fetchPoolState(targetRound)
+      .then((state) => { if (!cancelled && state) setPoolState(state); })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [targetRound]);
+
+  const thisWeekPoolSize = poolState?.total ?? null;
+  const thisWeekConsumed = poolState?.consumed ?? 0;
+  const thisWeekRemaining = poolState ? Math.max(0, poolState.total - poolState.consumed) : null;
+
   /** 선택한 수령 개수 (사용자가 [5개] 같은 칩을 누르면 세팅, [조합받기] 누르면 실행). */
   const [selectedCount, setSelectedCount] = useState<number | null>(null);
 
-  /** 받기 액션 — 자동으로 보관함에 저장. */
+  /** 받기 액션 — Firebase에서 atomic 슬롯 할당 + 자동 보관함 저장. */
   const [receiving, setReceiving] = useState(false);
   const handleReceive = async () => {
     if (status !== 'active' || receiving) return;
@@ -134,26 +155,43 @@ export default function ProJachanism() {
     if (take === 0) return;
     setReceiving(true);
     try {
-      const offset = receivedCount;
-      // 1순위: GitHub 주간 풀
-      const pool = await fetchWeeklyPool(targetRound);
+      // 1) Firebase에서 atomic 슬롯 할당 (전 세계 unique)
+      const allocation = await allocateSlots(targetRound, deviceSeed, take);
+
+      // 2) 풀이 준비 안 됐거나 슬롯 부족 → 로컬 폴백
       let combos: number[][];
-      if (pool && pool.combos.length >= USER_LIMIT) {
+      const pool = await fetchWeeklyPool(targetRound);
+      if (allocation && pool && pool.combos.length > allocation.to) {
+        // ✅ 글로벌 슬롯 할당 성공 — 받은 슬롯 번호의 조합 사용
+        combos = pool.combos.slice(
+          allocation.to - take + 1,
+          allocation.to + 1,
+        );
+        // 풀 상태 갱신 (Firebase 응답에서 받은 최신값)
+        setPoolState({
+          total: allocation.total,
+          consumed: allocation.consumed,
+          updatedAt: Date.now(),
+        });
+      } else if (pool && pool.combos.length >= USER_LIMIT) {
+        // GitHub 풀은 있지만 Firebase 못 받음 → 기존 deviceSeed 방식
+        const offset = receivedCount;
         combos = pickUserCombosFromPool(pool, targetRound, deviceSeed, offset, take);
       } else {
-        // 폴백: 로컬 알고리즘
+        // 풀 자체가 없음 → 로컬 알고리즘 폴백
+        const offset = receivedCount;
         combos = generateUserCombosRange(targetRound, deviceSeed, offset, take);
       }
-      // 1) 회차 기록에 저장
+
+      // 3) 회차 기록에 저장
       receive(targetRound, combos);
-      // 2) 보관함에 자동 저장 (귀찮이즘 source로 표시)
+      // 4) 보관함에 자동 저장
       const games = combos.map((c) => ({
         nums: c,
         source: 'jachanism' as const,
         round: targetRound,
       }));
       const res = addMany(games);
-      // 칩 선택 초기화
       setSelectedCount(null);
       showToast(
         `${combos.length}조합 받기·저장 완료` +
@@ -393,45 +431,97 @@ export default function ProJachanism() {
           </Card>
         )}
 
-        {/* 이번 주 분석 풀 — 총 풀 + 내 한도 (남은 조합은 백엔드 연동 시 추가) */}
+        {/* 이번 주 분석 풀 — 실시간 글로벌 카운터 + Progress bar (FOMO) */}
         <Card padding={14}>
-          <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
-            📦 이번 주 분석 풀
-          </T>
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+            <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
+              📦 이번 주 분석 풀 (실시간)
+            </T>
+            {thisWeekRemaining != null && thisWeekRemaining < (thisWeekPoolSize ?? 0) * 0.5 && (
+              <View style={{
+                backgroundColor: 'rgba(255,66,66,0.12)',
+                paddingHorizontal: 8, paddingVertical: 3,
+                borderRadius: radius.pill,
+              }}>
+                <T variant="caption2" allowFontScaling={false} style={{ color: palette.red500, fontWeight: '800', fontSize: 10 }}>
+                  ⚡ 절반 이상 발급됨
+                </T>
+              </View>
+            )}
+          </View>
           <T variant="caption1" color="tertiary" style={{ marginTop: 2, fontSize: 11.5 }}>
-            한 사람당 최대 {USER_LIMIT}조합 · 중복 없이 발급
+            평균 {POOL_SIZE_DISPLAY} · 한 사람당 최대 {USER_LIMIT}조합 · 전 세계 중복 X
           </T>
-          <View style={{ flexDirection: 'row', gap: 8, marginTop: 12 }}>
-            <View style={[styles.poolStatBox, { backgroundColor: 'rgba(232,176,78,0.10)', borderColor: GOLD }]}>
-              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, color: GOLD_DARK, fontWeight: '700' }}>
-                총 분석 풀
+
+          {/* 큰 숫자: 남은 조합 강조 (FOMO) */}
+          <View style={[styles.poolHero, { backgroundColor: 'rgba(232,176,78,0.10)', borderColor: GOLD }]}>
+            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 11, color: GOLD_DARK, fontWeight: '700' }}>
+              남은 조합
+            </T>
+            {thisWeekRemaining != null ? (
+              <View style={{ flexDirection: 'row', alignItems: 'baseline', marginTop: 4 }}>
+                <T variant="title1" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '900', fontSize: 32 }}>
+                  {thisWeekRemaining.toLocaleString('ko')}
+                </T>
+                {thisWeekPoolSize != null && (
+                  <T variant="caption1" allowFontScaling={false} style={{ color: GOLD_DARK, opacity: 0.6, marginLeft: 6, fontSize: 12 }}>
+                    / {thisWeekPoolSize.toLocaleString('ko')}
+                  </T>
+                )}
+              </View>
+            ) : (
+              <T variant="label1r" color="tertiary" style={{ marginTop: 4, fontStyle: 'italic' }}>
+                풀 계산 중...
               </T>
-              <T variant="title3" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '900', fontSize: 17, marginTop: 4 }}>
-                {POOL_SIZE_DISPLAY}
+            )}
+            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, color: GOLD_DARK, opacity: 0.7, marginTop: 2 }}>
+              지금까지 {thisWeekConsumed.toLocaleString('ko')}개 발급됨
+            </T>
+
+            {/* Progress bar */}
+            {thisWeekPoolSize != null && thisWeekPoolSize > 0 && (
+              <View style={{
+                marginTop: 10,
+                width: '100%',
+                height: 6,
+                borderRadius: 3,
+                backgroundColor: 'rgba(232,176,78,0.2)',
+                overflow: 'hidden',
+              }}>
+                <View style={{
+                  width: `${Math.min(100, (thisWeekConsumed / thisWeekPoolSize) * 100)}%`,
+                  height: '100%',
+                  backgroundColor: GOLD,
+                  borderRadius: 3,
+                }} />
+              </View>
+            )}
+          </View>
+
+          {/* 내 한도 (작게) */}
+          <View style={[styles.myLimitBox, { backgroundColor: 'rgba(0,102,255,0.08)', borderColor: 'rgba(0,102,255,0.3)' }]}>
+            <T variant="caption1" allowFontScaling={false} style={{ color: palette.blue700, fontWeight: '700', fontSize: 12 }}>
+              내가 받은
+            </T>
+            <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
+              <T variant="label1n" allowFontScaling={false} style={{ color: palette.blue700, fontWeight: '900', fontSize: 18 }}>
+                {receivedCount}
               </T>
-              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 9, color: GOLD_DARK, opacity: 0.7, marginTop: 1 }}>
-                조합
+              <T variant="caption1" allowFontScaling={false} style={{ color: palette.blue700, fontWeight: '700', fontSize: 12, opacity: 0.6, marginLeft: 2 }}>
+                /{USER_LIMIT}
               </T>
-            </View>
-            <View style={[styles.poolStatBox, { backgroundColor: 'rgba(0,102,255,0.10)', borderColor: palette.blue700 }]}>
-              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, color: palette.blue700, fontWeight: '700' }}>
-                내 한도
-              </T>
-              <T variant="title3" allowFontScaling={false} style={{ color: palette.blue700, fontWeight: '900', fontSize: 22, marginTop: 4 }}>
-                {USER_LIMIT}
-              </T>
-              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 9, color: palette.blue700, opacity: 0.7, marginTop: 1 }}>
-                조합/주
+              <T variant="caption1" allowFontScaling={false} style={{ color: palette.blue700, opacity: 0.7, fontSize: 11, marginLeft: 8 }}>
+                · 남은 {remainingCount}개
               </T>
             </View>
           </View>
         </Card>
 
-        {/* 최근 30회 백테스트 결과 — 실측 데이터 */}
+        {/* 최근 1년(52회) 백테스트 결과 — 실측 데이터 */}
         <Card padding={16}>
           <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 6 }}>
             <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
-              📊 최근 {BACKTEST_BASE_N}회 분석 결과
+              📊 {BACKTEST_BASE_LABEL}({BACKTEST_BASE_N}회) 분석 결과
             </T>
             {backtestStats && (
               <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10.5 }}>
@@ -440,7 +530,7 @@ export default function ProJachanism() {
             )}
           </View>
           <T variant="caption1" color="tertiary" style={{ marginTop: 2, fontSize: 11.5 }}>
-            {POOL_SIZE_DISPLAY} 조합 풀 기준 누적 — 당첨 보장 X
+            {POOL_SIZE_DISPLAY} 조합 풀 기준 누적 · 결과는 매주 자연스럽게 변동 · 당첨 보장 X
           </T>
 
           {backtestStats ? (
@@ -625,9 +715,9 @@ const styles = StyleSheet.create({
   },
   /** emoji는 lineHeight = fontSize × 1.2로 명시해서 텍스트와 겹침 방지. */
   heroEmoji: {
-    fontSize: 56,
-    lineHeight: 72,
-    marginBottom: 16,
+    fontSize: 38,
+    lineHeight: 50,
+    marginBottom: 8,
     textAlign: 'center',
   },
   countdownPill: {
@@ -695,6 +785,22 @@ const styles = StyleSheet.create({
     paddingVertical: 12, paddingHorizontal: 10,
     borderRadius: radius.md,
     borderWidth: 1,
+    alignItems: 'center',
+  },
+  poolHero: {
+    marginTop: 12,
+    padding: 14,
+    borderRadius: radius.md,
+    borderWidth: 1.5,
+    alignItems: 'flex-start',
+  },
+  myLimitBox: {
+    marginTop: 10,
+    padding: 10,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
 

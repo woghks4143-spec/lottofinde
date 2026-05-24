@@ -1,0 +1,69 @@
+{
+  "round": 348,
+  "date": "2009-08-01",
+  "nums": [
+    3,
+    14,
+    17,
+    20,
+    24,
+    31
+  ],
+  "bonus": 34,
+  "firstWinAmount": 3299994000,
+  "firstWinners": 3,
+  "totalSales": 42786310000,
+  "prizes": {
+    "first": {
+      "amount": 3299994000,
+      "winners": 3
+    },
+    "second": {
+      "amount": 44594514,
+      "winners": 37
+    },
+    "third": {
+      "amount": 1350244,
+      "winners": 1222
+    },
+    "fourth": {
+      "amount": 50233,
+      "winners": 65694
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 978637
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "L-마트",
+      "address": "경기 부천시 삼작로 22 부천테크노파크100-103",
+      "method": "auto",
+      "lat": 37.518986,
+      "lng": 126.76236
+    },
+    {
+      "rank": 1,
+      "name": "GS25(파빌리온점)",
+      "address": "경기 성남시 분당구 정자동 7 두산위브파빌리온상가 1층 A-103",
+      "method": "auto",
+      "lat": 37.371655,
+      "lng": 127.10719
+    },
+    {
+      "rank": 1,
+      "name": "행운로또복권",
+      "address": "경기 오산시 오산동  876-2",
+      "method": "auto",
+      "lat": 37.14875,
+      "lng": 127.068886
+    }
+  ]
+}

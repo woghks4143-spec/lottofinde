@@ -1,0 +1,117 @@
+{
+  "round": 593,
+  "date": "2014-04-12",
+  "nums": [
+    9,
+    10,
+    13,
+    24,
+    33,
+    38
+  ],
+  "bonus": 28,
+  "firstWinAmount": 1532833500,
+  "firstWinners": 9,
+  "totalSales": 59368204000,
+  "prizes": {
+    "first": {
+      "amount": 1532833500,
+      "winners": 9
+    },
+    "second": {
+      "amount": 37084682,
+      "winners": 62
+    },
+    "third": {
+      "amount": 1264715,
+      "winners": 1818
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 87413
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1383890
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "서울 광진구 긴고랑로 38",
+      "method": "manual",
+      "lat": 37.562798,
+      "lng": 127.08021
+    },
+    {
+      "rank": 1,
+      "name": "대용상회",
+      "address": "부산 금정구 노포동  16-6번지",
+      "method": "auto",
+      "lat": 35.292843,
+      "lng": 129.10025
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "부산 부산진구 개금동  258-1번지 1층일부",
+      "method": "manual",
+      "lat": 35.157005,
+      "lng": 129.02504
+    },
+    {
+      "rank": 1,
+      "name": "GS25(대구교대)",
+      "address": "대구 남구 대명동  2007-6번지",
+      "method": "auto",
+      "lat": 35.852573,
+      "lng": 128.5909
+    },
+    {
+      "rank": 1,
+      "name": "선봉로또",
+      "address": "울산 남구 삼산동  1468-6번지 CU판매점 내",
+      "method": "auto",
+      "lat": 35.543747,
+      "lng": 129.33267
+    },
+    {
+      "rank": 1,
+      "name": "오렌지통신",
+      "address": "경기 성남시 수정구 고등동  404번지",
+      "method": "auto",
+      "lat": 37.45513,
+      "lng": 127.10651
+    },
+    {
+      "rank": 1,
+      "name": "대박로또",
+      "address": "경기 안산시 단원구 중앙대로 457 102호",
+      "method": "manual",
+      "lat": 37.3282,
+      "lng": 126.78997
+    },
+    {
+      "rank": 1,
+      "name": "화천복권방",
+      "address": "강원 화천군 화천읍  하리  43-28번지",
+      "method": "manual",
+      "lat": 38.104836,
+      "lng": 127.70451
+    },
+    {
+      "rank": 1,
+      "name": "화천복권방",
+      "address": "강원 화천군 화천읍  하리  43-28번지",
+      "method": "manual",
+      "lat": 38.104836,
+      "lng": 127.70451
+    }
+  ]
+}

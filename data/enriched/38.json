@@ -1,0 +1,43 @@
+{
+  "round": 38,
+  "date": "2003-08-23",
+  "nums": [
+    16,
+    17,
+    22,
+    30,
+    37,
+    43
+  ],
+  "bonus": 36,
+  "firstWinAmount": 5374866400,
+  "firstWinners": 3,
+  "totalSales": 67369284000,
+  "prizes": {
+    "first": {
+      "amount": 5374866400,
+      "winners": 3
+    },
+    "second": {
+      "amount": 149301800,
+      "winners": 18
+    },
+    "third": {
+      "amount": 3957900,
+      "winners": 679
+    },
+    "fourth": {
+      "amount": 147700,
+      "winners": 36377
+    },
+    "fifth": {
+      "amount": 10000,
+      "winners": 681031
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "round": 506,
+  "date": "2012-08-11",
+  "nums": [
+    6,
+    9,
+    11,
+    22,
+    24,
+    30
+  ],
+  "bonus": 31,
+  "firstWinAmount": 4073333875,
+  "firstWinners": 3,
+  "totalSales": 52363311000,
+  "prizes": {
+    "first": {
+      "amount": 4073333875,
+      "winners": 3
+    },
+    "second": {
+      "amount": 61717180,
+      "winners": 33
+    },
+    "third": {
+      "amount": 1282536,
+      "winners": 1588
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 75289
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1224774
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가판점(신문)",
+      "address": "서울 영등포구 양평로 48",
+      "method": "auto",
+      "lat": 37.534508,
+      "lng": 126.90126
+    },
+    {
+      "rank": 1,
+      "name": "매향슈퍼",
+      "address": "경기 수원시 팔달구 창룡대로 42-1",
+      "method": "manual",
+      "lat": 37.28264,
+      "lng": 127.02102
+    },
+    {
+      "rank": 1,
+      "name": "부흥청과식품점",
+      "address": "경북 경산시 하양읍 하양로 35 우방3차상가",
+      "method": "auto",
+      "lat": 35.90926,
+      "lng": 128.81354
+    }
+  ]
+}

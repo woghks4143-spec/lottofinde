@@ -1,0 +1,43 @@
+{
+  "round": 194,
+  "date": "2006-08-19",
+  "nums": [
+    15,
+    20,
+    23,
+    26,
+    39,
+    44
+  ],
+  "bonus": 28,
+  "firstWinAmount": 2650567875,
+  "firstWinners": 4,
+  "totalSales": 44511515000,
+  "prizes": {
+    "first": {
+      "amount": 2650567875,
+      "winners": 4
+    },
+    "second": {
+      "amount": 84145012,
+      "winners": 21
+    },
+    "third": {
+      "amount": 1648364,
+      "winners": 1072
+    },
+    "fourth": {
+      "amount": 65985,
+      "winners": 53559
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 917061
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

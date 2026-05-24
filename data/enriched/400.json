@@ -1,0 +1,77 @@
+{
+  "round": 400,
+  "date": "2010-07-31",
+  "nums": [
+    9,
+    21,
+    27,
+    34,
+    41,
+    43
+  ],
+  "bonus": 2,
+  "firstWinAmount": 2669834325,
+  "firstWinners": 4,
+  "totalSales": 45379731000,
+  "prizes": {
+    "first": {
+      "amount": 2669834325,
+      "winners": 4
+    },
+    "second": {
+      "amount": 59329652,
+      "winners": 30
+    },
+    "third": {
+      "amount": 1419370,
+      "winners": 1254
+    },
+    "fourth": {
+      "amount": 60192,
+      "winners": 59141
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 978194
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권천하",
+      "address": "서울 강북구 월계로7나길 23,(미아동)",
+      "method": "manual",
+      "lat": 37.61254,
+      "lng": 127.0325
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "서울 광진구 군자로 146 동진빌딩 1층",
+      "method": "auto",
+      "lat": 37.554394,
+      "lng": 127.07559
+    },
+    {
+      "rank": 1,
+      "name": "나우리",
+      "address": "부산 연제구 연산동  731-7 1층일부",
+      "method": "manual",
+      "lat": 35.178192,
+      "lng": 129.08255
+    },
+    {
+      "rank": 1,
+      "name": "로또복권하대점",
+      "address": "경남 진주시 도동로 188",
+      "method": "auto",
+      "lat": 35.18703,
+      "lng": 128.12248
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "round": 366,
+  "date": "2009-12-05",
+  "nums": [
+    5,
+    12,
+    19,
+    26,
+    27,
+    44
+  ],
+  "bonus": 38,
+  "firstWinAmount": 5351553900,
+  "firstWinners": 2,
+  "totalSales": 45962166000,
+  "prizes": {
+    "first": {
+      "amount": 5351553900,
+      "winners": 2
+    },
+    "second": {
+      "amount": 45739777,
+      "winners": 39
+    },
+    "third": {
+      "amount": 1103186,
+      "winners": 1617
+    },
+    "fourth": {
+      "amount": 49921,
+      "winners": 71467
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1028514
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가로판매점",
+      "address": "서울 용산구 한강로2가  314-1",
+      "method": "auto",
+      "lat": 37.52996,
+      "lng": 126.968155
+    },
+    {
+      "rank": 1,
+      "name": "가판점",
+      "address": "경기 부천시 부일로459번길 8 국민은행버스정류장 옆 가판",
+      "method": "auto",
+      "lat": 37.48641,
+      "lng": 126.78152
+    }
+  ]
+}

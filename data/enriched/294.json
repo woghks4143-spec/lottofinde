@@ -1,0 +1,77 @@
+{
+  "round": 294,
+  "date": "2008-07-19",
+  "nums": [
+    6,
+    10,
+    17,
+    30,
+    37,
+    38
+  ],
+  "bonus": 40,
+  "firstWinAmount": 2406504975,
+  "firstWinners": 4,
+  "totalSales": 41563813000,
+  "prizes": {
+    "first": {
+      "amount": 2406504975,
+      "winners": 4
+    },
+    "second": {
+      "amount": 61705256,
+      "winners": 26
+    },
+    "third": {
+      "amount": 1411027,
+      "winners": 1137
+    },
+    "fourth": {
+      "amount": 56496,
+      "winners": 56795
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 947708
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "훼미리마트(수유대로)",
+      "address": "서울 강북구 노해로 121 두울빌딩",
+      "method": "auto",
+      "lat": 37.64605,
+      "lng": 127.0244
+    },
+    {
+      "rank": 1,
+      "name": "동래중고악기수리",
+      "address": "부산 동래구 명륜로 163 중고악기1층",
+      "method": "auto",
+      "lat": 35.20847,
+      "lng": 129.08209
+    },
+    {
+      "rank": 1,
+      "name": "덕하복권명당",
+      "address": "울산 울주군 덕하로 238",
+      "method": "auto",
+      "lat": 35.49198,
+      "lng": 129.30516
+    },
+    {
+      "rank": 1,
+      "name": "참깨열쇠.복권",
+      "address": "전북 전주시 완산구 용리로 43 1층",
+      "method": "auto",
+      "lat": 35.798843,
+      "lng": 127.11466
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "round": 770,
+  "date": "2017-09-02",
+  "nums": [
+    1,
+    9,
+    12,
+    23,
+    39,
+    43
+  ],
+  "bonus": 34,
+  "firstWinAmount": 2163099329,
+  "firstWinners": 8,
+  "totalSales": 74166379000,
+  "prizes": {
+    "first": {
+      "amount": 2163099329,
+      "winners": 8
+    },
+    "second": {
+      "amount": 38455100,
+      "winners": 75
+    },
+    "third": {
+      "amount": 1252882,
+      "winners": 2302
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 108450
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1717526
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "상호없음",
+      "address": "서울 광진구 구의동 589-10번지 대림아크로리버상가102",
+      "method": "auto",
+      "lat": 37.55465,
+      "lng": 127.07817
+    },
+    {
+      "rank": 1,
+      "name": "싱글벙글6/45",
+      "address": "부산 연제구 중앙대로 1041 좌측 싱글벙글복권방",
+      "method": "manual",
+      "lat": 35.181576,
+      "lng": 129.07777
+    },
+    {
+      "rank": 1,
+      "name": "코리아마트(비산점)",
+      "address": "대구 서구 비산동 368-2번지",
+      "method": "auto",
+      "lat": 35.872482,
+      "lng": 128.5687
+    },
+    {
+      "rank": 1,
+      "name": "복권전문점",
+      "address": "대전 유성구 유성대로694번길 84",
+      "method": "auto",
+      "lat": 36.35407,
+      "lng": 127.33618
+    },
+    {
+      "rank": 1,
+      "name": "우리들공업탑점",
+      "address": "울산 남구 수암로 21",
+      "method": "auto",
+      "lat": 35.532272,
+      "lng": 129.3106
+    },
+    {
+      "rank": 1,
+      "name": "성명전력",
+      "address": "경기 동두천시 큰시장로 43",
+      "method": "auto",
+      "lat": 37.90014,
+      "lng": 127.05292
+    },
+    {
+      "rank": 1,
+      "name": "하이로또",
+      "address": "경기 시흥시 죽율로 205 1층",
+      "method": "manual",
+      "lat": 37.400043,
+      "lng": 126.79957
+    },
+    {
+      "rank": 1,
+      "name": "서해로또방",
+      "address": "경기 화성시 화성로 1471",
+      "method": "manual",
+      "lat": 37.223217,
+      "lng": 126.84257
+    }
+  ]
+}

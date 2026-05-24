@@ -1,0 +1,117 @@
+{
+  "round": 1047,
+  "date": "2022-12-24",
+  "nums": [
+    2,
+    20,
+    33,
+    40,
+    42,
+    44
+  ],
+  "bonus": 32,
+  "firstWinAmount": 2748797875,
+  "firstWinners": 9,
+  "totalSales": 103058179000,
+  "prizes": {
+    "first": {
+      "amount": 2748797875,
+      "winners": 9
+    },
+    "second": {
+      "amount": 49677071,
+      "winners": 83
+    },
+    "third": {
+      "amount": 1511436,
+      "winners": 2728
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 139530
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2313403
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권소매",
+      "address": "서울 금천구 가산로5길 77 1층",
+      "method": "manual",
+      "lat": 37.473743,
+      "lng": 126.89045
+    },
+    {
+      "rank": 1,
+      "name": "벼락부자복권",
+      "address": "대구 달서구 죽전길 149 1층 복권방",
+      "method": "auto",
+      "lat": 35.85846,
+      "lng": 128.54004
+    },
+    {
+      "rank": 1,
+      "name": "아이러브마트복권방",
+      "address": "울산 중구 유곡로 19-1",
+      "method": "auto",
+      "lat": 35.55638,
+      "lng": 129.30725
+    },
+    {
+      "rank": 1,
+      "name": "세민",
+      "address": "경기 부천시 중동로 147 1층",
+      "method": "manual",
+      "lat": 37.49294,
+      "lng": 126.76659
+    },
+    {
+      "rank": 1,
+      "name": "교하로또판매점",
+      "address": "경기 파주시 파주로 266 아이비타워108호",
+      "method": "auto",
+      "lat": 37.7261,
+      "lng": 126.71821
+    },
+    {
+      "rank": 1,
+      "name": "동덕로또방",
+      "address": "충남 아산시 시장남길 26",
+      "method": "auto",
+      "lat": 36.782608,
+      "lng": 127.00331
+    },
+    {
+      "rank": 1,
+      "name": "로또명당인주점",
+      "address": "충남 아산시 서해로 519-2",
+      "method": "auto",
+      "lat": 36.87784,
+      "lng": 126.89828
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "경북 상주시 상서문로 59,(남성동)",
+      "method": "auto",
+      "lat": 36.415222,
+      "lng": 128.15585
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "경남 사천시 새시장길 12",
+      "method": "manual",
+      "lat": 34.93144,
+      "lng": 128.07866
+    }
+  ]
+}

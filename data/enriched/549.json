@@ -1,0 +1,109 @@
+{
+  "round": 549,
+  "date": "2013-06-08",
+  "nums": [
+    29,
+    31,
+    35,
+    38,
+    40,
+    44
+  ],
+  "bonus": 17,
+  "firstWinAmount": 1760805047,
+  "firstWinners": 8,
+  "totalSales": 56864611000,
+  "prizes": {
+    "first": {
+      "amount": 1760805047,
+      "winners": 8
+    },
+    "second": {
+      "amount": 67078288,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1578844,
+      "winners": 1487
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 71700
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1213077
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "단골집편의점",
+      "address": "서울 강동구 구천면로 194",
+      "method": "auto",
+      "lat": 37.540585,
+      "lng": 127.12622
+    },
+    {
+      "rank": 1,
+      "name": "태광통신",
+      "address": "서울 성북구 동소문로 248 105동 1층 1호",
+      "method": "auto",
+      "lat": 37.602764,
+      "lng": 127.02375
+    },
+    {
+      "rank": 1,
+      "name": "증산점로또판매",
+      "address": "서울 은평구 증산동  189-3",
+      "method": "auto",
+      "lat": 37.585514,
+      "lng": 126.90847
+    },
+    {
+      "rank": 1,
+      "name": "백금당",
+      "address": "부산 중구 중구로29번길 26",
+      "method": "auto",
+      "lat": 35.100513,
+      "lng": 129.02731
+    },
+    {
+      "rank": 1,
+      "name": "자유극장옆토큰판매소",
+      "address": "대구 중구 중앙대로 446-2",
+      "method": "manual",
+      "lat": 35.872856,
+      "lng": 128.59453
+    },
+    {
+      "rank": 1,
+      "name": "GS25(계산동경)",
+      "address": "인천 계양구 계산동  1076-7번지도쿄프라자1층2호",
+      "method": "manual",
+      "lat": 37.53578,
+      "lng": 126.73629
+    },
+    {
+      "rank": 1,
+      "name": "대박찬스복권전문점",
+      "address": "경기 포천시 소흘읍  송우리    452-9",
+      "method": "manual",
+      "lat": 37.82579,
+      "lng": 127.14409
+    },
+    {
+      "rank": 1,
+      "name": "대박행운복권방",
+      "address": "충남 아산시 온천대로 104 서해안 휴게소내 편의점",
+      "method": "auto",
+      "lat": 36.746223,
+      "lng": 126.86672
+    }
+  ]
+}

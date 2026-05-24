@@ -1,0 +1,93 @@
+{
+  "round": 879,
+  "date": "2019-10-05",
+  "nums": [
+    1,
+    4,
+    10,
+    14,
+    15,
+    35
+  ],
+  "bonus": 20,
+  "firstWinAmount": 3206361313,
+  "firstWinners": 6,
+  "totalSales": 83174251000,
+  "prizes": {
+    "first": {
+      "amount": 3206361313,
+      "winners": 6
+    },
+    "second": {
+      "amount": 41641057,
+      "winners": 77
+    },
+    "third": {
+      "amount": 1236069,
+      "winners": 2594
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 123497
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1952277
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "포인트",
+      "address": "서울 강동구 올림픽로 677 북쪽 코너 점포 1칸",
+      "method": "auto",
+      "lat": 37.541996,
+      "lng": 127.12431
+    },
+    {
+      "rank": 1,
+      "name": "왕대박복권",
+      "address": "대구 달성군 비슬로 2208",
+      "method": "auto",
+      "lat": 35.78826,
+      "lng": 128.46335
+    },
+    {
+      "rank": 1,
+      "name": "로또기업",
+      "address": "대전 동구 동서대로 1684 복합터미널 건너편",
+      "method": "auto",
+      "lat": 36.348797,
+      "lng": 127.43712
+    },
+    {
+      "rank": 1,
+      "name": "영희복권방",
+      "address": "울산 동구 진성8길 53 동해연립주택 무주슈퍼 내",
+      "method": "manual",
+      "lat": 35.507305,
+      "lng": 129.42906
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "경기 평택시 평택로 154 1층 복권방",
+      "method": "manual",
+      "lat": 36.999325,
+      "lng": 127.07971
+    },
+    {
+      "rank": 1,
+      "name": "로또통신",
+      "address": "경남 김해시 함박로101번길 22 삼우빌딩104호 복권판매점",
+      "method": "auto",
+      "lat": 35.234215,
+      "lng": 128.86583
+    }
+  ]
+}

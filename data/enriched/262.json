@@ -1,0 +1,61 @@
+{
+  "round": 262,
+  "date": "2007-12-08",
+  "nums": [
+    9,
+    12,
+    24,
+    25,
+    29,
+    31
+  ],
+  "bonus": 36,
+  "firstWinAmount": 4518741600,
+  "firstWinners": 2,
+  "totalSales": 39232234000,
+  "prizes": {
+    "first": {
+      "amount": 4518741600,
+      "winners": 2
+    },
+    "second": {
+      "amount": 71726058,
+      "winners": 21
+    },
+    "third": {
+      "amount": 1361888,
+      "winners": 1106
+    },
+    "fourth": {
+      "amount": 54966,
+      "winners": 54807
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 910729
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "태극로또전문점",
+      "address": "경기 이천시 애련정로 124-2",
+      "method": "auto",
+      "lat": 37.28148,
+      "lng": 127.4503
+    },
+    {
+      "rank": 1,
+      "name": "대박로또복권",
+      "address": "강원 원주시 관설동  1771-6패밀리마트관설에버빌점",
+      "method": "auto",
+      "lat": 37.315277,
+      "lng": 127.96166
+    }
+  ]
+}

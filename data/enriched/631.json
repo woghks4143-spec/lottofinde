@@ -1,0 +1,77 @@
+{
+  "round": 631,
+  "date": "2015-01-03",
+  "nums": [
+    1,
+    2,
+    4,
+    23,
+    31,
+    34
+  ],
+  "bonus": 8,
+  "firstWinAmount": 3919853532,
+  "firstWinners": 4,
+  "totalSales": 65300621000,
+  "prizes": {
+    "first": {
+      "amount": 3919853532,
+      "winners": 4
+    },
+    "second": {
+      "amount": 56809472,
+      "winners": 46
+    },
+    "third": {
+      "amount": 1559210,
+      "winners": 1676
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 85710
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1491785
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "북문복권방",
+      "address": "경기 수원시 장안구 정조로 927-1",
+      "method": "auto",
+      "lat": 37.29028,
+      "lng": 127.01279
+    },
+    {
+      "rank": 1,
+      "name": "로또홍성휴게소(하행)판매점",
+      "address": "충남 홍성군 은하면  금국리  292-3번지 서해안고속도로 홍성휴게소(하행)내 하이샵코너내",
+      "method": "auto",
+      "lat": 36.55207,
+      "lng": 126.57993
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트(시네마로또)",
+      "address": "전남 목포시 상동  1129-6번지 CU편의점",
+      "method": "auto",
+      "lat": 34.799145,
+      "lng": 126.433365
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "전남 여수시 중앙로 62 1층",
+      "method": "auto",
+      "lat": 34.73992,
+      "lng": 127.73436
+    }
+  ]
+}

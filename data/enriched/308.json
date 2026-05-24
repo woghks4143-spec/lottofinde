@@ -1,0 +1,53 @@
+{
+  "round": 308,
+  "date": "2008-10-25",
+  "nums": [
+    14,
+    15,
+    17,
+    19,
+    37,
+    45
+  ],
+  "bonus": 40,
+  "firstWinAmount": 10232872800,
+  "firstWinners": 1,
+  "totalSales": 43339416000,
+  "prizes": {
+    "first": {
+      "amount": 10232872800,
+      "winners": 1
+    },
+    "second": {
+      "amount": 63165882,
+      "winners": 27
+    },
+    "third": {
+      "amount": 1743844,
+      "winners": 978
+    },
+    "fourth": {
+      "amount": 63461,
+      "winners": 53749
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 922984
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "마이마트",
+      "address": "인천 서구 탁옥로 76 한국상가제1층101호",
+      "method": "auto",
+      "lat": 37.54315,
+      "lng": 126.67822
+    }
+  ]
+}

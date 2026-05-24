@@ -1,0 +1,109 @@
+{
+  "round": 898,
+  "date": "2020-02-15",
+  "nums": [
+    18,
+    21,
+    28,
+    35,
+    37,
+    42
+  ],
+  "bonus": 17,
+  "firstWinAmount": 2639313235,
+  "firstWinners": 8,
+  "totalSales": 90067839000,
+  "prizes": {
+    "first": {
+      "amount": 2639313235,
+      "winners": 8
+    },
+    "second": {
+      "amount": 62840792,
+      "winners": 56
+    },
+    "third": {
+      "amount": 1086138,
+      "winners": 3240
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 137051
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2005739
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행운의복권방",
+      "address": "서울 관악구 양녕로 37-1",
+      "method": "manual",
+      "lat": 37.48539,
+      "lng": 126.94667
+    },
+    {
+      "rank": 1,
+      "name": "행운로또복권판매점",
+      "address": "서울 구로구 고척로 123-2",
+      "method": "manual",
+      "lat": 37.502304,
+      "lng": 126.84798
+    },
+    {
+      "rank": 1,
+      "name": "토큰판매소",
+      "address": "서울 송파구 바람드리길 62",
+      "method": "auto",
+      "lat": 37.536663,
+      "lng": 127.12238
+    },
+    {
+      "rank": 1,
+      "name": "CU(입석강변점)",
+      "address": "대구 동구 입석동 933-2번지",
+      "method": "auto",
+      "lat": 35.890266,
+      "lng": 128.64635
+    },
+    {
+      "rank": 1,
+      "name": "흥건슈퍼",
+      "address": "전북 전주시 완산구 거마평로 25 흥건1차아파트상가 흥건슈퍼",
+      "method": "mixed",
+      "lat": 35.794403,
+      "lng": 127.11578
+    },
+    {
+      "rank": 1,
+      "name": "하당복권방",
+      "address": "전남 목포시 옥암로 46",
+      "method": "auto",
+      "lat": 34.803894,
+      "lng": 126.429474
+    },
+    {
+      "rank": 1,
+      "name": "토토복권장흥점",
+      "address": "전남 장흥군 장흥읍 건산리 720-13번지",
+      "method": "auto",
+      "lat": 34.68053,
+      "lng": 126.90687
+    },
+    {
+      "rank": 1,
+      "name": "공단로또점",
+      "address": "경남 함안군 삼칠로 831 슈퍼 옆 1층",
+      "method": "manual",
+      "lat": 35.360252,
+      "lng": 128.48526
+    }
+  ]
+}

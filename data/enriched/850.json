@@ -1,0 +1,93 @@
+{
+  "round": 850,
+  "date": "2019-03-16",
+  "nums": [
+    16,
+    20,
+    24,
+    28,
+    36,
+    39
+  ],
+  "bonus": 5,
+  "firstWinAmount": 3377587875,
+  "firstWinners": 6,
+  "totalSales": 81474176000,
+  "prizes": {
+    "first": {
+      "amount": 3377587875,
+      "winners": 6
+    },
+    "second": {
+      "amount": 61410689,
+      "winners": 55
+    },
+    "third": {
+      "amount": 1669594,
+      "winners": 2023
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 101591
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1727367
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "미나식품(로또판매점)",
+      "address": "서울 강서구 금낭화로 91-12",
+      "method": "auto",
+      "lat": 37.5735,
+      "lng": 126.81066
+    },
+    {
+      "rank": 1,
+      "name": "세진전자통신",
+      "address": "대구 서구 서대구로 156",
+      "method": "auto",
+      "lat": 35.8719,
+      "lng": 128.5552
+    },
+    {
+      "rank": 1,
+      "name": "버스표판매소",
+      "address": "경기 고양시 덕양구 중앙로557번길 7-23 비금빌딩앞",
+      "method": "auto",
+      "lat": 37.62244,
+      "lng": 126.836075
+    },
+    {
+      "rank": 1,
+      "name": "마두5번출구가판로또",
+      "address": "경기 고양시 일산동구 중앙로 1200",
+      "method": "auto",
+      "lat": 37.65387,
+      "lng": 126.77711
+    },
+    {
+      "rank": 1,
+      "name": "포유25대호점",
+      "address": "경기 오산시 대호로  104",
+      "method": "auto",
+      "lat": 37.159443,
+      "lng": 127.05442
+    },
+    {
+      "rank": 1,
+      "name": "썬마트",
+      "address": "충북 청주시 흥덕구 진재로23번길 25",
+      "method": "manual",
+      "lat": 36.632607,
+      "lng": 127.42811
+    }
+  ]
+}

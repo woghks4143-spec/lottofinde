@@ -1,0 +1,109 @@
+{
+  "round": 296,
+  "date": "2008-08-02",
+  "nums": [
+    3,
+    8,
+    15,
+    27,
+    30,
+    45
+  ],
+  "bonus": 44,
+  "firstWinAmount": 3066088275,
+  "firstWinners": 8,
+  "totalSales": 63377899000,
+  "prizes": {
+    "first": {
+      "amount": 3066088275,
+      "winners": 8
+    },
+    "second": {
+      "amount": 46243415,
+      "winners": 53
+    },
+    "third": {
+      "amount": 1186303,
+      "winners": 2066
+    },
+    "fourth": {
+      "amount": 54498,
+      "winners": 89945
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1435988
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "노다지 복권방",
+      "address": "서울 도봉구 도봉동  623-1",
+      "method": "manual",
+      "lat": 37.672604,
+      "lng": 127.04473
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "부산 남구 석포로 132",
+      "method": "auto",
+      "lat": 35.1288,
+      "lng": 129.09175
+    },
+    {
+      "rank": 1,
+      "name": "풍전수퍼",
+      "address": "경기 부천시 조마루로 428,(원미동)",
+      "method": "auto",
+      "lat": 37.49708,
+      "lng": 126.79113
+    },
+    {
+      "rank": 1,
+      "name": "운수대통",
+      "address": "경기 수원시 권선구 매실로 73",
+      "method": "manual",
+      "lat": 37.269012,
+      "lng": 126.95872
+    },
+    {
+      "rank": 1,
+      "name": "엠에스 슈퍼",
+      "address": "경기 안산시 단원구 와동 와동 713-2",
+      "method": "manual",
+      "lat": 37.33758,
+      "lng": 126.82831
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "충북 청주시 흥덕구 송화로166번길 14 편의점",
+      "method": "manual",
+      "lat": 36.665695,
+      "lng": 127.45193
+    },
+    {
+      "rank": 1,
+      "name": "대원로또판매점",
+      "address": "경북 고령군 고령읍 지산리 지산리 3-1번지",
+      "method": "manual",
+      "lat": 35.727325,
+      "lng": 128.26604
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트 상도점",
+      "address": "경북 포항시 남구 문예로 68 우측상가",
+      "method": "auto",
+      "lat": 36.013435,
+      "lng": 129.36417
+    }
+  ]
+}

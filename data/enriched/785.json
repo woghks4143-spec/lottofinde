@@ -1,0 +1,93 @@
+{
+  "round": 785,
+  "date": "2017-12-16",
+  "nums": [
+    4,
+    6,
+    15,
+    25,
+    26,
+    33
+  ],
+  "bonus": 40,
+  "firstWinAmount": 2886622688,
+  "firstWinners": 6,
+  "totalSales": 72974563000,
+  "prizes": {
+    "first": {
+      "amount": 2886622688,
+      "winners": 6
+    },
+    "second": {
+      "amount": 52484049,
+      "winners": 55
+    },
+    "third": {
+      "amount": 1463805,
+      "winners": 1972
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 100062
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1678240
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가로판매점",
+      "address": "서울 금천구 시흥대로 212 가판",
+      "method": "auto",
+      "lat": 37.452766,
+      "lng": 126.90165
+    },
+    {
+      "rank": 1,
+      "name": "복권가판대",
+      "address": "서울 은평구 수색동 360번지",
+      "method": "auto",
+      "lat": 37.58249,
+      "lng": 126.895294
+    },
+    {
+      "rank": 1,
+      "name": "GS25(두정메트로점)",
+      "address": "충남 천안시 서북구 성정동 1451번지",
+      "method": "auto",
+      "lat": 36.826557,
+      "lng": 127.14148
+    },
+    {
+      "rank": 1,
+      "name": "종합복권방",
+      "address": "전남 해남군 해남로 34 종합복권방편의점",
+      "method": "auto",
+      "lat": 34.570763,
+      "lng": 126.61092
+    },
+    {
+      "rank": 1,
+      "name": "행운로또방",
+      "address": "경남 김해시 장등로19번길 15 103호",
+      "method": "auto",
+      "lat": 35.308147,
+      "lng": 128.73337
+    },
+    {
+      "rank": 1,
+      "name": "북마산복권전문점",
+      "address": "경남 창원시 마산합포구 북성로 98",
+      "method": "auto",
+      "lat": 35.215973,
+      "lng": 128.5708
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "round": 719,
+  "date": "2016-09-10",
+  "nums": [
+    4,
+    8,
+    13,
+    19,
+    20,
+    43
+  ],
+  "bonus": 26,
+  "firstWinAmount": 1879581334,
+  "firstWinners": 9,
+  "totalSales": 71378392000,
+  "prizes": {
+    "first": {
+      "amount": 1879581334,
+      "winners": 9
+    },
+    "second": {
+      "amount": 48609863,
+      "winners": 58
+    },
+    "third": {
+      "amount": 1395729,
+      "winners": 2020
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 99906
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1627784
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권전문점",
+      "address": "서울 강북구 솔샘로64길 43,(미아동)",
+      "method": "auto",
+      "lat": 37.61555,
+      "lng": 127.028656
+    },
+    {
+      "rank": 1,
+      "name": "장안홈타운",
+      "address": "서울 동대문구 장안동 355-1번지",
+      "method": "auto",
+      "lat": 37.56795,
+      "lng": 127.073814
+    },
+    {
+      "rank": 1,
+      "name": "굿-7",
+      "address": "부산 수영구 광안로 49",
+      "method": "auto",
+      "lat": 35.1553,
+      "lng": 129.1177
+    },
+    {
+      "rank": 1,
+      "name": "동광슈퍼",
+      "address": "광주 서구 천변좌로 228",
+      "method": "auto",
+      "lat": 35.154858,
+      "lng": 126.90159
+    },
+    {
+      "rank": 1,
+      "name": "대박찬스",
+      "address": "경기 남양주시 진접읍 장현로 111 1층1호",
+      "method": "auto",
+      "lat": 37.719795,
+      "lng": 127.18393
+    },
+    {
+      "rank": 1,
+      "name": "대운복권",
+      "address": "경기 성남시 중원구 성남대로 1149",
+      "method": "auto",
+      "lat": 37.432377,
+      "lng": 127.12866
+    },
+    {
+      "rank": 1,
+      "name": "행복충전소",
+      "address": "경기 평택시 탄현로 332-2",
+      "method": "auto",
+      "lat": 37.0818,
+      "lng": 127.05637
+    },
+    {
+      "rank": 1,
+      "name": "중앙로또(로손편의점내)",
+      "address": "경북 칠곡군 북삼로 41 복권판매점",
+      "method": "auto",
+      "lat": 36.071457,
+      "lng": 128.34279
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "경남 창원시 진해구 냉천로 93 그린프라자 이마트24편의점",
+      "method": "auto",
+      "lat": 35.153454,
+      "lng": 128.7071
+    }
+  ]
+}

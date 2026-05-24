@@ -1,0 +1,117 @@
+{
+  "round": 585,
+  "date": "2014-02-15",
+  "nums": [
+    6,
+    7,
+    10,
+    16,
+    38,
+    41
+  ],
+  "bonus": 4,
+  "firstWinAmount": 1620546334,
+  "firstWinners": 9,
+  "totalSales": 60253002000,
+  "prizes": {
+    "first": {
+      "amount": 1620546334,
+      "winners": 9
+    },
+    "second": {
+      "amount": 54018212,
+      "winners": 45
+    },
+    "third": {
+      "amount": 1590851,
+      "winners": 1528
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 79691
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1339079
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "9TO5공항점",
+      "address": "서울 강서구 방화동로 14",
+      "method": "auto",
+      "lat": 37.562405,
+      "lng": 126.80923
+    },
+    {
+      "rank": 1,
+      "name": "금정복권",
+      "address": "부산 금정구 부곡동  296-100번지 1층 편의점내",
+      "method": "auto",
+      "lat": 35.22598,
+      "lng": 129.09067
+    },
+    {
+      "rank": 1,
+      "name": "씨엔에스",
+      "address": "대구 서구 비산동  1840-1번지",
+      "method": "manual",
+      "lat": 35.884903,
+      "lng": 128.55618
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "대구 수성구 수성로 337 1층 동북편상가",
+      "method": "auto",
+      "lat": 35.85569,
+      "lng": 128.61345
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트송도프라자",
+      "address": "인천 연수구 송도동  2-6번지 송도프라자108호",
+      "method": "auto",
+      "lat": 37.395847,
+      "lng": 126.65242
+    },
+    {
+      "rank": 1,
+      "name": "유연마트",
+      "address": "대전 동구 계족로 88",
+      "method": "manual",
+      "lat": 36.32213,
+      "lng": 127.4451
+    },
+    {
+      "rank": 1,
+      "name": "금강종합공구",
+      "address": "경기 김포시 대곶면  율생리  350-5번지",
+      "method": "auto",
+      "lat": 37.652786,
+      "lng": 126.59066
+    },
+    {
+      "rank": 1,
+      "name": "대박행진 복권랜드.커피에 반하다",
+      "address": "경기 파주시 금빛로 22 금촌프라자107호",
+      "method": "auto",
+      "lat": 37.751614,
+      "lng": 126.76691
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "경기 평택시 조개터로 17 1층 1호",
+      "method": "manual",
+      "lat": 36.98888,
+      "lng": 127.10167
+    }
+  ]
+}

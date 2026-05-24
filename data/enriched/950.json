@@ -1,0 +1,109 @@
+{
+  "round": 950,
+  "date": "2021-02-13",
+  "nums": [
+    3,
+    4,
+    15,
+    22,
+    28,
+    40
+  ],
+  "bonus": 10,
+  "firstWinAmount": 3281920500,
+  "firstWinners": 8,
+  "totalSales": 108870714000,
+  "prizes": {
+    "first": {
+      "amount": 3281920500,
+      "winners": 8
+    },
+    "second": {
+      "amount": 65311851,
+      "winners": 67
+    },
+    "third": {
+      "amount": 1516249,
+      "winners": 2886
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 146270
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2422941
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "농가마트",
+      "address": "서울 양천구 중앙로 264 1층",
+      "method": "auto",
+      "lat": 37.519985,
+      "lng": 126.853294
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "대구 수성구 천을로 180 동서1차아파트상가108-112호",
+      "method": "manual",
+      "lat": 35.842495,
+      "lng": 128.71007
+    },
+    {
+      "rank": 1,
+      "name": "왕대박로또",
+      "address": "경기 이천시 덕평로 917 CU이천덕평",
+      "method": "auto",
+      "lat": 37.2397,
+      "lng": 127.362816
+    },
+    {
+      "rank": 1,
+      "name": "로또명당금왕점",
+      "address": "충북 음성군 금왕읍 탑골길 55 세븐일레븐 금왕점",
+      "method": "manual",
+      "lat": 36.990955,
+      "lng": 127.58632
+    },
+    {
+      "rank": 1,
+      "name": "팡팡복권방",
+      "address": "충북 진천군 장기길 102",
+      "method": "auto",
+      "lat": 36.990017,
+      "lng": 127.445274
+    },
+    {
+      "rank": 1,
+      "name": "알리바이(나주점)",
+      "address": "전남 나주시 나주로 142 알리바이",
+      "method": "mixed",
+      "lat": 35.031338,
+      "lng": 126.71719
+    },
+    {
+      "rank": 1,
+      "name": "도깨비방망이",
+      "address": "전남 완도군 완도읍 장보고대로 220 도깨비방망이",
+      "method": "auto",
+      "lat": 34.31606,
+      "lng": 126.7492
+    },
+    {
+      "rank": 1,
+      "name": "주택복권2호점",
+      "address": "경북 구미시 금오시장로 13 114호",
+      "method": "manual",
+      "lat": 36.126236,
+      "lng": 128.3407
+    }
+  ]
+}

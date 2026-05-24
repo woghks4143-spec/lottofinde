@@ -1,0 +1,109 @@
+{
+  "round": 337,
+  "date": "2009-05-16",
+  "nums": [
+    1,
+    5,
+    14,
+    18,
+    32,
+    37
+  ],
+  "bonus": 4,
+  "firstWinAmount": 1257500513,
+  "firstWinners": 8,
+  "totalSales": 43432467000,
+  "prizes": {
+    "first": {
+      "amount": 1257500513,
+      "winners": 8
+    },
+    "second": {
+      "amount": 50808102,
+      "winners": 33
+    },
+    "third": {
+      "amount": 1404245,
+      "winners": 1194
+    },
+    "fourth": {
+      "amount": 56462,
+      "winners": 59392
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 989912
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "베스트부흥복권방",
+      "address": "서울 도봉구 창동  3-4신한빌딩107호",
+      "method": "manual",
+      "lat": 37.653286,
+      "lng": 127.04932
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "서울 성동구 성수동2가  300-75호1층4",
+      "method": "auto",
+      "lat": 37.54571,
+      "lng": 127.05389
+    },
+    {
+      "rank": 1,
+      "name": "신문가판점",
+      "address": "서울 용산구 한강대로77길 19 남영역 앞",
+      "method": "manual",
+      "lat": 37.541813,
+      "lng": 126.97192
+    },
+    {
+      "rank": 1,
+      "name": "복권마을",
+      "address": "인천 부평구 마장로 424",
+      "method": "manual",
+      "lat": 37.515896,
+      "lng": 126.70455
+    },
+    {
+      "rank": 1,
+      "name": "알리바이",
+      "address": "광주 광산구 수등로 253 1층 알리바이",
+      "method": "manual",
+      "lat": 35.185387,
+      "lng": 126.83668
+    },
+    {
+      "rank": 1,
+      "name": "용두천하",
+      "address": "광주 북구 하서로 373",
+      "method": "auto",
+      "lat": 35.20835,
+      "lng": 126.87351
+    },
+    {
+      "rank": 1,
+      "name": "현리행운복권방",
+      "address": "경기 가평군 조종희망로 14 1층",
+      "method": "auto",
+      "lat": 37.818184,
+      "lng": 127.35024
+    },
+    {
+      "rank": 1,
+      "name": "월드컵",
+      "address": "경기 수원시 팔달구 월드컵로 299-1",
+      "method": "auto",
+      "lat": 37.285313,
+      "lng": 127.03505
+    }
+  ]
+}

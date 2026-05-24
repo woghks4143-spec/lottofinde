@@ -1,0 +1,109 @@
+{
+  "round": 1147,
+  "date": "2024-11-23",
+  "nums": [
+    7,
+    11,
+    24,
+    26,
+    27,
+    37
+  ],
+  "bonus": 32,
+  "firstWinAmount": 3323422079,
+  "firstWinners": 8,
+  "totalSales": 115707061000,
+  "prizes": {
+    "first": {
+      "amount": 3323422079,
+      "winners": 8
+    },
+    "second": {
+      "amount": 53388307,
+      "winners": 83
+    },
+    "third": {
+      "amount": 1235014,
+      "winners": 3588
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 173036
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2750379
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가로판매점",
+      "address": "서울 관악구 과천대로 955",
+      "method": "auto",
+      "lat": 37.47595,
+      "lng": 126.98115
+    },
+    {
+      "rank": 1,
+      "name": "크로바쎄븐",
+      "address": "서울 송파구 법원로11길 7 1층 128호",
+      "method": "auto",
+      "lat": 37.485355,
+      "lng": 127.119225
+    },
+    {
+      "rank": 1,
+      "name": "부일카서비스",
+      "address": "부산 동구 자성로133번길 35",
+      "method": "auto",
+      "lat": 35.140015,
+      "lng": 129.06306
+    },
+    {
+      "rank": 1,
+      "name": "대동슈퍼",
+      "address": "인천 남동구 만수로 81",
+      "method": "auto",
+      "lat": 37.46275,
+      "lng": 126.73616
+    },
+    {
+      "rank": 1,
+      "name": "현대설비 / 영종하늘 로또",
+      "address": "인천 중구 하늘달빛로 70 114호",
+      "method": "auto",
+      "lat": 37.485825,
+      "lng": 126.55953
+    },
+    {
+      "rank": 1,
+      "name": "오천억복권방",
+      "address": "광주 서구 상무대로 1087",
+      "method": "auto",
+      "lat": 35.15296,
+      "lng": 126.880745
+    },
+    {
+      "rank": 1,
+      "name": "도일복권방",
+      "address": "경기 시흥시 도일로 111",
+      "method": "manual",
+      "lat": 37.3404,
+      "lng": 126.783646
+    },
+    {
+      "rank": 1,
+      "name": "도고로또판매점",
+      "address": "충남 아산시 온천대로 170 이마트24시편의점",
+      "method": "manual",
+      "lat": 36.747288,
+      "lng": 126.87345
+    }
+  ]
+}

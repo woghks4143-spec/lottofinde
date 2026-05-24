@@ -1,0 +1,149 @@
+{
+  "round": 1176,
+  "date": "2025-06-14",
+  "nums": [
+    7,
+    9,
+    11,
+    21,
+    30,
+    35
+  ],
+  "bonus": 29,
+  "firstWinAmount": 2052166154,
+  "firstWinners": 13,
+  "totalSales": 115765450000,
+  "prizes": {
+    "first": {
+      "amount": 2052166154,
+      "winners": 13
+    },
+    "second": {
+      "amount": 49959102,
+      "winners": 89
+    },
+    "third": {
+      "amount": 1258523,
+      "winners": 3533
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 171545
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2746919
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 7,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 주공10단지종합상가111",
+      "method": "auto",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "돼지복권명당",
+      "address": "부산 기장군 해맞이로 365-1",
+      "method": "auto",
+      "lat": 35.32655,
+      "lng": 129.27667
+    },
+    {
+      "rank": 1,
+      "name": "마치복권",
+      "address": "대전 서구 구봉로 125",
+      "method": "auto",
+      "lat": 36.296867,
+      "lng": 127.33698
+    },
+    {
+      "rank": 1,
+      "name": "어게인",
+      "address": "경기 고양시 일산동구 중산로 105 현해프라자 113호",
+      "method": "manual",
+      "lat": 37.681396,
+      "lng": 126.78133
+    },
+    {
+      "rank": 1,
+      "name": "어게인",
+      "address": "경기 고양시 일산동구 중산로 105 현해프라자 113호",
+      "method": "manual",
+      "lat": 37.681396,
+      "lng": 126.78133
+    },
+    {
+      "rank": 1,
+      "name": "신의 축복",
+      "address": "경기 남양주시 사릉로34번길 24 (금곡동) 7호",
+      "method": "auto",
+      "lat": 37.63618,
+      "lng": 127.21107
+    },
+    {
+      "rank": 1,
+      "name": "오늘도로또",
+      "address": "경기 부천시 신흥로 190 1동 1층 120호",
+      "method": "auto",
+      "lat": 37.500645,
+      "lng": 126.777245
+    },
+    {
+      "rank": 1,
+      "name": "로또통신",
+      "address": "경기 안성시 장기로 36",
+      "method": "manual",
+      "lat": 37.00587,
+      "lng": 127.26738
+    },
+    {
+      "rank": 1,
+      "name": "복권세상",
+      "address": "경기 여주시 우암로 21-1 1층",
+      "method": "manual",
+      "lat": 37.29685,
+      "lng": 127.633064
+    },
+    {
+      "rank": 1,
+      "name": "복권세상",
+      "address": "경기 여주시 우암로 21-1 1층",
+      "method": "manual",
+      "lat": 37.29685,
+      "lng": 127.633064
+    },
+    {
+      "rank": 1,
+      "name": "복권세상",
+      "address": "경기 여주시 우암로 21-1 1층",
+      "method": "manual",
+      "lat": 37.29685,
+      "lng": 127.633064
+    },
+    {
+      "rank": 1,
+      "name": "복권세상",
+      "address": "경기 여주시 우암로 21-1 1층",
+      "method": "manual",
+      "lat": 37.29685,
+      "lng": 127.633064
+    },
+    {
+      "rank": 1,
+      "name": "흥건슈퍼",
+      "address": "전북 전주시 완산구 거마평로 25 흥건슈퍼",
+      "method": "auto",
+      "lat": 35.794403,
+      "lng": 127.11578
+    }
+  ]
+}

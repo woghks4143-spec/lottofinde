@@ -1,0 +1,109 @@
+{
+  "round": 851,
+  "date": "2019-03-23",
+  "nums": [
+    14,
+    18,
+    22,
+    26,
+    31,
+    44
+  ],
+  "bonus": 40,
+  "firstWinAmount": 2483692313,
+  "firstWinners": 8,
+  "totalSales": 81099116000,
+  "prizes": {
+    "first": {
+      "amount": 2483692313,
+      "winners": 8
+    },
+    "second": {
+      "amount": 47308425,
+      "winners": 70
+    },
+    "third": {
+      "amount": 1576197,
+      "winners": 2101
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 106132
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1750048
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "소문난복권명당",
+      "address": "서울 성북구 돌곶이로 29",
+      "method": "auto",
+      "lat": 37.60689,
+      "lng": 127.06081
+    },
+    {
+      "rank": 1,
+      "name": "한주복권방",
+      "address": "인천 연수구 인권로 9  1층 CU",
+      "method": "manual",
+      "lat": 37.41865,
+      "lng": 126.6514
+    },
+    {
+      "rank": 1,
+      "name": "안성맞춤",
+      "address": "경기 안성시 안성맞춤대로 1099-1",
+      "method": "manual",
+      "lat": 37.01107,
+      "lng": 127.2699
+    },
+    {
+      "rank": 1,
+      "name": "행운나라복권방",
+      "address": "경기 안양시 만안구 충훈로 95",
+      "method": "auto",
+      "lat": 37.40742,
+      "lng": 126.89791
+    },
+    {
+      "rank": 1,
+      "name": "황금복권",
+      "address": "강원 원주시 단계동 808 삼익상가 105호",
+      "method": "auto",
+      "lat": 37.351185,
+      "lng": 127.9295
+    },
+    {
+      "rank": 1,
+      "name": "편의점사랑(그린신화점)",
+      "address": "충북 청주시 청원구 충청대로 53",
+      "method": "auto",
+      "lat": 36.66188,
+      "lng": 127.49122
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐광천중앙로또판매점",
+      "address": "충남 홍성군 충절로 966 1층 이마트24 편의점내",
+      "method": "auto",
+      "lat": 36.594994,
+      "lng": 126.67432
+    },
+    {
+      "rank": 1,
+      "name": "기찬복권방",
+      "address": "전남 영암군 중앙로 79 1층",
+      "method": "auto",
+      "lat": 34.803104,
+      "lng": 126.69944
+    }
+  ]
+}

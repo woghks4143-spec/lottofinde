@@ -1,0 +1,117 @@
+{
+  "round": 1023,
+  "date": "2022-07-09",
+  "nums": [
+    10,
+    14,
+    16,
+    18,
+    29,
+    35
+  ],
+  "bonus": 25,
+  "firstWinAmount": 2745677875,
+  "firstWinners": 9,
+  "totalSales": 100399659000,
+  "prizes": {
+    "first": {
+      "amount": 2745677875,
+      "winners": 9
+    },
+    "second": {
+      "amount": 57201623,
+      "winners": 72
+    },
+    "third": {
+      "amount": 1643463,
+      "winners": 2506
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 127810
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2172239
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "오로라복권방",
+      "address": "서울 광진구 뚝섬로 625 국민은행자양동지점 50m",
+      "method": "manual",
+      "lat": 37.532303,
+      "lng": 127.0791
+    },
+    {
+      "rank": 1,
+      "name": "광장하이퍼",
+      "address": "서울 구로구 경인로53길 15 중앙유통단지C-05",
+      "method": "auto",
+      "lat": 37.500893,
+      "lng": 126.874565
+    },
+    {
+      "rank": 1,
+      "name": "아이마트",
+      "address": "대전 서구 둔산로 230",
+      "method": "manual",
+      "lat": 36.351067,
+      "lng": 127.399605
+    },
+    {
+      "rank": 1,
+      "name": "(I.A) 로또마트",
+      "address": "경기 안산시 단원구 신길로 9-4",
+      "method": "auto",
+      "lat": 37.33149,
+      "lng": 126.78637
+    },
+    {
+      "rank": 1,
+      "name": "협신복권방",
+      "address": "경기 여주시 도예로 28 CU편의점내",
+      "method": "auto",
+      "lat": 37.306477,
+      "lng": 127.640015
+    },
+    {
+      "rank": 1,
+      "name": "서해로또방",
+      "address": "경기 화성시 화성로 1471",
+      "method": "auto",
+      "lat": 37.223217,
+      "lng": 126.84257
+    },
+    {
+      "rank": 1,
+      "name": "운수대통복권방",
+      "address": "충남 천안시 동남구 대흥로 122 중앙시장 입구",
+      "method": "auto",
+      "lat": 36.80049,
+      "lng": 127.14926
+    },
+    {
+      "rank": 1,
+      "name": "복권판매점",
+      "address": "전남 광양시 용강로 35",
+      "method": "mixed",
+      "lat": 34.972713,
+      "lng": 127.608406
+    },
+    {
+      "rank": 1,
+      "name": "돈방석(로또)",
+      "address": "경남 사천시 사천대로 1791",
+      "method": "auto",
+      "lat": 35.07639,
+      "lng": 128.08182
+    }
+  ]
+}

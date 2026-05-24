@@ -1,0 +1,117 @@
+{
+  "round": 858,
+  "date": "2019-05-11",
+  "nums": [
+    9,
+    13,
+    32,
+    38,
+    39,
+    43
+  ],
+  "bonus": 23,
+  "firstWinAmount": 2202347459,
+  "firstWinners": 9,
+  "totalSales": 81366889000,
+  "prizes": {
+    "first": {
+      "amount": 2202347459,
+      "winners": 9
+    },
+    "second": {
+      "amount": 80573688,
+      "winners": 41
+    },
+    "third": {
+      "amount": 1592059,
+      "winners": 2075
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 106176
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1789295
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "서울 관악구 남부순환로 1739-9",
+      "method": "auto",
+      "lat": 37.482788,
+      "lng": 126.943474
+    },
+    {
+      "rank": 1,
+      "name": "대만상사",
+      "address": "서울 성북구 보국문로11길 30",
+      "method": "auto",
+      "lat": 37.608795,
+      "lng": 127.008354
+    },
+    {
+      "rank": 1,
+      "name": "종합가로판매점113호패션TV앞",
+      "address": "서울 중구 을지로 264 롯데 FiTin",
+      "method": "auto",
+      "lat": 37.56575,
+      "lng": 127.006966
+    },
+    {
+      "rank": 1,
+      "name": "행운을주는사람들",
+      "address": "충북 충주시 연수상가길 42 1층 복권방",
+      "method": "auto",
+      "lat": 36.987648,
+      "lng": 127.93161
+    },
+    {
+      "rank": 1,
+      "name": "행운을주는사람들",
+      "address": "충북 충주시 연수상가길 42 1층 복권방",
+      "method": "auto",
+      "lat": 36.987648,
+      "lng": 127.93161
+    },
+    {
+      "rank": 1,
+      "name": "이마트24보령골드점",
+      "address": "충남 보령시 대천방조제로 20 주2동 1~2호",
+      "method": "manual",
+      "lat": 36.34624,
+      "lng": 126.58906
+    },
+    {
+      "rank": 1,
+      "name": "역전복권방",
+      "address": "충남 예산군 아리랑로 7",
+      "method": "auto",
+      "lat": 36.68642,
+      "lng": 126.83009
+    },
+    {
+      "rank": 1,
+      "name": "또또복권방",
+      "address": "전북 익산시 고봉로32길 3",
+      "method": "auto",
+      "lat": 35.95982,
+      "lng": 126.971695
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "전남 여수시 봉산1로 12",
+      "method": "auto",
+      "lat": 34.732132,
+      "lng": 127.7224
+    }
+  ]
+}

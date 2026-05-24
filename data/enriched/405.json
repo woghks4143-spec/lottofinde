@@ -1,0 +1,69 @@
+{
+  "round": 405,
+  "date": "2010-09-04",
+  "nums": [
+    1,
+    2,
+    10,
+    25,
+    26,
+    44
+  ],
+  "bonus": 4,
+  "firstWinAmount": 3543878000,
+  "firstWinners": 3,
+  "totalSales": 45220904000,
+  "prizes": {
+    "first": {
+      "amount": 3543878000,
+      "winners": 3
+    },
+    "second": {
+      "amount": 50626829,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1381091,
+      "winners": 1283
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 63080
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1056188
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "미스터로또",
+      "address": "서울 강남구 강남대로94길 75 정일빌딩1층2호",
+      "method": "auto",
+      "lat": 37.500763,
+      "lng": 127.03337
+    },
+    {
+      "rank": 1,
+      "name": "우리들공업탑점",
+      "address": "울산 남구 수암로 21",
+      "method": "auto",
+      "lat": 35.532272,
+      "lng": 129.3106
+    },
+    {
+      "rank": 1,
+      "name": "모닝마트(학성점)",
+      "address": "울산 중구 학성로 189",
+      "method": "auto",
+      "lat": 35.557095,
+      "lng": 129.33168
+    }
+  ]
+}

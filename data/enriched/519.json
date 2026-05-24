@@ -1,0 +1,101 @@
+{
+  "round": 519,
+  "date": "2012-11-10",
+  "nums": [
+    6,
+    8,
+    13,
+    16,
+    30,
+    43
+  ],
+  "bonus": 3,
+  "firstWinAmount": 1950601393,
+  "firstWinners": 7,
+  "totalSales": 55614206000,
+  "prizes": {
+    "first": {
+      "amount": 1950601393,
+      "winners": 7
+    },
+    "second": {
+      "amount": 71115676,
+      "winners": 32
+    },
+    "third": {
+      "amount": 1677010,
+      "winners": 1357
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 71405
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1206248
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "훼미리로또",
+      "address": "서울 동작구 신대방동  395-68나산보라매타운102호",
+      "method": "auto",
+      "lat": 37.49068,
+      "lng": 126.92393
+    },
+    {
+      "rank": 1,
+      "name": "부일카서비스",
+      "address": "부산 동구 자성로133번길 35",
+      "method": "auto",
+      "lat": 35.140015,
+      "lng": 129.06306
+    },
+    {
+      "rank": 1,
+      "name": "복권판매소(서문큰장네거리)",
+      "address": "대구 서구 국채보상로 438,(내당동)",
+      "method": "auto",
+      "lat": 35.870575,
+      "lng": 128.5788
+    },
+    {
+      "rank": 1,
+      "name": "가로토큰박스",
+      "address": "경기 과천시 중앙동  60과천극장앞",
+      "method": "auto",
+      "lat": 37.4299,
+      "lng": 126.993
+    },
+    {
+      "rank": 1,
+      "name": "황금대박복권슈퍼",
+      "address": "경기 안산시 단원구 선이로 14",
+      "method": "auto",
+      "lat": 37.34236,
+      "lng": 126.803604
+    },
+    {
+      "rank": 1,
+      "name": "월드복권마트",
+      "address": "충북 제천시 죽하로 48-1 주공2단지아파트 장락주공2단지 상가101호",
+      "method": "auto",
+      "lat": 37.15561,
+      "lng": 128.22491
+    },
+    {
+      "rank": 1,
+      "name": "로또복권판매",
+      "address": "경남 하동군 중앙로 12 1층",
+      "method": "auto",
+      "lat": 35.070732,
+      "lng": 127.750885
+    }
+  ]
+}

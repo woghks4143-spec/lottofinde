@@ -1,0 +1,157 @@
+{
+  "round": 977,
+  "date": "2021-08-21",
+  "nums": [
+    2,
+    9,
+    10,
+    14,
+    22,
+    44
+  ],
+  "bonus": 16,
+  "firstWinAmount": 1669905911,
+  "firstWinners": 14,
+  "totalSales": 95895844000,
+  "prizes": {
+    "first": {
+      "amount": 1669905911,
+      "winners": 14
+    },
+    "second": {
+      "amount": 47517648,
+      "winners": 82
+    },
+    "third": {
+      "amount": 1574959,
+      "winners": 2474
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 125781
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2097459
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 6,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "천하명당복권방독산점",
+      "address": "서울 금천구 독산로85길 16",
+      "method": "auto",
+      "lat": 37.472534,
+      "lng": 126.90221
+    },
+    {
+      "rank": 1,
+      "name": "서원탑훼미리",
+      "address": "부산 동구 수정공원로 55 4동 1층 101호",
+      "method": "manual",
+      "lat": 35.131424,
+      "lng": 129.03888
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "부산 부산진구 동평로 115",
+      "method": "manual",
+      "lat": 35.16629,
+      "lng": 129.042
+    },
+    {
+      "rank": 1,
+      "name": "동명로또",
+      "address": "부산 사상구 사상로 90",
+      "method": "manual",
+      "lat": 35.155285,
+      "lng": 128.99196
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "auto",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "경준유통",
+      "address": "인천 중구 화랑목로100번길 65 104호",
+      "method": "auto",
+      "lat": 37.494152,
+      "lng": 126.499054
+    },
+    {
+      "rank": 1,
+      "name": "행운드림복권",
+      "address": "경기 김포시 초당로16번길 77 1층 106호",
+      "method": "manual",
+      "lat": 37.641212,
+      "lng": 126.675835
+    },
+    {
+      "rank": 1,
+      "name": "행운드림복권",
+      "address": "경기 김포시 초당로16번길 77 1층 106호",
+      "method": "manual",
+      "lat": 37.641212,
+      "lng": 126.675835
+    },
+    {
+      "rank": 1,
+      "name": "홈플러스선부점로또판매",
+      "address": "경기 안산시 단원구 삼일로 316 홈플러스",
+      "method": "manual",
+      "lat": 37.33378,
+      "lng": 126.81258
+    },
+    {
+      "rank": 1,
+      "name": "붐",
+      "address": "경기 파주시 동패로63번길 48-15 101호",
+      "method": "auto",
+      "lat": 37.710728,
+      "lng": 126.738
+    },
+    {
+      "rank": 1,
+      "name": "동명로또",
+      "address": "경기 화성시 동탄기흥로257번나길 8-1 103호",
+      "method": "auto",
+      "lat": 37.182602,
+      "lng": 127.089645
+    },
+    {
+      "rank": 1,
+      "name": "영신슈퍼",
+      "address": "충북 청주시 서원구 청남로 2119-1",
+      "method": "auto",
+      "lat": 36.621258,
+      "lng": 127.48743
+    },
+    {
+      "rank": 1,
+      "name": "성정로또판매점",
+      "address": "충남 천안시 서북구 동서대로 138 한미타올 페인트가게 옆 점포",
+      "method": "auto",
+      "lat": 36.8255,
+      "lng": 127.13837
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐영주가흥로또점",
+      "address": "경북 영주시 대학로 144",
+      "method": "auto",
+      "lat": 36.809658,
+      "lng": 128.60965
+    }
+  ]
+}

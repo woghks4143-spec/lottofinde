@@ -1,0 +1,149 @@
+{
+  "round": 846,
+  "date": "2019-02-16",
+  "nums": [
+    5,
+    18,
+    30,
+    41,
+    43,
+    45
+  ],
+  "bonus": 13,
+  "firstWinAmount": 1596884395,
+  "firstWinners": 13,
+  "totalSales": 83936839000,
+  "prizes": {
+    "first": {
+      "amount": 1596884395,
+      "winners": 13
+    },
+    "second": {
+      "amount": 50143713,
+      "winners": 69
+    },
+    "third": {
+      "amount": 1732557,
+      "winners": 1997
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 106009
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1797728
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가로가판대",
+      "address": "서울 관악구 시흥대로 572",
+      "method": "manual",
+      "lat": 37.48392,
+      "lng": 126.90269
+    },
+    {
+      "rank": 1,
+      "name": "가로가판대",
+      "address": "서울 관악구 시흥대로 572",
+      "method": "manual",
+      "lat": 37.48392,
+      "lng": 126.90269
+    },
+    {
+      "rank": 1,
+      "name": "가로가판대",
+      "address": "서울 관악구 시흥대로 572",
+      "method": "manual",
+      "lat": 37.48392,
+      "lng": 126.90269
+    },
+    {
+      "rank": 1,
+      "name": "베스토아(용전2호)",
+      "address": "대전 동구 동서대로 1689 복합터미널서관1층59호",
+      "method": "auto",
+      "lat": 36.35038,
+      "lng": 127.43664
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐 로또판매점",
+      "address": "경기 광주시 오포읍 신현리 399-3",
+      "method": "auto",
+      "lat": 37.367283,
+      "lng": 127.162155
+    },
+    {
+      "rank": 1,
+      "name": "대박로또점",
+      "address": "경기 구리시 갈매동 604-2 1층 세븐일레븐",
+      "method": "auto",
+      "lat": 37.6323,
+      "lng": 127.117386
+    },
+    {
+      "rank": 1,
+      "name": "동탄 반송 복권방",
+      "address": "경기 화성시 동탄반송3길 68 103호",
+      "method": "auto",
+      "lat": 37.21055,
+      "lng": 127.06815
+    },
+    {
+      "rank": 1,
+      "name": "로또명당",
+      "address": "충남 천안시 동남구 천안대로 103 5호",
+      "method": "manual",
+      "lat": 36.759037,
+      "lng": 127.171036
+    },
+    {
+      "rank": 1,
+      "name": "드림로또",
+      "address": "전북 전주시 덕진구 소리로 198",
+      "method": "auto",
+      "lat": 35.85812,
+      "lng": 127.15354
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트 우아대로점",
+      "address": "전북 전주시 덕진구 건산로 276,(우아동2가)",
+      "method": "auto",
+      "lat": 35.835472,
+      "lng": 127.16736
+    },
+    {
+      "rank": 1,
+      "name": "제철로또대리점",
+      "address": "전남 광양시 광장로 125 시티프라자A동116호",
+      "method": "auto",
+      "lat": 34.935413,
+      "lng": 127.693985
+    },
+    {
+      "rank": 1,
+      "name": "해피데이24복권",
+      "address": "경북 고령군 다산면 평리리 253-2번지",
+      "method": "mixed",
+      "lat": 35.825546,
+      "lng": 128.45348
+    },
+    {
+      "rank": 1,
+      "name": "행운의집",
+      "address": "경북 안동시 북문동 23-7번지",
+      "method": "auto",
+      "lat": 36.566982,
+      "lng": 128.7295
+    }
+  ]
+}

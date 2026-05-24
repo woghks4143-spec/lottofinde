@@ -1,0 +1,77 @@
+{
+  "round": 820,
+  "date": "2018-08-18",
+  "nums": [
+    10,
+    21,
+    22,
+    30,
+    35,
+    42
+  ],
+  "bonus": 6,
+  "firstWinAmount": 4627313532,
+  "firstWinners": 4,
+  "totalSales": 75744571000,
+  "prizes": {
+    "first": {
+      "amount": 4627313532,
+      "winners": 4
+    },
+    "second": {
+      "amount": 51414595,
+      "winners": 60
+    },
+    "third": {
+      "amount": 1552530,
+      "winners": 1987
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 99433
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1644326
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "북문복권방",
+      "address": "경기 수원시 장안구 정조로 927-1",
+      "method": "auto",
+      "lat": 37.29028,
+      "lng": 127.01279
+    },
+    {
+      "rank": 1,
+      "name": "하이웨이로또판매점",
+      "address": "경기 의왕시 오전로 24 경기남부도로 상행선",
+      "method": "auto",
+      "lat": 37.347546,
+      "lng": 126.98409
+    },
+    {
+      "rank": 1,
+      "name": "양산덕계점(로또)",
+      "address": "경남 양산시 평산6길 6 복권판매점",
+      "method": "auto",
+      "lat": 35.382153,
+      "lng": 129.15137
+    },
+    {
+      "rank": 1,
+      "name": "나눔로또봉평점",
+      "address": "경남 통영시 도남로 81",
+      "method": "manual",
+      "lat": 34.831635,
+      "lng": 128.41365
+    }
+  ]
+}

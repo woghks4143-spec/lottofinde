@@ -1,0 +1,117 @@
+{
+  "round": 330,
+  "date": "2009-03-28",
+  "nums": [
+    3,
+    4,
+    16,
+    17,
+    19,
+    20
+  ],
+  "bonus": 23,
+  "firstWinAmount": 1162280200,
+  "firstWinners": 9,
+  "totalSales": 45859496000,
+  "prizes": {
+    "first": {
+      "amount": 1162280200,
+      "winners": 9
+    },
+    "second": {
+      "amount": 54481885,
+      "winners": 32
+    },
+    "third": {
+      "amount": 1218324,
+      "winners": 1431
+    },
+    "fourth": {
+      "amount": 50370,
+      "winners": 69225
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1099109
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 6,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가로판매점",
+      "address": "서울 서초구 신반포로 189 한신4차입구",
+      "method": "manual",
+      "lat": 37.506565,
+      "lng": 127.00488
+    },
+    {
+      "rank": 1,
+      "name": "오목미니슈퍼",
+      "address": "서울 양천구 신목로 119",
+      "method": "auto",
+      "lat": 37.525066,
+      "lng": 126.87626
+    },
+    {
+      "rank": 1,
+      "name": "빌딩매점",
+      "address": "서울 영등포구 신길로 108 남서울아파트상가 13동 103-나호",
+      "method": "auto",
+      "lat": 37.500977,
+      "lng": 126.90988
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "부산 해운대구 신반송로 179",
+      "method": "manual",
+      "lat": 35.229137,
+      "lng": 129.1601
+    },
+    {
+      "rank": 1,
+      "name": "따봉복권방",
+      "address": "인천 부평구 주부토로 109",
+      "method": "manual",
+      "lat": 37.50489,
+      "lng": 126.72531
+    },
+    {
+      "rank": 1,
+      "name": "욱일슈퍼",
+      "address": "인천 부평구 경인로 1144",
+      "method": "auto",
+      "lat": 37.484604,
+      "lng": 126.746704
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "경기 수원시 권선구 권선로 774-1",
+      "method": "manual",
+      "lat": 37.256557,
+      "lng": 127.03559
+    },
+    {
+      "rank": 1,
+      "name": "행운이가득한집",
+      "address": "경기 안산시 상록구 건건로 28 동호상가B-14호",
+      "method": "manual",
+      "lat": 37.303696,
+      "lng": 126.90144
+    },
+    {
+      "rank": 1,
+      "name": "서창복권나라",
+      "address": "경남 양산시 서창서2길 3",
+      "method": "manual",
+      "lat": 35.416225,
+      "lng": 129.17226
+    }
+  ]
+}

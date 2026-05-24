@@ -1,0 +1,77 @@
+{
+  "round": 610,
+  "date": "2014-08-09",
+  "nums": [
+    14,
+    18,
+    20,
+    23,
+    28,
+    36
+  ],
+  "bonus": 33,
+  "firstWinAmount": 3516018375,
+  "firstWinners": 4,
+  "totalSales": 56862756000,
+  "prizes": {
+    "first": {
+      "amount": 3516018375,
+      "winners": 4
+    },
+    "second": {
+      "amount": 68941537,
+      "winners": 34
+    },
+    "third": {
+      "amount": 1676690,
+      "winners": 1398
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 71718
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1218676
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "Today",
+      "address": "서울 광진구 광나루로56길 85 테크노마트9층판매동24호",
+      "method": "auto",
+      "lat": 37.53569,
+      "lng": 127.09574
+    },
+    {
+      "rank": 1,
+      "name": "대화로또판매점",
+      "address": "대전 대덕구 오정동  10-2번지",
+      "method": "auto",
+      "lat": 36.36231,
+      "lng": 127.41753
+    },
+    {
+      "rank": 1,
+      "name": "GS25(수지수석)",
+      "address": "경기 용인시 수지구 풍덕천동  1080-1번지 수석프라자103호",
+      "method": "auto",
+      "lat": 37.321804,
+      "lng": 127.09407
+    },
+    {
+      "rank": 1,
+      "name": "로또7일레븐 태화점",
+      "address": "경북 안동시 태화동  175-3번지",
+      "method": "auto",
+      "lat": 36.55354,
+      "lng": 128.76076
+    }
+  ]
+}

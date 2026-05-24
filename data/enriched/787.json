@@ -1,0 +1,93 @@
+{
+  "round": 787,
+  "date": "2017-12-30",
+  "nums": [
+    5,
+    6,
+    13,
+    16,
+    27,
+    28
+  ],
+  "bonus": 9,
+  "firstWinAmount": 3092108313,
+  "firstWinners": 6,
+  "totalSales": 79593923000,
+  "prizes": {
+    "first": {
+      "amount": 3092108313,
+      "winners": 6
+    },
+    "second": {
+      "amount": 60629575,
+      "winners": 51
+    },
+    "third": {
+      "amount": 1321979,
+      "winners": 2339
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 114842
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1863599
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대박찬스",
+      "address": "서울 강북구 솔매로 105-1,(미아동)",
+      "method": "auto",
+      "lat": 37.6258,
+      "lng": 127.023994
+    },
+    {
+      "rank": 1,
+      "name": "빅세일복권방",
+      "address": "부산 부산진구 서면문화로 6",
+      "method": "manual",
+      "lat": 35.158302,
+      "lng": 129.05809
+    },
+    {
+      "rank": 1,
+      "name": "로또명당도안점",
+      "address": "대전 유성구 봉명동 1033-4번지",
+      "method": "manual",
+      "lat": 36.34645,
+      "lng": 127.34149
+    },
+    {
+      "rank": 1,
+      "name": "권선로또복권방",
+      "address": "경기 수원시 권선구 탑동로 22 천림빌딩 천림빌딩102호",
+      "method": "auto",
+      "lat": 37.270844,
+      "lng": 126.97501
+    },
+    {
+      "rank": 1,
+      "name": "평택21세기편의점",
+      "address": "경기 평택시 중앙로 284 1층 21세기편의점",
+      "method": "manual",
+      "lat": 36.990208,
+      "lng": 127.11413
+    },
+    {
+      "rank": 1,
+      "name": "완월로또",
+      "address": "경남 창원시 마산합포구 고운로 175 한미초록빌라 세븐일레븐 내",
+      "method": "auto",
+      "lat": 35.197372,
+      "lng": 128.56186
+    }
+  ]
+}

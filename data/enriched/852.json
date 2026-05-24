@@ -1,0 +1,77 @@
+{
+  "round": 852,
+  "date": "2019-03-30",
+  "nums": [
+    11,
+    17,
+    28,
+    30,
+    33,
+    35
+  ],
+  "bonus": 9,
+  "firstWinAmount": 4801543407,
+  "firstWinners": 4,
+  "totalSales": 81470793000,
+  "prizes": {
+    "first": {
+      "amount": 4801543407,
+      "winners": 4
+    },
+    "second": {
+      "amount": 47776552,
+      "winners": 67
+    },
+    "third": {
+      "amount": 1375013,
+      "winners": 2328
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 114850
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1876933
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "엘도라도복권점문점",
+      "address": "서울 광진구 용마산로 47",
+      "method": "auto",
+      "lat": 37.55781,
+      "lng": 127.08759
+    },
+    {
+      "rank": 1,
+      "name": "가판14호",
+      "address": "서울 중구 퇴계로 37",
+      "method": "auto",
+      "lat": 37.557816,
+      "lng": 126.97671
+    },
+    {
+      "rank": 1,
+      "name": "동해복권전문점",
+      "address": "강원 동해시 발한로 226-1",
+      "method": "manual",
+      "lat": 37.549698,
+      "lng": 129.10861
+    },
+    {
+      "rank": 1,
+      "name": "로또복권 하대점",
+      "address": "경남 진주시 도동로 188",
+      "method": "auto",
+      "lat": 35.18703,
+      "lng": 128.12248
+    }
+  ]
+}

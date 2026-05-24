@@ -1,0 +1,77 @@
+{
+  "round": 496,
+  "date": "2012-06-02",
+  "nums": [
+    4,
+    13,
+    20,
+    29,
+    36,
+    41
+  ],
+  "bonus": 39,
+  "firstWinAmount": 3285932250,
+  "firstWinners": 4,
+  "totalSales": 52915804000,
+  "prizes": {
+    "first": {
+      "amount": 3285932250,
+      "winners": 4
+    },
+    "second": {
+      "amount": 47622207,
+      "winners": 46
+    },
+    "third": {
+      "amount": 1577122,
+      "winners": 1389
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 66873
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1117856
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "천하명당관악점",
+      "address": "서울 관악구 보라매로2길 11",
+      "method": "auto",
+      "lat": 37.49009,
+      "lng": 126.92868
+    },
+    {
+      "rank": 1,
+      "name": "청솔마트",
+      "address": "서울 동대문구 용두동  727-4",
+      "method": "auto",
+      "lat": 37.582,
+      "lng": 127.028946
+    },
+    {
+      "rank": 1,
+      "name": "제이복권방",
+      "address": "서울 종로구 종로 225-1 평창빌딩 1층 103호",
+      "method": "manual",
+      "lat": 37.571293,
+      "lng": 127.00283
+    },
+    {
+      "rank": 1,
+      "name": "그린로또",
+      "address": "강원 양양군 양양로 71",
+      "method": "auto",
+      "lat": 38.07482,
+      "lng": 128.62141
+    }
+  ]
+}

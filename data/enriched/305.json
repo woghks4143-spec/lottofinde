@@ -1,0 +1,85 @@
+{
+  "round": 305,
+  "date": "2008-10-04",
+  "nums": [
+    7,
+    8,
+    18,
+    21,
+    23,
+    39
+  ],
+  "bonus": 9,
+  "firstWinAmount": 2008210140,
+  "firstWinners": 5,
+  "totalSales": 43960659000,
+  "prizes": {
+    "first": {
+      "amount": 2008210140,
+      "winners": 5
+    },
+    "second": {
+      "amount": 49220837,
+      "winners": 34
+    },
+    "third": {
+      "amount": 1215330,
+      "winners": 1377
+    },
+    "fourth": {
+      "amount": 50589,
+      "winners": 66162
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1049049
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "더존할인마트",
+      "address": "광주 광산구 운남동  782-5더존1빌딩1층",
+      "method": "auto",
+      "lat": 35.177372,
+      "lng": 126.81517
+    },
+    {
+      "rank": 1,
+      "name": "동원슈퍼",
+      "address": "광주 남구 대남대로 277-1,(월산동)",
+      "method": "auto",
+      "lat": 35.137066,
+      "lng": 126.89665
+    },
+    {
+      "rank": 1,
+      "name": "매표소",
+      "address": "경기 수원시 팔달구 정조로 782-1",
+      "method": "auto",
+      "lat": 37.277878,
+      "lng": 127.01711
+    },
+    {
+      "rank": 1,
+      "name": "하이로또 복권방",
+      "address": "경기 안양시 동안구 관악대로339번길 7,(관양동)",
+      "method": "auto",
+      "lat": 37.404186,
+      "lng": 126.96016
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트 상도점",
+      "address": "경북 포항시 남구 문예로 68 우측상가",
+      "method": "auto",
+      "lat": 36.013435,
+      "lng": 129.36417
+    }
+  ]
+}

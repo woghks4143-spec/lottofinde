@@ -1,0 +1,77 @@
+{
+  "round": 1025,
+  "date": "2022-07-23",
+  "nums": [
+    8,
+    9,
+    20,
+    25,
+    29,
+    33
+  ],
+  "bonus": 7,
+  "firstWinAmount": 6118853344,
+  "firstWinners": 4,
+  "totalSales": 101318529000,
+  "prizes": {
+    "first": {
+      "amount": 6118853344,
+      "winners": 4
+    },
+    "second": {
+      "amount": 59119356,
+      "winners": 69
+    },
+    "third": {
+      "amount": 1527232,
+      "winners": 2671
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 134665
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2258426
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행복슈퍼",
+      "address": "서울 성북구 동소문로 49",
+      "method": "auto",
+      "lat": 37.591003,
+      "lng": 127.01112
+    },
+    {
+      "rank": 1,
+      "name": "로또킹",
+      "address": "서울 영등포구 영중로 2 1층(영등포동3가)",
+      "method": "auto",
+      "lat": 37.516743,
+      "lng": 126.906746
+    },
+    {
+      "rank": 1,
+      "name": "오늘또로또",
+      "address": "경기 이천시 중앙로 92 1층 101호",
+      "method": "auto",
+      "lat": 37.249767,
+      "lng": 127.35735
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "충북 제천시 청풍호로 52 1층",
+      "method": "auto",
+      "lat": 37.126526,
+      "lng": 128.20273
+    }
+  ]
+}

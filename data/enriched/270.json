@@ -1,0 +1,85 @@
+{
+  "round": 270,
+  "date": "2008-02-02",
+  "nums": [
+    5,
+    9,
+    12,
+    20,
+    21,
+    26
+  ],
+  "bonus": 27,
+  "firstWinAmount": 1927830060,
+  "firstWinners": 5,
+  "totalSales": 41845351000,
+  "prizes": {
+    "first": {
+      "amount": 1927830060,
+      "winners": 5
+    },
+    "second": {
+      "amount": 50203908,
+      "winners": 32
+    },
+    "third": {
+      "amount": 1293499,
+      "winners": 1242
+    },
+    "fourth": {
+      "amount": 53724,
+      "winners": 59807
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 971485
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권방(천하명당)",
+      "address": "서울 성동구 행당로 75 행당동대림아파트 리빙프라자동 지하2층 비202",
+      "method": "auto",
+      "lat": 37.55789,
+      "lng": 127.02709
+    },
+    {
+      "rank": 1,
+      "name": "GS25(명륜아남)",
+      "address": "서울 종로구 혜화로 9",
+      "method": "auto",
+      "lat": 37.586414,
+      "lng": 127.00013
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "인천 부평구 열우물로 73",
+      "method": "auto",
+      "lat": 37.4739,
+      "lng": 126.69852
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "충남 공주시 번영1로 41",
+      "method": "auto",
+      "lat": 36.471832,
+      "lng": 127.13313
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트월영마을점",
+      "address": "경남 창원시 마산합포구 월영남로 21,(해운동)",
+      "method": "manual",
+      "lat": 35.17691,
+      "lng": 128.55867
+    }
+  ]
+}

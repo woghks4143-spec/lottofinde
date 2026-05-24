@@ -1,0 +1,101 @@
+{
+  "round": 472,
+  "date": "2011-12-17",
+  "nums": [
+    16,
+    25,
+    26,
+    31,
+    36,
+    43
+  ],
+  "bonus": 44,
+  "firstWinAmount": 1809656090,
+  "firstWinners": 7,
+  "totalSales": 51929207000,
+  "prizes": {
+    "first": {
+      "amount": 1809656090,
+      "winners": 7
+    },
+    "second": {
+      "amount": 91794150,
+      "winners": 23
+    },
+    "third": {
+      "amount": 1561587,
+      "winners": 1352
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 68212
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1132776
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "바이더웨이편의점",
+      "address": "부산 중구 남포동5가  11-4",
+      "method": "auto",
+      "lat": 35.09833,
+      "lng": 129.02933
+    },
+    {
+      "rank": 1,
+      "name": "가인안경",
+      "address": "대구 동구 아양로50길 82",
+      "method": "auto",
+      "lat": 35.883785,
+      "lng": 128.64139
+    },
+    {
+      "rank": 1,
+      "name": "따봉복권방",
+      "address": "인천 부평구 주부토로 109",
+      "method": "auto",
+      "lat": 37.50489,
+      "lng": 126.72531
+    },
+    {
+      "rank": 1,
+      "name": "E편한마트",
+      "address": "광주 북구 중흥동  224-87",
+      "method": "auto",
+      "lat": 35.17026,
+      "lng": 126.9146
+    },
+    {
+      "rank": 1,
+      "name": "두배로마트덕이점",
+      "address": "경기 고양시 덕양구 원흥1로 56",
+      "method": "auto",
+      "lat": 37.6511,
+      "lng": 126.87055
+    },
+    {
+      "rank": 1,
+      "name": "예인기획",
+      "address": "경기 화성시 3.1만세로 1127",
+      "method": "auto",
+      "lat": 37.13382,
+      "lng": 126.90975
+    },
+    {
+      "rank": 1,
+      "name": "올인로또복권",
+      "address": "전북 전주시 완산구 효자동2가 203-5 코끼리마트 상가 내",
+      "method": "manual",
+      "lat": 35.804657,
+      "lng": 127.10798
+    }
+  ]
+}

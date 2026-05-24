@@ -1,0 +1,125 @@
+{
+  "round": 1167,
+  "date": "2025-04-12",
+  "nums": [
+    8,
+    23,
+    31,
+    35,
+    39,
+    40
+  ],
+  "bonus": 24,
+  "firstWinAmount": 2884087913,
+  "firstWinners": 10,
+  "totalSales": 118762131000,
+  "prizes": {
+    "first": {
+      "amount": 2884087913,
+      "winners": 10
+    },
+    "second": {
+      "amount": 69663960,
+      "winners": 69
+    },
+    "third": {
+      "amount": 1633859,
+      "winners": 2942
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 157094
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2614372
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "서울 관악구 남부순환로 1739-9",
+      "method": "auto",
+      "lat": 37.482788,
+      "lng": 126.943474
+    },
+    {
+      "rank": 1,
+      "name": "서하네",
+      "address": "서울 구로구 개봉로20길 66",
+      "method": "auto",
+      "lat": 37.493343,
+      "lng": 126.85801
+    },
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "auto",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "데스콤㈜영등포영업소",
+      "address": "서울 영등포구 영중로 48",
+      "method": "auto",
+      "lat": 37.520576,
+      "lng": 126.905136
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐 현풍대로점",
+      "address": "대구 달성군 비슬로 581 세븐일레븐현풍대로점",
+      "method": "mixed",
+      "lat": 35.690544,
+      "lng": 128.44447
+    },
+    {
+      "rank": 1,
+      "name": "로또명당(북부점)",
+      "address": "대구 서구 서대구로 318-1",
+      "method": "auto",
+      "lat": 35.886024,
+      "lng": 128.55782
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "인천 부평구 배곶로 24 지1층 비03호(십정동, 이즈라이프아파트)",
+      "method": "manual",
+      "lat": 37.470455,
+      "lng": 126.69833
+    },
+    {
+      "rank": 1,
+      "name": "복권나라(가좌사)",
+      "address": "인천 서구 원적로 73",
+      "method": "manual",
+      "lat": 37.493637,
+      "lng": 126.680595
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐화성봉담수기점",
+      "address": "경기 화성시 세자로 356 1층 102호",
+      "method": "manual",
+      "lat": 37.19729,
+      "lng": 126.98327
+    },
+    {
+      "rank": 1,
+      "name": "두꺼비복권방",
+      "address": "충남 공주시 무령로 599-25 드림프라자101호",
+      "method": "auto",
+      "lat": 36.477238,
+      "lng": 127.15039
+    }
+  ]
+}

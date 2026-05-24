@@ -1,0 +1,93 @@
+{
+  "round": 915,
+  "date": "2020-06-13",
+  "nums": [
+    2,
+    6,
+    11,
+    13,
+    22,
+    37
+  ],
+  "bonus": 14,
+  "firstWinAmount": 3518640500,
+  "firstWinners": 6,
+  "totalSales": 87862418000,
+  "prizes": {
+    "first": {
+      "amount": 3518640500,
+      "winners": 6
+    },
+    "second": {
+      "amount": 55851437,
+      "winners": 63
+    },
+    "third": {
+      "amount": 1444434,
+      "winners": 2436
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 119025
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1966167
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(계산동경점)",
+      "address": "인천 계양구 계산동 1076-7번지 도쿄프라자1층2호",
+      "method": "auto",
+      "lat": 37.53578,
+      "lng": 126.73629
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "세종  조치원읍 죽림리 234-5",
+      "method": "auto",
+      "lat": 36.591988,
+      "lng": 127.29835
+    },
+    {
+      "rank": 1,
+      "name": "드림",
+      "address": "경기 수원시 권선구 정조로 615",
+      "method": "auto",
+      "lat": 37.263794,
+      "lng": 127.01421
+    },
+    {
+      "rank": 1,
+      "name": "행운로또",
+      "address": "경기 하남시 미사강변중앙로 164 101호",
+      "method": "manual",
+      "lat": 37.561512,
+      "lng": 127.19113
+    },
+    {
+      "rank": 1,
+      "name": "공주복권방",
+      "address": "충남 공주시 웅진로 210-2",
+      "method": "manual",
+      "lat": 36.45911,
+      "lng": 127.1251
+    },
+    {
+      "rank": 1,
+      "name": "왕대박로또",
+      "address": "전북 전주시 덕진구 만성북1길 3",
+      "method": "auto",
+      "lat": 35.849792,
+      "lng": 127.07736
+    }
+  ]
+}

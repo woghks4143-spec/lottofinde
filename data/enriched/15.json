@@ -1,0 +1,43 @@
+{
+  "round": 15,
+  "date": "2003-03-15",
+  "nums": [
+    3,
+    4,
+    16,
+    30,
+    31,
+    37
+  ],
+  "bonus": 13,
+  "firstWinAmount": 17014245000,
+  "firstWinners": 1,
+  "totalSales": 73264910000,
+  "prizes": {
+    "first": {
+      "amount": 17014245000,
+      "winners": 1
+    },
+    "second": {
+      "amount": 177231700,
+      "winners": 16
+    },
+    "third": {
+      "amount": 5571100,
+      "winners": 509
+    },
+    "fourth": {
+      "amount": 144600,
+      "winners": 39202
+    },
+    "fifth": {
+      "amount": 10000,
+      "winners": 827538
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "round": 345,
+  "date": "2009-07-11",
+  "nums": [
+    15,
+    20,
+    23,
+    29,
+    39,
+    42
+  ],
+  "bonus": 2,
+  "firstWinAmount": 5203577550,
+  "firstWinners": 2,
+  "totalSales": 43530937000,
+  "prizes": {
+    "first": {
+      "amount": 5203577550,
+      "winners": 2
+    },
+    "second": {
+      "amount": 45645418,
+      "winners": 38
+    },
+    "third": {
+      "amount": 1687282,
+      "winners": 1028
+    },
+    "fourth": {
+      "amount": 68394,
+      "winners": 50722
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 884042
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "고려슈퍼마켓",
+      "address": "경기 구리시 원수택로64번길 28 상가",
+      "method": "manual",
+      "lat": 37.596237,
+      "lng": 127.14344
+    },
+    {
+      "rank": 1,
+      "name": "장군슈퍼",
+      "address": "경기 부천시 소사로 837",
+      "method": "auto",
+      "lat": 37.530933,
+      "lng": 126.80509
+    }
+  ]
+}

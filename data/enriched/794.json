@@ -1,0 +1,101 @@
+{
+  "round": 794,
+  "date": "2018-02-17",
+  "nums": [
+    6,
+    7,
+    18,
+    19,
+    30,
+    38
+  ],
+  "bonus": 13,
+  "firstWinAmount": 2650940304,
+  "firstWinners": 7,
+  "totalSales": 79941579000,
+  "prizes": {
+    "first": {
+      "amount": 2650940304,
+      "winners": 7
+    },
+    "second": {
+      "amount": 68728082,
+      "winners": 45
+    },
+    "third": {
+      "amount": 1186331,
+      "winners": 2607
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 116809
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1877646
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "명성로또",
+      "address": "서울 종로구 종로41길  5 미라빌딩 1층 알파문구 내",
+      "method": "auto",
+      "lat": 37.571568,
+      "lng": 127.006516
+    },
+    {
+      "rank": 1,
+      "name": "뉴빅마트",
+      "address": "부산 기장군 정관중앙로 48 106호",
+      "method": "auto",
+      "lat": 35.321114,
+      "lng": 129.17929
+    },
+    {
+      "rank": 1,
+      "name": "나눔로또 판교역점",
+      "address": "경기 성남시 분당구 대왕판교로606번길 39 107호",
+      "method": "auto",
+      "lat": 37.396473,
+      "lng": 127.11148
+    },
+    {
+      "rank": 1,
+      "name": "행운로또복권방",
+      "address": "경기 파주시 광탄면 신산1리 215-20번지",
+      "method": "auto",
+      "lat": 37.782776,
+      "lng": 126.86034
+    },
+    {
+      "rank": 1,
+      "name": "스타복권방",
+      "address": "충남 논산시 안심로 72",
+      "method": "auto",
+      "lat": 36.127453,
+      "lng": 127.09938
+    },
+    {
+      "rank": 1,
+      "name": "대박슈퍼",
+      "address": "세종   행복10길 3 1층 101호",
+      "method": "auto",
+      "lat": 36.603516,
+      "lng": 127.29121
+    },
+    {
+      "rank": 1,
+      "name": "GS25(서귀중문점)",
+      "address": "제주 서귀포시 천제연로 210",
+      "method": "manual",
+      "lat": 33.25145,
+      "lng": 126.42701
+    }
+  ]
+}

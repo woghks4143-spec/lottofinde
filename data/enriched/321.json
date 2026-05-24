@@ -1,0 +1,93 @@
+{
+  "round": 321,
+  "date": "2009-01-24",
+  "nums": [
+    12,
+    18,
+    20,
+    21,
+    25,
+    34
+  ],
+  "bonus": 42,
+  "firstWinAmount": 1959136100,
+  "firstWinners": 6,
+  "totalSales": 50617982000,
+  "prizes": {
+    "first": {
+      "amount": 1959136100,
+      "winners": 6
+    },
+    "second": {
+      "amount": 55975318,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1535374,
+      "winners": 1276
+    },
+    "fourth": {
+      "amount": 56960,
+      "winners": 68791
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1143526
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "경성식품",
+      "address": "서울 동대문구 망우로21길 52",
+      "method": "auto",
+      "lat": 37.590435,
+      "lng": 127.06028
+    },
+    {
+      "rank": 1,
+      "name": "회현역7번출구신세계백화점아웃백옆",
+      "address": "서울 중구 회현동1가  194-3login25편의점내",
+      "method": "auto",
+      "lat": 37.56713,
+      "lng": 126.980316
+    },
+    {
+      "rank": 1,
+      "name": "로또복권문수점",
+      "address": "울산 남구 무거동  1195",
+      "method": "auto",
+      "lat": 35.551674,
+      "lng": 129.27457
+    },
+    {
+      "rank": 1,
+      "name": "온천로또복권",
+      "address": "충남 예산군 덕산면  사동리 15덕산온천관광호텔매점",
+      "method": "auto",
+      "lat": 36.689205,
+      "lng": 126.65954
+    },
+    {
+      "rank": 1,
+      "name": "흥건슈퍼",
+      "address": "전북 전주시 완산구 거마평로 25 흥건1차아파트상가 흥건슈퍼",
+      "method": "auto",
+      "lat": 35.794403,
+      "lng": 127.11578
+    },
+    {
+      "rank": 1,
+      "name": "대동도기상사",
+      "address": "경북 영천시 금완로 30",
+      "method": "auto",
+      "lat": 35.960327,
+      "lng": 128.93187
+    }
+  ]
+}

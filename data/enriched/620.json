@@ -1,0 +1,101 @@
+{
+  "round": 620,
+  "date": "2014-10-18",
+  "nums": [
+    2,
+    16,
+    17,
+    32,
+    39,
+    45
+  ],
+  "bonus": 40,
+  "firstWinAmount": 2028283233,
+  "firstWinners": 7,
+  "totalSales": 58342777000,
+  "prizes": {
+    "first": {
+      "amount": 2028283233,
+      "winners": 7
+    },
+    "second": {
+      "amount": 53780238,
+      "winners": 44
+    },
+    "third": {
+      "amount": 1424643,
+      "winners": 1661
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 78155
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1266599
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "개봉2호점로또판매",
+      "address": "서울 구로구 가마산로 219  1층",
+      "method": "auto",
+      "lat": 37.493847,
+      "lng": 126.88551
+    },
+    {
+      "rank": 1,
+      "name": "태양마트",
+      "address": "대전 유성구 노은로 157 골드프라자 106호",
+      "method": "auto",
+      "lat": 36.373707,
+      "lng": 127.317375
+    },
+    {
+      "rank": 1,
+      "name": "우리들복권방(남구청)",
+      "address": "울산 남구 삼산로143번길 23 이마트24울산동평점",
+      "method": "auto",
+      "lat": 35.5383,
+      "lng": 129.32205
+    },
+    {
+      "rank": 1,
+      "name": "우리로또",
+      "address": "경기 김포시 김포대로 1421",
+      "method": "manual",
+      "lat": 37.651577,
+      "lng": 126.672646
+    },
+    {
+      "rank": 1,
+      "name": "단대대박복권방",
+      "address": "경기 성남시 중원구 산성대로372번길 14",
+      "method": "manual",
+      "lat": 37.44478,
+      "lng": 127.15859
+    },
+    {
+      "rank": 1,
+      "name": "G(금정)마트휴게실",
+      "address": "전북 군산시 조촌로 66",
+      "method": "auto",
+      "lat": 35.969856,
+      "lng": 126.73807
+    },
+    {
+      "rank": 1,
+      "name": "Let'sgo복권방(동산점)",
+      "address": "전북 전주시 덕진구 쪽구름로 57-1",
+      "method": "auto",
+      "lat": 35.8706,
+      "lng": 127.07655
+    }
+  ]
+}

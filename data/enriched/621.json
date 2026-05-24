@@ -1,0 +1,93 @@
+{
+  "round": 621,
+  "date": "2014-10-25",
+  "nums": [
+    1,
+    2,
+    6,
+    16,
+    19,
+    42
+  ],
+  "bonus": 9,
+  "firstWinAmount": 2359723500,
+  "firstWinners": 6,
+  "totalSales": 59407216000,
+  "prizes": {
+    "first": {
+      "amount": 2359723500,
+      "winners": 6
+    },
+    "second": {
+      "amount": 38060057,
+      "winners": 62
+    },
+    "third": {
+      "amount": 1517508,
+      "winners": 1555
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 82843
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1336734
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대야지복권",
+      "address": "광주 남구 회재로 1255-1",
+      "method": "manual",
+      "lat": 35.134727,
+      "lng": 126.89801
+    },
+    {
+      "rank": 1,
+      "name": "금집복권",
+      "address": "광주 북구 첨단연신로108번길 134",
+      "method": "manual",
+      "lat": 35.2088,
+      "lng": 126.86471
+    },
+    {
+      "rank": 1,
+      "name": "씨스페이스(유성봉명)",
+      "address": "대전 유성구 봉명동  546-4번지 씨스페이스편의점",
+      "method": "auto",
+      "lat": 36.35456,
+      "lng": 127.34647
+    },
+    {
+      "rank": 1,
+      "name": "삼성소비자슈퍼",
+      "address": "대전 중구 선화서로 128-1",
+      "method": "auto",
+      "lat": 36.334328,
+      "lng": 127.41397
+    },
+    {
+      "rank": 1,
+      "name": "운천대박복권방",
+      "address": "경기 포천시 영북면 영북로 171-1,(운천리)",
+      "method": "auto",
+      "lat": 38.08958,
+      "lng": 127.27446
+    },
+    {
+      "rank": 1,
+      "name": "왕대박복권방",
+      "address": "경북 문경시 중앙로 15,(모전동)",
+      "method": "auto",
+      "lat": 36.588123,
+      "lng": 128.19293
+    }
+  ]
+}

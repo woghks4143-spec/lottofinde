@@ -1,0 +1,101 @@
+{
+  "round": 608,
+  "date": "2014-07-26",
+  "nums": [
+    4,
+    8,
+    18,
+    19,
+    39,
+    44
+  ],
+  "bonus": 41,
+  "firstWinAmount": 1943530018,
+  "firstWinners": 7,
+  "totalSales": 56146117000,
+  "prizes": {
+    "first": {
+      "amount": 1943530018,
+      "winners": 7
+    },
+    "second": {
+      "amount": 70857866,
+      "winners": 32
+    },
+    "third": {
+      "amount": 1495681,
+      "winners": 1516
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 74353
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1243159
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권세계",
+      "address": "서울 구로구 우마길 4",
+      "method": "auto",
+      "lat": 37.48224,
+      "lng": 126.887436
+    },
+    {
+      "rank": 1,
+      "name": "버스판매소",
+      "address": "서울 영등포구 영중로 2 1층(영등포동3가)",
+      "method": "auto",
+      "lat": 37.516743,
+      "lng": 126.906746
+    },
+    {
+      "rank": 1,
+      "name": "CU(역촌제일점)",
+      "address": "서울 은평구  역촌동 78-45번지",
+      "method": "auto",
+      "lat": 37.603203,
+      "lng": 126.91021
+    },
+    {
+      "rank": 1,
+      "name": "공원슈퍼",
+      "address": "경기 수원시 장안구 팔달로 257-1 1층(영화동)",
+      "method": "auto",
+      "lat": 37.288837,
+      "lng": 127.01324
+    },
+    {
+      "rank": 1,
+      "name": "율암25시편의점",
+      "address": "경기 화성시 시청로 822-10",
+      "method": "manual",
+      "lat": 37.166355,
+      "lng": 126.88175
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "강원 인제군 북면 금강로 23 1층",
+      "method": "manual",
+      "lat": 38.122444,
+      "lng": 128.2068
+    },
+    {
+      "rank": 1,
+      "name": "황금당",
+      "address": "전남 강진군 강진읍 중앙로 95 황금당",
+      "method": "auto",
+      "lat": 34.638718,
+      "lng": 126.76755
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "round": 398,
+  "date": "2010-07-17",
+  "nums": [
+    10,
+    15,
+    20,
+    23,
+    42,
+    44
+  ],
+  "bonus": 7,
+  "firstWinAmount": 2680625550,
+  "firstWinners": 4,
+  "totalSales": 45427304000,
+  "prizes": {
+    "first": {
+      "amount": 2680625550,
+      "winners": 4
+    },
+    "second": {
+      "amount": 57647862,
+      "winners": 31
+    },
+    "third": {
+      "amount": 1607090,
+      "winners": 1112
+    },
+    "fourth": {
+      "amount": 62263,
+      "winners": 57405
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 968563
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "더존할인마트",
+      "address": "광주 광산구 운남동  782-5더존1빌딩1층",
+      "method": "auto",
+      "lat": 35.177372,
+      "lng": 126.81517
+    },
+    {
+      "rank": 1,
+      "name": "씨네월드매곡점",
+      "address": "광주 북구 매곡동  214-56",
+      "method": "manual",
+      "lat": 35.191303,
+      "lng": 126.89327
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트 대전원내동",
+      "address": "대전 유성구 원내로 35",
+      "method": "auto",
+      "lat": 36.300095,
+      "lng": 127.31983
+    },
+    {
+      "rank": 1,
+      "name": "LO삼성",
+      "address": "강원 원주시 치악로 2335 1층",
+      "method": "manual",
+      "lat": 37.38372,
+      "lng": 127.97537
+    }
+  ]
+}

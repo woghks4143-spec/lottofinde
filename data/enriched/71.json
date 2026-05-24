@@ -1,0 +1,37 @@
+{
+  "round": 71,
+  "date": "2004-04-10",
+  "nums": [
+    5,
+    9,
+    12,
+    16,
+    29,
+    41
+  ],
+  "bonus": 21,
+  "totalSales": 62889986000,
+  "prizes": {
+    "second": {
+      "amount": 88745200,
+      "winners": 28
+    },
+    "third": {
+      "amount": 3177500,
+      "winners": 782
+    },
+    "fourth": {
+      "amount": 125700,
+      "winners": 39516
+    },
+    "fifth": {
+      "amount": 10000,
+      "winners": 659631
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

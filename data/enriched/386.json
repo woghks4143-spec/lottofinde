@@ -1,0 +1,125 @@
+{
+  "round": 386,
+  "date": "2010-04-24",
+  "nums": [
+    4,
+    7,
+    10,
+    19,
+    31,
+    40
+  ],
+  "bonus": 26,
+  "firstWinAmount": 1042953330,
+  "firstWinners": 10,
+  "totalSales": 45907331000,
+  "prizes": {
+    "first": {
+      "amount": 1042953330,
+      "winners": 10
+    },
+    "second": {
+      "amount": 29461959,
+      "winners": 59
+    },
+    "third": {
+      "amount": 1032832,
+      "winners": 1683
+    },
+    "fourth": {
+      "amount": 48150,
+      "winners": 72203
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1114222
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "왕대박복권방",
+      "address": "서울 강서구 화곡동  342-45",
+      "method": "manual",
+      "lat": 37.530987,
+      "lng": 126.84897
+    },
+    {
+      "rank": 1,
+      "name": "로또노원역점",
+      "address": "서울 노원구 상계동  593-21층",
+      "method": "manual",
+      "lat": 37.656998,
+      "lng": 127.0625
+    },
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 상계주공아파트(10단지) 주공10단지종합상가111",
+      "method": "manual",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "오늘을잡아라",
+      "address": "서울 도봉구 창동  74-5신원빌딩1층",
+      "method": "auto",
+      "lat": 37.652683,
+      "lng": 127.04636
+    },
+    {
+      "rank": 1,
+      "name": "갑부복권",
+      "address": "서울 용산구 한남동  631-5",
+      "method": "auto",
+      "lat": 37.53211,
+      "lng": 127.005646
+    },
+    {
+      "rank": 1,
+      "name": "월드컵복권방",
+      "address": "경기 광주시 경안로 20",
+      "method": "auto",
+      "lat": 37.409946,
+      "lng": 127.2584
+    },
+    {
+      "rank": 1,
+      "name": "천복당",
+      "address": "경기 오산시 대원로 52,(원동)",
+      "method": "auto",
+      "lat": 37.14621,
+      "lng": 127.07414
+    },
+    {
+      "rank": 1,
+      "name": "싱싱마트",
+      "address": "경기 이천시 부발읍 신하1리 481-1",
+      "method": "manual",
+      "lat": 37.25942,
+      "lng": 127.47733
+    },
+    {
+      "rank": 1,
+      "name": "신라슈퍼",
+      "address": "경남 김해시 진영로 215 복권판매점",
+      "method": "auto",
+      "lat": 35.30279,
+      "lng": 128.73648
+    },
+    {
+      "rank": 1,
+      "name": "경일통신",
+      "address": "경남 창원시 마산회원구 북성로 340",
+      "method": "manual",
+      "lat": 35.23382,
+      "lng": 128.56064
+    }
+  ]
+}

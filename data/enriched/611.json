@@ -1,0 +1,77 @@
+{
+  "round": 611,
+  "date": "2014-08-16",
+  "nums": [
+    2,
+    22,
+    27,
+    33,
+    36,
+    37
+  ],
+  "bonus": 14,
+  "firstWinAmount": 3502706157,
+  "firstWinners": 4,
+  "totalSales": 57411079000,
+  "prizes": {
+    "first": {
+      "amount": 3502706157,
+      "winners": 4
+    },
+    "second": {
+      "amount": 49683776,
+      "winners": 47
+    },
+    "third": {
+      "amount": 1571425,
+      "winners": 1486
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 74589
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1258998
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "진흥슈퍼",
+      "address": "서울 강남구 논현로150길 31",
+      "method": "auto",
+      "lat": 37.519833,
+      "lng": 127.03093
+    },
+    {
+      "rank": 1,
+      "name": "대소원로또",
+      "address": "충북 충주시 대소원면 중원대로 4373 휴게소내 컨테이너",
+      "method": "auto",
+      "lat": 36.973255,
+      "lng": 127.82359
+    },
+    {
+      "rank": 1,
+      "name": "역전복권방",
+      "address": "충남 예산군 아리랑로 7",
+      "method": "auto",
+      "lat": 36.68642,
+      "lng": 126.83009
+    },
+    {
+      "rank": 1,
+      "name": "킹마트",
+      "address": "충남 천안시 서북구 성정동 624-4",
+      "method": "auto",
+      "lat": 36.878883,
+      "lng": 127.200836
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "round": 1117,
+  "date": "2024-04-27",
+  "nums": [
+    3,
+    4,
+    9,
+    30,
+    33,
+    36
+  ],
+  "bonus": 7,
+  "firstWinAmount": 3028385542,
+  "firstWinners": 9,
+  "totalSales": 113895333000,
+  "prizes": {
+    "first": {
+      "amount": 3028385542,
+      "winners": 9
+    },
+    "second": {
+      "amount": 48325302,
+      "winners": 94
+    },
+    "third": {
+      "amount": 1437071,
+      "winners": 3161
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 155379
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2567618
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "auto",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "마카로또",
+      "address": "서울 서초구 서초대로 279 1층",
+      "method": "auto",
+      "lat": 37.49346,
+      "lng": 127.01218
+    },
+    {
+      "rank": 1,
+      "name": "하늘복권방",
+      "address": "부산 해운대구 해운대로 814 A동 137호(좌동, 세종월드프라자)",
+      "method": "auto",
+      "lat": 35.16958,
+      "lng": 129.17767
+    },
+    {
+      "rank": 1,
+      "name": "명품복권",
+      "address": "대전 서구 도안동로 9 리더스프라자비106호",
+      "method": "auto",
+      "lat": 36.30595,
+      "lng": 127.35263
+    },
+    {
+      "rank": 1,
+      "name": "현대25시편의점",
+      "address": "경기 고양시 덕양구 지도로 75 101호",
+      "method": "manual",
+      "lat": 37.62388,
+      "lng": 126.8241
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐 홍익점",
+      "address": "경기 안성시 종합운동장로 161",
+      "method": "auto",
+      "lat": 37.012398,
+      "lng": 12.238893
+    },
+    {
+      "rank": 1,
+      "name": "희망복권",
+      "address": "경기 평택시 평택1로20번길 39 1층 복권방",
+      "method": "mixed",
+      "lat": 36.99426,
+      "lng": 127.08929
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "전남 광양시 백운1로 159 CU편의점내",
+      "method": "auto",
+      "lat": 34.943203,
+      "lng": 127.758156
+    },
+    {
+      "rank": 1,
+      "name": "다온공인중개사사무소",
+      "address": "경북 김천시 송설로 54 1층(다온공인중개사사무소)",
+      "method": "manual",
+      "lat": 36.123768,
+      "lng": 128.0903
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "round": 331,
+  "date": "2009-04-04",
+  "nums": [
+    4,
+    9,
+    14,
+    26,
+    31,
+    44
+  ],
+  "bonus": 39,
+  "firstWinAmount": 2165902620,
+  "firstWinners": 5,
+  "totalSales": 46641467000,
+  "prizes": {
+    "first": {
+      "amount": 2165902620,
+      "winners": 5
+    },
+    "second": {
+      "amount": 40109308,
+      "winners": 45
+    },
+    "third": {
+      "amount": 1322285,
+      "winners": 1365
+    },
+    "fourth": {
+      "amount": 55866,
+      "winners": 64617
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1054309
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가판",
+      "address": "서울 마포구 마포대로 58 가든호텔정문옆가판",
+      "method": "auto",
+      "lat": 37.540684,
+      "lng": 126.94833
+    },
+    {
+      "rank": 1,
+      "name": "신간판",
+      "address": "서울 중구 무교로 24",
+      "method": "auto",
+      "lat": 37.568092,
+      "lng": 126.979454
+    },
+    {
+      "rank": 1,
+      "name": "E편한마트",
+      "address": "광주 북구 중흥동  224-87",
+      "method": "manual",
+      "lat": 35.17026,
+      "lng": 126.9146
+    },
+    {
+      "rank": 1,
+      "name": "로또판매훼미리마트철산역점",
+      "address": "경기 광명시 광명동  272야우리빌딩103호",
+      "method": "manual",
+      "lat": 37.47554,
+      "lng": 126.867546
+    },
+    {
+      "rank": 1,
+      "name": "챔스",
+      "address": "경북 영주시 중앙로 51",
+      "method": "auto",
+      "lat": 36.821327,
+      "lng": 128.62204
+    }
+  ]
+}

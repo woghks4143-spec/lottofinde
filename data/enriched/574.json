@@ -1,0 +1,61 @@
+{
+  "round": 574,
+  "date": "2013-11-30",
+  "nums": [
+    14,
+    15,
+    16,
+    19,
+    25,
+    43
+  ],
+  "bonus": 2,
+  "firstWinAmount": 6965184938,
+  "firstWinners": 2,
+  "totalSales": 55882933000,
+  "prizes": {
+    "first": {
+      "amount": 6965184938,
+      "winners": 2
+    },
+    "second": {
+      "amount": 70355404,
+      "winners": 33
+    },
+    "third": {
+      "amount": 1844106,
+      "winners": 1259
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 68910
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1184428
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대림통상",
+      "address": "울산 중구 신기14길 1 일신아파트 일신아파트상가102호",
+      "method": "auto",
+      "lat": 35.55233,
+      "lng": 129.29778
+    },
+    {
+      "rank": 1,
+      "name": "로또명당가두판매점",
+      "address": "경기 안양시 동안구 경수대로 848-2 동안구가로판매대2005-00065",
+      "method": "auto",
+      "lat": 37.393017,
+      "lng": 126.94313
+    }
+  ]
+}

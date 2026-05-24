@@ -1,0 +1,101 @@
+{
+  "round": 853,
+  "date": "2019-04-06",
+  "nums": [
+    2,
+    8,
+    23,
+    26,
+    27,
+    44
+  ],
+  "bonus": 13,
+  "firstWinAmount": 2885006786,
+  "firstWinners": 7,
+  "totalSales": 82244370000,
+  "prizes": {
+    "first": {
+      "amount": 2885006786,
+      "winners": 7
+    },
+    "second": {
+      "amount": 37398237,
+      "winners": 90
+    },
+    "third": {
+      "amount": 1667910,
+      "winners": 2018
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 105158
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1787511
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "버스토큰판매소",
+      "address": "서울 구로구 시흥대로 583-1 꽃집 옆 가판대",
+      "method": "auto",
+      "lat": 37.48411,
+      "lng": 126.902695
+    },
+    {
+      "rank": 1,
+      "name": "마두역상행선 가판대",
+      "address": "경기 고양시 일산동구 중앙로 1181 교보생명 일산사옥 마두역상행선가판대",
+      "method": "auto",
+      "lat": 37.65222,
+      "lng": 126.77706
+    },
+    {
+      "rank": 1,
+      "name": "LG슈퍼",
+      "address": "경기 광명시 연서로 10",
+      "method": "auto",
+      "lat": 37.48104,
+      "lng": 126.863335
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방서정지점",
+      "address": "경기 평택시 서정역로 23",
+      "method": "mixed",
+      "lat": 37.0562,
+      "lng": 127.05544
+    },
+    {
+      "rank": 1,
+      "name": "충무로또45국도점",
+      "address": "충남 아산시 충무로 647",
+      "method": "manual",
+      "lat": 36.83662,
+      "lng": 127.01094
+    },
+    {
+      "rank": 1,
+      "name": "제일복권",
+      "address": "경남 양산시 양산역2길 7 대상골드타워 103호 복권판매점",
+      "method": "manual",
+      "lat": 35.335594,
+      "lng": 129.02797
+    },
+    {
+      "rank": 1,
+      "name": "행운로또복권방",
+      "address": "경남 창원시 진해구 용원로 89",
+      "method": "manual",
+      "lat": 35.098915,
+      "lng": 128.81892
+    }
+  ]
+}

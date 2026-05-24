@@ -1,0 +1,101 @@
+{
+  "round": 1062,
+  "date": "2023-04-08",
+  "nums": [
+    20,
+    31,
+    32,
+    40,
+    41,
+    45
+  ],
+  "bonus": 12,
+  "firstWinAmount": 3801933804,
+  "firstWinners": 7,
+  "totalSales": 107109911000,
+  "prizes": {
+    "first": {
+      "amount": 3801933804,
+      "winners": 7
+    },
+    "second": {
+      "amount": 65229257,
+      "winners": 68
+    },
+    "third": {
+      "amount": 1662515,
+      "winners": 2668
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 133599
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2278058
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권판매점",
+      "address": "부산 부산진구 신암로 108",
+      "method": "auto",
+      "lat": 35.150723,
+      "lng": 129.05203
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "울산 울주군 덕남로 87",
+      "method": "auto",
+      "lat": 35.454807,
+      "lng": 129.28966
+    },
+    {
+      "rank": 1,
+      "name": "아이러브마트복권방",
+      "address": "울산 중구 유곡로 19-1",
+      "method": "auto",
+      "lat": 35.55638,
+      "lng": 129.30725
+    },
+    {
+      "rank": 1,
+      "name": "씨지랜드",
+      "address": "경기 부천시 송내대로73번길 11 금강리빙스텔111",
+      "method": "auto",
+      "lat": 37.4901,
+      "lng": 126.75339
+    },
+    {
+      "rank": 1,
+      "name": "인앤아웃",
+      "address": "경기 안산시 상록구 수인로 2020 103호",
+      "method": "auto",
+      "lat": 37.36354,
+      "lng": 126.87623
+    },
+    {
+      "rank": 1,
+      "name": "흥건슈퍼",
+      "address": "전북 전주시 완산구 거마평로 25 흥건1차아파트상가 흥건슈퍼",
+      "method": "auto",
+      "lat": 35.794403,
+      "lng": 127.11578
+    },
+    {
+      "rank": 1,
+      "name": "홈마트&행운복권방",
+      "address": "경북 김천시 대학로 100",
+      "method": "auto",
+      "lat": 36.136314,
+      "lng": 128.0937
+    }
+  ]
+}

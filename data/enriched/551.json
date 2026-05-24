@@ -1,0 +1,53 @@
+{
+  "round": 551,
+  "date": "2013-06-22",
+  "nums": [
+    3,
+    6,
+    20,
+    24,
+    27,
+    44
+  ],
+  "bonus": 25,
+  "firstWinAmount": 13526973750,
+  "firstWinners": 1,
+  "totalSales": 56989370000,
+  "prizes": {
+    "first": {
+      "amount": 13526973750,
+      "winners": 1
+    },
+    "second": {
+      "amount": 70452989,
+      "winners": 32
+    },
+    "third": {
+      "amount": 1565622,
+      "winners": 1440
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 77811
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1313634
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대한민국마트",
+      "address": "대전 유성구 전민로46번길 40 다세대주택 1층",
+      "method": "auto",
+      "lat": 36.396683,
+      "lng": 127.40249
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "round": 587,
+  "date": "2014-03-01",
+  "nums": [
+    14,
+    21,
+    29,
+    31,
+    32,
+    37
+  ],
+  "bonus": 17,
+  "firstWinAmount": 4974577375,
+  "firstWinners": 3,
+  "totalSales": 59715499000,
+  "prizes": {
+    "first": {
+      "amount": 4974577375,
+      "winners": 3
+    },
+    "second": {
+      "amount": 57843923,
+      "winners": 43
+    },
+    "third": {
+      "amount": 1730890,
+      "winners": 1437
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 73745
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1254438
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "천하명당복권",
+      "address": "대구 북구 칠곡중앙대로 545,(읍내동)",
+      "method": "manual",
+      "lat": 35.94432,
+      "lng": 128.55064
+    },
+    {
+      "rank": 1,
+      "name": "로또명당인주점",
+      "address": "충남 아산시 서해로 519-2",
+      "method": "manual",
+      "lat": 36.87784,
+      "lng": 126.89828
+    },
+    {
+      "rank": 1,
+      "name": "성원마트",
+      "address": "경남 창원시 성산구 대정로 73 성원1차상가120호 이마트24",
+      "method": "auto",
+      "lat": 35.211075,
+      "lng": 128.70038
+    }
+  ]
+}

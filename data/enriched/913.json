@@ -1,0 +1,173 @@
+{
+  "round": 913,
+  "date": "2020-05-30",
+  "nums": [
+    6,
+    14,
+    16,
+    21,
+    27,
+    37
+  ],
+  "bonus": 40,
+  "firstWinAmount": 1338755602,
+  "firstWinners": 16,
+  "totalSales": 89336949000,
+  "prizes": {
+    "first": {
+      "amount": 1338755602,
+      "winners": 16
+    },
+    "second": {
+      "amount": 54091136,
+      "winners": 66
+    },
+    "third": {
+      "amount": 1447108,
+      "winners": 2467
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 122530
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1996371
+    }
+  },
+  "methodCounts": {
+    "auto": 14,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "진영슈퍼",
+      "address": "서울 강서구 등촌로 79",
+      "method": "auto",
+      "lat": 37.537045,
+      "lng": 126.8632
+    },
+    {
+      "rank": 1,
+      "name": "GS25(구로미성점)",
+      "address": "서울 구로구 신도림동 399번지 기임빌딩101호",
+      "method": "auto",
+      "lat": 37.506195,
+      "lng": 126.876656
+    },
+    {
+      "rank": 1,
+      "name": "가로매점",
+      "address": "서울 마포구 마포대로 61-1",
+      "method": "auto",
+      "lat": 37.54165,
+      "lng": 126.94801
+    },
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "manual",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "9스토아",
+      "address": "서울 용산구 이태원로27길 13 지하 1층",
+      "method": "auto",
+      "lat": 37.53315,
+      "lng": 126.994194
+    },
+    {
+      "rank": 1,
+      "name": "뉴빅마트",
+      "address": "부산 기장군 정관중앙로 48 106호",
+      "method": "auto",
+      "lat": 35.321114,
+      "lng": 129.17929
+    },
+    {
+      "rank": 1,
+      "name": "토토죤",
+      "address": "광주 광산구 비아중앙로31번길 10 1층",
+      "method": "manual",
+      "lat": 35.221737,
+      "lng": 126.82428
+    },
+    {
+      "rank": 1,
+      "name": "도래울 행운로또",
+      "address": "경기 고양시 덕양구 도래울로 103 파리바게뜨 왼쪽",
+      "method": "auto",
+      "lat": 37.63482,
+      "lng": 126.87121
+    },
+    {
+      "rank": 1,
+      "name": "배곧로또판매점",
+      "address": "경기 시흥시 은계번영길 7 112호",
+      "method": "auto",
+      "lat": 37.4371,
+      "lng": 126.80162
+    },
+    {
+      "rank": 1,
+      "name": "해피타임",
+      "address": "경기 평택시 서동대로 2044",
+      "method": "auto",
+      "lat": 37.006855,
+      "lng": 126.96957
+    },
+    {
+      "rank": 1,
+      "name": "로또마트",
+      "address": "경기 하남시 미사대로 520 현대지식산업센터 한강미사2차 D동 125호",
+      "method": "auto",
+      "lat": 37.558865,
+      "lng": 127.20458
+    },
+    {
+      "rank": 1,
+      "name": "한방복권방",
+      "address": "경기 화성시 효행로763번길 23",
+      "method": "auto",
+      "lat": 37.205154,
+      "lng": 127.01395
+    },
+    {
+      "rank": 1,
+      "name": "왔다복권",
+      "address": "충남 천안시 서북구 서부16길 9",
+      "method": "auto",
+      "lat": 36.823116,
+      "lng": 127.13769
+    },
+    {
+      "rank": 1,
+      "name": "대박복권",
+      "address": "충남 홍성군 충서로 2423 세븐일레븐",
+      "method": "auto",
+      "lat": 36.63776,
+      "lng": 126.74336
+    },
+    {
+      "rank": 1,
+      "name": "효자로또판매점",
+      "address": "전북 전주시 완산구 우전로 337  103호",
+      "method": "auto",
+      "lat": 35.82467,
+      "lng": 127.101654
+    },
+    {
+      "rank": 1,
+      "name": "티켓코리아",
+      "address": "제주 제주시 관덕로 54-3",
+      "method": "auto",
+      "lat": 33.51293,
+      "lng": 126.52521
+    }
+  ]
+}

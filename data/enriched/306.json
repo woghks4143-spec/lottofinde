@@ -1,0 +1,85 @@
+{
+  "round": 306,
+  "date": "2008-10-11",
+  "nums": [
+    4,
+    18,
+    23,
+    30,
+    34,
+    41
+  ],
+  "bonus": 19,
+  "firstWinAmount": 2102669520,
+  "firstWinners": 5,
+  "totalSales": 44421462000,
+  "prizes": {
+    "first": {
+      "amount": 2102669520,
+      "winners": 5
+    },
+    "second": {
+      "amount": 76183679,
+      "winners": 23
+    },
+    "third": {
+      "amount": 1437428,
+      "winners": 1219
+    },
+    "fourth": {
+      "amount": 61822,
+      "winners": 56687
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 937697
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "그랑프리안경",
+      "address": "서울 강서구 강서로45길 13 선화빌딩",
+      "method": "auto",
+      "lat": 37.547802,
+      "lng": 126.83536
+    },
+    {
+      "rank": 1,
+      "name": "가로판매점",
+      "address": "서울 금천구 시흥대로 212 가판",
+      "method": "auto",
+      "lat": 37.452766,
+      "lng": 126.90165
+    },
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 상계주공아파트(10단지) 주공10단지종합상가111",
+      "method": "auto",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "GS25(방이삼형)",
+      "address": "서울 송파구 방이동  149-13",
+      "method": "auto",
+      "lat": 37.51427,
+      "lng": 127.115234
+    },
+    {
+      "rank": 1,
+      "name": "GS25(종로낙원)",
+      "address": "서울 종로구 낙원동  230",
+      "method": "auto",
+      "lat": 37.57223,
+      "lng": 126.98859
+    }
+  ]
+}

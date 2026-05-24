@@ -1,0 +1,43 @@
+{
+  "round": 204,
+  "date": "2006-10-28",
+  "nums": [
+    3,
+    12,
+    14,
+    35,
+    40,
+    45
+  ],
+  "bonus": 5,
+  "firstWinAmount": 1358347125,
+  "firstWinners": 8,
+  "totalSales": 46077750000,
+  "prizes": {
+    "first": {
+      "amount": 1358347125,
+      "winners": 8
+    },
+    "second": {
+      "amount": 78744761,
+      "winners": 23
+    },
+    "third": {
+      "amount": 1534856,
+      "winners": 1180
+    },
+    "fourth": {
+      "amount": 62837,
+      "winners": 57646
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 985516
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

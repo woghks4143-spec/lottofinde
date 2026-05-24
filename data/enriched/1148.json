@@ -1,0 +1,149 @@
+{
+  "round": 1148,
+  "date": "2024-11-30",
+  "nums": [
+    3,
+    6,
+    13,
+    15,
+    16,
+    22
+  ],
+  "bonus": 32,
+  "firstWinAmount": 2073332308,
+  "firstWinners": 13,
+  "totalSales": 113188640000,
+  "prizes": {
+    "first": {
+      "amount": 2073332308,
+      "winners": 13
+    },
+    "second": {
+      "amount": 46311547,
+      "winners": 97
+    },
+    "third": {
+      "amount": 1457567,
+      "winners": 3082
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 154963
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2581682
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "삼원미니슈퍼",
+      "address": "서울 동작구 상도로 93 1층",
+      "method": "auto",
+      "lat": 37.50012,
+      "lng": 126.930786
+    },
+    {
+      "rank": 1,
+      "name": "짱복권",
+      "address": "서울 종로구 종로 269 삼신빌딩 1층",
+      "method": "manual",
+      "lat": 37.571327,
+      "lng": 127.0079
+    },
+    {
+      "rank": 1,
+      "name": "대박나라 돼지공주",
+      "address": "경기 고양시 일산동구 고풍로 196 1층 103호",
+      "method": "auto",
+      "lat": 37.675457,
+      "lng": 126.796196
+    },
+    {
+      "rank": 1,
+      "name": "진우행운복권방",
+      "address": "경기 광주시 도척로 327 1층",
+      "method": "auto",
+      "lat": 37.323624,
+      "lng": 127.336555
+    },
+    {
+      "rank": 1,
+      "name": "행복한사람들 (흥부네)",
+      "address": "경기 광주시 경충대로 763",
+      "method": "auto",
+      "lat": 37.355545,
+      "lng": 127.325386
+    },
+    {
+      "rank": 1,
+      "name": "천하명당",
+      "address": "경기 화성시 남양시장로 83",
+      "method": "auto",
+      "lat": 37.209915,
+      "lng": 126.81828
+    },
+    {
+      "rank": 1,
+      "name": "일등복권방",
+      "address": "충북 청주시 서원구 매봉로 26-1 분평계룡리슈빌아파트 단지내 상가동 102호",
+      "method": "auto",
+      "lat": 36.6126,
+      "lng": 127.478294
+    },
+    {
+      "rank": 1,
+      "name": "대박로또",
+      "address": "충남 천안시 서북구 성환2로 45",
+      "method": "manual",
+      "lat": 36.91173,
+      "lng": 127.130165
+    },
+    {
+      "rank": 1,
+      "name": "위너스로또",
+      "address": "전북 전주시 완산구 영경1길 31",
+      "method": "manual",
+      "lat": 35.817753,
+      "lng": 127.12618
+    },
+    {
+      "rank": 1,
+      "name": "로또안경콘택트",
+      "address": "경북 구미시 구미중앙로5길 2",
+      "method": "auto",
+      "lat": 36.13032,
+      "lng": 128.32828
+    },
+    {
+      "rank": 1,
+      "name": "복권판매점 약목점",
+      "address": "경북 칠곡군 약목로 75-3 1층",
+      "method": "manual",
+      "lat": 36.033073,
+      "lng": 128.36592
+    },
+    {
+      "rank": 1,
+      "name": "양산황금나눔",
+      "address": "경남 양산시 황산로 395 복권판매점",
+      "method": "auto",
+      "lat": 35.311428,
+      "lng": 128.98724
+    },
+    {
+      "rank": 1,
+      "name": "도항로또",
+      "address": "경남 함안군 함마대로 1499-1 1층",
+      "method": "auto",
+      "lat": 35.2756,
+      "lng": 128.39955
+    }
+  ]
+}

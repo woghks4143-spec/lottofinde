@@ -1,0 +1,43 @@
+{
+  "round": 157,
+  "date": "2005-12-03",
+  "nums": [
+    19,
+    26,
+    30,
+    33,
+    35,
+    39
+  ],
+  "bonus": 37,
+  "firstWinAmount": 5484903750,
+  "firstWinners": 2,
+  "totalSales": 46853365000,
+  "prizes": {
+    "first": {
+      "amount": 5484903750,
+      "winners": 2
+    },
+    "second": {
+      "amount": 65296474,
+      "winners": 28
+    },
+    "third": {
+      "amount": 1582945,
+      "winners": 1155
+    },
+    "fourth": {
+      "amount": 59313,
+      "winners": 61650
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1028734
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

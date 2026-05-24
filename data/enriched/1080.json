@@ -1,0 +1,101 @@
+{
+  "round": 1080,
+  "date": "2023-08-12",
+  "nums": [
+    13,
+    16,
+    23,
+    31,
+    36,
+    44
+  ],
+  "bonus": 38,
+  "firstWinAmount": 3639444429,
+  "firstWinners": 7,
+  "totalSales": 104111986000,
+  "prizes": {
+    "first": {
+      "amount": 3639444429,
+      "winners": 7
+    },
+    "second": {
+      "amount": 51780714,
+      "winners": 82
+    },
+    "third": {
+      "amount": 1561037,
+      "winners": 2720
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 136257
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2254999
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "빅세일복권방",
+      "address": "부산 부산진구 서면문화로 6",
+      "method": "auto",
+      "lat": 35.158302,
+      "lng": 129.05809
+    },
+    {
+      "rank": 1,
+      "name": "공원슈퍼",
+      "address": "경기 수원시 장안구 팔달로 255 1층(영화동)",
+      "method": "auto",
+      "lat": 37.28874,
+      "lng": 127.01298
+    },
+    {
+      "rank": 1,
+      "name": "복권백화점",
+      "address": "경기 파주시 평화로 70",
+      "method": "auto",
+      "lat": 37.763588,
+      "lng": 126.76989
+    },
+    {
+      "rank": 1,
+      "name": "천하명당",
+      "address": "경기 평택시 탄현로 224",
+      "method": "auto",
+      "lat": 37.07261,
+      "lng": 127.05525
+    },
+    {
+      "rank": 1,
+      "name": "떡두꺼비복권방",
+      "address": "강원 원주시 원문로 641 1층",
+      "method": "auto",
+      "lat": 37.353,
+      "lng": 127.89953
+    },
+    {
+      "rank": 1,
+      "name": "현대장미슈퍼",
+      "address": "전북 익산시 동서로61길 41 현대아파트1층108호",
+      "method": "auto",
+      "lat": 35.95509,
+      "lng": 126.98032
+    },
+    {
+      "rank": 1,
+      "name": "금당로또복권",
+      "address": "전남 순천시 대석길 8",
+      "method": "auto",
+      "lat": 34.94558,
+      "lng": 127.52357
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "round": 375,
+  "date": "2010-02-06",
+  "nums": [
+    4,
+    8,
+    19,
+    25,
+    27,
+    45
+  ],
+  "bonus": 7,
+  "firstWinAmount": 1581284058,
+  "firstWinners": 7,
+  "totalSales": 47864938000,
+  "prizes": {
+    "first": {
+      "amount": 1581284058,
+      "winners": 7
+    },
+    "second": {
+      "amount": 43924558,
+      "winners": 42
+    },
+    "third": {
+      "amount": 1442402,
+      "winners": 1279
+    },
+    "fourth": {
+      "amount": 56807,
+      "winners": 64951
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1096831
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "버스표 담배",
+      "address": "서울 강동구 올림픽로 811",
+      "method": "auto",
+      "lat": 37.553516,
+      "lng": 127.12843
+    },
+    {
+      "rank": 1,
+      "name": "현아상회",
+      "address": "부산 남구 동명로145번길 3",
+      "method": "auto",
+      "lat": 35.119755,
+      "lng": 129.1127
+    },
+    {
+      "rank": 1,
+      "name": "행복이가득한집",
+      "address": "부산 영도구 동삼로 89 1층 복권방",
+      "method": "auto",
+      "lat": 35.08148,
+      "lng": 129.07057
+    },
+    {
+      "rank": 1,
+      "name": "이토타워점",
+      "address": "인천 남동구 구월동  1456이토타워129",
+      "method": "auto",
+      "lat": 37.456196,
+      "lng": 126.73655
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "대전 서구 만년남로3번길 164,(만년동)",
+      "method": "auto",
+      "lat": 36.366486,
+      "lng": 127.37305
+    },
+    {
+      "rank": 1,
+      "name": "등대복권방",
+      "address": "울산 동구 동진로 4 동서아트빌 1층 편의점",
+      "method": "auto",
+      "lat": 35.486736,
+      "lng": 129.42564
+    },
+    {
+      "rank": 1,
+      "name": "황금복권",
+      "address": "강원 원주시 단계동  808번지  삼익상가 105호",
+      "method": "manual",
+      "lat": 37.351185,
+      "lng": 127.9295
+    }
+  ]
+}

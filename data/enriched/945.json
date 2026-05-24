@@ -1,0 +1,149 @@
+{
+  "round": 945,
+  "date": "2021-01-09",
+  "nums": [
+    9,
+    10,
+    15,
+    30,
+    33,
+    37
+  ],
+  "bonus": 26,
+  "firstWinAmount": 1765554491,
+  "firstWinners": 13,
+  "totalSales": 94837109000,
+  "prizes": {
+    "first": {
+      "amount": 1765554491,
+      "winners": 13
+    },
+    "second": {
+      "amount": 53878424,
+      "winners": 71
+    },
+    "third": {
+      "amount": 1536293,
+      "winners": 2490
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 124224
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2120882
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "동원마트",
+      "address": "서울 강동구 풍성로 209",
+      "method": "auto",
+      "lat": 37.529346,
+      "lng": 127.1351
+    },
+    {
+      "rank": 1,
+      "name": "토큰박스(하나백화점앞)",
+      "address": "대구 북구 팔달로 177",
+      "method": "manual",
+      "lat": 35.888466,
+      "lng": 128.56982
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "인천 미추홀구 한나루로 400 학익시장 외7필지125호",
+      "method": "manual",
+      "lat": 37.443375,
+      "lng": 126.66496
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "인천 미추홀구 한나루로 400 학익시장 외7필지125호",
+      "method": "manual",
+      "lat": 37.443375,
+      "lng": 126.66496
+    },
+    {
+      "rank": 1,
+      "name": "중흥마트",
+      "address": "광주 북구 문산로 30 중흥2차 아파트상가 1층",
+      "method": "auto",
+      "lat": 35.18389,
+      "lng": 126.92322
+    },
+    {
+      "rank": 1,
+      "name": "이마트24 일산덕이점",
+      "address": "경기 고양시 일산서구 미래로 164",
+      "method": "auto",
+      "lat": 37.69311,
+      "lng": 126.74687
+    },
+    {
+      "rank": 1,
+      "name": "대광슈퍼",
+      "address": "경기 군포시 고산로 679 미성프라자106호",
+      "method": "auto",
+      "lat": 37.371067,
+      "lng": 126.93395
+    },
+    {
+      "rank": 1,
+      "name": "대운",
+      "address": "경기 김포시 대명항로 209",
+      "method": "auto",
+      "lat": 37.653645,
+      "lng": 126.595695
+    },
+    {
+      "rank": 1,
+      "name": "오남 로또택배",
+      "address": "경기 남양주시 진건오남로 814 B동 1층 5호",
+      "method": "auto",
+      "lat": 37.69933,
+      "lng": 127.20243
+    },
+    {
+      "rank": 1,
+      "name": "별내로또(픽미픽미아이스삼육대점)",
+      "address": "경기 남양주시 순화궁로 272 115호",
+      "method": "auto",
+      "lat": 37.651592,
+      "lng": 127.12942
+    },
+    {
+      "rank": 1,
+      "name": "왕대박복권전문점",
+      "address": "강원 동해시 중앙로 234 이주민상가1층18호",
+      "method": "auto",
+      "lat": 37.52171,
+      "lng": 129.115
+    },
+    {
+      "rank": 1,
+      "name": "나래복권",
+      "address": "충북 충주시 충원대로 952 1층",
+      "method": "auto",
+      "lat": 37.0107,
+      "lng": 127.91579
+    },
+    {
+      "rank": 1,
+      "name": "운수대통복권샵",
+      "address": "전북 전주시 완산구 중화산로 101",
+      "method": "auto",
+      "lat": 35.819527,
+      "lng": 127.11793
+    }
+  ]
+}

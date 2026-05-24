@@ -1,0 +1,109 @@
+{
+  "round": 430,
+  "date": "2011-02-26",
+  "nums": [
+    1,
+    3,
+    16,
+    18,
+    30,
+    34
+  ],
+  "bonus": 44,
+  "firstWinAmount": 1611763219,
+  "firstWinners": 8,
+  "totalSales": 53194872000,
+  "prizes": {
+    "first": {
+      "amount": 1611763219,
+      "winners": 8
+    },
+    "second": {
+      "amount": 47755948,
+      "winners": 45
+    },
+    "third": {
+      "amount": 1483104,
+      "winners": 1449
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 70039
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1180669
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "씨스페이스(상인점)",
+      "address": "대구 달서구 상인동  1552-4",
+      "method": "auto",
+      "lat": 35.812927,
+      "lng": 128.54626
+    },
+    {
+      "rank": 1,
+      "name": "OK25",
+      "address": "경기 고양시 일산동구 호수로 358-26 203동1층 101호",
+      "method": "auto",
+      "lat": 37.63942,
+      "lng": 126.78701
+    },
+    {
+      "rank": 1,
+      "name": "천복당",
+      "address": "경기 오산시 대원로 52,(원동)",
+      "method": "auto",
+      "lat": 37.14621,
+      "lng": 127.07414
+    },
+    {
+      "rank": 1,
+      "name": "백합문구",
+      "address": "충남 천안시 서북구 직산읍 모시리237-11번지 공단할인마트내",
+      "method": "auto",
+      "lat": 36.86288,
+      "lng": 127.12465
+    },
+    {
+      "rank": 1,
+      "name": "혜성프라자",
+      "address": "전북 익산시 함열중앙로 10",
+      "method": "auto",
+      "lat": 36.07893,
+      "lng": 126.9585
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트(포항오거리)",
+      "address": "경북 포항시 북구 죽도동 42-17",
+      "method": "auto",
+      "lat": 36.033848,
+      "lng": 129.36467
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "제주 제주시 과원북2길 48",
+      "method": "auto",
+      "lat": 33.478714,
+      "lng": 126.487656
+    },
+    {
+      "rank": 1,
+      "name": "신세계",
+      "address": "제주 제주시 고마로14길 7",
+      "method": "auto",
+      "lat": 33.506073,
+      "lng": 126.54025
+    }
+  ]
+}

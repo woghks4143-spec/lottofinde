@@ -1,0 +1,157 @@
+{
+  "round": 821,
+  "date": "2018-08-25",
+  "nums": [
+    1,
+    12,
+    13,
+    24,
+    29,
+    44
+  ],
+  "bonus": 16,
+  "firstWinAmount": 1316155956,
+  "firstWinners": 14,
+  "totalSales": 76118239000,
+  "prizes": {
+    "first": {
+      "amount": 1316155956,
+      "winners": 14
+    },
+    "second": {
+      "amount": 55836920,
+      "winners": 55
+    },
+    "third": {
+      "amount": 1462396,
+      "winners": 2100
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 101082
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1687355
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 6,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "미나식품(로또판매점)",
+      "address": "서울 강서구 금낭화로 91-12",
+      "method": "auto",
+      "lat": 37.5735,
+      "lng": 126.81066
+    },
+    {
+      "rank": 1,
+      "name": "로또행운마트",
+      "address": "서울 양천구 남부순환로 327 1층",
+      "method": "auto",
+      "lat": 37.537712,
+      "lng": 126.827484
+    },
+    {
+      "rank": 1,
+      "name": "하나열쇠",
+      "address": "부산 남구 용호로 179",
+      "method": "auto",
+      "lat": 35.116257,
+      "lng": 129.11122
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "manual",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "마이마트",
+      "address": "인천 서구 탁옥로 76 한국상가제1층101호",
+      "method": "auto",
+      "lat": 37.54315,
+      "lng": 126.67822
+    },
+    {
+      "rank": 1,
+      "name": "NBA(엔비에이)",
+      "address": "인천 중구 신도시남로142번길 6 1동 1층 128호",
+      "method": "manual",
+      "lat": 37.4934,
+      "lng": 126.49157
+    },
+    {
+      "rank": 1,
+      "name": "NBA(엔비에이)",
+      "address": "인천 중구 신도시남로142번길 6 1동 1층 128호",
+      "method": "manual",
+      "lat": 37.4934,
+      "lng": 126.49157
+    },
+    {
+      "rank": 1,
+      "name": "대박찬스",
+      "address": "경기 성남시 중원구 금광동 4460번지",
+      "method": "auto",
+      "lat": 37.44687,
+      "lng": 127.15818
+    },
+    {
+      "rank": 1,
+      "name": "대박로또",
+      "address": "충남 공주시 중앙2길 70 1층",
+      "method": "manual",
+      "lat": 36.55059,
+      "lng": 126.9526
+    },
+    {
+      "rank": 1,
+      "name": "달성로또복권판매소",
+      "address": "충남 아산시 온천대로 1531",
+      "method": "manual",
+      "lat": 36.780804,
+      "lng": 127.0079
+    },
+    {
+      "rank": 1,
+      "name": "천안역로또토토복권방",
+      "address": "충남 천안시 동남구 대흥로 237 아시아마트내",
+      "method": "auto",
+      "lat": 36.809166,
+      "lng": 127.14774
+    },
+    {
+      "rank": 1,
+      "name": "king편의점",
+      "address": "충남 태안군 서해로 1988 2호",
+      "method": "auto",
+      "lat": 36.754387,
+      "lng": 126.3256
+    },
+    {
+      "rank": 1,
+      "name": "가자복권천국",
+      "address": "전남 목포시 신흥로45번길 2",
+      "method": "auto",
+      "lat": 34.803482,
+      "lng": 126.42581
+    },
+    {
+      "rank": 1,
+      "name": "양산덕계점(로또)",
+      "address": "경남 양산시 평산6길 6 복권판매점",
+      "method": "manual",
+      "lat": 35.382153,
+      "lng": 129.15137
+    }
+  ]
+}

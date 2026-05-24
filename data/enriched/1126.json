@@ -1,0 +1,133 @@
+{
+  "round": 1126,
+  "date": "2024-06-29",
+  "nums": [
+    4,
+    5,
+    9,
+    11,
+    37,
+    40
+  ],
+  "bonus": 7,
+  "firstWinAmount": 2386382421,
+  "firstWinners": 11,
+  "totalSales": 111998191000,
+  "prizes": {
+    "first": {
+      "amount": 2386382421,
+      "winners": 11
+    },
+    "second": {
+      "amount": 48077302,
+      "winners": 91
+    },
+    "third": {
+      "amount": 1404957,
+      "winners": 3114
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 157300
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2626764
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행운나눔로또",
+      "address": "부산 중구 구덕로34번길 4 가판집",
+      "method": "auto",
+      "lat": 35.09831,
+      "lng": 129.03232
+    },
+    {
+      "rank": 1,
+      "name": "알파슈퍼",
+      "address": "인천 계양구 안남로 467",
+      "method": "auto",
+      "lat": 37.524673,
+      "lng": 126.71043
+    },
+    {
+      "rank": 1,
+      "name": "탑로또",
+      "address": "인천 남동구 서창남로 81 1층 105호",
+      "method": "auto",
+      "lat": 37.426414,
+      "lng": 126.748024
+    },
+    {
+      "rank": 1,
+      "name": "호매실복권방",
+      "address": "경기 수원시 권선구 금곡로196번길 15 1층 106호",
+      "method": "auto",
+      "lat": 37.273045,
+      "lng": 126.95271
+    },
+    {
+      "rank": 1,
+      "name": "오산명당복권방",
+      "address": "경기 오산시 원동로37번길 33",
+      "method": "auto",
+      "lat": 37.14493,
+      "lng": 127.07053
+    },
+    {
+      "rank": 1,
+      "name": "도계복권방",
+      "address": "강원 삼척시 도계로 287-2",
+      "method": "auto",
+      "lat": 37.23491,
+      "lng": 129.04465
+    },
+    {
+      "rank": 1,
+      "name": "예지몽 로또",
+      "address": "강원 원주시 남원로 272 1층",
+      "method": "auto",
+      "lat": 37.312874,
+      "lng": 127.932365
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "강원 원주시 평원로 23 1층",
+      "method": "auto",
+      "lat": 37.348927,
+      "lng": 127.952644
+    },
+    {
+      "rank": 1,
+      "name": "천금복권방",
+      "address": "충북 청주시 상당구 쇠내로 150-1",
+      "method": "auto",
+      "lat": 36.620747,
+      "lng": 127.50797
+    },
+    {
+      "rank": 1,
+      "name": "황금로또 양당점",
+      "address": "충남 천안시 서북구 상덕로 185 106호",
+      "method": "auto",
+      "lat": 36.88308,
+      "lng": 127.12373
+    },
+    {
+      "rank": 1,
+      "name": "씨유제주 제일점",
+      "address": "제주 제주시 신산로 16 CU 제일점",
+      "method": "manual",
+      "lat": 33.511852,
+      "lng": 126.53152
+    }
+  ]
+}

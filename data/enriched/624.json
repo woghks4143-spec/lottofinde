@@ -1,0 +1,85 @@
+{
+  "round": 624,
+  "date": "2014-11-15",
+  "nums": [
+    1,
+    7,
+    19,
+    26,
+    27,
+    35
+  ],
+  "bonus": 16,
+  "firstWinAmount": 2763729450,
+  "firstWinners": 5,
+  "totalSales": 57832726000,
+  "prizes": {
+    "first": {
+      "amount": 2763729450,
+      "winners": 5
+    },
+    "second": {
+      "amount": 37755867,
+      "winners": 61
+    },
+    "third": {
+      "amount": 1463220,
+      "winners": 1574
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 78840
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1309900
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 상계주공아파트(10단지) 주공10단지종합상가111",
+      "method": "auto",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "라이프마트",
+      "address": "인천 중구 연안부두로53번길 36 5호",
+      "method": "auto",
+      "lat": 37.45236,
+      "lng": 126.60402
+    },
+    {
+      "rank": 1,
+      "name": "CU(달동초이스점)",
+      "address": "울산 남구  달동 1309-1번지",
+      "method": "auto",
+      "lat": 35.535606,
+      "lng": 129.33926
+    },
+    {
+      "rank": 1,
+      "name": "애리지",
+      "address": "경기 성남시 분당구 야탑로69번길 21",
+      "method": "auto",
+      "lat": 37.411606,
+      "lng": 127.12633
+    },
+    {
+      "rank": 1,
+      "name": "당첨희망복권점",
+      "address": "경기 이천시 영창로 145 관고사거리",
+      "method": "auto",
+      "lat": 37.282043,
+      "lng": 127.43878
+    }
+  ]
+}

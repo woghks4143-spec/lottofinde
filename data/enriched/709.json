@@ -1,0 +1,157 @@
+{
+  "round": 709,
+  "date": "2016-07-02",
+  "nums": [
+    10,
+    18,
+    30,
+    36,
+    39,
+    44
+  ],
+  "bonus": 32,
+  "firstWinAmount": 1165271625,
+  "firstWinners": 14,
+  "totalSales": 65592504000,
+  "prizes": {
+    "first": {
+      "amount": 1165271625,
+      "winners": 14
+    },
+    "second": {
+      "amount": 61794708,
+      "winners": 44
+    },
+    "third": {
+      "amount": 1603165,
+      "winners": 1696
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 82305
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1385853
+    }
+  },
+  "methodCounts": {
+    "auto": 12,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "씨스페이스(코엑스점)",
+      "address": "서울 강남구 삼성동 159번지 H115",
+      "method": "manual",
+      "lat": 37.512512,
+      "lng": 127.05879
+    },
+    {
+      "rank": 1,
+      "name": "선서적",
+      "address": "서울 금천구 독산로74길 6",
+      "method": "auto",
+      "lat": 37.468636,
+      "lng": 126.9026
+    },
+    {
+      "rank": 1,
+      "name": "평안당",
+      "address": "서울 종로구 종로 219",
+      "method": "auto",
+      "lat": 37.57123,
+      "lng": 127.00219
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "서울 중구 마른내로 21",
+      "method": "manual",
+      "lat": 37.56494,
+      "lng": 126.99025
+    },
+    {
+      "rank": 1,
+      "name": "부일카서비스",
+      "address": "부산 동구 자성로133번길 35",
+      "method": "auto",
+      "lat": 35.140015,
+      "lng": 129.06306
+    },
+    {
+      "rank": 1,
+      "name": "슈퍼복권나라",
+      "address": "부산 사하구 하신번영로 370",
+      "method": "auto",
+      "lat": 35.114147,
+      "lng": 128.96078
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "auto",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "버블샵카페 고래의꿈",
+      "address": "광주 광산구 목련로273번길 88 운남주공아파트 상가108호",
+      "method": "auto",
+      "lat": 35.17795,
+      "lng": 126.82506
+    },
+    {
+      "rank": 1,
+      "name": "보경복권",
+      "address": "울산 북구 명촌6길 7",
+      "method": "auto",
+      "lat": 35.558064,
+      "lng": 129.36029
+    },
+    {
+      "rank": 1,
+      "name": "대박",
+      "address": "경기 고양시 덕양구 고양대로1369번길 7 1층",
+      "method": "auto",
+      "lat": 37.65515,
+      "lng": 126.83632
+    },
+    {
+      "rank": 1,
+      "name": "행복한사람들 (흥부네)",
+      "address": "경기 광주시 경충대로 763",
+      "method": "auto",
+      "lat": 37.355545,
+      "lng": 127.325386
+    },
+    {
+      "rank": 1,
+      "name": "행복한사람들 (흥부네)",
+      "address": "경기 광주시 경충대로 763",
+      "method": "auto",
+      "lat": 37.355545,
+      "lng": 127.325386
+    },
+    {
+      "rank": 1,
+      "name": "대박찬스",
+      "address": "경기 성남시 중원구 금광동 4460번지",
+      "method": "auto",
+      "lat": 37.44687,
+      "lng": 127.15818
+    },
+    {
+      "rank": 1,
+      "name": "해피마트",
+      "address": "경기 의왕시 부곡중앙로 3-2 의왕역로터리앞",
+      "method": "auto",
+      "lat": 37.321228,
+      "lng": 126.949326
+    }
+  ]
+}

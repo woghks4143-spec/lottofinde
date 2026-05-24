@@ -1,0 +1,77 @@
+{
+  "round": 566,
+  "date": "2013-10-05",
+  "nums": [
+    4,
+    5,
+    6,
+    25,
+    26,
+    43
+  ],
+  "bonus": 41,
+  "firstWinAmount": 3508951032,
+  "firstWinners": 4,
+  "totalSales": 57666611000,
+  "prizes": {
+    "first": {
+      "amount": 3508951032,
+      "winners": 4
+    },
+    "second": {
+      "amount": 66837163,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1504374,
+      "winners": 1555
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 74789
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1275890
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "또와식품",
+      "address": "서울 강서구 양천로 694",
+      "method": "manual",
+      "lat": 37.55008,
+      "lng": 126.872826
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "부산 부산진구 전포동  692",
+      "method": "auto",
+      "lat": 35.154285,
+      "lng": 129.06287
+    },
+    {
+      "rank": 1,
+      "name": "마리오슈퍼",
+      "address": "경기 부천시 송내대로265번길 85 뱅뱅프라자 1층 118호",
+      "method": "auto",
+      "lat": 37.50734,
+      "lng": 126.753876
+    },
+    {
+      "rank": 1,
+      "name": "황금 복권방",
+      "address": "경기 용인시 기흥구 어정로 129 어정프라자 어정프라자 103호",
+      "method": "auto",
+      "lat": 37.275894,
+      "lng": 127.144035
+    }
+  ]
+}

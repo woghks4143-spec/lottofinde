@@ -1,0 +1,133 @@
+{
+  "round": 1122,
+  "date": "2024-06-01",
+  "nums": [
+    3,
+    6,
+    21,
+    30,
+    34,
+    35
+  ],
+  "bonus": 22,
+  "firstWinAmount": 2556266046,
+  "firstWinners": 11,
+  "totalSales": 115540004000,
+  "prizes": {
+    "first": {
+      "amount": 2556266046,
+      "winners": 11
+    },
+    "second": {
+      "amount": 47338261,
+      "winners": 99
+    },
+    "third": {
+      "amount": 1598393,
+      "winners": 2932
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 151473
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2540890
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "경아로또 판매점",
+      "address": "서울 동작구 사당로16길 40 1층",
+      "method": "auto",
+      "lat": 37.481922,
+      "lng": 126.972496
+    },
+    {
+      "rank": 1,
+      "name": "가로판매점",
+      "address": "서울 서대문구 신촌로 103 신촌역 3번,4번출구 중앙",
+      "method": "auto",
+      "lat": 37.55556,
+      "lng": 126.937164
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "대구 북구 학정동로 47",
+      "method": "manual",
+      "lat": 35.94807,
+      "lng": 128.56721
+    },
+    {
+      "rank": 1,
+      "name": "대박천하마트",
+      "address": "인천 부평구 굴포로 48",
+      "method": "auto",
+      "lat": 37.51157,
+      "lng": 126.72634
+    },
+    {
+      "rank": 1,
+      "name": "황금복권방",
+      "address": "인천 연수구 컨벤시아대로 81 송도동 드림시티 113-2호",
+      "method": "auto",
+      "lat": 37.394943,
+      "lng": 126.65016
+    },
+    {
+      "rank": 1,
+      "name": "행운복권(옥산점)",
+      "address": "경기 안성시 중앙로 152",
+      "method": "auto",
+      "lat": 37.004547,
+      "lng": 127.269135
+    },
+    {
+      "rank": 1,
+      "name": "대박복권방",
+      "address": "경기 연천군 온골로 57-1",
+      "method": "auto",
+      "lat": 38.02602,
+      "lng": 127.06766
+    },
+    {
+      "rank": 1,
+      "name": "럭키복권점",
+      "address": "강원 강릉시 강릉대로 305",
+      "method": "auto",
+      "lat": 37.76388,
+      "lng": 128.90155
+    },
+    {
+      "rank": 1,
+      "name": "일송 로또",
+      "address": "강원 강릉시 하평3길 37 광옥당(일송상가 102호)",
+      "method": "auto",
+      "lat": 37.771717,
+      "lng": 128.91473
+    },
+    {
+      "rank": 1,
+      "name": "빙그레 돈벼락 맞는곳",
+      "address": "경남 김해시 김해대로 910 좌측 복권판매점",
+      "method": "mixed",
+      "lat": 35.293262,
+      "lng": 128.78296
+    },
+    {
+      "rank": 1,
+      "name": "복권파는집",
+      "address": "경남 창원시 마산회원구 3·15대로 765",
+      "method": "auto",
+      "lat": 35.240227,
+      "lng": 128.58365
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "round": 168,
+  "date": "2006-02-18",
+  "nums": [
+    3,
+    10,
+    31,
+    40,
+    42,
+    43
+  ],
+  "bonus": 30,
+  "firstWinAmount": 2349946920,
+  "firstWinners": 5,
+  "totalSales": 51496212000,
+  "prizes": {
+    "first": {
+      "amount": 2349946920,
+      "winners": 5
+    },
+    "second": {
+      "amount": 36264613,
+      "winners": 54
+    },
+    "third": {
+      "amount": 1268322,
+      "winners": 1544
+    },
+    "fourth": {
+      "amount": 52569,
+      "winners": 74504
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1233043
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

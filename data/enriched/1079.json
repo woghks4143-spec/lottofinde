@@ -1,0 +1,117 @@
+{
+  "round": 1079,
+  "date": "2023-08-05",
+  "nums": [
+    4,
+    8,
+    18,
+    24,
+    37,
+    45
+  ],
+  "bonus": 6,
+  "firstWinAmount": 2712329417,
+  "firstWinners": 9,
+  "totalSales": 103120206000,
+  "prizes": {
+    "first": {
+      "amount": 2712329417,
+      "winners": 9
+    },
+    "second": {
+      "amount": 47864637,
+      "winners": 85
+    },
+    "third": {
+      "amount": 1266655,
+      "winners": 3212
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 145773
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2344700
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "신영슈퍼",
+      "address": "서울 강남구 광평로51길 27 삼익아파트상가101호",
+      "method": "manual",
+      "lat": 37.48915,
+      "lng": 127.10092
+    },
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "auto",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "로또킹",
+      "address": "서울 영등포구 영중로 2 1층(영등포동3가)",
+      "method": "manual",
+      "lat": 37.516743,
+      "lng": 126.906746
+    },
+    {
+      "rank": 1,
+      "name": "위너로또 더킹전자담배 구월점",
+      "address": "인천 남동구 구월남로 212 동원프라자 101호",
+      "method": "auto",
+      "lat": 37.45245,
+      "lng": 126.71311
+    },
+    {
+      "rank": 1,
+      "name": "드림복권방",
+      "address": "인천 중구 인중로 97-1 삼익아파트",
+      "method": "manual",
+      "lat": 37.464256,
+      "lng": 126.6324
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 광주시 양벌로 329",
+      "method": "auto",
+      "lat": 37.369953,
+      "lng": 127.246414
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "경기 수원시 팔달구 권광로 213",
+      "method": "auto",
+      "lat": 37.26662,
+      "lng": 127.0332
+    },
+    {
+      "rank": 1,
+      "name": "1등로또",
+      "address": "경기 오산시 수청로 30 108호",
+      "method": "manual",
+      "lat": 37.17262,
+      "lng": 127.05862
+    },
+    {
+      "rank": 1,
+      "name": "복권백화점",
+      "address": "경기 파주시 평화로 70",
+      "method": "manual",
+      "lat": 37.763588,
+      "lng": 126.76989
+    }
+  ]
+}

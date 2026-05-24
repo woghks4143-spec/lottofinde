@@ -1,0 +1,77 @@
+{
+  "round": 708,
+  "date": "2016-06-25",
+  "nums": [
+    2,
+    10,
+    16,
+    19,
+    34,
+    45
+  ],
+  "bonus": 1,
+  "firstWinAmount": 4099552219,
+  "firstWinners": 4,
+  "totalSales": 66806307000,
+  "prizes": {
+    "first": {
+      "amount": 4099552219,
+      "winners": 4
+    },
+    "second": {
+      "amount": 52558362,
+      "winners": 52
+    },
+    "third": {
+      "amount": 1596399,
+      "winners": 1712
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 86091
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1446865
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "꿈나라복권방",
+      "address": "대전 대덕구 동춘당로 83 5동119호",
+      "method": "auto",
+      "lat": 36.364376,
+      "lng": 127.44023
+    },
+    {
+      "rank": 1,
+      "name": "다우복권방",
+      "address": "경기 동두천시 중앙로 110-13 1층 104호(지행동,개림프라자)",
+      "method": "manual",
+      "lat": 37.9018,
+      "lng": 127.05275
+    },
+    {
+      "rank": 1,
+      "name": "CU(강릉터미널점)",
+      "address": "강원 강릉시 홍제동 990-6번지",
+      "method": "auto",
+      "lat": 37.755253,
+      "lng": 128.8794
+    },
+    {
+      "rank": 1,
+      "name": "또또복권방",
+      "address": "전북 익산시 고봉로32길 3",
+      "method": "auto",
+      "lat": 35.95982,
+      "lng": 126.971695
+    }
+  ]
+}

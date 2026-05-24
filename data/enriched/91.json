@@ -1,0 +1,43 @@
+{
+  "round": 91,
+  "date": "2004-08-28",
+  "nums": [
+    1,
+    21,
+    24,
+    26,
+    29,
+    42
+  ],
+  "bonus": 27,
+  "firstWinAmount": 3582902400,
+  "firstWinners": 4,
+  "totalSales": 59061052000,
+  "prizes": {
+    "first": {
+      "amount": 3582902400,
+      "winners": 4
+    },
+    "second": {
+      "amount": 74643800,
+      "winners": 32
+    },
+    "third": {
+      "amount": 1982242,
+      "winners": 1205
+    },
+    "fourth": {
+      "amount": 74431,
+      "winners": 64183
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1128902
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

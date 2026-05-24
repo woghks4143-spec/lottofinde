@@ -1,0 +1,205 @@
+{
+  "round": 1042,
+  "date": "2022-11-19",
+  "nums": [
+    5,
+    14,
+    15,
+    23,
+    34,
+    43
+  ],
+  "bonus": 4,
+  "firstWinAmount": 1240663669,
+  "firstWinners": 20,
+  "totalSales": 106510259000,
+  "prizes": {
+    "first": {
+      "amount": 1240663669,
+      "winners": 20
+    },
+    "second": {
+      "amount": 41355456,
+      "winners": 100
+    },
+    "third": {
+      "amount": 1159391,
+      "winners": 3567
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 157156
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2462593
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 12,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가로판매대",
+      "address": "서울 강동구 올림픽로 648 천호역 3번 출구 앞(가판점)",
+      "method": "manual",
+      "lat": 37.538975,
+      "lng": 127.12444
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "서울 도봉구 노해로63길 79 우림빌딩106",
+      "method": "auto",
+      "lat": 37.653114,
+      "lng": 127.04623
+    },
+    {
+      "rank": 1,
+      "name": "행운복권마트",
+      "address": "서울 종로구 지봉로 58",
+      "method": "manual",
+      "lat": 37.575314,
+      "lng": 127.015854
+    },
+    {
+      "rank": 1,
+      "name": "오렌지데이편의점",
+      "address": "부산 해운대구 좌동순환로249번길 11 르네상스오피스102호",
+      "method": "mixed",
+      "lat": 35.173973,
+      "lng": 129.1815
+    },
+    {
+      "rank": 1,
+      "name": "복권판매점",
+      "address": "인천 남동구 문화로 113 1층",
+      "method": "auto",
+      "lat": 37.44924,
+      "lng": 126.69932
+    },
+    {
+      "rank": 1,
+      "name": "로또명당",
+      "address": "인천 미추홀구 인주대로 423 101호",
+      "method": "auto",
+      "lat": 37.45146,
+      "lng": 126.6837
+    },
+    {
+      "rank": 1,
+      "name": "백령로또",
+      "address": "인천 옹진군 백령로278번길 18",
+      "method": "manual",
+      "lat": 37.972107,
+      "lng": 124.72062
+    },
+    {
+      "rank": 1,
+      "name": "행복한사람들 (흥부네)",
+      "address": "경기 광주시 경충대로 763",
+      "method": "auto",
+      "lat": 37.355545,
+      "lng": 127.325386
+    },
+    {
+      "rank": 1,
+      "name": "간이매점",
+      "address": "경기 시흥시 삼미시장4길 26",
+      "method": "manual",
+      "lat": 37.44011,
+      "lng": 126.782
+    },
+    {
+      "rank": 1,
+      "name": "복권백화점",
+      "address": "경기 파주시 평화로 70",
+      "method": "auto",
+      "lat": 37.763588,
+      "lng": 126.76989
+    },
+    {
+      "rank": 1,
+      "name": "꿈로또복권전문점",
+      "address": "강원 강릉시 옥천로 47",
+      "method": "auto",
+      "lat": 37.759296,
+      "lng": 128.90057
+    },
+    {
+      "rank": 1,
+      "name": "그린로또",
+      "address": "강원 양양군 양양로 71",
+      "method": "auto",
+      "lat": 38.07482,
+      "lng": 128.62141
+    },
+    {
+      "rank": 1,
+      "name": "나눔로또편의점",
+      "address": "전남 광양시 공영로 90",
+      "method": "manual",
+      "lat": 34.935658,
+      "lng": 127.699066
+    },
+    {
+      "rank": 1,
+      "name": "중앙로또",
+      "address": "경북 칠곡군 북삼로 41 복권판매점",
+      "method": "manual",
+      "lat": 36.071457,
+      "lng": 128.34279
+    },
+    {
+      "rank": 1,
+      "name": "중앙로또",
+      "address": "경북 칠곡군 북삼로 41 복권판매점",
+      "method": "manual",
+      "lat": 36.071457,
+      "lng": 128.34279
+    },
+    {
+      "rank": 1,
+      "name": "중앙로또",
+      "address": "경북 칠곡군 북삼로 41 복권판매점",
+      "method": "manual",
+      "lat": 36.071457,
+      "lng": 128.34279
+    },
+    {
+      "rank": 1,
+      "name": "중앙로또",
+      "address": "경북 칠곡군 북삼로 41 복권판매점",
+      "method": "manual",
+      "lat": 36.071457,
+      "lng": 128.34279
+    },
+    {
+      "rank": 1,
+      "name": "중앙로또",
+      "address": "경북 칠곡군 북삼로 41 복권판매점",
+      "method": "manual",
+      "lat": 36.071457,
+      "lng": 128.34279
+    },
+    {
+      "rank": 1,
+      "name": "중앙로또",
+      "address": "경북 칠곡군 북삼로 41 복권판매점",
+      "method": "manual",
+      "lat": 36.071457,
+      "lng": 128.34279
+    },
+    {
+      "rank": 1,
+      "name": "중앙로또",
+      "address": "경북 칠곡군 북삼로 41 복권판매점",
+      "method": "manual",
+      "lat": 36.071457,
+      "lng": 128.34279
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "round": 124,
+  "date": "2005-04-16",
+  "nums": [
+    4,
+    16,
+    23,
+    25,
+    29,
+    42
+  ],
+  "bonus": 1,
+  "firstWinAmount": 1395936267,
+  "firstWinners": 9,
+  "totalSales": 54180838000,
+  "prizes": {
+    "first": {
+      "amount": 1395936267,
+      "winners": 9
+    },
+    "second": {
+      "amount": 56592011,
+      "winners": 37
+    },
+    "third": {
+      "amount": 1359679,
+      "winners": 1540
+    },
+    "fourth": {
+      "amount": 55808,
+      "winners": 75040
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1230275
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

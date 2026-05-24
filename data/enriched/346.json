@@ -1,0 +1,85 @@
+{
+  "round": 346,
+  "date": "2009-07-18",
+  "nums": [
+    5,
+    13,
+    14,
+    22,
+    44,
+    45
+  ],
+  "bonus": 33,
+  "firstWinAmount": 2017727340,
+  "firstWinners": 5,
+  "totalSales": 42862389000,
+  "prizes": {
+    "first": {
+      "amount": 2017727340,
+      "winners": 5
+    },
+    "second": {
+      "amount": 64670749,
+      "winners": 26
+    },
+    "third": {
+      "amount": 1467225,
+      "winners": 1146
+    },
+    "fourth": {
+      "amount": 61695,
+      "winners": 54509
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 923360
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "대구 북구 산격동  845",
+      "method": "auto",
+      "lat": 35.893982,
+      "lng": 128.59468
+    },
+    {
+      "rank": 1,
+      "name": "로또복권판매도통점",
+      "address": "전북 남원시 용성로 232,(도통동)",
+      "method": "auto",
+      "lat": 35.41778,
+      "lng": 127.39722
+    },
+    {
+      "rank": 1,
+      "name": "자수정슈퍼",
+      "address": "전북 전주시 완산구 용머리로 152",
+      "method": "manual",
+      "lat": 35.805733,
+      "lng": 127.12693
+    },
+    {
+      "rank": 1,
+      "name": "자수정슈퍼",
+      "address": "전북 전주시 완산구 용머리로 152",
+      "method": "manual",
+      "lat": 35.805733,
+      "lng": 127.12693
+    },
+    {
+      "rank": 1,
+      "name": "덕산24시슈퍼",
+      "address": "경남 창원시 진해구 충장로 505",
+      "method": "auto",
+      "lat": 35.1442,
+      "lng": 128.70134
+    }
+  ]
+}

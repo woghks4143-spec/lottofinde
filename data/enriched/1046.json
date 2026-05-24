@@ -1,0 +1,141 @@
+{
+  "round": 1046,
+  "date": "2022-12-17",
+  "nums": [
+    7,
+    16,
+    25,
+    29,
+    35,
+    36
+  ],
+  "bonus": 28,
+  "firstWinAmount": 2011415719,
+  "firstWinners": 12,
+  "totalSales": 100923993000,
+  "prizes": {
+    "first": {
+      "amount": 2011415719,
+      "winners": 12
+    },
+    "second": {
+      "amount": 70575991,
+      "winners": 57
+    },
+    "third": {
+      "amount": 1359524,
+      "winners": 2959
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 139560
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2260269
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "아킬복권",
+      "address": "인천 부평구 부영로 4 1층",
+      "method": "manual",
+      "lat": 37.485508,
+      "lng": 126.71813
+    },
+    {
+      "rank": 1,
+      "name": "용꿈돼지꿈",
+      "address": "인천 부평구 동암남로 11",
+      "method": "manual",
+      "lat": 37.470974,
+      "lng": 126.70482
+    },
+    {
+      "rank": 1,
+      "name": "김포로또",
+      "address": "경기 김포시 돌문로 48 한솔프라자101",
+      "method": "auto",
+      "lat": 37.619404,
+      "lng": 126.71802
+    },
+    {
+      "rank": 1,
+      "name": "행복복권방",
+      "address": "경기 성남시 수정구 성남대로1250번길 9-1 1층 (태평동)",
+      "method": "mixed",
+      "lat": 37.44173,
+      "lng": 127.1285
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "경기 수원시 장안구 경수대로 1080",
+      "method": "auto",
+      "lat": 37.30952,
+      "lng": 126.99452
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐용인남사점",
+      "address": "경기 용인시 처인구 어진로 571",
+      "method": "auto",
+      "lat": 37.10813,
+      "lng": 127.1711
+    },
+    {
+      "rank": 1,
+      "name": "신나는복권방",
+      "address": "경기 파주시 문향로 51-1",
+      "method": "manual",
+      "lat": 37.856716,
+      "lng": 126.78506
+    },
+    {
+      "rank": 1,
+      "name": "교하로또판매점",
+      "address": "경기 파주시 파주로 266 아이비타워108호",
+      "method": "auto",
+      "lat": 37.7261,
+      "lng": 126.71821
+    },
+    {
+      "rank": 1,
+      "name": "복돼지복권방",
+      "address": "경기 화성시 3.1만세로 43",
+      "method": "auto",
+      "lat": 37.08277,
+      "lng": 126.81872
+    },
+    {
+      "rank": 1,
+      "name": "행운마트",
+      "address": "충남 아산시 서해로 654",
+      "method": "manual",
+      "lat": 36.88196,
+      "lng": 126.91078
+    },
+    {
+      "rank": 1,
+      "name": "신불당로또",
+      "address": "충남 천안시 서북구 불당21로 40 501동 지1층 B143호",
+      "method": "auto",
+      "lat": 36.812565,
+      "lng": 127.10497
+    },
+    {
+      "rank": 1,
+      "name": "희망복권방",
+      "address": "전남 나주시 풍물시장1길 3",
+      "method": "auto",
+      "lat": 34.99262,
+      "lng": 126.70952
+    }
+  ]
+}

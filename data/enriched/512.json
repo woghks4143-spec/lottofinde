@@ -1,0 +1,149 @@
+{
+  "round": 512,
+  "date": "2012-09-22",
+  "nums": [
+    4,
+    5,
+    9,
+    13,
+    26,
+    27
+  ],
+  "bonus": 1,
+  "firstWinAmount": 940094452,
+  "firstWinners": 13,
+  "totalSales": 54017801000,
+  "prizes": {
+    "first": {
+      "amount": 940094452,
+      "winners": 13
+    },
+    "second": {
+      "amount": 39170603,
+      "winners": 52
+    },
+    "third": {
+      "amount": 1210982,
+      "winners": 1682
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 82439
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1318396
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복사문구",
+      "address": "서울 강동구 양재대로 1549",
+      "method": "manual",
+      "lat": 37.54405,
+      "lng": 127.14205
+    },
+    {
+      "rank": 1,
+      "name": "삼호복권",
+      "address": "서울 도봉구 도봉로 457",
+      "method": "auto",
+      "lat": 37.646816,
+      "lng": 127.03317
+    },
+    {
+      "rank": 1,
+      "name": "종합가판점",
+      "address": "서울 동대문구 왕산로40길 6 건물 앞쪽 가판점 청량리역 5번출구 앞쪽",
+      "method": "manual",
+      "lat": 37.579697,
+      "lng": 127.04497
+    },
+    {
+      "rank": 1,
+      "name": "미니슈퍼",
+      "address": "부산 부산진구 가야대로 643",
+      "method": "auto",
+      "lat": 35.156036,
+      "lng": 129.04204
+    },
+    {
+      "rank": 1,
+      "name": "GS25(대전전민)",
+      "address": "대전 유성구 전민동  464-1분산상가C동101 102",
+      "method": "auto",
+      "lat": 36.42274,
+      "lng": 127.40082
+    },
+    {
+      "rank": 1,
+      "name": "CU(군포덕산점)",
+      "address": "경기 군포시 당동  902 덕산상가1층",
+      "method": "auto",
+      "lat": 37.348972,
+      "lng": 126.94522
+    },
+    {
+      "rank": 1,
+      "name": "새서울슈퍼",
+      "address": "경기 남양주시 사릉로34번길 24 1층 7호",
+      "method": "manual",
+      "lat": 37.63618,
+      "lng": 127.21105
+    },
+    {
+      "rank": 1,
+      "name": "현대로또",
+      "address": "경기 성남시 중원구 금상로 32-1",
+      "method": "auto",
+      "lat": 37.43849,
+      "lng": 127.1607
+    },
+    {
+      "rank": 1,
+      "name": "행운을드리는복권방",
+      "address": "경기 안산시 상록구 본오로 98",
+      "method": "auto",
+      "lat": 37.293797,
+      "lng": 126.866684
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "경기 파주시 술이홀로 906",
+      "method": "auto",
+      "lat": 37.906326,
+      "lng": 126.91052
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "충북 청주시 흥덕구 복대로 207",
+      "method": "auto",
+      "lat": 36.63505,
+      "lng": 127.44054
+    },
+    {
+      "rank": 1,
+      "name": "잉크와복권방",
+      "address": "충남 천안시 동남구 차돌로 84",
+      "method": "auto",
+      "lat": 36.802128,
+      "lng": 127.139435
+    },
+    {
+      "rank": 1,
+      "name": "드림마트복권방",
+      "address": "경북 구미시 비산동  359-7(드림마트내일부)",
+      "method": "manual",
+      "lat": 36.12182,
+      "lng": 128.37726
+    }
+  ]
+}

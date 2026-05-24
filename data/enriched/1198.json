@@ -1,0 +1,43 @@
+{
+  "round": 1198,
+  "date": "2025-11-15",
+  "nums": [
+    26,
+    30,
+    33,
+    38,
+    39,
+    41
+  ],
+  "bonus": 21,
+  "firstWinAmount": 2953686638,
+  "firstWinners": 10,
+  "totalSales": 120207517000,
+  "prizes": {
+    "first": {
+      "amount": 2953686638,
+      "winners": 10
+    },
+    "second": {
+      "amount": 63112963,
+      "winners": 78
+    },
+    "third": {
+      "amount": 1582898,
+      "winners": 3110
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 155228
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2591974
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 3,
+    "mixed": 0
+  }
+}

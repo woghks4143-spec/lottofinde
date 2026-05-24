@@ -1,0 +1,109 @@
+{
+  "round": 462,
+  "date": "2011-10-08",
+  "nums": [
+    3,
+    20,
+    24,
+    32,
+    37,
+    45
+  ],
+  "bonus": 4,
+  "firstWinAmount": 1483559297,
+  "firstWinners": 8,
+  "totalSales": 49325555000,
+  "prizes": {
+    "first": {
+      "amount": 1483559297,
+      "winners": 8
+    },
+    "second": {
+      "amount": 50719976,
+      "winners": 39
+    },
+    "third": {
+      "amount": 1418996,
+      "winners": 1394
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 67106
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1096569
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "그랑프리안경",
+      "address": "서울 강서구 강서로45길 13 선화빌딩",
+      "method": "auto",
+      "lat": 37.547802,
+      "lng": 126.83536
+    },
+    {
+      "rank": 1,
+      "name": "신암편의점",
+      "address": "부산 금정구 중앙대로 2002 복권판매점",
+      "method": "manual",
+      "lat": 35.262875,
+      "lng": 129.0923
+    },
+    {
+      "rank": 1,
+      "name": "베스트올원당1호점",
+      "address": "인천 서구 원당동  원당지구71블럭골든벨프라자102",
+      "method": "auto",
+      "lat": 37.594105,
+      "lng": 126.69508
+    },
+    {
+      "rank": 1,
+      "name": "행운마트",
+      "address": "광주 북구 임방울대로 1059 1층 101호",
+      "method": "manual",
+      "lat": 35.212055,
+      "lng": 126.87316
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "경기 고양시 일산동구 장항동 749코오롱레이크폴리스2A-101",
+      "method": "auto",
+      "lat": 37.663017,
+      "lng": 126.76361
+    },
+    {
+      "rank": 1,
+      "name": "GS25(분당매화)",
+      "address": "경기 성남시 분당구 야탑동 275-4성원프라자103 104",
+      "method": "auto",
+      "lat": 37.41165,
+      "lng": 127.13803
+    },
+    {
+      "rank": 1,
+      "name": "해피데이",
+      "address": "강원 춘천시 행촌로 11 한진아파트 한성아파트상가102호",
+      "method": "auto",
+      "lat": 37.858654,
+      "lng": 127.72233
+    },
+    {
+      "rank": 1,
+      "name": "로또복권두정점",
+      "address": "충남 천안시 서북구 두정로 251 대원빌딩104호",
+      "method": "manual",
+      "lat": 36.833515,
+      "lng": 127.14499
+    }
+  ]
+}

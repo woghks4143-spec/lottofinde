@@ -1,0 +1,109 @@
+{
+  "round": 533,
+  "date": "2013-02-16",
+  "nums": [
+    9,
+    14,
+    15,
+    17,
+    31,
+    33
+  ],
+  "bonus": 23,
+  "firstWinAmount": 1785671579,
+  "firstWinners": 8,
+  "totalSales": 59275357000,
+  "prizes": {
+    "first": {
+      "amount": 1785671579,
+      "winners": 8
+    },
+    "second": {
+      "amount": 54111260,
+      "winners": 44
+    },
+    "third": {
+      "amount": 1569477,
+      "winners": 1517
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 78509
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1333013
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(압구정역)",
+      "address": "서울 강남구 신사동  577-12동헌빌딩1층",
+      "method": "auto",
+      "lat": 37.525463,
+      "lng": 127.02755
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐부산온천장역점",
+      "address": "부산 동래구 중앙대로 1520 북쪽출구 빵집",
+      "method": "auto",
+      "lat": 35.213894,
+      "lng": 129.08134
+    },
+    {
+      "rank": 1,
+      "name": "복권백화점",
+      "address": "경기 파주시 평화로 70",
+      "method": "auto",
+      "lat": 37.763588,
+      "lng": 126.76989
+    },
+    {
+      "rank": 1,
+      "name": "행운예감",
+      "address": "충북 충주시 국원대로 5 1층",
+      "method": "auto",
+      "lat": 36.969822,
+      "lng": 127.93024
+    },
+    {
+      "rank": 1,
+      "name": "둔포로또판매점",
+      "address": "충남 아산시 충무로 1810 둔포로또판매점",
+      "method": "manual",
+      "lat": 36.930553,
+      "lng": 127.038376
+    },
+    {
+      "rank": 1,
+      "name": "CU(구미원평점)",
+      "address": "경북 구미시 원평동  1049",
+      "method": "manual",
+      "lat": 36.12575,
+      "lng": 128.3447
+    },
+    {
+      "rank": 1,
+      "name": "영화복권방",
+      "address": "경남 김해시 덕정로 158 복권판매점",
+      "method": "manual",
+      "lat": 35.17843,
+      "lng": 128.80179
+    },
+    {
+      "rank": 1,
+      "name": "일등복권방",
+      "address": "제주 서귀포시 성산읍  고성리    1197-8",
+      "method": "manual",
+      "lat": 33.450195,
+      "lng": 126.914505
+    }
+  ]
+}

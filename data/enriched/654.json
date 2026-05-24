@@ -1,0 +1,109 @@
+{
+  "round": 654,
+  "date": "2015-06-13",
+  "nums": [
+    16,
+    21,
+    26,
+    31,
+    36,
+    43
+  ],
+  "bonus": 6,
+  "firstWinAmount": 1879301391,
+  "firstWinners": 8,
+  "totalSales": 60697813000,
+  "prizes": {
+    "first": {
+      "amount": 1879301391,
+      "winners": 8
+    },
+    "second": {
+      "amount": 36315003,
+      "winners": 69
+    },
+    "third": {
+      "amount": 1402203,
+      "winners": 1787
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 77788
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1282725
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "드림로또",
+      "address": "대구 북구 침산로 153 명성푸르지오 상가 103동 B2호",
+      "method": "auto",
+      "lat": 35.889423,
+      "lng": 128.59015
+    },
+    {
+      "rank": 1,
+      "name": "왕대박복권",
+      "address": "인천 부평구 동수천로 108 1층",
+      "method": "manual",
+      "lat": 37.495102,
+      "lng": 126.73705
+    },
+    {
+      "rank": 1,
+      "name": "오렌지25",
+      "address": "경기 고양시 일산서구 고봉로 291 양우에이스스타디움109",
+      "method": "auto",
+      "lat": 37.68528,
+      "lng": 126.777145
+    },
+    {
+      "rank": 1,
+      "name": "CU(횡성점)",
+      "address": "강원 횡성군  횡성읍 읍하리118-1번지",
+      "method": "manual",
+      "lat": 37.48886,
+      "lng": 127.9855
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "충북 제천시 명륜로 67 1층",
+      "method": "auto",
+      "lat": 37.142334,
+      "lng": 128.20863
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "충북 청주시 상당구 상당로 9",
+      "method": "auto",
+      "lat": 36.629227,
+      "lng": 127.491035
+    },
+    {
+      "rank": 1,
+      "name": "돈벼락복권방",
+      "address": "충남 논산시 시민로 337 1층 상가",
+      "method": "auto",
+      "lat": 36.194923,
+      "lng": 127.089935
+    },
+    {
+      "rank": 1,
+      "name": "한솔복권방",
+      "address": "전남 목포시 남교동  34-1번지 한솔복권방",
+      "method": "auto",
+      "lat": 34.794006,
+      "lng": 126.38017
+    }
+  ]
+}

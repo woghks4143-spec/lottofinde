@@ -1,0 +1,101 @@
+{
+  "round": 563,
+  "date": "2013-09-14",
+  "nums": [
+    5,
+    10,
+    16,
+    17,
+    31,
+    32
+  ],
+  "bonus": 21,
+  "firstWinAmount": 1932735643,
+  "firstWinners": 7,
+  "totalSales": 57320132000,
+  "prizes": {
+    "first": {
+      "amount": 1932735643,
+      "winners": 7
+    },
+    "second": {
+      "amount": 59338375,
+      "winners": 38
+    },
+    "third": {
+      "amount": 1373239,
+      "winners": 1642
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 79945
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1324790
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "씨스페이스(정릉3점)",
+      "address": "서울 성북구 정릉동  372-7번지",
+      "method": "auto",
+      "lat": 37.608723,
+      "lng": 127.00776
+    },
+    {
+      "rank": 1,
+      "name": "행운마트",
+      "address": "서울 송파구 마천로15길 9 1층",
+      "method": "auto",
+      "lat": 37.50558,
+      "lng": 127.13482
+    },
+    {
+      "rank": 1,
+      "name": "로또",
+      "address": "서울 중구 신당동  133-14",
+      "method": "auto",
+      "lat": 37.56378,
+      "lng": 127.0194
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "인천 부평구 광장로 16 부평민자역사 지하 2층 223호",
+      "method": "auto",
+      "lat": 37.489662,
+      "lng": 126.722664
+    },
+    {
+      "rank": 1,
+      "name": "한아름슈퍼",
+      "address": "울산 남구 야음동  371-43번지",
+      "method": "manual",
+      "lat": 35.517834,
+      "lng": 129.34062
+    },
+    {
+      "rank": 1,
+      "name": "로또휴게실",
+      "address": "경기 용인시 기흥구 용구대로 1885",
+      "method": "auto",
+      "lat": 37.256386,
+      "lng": 127.10432
+    },
+    {
+      "rank": 1,
+      "name": "로또경주고속점",
+      "address": "경북 경주시 태종로 695",
+      "method": "auto",
+      "lat": 35.83873,
+      "lng": 129.2042
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "round": 614,
+  "date": "2014-09-06",
+  "nums": [
+    8,
+    21,
+    25,
+    39,
+    40,
+    44
+  ],
+  "bonus": 18,
+  "firstWinAmount": 2540975438,
+  "firstWinners": 6,
+  "totalSales": 62301977000,
+  "prizes": {
+    "first": {
+      "amount": 2540975438,
+      "winners": 6
+    },
+    "second": {
+      "amount": 55238597,
+      "winners": 46
+    },
+    "third": {
+      "amount": 1668402,
+      "winners": 1523
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 80393
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1360707
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "씨유 개화산역점",
+      "address": "서울 강서구 양천로 19 (방화동)",
+      "method": "auto",
+      "lat": 37.56771,
+      "lng": 126.825645
+    },
+    {
+      "rank": 1,
+      "name": "주택복권사랑방",
+      "address": "서울 관악구 난곡로 363-1",
+      "method": "manual",
+      "lat": 37.486427,
+      "lng": 126.91341
+    },
+    {
+      "rank": 1,
+      "name": "오거리마트",
+      "address": "서울 은평구 응암로14길 6,(응암동)",
+      "method": "auto",
+      "lat": 37.590076,
+      "lng": 126.9179
+    },
+    {
+      "rank": 1,
+      "name": "베스트올원당",
+      "address": "인천 서구 원당동  824-2골든벨프라자102호",
+      "method": "auto",
+      "lat": 37.594124,
+      "lng": 126.69508
+    },
+    {
+      "rank": 1,
+      "name": "대야지복권",
+      "address": "광주 남구 회재로 1255-1",
+      "method": "auto",
+      "lat": 35.134727,
+      "lng": 126.89801
+    },
+    {
+      "rank": 1,
+      "name": "플러스복권방",
+      "address": "강원 춘천시 효자2동  663-2번지",
+      "method": "auto",
+      "lat": 37.871807,
+      "lng": 127.73285
+    }
+  ]
+}

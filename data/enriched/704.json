@@ -1,0 +1,77 @@
+{
+  "round": 704,
+  "date": "2016-05-28",
+  "nums": [
+    1,
+    4,
+    8,
+    23,
+    33,
+    42
+  ],
+  "bonus": 45,
+  "firstWinAmount": 3865190344,
+  "firstWinners": 4,
+  "totalSales": 65930117000,
+  "prizes": {
+    "first": {
+      "amount": 3865190344,
+      "winners": 4
+    },
+    "second": {
+      "amount": 54825395,
+      "winners": 47
+    },
+    "third": {
+      "amount": 1351938,
+      "winners": 1906
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 95021
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1519932
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "장보고복권방",
+      "address": "서울 중랑구 면목로 288",
+      "method": "manual",
+      "lat": 37.578384,
+      "lng": 127.08619
+    },
+    {
+      "rank": 1,
+      "name": "다산복권",
+      "address": "경기 남양주시 퇴계원면 퇴계원리 74-1",
+      "method": "manual",
+      "lat": 37.65691,
+      "lng": 127.14367
+    },
+    {
+      "rank": 1,
+      "name": "광장복권판매점",
+      "address": "경기 화성시 동탄중심상가2길 26-15 지성프라자",
+      "method": "manual",
+      "lat": 37.206593,
+      "lng": 127.074234
+    },
+    {
+      "rank": 1,
+      "name": "운수대통복권방",
+      "address": "충남 천안시 동남구 대흥로 122 중앙시장 입구",
+      "method": "auto",
+      "lat": 36.80049,
+      "lng": 127.14926
+    }
+  ]
+}

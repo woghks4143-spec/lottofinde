@@ -1,0 +1,109 @@
+{
+  "round": 700,
+  "date": "2016-04-30",
+  "nums": [
+    11,
+    23,
+    28,
+    29,
+    30,
+    44
+  ],
+  "bonus": 13,
+  "firstWinAmount": 2082099188,
+  "firstWinners": 8,
+  "totalSales": 66846276000,
+  "prizes": {
+    "first": {
+      "amount": 2082099188,
+      "winners": 8
+    },
+    "second": {
+      "amount": 67710543,
+      "winners": 41
+    },
+    "third": {
+      "amount": 1777294,
+      "winners": 1562
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 82874
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1414076
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "상호없음",
+      "address": "서울 광진구 구의동 589-10번지 대림아크로리버상가102",
+      "method": "auto",
+      "lat": 37.55465,
+      "lng": 127.07817
+    },
+    {
+      "rank": 1,
+      "name": "와이케이파트너스",
+      "address": "서울 동작구 사당동 265-29번지 1층",
+      "method": "auto",
+      "lat": 37.483833,
+      "lng": 126.97233
+    },
+    {
+      "rank": 1,
+      "name": "빛고을로또",
+      "address": "광주 광산구 소촌로 147 세븐일레븐",
+      "method": "manual",
+      "lat": 35.15734,
+      "lng": 126.79186
+    },
+    {
+      "rank": 1,
+      "name": "주택복권방",
+      "address": "경기 안양시 만안구 수리산로 53,(안양동)",
+      "method": "auto",
+      "lat": 37.389378,
+      "lng": 126.93165
+    },
+    {
+      "rank": 1,
+      "name": "평택포승점로또",
+      "address": "경기 평택시 여술로 24 CU편의점 내",
+      "method": "auto",
+      "lat": 36.988068,
+      "lng": 126.84539
+    },
+    {
+      "rank": 1,
+      "name": "왕대박복권전문점",
+      "address": "강원 동해시 중앙로 234 이주민상가1층18호",
+      "method": "auto",
+      "lat": 37.52171,
+      "lng": 129.115
+    },
+    {
+      "rank": 1,
+      "name": "서울로또방",
+      "address": "충북 옥천군 삼금로 8",
+      "method": "mixed",
+      "lat": 36.29949,
+      "lng": 127.56668
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "충북 음성군 신내로 443 1층",
+      "method": "auto",
+      "lat": 36.966633,
+      "lng": 127.49071
+    }
+  ]
+}

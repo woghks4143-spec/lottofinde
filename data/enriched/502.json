@@ -1,0 +1,93 @@
+{
+  "round": 502,
+  "date": "2012-07-14",
+  "nums": [
+    6,
+    22,
+    28,
+    32,
+    34,
+    40
+  ],
+  "bonus": 26,
+  "firstWinAmount": 2201458125,
+  "firstWinners": 6,
+  "totalSales": 54000640000,
+  "prizes": {
+    "first": {
+      "amount": 2201458125,
+      "winners": 6
+    },
+    "second": {
+      "amount": 71014779,
+      "winners": 31
+    },
+    "third": {
+      "amount": 1485465,
+      "winners": 1482
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 70160
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1176131
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권천국방",
+      "address": "서울 마포구 동교로 92 1층",
+      "method": "auto",
+      "lat": 37.554207,
+      "lng": 126.91237
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "서울 양천구 신월3동  205-44훼미리마트",
+      "method": "manual",
+      "lat": 37.529152,
+      "lng": 126.83232
+    },
+    {
+      "rank": 1,
+      "name": "몽곡사",
+      "address": "서울 영등포구 버드나루로 51 조광빌딩105호",
+      "method": "auto",
+      "lat": 37.523067,
+      "lng": 126.910576
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "대전 서구 만년남로3번길 164,(만년동)",
+      "method": "manual",
+      "lat": 36.366486,
+      "lng": 127.37305
+    },
+    {
+      "rank": 1,
+      "name": "로또판매소",
+      "address": "강원 철원군 동송읍 이평로 65,(이평리)",
+      "method": "auto",
+      "lat": 38.2092,
+      "lng": 127.216774
+    },
+    {
+      "rank": 1,
+      "name": "문덕대박로또",
+      "address": "경북 포항시 남구 오천읍 문덕리   문덕리  176-7",
+      "method": "manual",
+      "lat": 35.96353,
+      "lng": 129.40263
+    }
+  ]
+}

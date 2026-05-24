@@ -1,0 +1,61 @@
+{
+  "round": 357,
+  "date": "2009-10-03",
+  "nums": [
+    10,
+    14,
+    18,
+    21,
+    36,
+    37
+  ],
+  "bonus": 5,
+  "firstWinAmount": 5313394350,
+  "firstWinners": 2,
+  "totalSales": 45232409000,
+  "prizes": {
+    "first": {
+      "amount": 5313394350,
+      "winners": 2
+    },
+    "second": {
+      "amount": 65597462,
+      "winners": 27
+    },
+    "third": {
+      "amount": 1587036,
+      "winners": 1116
+    },
+    "fourth": {
+      "amount": 62643,
+      "winners": 56547
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 980978
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "쉐라톤베이커리",
+      "address": "서울 도봉구 도봉로170길 8,(도봉동)",
+      "method": "auto",
+      "lat": 37.680374,
+      "lng": 127.04596
+    },
+    {
+      "rank": 1,
+      "name": "토토전문점",
+      "address": "경남 김해시 해반천로144번길 40 거림맥스랜드103호 복권판매점",
+      "method": "auto",
+      "lat": 35.261242,
+      "lng": 128.87164
+    }
+  ]
+}

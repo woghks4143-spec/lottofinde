@@ -1,0 +1,77 @@
+{
+  "round": 733,
+  "date": "2016-12-17",
+  "nums": [
+    11,
+    24,
+    32,
+    33,
+    35,
+    40
+  ],
+  "bonus": 13,
+  "firstWinAmount": 4016725125,
+  "firstWinners": 4,
+  "totalSales": 69321488000,
+  "prizes": {
+    "first": {
+      "amount": 4016725125,
+      "winners": 4
+    },
+    "second": {
+      "amount": 46979242,
+      "winners": 57
+    },
+    "third": {
+      "amount": 1362064,
+      "winners": 1966
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 101369
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1633952
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "돈벼락맞는곳",
+      "address": "부산 해운대구 양운로 55 두산위브센티움상가102호",
+      "method": "auto",
+      "lat": 35.168194,
+      "lng": 129.17624
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "mixed",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "하늘과바다",
+      "address": "인천 부평구 부개동 67-9번지",
+      "method": "auto",
+      "lat": 37.49801,
+      "lng": 126.7352
+    },
+    {
+      "rank": 1,
+      "name": "광장복권판매점",
+      "address": "경기 화성시 동탄중심상가2길 26-15 지성프라자",
+      "method": "manual",
+      "lat": 37.206593,
+      "lng": 127.074234
+    }
+  ]
+}

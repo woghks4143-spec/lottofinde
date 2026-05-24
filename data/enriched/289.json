@@ -1,0 +1,37 @@
+{
+  "round": 289,
+  "date": "2008-06-14",
+  "nums": [
+    3,
+    14,
+    33,
+    37,
+    38,
+    42
+  ],
+  "bonus": 10,
+  "totalSales": 39406643000,
+  "prizes": {
+    "second": {
+      "amount": 63761694,
+      "winners": 24
+    },
+    "third": {
+      "amount": 1501748,
+      "winners": 1019
+    },
+    "fourth": {
+      "amount": 58541,
+      "winners": 52281
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 880103
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

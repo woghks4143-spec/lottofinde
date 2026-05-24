@@ -1,0 +1,157 @@
+{
+  "round": 1065,
+  "date": "2023-04-29",
+  "nums": [
+    3,
+    18,
+    19,
+    23,
+    32,
+    45
+  ],
+  "bonus": 24,
+  "firstWinAmount": 1852593938,
+  "firstWinners": 14,
+  "totalSales": 108181727000,
+  "prizes": {
+    "first": {
+      "amount": 1852593938,
+      "winners": 14
+    },
+    "second": {
+      "amount": 58415125,
+      "winners": 74
+    },
+    "third": {
+      "amount": 1386821,
+      "winners": 3117
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 148561
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2416212
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "manual",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "가판100호",
+      "address": "서울 중구 을지로 115-1",
+      "method": "mixed",
+      "lat": 37.56644,
+      "lng": 126.990746
+    },
+    {
+      "rank": 1,
+      "name": "서원탑훼미리마트복권방",
+      "address": "부산 기장군 차성로344번길 38",
+      "method": "manual",
+      "lat": 35.247974,
+      "lng": 129.21597
+    },
+    {
+      "rank": 1,
+      "name": "NBA(엔비에이)",
+      "address": "인천 중구 신도시남로142번길 6 1동 1층 128호",
+      "method": "auto",
+      "lat": 37.4934,
+      "lng": 126.49157
+    },
+    {
+      "rank": 1,
+      "name": "영웅기획",
+      "address": "광주 남구 독립로 77",
+      "method": "manual",
+      "lat": 35.140537,
+      "lng": 126.90203
+    },
+    {
+      "rank": 1,
+      "name": "영화유통(1등복권방)",
+      "address": "울산 남구 신정로 19 삼성아파트 상가 204-101",
+      "method": "auto",
+      "lat": 35.533833,
+      "lng": 129.32205
+    },
+    {
+      "rank": 1,
+      "name": "나눔로또",
+      "address": "세종 운주산로 1164 2동",
+      "method": "auto",
+      "lat": 36.67968,
+      "lng": 127.20769
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 수원시 영통구 반달로7번길 40 평익칼라스위트 평익칼라스위트110호",
+      "method": "auto",
+      "lat": 37.25351,
+      "lng": 127.07518
+    },
+    {
+      "rank": 1,
+      "name": "로또명당가두판매점",
+      "address": "경기 안양시 동안구 경수대로 848-2 동안구가로판매대2005-00065",
+      "method": "auto",
+      "lat": 37.393017,
+      "lng": 126.94313
+    },
+    {
+      "rank": 1,
+      "name": "용인로또복권방",
+      "address": "경기 용인시 처인구 백옥대로 2076-1",
+      "method": "auto",
+      "lat": 37.31023,
+      "lng": 127.24057
+    },
+    {
+      "rank": 1,
+      "name": "로또1등판매점",
+      "address": "경기 화성시 초록로 20-3 101호",
+      "method": "auto",
+      "lat": 37.077232,
+      "lng": 126.970535
+    },
+    {
+      "rank": 1,
+      "name": "로또명당인주점",
+      "address": "충남 아산시 서해로 519-2",
+      "method": "auto",
+      "lat": 36.87784,
+      "lng": 126.89828
+    },
+    {
+      "rank": 1,
+      "name": "복권명당동천점",
+      "address": "경북 경주시 동천로 64-1",
+      "method": "auto",
+      "lat": 35.85354,
+      "lng": 129.22673
+    },
+    {
+      "rank": 1,
+      "name": "필승로또복권판매점",
+      "address": "경북 상주시 왕산로 349 1층",
+      "method": "manual",
+      "lat": 36.42096,
+      "lng": 128.16156
+    }
+  ]
+}

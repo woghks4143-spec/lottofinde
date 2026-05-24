@@ -1,0 +1,85 @@
+{
+  "round": 882,
+  "date": "2019-10-26",
+  "nums": [
+    18,
+    34,
+    39,
+    43,
+    44,
+    45
+  ],
+  "bonus": 23,
+  "firstWinAmount": 4127270400,
+  "firstWinners": 5,
+  "totalSales": 84351602000,
+  "prizes": {
+    "first": {
+      "amount": 4127270400,
+      "winners": 5
+    },
+    "second": {
+      "amount": 78168000,
+      "winners": 44
+    },
+    "third": {
+      "amount": 1651966,
+      "winners": 2082
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 109226
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1839873
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "국민슈퍼",
+      "address": "서울 도봉구 도봉로 588,(창동)",
+      "method": "auto",
+      "lat": 37.657055,
+      "lng": 127.04011
+    },
+    {
+      "rank": 1,
+      "name": "한누리",
+      "address": "서울 동작구 사당동(사당제2동) 132-6",
+      "method": "auto",
+      "lat": 37.48763,
+      "lng": 126.98099
+    },
+    {
+      "rank": 1,
+      "name": "천국열쇠",
+      "address": "광주 북구 북문대로 157",
+      "method": "auto",
+      "lat": 35.182514,
+      "lng": 126.87206
+    },
+    {
+      "rank": 1,
+      "name": "필로또복권",
+      "address": "충남 서산시 호수공원6로 64 1층",
+      "method": "auto",
+      "lat": 36.77264,
+      "lng": 126.45055
+    },
+    {
+      "rank": 1,
+      "name": "복권파는집",
+      "address": "경남 창원시 마산회원구 3·15대로 765",
+      "method": "auto",
+      "lat": 35.240227,
+      "lng": 128.58365
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "round": 674,
+  "date": "2015-10-31",
+  "nums": [
+    9,
+    10,
+    14,
+    25,
+    27,
+    31
+  ],
+  "bonus": 11,
+  "firstWinAmount": 1770565500,
+  "firstWinners": 8,
+  "totalSales": 61386974000,
+  "prizes": {
+    "first": {
+      "amount": 1770565500,
+      "winners": 8
+    },
+    "second": {
+      "amount": 49182375,
+      "winners": 48
+    },
+    "third": {
+      "amount": 1278849,
+      "winners": 1846
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 89646
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1465031
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 상계주공아파트(10단지) 주공10단지종합상가111",
+      "method": "manual",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "인더라인25",
+      "address": "서울 마포구 성미산로 199",
+      "method": "auto",
+      "lat": 37.56252,
+      "lng": 126.927086
+    },
+    {
+      "rank": 1,
+      "name": "뉴빅마트",
+      "address": "부산 기장군 정관중앙로 48 106호",
+      "method": "manual",
+      "lat": 35.321114,
+      "lng": 129.17929
+    },
+    {
+      "rank": 1,
+      "name": "로또복권편의점",
+      "address": "광주 광산구 송정동  890-3번지T월드 이동통신내",
+      "method": "manual",
+      "lat": 35.13525,
+      "lng": 126.797325
+    },
+    {
+      "rank": 1,
+      "name": "GS25(하안연서)",
+      "address": "경기 광명시 안현로 52",
+      "method": "manual",
+      "lat": 37.465557,
+      "lng": 126.877495
+    },
+    {
+      "rank": 1,
+      "name": "영로또",
+      "address": "충북 음성군 사예2길 24 1층 106호",
+      "method": "manual",
+      "lat": 36.912643,
+      "lng": 127.54497
+    },
+    {
+      "rank": 1,
+      "name": "라이프25시",
+      "address": "경북 구미시  구포동 536-2번지GS25편의점 내",
+      "method": "auto",
+      "lat": 36.117832,
+      "lng": 128.34003
+    },
+    {
+      "rank": 1,
+      "name": "진교로또복권판매점",
+      "address": "경남 하동군 민다리길 76",
+      "method": "auto",
+      "lat": 35.02851,
+      "lng": 127.903046
+    }
+  ]
+}

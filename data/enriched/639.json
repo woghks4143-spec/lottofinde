@@ -1,0 +1,77 @@
+{
+  "round": 639,
+  "date": "2015-02-28",
+  "nums": [
+    6,
+    15,
+    22,
+    23,
+    25,
+    32
+  ],
+  "bonus": 40,
+  "firstWinAmount": 4061185219,
+  "firstWinners": 4,
+  "totalSales": 66202599000,
+  "prizes": {
+    "first": {
+      "amount": 4061185219,
+      "winners": 4
+    },
+    "second": {
+      "amount": 60165707,
+      "winners": 45
+    },
+    "third": {
+      "amount": 1663058,
+      "winners": 1628
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 84861
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1439719
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "한마음",
+      "address": "서울 관악구 관악로 211 봉천중앙시장라열4호",
+      "method": "auto",
+      "lat": 37.48357,
+      "lng": 126.95407
+    },
+    {
+      "rank": 1,
+      "name": "그린슈퍼",
+      "address": "서울 동대문구 왕산로 138",
+      "method": "manual",
+      "lat": 37.57798,
+      "lng": 127.038635
+    },
+    {
+      "rank": 1,
+      "name": "CU(경대정문점)",
+      "address": "대구 북구 대현로19길 86",
+      "method": "manual",
+      "lat": 35.88501,
+      "lng": 128.61392
+    },
+    {
+      "rank": 1,
+      "name": "달성로또복권판매소",
+      "address": "충남 아산시 온천대로 1531",
+      "method": "manual",
+      "lat": 36.780804,
+      "lng": 127.0079
+    }
+  ]
+}

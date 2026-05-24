@@ -1,0 +1,141 @@
+{
+  "round": 1140,
+  "date": "2024-10-05",
+  "nums": [
+    7,
+    10,
+    22,
+    29,
+    31,
+    38
+  ],
+  "bonus": 15,
+  "firstWinAmount": 2279823938,
+  "firstWinners": 12,
+  "totalSales": 115238556000,
+  "prizes": {
+    "first": {
+      "amount": 2279823938,
+      "winners": 12
+    },
+    "second": {
+      "amount": 54935517,
+      "winners": 83
+    },
+    "third": {
+      "amount": 1363124,
+      "winners": 3345
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 158343
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2644989
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "신사우리가판",
+      "address": "서울 강남구 강남대로 620",
+      "method": "manual",
+      "lat": 37.51676,
+      "lng": 127.02005
+    },
+    {
+      "rank": 1,
+      "name": "복권천국(수성점)",
+      "address": "대구 수성구 수성로 263",
+      "method": "manual",
+      "lat": 35.849064,
+      "lng": 128.61285
+    },
+    {
+      "rank": 1,
+      "name": "나눔로또 판교역점",
+      "address": "경기 성남시 분당구 대왕판교로606번길 39 107호",
+      "method": "auto",
+      "lat": 37.396473,
+      "lng": 127.11148
+    },
+    {
+      "rank": 1,
+      "name": "설레임 복권",
+      "address": "경기 수원시 영통구 삼성로168번길 21 1층",
+      "method": "manual",
+      "lat": 37.258358,
+      "lng": 127.057785
+    },
+    {
+      "rank": 1,
+      "name": "대박로또판매점",
+      "address": "경기 안산시 단원구 석수로 55 102호",
+      "method": "auto",
+      "lat": 37.341465,
+      "lng": 126.80755
+    },
+    {
+      "rank": 1,
+      "name": "복주머니 복권판매점",
+      "address": "경기 용인시 기흥구 동백5로 21-5",
+      "method": "auto",
+      "lat": 37.27683,
+      "lng": 127.15208
+    },
+    {
+      "rank": 1,
+      "name": "주몽동명",
+      "address": "경기 용인시 수지구 포은대로 319 중앙빌딩 104호",
+      "method": "auto",
+      "lat": 37.315742,
+      "lng": 127.08753
+    },
+    {
+      "rank": 1,
+      "name": "로또판매 행운점",
+      "address": "충북 청주시 청원구 충청대로 97",
+      "method": "manual",
+      "lat": 36.665314,
+      "lng": 127.49296
+    },
+    {
+      "rank": 1,
+      "name": "썬마트",
+      "address": "충북 청주시 흥덕구 진재로23번길 25",
+      "method": "auto",
+      "lat": 36.632607,
+      "lng": 127.42811
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "충남 홍성군 조양로 180",
+      "method": "auto",
+      "lat": 36.60072,
+      "lng": 126.66951
+    },
+    {
+      "rank": 1,
+      "name": "대광복권방",
+      "address": "전남 화순군 칠충로 55 대광그린상가동 1층109호",
+      "method": "auto",
+      "lat": 35.05548,
+      "lng": 126.97712
+    },
+    {
+      "rank": 1,
+      "name": "팔팔복권",
+      "address": "경북 김천시 시청로 81 (신음동)좌측상가",
+      "method": "auto",
+      "lat": 36.135597,
+      "lng": 128.11705
+    }
+  ]
+}

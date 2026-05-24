@@ -1,0 +1,109 @@
+{
+  "round": 755,
+  "date": "2017-05-20",
+  "nums": [
+    13,
+    14,
+    26,
+    28,
+    30,
+    36
+  ],
+  "bonus": 37,
+  "firstWinAmount": 2214427266,
+  "firstWinners": 8,
+  "totalSales": 71300635000,
+  "prizes": {
+    "first": {
+      "amount": 2214427266,
+      "winners": 8
+    },
+    "second": {
+      "amount": 54677217,
+      "winners": 54
+    },
+    "third": {
+      "amount": 1600309,
+      "winners": 1845
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 89745
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1508502
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "천하명당초량점",
+      "address": "부산 동구 중앙대로221번길 3",
+      "method": "auto",
+      "lat": 35.116898,
+      "lng": 129.04013
+    },
+    {
+      "rank": 1,
+      "name": "세진전자통신",
+      "address": "대구 서구 서대구로 156",
+      "method": "auto",
+      "lat": 35.8719,
+      "lng": 128.5552
+    },
+    {
+      "rank": 1,
+      "name": "인생대역전",
+      "address": "인천 계양구 임학동 10-10번지",
+      "method": "auto",
+      "lat": 37.545486,
+      "lng": 126.7387
+    },
+    {
+      "rank": 1,
+      "name": "버스매표소",
+      "address": "인천 부평구 부평대로 3 가판",
+      "method": "auto",
+      "lat": 37.49181,
+      "lng": 126.722725
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "경기 용인시 처인구 금령로 130",
+      "method": "auto",
+      "lat": 37.23509,
+      "lng": 127.2105
+    },
+    {
+      "rank": 1,
+      "name": "대박상사",
+      "address": "경기 화성시 궁평항로 1646-1 1층",
+      "method": "auto",
+      "lat": 37.161903,
+      "lng": 126.70735
+    },
+    {
+      "rank": 1,
+      "name": "아리랑마트",
+      "address": "경남 창원시 진해구 충장로 438",
+      "method": "manual",
+      "lat": 35.149624,
+      "lng": 128.69774
+    },
+    {
+      "rank": 1,
+      "name": "GS25(노형런던점)",
+      "address": "제주 제주시 다랑곶6길 51",
+      "method": "manual",
+      "lat": 33.491116,
+      "lng": 126.478615
+    }
+  ]
+}

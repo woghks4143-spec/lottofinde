@@ -1,0 +1,77 @@
+{
+  "round": 934,
+  "date": "2020-10-24",
+  "nums": [
+    1,
+    3,
+    30,
+    33,
+    36,
+    39
+  ],
+  "bonus": 12,
+  "firstWinAmount": 5765772844,
+  "firstWinners": 4,
+  "totalSales": 93028347000,
+  "prizes": {
+    "first": {
+      "amount": 5765772844,
+      "winners": 4
+    },
+    "second": {
+      "amount": 58240130,
+      "winners": 66
+    },
+    "third": {
+      "amount": 1629440,
+      "winners": 2359
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 116726
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1985417
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대박복권마을",
+      "address": "서울 영등포구 당산로 140",
+      "method": "auto",
+      "lat": 37.527054,
+      "lng": 126.89711
+    },
+    {
+      "rank": 1,
+      "name": "당산로또명당점",
+      "address": "서울 영등포구 양평로 52",
+      "method": "auto",
+      "lat": 37.53466,
+      "lng": 126.90087
+    },
+    {
+      "rank": 1,
+      "name": "운수대통복권방",
+      "address": "전북 익산시 무왕로23길 3",
+      "method": "manual",
+      "lat": 35.9597,
+      "lng": 126.98842
+    },
+    {
+      "rank": 1,
+      "name": "CU(포항오거리점)",
+      "address": "경북 포항시 북구  죽도로 33",
+      "method": "auto",
+      "lat": 36.033848,
+      "lng": 129.36467
+    }
+  ]
+}

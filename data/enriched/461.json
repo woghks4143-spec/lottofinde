@@ -1,0 +1,93 @@
+{
+  "round": 461,
+  "date": "2011-10-01",
+  "nums": [
+    11,
+    18,
+    26,
+    31,
+    37,
+    40
+  ],
+  "bonus": 43,
+  "firstWinAmount": 1948674875,
+  "firstWinners": 6,
+  "totalSales": 50624588000,
+  "prizes": {
+    "first": {
+      "amount": 1948674875,
+      "winners": 6
+    },
+    "second": {
+      "amount": 60896090,
+      "winners": 32
+    },
+    "third": {
+      "amount": 1134931,
+      "winners": 1717
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 75605
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1188529
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "미니스톱 합정역점",
+      "address": "서울 마포구 합정동  373-17호",
+      "method": "auto",
+      "lat": 37.548485,
+      "lng": 126.91362
+    },
+    {
+      "rank": 1,
+      "name": "대박복권방",
+      "address": "서울 성북구 동소문로 86-21",
+      "method": "manual",
+      "lat": 37.591442,
+      "lng": 127.01522
+    },
+    {
+      "rank": 1,
+      "name": "다산종합관리",
+      "address": "대구 동구 동촌로 336",
+      "method": "auto",
+      "lat": 35.877804,
+      "lng": 128.67618
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "경기 수원시 팔달구 매산로 2",
+      "method": "auto",
+      "lat": 37.26661,
+      "lng": 127.00185
+    },
+    {
+      "rank": 1,
+      "name": "논산복권방",
+      "address": "충남 논산시 계백로 1016",
+      "method": "auto",
+      "lat": 36.204014,
+      "lng": 127.0897
+    },
+    {
+      "rank": 1,
+      "name": "우리별텔레콤(SK백석점)",
+      "address": "충남 천안시 서북구 백석로 116 상가101호",
+      "method": "manual",
+      "lat": 36.823074,
+      "lng": 127.124306
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "round": 627,
+  "date": "2014-12-06",
+  "nums": [
+    2,
+    9,
+    22,
+    25,
+    31,
+    45
+  ],
+  "bonus": 12,
+  "firstWinAmount": 1352230650,
+  "firstWinners": 10,
+  "totalSales": 55981334000,
+  "prizes": {
+    "first": {
+      "amount": 1352230650,
+      "winners": 10
+    },
+    "second": {
+      "amount": 64391936,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1471096,
+      "winners": 1532
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 74824
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1243945
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 6,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또판매",
+      "address": "서울 강남구 삼성로86길 10 1층 삼성슈퍼",
+      "method": "auto",
+      "lat": 37.505627,
+      "lng": 127.058334
+    },
+    {
+      "rank": 1,
+      "name": "교통카드판매대",
+      "address": "서울 강동구 상일로15길 18 1층",
+      "method": "manual",
+      "lat": 37.557686,
+      "lng": 127.17006
+    },
+    {
+      "rank": 1,
+      "name": "교통카드판매대",
+      "address": "서울 강동구 상일로15길 18 1층",
+      "method": "manual",
+      "lat": 37.557686,
+      "lng": 127.17006
+    },
+    {
+      "rank": 1,
+      "name": "복터진나라",
+      "address": "부산 서구 대영로 27 1층 복권판매점",
+      "method": "manual",
+      "lat": 35.109715,
+      "lng": 129.01494
+    },
+    {
+      "rank": 1,
+      "name": "안성맞춤",
+      "address": "경기 안성시 안성맞춤대로 1099-1",
+      "method": "manual",
+      "lat": 37.01107,
+      "lng": 127.2699
+    },
+    {
+      "rank": 1,
+      "name": "안성맞춤",
+      "address": "경기 안성시 안성맞춤대로 1099-1",
+      "method": "manual",
+      "lat": 37.01107,
+      "lng": 127.2699
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "경기 포천시 죽엽산로35번길 1",
+      "method": "auto",
+      "lat": 37.826786,
+      "lng": 127.152664
+    },
+    {
+      "rank": 1,
+      "name": "행운천하명당",
+      "address": "충남 서천군 서천로  120",
+      "method": "manual",
+      "lat": 36.078808,
+      "lng": 126.68722
+    },
+    {
+      "rank": 1,
+      "name": "대산슈퍼",
+      "address": "충남 천안시 동남구 복구정3길 1",
+      "method": "auto",
+      "lat": 36.76989,
+      "lng": 127.250206
+    },
+    {
+      "rank": 1,
+      "name": "제이엠정보통신",
+      "address": "경남 함안군 함안대로 552 1층",
+      "method": "auto",
+      "lat": 35.27584,
+      "lng": 128.40576
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "round": 931,
+  "date": "2020-10-03",
+  "nums": [
+    14,
+    15,
+    23,
+    25,
+    35,
+    43
+  ],
+  "bonus": 32,
+  "firstWinAmount": 2957108063,
+  "firstWinners": 8,
+  "totalSales": 95695802000,
+  "prizes": {
+    "first": {
+      "amount": 2957108063,
+      "winners": 8
+    },
+    "second": {
+      "amount": 73015014,
+      "winners": 54
+    },
+    "third": {
+      "amount": 1518803,
+      "winners": 2596
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 121943
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2041653
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "서울 노원구 동일로 992 1층",
+      "method": "auto",
+      "lat": 37.61881,
+      "lng": 127.07561
+    },
+    {
+      "rank": 1,
+      "name": "나라시스컴",
+      "address": "서울 영등포구  영등포로 225 영신상가1호",
+      "method": "auto",
+      "lat": 37.519783,
+      "lng": 126.9067
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "부산 사하구 장림번영로 25",
+      "method": "auto",
+      "lat": 35.081005,
+      "lng": 128.96823
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "인천 서구 염곡로 343-4",
+      "method": "auto",
+      "lat": 37.515396,
+      "lng": 126.66847
+    },
+    {
+      "rank": 1,
+      "name": "가두판매점",
+      "address": "경기 안양시 만안구 안양로 265 우리은행 안양중앙지점 우리은행앞도로",
+      "method": "auto",
+      "lat": 37.396156,
+      "lng": 126.92316
+    },
+    {
+      "rank": 1,
+      "name": "창미슈퍼",
+      "address": "경기 화성시 남양성지로 155",
+      "method": "auto",
+      "lat": 37.21022,
+      "lng": 126.81979
+    },
+    {
+      "rank": 1,
+      "name": "이마트24 순천산단점",
+      "address": "전남 순천시 산단1길 6 중앙정밀기계,마트",
+      "method": "auto",
+      "lat": 34.987934,
+      "lng": 127.50839
+    },
+    {
+      "rank": 1,
+      "name": "365팡팡복권",
+      "address": "경남 김해시 진영읍 장등로 53 상가136동108호",
+      "method": "auto",
+      "lat": 35.3121,
+      "lng": 128.7335
+    }
+  ]
+}

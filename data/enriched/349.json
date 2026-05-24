@@ -1,0 +1,69 @@
+{
+  "round": 349,
+  "date": "2009-08-08",
+  "nums": [
+    5,
+    13,
+    14,
+    20,
+    24,
+    25
+  ],
+  "bonus": 36,
+  "firstWinAmount": 3353209000,
+  "firstWinners": 3,
+  "totalSales": 43433870000,
+  "prizes": {
+    "first": {
+      "amount": 3353209000,
+      "winners": 3
+    },
+    "second": {
+      "amount": 45313636,
+      "winners": 37
+    },
+    "third": {
+      "amount": 1435450,
+      "winners": 1168
+    },
+    "fourth": {
+      "amount": 56511,
+      "winners": 59338
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 990178
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "-",
+      "address": "부산 부산진구 부전동  573-1 복권판매대 제4번",
+      "method": "auto",
+      "lat": 35.158165,
+      "lng": 129.05988
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "인천 미추홀구 토금북로 47",
+      "method": "auto",
+      "lat": 37.453613,
+      "lng": 126.63935
+    },
+    {
+      "rank": 1,
+      "name": "네잎크로바",
+      "address": "경기 안양시 동안구 엘에스로 92 안양국제 유통단지 지원동 지하1층 71호",
+      "method": "auto",
+      "lat": 37.37095,
+      "lng": 126.95095
+    }
+  ]
+}

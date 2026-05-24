@@ -1,0 +1,43 @@
+{
+  "round": 59,
+  "date": "2004-01-17",
+  "nums": [
+    6,
+    29,
+    36,
+    39,
+    41,
+    45
+  ],
+  "bonus": 13,
+  "firstWinAmount": 4127587300,
+  "firstWinners": 4,
+  "totalSales": 67563698000,
+  "prizes": {
+    "first": {
+      "amount": 4127587300,
+      "winners": 4
+    },
+    "second": {
+      "amount": 119640200,
+      "winners": 23
+    },
+    "third": {
+      "amount": 4226900,
+      "winners": 651
+    },
+    "fourth": {
+      "amount": 157100,
+      "winners": 35026
+    },
+    "fifth": {
+      "amount": 10000,
+      "winners": 626460
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

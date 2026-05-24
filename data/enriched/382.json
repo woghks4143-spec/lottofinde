@@ -1,0 +1,93 @@
+{
+  "round": 382,
+  "date": "2010-03-27",
+  "nums": [
+    10,
+    15,
+    22,
+    24,
+    27,
+    42
+  ],
+  "bonus": 19,
+  "firstWinAmount": 1846674900,
+  "firstWinners": 6,
+  "totalSales": 47401288000,
+  "prizes": {
+    "first": {
+      "amount": 1846674900,
+      "winners": 6
+    },
+    "second": {
+      "amount": 57708591,
+      "winners": 32
+    },
+    "third": {
+      "amount": 1523660,
+      "winners": 1212
+    },
+    "fourth": {
+      "amount": 59315,
+      "winners": 62267
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1046779
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또명당",
+      "address": "대구 남구 명덕로 322",
+      "method": "auto",
+      "lat": 35.854874,
+      "lng": 128.60512
+    },
+    {
+      "rank": 1,
+      "name": "행운",
+      "address": "경기 군포시 금정동  744-31층",
+      "method": "manual",
+      "lat": 37.36196,
+      "lng": 126.94099
+    },
+    {
+      "rank": 1,
+      "name": "서울문구팬시",
+      "address": "경기 안산시 상록구 부곡로 21 301호",
+      "method": "auto",
+      "lat": 37.324387,
+      "lng": 126.85939
+    },
+    {
+      "rank": 1,
+      "name": "복권세상도영점",
+      "address": "강원 원주시 예술관길 3 1층",
+      "method": "auto",
+      "lat": 37.334282,
+      "lng": 127.94393
+    },
+    {
+      "rank": 1,
+      "name": "썬24",
+      "address": "전북 전주시 덕진구 우아3길 18",
+      "method": "auto",
+      "lat": 35.84879,
+      "lng": 127.15499
+    },
+    {
+      "rank": 1,
+      "name": "구산복권방",
+      "address": "경남 김해시 구산동  481-3보보스빌딩108호",
+      "method": "auto",
+      "lat": 35.25086,
+      "lng": 128.87222
+    }
+  ]
+}

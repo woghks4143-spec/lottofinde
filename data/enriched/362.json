@@ -1,0 +1,93 @@
+{
+  "round": 362,
+  "date": "2009-11-07",
+  "nums": [
+    2,
+    3,
+    22,
+    27,
+    30,
+    40
+  ],
+  "bonus": 29,
+  "firstWinAmount": 1729424650,
+  "firstWinners": 6,
+  "totalSales": 44336363000,
+  "prizes": {
+    "first": {
+      "amount": 1729424650,
+      "winners": 6
+    },
+    "second": {
+      "amount": 66516333,
+      "winners": 26
+    },
+    "third": {
+      "amount": 1474361,
+      "winners": 1173
+    },
+    "fourth": {
+      "amount": 60898,
+      "winners": 56798
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 974787
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(반포중앙)",
+      "address": "서울 서초구 반포1동  739-351층",
+      "method": "auto",
+      "lat": 37.505672,
+      "lng": 127.02201
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "경기 시흥시 복지로 103-1 1층상가",
+      "method": "auto",
+      "lat": 37.44823,
+      "lng": 126.79206
+    },
+    {
+      "rank": 1,
+      "name": "다니엘사",
+      "address": "경기 안산시 단원구 원선1로 38 두산위브아파트 101호",
+      "method": "auto",
+      "lat": 37.326073,
+      "lng": 126.80417
+    },
+    {
+      "rank": 1,
+      "name": "복권사랑",
+      "address": "경기 양주시 평화로 1444,(덕계동)",
+      "method": "auto",
+      "lat": 37.81949,
+      "lng": 127.047104
+    },
+    {
+      "rank": 1,
+      "name": "로또휴게실",
+      "address": "경기 용인시 기흥구 용구대로 1885",
+      "method": "auto",
+      "lat": 37.256386,
+      "lng": 127.10432
+    },
+    {
+      "rank": 1,
+      "name": "한마음",
+      "address": "충북 제천시 신백동  110-11",
+      "method": "auto",
+      "lat": 37.151554,
+      "lng": 128.22421
+    }
+  ]
+}

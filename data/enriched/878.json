@@ -1,0 +1,93 @@
+{
+  "round": 878,
+  "date": "2019-09-28",
+  "nums": [
+    2,
+    6,
+    11,
+    16,
+    25,
+    31
+  ],
+  "bonus": 3,
+  "firstWinAmount": 3207993500,
+  "firstWinners": 6,
+  "totalSales": 84183676000,
+  "prizes": {
+    "first": {
+      "amount": 3207993500,
+      "winners": 6
+    },
+    "second": {
+      "amount": 46492660,
+      "winners": 69
+    },
+    "third": {
+      "amount": 1079769,
+      "winners": 2971
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 129139
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1994188
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(사당남사점)",
+      "address": "서울 동작구 사당동 1005-54번지",
+      "method": "manual",
+      "lat": 37.482853,
+      "lng": 126.98076
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "auto",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "운수대통",
+      "address": "인천 부평구 동암광장로 6 1층 A호",
+      "method": "auto",
+      "lat": 37.470837,
+      "lng": 126.70217
+    },
+    {
+      "rank": 1,
+      "name": "오천억복권방",
+      "address": "광주 서구 상무대로 1087",
+      "method": "auto",
+      "lat": 35.15296,
+      "lng": 126.880745
+    },
+    {
+      "rank": 1,
+      "name": "로또명당가두판매점",
+      "address": "경기 안양시 동안구 경수대로 848-2 동안구가로판매대2005-00065",
+      "method": "auto",
+      "lat": 37.393017,
+      "lng": 126.94313
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 의정부시 충의로 55",
+      "method": "auto",
+      "lat": 37.73674,
+      "lng": 127.08712
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "round": 923,
+  "date": "2020-08-08",
+  "nums": [
+    3,
+    17,
+    18,
+    23,
+    36,
+    41
+  ],
+  "bonus": 26,
+  "firstWinAmount": 2667554625,
+  "firstWinners": 8,
+  "totalSales": 87867402000,
+  "prizes": {
+    "first": {
+      "amount": 2667554625,
+      "winners": 8
+    },
+    "second": {
+      "amount": 63513206,
+      "winners": 56
+    },
+    "third": {
+      "amount": 1496945,
+      "winners": 2376
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 115877
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1937187
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "프로또마트",
+      "address": "서울 구로구 고척로 156 1층4호",
+      "method": "manual",
+      "lat": 37.503185,
+      "lng": 126.85119
+    },
+    {
+      "rank": 1,
+      "name": "다모아",
+      "address": "서울 구로구 공원로6나길 39-1",
+      "method": "auto",
+      "lat": 37.50447,
+      "lng": 126.891785
+    },
+    {
+      "rank": 1,
+      "name": "몽곡사",
+      "address": "서울 영등포구 버드나루로 51 조광빌딩105호",
+      "method": "auto",
+      "lat": 37.523067,
+      "lng": 126.910576
+    },
+    {
+      "rank": 1,
+      "name": "왕대박",
+      "address": "부산 동래구 여고로113번길 59-4",
+      "method": "auto",
+      "lat": 35.201073,
+      "lng": 129.0741
+    },
+    {
+      "rank": 1,
+      "name": "명당골복권방",
+      "address": "경기 수원시 권선구 동수원로242번길 15 104호",
+      "method": "auto",
+      "lat": 37.251095,
+      "lng": 127.03546
+    },
+    {
+      "rank": 1,
+      "name": "로또복권4공단점",
+      "address": "경북 구미시 첨단기업1로 18",
+      "method": "manual",
+      "lat": 36.140465,
+      "lng": 128.43942
+    },
+    {
+      "rank": 1,
+      "name": "CU(삼천포점)",
+      "address": "경남 사천시 벌리동 258-4번지",
+      "method": "auto",
+      "lat": 34.940247,
+      "lng": 128.08678
+    },
+    {
+      "rank": 1,
+      "name": "창원병원앞매표소",
+      "address": "경남 창원시 성산구 중앙동 104-1번지 가판",
+      "method": "auto",
+      "lat": 35.2185,
+      "lng": 128.67143
+    }
+  ]
+}

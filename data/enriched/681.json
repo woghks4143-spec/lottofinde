@@ -1,0 +1,93 @@
+{
+  "round": 681,
+  "date": "2015-12-19",
+  "nums": [
+    21,
+    24,
+    27,
+    29,
+    43,
+    44
+  ],
+  "bonus": 7,
+  "firstWinAmount": 2696328938,
+  "firstWinners": 6,
+  "totalSales": 63268253000,
+  "prizes": {
+    "first": {
+      "amount": 2696328938,
+      "winners": 6
+    },
+    "second": {
+      "amount": 72873756,
+      "winners": 37
+    },
+    "third": {
+      "amount": 1871152,
+      "winners": 1441
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 73062
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1282079
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "강북구교통카드판매대",
+      "address": "서울 강북구 솔샘로 260 가판",
+      "method": "auto",
+      "lat": 37.61919,
+      "lng": 127.0214
+    },
+    {
+      "rank": 1,
+      "name": "우면점로또판매",
+      "address": "서울 서초구 우면동 2-9번지",
+      "method": "auto",
+      "lat": 37.469906,
+      "lng": 127.02541
+    },
+    {
+      "rank": 1,
+      "name": "안전열쇠",
+      "address": "인천 계양구 경명대로 1124 명인프라자102호",
+      "method": "auto",
+      "lat": 37.54285,
+      "lng": 126.731895
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "인천 미추홀구 한나루로 400 학익시장 외7필지125호",
+      "method": "auto",
+      "lat": 37.443375,
+      "lng": 126.66496
+    },
+    {
+      "rank": 1,
+      "name": "역전복권방",
+      "address": "광주 광산구 상무대로 208 1층",
+      "method": "auto",
+      "lat": 35.13774,
+      "lng": 126.79203
+    },
+    {
+      "rank": 1,
+      "name": "공단마트로또점",
+      "address": "경남 함안군 삼칠로 831 슈퍼 옆 1층",
+      "method": "auto",
+      "lat": 35.360252,
+      "lng": 128.48526
+    }
+  ]
+}

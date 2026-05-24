@@ -1,0 +1,69 @@
+{
+  "round": 273,
+  "date": "2008-02-23",
+  "nums": [
+    1,
+    8,
+    24,
+    31,
+    34,
+    44
+  ],
+  "bonus": 6,
+  "firstWinAmount": 3339543100,
+  "firstWinners": 3,
+  "totalSales": 42816211000,
+  "prizes": {
+    "first": {
+      "amount": 3339543100,
+      "winners": 3
+    },
+    "second": {
+      "amount": 79512931,
+      "winners": 21
+    },
+    "third": {
+      "amount": 1523515,
+      "winners": 1096
+    },
+    "fourth": {
+      "amount": 59431,
+      "winners": 56192
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 942078
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "에스에프마트",
+      "address": "울산 북구 동대17길 2",
+      "method": "manual",
+      "lat": 35.630302,
+      "lng": 129.35161
+    },
+    {
+      "rank": 1,
+      "name": "행운복권마트",
+      "address": "경기 포천시 신읍동  58-16",
+      "method": "auto",
+      "lat": 37.89491,
+      "lng": 127.201126
+    },
+    {
+      "rank": 1,
+      "name": "삼성로또복권방슈퍼",
+      "address": "전북 남원시 네마실1길 10-5",
+      "method": "auto",
+      "lat": 35.41577,
+      "lng": 127.38633
+    }
+  ]
+}

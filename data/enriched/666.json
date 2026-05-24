@@ -1,0 +1,93 @@
+{
+  "round": 666,
+  "date": "2015-09-05",
+  "nums": [
+    2,
+    4,
+    6,
+    11,
+    17,
+    28
+  ],
+  "bonus": 16,
+  "firstWinAmount": 2396901063,
+  "firstWinners": 6,
+  "totalSales": 62652917000,
+  "prizes": {
+    "first": {
+      "amount": 2396901063,
+      "winners": 6
+    },
+    "second": {
+      "amount": 50997895,
+      "winners": 47
+    },
+    "third": {
+      "amount": 1231074,
+      "winners": 1947
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 93631
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1493940
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "준마트",
+      "address": "경기 고양시 덕양구 행당로 35",
+      "method": "manual",
+      "lat": 37.619385,
+      "lng": 126.82859
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "경기 안산시 상록구 영화6길 21-1 102호",
+      "method": "manual",
+      "lat": 37.280636,
+      "lng": 126.85183
+    },
+    {
+      "rank": 1,
+      "name": "가두판매점",
+      "address": "경기 안양시 만안구 안양로 330-1",
+      "method": "manual",
+      "lat": 37.401344,
+      "lng": 126.91967
+    },
+    {
+      "rank": 1,
+      "name": "로또부자세상",
+      "address": "강원 원주시 천사로 286 1층",
+      "method": "manual",
+      "lat": 37.35452,
+      "lng": 127.954575
+    },
+    {
+      "rank": 1,
+      "name": "이효민나눔로또",
+      "address": "경남 거제시 능포로 164 1층",
+      "method": "auto",
+      "lat": 34.877945,
+      "lng": 128.73323
+    },
+    {
+      "rank": 1,
+      "name": "대우할인매장",
+      "address": "경남 창원시 성산구 정동로162번길 74 대운상가1층109",
+      "method": "manual",
+      "lat": 35.200825,
+      "lng": 128.69797
+    }
+  ]
+}

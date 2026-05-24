@@ -1,0 +1,125 @@
+{
+  "round": 1205,
+  "date": "2026-01-03",
+  "nums": [
+    1,
+    4,
+    16,
+    23,
+    31,
+    41
+  ],
+  "bonus": 2,
+  "firstWinAmount": 3226386263,
+  "firstWinners": 10,
+  "totalSales": 132670747000,
+  "prizes": {
+    "first": {
+      "amount": 3226386263,
+      "winners": 10
+    },
+    "second": {
+      "amount": 55436191,
+      "winners": 97
+    },
+    "third": {
+      "amount": 1542545,
+      "winners": 3486
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 174740
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2915978
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "기장슈퍼",
+      "address": "부산 기장군 차성동로 69",
+      "method": "auto",
+      "lat": 35.243927,
+      "lng": 129.2165
+    },
+    {
+      "rank": 1,
+      "name": "평생꽃길대연점",
+      "address": "부산 남구 수영로266번길 37",
+      "method": "auto",
+      "lat": 35.13507,
+      "lng": 129.09718
+    },
+    {
+      "rank": 1,
+      "name": "부일카서비스",
+      "address": "부산 동구 자성로133번길 35",
+      "method": "auto",
+      "lat": 35.140015,
+      "lng": 129.06306
+    },
+    {
+      "rank": 1,
+      "name": "복권명당신기점",
+      "address": "대구 동구 율하동로24길 49",
+      "method": "auto",
+      "lat": 35.869595,
+      "lng": 128.70769
+    },
+    {
+      "rank": 1,
+      "name": "황금대박점",
+      "address": "대구 수성구 지범로 62",
+      "method": "auto",
+      "lat": 35.826054,
+      "lng": 128.62749
+    },
+    {
+      "rank": 1,
+      "name": "대박복권판매점",
+      "address": "인천 남동구 구월남로 190",
+      "method": "auto",
+      "lat": 37.452675,
+      "lng": 126.71069
+    },
+    {
+      "rank": 1,
+      "name": "행운강림 로또방",
+      "address": "경기 안산시 상록구 반석로 54",
+      "method": "auto",
+      "lat": 37.296513,
+      "lng": 126.8657
+    },
+    {
+      "rank": 1,
+      "name": "별복권방",
+      "address": "충북 청주시 흥덕구 덕암로114번길 28",
+      "method": "auto",
+      "lat": 36.65003,
+      "lng": 127.46118
+    },
+    {
+      "rank": 1,
+      "name": "운수대통복권방",
+      "address": "충남 천안시 동남구 대흥로 122",
+      "method": "manual",
+      "lat": 36.80049,
+      "lng": 127.14926
+    },
+    {
+      "rank": 1,
+      "name": "명당",
+      "address": "경남 진주시 동부로 1356",
+      "method": "auto",
+      "lat": 35.18731,
+      "lng": 128.22482
+    }
+  ]
+}

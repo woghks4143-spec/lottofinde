@@ -1,0 +1,141 @@
+{
+  "round": 1074,
+  "date": "2023-07-01",
+  "nums": [
+    1,
+    6,
+    20,
+    27,
+    28,
+    41
+  ],
+  "bonus": 15,
+  "firstWinAmount": 2134763657,
+  "firstWinners": 12,
+  "totalSales": 105744157000,
+  "prizes": {
+    "first": {
+      "amount": 2134763657,
+      "winners": 12
+    },
+    "second": {
+      "amount": 54737530,
+      "winners": 78
+    },
+    "third": {
+      "amount": 1574891,
+      "winners": 2711
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 143155
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2311622
+    }
+  },
+  "methodCounts": {
+    "auto": 11,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "auto",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "로그인편의점",
+      "address": "서울 성동구 천호대로 430 103호 로그인편의점",
+      "method": "manual",
+      "lat": 37.5608,
+      "lng": 127.06653
+    },
+    {
+      "rank": 1,
+      "name": "제일복권",
+      "address": "인천 동구 송림로162번길 10 B107",
+      "method": "auto",
+      "lat": 37.477863,
+      "lng": 126.650566
+    },
+    {
+      "rank": 1,
+      "name": "또로또",
+      "address": "울산 남구 신정로68번길 47",
+      "method": "auto",
+      "lat": 35.53928,
+      "lng": 129.32616
+    },
+    {
+      "rank": 1,
+      "name": "행운로또",
+      "address": "울산 남구 대공원로 95",
+      "method": "auto",
+      "lat": 35.53202,
+      "lng": 129.29398
+    },
+    {
+      "rank": 1,
+      "name": "로또명가",
+      "address": "세종   새내로 84",
+      "method": "auto",
+      "lat": 36.599396,
+      "lng": 127.2986
+    },
+    {
+      "rank": 1,
+      "name": "문구백화점",
+      "address": "경기 광주시 중앙로 120",
+      "method": "auto",
+      "lat": 37.410374,
+      "lng": 127.258095
+    },
+    {
+      "rank": 1,
+      "name": "나눔로또 판교역점",
+      "address": "경기 성남시 분당구 대왕판교로606번길 39 107호",
+      "method": "auto",
+      "lat": 37.396473,
+      "lng": 127.11148
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권",
+      "address": "강원 횡성군 문정로 52",
+      "method": "auto",
+      "lat": 37.488537,
+      "lng": 127.98868
+    },
+    {
+      "rank": 1,
+      "name": "콕콕로또명당옥천점",
+      "address": "충북 옥천군 서대구일로 265-19 옥천하휴게소",
+      "method": "auto",
+      "lat": 36.29677,
+      "lng": 127.59518
+    },
+    {
+      "rank": 1,
+      "name": "대동도기상사",
+      "address": "경북 영천시 금완로 30",
+      "method": "auto",
+      "lat": 35.960327,
+      "lng": 128.93187
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "경남 창녕군 창녕읍 명덕로 49",
+      "method": "auto",
+      "lat": 35.54299,
+      "lng": 128.49487
+    }
+  ]
+}

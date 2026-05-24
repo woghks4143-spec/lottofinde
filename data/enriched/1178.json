@@ -1,0 +1,141 @@
+{
+  "round": 1178,
+  "date": "2025-06-28",
+  "nums": [
+    5,
+    6,
+    11,
+    27,
+    43,
+    44
+  ],
+  "bonus": 17,
+  "firstWinAmount": 2391608407,
+  "firstWinners": 12,
+  "totalSales": 118774279000,
+  "prizes": {
+    "first": {
+      "amount": 2391608407,
+      "winners": 12
+    },
+    "second": {
+      "amount": 53744010,
+      "winners": 89
+    },
+    "third": {
+      "amount": 1562633,
+      "winners": 3061
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 157044
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2653841
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "하이로또",
+      "address": "서울 금천구 금하로 686",
+      "method": "manual",
+      "lat": 37.451874,
+      "lng": 126.906334
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "서울 성북구 동소문로20길 28-4",
+      "method": "auto",
+      "lat": 37.591366,
+      "lng": 127.01655
+    },
+    {
+      "rank": 1,
+      "name": "복권나라(매곡동)",
+      "address": "광주 북구 서하로 117 101호 (매곡동)",
+      "method": "auto",
+      "lat": 35.187523,
+      "lng": 126.89344
+    },
+    {
+      "rank": 1,
+      "name": "성호복권방",
+      "address": "대전 대덕구 신일동로 1",
+      "method": "manual",
+      "lat": 36.444744,
+      "lng": 127.40511
+    },
+    {
+      "rank": 1,
+      "name": "세종청사로또",
+      "address": "세종   절재로 194 중앙타운 114호",
+      "method": "mixed",
+      "lat": 36.508392,
+      "lng": 127.26221
+    },
+    {
+      "rank": 1,
+      "name": "교동복권",
+      "address": "강원 강릉시 솔올로 51 1층 4호(교동, 리멕스빌딩)",
+      "method": "auto",
+      "lat": 37.76663,
+      "lng": 128.87811
+    },
+    {
+      "rank": 1,
+      "name": "청남로또",
+      "address": "충북 청주시 상당구 단재로 742",
+      "method": "manual",
+      "lat": 36.56552,
+      "lng": 127.50957
+    },
+    {
+      "rank": 1,
+      "name": "대박마트복권방",
+      "address": "충남 아산시 음봉로 844 태화상가1층103호",
+      "method": "auto",
+      "lat": 36.826508,
+      "lng": 127.09927
+    },
+    {
+      "rank": 1,
+      "name": "천안명당병천점",
+      "address": "충남 천안시 동남구 아우내순대길 38 1층 미니스톱 내",
+      "method": "auto",
+      "lat": 36.76074,
+      "lng": 127.29882
+    },
+    {
+      "rank": 1,
+      "name": "팡팡복권마트.잡화슈퍼",
+      "address": "전북 전주시 덕진구 가리내로 26",
+      "method": "auto",
+      "lat": 35.834366,
+      "lng": 127.13327
+    },
+    {
+      "rank": 1,
+      "name": "왕대박로또",
+      "address": "전북 전주시 덕진구 만성북로 19 조은 프라자 106호",
+      "method": "auto",
+      "lat": 35.849773,
+      "lng": 127.07735
+    },
+    {
+      "rank": 1,
+      "name": "하나유통",
+      "address": "경북 경산시 공단2로 7",
+      "method": "auto",
+      "lat": 35.871765,
+      "lng": 128.81998
+    }
+  ]
+}

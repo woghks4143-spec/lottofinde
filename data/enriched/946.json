@@ -1,0 +1,133 @@
+{
+  "round": 946,
+  "date": "2021-01-16",
+  "nums": [
+    9,
+    18,
+    19,
+    30,
+    34,
+    40
+  ],
+  "bonus": 20,
+  "firstWinAmount": 2157656182,
+  "firstWinners": 11,
+  "totalSales": 99380178000,
+  "prizes": {
+    "first": {
+      "amount": 2157656182,
+      "winners": 11
+    },
+    "second": {
+      "amount": 55714127,
+      "winners": 71
+    },
+    "third": {
+      "amount": 1341371,
+      "winners": 2949
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 138433
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2224563
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "내복권방",
+      "address": "서울 노원구 노원로1나길 5 1층",
+      "method": "auto",
+      "lat": 37.62124,
+      "lng": 127.082855
+    },
+    {
+      "rank": 1,
+      "name": "GS25(반포중앙점)",
+      "address": "서울 서초구  사평대로55길 37 1층",
+      "method": "manual",
+      "lat": 37.505672,
+      "lng": 127.02201
+    },
+    {
+      "rank": 1,
+      "name": "홈플러스앞가로판매점",
+      "address": "서울 양천구 등촌로 172",
+      "method": "auto",
+      "lat": 37.54501,
+      "lng": 126.86259
+    },
+    {
+      "rank": 1,
+      "name": "문구뱅크",
+      "address": "서울 은평구 서오릉로 71 영화마스타골프랜드 문구뱅크",
+      "method": "auto",
+      "lat": 37.606796,
+      "lng": 126.92209
+    },
+    {
+      "rank": 1,
+      "name": "묵동식품",
+      "address": "서울 중랑구 동일로 919",
+      "method": "manual",
+      "lat": 37.612457,
+      "lng": 127.07704
+    },
+    {
+      "rank": 1,
+      "name": "복터졌네 대박로또",
+      "address": "부산 사상구 광장로21번길 46",
+      "method": "manual",
+      "lat": 35.1653,
+      "lng": 128.97977
+    },
+    {
+      "rank": 1,
+      "name": "태수상사",
+      "address": "대구 달서구 월배로39길 30 이마트24달서월배로점",
+      "method": "auto",
+      "lat": 35.820366,
+      "lng": 128.5325
+    },
+    {
+      "rank": 1,
+      "name": "용두천하",
+      "address": "광주 북구 하서로 373",
+      "method": "auto",
+      "lat": 35.20835,
+      "lng": 126.87351
+    },
+    {
+      "rank": 1,
+      "name": "파크애비뉴",
+      "address": "경기 화성시 화성로 1215 가동 1호",
+      "method": "auto",
+      "lat": 37.21417,
+      "lng": 126.81631
+    },
+    {
+      "rank": 1,
+      "name": "Letsgo복권방",
+      "address": "전북 전주시 완산구 평화로 190",
+      "method": "manual",
+      "lat": 35.793427,
+      "lng": 127.13674
+    },
+    {
+      "rank": 1,
+      "name": "스마일복권방",
+      "address": "경북 김천시 영남대로 2087 101호",
+      "method": "manual",
+      "lat": 36.11514,
+      "lng": 128.15657
+    }
+  ]
+}

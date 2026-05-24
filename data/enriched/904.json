@@ -1,0 +1,109 @@
+{
+  "round": 904,
+  "date": "2020-03-28",
+  "nums": [
+    2,
+    6,
+    8,
+    26,
+    43,
+    45
+  ],
+  "bonus": 11,
+  "firstWinAmount": 2718077813,
+  "firstWinners": 8,
+  "totalSales": 88938220000,
+  "prizes": {
+    "first": {
+      "amount": 2718077813,
+      "winners": 8
+    },
+    "second": {
+      "amount": 39392433,
+      "winners": 92
+    },
+    "third": {
+      "amount": 1550751,
+      "winners": 2337
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 115626
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1938996
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "교통카드충전소",
+      "address": "서울 금천구 시흥대로 398",
+      "method": "auto",
+      "lat": 37.469357,
+      "lng": 126.89842
+    },
+    {
+      "rank": 1,
+      "name": "황금돼지복권방",
+      "address": "부산 연제구 중앙대로 1204",
+      "method": "auto",
+      "lat": 35.194878,
+      "lng": 129.0804
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "경기 고양시 일산동구 정발산로 24 1층 K-114호",
+      "method": "auto",
+      "lat": 37.65477,
+      "lng": 126.77263
+    },
+    {
+      "rank": 1,
+      "name": "GS25(수원행복점)",
+      "address": "경기 수원시 영통구 영통동 974-6번지 세일빌딩111호",
+      "method": "auto",
+      "lat": 37.24678,
+      "lng": 127.06075
+    },
+    {
+      "rank": 1,
+      "name": "대박로또명당",
+      "address": "충남 당진시 송악로 37",
+      "method": "auto",
+      "lat": 36.906906,
+      "lng": 126.69329
+    },
+    {
+      "rank": 1,
+      "name": "Letsgo복권방(동산점)",
+      "address": "전북 전주시 덕진구 쪽구름로 57-1",
+      "method": "manual",
+      "lat": 35.8706,
+      "lng": 127.07655
+    },
+    {
+      "rank": 1,
+      "name": "코사할인마트",
+      "address": "경남 거제시 연초면 거제북로 46",
+      "method": "manual",
+      "lat": 34.91474,
+      "lng": 128.65558
+    },
+    {
+      "rank": 1,
+      "name": "목화휴게소",
+      "address": "경남 사천시 사천대로 912",
+      "method": "auto",
+      "lat": 35.0018,
+      "lng": 128.05415
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "round": 1185,
+  "date": "2025-08-16",
+  "nums": [
+    6,
+    17,
+    22,
+    28,
+    29,
+    32
+  ],
+  "bonus": 38,
+  "firstWinAmount": 2388695125,
+  "firstWinners": 12,
+  "totalSales": 117480804000,
+  "prizes": {
+    "first": {
+      "amount": 2388695125,
+      "winners": 12
+    },
+    "second": {
+      "amount": 60473295,
+      "winners": 79
+    },
+    "third": {
+      "amount": 1645674,
+      "winners": 2903
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 153798
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2566276
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "하나복권(가로판매점)",
+      "address": "서울 영등포구 여의나루로 42 가로판매점(여의도동)",
+      "method": "auto",
+      "lat": 37.52147,
+      "lng": 126.92497
+    },
+    {
+      "rank": 1,
+      "name": "뉴빅마트",
+      "address": "부산 기장군 정관중앙로 48 106호",
+      "method": "manual",
+      "lat": 35.321114,
+      "lng": 129.17929
+    },
+    {
+      "rank": 1,
+      "name": "천하제일명당",
+      "address": "부산 부산진구 골드테마길 42",
+      "method": "auto",
+      "lat": 35.143642,
+      "lng": 129.06015
+    },
+    {
+      "rank": 1,
+      "name": "복권천국",
+      "address": "경기 광명시 기아로 6",
+      "method": "manual",
+      "lat": 37.436337,
+      "lng": 126.880295
+    },
+    {
+      "rank": 1,
+      "name": "복이만석",
+      "address": "경기 수원시 영통구 덕영대로1555번길 13 106호(영통동, 세일빌딩)",
+      "method": "auto",
+      "lat": 37.246784,
+      "lng": 127.0608
+    },
+    {
+      "rank": 1,
+      "name": "일등복권방",
+      "address": "경기 시흥시 시청로68번길 4 1층 124호(장현동, 장현1엔플러스빌)",
+      "method": "auto",
+      "lat": 37.38048,
+      "lng": 126.80052
+    },
+    {
+      "rank": 1,
+      "name": "천하명당",
+      "address": "경기 안산시 단원구 광덕2로 193-19 113,114호",
+      "method": "auto",
+      "lat": 37.31169,
+      "lng": 126.83174
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "경기 오산시 성호대로93번길 27",
+      "method": "auto",
+      "lat": 37.151245,
+      "lng": 127.07145
+    },
+    {
+      "rank": 1,
+      "name": "새희망복권",
+      "address": "경기 화성시 동화새터길 98 106호",
+      "method": "auto",
+      "lat": 37.21728,
+      "lng": 126.95972
+    },
+    {
+      "rank": 1,
+      "name": "필로또복권",
+      "address": "충남 서산시 호수공원6로 64 1층",
+      "method": "auto",
+      "lat": 36.77264,
+      "lng": 126.45055
+    },
+    {
+      "rank": 1,
+      "name": "GMART",
+      "address": "경북 구미시 구미중앙로 57-3",
+      "method": "auto",
+      "lat": 36.130028,
+      "lng": 128.32906
+    },
+    {
+      "rank": 1,
+      "name": "로또통신",
+      "address": "경남 김해시 함박로101번길 22 삼우빌딩104호 복권판매점",
+      "method": "auto",
+      "lat": 35.234215,
+      "lng": 128.86583
+    }
+  ]
+}

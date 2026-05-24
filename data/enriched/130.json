@@ -1,0 +1,43 @@
+{
+  "round": 130,
+  "date": "2005-05-28",
+  "nums": [
+    7,
+    19,
+    24,
+    27,
+    42,
+    45
+  ],
+  "bonus": 31,
+  "firstWinAmount": 3036496650,
+  "firstWinners": 4,
+  "totalSales": 51359012000,
+  "prizes": {
+    "first": {
+      "amount": 3036496650,
+      "winners": 4
+    },
+    "second": {
+      "amount": 67477704,
+      "winners": 30
+    },
+    "third": {
+      "amount": 1590206,
+      "winners": 1273
+    },
+    "fourth": {
+      "amount": 63672,
+      "winners": 63587
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1087239
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

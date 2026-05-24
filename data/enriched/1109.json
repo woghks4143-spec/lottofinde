@@ -1,0 +1,181 @@
+{
+  "round": 1109,
+  "date": "2024-03-02",
+  "nums": [
+    10,
+    12,
+    13,
+    19,
+    33,
+    40
+  ],
+  "bonus": 2,
+  "firstWinAmount": 1584352875,
+  "firstWinners": 17,
+  "totalSales": 117196327000,
+  "prizes": {
+    "first": {
+      "amount": 1584352875,
+      "winners": 17
+    },
+    "second": {
+      "amount": 53440474,
+      "winners": 84
+    },
+    "third": {
+      "amount": 1341202,
+      "winners": 3347
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 180255
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2734683
+    }
+  },
+  "methodCounts": {
+    "auto": 14,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가판점",
+      "address": "서울 강동구 천호대로 1073 힐탑프라자 앞 가판점",
+      "method": "auto",
+      "lat": 37.53663,
+      "lng": 127.131355
+    },
+    {
+      "rank": 1,
+      "name": "지니복권",
+      "address": "서울 금천구 금하로 632 16호",
+      "method": "auto",
+      "lat": 37.45465,
+      "lng": 126.90136
+    },
+    {
+      "rank": 1,
+      "name": "제일식품",
+      "address": "서울 서대문구 증가로 143,(남가좌동)",
+      "method": "auto",
+      "lat": 37.57747,
+      "lng": 126.92169
+    },
+    {
+      "rank": 1,
+      "name": "장보고복권방",
+      "address": "서울 중랑구 면목로 288",
+      "method": "auto",
+      "lat": 37.578384,
+      "lng": 127.08619
+    },
+    {
+      "rank": 1,
+      "name": "우정식품",
+      "address": "부산 동래구 온천장로 39",
+      "method": "auto",
+      "lat": 35.21585,
+      "lng": 129.07948
+    },
+    {
+      "rank": 1,
+      "name": "봄봄복권판매점",
+      "address": "부산 사상구 엄궁로 203",
+      "method": "auto",
+      "lat": 35.130375,
+      "lng": 128.97302
+    },
+    {
+      "rank": 1,
+      "name": "에덴건강원",
+      "address": "인천 남동구 백범로 332-1 1층",
+      "method": "auto",
+      "lat": 37.464577,
+      "lng": 126.71356
+    },
+    {
+      "rank": 1,
+      "name": "대박로또",
+      "address": "대전 서구 둔산중로14번길 36",
+      "method": "auto",
+      "lat": 36.347702,
+      "lng": 127.38861
+    },
+    {
+      "rank": 1,
+      "name": "보람복권방",
+      "address": "울산 남구 화합로194번길 18-1 1층",
+      "method": "auto",
+      "lat": 35.541855,
+      "lng": 129.34157
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "경기 안산시 상록구 광덕산2로 25",
+      "method": "auto",
+      "lat": 37.335415,
+      "lng": 126.84604
+    },
+    {
+      "rank": 1,
+      "name": "대진로또",
+      "address": "경기 평택시 서동대로 1272",
+      "method": "manual",
+      "lat": 36.986984,
+      "lng": 126.89416
+    },
+    {
+      "rank": 1,
+      "name": "거두로또",
+      "address": "강원 춘천시 춘천순환로 61-26  1층",
+      "method": "auto",
+      "lat": 37.85614,
+      "lng": 127.75235
+    },
+    {
+      "rank": 1,
+      "name": "서울로또방",
+      "address": "충북 옥천군 삼금로 8",
+      "method": "manual",
+      "lat": 36.29949,
+      "lng": 127.56668
+    },
+    {
+      "rank": 1,
+      "name": "서울로또방",
+      "address": "충북 옥천군 삼금로 8",
+      "method": "manual",
+      "lat": 36.29949,
+      "lng": 127.56668
+    },
+    {
+      "rank": 1,
+      "name": "복권판매점(담양)",
+      "address": "전남 담양군 중앙로 32-1",
+      "method": "auto",
+      "lat": 35.316162,
+      "lng": 126.98364
+    },
+    {
+      "rank": 1,
+      "name": "이룸로또복권방",
+      "address": "전남 목포시 백년대로297번길 42 1층",
+      "method": "auto",
+      "lat": 34.80711,
+      "lng": 126.41811
+    },
+    {
+      "rank": 1,
+      "name": "로또 봉하점",
+      "address": "경남 김해시 봉하로 24 CU편의점 좌측 복권판매점",
+      "method": "auto",
+      "lat": 35.314568,
+      "lng": 128.76036
+    }
+  ]
+}

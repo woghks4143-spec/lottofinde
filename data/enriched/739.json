@@ -1,0 +1,77 @@
+{
+  "round": 739,
+  "date": "2017-01-28",
+  "nums": [
+    7,
+    22,
+    29,
+    33,
+    34,
+    35
+  ],
+  "bonus": 30,
+  "firstWinAmount": 4744122282,
+  "firstWinners": 4,
+  "totalSales": 77999661000,
+  "prizes": {
+    "first": {
+      "amount": 4744122282,
+      "winners": 4
+    },
+    "second": {
+      "amount": 70283294,
+      "winners": 45
+    },
+    "third": {
+      "amount": 1628604,
+      "winners": 1942
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 101983
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1719739
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "길동방",
+      "address": "서울 강동구 진황도로49길 16 3호",
+      "method": "auto",
+      "lat": 37.53437,
+      "lng": 127.14083
+    },
+    {
+      "rank": 1,
+      "name": "로또생삼겹",
+      "address": "인천 남동구 논고개로 77",
+      "method": "auto",
+      "lat": 37.39841,
+      "lng": 126.726234
+    },
+    {
+      "rank": 1,
+      "name": "복권백화점",
+      "address": "경기 파주시 평화로 70",
+      "method": "auto",
+      "lat": 37.763588,
+      "lng": 126.76989
+    },
+    {
+      "rank": 1,
+      "name": "의림유통",
+      "address": "강원 원주시 치악로 2335 1층",
+      "method": "auto",
+      "lat": 37.38372,
+      "lng": 127.97537
+    }
+  ]
+}

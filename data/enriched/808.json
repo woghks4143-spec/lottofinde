@@ -1,0 +1,93 @@
+{
+  "round": 808,
+  "date": "2018-05-26",
+  "nums": [
+    15,
+    21,
+    31,
+    32,
+    41,
+    43
+  ],
+  "bonus": 24,
+  "firstWinAmount": 3087620500,
+  "firstWinners": 6,
+  "totalSales": 74911438000,
+  "prizes": {
+    "first": {
+      "amount": 3087620500,
+      "winners": 6
+    },
+    "second": {
+      "amount": 67122185,
+      "winners": 46
+    },
+    "third": {
+      "amount": 1573711,
+      "winners": 1962
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 95319
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1597761
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "서울 강동구 천호대로176길 10-3",
+      "method": "auto",
+      "lat": 37.53383,
+      "lng": 127.13603
+    },
+    {
+      "rank": 1,
+      "name": "코니아일랜드아이스크림",
+      "address": "경기 남양주시 화도읍 마치로 339 진우로얄빌라제나동102",
+      "method": "auto",
+      "lat": 37.655712,
+      "lng": 127.282364
+    },
+    {
+      "rank": 1,
+      "name": "형제상회",
+      "address": "경기 부천시 부일로 752,(역곡동)",
+      "method": "auto",
+      "lat": 37.486286,
+      "lng": 126.81329
+    },
+    {
+      "rank": 1,
+      "name": "들꽃편의점",
+      "address": "경기 수원시 영통구 동수원로 504",
+      "method": "manual",
+      "lat": 37.272293,
+      "lng": 127.04591
+    },
+    {
+      "rank": 1,
+      "name": "GS25(수원삼성점)",
+      "address": "경기 수원시 영통구 매탄동 1267-7번지 중앙프라자104호",
+      "method": "manual",
+      "lat": 37.259037,
+      "lng": 127.04512
+    },
+    {
+      "rank": 1,
+      "name": "중마로또",
+      "address": "전남 광양시 중마로 213-1 커피집 내",
+      "method": "auto",
+      "lat": 34.94392,
+      "lng": 127.688866
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "round": 826,
+  "date": "2018-09-29",
+  "nums": [
+    13,
+    16,
+    24,
+    25,
+    33,
+    36
+  ],
+  "bonus": 42,
+  "firstWinAmount": 2075192084,
+  "firstWinners": 9,
+  "totalSales": 78218740000,
+  "prizes": {
+    "first": {
+      "amount": 2075192084,
+      "winners": 9
+    },
+    "second": {
+      "amount": 66229535,
+      "winners": 47
+    },
+    "third": {
+      "amount": 1394619,
+      "winners": 2232
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 108626
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1755153
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 상계주공아파트(10단지) 주공10단지종합상가111",
+      "method": "auto",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "로또 마트",
+      "address": "서울 서초구 서초대로77길 62 b110호 cu서초아이파크내",
+      "method": "auto",
+      "lat": 37.49324,
+      "lng": 127.01724
+    },
+    {
+      "rank": 1,
+      "name": "대박로또",
+      "address": "서울 성동구 용답19길 11",
+      "method": "auto",
+      "lat": 37.56328,
+      "lng": 127.052055
+    },
+    {
+      "rank": 1,
+      "name": "호반할인마트",
+      "address": "광주 광산구 도산로9번길 40",
+      "method": "manual",
+      "lat": 35.127934,
+      "lng": 126.790115
+    },
+    {
+      "rank": 1,
+      "name": "금도끼복권방",
+      "address": "경기 양평군 용문로 812 1층",
+      "method": "manual",
+      "lat": 37.50729,
+      "lng": 127.63166
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "경기 평택시 중앙2로 42",
+      "method": "auto",
+      "lat": 36.991207,
+      "lng": 127.09152
+    },
+    {
+      "rank": 1,
+      "name": "한성로또복권",
+      "address": "강원 정선군 고한읍 고한리 57-5번지",
+      "method": "mixed",
+      "lat": 37.196945,
+      "lng": 128.85828
+    },
+    {
+      "rank": 1,
+      "name": "로또천국",
+      "address": "충북 충주시 금봉1길  48 1층",
+      "method": "auto",
+      "lat": 36.981762,
+      "lng": 127.91459
+    },
+    {
+      "rank": 1,
+      "name": "J마트",
+      "address": "경남 진주시 도동천로 131",
+      "method": "auto",
+      "lat": 35.18242,
+      "lng": 128.11334
+    }
+  ]
+}

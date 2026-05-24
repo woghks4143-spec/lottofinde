@@ -1,0 +1,101 @@
+{
+  "round": 905,
+  "date": "2020-04-04",
+  "nums": [
+    3,
+    4,
+    16,
+    27,
+    38,
+    40
+  ],
+  "bonus": 20,
+  "firstWinAmount": 3017862536,
+  "firstWinners": 7,
+  "totalSales": 90357634000,
+  "prizes": {
+    "first": {
+      "amount": 3017862536,
+      "winners": 7
+    },
+    "second": {
+      "amount": 45725190,
+      "winners": 77
+    },
+    "third": {
+      "amount": 1332138,
+      "winners": 2643
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 129133
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2111090
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(망원희망점)",
+      "address": "서울 마포구 망원동 406-16",
+      "method": "manual",
+      "lat": 37.55432,
+      "lng": 126.90226
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "대구 동구 경안로 751",
+      "method": "auto",
+      "lat": 35.869484,
+      "lng": 128.71349
+    },
+    {
+      "rank": 1,
+      "name": "인더라인 정발산점",
+      "address": "경기 고양시 일산동구 일산로463번길 5-18",
+      "method": "auto",
+      "lat": 37.67344,
+      "lng": 126.77617
+    },
+    {
+      "rank": 1,
+      "name": "복권전문점",
+      "address": "경기 시흥시 진말로9번길 2 부석프라자114호",
+      "method": "manual",
+      "lat": 37.37856,
+      "lng": 126.78516
+    },
+    {
+      "rank": 1,
+      "name": "대박복권방",
+      "address": "경기 연천군 전곡읍 온골로 57-1,(전곡리)",
+      "method": "manual",
+      "lat": 38.02602,
+      "lng": 127.06766
+    },
+    {
+      "rank": 1,
+      "name": "파크애비뉴",
+      "address": "경기 화성시 화성로 1215 가동 1호",
+      "method": "auto",
+      "lat": 37.21417,
+      "lng": 126.81631
+    },
+    {
+      "rank": 1,
+      "name": "블루25복권명당대원점",
+      "address": "경남 창원시 성산구 두대로 57",
+      "method": "auto",
+      "lat": 35.231815,
+      "lng": 128.65057
+    }
+  ]
+}

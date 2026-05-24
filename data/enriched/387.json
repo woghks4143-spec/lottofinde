@@ -1,0 +1,77 @@
+{
+  "round": 387,
+  "date": "2010-05-01",
+  "nums": [
+    1,
+    26,
+    31,
+    34,
+    40,
+    43
+  ],
+  "bonus": 20,
+  "firstWinAmount": 2675533500,
+  "firstWinners": 4,
+  "totalSales": 45459960000,
+  "prizes": {
+    "first": {
+      "amount": 2675533500,
+      "winners": 4
+    },
+    "second": {
+      "amount": 68603424,
+      "winners": 26
+    },
+    "third": {
+      "amount": 1515454,
+      "winners": 1177
+    },
+    "fourth": {
+      "amount": 61385,
+      "winners": 58115
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 978618
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "갈렙분식한식",
+      "address": "서울 중랑구 용마산로115길 92",
+      "method": "auto",
+      "lat": 37.59823,
+      "lng": 127.09528
+    },
+    {
+      "rank": 1,
+      "name": "알리바이",
+      "address": "광주 광산구 수등로 253 1층 알리바이",
+      "method": "manual",
+      "lat": 35.185387,
+      "lng": 126.83668
+    },
+    {
+      "rank": 1,
+      "name": "온천로또복권",
+      "address": "충남 예산군 덕산면  사동리 15덕산온천관광호텔매점",
+      "method": "auto",
+      "lat": 36.689205,
+      "lng": 126.65954
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "제주 제주시 한림중앙로 12",
+      "method": "manual",
+      "lat": 33.41369,
+      "lng": 126.26447
+    }
+  ]
+}

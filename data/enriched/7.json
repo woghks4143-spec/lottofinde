@@ -1,0 +1,37 @@
+{
+  "round": 7,
+  "date": "2003-01-18",
+  "nums": [
+    2,
+    9,
+    16,
+    25,
+    26,
+    40
+  ],
+  "bonus": 42,
+  "totalSales": 12794890000,
+  "prizes": {
+    "second": {
+      "amount": 48165000,
+      "winners": 9
+    },
+    "third": {
+      "amount": 1605500,
+      "winners": 270
+    },
+    "fourth": {
+      "amount": 65500,
+      "winners": 13229
+    },
+    "fifth": {
+      "amount": 10000,
+      "winners": 206259
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

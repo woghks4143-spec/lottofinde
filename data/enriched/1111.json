@@ -1,0 +1,173 @@
+{
+  "round": 1111,
+  "date": "2024-03-16",
+  "nums": [
+    3,
+    13,
+    30,
+    33,
+    43,
+    45
+  ],
+  "bonus": 4,
+  "firstWinAmount": 1714662540,
+  "firstWinners": 16,
+  "totalSales": 116382835000,
+  "prizes": {
+    "first": {
+      "amount": 1714662540,
+      "winners": 16
+    },
+    "second": {
+      "amount": 47138490,
+      "winners": 97
+    },
+    "third": {
+      "amount": 897260,
+      "winners": 5096
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 171363
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2608760
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 10,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또 명당 가판점",
+      "address": "서울 금천구 남부순환로 1390 전영수내과의원 가판",
+      "method": "auto",
+      "lat": 37.479816,
+      "lng": 126.90518
+    },
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 상계주공아파트(10단지) 주공10단지종합상가111",
+      "method": "auto",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "보원상회",
+      "address": "서울 성북구 보문로 56",
+      "method": "manual",
+      "lat": 37.580452,
+      "lng": 127.02225
+    },
+    {
+      "rank": 1,
+      "name": "일조복권",
+      "address": "서울 송파구 마천로51가길 2 1층 2호",
+      "method": "manual",
+      "lat": 37.497276,
+      "lng": 127.15364
+    },
+    {
+      "rank": 1,
+      "name": "성호복권방",
+      "address": "대전 대덕구 신일동로 1",
+      "method": "auto",
+      "lat": 36.444744,
+      "lng": 127.40511
+    },
+    {
+      "rank": 1,
+      "name": "씨유 대전반석역점",
+      "address": "대전 유성구 반석로 10 반석역프라자",
+      "method": "manual",
+      "lat": 36.39211,
+      "lng": 127.313446
+    },
+    {
+      "rank": 1,
+      "name": "씨유 대전반석역점",
+      "address": "대전 유성구 반석로 10 반석역프라자",
+      "method": "manual",
+      "lat": 36.39211,
+      "lng": 127.313446
+    },
+    {
+      "rank": 1,
+      "name": "씨유 대전반석역점",
+      "address": "대전 유성구 반석로 10 반석역프라자",
+      "method": "manual",
+      "lat": 36.39211,
+      "lng": 127.313446
+    },
+    {
+      "rank": 1,
+      "name": "GS25선화목동점",
+      "address": "대전 중구 선화서로 128-1",
+      "method": "manual",
+      "lat": 36.334328,
+      "lng": 127.41397
+    },
+    {
+      "rank": 1,
+      "name": "이충복권방",
+      "address": "경기 평택시 송탄로 108 1층103호",
+      "method": "manual",
+      "lat": 37.054466,
+      "lng": 127.05607
+    },
+    {
+      "rank": 1,
+      "name": "종합복권나라",
+      "address": "강원 원주시 남원로 619 1층",
+      "method": "manual",
+      "lat": 37.338478,
+      "lng": 127.95132
+    },
+    {
+      "rank": 1,
+      "name": "금강로또",
+      "address": "충북 옥천군 금강로 596 금강휴게소",
+      "method": "auto",
+      "lat": 36.278942,
+      "lng": 127.6721
+    },
+    {
+      "rank": 1,
+      "name": "성심상회",
+      "address": "경북 포항시 북구 불종로 78",
+      "method": "auto",
+      "lat": 36.038174,
+      "lng": 129.36801
+    },
+    {
+      "rank": 1,
+      "name": "함덕대박복권판매점",
+      "address": "제주 제주시 함덕18길 19",
+      "method": "auto",
+      "lat": 33.539494,
+      "lng": 126.670364
+    },
+    {
+      "rank": 1,
+      "name": "영평로또명당",
+      "address": "제주 제주시 연신로 280",
+      "method": "manual",
+      "lat": 33.48079,
+      "lng": 126.56206
+    },
+    {
+      "rank": 1,
+      "name": "영평로또명당",
+      "address": "제주 제주시 연신로 280",
+      "method": "manual",
+      "lat": 33.48079,
+      "lng": 126.56206
+    }
+  ]
+}

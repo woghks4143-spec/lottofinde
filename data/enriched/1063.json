@@ -1,0 +1,101 @@
+{
+  "round": 1063,
+  "date": "2023-04-15",
+  "nums": [
+    3,
+    6,
+    22,
+    23,
+    24,
+    38
+  ],
+  "bonus": 30,
+  "firstWinAmount": 3770311875,
+  "firstWinners": 7,
+  "totalSales": 108347135000,
+  "prizes": {
+    "first": {
+      "amount": 3770311875,
+      "winners": 7
+    },
+    "second": {
+      "amount": 79976313,
+      "winners": 55
+    },
+    "third": {
+      "amount": 1625535,
+      "winners": 2706
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 139518
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2401618
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "데이앤나잇",
+      "address": "서울 성북구 종암로 132 종암우림카이저팰리스 1층 101호",
+      "method": "auto",
+      "lat": 37.601955,
+      "lng": 127.03346
+    },
+    {
+      "rank": 1,
+      "name": "농심가슈퍼마트",
+      "address": "서울 양천구 목동중앙본로 54 1층",
+      "method": "auto",
+      "lat": 37.540688,
+      "lng": 126.869026
+    },
+    {
+      "rank": 1,
+      "name": "로또랑",
+      "address": "부산 기장군 일광로 86 바라보고 오른쪽",
+      "method": "auto",
+      "lat": 35.26367,
+      "lng": 129.23286
+    },
+    {
+      "rank": 1,
+      "name": "황금로또",
+      "address": "부산 동구 중앙대로251번길 42-1",
+      "method": "auto",
+      "lat": 35.12021,
+      "lng": 129.03966
+    },
+    {
+      "rank": 1,
+      "name": "복슈퍼",
+      "address": "인천 계양구 계산로108번길 4,(계산동)",
+      "method": "auto",
+      "lat": 37.537193,
+      "lng": 126.72408
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "충북 증평군 중앙로 199-1",
+      "method": "auto",
+      "lat": 36.783936,
+      "lng": 127.58088
+    },
+    {
+      "rank": 1,
+      "name": "송도하우스",
+      "address": "전남 목포시 영산로 525 목포터미널 내",
+      "method": "auto",
+      "lat": 34.812717,
+      "lng": 126.41759
+    }
+  ]
+}

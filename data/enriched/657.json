@@ -1,0 +1,117 @@
+{
+  "round": 657,
+  "date": "2015-07-04",
+  "nums": [
+    10,
+    14,
+    19,
+    39,
+    40,
+    43
+  ],
+  "bonus": 23,
+  "firstWinAmount": 1694762792,
+  "firstWinners": 9,
+  "totalSales": 61769837000,
+  "prizes": {
+    "first": {
+      "amount": 1694762792,
+      "winners": 9
+    },
+    "second": {
+      "amount": 48887389,
+      "winners": 52
+    },
+    "third": {
+      "amount": 1627494,
+      "winners": 1562
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 78396
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1325593
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가로판매점",
+      "address": "서울 관악구 과천대로 955",
+      "method": "manual",
+      "lat": 37.47595,
+      "lng": 126.98115
+    },
+    {
+      "rank": 1,
+      "name": "하이로또",
+      "address": "서울 금천구 금하로 686",
+      "method": "auto",
+      "lat": 37.451874,
+      "lng": 126.906334
+    },
+    {
+      "rank": 1,
+      "name": "성서제일복권",
+      "address": "대구 달서구 성서동로 320 1층",
+      "method": "manual",
+      "lat": 35.849182,
+      "lng": 128.516
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐 현풍대로점",
+      "address": "대구 달성군 비슬로 581 세븐일레븐현풍대로점",
+      "method": "manual",
+      "lat": 35.690544,
+      "lng": 128.44447
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "대구 중구 태평로1가  19-1번지",
+      "method": "auto",
+      "lat": 35.873936,
+      "lng": 128.59943
+    },
+    {
+      "rank": 1,
+      "name": "대광광고사",
+      "address": "대전 유성구 구즉로 54",
+      "method": "auto",
+      "lat": 36.433846,
+      "lng": 127.385056
+    },
+    {
+      "rank": 1,
+      "name": "로또가게",
+      "address": "경기 용인시 처인구 경기동로706번길 1",
+      "method": "manual",
+      "lat": 37.13827,
+      "lng": 127.19789
+    },
+    {
+      "rank": 1,
+      "name": "로또.토토.블루베리",
+      "address": "경기 평택시 안현로서6길 7 대건빌딩 105호",
+      "method": "auto",
+      "lat": 36.98331,
+      "lng": 126.928055
+    },
+    {
+      "rank": 1,
+      "name": "CU로또(구미고아점)",
+      "address": "경북 구미시 고아읍  관심리  668-9번지 CU편의점 내",
+      "method": "auto",
+      "lat": 36.20934,
+      "lng": 128.33025
+    }
+  ]
+}

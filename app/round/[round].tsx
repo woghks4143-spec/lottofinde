@@ -207,29 +207,19 @@ export default function RoundDetail() {
             )}
           </View>
           {/* 당첨번호 — sm + gap 3으로 좁은 폰에서도 여유롭게 */}
-          <View style={{ marginTop: 14, alignItems: 'center' }}>
+          <View style={{ marginTop: 14, marginBottom: 4, alignItems: 'center' }}>
             <BallRow nums={draw.nums} bonus={draw.bonus} size="sm" style={{ gap: 3 }} />
           </View>
-          {draw.firstWinAmount ? (
-            <View style={[styles.heroFoot, { borderTopColor: t.borderOnHero }]}>
-              <T variant="label1r" style={{ color: t.fgOnHeroMuted }}>1등 당첨금</T>
-              <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '700' }}>
-                {formatWon(draw.firstWinAmount)}
-                {draw.firstWinners ? <T variant="caption1" style={{ color: t.fgOnHeroFaint }}>{`  ${draw.firstWinners}명`}</T> : null}
-              </T>
-            </View>
-          ) : null}
-          {draw.totalSales ? (
-            <View style={styles.heroSales}>
-              <T variant="caption1" style={{ color: t.fgOnHeroFaint }}>
-                총 판매금액 {formatWon(draw.totalSales)}
-              </T>
-            </View>
-          ) : null}
         </View>
 
         {/* ───── 1등 정보 카드 (당첨금 + 당첨자 수 + 방법별 개수) ───── */}
         <FirstPrizeCard draw={draw} loading={enrichState === 'loading'} />
+
+        {/* ───── 2~5등 + 총 판매금액 ───── */}
+        <LowerPrizesCard draw={draw} />
+
+        {/* ───── 1등 당첨 판매점 ───── */}
+        <FirstPrizeStoresCard draw={draw} />
 
         {/* ───── 당첨 번호 요약 ───── */}
         <Card padding={16}>
@@ -293,7 +283,7 @@ export default function RoundDetail() {
                   <View key={i} style={styles.dupGroup}>
                     <View style={[styles.dupChip, { backgroundColor: palette.softFill, borderColor: t.borderWeak }]}>
                       <T variant="caption2" color="secondary" style={{ fontSize: 10, fontWeight: '700' }} allowFontScaling={false}>
-                        ⋯{d.digit}
+                        {d.digit}끝
                       </T>
                     </View>
                     {d.nums.map((n) => <Ball key={n} n={n} size="sm" />)}
@@ -541,21 +531,12 @@ export default function RoundDetail() {
 // ─── Subcomponents ───────────────────────────────────────────────────────────
 
 /**
- * 1등 정보 카드 — 당첨금 + 당첨자 수 + 방법별 개수 (자동/수동/반자동).
- * 자세한 2~5등 정보 / 판매점 명단은 동행복권 공식 사이트에서 확인.
+ * 1등 정보 카드 — 당첨금(크게) + 당첨자 수 + 방법별 개수.
  */
 function FirstPrizeCard({ draw, loading }: { draw: Draw; loading: boolean }) {
-  const t = useTheme();
   const amount = draw.firstWinAmount;
   const winners = draw.firstWinners;
   const counts = draw.methodCounts;
-
-  // 동행복권 공식 결과 페이지 (모바일)
-  const dhUrl = `https://m.dhlottery.co.kr/gameResult.do?method=byWin&drwNo=${draw.round}`;
-
-  const handleOpenDh = () => {
-    Linking.openURL(dhUrl).catch(() => {});
-  };
 
   return (
     <Card padding={16}>
@@ -571,61 +552,193 @@ function FirstPrizeCard({ draw, loading }: { draw: Draw; loading: boolean }) {
         {loading && <ActivityIndicator size="small" color={palette.blue500} />}
       </View>
 
-      {/* 1등 당첨금 — 큰 텍스트 */}
-      <View style={[styles.firstAmountBox, { backgroundColor: palette.softFill, marginTop: 14 }]}>
-        <T variant="caption1" style={{ color: palette.blue700, fontWeight: '800', fontSize: 11 }} allowFontScaling={false}>
+      <View style={[styles.firstAmountBox, { backgroundColor: palette.softFill, marginTop: 12 }]}>
+        <T variant="caption2" style={{ color: palette.blue700, fontWeight: '800', fontSize: 10.5 }} allowFontScaling={false}>
           1등 1게임당 당첨금
         </T>
         {amount && amount > 0 ? (
-          <T variant="display2" color="primary" style={{ fontWeight: '900', marginTop: 4 }} allowFontScaling={false}>
-            {formatWon(amount)}
-          </T>
+          <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8, marginTop: 4 }}>
+            <T variant="title3" color="primary" style={{ fontWeight: '900' }} allowFontScaling={false}>
+              {formatWon(amount)}
+            </T>
+            {winners != null && winners > 0 ? (
+              <T variant="caption1" color="tertiary" style={{ fontWeight: '600' }} allowFontScaling={false}>
+                {winners.toLocaleString('ko')}명 당첨
+              </T>
+            ) : null}
+          </View>
         ) : (
-          <T variant="label1r" color="tertiary" style={{ fontStyle: 'italic', marginTop: 6 }}>
+          <T variant="label1r" color="tertiary" style={{ fontStyle: 'italic', marginTop: 4 }}>
             {loading ? '가져오는 중…' : '정보 없음'}
           </T>
         )}
-        {winners != null && winners > 0 ? (
-          <T variant="caption1" color="secondary" style={{ marginTop: 4 }} allowFontScaling={false}>
-            {winners.toLocaleString('ko')}명 당첨
-          </T>
-        ) : null}
       </View>
 
-      {/* 방법별 개수 (자동/수동/반자동) */}
-      <View style={{ marginTop: 14 }}>
-        <T variant="caption1" color="tertiary" style={{ fontWeight: '600', marginBottom: 8 }}>
-          구매 방법별 당첨 개수
-        </T>
-        {counts ? (
+      {counts ? (
+        <View style={{ marginTop: 12 }}>
+          <T variant="caption2" color="tertiary" style={{ fontWeight: '600', marginBottom: 6, fontSize: 11 }}>
+            1등 구매 방법별 개수
+          </T>
           <View style={styles.methodRow}>
             <MethodCountBox label="자동" count={counts.auto} fg={palette.blue700} bg="rgba(0,102,255,0.10)" />
             <MethodCountBox label="수동" count={counts.manual} fg={palette.purple500} bg="rgba(101,65,242,0.10)" />
             <MethodCountBox label="반자동" count={counts.mixed} fg={palette.green700} bg="rgba(0,191,64,0.10)" />
           </View>
-        ) : (
-          <View style={[styles.noticeBox, { backgroundColor: palette.softFill }]}>
-            <T variant="caption1" color="tertiary" style={{ lineHeight: 17 }}>
-              {loading ? '구매 방법별 정보를 가져오는 중…' : '구매 방법 정보가 아직 없어요. 새로고침해 보세요.'}
-            </T>
-          </View>
-        )}
+        </View>
+      ) : null}
+    </Card>
+  );
+}
+
+function MethodCountBox({ label, count, fg, bg }: { label: string; count: number; fg: string; bg: string }) {
+  return (
+    <View style={[styles.methodCountBox, { backgroundColor: bg }]}>
+      <T variant="caption2" style={{ color: fg, fontWeight: '700', fontSize: 11 }} allowFontScaling={false}>
+        {label}
+      </T>
+      <View style={{ flexDirection: 'row', alignItems: 'baseline', marginTop: 2 }}>
+        <T variant="label1n" style={{ color: fg, fontWeight: '900', fontSize: 17 }} allowFontScaling={false}>
+          {count}
+        </T>
+        <T variant="caption2" style={{ color: fg, fontSize: 9.5, opacity: 0.7, marginLeft: 1 }} allowFontScaling={false}>
+          명
+        </T>
+      </View>
+    </View>
+  );
+}
+
+/**
+ * 2~5등 + 총 판매금액 카드.
+ */
+function LowerPrizesCard({ draw }: { draw: Draw }) {
+  const t = useTheme();
+  const p = draw.prizes;
+  if (!p) return null;
+
+  const rows: Array<{ rank: string; tone: string; amount?: number; winners?: number }> = [
+    { rank: '2등', tone: palette.green700,  amount: p.second?.amount, winners: p.second?.winners },
+    { rank: '3등', tone: palette.purple500, amount: p.third?.amount,  winners: p.third?.winners },
+    { rank: '4등', tone: '#b8860b',         amount: p.fourth?.amount, winners: p.fourth?.winners },
+    { rank: '5등', tone: t.fgTertiary,      amount: p.fifth?.amount,  winners: p.fifth?.winners },
+  ];
+  const hasAny = rows.some((r) => r.amount && r.amount > 0);
+  if (!hasAny) return null;
+
+  return (
+    <Card padding={16}>
+      <View style={styles.cardHeadRow}>
+        <View style={{ flex: 1 }}>
+          <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
+            2~5등 당첨 정보
+          </T>
+          <T variant="caption1" color="tertiary" style={{ marginTop: 2 }}>
+            1게임당 당첨금 · 당첨 게임 수
+          </T>
+        </View>
       </View>
 
-      {/* 동행복권에서 자세히 보기 */}
+      <View style={{ marginTop: 12 }}>
+        {rows.map((r, i) => (
+          <View
+            key={r.rank}
+            style={[
+              styles.prizeListRow,
+              i < rows.length - 1 && { borderBottomWidth: 1, borderBottomColor: t.borderDivider },
+            ]}
+          >
+            <View style={[styles.prizeBadge, { backgroundColor: palette.softFill }]}>
+              <T variant="label1n" style={{ color: r.tone, fontWeight: '800', fontSize: 13 }} allowFontScaling={false}>
+                {r.rank}
+              </T>
+            </View>
+            <View style={{ flex: 1 }}>
+              {r.amount && r.amount > 0 ? (
+                <T variant="label1n" color="primary" style={{ fontWeight: '800' }} allowFontScaling={false}>
+                  {formatWon(r.amount)}
+                </T>
+              ) : (
+                <T variant="label1r" color="tertiary" style={{ fontStyle: 'italic' }}>—</T>
+              )}
+              {r.winners != null && r.winners > 0 ? (
+                <T variant="caption1" color="tertiary" style={{ marginTop: 2 }} allowFontScaling={false}>
+                  {r.winners.toLocaleString('ko')}명 당첨
+                </T>
+              ) : null}
+            </View>
+          </View>
+        ))}
+      </View>
+
+      {draw.totalSales && draw.totalSales > 0 ? (
+        <View style={[styles.totalSalesBox, { backgroundColor: palette.softFill, marginTop: 14 }]}>
+          <T variant="caption1" color="tertiary" style={{ fontWeight: '600' }}>
+            총 판매금액
+          </T>
+          <T variant="label1n" color="primary" style={{ fontWeight: '800', marginTop: 2 }} allowFontScaling={false}>
+            {formatWon(draw.totalSales)}
+          </T>
+        </View>
+      ) : null}
+    </Card>
+  );
+}
+
+/**
+ * 1등 당첨 판매점 카드 — smok95 미러는 1등만 제공.
+ */
+function FirstPrizeStoresCard({ draw }: { draw: Draw }) {
+  const t = useTheme();
+  const stores = (draw.topStores ?? []).filter((s) => s.rank === 1);
+  if (stores.length === 0) return null;
+
+  // 동행복권 공식 데스크톱 페이지 (www. 도메인이 m.보다 안정)
+  const dhUrl = `https://www.dhlottery.co.kr/store.do?method=topStore&pageGubun=L645&drwNo=${draw.round}`;
+  const handleOpenDh = () => Linking.openURL(dhUrl).catch(() => {});
+
+  return (
+    <Card padding={16}>
+      <View style={styles.cardHeadRow}>
+        <View style={{ flex: 1 }}>
+          <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
+            1등 당첨 판매점
+          </T>
+          <T variant="caption1" color="tertiary" style={{ marginTop: 2 }}>
+            {stores.length}곳 배출 (자동/수동 표시)
+          </T>
+        </View>
+      </View>
+
+      <View style={{ marginTop: 12, gap: 8 }}>
+        {stores.map((s, i) => (
+          <View key={i} style={[styles.storeItemNew, { borderColor: t.borderDivider }]}>
+            <View style={styles.storeRowHeader}>
+              <T variant="label1n" color="primary" style={{ fontWeight: '700', flex: 1 }} numberOfLines={1}>
+                {s.name}
+              </T>
+              <MethodTag method={s.method} />
+            </View>
+            <T variant="caption1" color="tertiary" style={{ marginTop: 4, lineHeight: 17 }} numberOfLines={2}>
+              {s.address || '주소 정보 없음'}
+            </T>
+          </View>
+        ))}
+      </View>
+
+      {/* 2등 판매점은 외부 링크로 */}
       <Pressable
         onPress={handleOpenDh}
         style={({ pressed }) => [
           styles.dhLinkBtn,
-          { borderColor: t.borderWeak, opacity: pressed ? 0.7 : 1 },
+          { borderColor: t.borderWeak, opacity: pressed ? 0.7 : 1, marginTop: 14 },
         ]}
       >
         <View style={{ flex: 1 }}>
           <T variant="label1n" color="primary" style={{ fontWeight: '700' }} allowFontScaling={false}>
-            동행복권에서 자세히 보기
+            2등 판매점 보기
           </T>
           <T variant="caption1" color="tertiary" style={{ marginTop: 2 }}>
-            2~5등 당첨금 · 1·2등 판매점 위치
+            동행복권 공식 사이트로 이동
           </T>
         </View>
         <Icon.chev size={18} color={t.fgTertiary} />
@@ -634,17 +747,17 @@ function FirstPrizeCard({ draw, loading }: { draw: Draw; loading: boolean }) {
   );
 }
 
-function MethodCountBox({ label, count, fg, bg }: { label: string; count: number; fg: string; bg: string }) {
+function MethodTag({ method }: { method: 'auto' | 'manual' | 'mixed' | 'unknown' }) {
+  const config = {
+    auto:    { label: '자동',   fg: palette.blue700,    bg: 'rgba(0,102,255,0.12)' },
+    manual:  { label: '수동',   fg: palette.purple500,  bg: 'rgba(101,65,242,0.12)' },
+    mixed:   { label: '반자동', fg: palette.green700,   bg: 'rgba(0,191,64,0.12)' },
+    unknown: { label: '미상',   fg: '#888',             bg: 'rgba(112,115,124,0.10)' },
+  }[method];
   return (
-    <View style={[styles.methodCountBox, { backgroundColor: bg }]}>
-      <T variant="caption1" style={{ color: fg, fontWeight: '700', fontSize: 12 }} allowFontScaling={false}>
-        {label}
-      </T>
-      <T variant="label1n" style={{ color: fg, fontWeight: '900', marginTop: 4, fontSize: 22 }} allowFontScaling={false}>
-        {count}
-      </T>
-      <T variant="caption2" style={{ color: fg, fontSize: 10, opacity: 0.7 }} allowFontScaling={false}>
-        명
+    <View style={[styles.methodTag, { backgroundColor: config.bg }]}>
+      <T variant="caption2" style={{ color: config.fg, fontWeight: '800', fontSize: 10 }} allowFontScaling={false}>
+        {config.label}
       </T>
     </View>
   );
@@ -903,17 +1016,18 @@ const styles = StyleSheet.create({
 
   // ── 1등 정보 카드
   firstAmountBox: {
-    padding: 14,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
     borderRadius: radius.md,
     alignItems: 'flex-start',
   },
   methodRow: {
     flexDirection: 'row',
-    gap: 8,
+    gap: 6,
   },
   methodCountBox: {
     flex: 1,
-    paddingVertical: 14,
+    paddingVertical: 8,
     borderRadius: radius.md,
     alignItems: 'center',
   },
@@ -926,6 +1040,46 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     borderRadius: radius.md,
     borderWidth: 1,
+  },
+
+  // ── 2~5등 카드
+  prizeListRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+    gap: 14,
+  },
+  prizeBadge: {
+    width: 40,
+    height: 40,
+    borderRadius: radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  totalSalesBox: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 12,
+    borderRadius: radius.md,
+  },
+
+  // ── 1등 판매점 카드
+  storeItemNew: {
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: radius.md,
+    borderWidth: 1,
+  },
+  storeRowHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  methodTag: {
+    paddingHorizontal: 7,
+    paddingVertical: 3,
+    borderRadius: radius.pill,
   },
 
   // ── 요약 그리드: 4 columns × 2 rows

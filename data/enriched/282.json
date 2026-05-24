@@ -1,0 +1,101 @@
+{
+  "round": 282,
+  "date": "2008-04-26",
+  "nums": [
+    2,
+    5,
+    10,
+    18,
+    31,
+    32
+  ],
+  "bonus": 30,
+  "firstWinAmount": 1322052643,
+  "firstWinners": 7,
+  "totalSales": 41051175000,
+  "prizes": {
+    "first": {
+      "amount": 1322052643,
+      "winners": 7
+    },
+    "second": {
+      "amount": 48199836,
+      "winners": 32
+    },
+    "third": {
+      "amount": 1012735,
+      "winners": 1523
+    },
+    "fourth": {
+      "amount": 46530,
+      "winners": 66297
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1020328
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "경북윤업사",
+      "address": "대구 남구 대명로 161",
+      "method": "auto",
+      "lat": 35.839363,
+      "lng": 128.57545
+    },
+    {
+      "rank": 1,
+      "name": "코사마트금강점",
+      "address": "대구 달서구 용산로 204 1층 코사마트",
+      "method": "manual",
+      "lat": 35.855705,
+      "lng": 128.53079
+    },
+    {
+      "rank": 1,
+      "name": "인천연수점로또판매",
+      "address": "인천 연수구 연수동  631",
+      "method": "auto",
+      "lat": 37.41185,
+      "lng": 126.67784
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "경기 고양시 일산동구 정발산로 24 1층 K-114호",
+      "method": "manual",
+      "lat": 37.65477,
+      "lng": 126.77263
+    },
+    {
+      "rank": 1,
+      "name": "흥부네대박났네",
+      "address": "경기 광주시 경충대로 763",
+      "method": "auto",
+      "lat": 37.355545,
+      "lng": 127.325386
+    },
+    {
+      "rank": 1,
+      "name": "삼성복권방",
+      "address": "경기 동두천시 어수로 100-1",
+      "method": "manual",
+      "lat": 37.902187,
+      "lng": 127.05362
+    },
+    {
+      "rank": 1,
+      "name": "행운의집",
+      "address": "경북 안동시 북문동  23-7",
+      "method": "auto",
+      "lat": 36.566982,
+      "lng": 128.7295
+    }
+  ]
+}

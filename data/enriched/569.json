@@ -1,0 +1,77 @@
+{
+  "round": 569,
+  "date": "2013-10-26",
+  "nums": [
+    3,
+    6,
+    13,
+    23,
+    24,
+    35
+  ],
+  "bonus": 1,
+  "firstWinAmount": 3467925188,
+  "firstWinners": 4,
+  "totalSales": 58441902000,
+  "prizes": {
+    "first": {
+      "amount": 3467925188,
+      "winners": 4
+    },
+    "second": {
+      "amount": 64220837,
+      "winners": 36
+    },
+    "third": {
+      "amount": 1355188,
+      "winners": 1706
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 81582
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1329250
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "온라인복권방",
+      "address": "서울 동대문구 용두동  9-2번지",
+      "method": "auto",
+      "lat": 37.578262,
+      "lng": 127.04298
+    },
+    {
+      "rank": 1,
+      "name": "사이버정보통신",
+      "address": "부산 부산진구 동평로 411 백조상가동103-1호",
+      "method": "auto",
+      "lat": 35.17425,
+      "lng": 129.07022
+    },
+    {
+      "rank": 1,
+      "name": "대박천하마트",
+      "address": "인천 부평구 굴포로 48",
+      "method": "manual",
+      "lat": 37.51157,
+      "lng": 126.72634
+    },
+    {
+      "rank": 1,
+      "name": "씨스페이스 구미옥계 대박점",
+      "address": "경북 구미시 흥안로 35 상가1동1층117호(옥계동,동화타운)씨스페이스",
+      "method": "auto",
+      "lat": 36.14687,
+      "lng": 128.41441
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "round": 1116,
+  "date": "2024-04-20",
+  "nums": [
+    15,
+    16,
+    17,
+    25,
+    30,
+    31
+  ],
+  "bonus": 32,
+  "firstWinAmount": 2695000238,
+  "firstWinners": 10,
+  "totalSales": 110862553000,
+  "prizes": {
+    "first": {
+      "amount": 2695000238,
+      "winners": 10
+    },
+    "second": {
+      "amount": 39400589,
+      "winners": 114
+    },
+    "third": {
+      "amount": 1550991,
+      "winners": 2896
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 145548
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2444108
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "헬스프라자",
+      "address": "서울 관악구 관악로 184 1층",
+      "method": "auto",
+      "lat": 37.48153,
+      "lng": 126.95316
+    },
+    {
+      "rank": 1,
+      "name": "삼육구",
+      "address": "부산 사하구 낙동대로 236 내제조표17445호",
+      "method": "mixed",
+      "lat": 35.09972,
+      "lng": 128.99113
+    },
+    {
+      "rank": 1,
+      "name": "목인",
+      "address": "경기 고양시 일산동구 장항로 127 B동",
+      "method": "manual",
+      "lat": 37.635,
+      "lng": 126.78235
+    },
+    {
+      "rank": 1,
+      "name": "(I.A) 로또마트",
+      "address": "경기 안산시 단원구 신길로 9-4",
+      "method": "manual",
+      "lat": 37.33149,
+      "lng": 126.78637
+    },
+    {
+      "rank": 1,
+      "name": "(I.A) 로또마트",
+      "address": "경기 안산시 단원구 신길로 9-4",
+      "method": "manual",
+      "lat": 37.33149,
+      "lng": 126.78637
+    },
+    {
+      "rank": 1,
+      "name": "행운이가득한집",
+      "address": "경기 안산시 상록구 건건로 28 동호상가B-14호",
+      "method": "auto",
+      "lat": 37.303696,
+      "lng": 126.90144
+    },
+    {
+      "rank": 1,
+      "name": "행운로또복권방",
+      "address": "경기 안양시 동안구 관악대로 348",
+      "method": "auto",
+      "lat": 37.403564,
+      "lng": 126.96163
+    },
+    {
+      "rank": 1,
+      "name": "아랑 로또",
+      "address": "경기 양평군 다문북길 69 1층",
+      "method": "manual",
+      "lat": 37.486313,
+      "lng": 127.59115
+    },
+    {
+      "rank": 1,
+      "name": "Letsgo복권방(동산점)",
+      "address": "전북 전주시 덕진구 쪽구름로 57-1",
+      "method": "auto",
+      "lat": 35.8706,
+      "lng": 127.07655
+    },
+    {
+      "rank": 1,
+      "name": "중앙로또",
+      "address": "경북 칠곡군 북삼로 41 복권판매점",
+      "method": "auto",
+      "lat": 36.071457,
+      "lng": 128.34279
+    }
+  ]
+}

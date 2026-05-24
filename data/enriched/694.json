@@ -1,0 +1,125 @@
+{
+  "round": 694,
+  "date": "2016-03-19",
+  "nums": [
+    7,
+    15,
+    20,
+    25,
+    33,
+    43
+  ],
+  "bonus": 12,
+  "firstWinAmount": 1555036388,
+  "firstWinners": 10,
+  "totalSales": 67533257000,
+  "prizes": {
+    "first": {
+      "amount": 1555036388,
+      "winners": 10
+    },
+    "second": {
+      "amount": 33227274,
+      "winners": 78
+    },
+    "third": {
+      "amount": 1133739,
+      "winners": 2286
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 102474
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1581822
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 6,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "코리아마트(비산점)",
+      "address": "대구 서구 비산동 368-2번지",
+      "method": "manual",
+      "lat": 35.872482,
+      "lng": 128.5687
+    },
+    {
+      "rank": 1,
+      "name": "풍향동복권나라",
+      "address": "광주 북구 필문대로 79",
+      "method": "manual",
+      "lat": 35.162693,
+      "lng": 126.92831
+    },
+    {
+      "rank": 1,
+      "name": "주몽동명",
+      "address": "경기 용인시 수지구 포은대로 319 중앙빌딩 104호",
+      "method": "manual",
+      "lat": 37.315742,
+      "lng": 127.08753
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 포천시 솔모루로 86-1",
+      "method": "auto",
+      "lat": 37.8288,
+      "lng": 127.14748
+    },
+    {
+      "rank": 1,
+      "name": "행운로또",
+      "address": "경기 하남시 미사강변중앙로 164 101호",
+      "method": "auto",
+      "lat": 37.561512,
+      "lng": 127.19113
+    },
+    {
+      "rank": 1,
+      "name": "명성복권방",
+      "address": "경기 화성시 경기대로 1043",
+      "method": "auto",
+      "lat": 37.208466,
+      "lng": 127.0343
+    },
+    {
+      "rank": 1,
+      "name": "부자복권방",
+      "address": "전북 군산시 구시장로 4",
+      "method": "manual",
+      "lat": 35.980473,
+      "lng": 126.72023
+    },
+    {
+      "rank": 1,
+      "name": "복권천국",
+      "address": "전남 목포시 비파로 29 복권천국",
+      "method": "manual",
+      "lat": 34.801384,
+      "lng": 126.42771
+    },
+    {
+      "rank": 1,
+      "name": "행복나라",
+      "address": "경남 창원시 성산구 중앙동 97-6번지 캔버라타운1층103호 위드미 내",
+      "method": "mixed",
+      "lat": 35.22122,
+      "lng": 128.67685
+    },
+    {
+      "rank": 1,
+      "name": "씨유제주구남중앙점",
+      "address": "제주 제주시 구남동2길 27",
+      "method": "manual",
+      "lat": 33.489044,
+      "lng": 126.53533
+    }
+  ]
+}

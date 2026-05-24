@@ -1,0 +1,43 @@
+{
+  "round": 83,
+  "date": "2004-07-03",
+  "nums": [
+    6,
+    10,
+    15,
+    17,
+    19,
+    34
+  ],
+  "bonus": 14,
+  "firstWinAmount": 7086948300,
+  "firstWinners": 2,
+  "totalSales": 62512062000,
+  "prizes": {
+    "first": {
+      "amount": 7086948300,
+      "winners": 2
+    },
+    "second": {
+      "amount": 157487740,
+      "winners": 15
+    },
+    "third": {
+      "amount": 2775930,
+      "winners": 851
+    },
+    "fourth": {
+      "amount": 102880,
+      "winners": 45924
+    },
+    "fifth": {
+      "amount": 10000,
+      "winners": 763287
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

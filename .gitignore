@@ -49,6 +49,7 @@ app-example
 # Firebase / push 등 서비스 키 파일 (절대 커밋 금지)
 google-services.json
 GoogleService-Info.plist
+firebase-debug.log
 
 # 빌드 산출물
 build/

@@ -1,0 +1,109 @@
+{
+  "round": 661,
+  "date": "2015-08-01",
+  "nums": [
+    2,
+    3,
+    12,
+    20,
+    27,
+    38
+  ],
+  "bonus": 40,
+  "firstWinAmount": 1713025547,
+  "firstWinners": 8,
+  "totalSales": 59597375000,
+  "prizes": {
+    "first": {
+      "amount": 1713025547,
+      "winners": 8
+    },
+    "second": {
+      "amount": 36254509,
+      "winners": 63
+    },
+    "third": {
+      "amount": 1248107,
+      "winners": 1830
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 87840
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1426883
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "애니타임로또",
+      "address": "대전 유성구 계룡로46번길 85",
+      "method": "auto",
+      "lat": 36.351692,
+      "lng": 127.334496
+    },
+    {
+      "rank": 1,
+      "name": "대광슈퍼",
+      "address": "경기 군포시 고산로 679 미성프라자106호",
+      "method": "auto",
+      "lat": 37.371067,
+      "lng": 126.93395
+    },
+    {
+      "rank": 1,
+      "name": "로또박사",
+      "address": "경기 의정부시 신곡동  760-2번지 세명프라자1층",
+      "method": "manual",
+      "lat": 37.74948,
+      "lng": 127.06935
+    },
+    {
+      "rank": 1,
+      "name": "로또스튜디오",
+      "address": "충북 청주시 청원구 사뜸로 48-1 1층",
+      "method": "manual",
+      "lat": 36.666542,
+      "lng": 127.48148
+    },
+    {
+      "rank": 1,
+      "name": "썬마트",
+      "address": "충북 청주시 흥덕구 진재로23번길 25",
+      "method": "auto",
+      "lat": 36.632607,
+      "lng": 127.42811
+    },
+    {
+      "rank": 1,
+      "name": "Let'sgo복권유통",
+      "address": "전북 전주시 덕진구 무삼지로 29",
+      "method": "auto",
+      "lat": 35.82817,
+      "lng": 127.16468
+    },
+    {
+      "rank": 1,
+      "name": "불국사명당복권",
+      "address": "경북 경주시 산업로 3033",
+      "method": "auto",
+      "lat": 35.7765,
+      "lng": 129.29813
+    },
+    {
+      "rank": 1,
+      "name": "로또방",
+      "address": "경남 창원시 의창구 봉곡로 81",
+      "method": "manual",
+      "lat": 35.249256,
+      "lng": 128.66838
+    }
+  ]
+}

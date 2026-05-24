@@ -1,0 +1,93 @@
+{
+  "round": 520,
+  "date": "2012-11-17",
+  "nums": [
+    4,
+    22,
+    27,
+    28,
+    38,
+    40
+  ],
+  "bonus": 1,
+  "firstWinAmount": 2167205438,
+  "firstWinners": 6,
+  "totalSales": 55003797000,
+  "prizes": {
+    "first": {
+      "amount": 2167205438,
+      "winners": 6
+    },
+    "second": {
+      "amount": 58573120,
+      "winners": 37
+    },
+    "third": {
+      "amount": 1332026,
+      "winners": 1627
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 77196
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1260891
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "영광문구",
+      "address": "서울 금천구 범안로 1186",
+      "method": "auto",
+      "lat": 37.46633,
+      "lng": 126.89345
+    },
+    {
+      "rank": 1,
+      "name": "GS25(서초금호)",
+      "address": "서울 서초구 서초동  1689-1",
+      "method": "auto",
+      "lat": 37.495155,
+      "lng": 127.017624
+    },
+    {
+      "rank": 1,
+      "name": "프로피스",
+      "address": "경기 구리시 이문안로 11,(교문동)",
+      "method": "auto",
+      "lat": 37.592052,
+      "lng": 127.13251
+    },
+    {
+      "rank": 1,
+      "name": "그린24시신화점",
+      "address": "충북 청주시 청원구 충청대로 53",
+      "method": "auto",
+      "lat": 36.66188,
+      "lng": 127.49122
+    },
+    {
+      "rank": 1,
+      "name": "베스트원",
+      "address": "전남 영광군 신남로 209-1 1층",
+      "method": "manual",
+      "lat": 35.276035,
+      "lng": 126.5051
+    },
+    {
+      "rank": 1,
+      "name": "명당편의점",
+      "address": "경남 진주시 서장대로 273 1층",
+      "method": "auto",
+      "lat": 35.192097,
+      "lng": 128.06311
+    }
+  ]
+}

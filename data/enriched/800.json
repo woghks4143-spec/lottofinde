@@ -1,0 +1,133 @@
+{
+  "round": 800,
+  "date": "2018-03-31",
+  "nums": [
+    1,
+    4,
+    10,
+    12,
+    28,
+    45
+  ],
+  "bonus": 26,
+  "firstWinAmount": 1632246205,
+  "firstWinners": 11,
+  "totalSales": 76994062000,
+  "prizes": {
+    "first": {
+      "amount": 1632246205,
+      "winners": 11
+    },
+    "second": {
+      "amount": 58675518,
+      "winners": 51
+    },
+    "third": {
+      "amount": 1373315,
+      "winners": 2179
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 110956
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1801924
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "서울 광진구 군자로 146 동진빌딩 1층",
+      "method": "manual",
+      "lat": 37.554394,
+      "lng": 127.07559
+    },
+    {
+      "rank": 1,
+      "name": "길벗",
+      "address": "광주 북구 송월로 26,(오치동)",
+      "method": "manual",
+      "lat": 35.186005,
+      "lng": 126.91334
+    },
+    {
+      "rank": 1,
+      "name": "로또복권벽산블루밍",
+      "address": "대전 서구 갈마로 262",
+      "method": "auto",
+      "lat": 36.33321,
+      "lng": 127.38101
+    },
+    {
+      "rank": 1,
+      "name": "월드컵",
+      "address": "경기 수원시 팔달구 월드컵로 299-1",
+      "method": "manual",
+      "lat": 37.285313,
+      "lng": 127.03505
+    },
+    {
+      "rank": 1,
+      "name": "황금대박복권나라",
+      "address": "경기 용인시 처인구 금령로85번길 16,(김량장동)",
+      "method": "auto",
+      "lat": 37.236786,
+      "lng": 127.20576
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "경기 파주시 아동동(금촌1동) 283-10",
+      "method": "auto",
+      "lat": 37.77174,
+      "lng": 126.77708
+    },
+    {
+      "rank": 1,
+      "name": "대박마트복권방",
+      "address": "충남 아산시 음봉로 844 행복한순복음교회 태화상가1층103호",
+      "method": "mixed",
+      "lat": 36.826508,
+      "lng": 127.09927
+    },
+    {
+      "rank": 1,
+      "name": "금성복권방",
+      "address": "전남 나주시 대호동(성북동) 236 GS편의점 내",
+      "method": "auto",
+      "lat": 35.04872,
+      "lng": 126.72078
+    },
+    {
+      "rank": 1,
+      "name": "복권판매점(담양)",
+      "address": "전남 담양군 중앙로 32-1",
+      "method": "auto",
+      "lat": 35.316162,
+      "lng": 126.98364
+    },
+    {
+      "rank": 1,
+      "name": "빙그레 돈벼락 맞는곳",
+      "address": "경남 김해시 김해대로 910 좌측 복권판매점",
+      "method": "auto",
+      "lat": 35.293262,
+      "lng": 128.78296
+    },
+    {
+      "rank": 1,
+      "name": "북마산복권전문점",
+      "address": "경남 창원시 마산합포구 북성로 98",
+      "method": "auto",
+      "lat": 35.215973,
+      "lng": 128.5708
+    }
+  ]
+}

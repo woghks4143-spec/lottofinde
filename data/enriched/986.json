@@ -1,0 +1,125 @@
+{
+  "round": 986,
+  "date": "2021-10-23",
+  "nums": [
+    7,
+    10,
+    16,
+    28,
+    41,
+    42
+  ],
+  "bonus": 40,
+  "firstWinAmount": 2375275125,
+  "firstWinners": 10,
+  "totalSales": 99041240000,
+  "prizes": {
+    "first": {
+      "amount": 2375275125,
+      "winners": 10
+    },
+    "second": {
+      "amount": 56554170,
+      "winners": 70
+    },
+    "third": {
+      "amount": 1417398,
+      "winners": 2793
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 133889
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2231167
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "투데이",
+      "address": "서울 동대문구 천호대로 67 1층",
+      "method": "auto",
+      "lat": 37.574116,
+      "lng": 127.03101
+    },
+    {
+      "rank": 1,
+      "name": "프로토베팅샵",
+      "address": "부산 중구 국제시장2길 5 4호",
+      "method": "auto",
+      "lat": 35.099678,
+      "lng": 129.0284
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "auto",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "대구 수성구 들안로 243",
+      "method": "manual",
+      "lat": 35.851864,
+      "lng": 128.6167
+    },
+    {
+      "rank": 1,
+      "name": "대박찬스",
+      "address": "경기 남양주시 진접읍 장현로 111 1층1호",
+      "method": "manual",
+      "lat": 37.719795,
+      "lng": 127.18393
+    },
+    {
+      "rank": 1,
+      "name": "공원슈퍼",
+      "address": "경기 수원시 장안구 팔달로 257-1 1층(영화동)",
+      "method": "auto",
+      "lat": 37.288837,
+      "lng": 127.01324
+    },
+    {
+      "rank": 1,
+      "name": "로또명당",
+      "address": "경기 시흥시 신현로 21-1 101호",
+      "method": "mixed",
+      "lat": 37.40707,
+      "lng": 126.78708
+    },
+    {
+      "rank": 1,
+      "name": "날개복권#",
+      "address": "충남 서산시 율지5로 16",
+      "method": "auto",
+      "lat": 36.77752,
+      "lng": 126.46427
+    },
+    {
+      "rank": 1,
+      "name": "로또명당인주점",
+      "address": "충남 아산시 서해로 519-2",
+      "method": "auto",
+      "lat": 36.87784,
+      "lng": 126.89828
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "경북 포항시 남구 중섬로 26",
+      "method": "auto",
+      "lat": 36.013783,
+      "lng": 129.34744
+    }
+  ]
+}

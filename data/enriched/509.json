@@ -1,0 +1,85 @@
+{
+  "round": 509,
+  "date": "2012-09-01",
+  "nums": [
+    12,
+    25,
+    29,
+    35,
+    42,
+    43
+  ],
+  "bonus": 24,
+  "firstWinAmount": 2689076100,
+  "firstWinners": 5,
+  "totalSales": 53390358000,
+  "prizes": {
+    "first": {
+      "amount": 2689076100,
+      "winners": 5
+    },
+    "second": {
+      "amount": 65908728,
+      "winners": 34
+    },
+    "third": {
+      "amount": 1824835,
+      "winners": 1228
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 64934
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1104261
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "삼성게임프라자",
+      "address": "서울 서대문구 북아현로 34-3",
+      "method": "auto",
+      "lat": 37.560616,
+      "lng": 126.95637
+    },
+    {
+      "rank": 1,
+      "name": "리치복권방",
+      "address": "부산 수영구 연수로 269 1층 5호,6호(망미동)",
+      "method": "auto",
+      "lat": 35.15661,
+      "lng": 129.12796
+    },
+    {
+      "rank": 1,
+      "name": "찬스복권방",
+      "address": "인천 부평구 육동로 20-1 1층",
+      "method": "manual",
+      "lat": 37.48712,
+      "lng": 126.72512
+    },
+    {
+      "rank": 1,
+      "name": "목동행운복권방",
+      "address": "대전 중구 동서대로 1399,(목동)",
+      "method": "auto",
+      "lat": 36.333656,
+      "lng": 127.41198
+    },
+    {
+      "rank": 1,
+      "name": "모퉁이슈퍼",
+      "address": "경북 안동시 서동문로 102",
+      "method": "auto",
+      "lat": 36.56668,
+      "lng": 128.72293
+    }
+  ]
+}

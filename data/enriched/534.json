@@ -1,0 +1,53 @@
+{
+  "round": 534,
+  "date": "2013-02-23",
+  "nums": [
+    10,
+    24,
+    26,
+    29,
+    37,
+    38
+  ],
+  "bonus": 32,
+  "firstWinAmount": 14215763250,
+  "firstWinners": 1,
+  "totalSales": 59227462000,
+  "prizes": {
+    "first": {
+      "amount": 14215763250,
+      "winners": 1
+    },
+    "second": {
+      "amount": 43078071,
+      "winners": 55
+    },
+    "third": {
+      "amount": 1541506,
+      "winners": 1537
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 79943
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1332446
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또명당",
+      "address": "인천 미추홀구 인주대로 423 101호",
+      "method": "auto",
+      "lat": 37.45115,
+      "lng": 126.68826
+    }
+  ]
+}

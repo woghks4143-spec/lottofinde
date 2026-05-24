@@ -1,0 +1,109 @@
+{
+  "round": 415,
+  "date": "2010-11-13",
+  "nums": [
+    7,
+    17,
+    20,
+    26,
+    30,
+    40
+  ],
+  "bonus": 24,
+  "firstWinAmount": 1334182407,
+  "firstWinners": 8,
+  "totalSales": 46746048000,
+  "prizes": {
+    "first": {
+      "amount": 1334182407,
+      "winners": 8
+    },
+    "second": {
+      "amount": 50825997,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1120927,
+      "winners": 1587
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 71409
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1114259
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "부산 부산진구 부암동  133-39훼미리마트(부암점)",
+      "method": "auto",
+      "lat": 35.152344,
+      "lng": 129.03827
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "manual",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "복권명당(서부점)",
+      "address": "대구 달서구 월배로 452",
+      "method": "manual",
+      "lat": 35.833633,
+      "lng": 128.55486
+    },
+    {
+      "rank": 1,
+      "name": "경기상회",
+      "address": "인천 남동구 장승남로 42 은빛프라자 104호",
+      "method": "auto",
+      "lat": 37.443142,
+      "lng": 126.73679
+    },
+    {
+      "rank": 1,
+      "name": "용꿈돼지꿈복권전문점",
+      "address": "강원 동해시 중앙로 234 이주민상가1층15호",
+      "method": "manual",
+      "lat": 37.52171,
+      "lng": 129.115
+    },
+    {
+      "rank": 1,
+      "name": "알리바이(나주점)",
+      "address": "전남 나주시 나주로 142 알리바이",
+      "method": "auto",
+      "lat": 35.031338,
+      "lng": 126.71719
+    },
+    {
+      "rank": 1,
+      "name": "양지서점",
+      "address": "경북 김천시 평화길 152",
+      "method": "auto",
+      "lat": 36.1227,
+      "lng": 128.11456
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트(마산금강점)",
+      "address": "경남 창원시 마산합포구 중앙동3가 2-52금강펠릭스타워102",
+      "method": "auto",
+      "lat": 35.180428,
+      "lng": 128.5571
+    }
+  ]
+}

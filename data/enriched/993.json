@@ -1,0 +1,93 @@
+{
+  "round": 993,
+  "date": "2021-12-11",
+  "nums": [
+    6,
+    14,
+    16,
+    18,
+    24,
+    42
+  ],
+  "bonus": 44,
+  "firstWinAmount": 3991197063,
+  "firstWinners": 6,
+  "totalSales": 99323653000,
+  "prizes": {
+    "first": {
+      "amount": 3991197063,
+      "winners": 6
+    },
+    "second": {
+      "amount": 57017101,
+      "winners": 70
+    },
+    "third": {
+      "amount": 1460907,
+      "winners": 2732
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 132583
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2220620
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "공원슈퍼",
+      "address": "경기 수원시 장안구 팔달로 257-1 1층(영화동)",
+      "method": "auto",
+      "lat": 37.288837,
+      "lng": 127.01324
+    },
+    {
+      "rank": 1,
+      "name": "일등대박복권",
+      "address": "경기 화성시 효행로  1363",
+      "method": "auto",
+      "lat": 37.229206,
+      "lng": 127.06461
+    },
+    {
+      "rank": 1,
+      "name": "영광로또",
+      "address": "충북 충주시 충청대로 2220-2 1층",
+      "method": "auto",
+      "lat": 36.959225,
+      "lng": 127.76854
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐아산용화성지점",
+      "address": "충남 아산시 시민로 292 성지빌딩 세븐일레븐 편의점내",
+      "method": "auto",
+      "lat": 36.775707,
+      "lng": 126.99635
+    },
+    {
+      "rank": 1,
+      "name": "위앤조이",
+      "address": "충남 천안시 서북구 천안대로 1391",
+      "method": "mixed",
+      "lat": 36.864906,
+      "lng": 127.149635
+    },
+    {
+      "rank": 1,
+      "name": "GS25(경산정평점)",
+      "address": "경북 경산시  강변서로51길 18",
+      "method": "manual",
+      "lat": 35.83024,
+      "lng": 128.72986
+    }
+  ]
+}

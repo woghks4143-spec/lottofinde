@@ -1,0 +1,77 @@
+{
+  "round": 813,
+  "date": "2018-06-30",
+  "nums": [
+    11,
+    30,
+    34,
+    35,
+    42,
+    44
+  ],
+  "bonus": 27,
+  "firstWinAmount": 4591763157,
+  "firstWinners": 4,
+  "totalSales": 73394947000,
+  "prizes": {
+    "first": {
+      "amount": 4591763157,
+      "winners": 4
+    },
+    "second": {
+      "amount": 71190127,
+      "winners": 43
+    },
+    "third": {
+      "amount": 1700654,
+      "winners": 1800
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 89323
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1548384
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "최고복권명당",
+      "address": "서울 관악구 낙성대역길 91 우선빌딩 1층",
+      "method": "auto",
+      "lat": 37.474445,
+      "lng": 126.96383
+    },
+    {
+      "rank": 1,
+      "name": "대성기획",
+      "address": "경기 용인시 기흥구 구성로 75-1",
+      "method": "auto",
+      "lat": 37.29493,
+      "lng": 127.1179
+    },
+    {
+      "rank": 1,
+      "name": "태원통신",
+      "address": "경기 하남시 하남대로 851",
+      "method": "auto",
+      "lat": 37.543022,
+      "lng": 127.20346
+    },
+    {
+      "rank": 1,
+      "name": "화천복권방",
+      "address": "강원 화천군 화천읍 하리 43-29",
+      "method": "auto",
+      "lat": 38.104836,
+      "lng": 127.70451
+    }
+  ]
+}

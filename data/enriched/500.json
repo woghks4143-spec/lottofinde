@@ -1,0 +1,117 @@
+{
+  "round": 500,
+  "date": "2012-06-30",
+  "nums": [
+    3,
+    4,
+    12,
+    20,
+    24,
+    34
+  ],
+  "bonus": 41,
+  "firstWinAmount": 1351072375,
+  "firstWinners": 9,
+  "totalSales": 54012267000,
+  "prizes": {
+    "first": {
+      "amount": 1351072375,
+      "winners": 9
+    },
+    "second": {
+      "amount": 29803068,
+      "winners": 68
+    },
+    "third": {
+      "amount": 1106832,
+      "winners": 1831
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 84979
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1308863
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "종로3가1호선역2번출구가로판매점82호",
+      "address": "서울 종로구 돈화문로 23 가판",
+      "method": "auto",
+      "lat": 37.5707,
+      "lng": 126.991875
+    },
+    {
+      "rank": 1,
+      "name": "장미유통",
+      "address": "인천 계양구 아나지로 394",
+      "method": "auto",
+      "lat": 37.525383,
+      "lng": 126.73586
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트송도프라자",
+      "address": "인천 연수구 송도동  2-6송도프라자108호",
+      "method": "manual",
+      "lat": 37.395847,
+      "lng": 126.65242
+    },
+    {
+      "rank": 1,
+      "name": "서울복권방",
+      "address": "경기 동두천시 어수로 116",
+      "method": "auto",
+      "lat": 37.90173,
+      "lng": 127.05534
+    },
+    {
+      "rank": 1,
+      "name": "로또명당옥천점",
+      "address": "충북 옥천군 옥천읍  매화리    236-16",
+      "method": "auto",
+      "lat": 36.296867,
+      "lng": 127.59522
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "충남 공주시 번영1로 41",
+      "method": "auto",
+      "lat": 36.471832,
+      "lng": 127.13313
+    },
+    {
+      "rank": 1,
+      "name": "황금당",
+      "address": "전남 강진군 강진읍 중앙로 95 황금당",
+      "method": "auto",
+      "lat": 34.638718,
+      "lng": 126.76755
+    },
+    {
+      "rank": 1,
+      "name": "알리바이금당점",
+      "address": "전남 순천시 대석길 44",
+      "method": "manual",
+      "lat": 34.945633,
+      "lng": 127.526306
+    },
+    {
+      "rank": 1,
+      "name": "학동복권나라",
+      "address": "전남 여수시 흥국로 6",
+      "method": "auto",
+      "lat": 34.763523,
+      "lng": 127.663475
+    }
+  ]
+}

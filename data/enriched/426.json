@@ -1,0 +1,77 @@
+{
+  "round": 426,
+  "date": "2011-01-29",
+  "nums": [
+    4,
+    17,
+    18,
+    27,
+    39,
+    43
+  ],
+  "bonus": 19,
+  "firstWinAmount": 3057233625,
+  "firstWinners": 4,
+  "totalSales": 51466592000,
+  "prizes": {
+    "first": {
+      "amount": 3057233625,
+      "winners": 4
+    },
+    "second": {
+      "amount": 32351679,
+      "winners": 63
+    },
+    "third": {
+      "amount": 1393135,
+      "winners": 1463
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 71102
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1174590
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또3공단",
+      "address": "대구 북구 노원동3가  1038-3",
+      "method": "auto",
+      "lat": 35.894455,
+      "lng": 128.57187
+    },
+    {
+      "rank": 1,
+      "name": "모닝할인마트(달동본점)",
+      "address": "울산 남구 두왕로78번길 5-2 태양체인물류센터 태양체인물류센타옆",
+      "method": "auto",
+      "lat": 35.534927,
+      "lng": 129.34682
+    },
+    {
+      "rank": 1,
+      "name": "코코블루",
+      "address": "경기 성남시 분당구 서현로210번길 20 코코프라자지하2호",
+      "method": "auto",
+      "lat": 37.38594,
+      "lng": 127.12409
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "경기 파주시 새꽃로 120-2  1층",
+      "method": "auto",
+      "lat": 37.7607,
+      "lng": 126.76875
+    }
+  ]
+}

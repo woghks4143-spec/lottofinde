@@ -1,0 +1,149 @@
+{
+  "round": 885,
+  "date": "2019-11-16",
+  "nums": [
+    1,
+    3,
+    24,
+    27,
+    39,
+    45
+  ],
+  "bonus": 31,
+  "firstWinAmount": 1543832568,
+  "firstWinners": 13,
+  "totalSales": 83396319000,
+  "prizes": {
+    "first": {
+      "amount": 1543832568,
+      "winners": 13
+    },
+    "second": {
+      "amount": 59731618,
+      "winners": 56
+    },
+    "third": {
+      "amount": 1467737,
+      "winners": 2279
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 111832
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1869359
+    }
+  },
+  "methodCounts": {
+    "auto": 11,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가판점",
+      "address": "서울 서대문구 영천동 280번지",
+      "method": "auto",
+      "lat": 37.57119,
+      "lng": 126.960945
+    },
+    {
+      "rank": 1,
+      "name": "GS25(사하중앙점)",
+      "address": "부산 사하구 감천동(감천제1동) 648-6",
+      "method": "manual",
+      "lat": 35.090534,
+      "lng": 128.99878
+    },
+    {
+      "rank": 1,
+      "name": "GS25(인천관교점)",
+      "address": "인천 남구 관교동 492-5번지",
+      "method": "auto",
+      "lat": 37.443047,
+      "lng": 126.69412
+    },
+    {
+      "rank": 1,
+      "name": "우미슈퍼",
+      "address": "광주 서구 풍암순환로 183 우미아파트상가118동-101호",
+      "method": "auto",
+      "lat": 35.12672,
+      "lng": 126.88115
+    },
+    {
+      "rank": 1,
+      "name": "복권전문점",
+      "address": "대전 유성구 유성대로694번길 84",
+      "method": "auto",
+      "lat": 36.35407,
+      "lng": 127.33618
+    },
+    {
+      "rank": 1,
+      "name": "황금대박방",
+      "address": "경기 고양시 덕양구 삼송동 30-29번지",
+      "method": "auto",
+      "lat": 37.653103,
+      "lng": 126.89347
+    },
+    {
+      "rank": 1,
+      "name": "삼천리자전거",
+      "address": "경기 고양시 덕양구 은빛로77번길 73",
+      "method": "auto",
+      "lat": 37.64001,
+      "lng": 126.835556
+    },
+    {
+      "rank": 1,
+      "name": "월드컵",
+      "address": "경기 수원시 팔달구 월드컵로 299-1",
+      "method": "auto",
+      "lat": 37.285313,
+      "lng": 127.03505
+    },
+    {
+      "rank": 1,
+      "name": "소망점",
+      "address": "경기 용인시 처인구 양지로148번길 2-4 1층",
+      "method": "auto",
+      "lat": 37.234165,
+      "lng": 127.28433
+    },
+    {
+      "rank": 1,
+      "name": "역전슈퍼",
+      "address": "경기 의정부시 가능로 96,(의정부동)",
+      "method": "auto",
+      "lat": 37.746723,
+      "lng": 127.041626
+    },
+    {
+      "rank": 1,
+      "name": "도깨비 복권 전문점",
+      "address": "충북 증평군 광장로 119",
+      "method": "manual",
+      "lat": 36.78428,
+      "lng": 127.585045
+    },
+    {
+      "rank": 1,
+      "name": "여기있었네복권방",
+      "address": "전북 김제시 남북로 171",
+      "method": "auto",
+      "lat": 35.79936,
+      "lng": 126.88456
+    },
+    {
+      "rank": 1,
+      "name": "알리바이(나주점)",
+      "address": "전남 나주시 나주로 142 알리바이",
+      "method": "auto",
+      "lat": 35.031338,
+      "lng": 126.71719
+    }
+  ]
+}

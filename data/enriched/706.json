@@ -1,0 +1,77 @@
+{
+  "round": 706,
+  "date": "2016-06-11",
+  "nums": [
+    3,
+    4,
+    6,
+    10,
+    28,
+    30
+  ],
+  "bonus": 37,
+  "firstWinAmount": 3831746063,
+  "firstWinners": 4,
+  "totalSales": 65723488000,
+  "prizes": {
+    "first": {
+      "amount": 3831746063,
+      "winners": 4
+    },
+    "second": {
+      "amount": 50088184,
+      "winners": 51
+    },
+    "third": {
+      "amount": 1211811,
+      "winners": 2108
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 95376
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1531393
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "일이오마켓",
+      "address": "서울 서초구 방배동(방배2동) 454-20",
+      "method": "auto",
+      "lat": 37.479424,
+      "lng": 126.98344
+    },
+    {
+      "rank": 1,
+      "name": "수공화원로또",
+      "address": "서울 성동구 마장동 792번지 1층 수공화원",
+      "method": "auto",
+      "lat": 37.565346,
+      "lng": 127.042274
+    },
+    {
+      "rank": 1,
+      "name": "부일카서비스",
+      "address": "부산 동구 자성로133번길 35",
+      "method": "auto",
+      "lat": 35.140015,
+      "lng": 129.06306
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "충남 아산시 온천대로 2240 101호",
+      "method": "manual",
+      "lat": 36.77712,
+      "lng": 127.08152
+    }
+  ]
+}

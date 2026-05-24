@@ -1,0 +1,141 @@
+{
+  "round": 962,
+  "date": "2021-05-08",
+  "nums": [
+    1,
+    18,
+    28,
+    31,
+    34,
+    43
+  ],
+  "bonus": 40,
+  "firstWinAmount": 1940906094,
+  "firstWinners": 12,
+  "totalSales": 95956365000,
+  "prizes": {
+    "first": {
+      "amount": 1940906094,
+      "winners": 12
+    },
+    "second": {
+      "amount": 53175510,
+      "winners": 73
+    },
+    "third": {
+      "amount": 1503996,
+      "winners": 2581
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 126528
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2119457
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또",
+      "address": "부산 부산진구 엄광로 25 새학문서점내",
+      "method": "auto",
+      "lat": 35.14855,
+      "lng": 129.01888
+    },
+    {
+      "rank": 1,
+      "name": "장산복권방",
+      "address": "부산 해운대구 해운대로81번길 8 야후공인중개사 사무소내",
+      "method": "auto",
+      "lat": 35.190117,
+      "lng": 129.12091
+    },
+    {
+      "rank": 1,
+      "name": "유원상사",
+      "address": "대구 달성군 세천로6길 1 코리아마트세천점",
+      "method": "manual",
+      "lat": 35.872883,
+      "lng": 128.47136
+    },
+    {
+      "rank": 1,
+      "name": "서재강변로또",
+      "address": "대구 달성군 다사읍 서재로 172,(서재리)",
+      "method": "manual",
+      "lat": 35.878708,
+      "lng": 128.49748
+    },
+    {
+      "rank": 1,
+      "name": "대박복권",
+      "address": "대구 달성군 세천로 113 1층",
+      "method": "manual",
+      "lat": 35.87407,
+      "lng": 128.47414
+    },
+    {
+      "rank": 1,
+      "name": "광주공항로또",
+      "address": "광주 광산구 상무대로 411 1층",
+      "method": "manual",
+      "lat": 35.144405,
+      "lng": 126.81089
+    },
+    {
+      "rank": 1,
+      "name": "바로전산",
+      "address": "경기 광명시 오리로 1000 (광명동)",
+      "method": "auto",
+      "lat": 37.480213,
+      "lng": 126.85236
+    },
+    {
+      "rank": 1,
+      "name": "행운로또",
+      "address": "경기 김포시 약암로 911",
+      "method": "auto",
+      "lat": 37.635002,
+      "lng": 126.55378
+    },
+    {
+      "rank": 1,
+      "name": "왕관복권",
+      "address": "경기 수원시 권선구 동수원로146번길 192-15 102호(곡반정동)",
+      "method": "auto",
+      "lat": 37.242493,
+      "lng": 127.032196
+    },
+    {
+      "rank": 1,
+      "name": "한방복권",
+      "address": "경기 파주시 경의로 1100 연세프라자104호",
+      "method": "auto",
+      "lat": 37.715324,
+      "lng": 126.76012
+    },
+    {
+      "rank": 1,
+      "name": "CU(경포하나점)",
+      "address": "강원 강릉시 해안로 513",
+      "method": "auto",
+      "lat": 37.804703,
+      "lng": 128.90385
+    },
+    {
+      "rank": 1,
+      "name": "한민복권",
+      "address": "충남 아산시 영인로96번길 10",
+      "method": "auto",
+      "lat": 36.85766,
+      "lng": 126.95232
+    }
+  ]
+}

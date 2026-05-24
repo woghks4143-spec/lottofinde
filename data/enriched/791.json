@@ -1,0 +1,157 @@
+{
+  "round": 791,
+  "date": "2018-01-27",
+  "nums": [
+    2,
+    10,
+    12,
+    31,
+    33,
+    42
+  ],
+  "bonus": 32,
+  "firstWinAmount": 1253081893,
+  "firstWinners": 14,
+  "totalSales": 74205844000,
+  "prizes": {
+    "first": {
+      "amount": 1253081893,
+      "winners": 14
+    },
+    "second": {
+      "amount": 76943625,
+      "winners": 38
+    },
+    "third": {
+      "amount": 1213219,
+      "winners": 2410
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 102931
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1713102
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 9,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행운로또",
+      "address": "서울 관악구 신림동 1424-4",
+      "method": "auto",
+      "lat": 37.486427,
+      "lng": 126.929886
+    },
+    {
+      "rank": 1,
+      "name": "럭키복권",
+      "address": "서울 동작구 상도동(상도제4동) 208-32 1층 안경점",
+      "method": "manual",
+      "lat": 37.498775,
+      "lng": 126.94366
+    },
+    {
+      "rank": 1,
+      "name": "종합가로가판점",
+      "address": "서울 중구 마른내로 166",
+      "method": "manual",
+      "lat": 37.564297,
+      "lng": 127.00633
+    },
+    {
+      "rank": 1,
+      "name": "우정식품",
+      "address": "부산 동래구 온천장로 39",
+      "method": "manual",
+      "lat": 35.21585,
+      "lng": 129.07948
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "auto",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "manual",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "토큰박스동구청",
+      "address": "대구 동구 아양로 195-1 토큰박스",
+      "method": "manual",
+      "lat": 35.885868,
+      "lng": 128.63443
+    },
+    {
+      "rank": 1,
+      "name": "썬마트가양점",
+      "address": "대전 동구 동서대로 1689 115호",
+      "method": "manual",
+      "lat": 36.350315,
+      "lng": 127.43669
+    },
+    {
+      "rank": 1,
+      "name": "금화복권방",
+      "address": "울산 남구 신정로 151-1",
+      "method": "manual",
+      "lat": 35.5451,
+      "lng": 129.31805
+    },
+    {
+      "rank": 1,
+      "name": "당첨희망복권점",
+      "address": "경기 이천시 영창로 145 관고사거리",
+      "method": "auto",
+      "lat": 37.282043,
+      "lng": 127.43878
+    },
+    {
+      "rank": 1,
+      "name": "대박상사",
+      "address": "경기 화성시 궁평항로 1646-1 1층",
+      "method": "auto",
+      "lat": 37.161903,
+      "lng": 126.70735
+    },
+    {
+      "rank": 1,
+      "name": "터미널슈퍼",
+      "address": "충북 청주시 흥덕구 풍년로150번길 10-2",
+      "method": "manual",
+      "lat": 36.62587,
+      "lng": 127.433754
+    },
+    {
+      "rank": 1,
+      "name": "용원로또방",
+      "address": "경남 창원시 진해구 용원로7번길 18 용원엘룩스상가 113호",
+      "method": "auto",
+      "lat": 35.101913,
+      "lng": 128.81096
+    },
+    {
+      "rank": 1,
+      "name": "신세계",
+      "address": "제주 제주시 고마로14길 7",
+      "method": "manual",
+      "lat": 33.506073,
+      "lng": 126.54025
+    }
+  ]
+}

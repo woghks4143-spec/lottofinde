@@ -1,0 +1,149 @@
+{
+  "round": 788,
+  "date": "2018-01-06",
+  "nums": [
+    2,
+    10,
+    11,
+    19,
+    35,
+    39
+  ],
+  "bonus": 29,
+  "firstWinAmount": 1401475154,
+  "firstWinners": 13,
+  "totalSales": 78121882000,
+  "prizes": {
+    "first": {
+      "amount": 1401475154,
+      "winners": 13
+    },
+    "second": {
+      "amount": 43378993,
+      "winners": 70
+    },
+    "third": {
+      "amount": 1345384,
+      "winners": 2257
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 112504
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1828701
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 6,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "아현역3번출구앞가판점",
+      "address": "서울 마포구 마포대로 249 아현산업정보학교 아현역3번출구앞",
+      "method": "auto",
+      "lat": 37.556522,
+      "lng": 126.95708
+    },
+    {
+      "rank": 1,
+      "name": "로또명당",
+      "address": "인천 미추홀구 문학길 4 편의점내",
+      "method": "auto",
+      "lat": 37.43852,
+      "lng": 126.681046
+    },
+    {
+      "rank": 1,
+      "name": "꽃돼지복권",
+      "address": "대전 동구 계족로 194-1",
+      "method": "auto",
+      "lat": 36.330833,
+      "lng": 127.44178
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 김포시 서암로 139 101호",
+      "method": "manual",
+      "lat": 37.697227,
+      "lng": 126.60154
+    },
+    {
+      "rank": 1,
+      "name": "티켓몰",
+      "address": "경기 김포시 사우중로 15",
+      "method": "manual",
+      "lat": 37.61704,
+      "lng": 126.71676
+    },
+    {
+      "rank": 1,
+      "name": "디즈니포토랜드",
+      "address": "경기 남양주시 늘을3로 11 호평동현대아이파크상가동 상가 117호, GS25호평아이파크점",
+      "method": "manual",
+      "lat": 37.660564,
+      "lng": 127.24134
+    },
+    {
+      "rank": 1,
+      "name": "위드유로또",
+      "address": "경기 화성시 동탄하나1길 61 109호",
+      "method": "auto",
+      "lat": 37.21924,
+      "lng": 127.05868
+    },
+    {
+      "rank": 1,
+      "name": "바른손(퇴계점)",
+      "address": "강원 춘천시 퇴계로 168 주공2단지상가101호",
+      "method": "auto",
+      "lat": 37.857914,
+      "lng": 127.736404
+    },
+    {
+      "rank": 1,
+      "name": "로또천국건천점",
+      "address": "경북 경주시 건천읍 내서로 1118,(건천리)",
+      "method": "auto",
+      "lat": 35.849205,
+      "lng": 129.10333
+    },
+    {
+      "rank": 1,
+      "name": "나이스정보",
+      "address": "경남 양산시 연호로 46 복권판매점",
+      "method": "auto",
+      "lat": 35.41573,
+      "lng": 129.17523
+    },
+    {
+      "rank": 1,
+      "name": "넝쿨째(블루25 중앙점)",
+      "address": "경남 창원시 마산합포구 구산로 90 1층",
+      "method": "manual",
+      "lat": 35.09881,
+      "lng": 128.58421
+    },
+    {
+      "rank": 1,
+      "name": "넝쿨째(블루25 중앙점)",
+      "address": "경남 창원시 마산합포구 구산로 90 1층",
+      "method": "manual",
+      "lat": 35.09881,
+      "lng": 128.58421
+    },
+    {
+      "rank": 1,
+      "name": "넝쿨째(블루25 중앙점)",
+      "address": "경남 창원시 마산합포구 구산로 90 1층",
+      "method": "manual",
+      "lat": 35.09881,
+      "lng": 128.58421
+    }
+  ]
+}

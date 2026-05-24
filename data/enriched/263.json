@@ -1,0 +1,93 @@
+{
+  "round": 263,
+  "date": "2007-12-15",
+  "nums": [
+    1,
+    27,
+    28,
+    32,
+    37,
+    40
+  ],
+  "bonus": 18,
+  "firstWinAmount": 1551704900,
+  "firstWinners": 6,
+  "totalSales": 39677128000,
+  "prizes": {
+    "first": {
+      "amount": 1551704900,
+      "winners": 6
+    },
+    "second": {
+      "amount": 57470552,
+      "winners": 27
+    },
+    "third": {
+      "amount": 1656036,
+      "winners": 937
+    },
+    "fourth": {
+      "amount": 61466,
+      "winners": 50490
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 864303
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(관악한일)",
+      "address": "서울 관악구 남현동  602-11 한일빌딩 1층",
+      "method": "auto",
+      "lat": 37.473976,
+      "lng": 126.981316
+    },
+    {
+      "rank": 1,
+      "name": "-",
+      "address": "서울 서초구 서초동  1591-3 탑스벤처빌딩 1층 서초마트내",
+      "method": "auto",
+      "lat": 37.48711,
+      "lng": 127.01316
+    },
+    {
+      "rank": 1,
+      "name": "왕대박로또방",
+      "address": "부산 해운대구 좌동  998-7 1층",
+      "method": "auto",
+      "lat": 35.160866,
+      "lng": 129.15546
+    },
+    {
+      "rank": 1,
+      "name": "하나편의점",
+      "address": "인천 남동구 구월로 281 세븐일레븐편의점내",
+      "method": "auto",
+      "lat": 37.455925,
+      "lng": 126.72196
+    },
+    {
+      "rank": 1,
+      "name": "예스24",
+      "address": "경기 고양시 덕양구 화정동 화정동 977 밀레니엄타워105",
+      "method": "auto",
+      "lat": 37.632137,
+      "lng": 126.83306
+    },
+    {
+      "rank": 1,
+      "name": "로또",
+      "address": "경기 김포시 사우동  872 청원프라자 107",
+      "method": "auto",
+      "lat": 37.62242,
+      "lng": 126.72175
+    }
+  ]
+}

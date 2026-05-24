@@ -1,0 +1,109 @@
+{
+  "round": 1044,
+  "date": "2022-12-03",
+  "nums": [
+    12,
+    17,
+    20,
+    26,
+    28,
+    36
+  ],
+  "bonus": 4,
+  "firstWinAmount": 3136941235,
+  "firstWinners": 8,
+  "totalSales": 102891973000,
+  "prizes": {
+    "first": {
+      "amount": 3136941235,
+      "winners": 8
+    },
+    "second": {
+      "amount": 58091505,
+      "winners": 72
+    },
+    "third": {
+      "amount": 1610547,
+      "winners": 2597
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 134226
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2254796
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "황금대박점",
+      "address": "서울 노원구 공릉로 328,(하계동)",
+      "method": "auto",
+      "lat": 37.63598,
+      "lng": 127.07099
+    },
+    {
+      "rank": 1,
+      "name": "역전휴게마트",
+      "address": "광주 북구 무등로 240,(중흥동)",
+      "method": "auto",
+      "lat": 35.163837,
+      "lng": 126.90968
+    },
+    {
+      "rank": 1,
+      "name": "복권판매점",
+      "address": "대전 서구 계백로 1153 지산프리지엄빌딩111호",
+      "method": "auto",
+      "lat": 36.305317,
+      "lng": 127.35151
+    },
+    {
+      "rank": 1,
+      "name": "초이스 로또",
+      "address": "울산 남구 화합로125번길 9 CU달동초이스점내",
+      "method": "auto",
+      "lat": 35.535034,
+      "lng": 129.29362
+    },
+    {
+      "rank": 1,
+      "name": "속초등대로또복권",
+      "address": "강원 속초시 영금정로 23",
+      "method": "auto",
+      "lat": 38.212677,
+      "lng": 128.59906
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "충남 공주시 번영1로 41",
+      "method": "auto",
+      "lat": 36.471832,
+      "lng": 127.13313
+    },
+    {
+      "rank": 1,
+      "name": "로또명당인주점",
+      "address": "충남 아산시 서해로 519-2",
+      "method": "manual",
+      "lat": 36.87784,
+      "lng": 126.89828
+    },
+    {
+      "rank": 1,
+      "name": "잉크와복권방",
+      "address": "충남 천안시 동남구 차돌로 84",
+      "method": "manual",
+      "lat": 36.802128,
+      "lng": 127.139435
+    }
+  ]
+}

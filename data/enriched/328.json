@@ -1,0 +1,93 @@
+{
+  "round": 328,
+  "date": "2009-03-14",
+  "nums": [
+    1,
+    6,
+    9,
+    16,
+    17,
+    28
+  ],
+  "bonus": 24,
+  "firstWinAmount": 1819795900,
+  "firstWinners": 6,
+  "totalSales": 47316988000,
+  "prizes": {
+    "first": {
+      "amount": 1819795900,
+      "winners": 6
+    },
+    "second": {
+      "amount": 60659864,
+      "winners": 30
+    },
+    "third": {
+      "amount": 1318693,
+      "winners": 1380
+    },
+    "fourth": {
+      "amount": 54657,
+      "winners": 66590
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1092107
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "소리창고",
+      "address": "서울 강서구 강서로 306",
+      "method": "auto",
+      "lat": 37.552868,
+      "lng": 126.83675
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "서울 은평구 서오릉로 10,(녹번동)",
+      "method": "auto",
+      "lat": 37.602295,
+      "lng": 126.92678
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "인천 남구 주안동  238-1리베로빌딩103",
+      "method": "auto",
+      "lat": 37.464348,
+      "lng": 126.67928
+    },
+    {
+      "rank": 1,
+      "name": "굿프랜드로또",
+      "address": "경기 고양시 덕양구 주교동 주교동 568-1",
+      "method": "manual",
+      "lat": 37.62182,
+      "lng": 126.845726
+    },
+    {
+      "rank": 1,
+      "name": "희망유통",
+      "address": "경기 평택시 평택1로20번길 39 1층 복권방",
+      "method": "auto",
+      "lat": 36.99426,
+      "lng": 127.08929
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 포천시 솔모루로 86-1",
+      "method": "manual",
+      "lat": 37.8288,
+      "lng": 127.14748
+    }
+  ]
+}

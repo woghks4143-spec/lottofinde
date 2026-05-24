@@ -1,0 +1,43 @@
+{
+  "round": 164,
+  "date": "2006-01-21",
+  "nums": [
+    6,
+    9,
+    10,
+    11,
+    39,
+    41
+  ],
+  "bonus": 27,
+  "firstWinAmount": 4054937900,
+  "firstWinners": 3,
+  "totalSales": 53052119000,
+  "prizes": {
+    "first": {
+      "amount": 4054937900,
+      "winners": 3
+    },
+    "second": {
+      "amount": 51986384,
+      "winners": 39
+    },
+    "third": {
+      "amount": 1246906,
+      "winners": 1626
+    },
+    "fourth": {
+      "amount": 54186,
+      "winners": 74835
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1250274
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

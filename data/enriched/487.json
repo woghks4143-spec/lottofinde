@@ -1,0 +1,109 @@
+{
+  "round": 487,
+  "date": "2012-03-31",
+  "nums": [
+    4,
+    8,
+    25,
+    27,
+    37,
+    41
+  ],
+  "bonus": 21,
+  "firstWinAmount": 1638830766,
+  "firstWinners": 8,
+  "totalSales": 55276503000,
+  "prizes": {
+    "first": {
+      "amount": 1638830766,
+      "winners": 8
+    },
+    "second": {
+      "amount": 47502342,
+      "winners": 46
+    },
+    "third": {
+      "amount": 1376880,
+      "winners": 1587
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 76639
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1265088
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "씨스페이스(범물청구점)",
+      "address": "대구 수성구 범물동  1277-11",
+      "method": "auto",
+      "lat": 35.82074,
+      "lng": 128.6424
+    },
+    {
+      "rank": 1,
+      "name": "역전식품",
+      "address": "인천 남구 도화동  80-83",
+      "method": "auto",
+      "lat": 37.467224,
+      "lng": 126.65607
+    },
+    {
+      "rank": 1,
+      "name": "영화유통(1등복권방)",
+      "address": "울산 남구 신정로 19 삼성아파트 상가 204-101",
+      "method": "auto",
+      "lat": 35.533833,
+      "lng": 129.32205
+    },
+    {
+      "rank": 1,
+      "name": "씨엔복권방",
+      "address": "울산 북구 연암동  374-1번지 1층CN마트",
+      "method": "manual",
+      "lat": 35.585,
+      "lng": 129.36613
+    },
+    {
+      "rank": 1,
+      "name": "초월대박복권방",
+      "address": "경기 광주시 경충대로 1252",
+      "method": "manual",
+      "lat": 37.386677,
+      "lng": 127.28821
+    },
+    {
+      "rank": 1,
+      "name": "공원슈퍼",
+      "address": "경기 수원시 장안구 팔달로 257-1 1층(영화동)",
+      "method": "auto",
+      "lat": 37.288837,
+      "lng": 127.01324
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 수원시 권선구 구운로 46-1 103호",
+      "method": "auto",
+      "lat": 37.27796,
+      "lng": 126.97342
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "강원 원주시 평원로 23 1층",
+      "method": "manual",
+      "lat": 37.348927,
+      "lng": 127.952644
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "round": 427,
+  "date": "2011-02-05",
+  "nums": [
+    6,
+    7,
+    15,
+    24,
+    28,
+    30
+  ],
+  "bonus": 21,
+  "firstWinAmount": 12571445625,
+  "firstWinners": 1,
+  "totalSales": 52511055000,
+  "prizes": {
+    "first": {
+      "amount": 12571445625,
+      "winners": 1
+    },
+    "second": {
+      "amount": 63492150,
+      "winners": 33
+    },
+    "third": {
+      "amount": 1480736,
+      "winners": 1415
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 71400
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1184720
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "동양마트",
+      "address": "서울 노원구 상계로5길 12 상계동동양메이져아파트제상가동108호,109호",
+      "method": "auto",
+      "lat": 37.657627,
+      "lng": 127.06395
+    }
+  ]
+}

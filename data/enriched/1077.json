@@ -1,0 +1,101 @@
+{
+  "round": 1077,
+  "date": "2023-07-22",
+  "nums": [
+    4,
+    8,
+    17,
+    30,
+    40,
+    43
+  ],
+  "bonus": 34,
+  "firstWinAmount": 3570901018,
+  "firstWinners": 7,
+  "totalSales": 105927489000,
+  "prizes": {
+    "first": {
+      "amount": 3570901018,
+      "winners": 7
+    },
+    "second": {
+      "amount": 42510727,
+      "winners": 98
+    },
+    "third": {
+      "amount": 1287806,
+      "winners": 3235
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 149808
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2428987
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "최강복권&아이스크림",
+      "address": "경기 고양시 덕양구 삼송로 176-1",
+      "method": "auto",
+      "lat": 37.6531,
+      "lng": 126.89353
+    },
+    {
+      "rank": 1,
+      "name": "복권닷컴",
+      "address": "강원 양양군 양양로 62",
+      "method": "manual",
+      "lat": 38.075512,
+      "lng": 128.62233
+    },
+    {
+      "rank": 1,
+      "name": "복권닷컴",
+      "address": "강원 양양군 양양로 62",
+      "method": "manual",
+      "lat": 38.075512,
+      "lng": 128.62233
+    },
+    {
+      "rank": 1,
+      "name": "좋은날 복권방",
+      "address": "전북 남원시 의총로 78 메이커스쿨,용남건재,용남삼베,대동지업사",
+      "method": "manual",
+      "lat": 35.407715,
+      "lng": 127.37666
+    },
+    {
+      "rank": 1,
+      "name": "현대장미슈퍼",
+      "address": "전북 익산시 동서로61길 41 현대아파트1층108호",
+      "method": "auto",
+      "lat": 35.95509,
+      "lng": 126.98032
+    },
+    {
+      "rank": 1,
+      "name": "옥좌로또점",
+      "address": "경북 경주시 내외로 10 좌측4번째상가",
+      "method": "manual",
+      "lat": 0,
+      "lng": 0
+    },
+    {
+      "rank": 1,
+      "name": "로또복권애니타임점",
+      "address": "경북 구미시 인동중앙로11길 24 애니타임편의점 내",
+      "method": "auto",
+      "lat": 36.10904,
+      "lng": 128.42
+    }
+  ]
+}

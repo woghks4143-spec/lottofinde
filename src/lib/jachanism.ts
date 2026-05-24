@@ -16,7 +16,8 @@ import type { Draw } from '@/src/data/lotto';
 export const POOL_SIZE = 85000;              // 내부 계산용 (디스플레이는 "약 8~9만개")
 export const POOL_SIZE_DISPLAY = '약 8~9만개'; // UI 공통 표기
 export const USER_LIMIT = 50;
-export const BACKTEST_BASE_N = 30;
+export const BACKTEST_BASE_N = 100;           // 최근 약 2년 (100주, 검증력 ↑)
+export const BACKTEST_BASE_LABEL = '최근 100회';
 
 export type JachanismStatus = 'locked' | 'active' | 'drawing' | 'done';
 
@@ -176,8 +177,9 @@ export function generateUserCombos(round: number, deviceSeed: string): number[][
  *
  * URL: https://raw.githubusercontent.com/{owner}/{repo}/main/weekly_combos/round_NNNN.json
  */
+/** 사전 계산된 풀/백테스트는 동일한 repo의 data/jachanism/에 저장됨. */
 const GITHUB_RAW_BASE =
-  'https://raw.githubusercontent.com/woghks4143-spec/lottofinde-combos/main';
+  'https://raw.githubusercontent.com/woghks4143-spec/lottofinde/main/data/jachanism';
 
 export type WeeklyPool = {
   round: number;
@@ -192,7 +194,7 @@ export type WeeklyPool = {
  * 네트워크 실패/파일 없음 시 null 반환 → 호출 측이 로컬 폴백 사용.
  */
 export async function fetchWeeklyPool(round: number): Promise<WeeklyPool | null> {
-  const url = `${GITHUB_RAW_BASE}/round_${String(round).padStart(4, '0')}.json`;
+  const url = `${GITHUB_RAW_BASE}/pool_${round}.json`;
   try {
     const ctrl = new AbortController();
     const timer = setTimeout(() => ctrl.abort(), 15000);
@@ -202,6 +204,39 @@ export async function fetchWeeklyPool(round: number): Promise<WeeklyPool | null>
     const json = (await res.json()) as WeeklyPool;
     if (!json?.combos || !Array.isArray(json.combos) || json.combos.length === 0) return null;
     return json;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * 사전 계산된 백테스트 결과를 GitHub raw에서 fetch.
+ * 매주 월요일 GitHub Actions가 갱신함. 클라이언트 계산 불필요 → 즉시 표시.
+ */
+export async function fetchPrecomputedBacktest(): Promise<BacktestStats | null> {
+  const url = `${GITHUB_RAW_BASE}/backtest.json`;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 10000);
+    const res = await fetch(url, { signal: ctrl.signal });
+    clearTimeout(timer);
+    if (!res.ok) return null;
+    const json = await res.json();
+    if (
+      !json ||
+      typeof json.rank1 !== 'number' ||
+      typeof json.roundsTested !== 'number'
+    ) return null;
+    return {
+      rank1: json.rank1,
+      rank2: json.rank2,
+      rank3: json.rank3,
+      rank4: json.rank4,
+      rank5: json.rank5,
+      roundsTested: json.roundsTested,
+      totalCombosTested: json.totalCombosTested,
+      computedAt: json.computedAt,
+    };
   } catch {
     return null;
   }

@@ -1,0 +1,125 @@
+{
+  "round": 1169,
+  "date": "2025-04-26",
+  "nums": [
+    5,
+    12,
+    24,
+    26,
+    39,
+    42
+  ],
+  "bonus": 20,
+  "firstWinAmount": 2852735813,
+  "firstWinners": 10,
+  "totalSales": 118803195000,
+  "prizes": {
+    "first": {
+      "amount": 2852735813,
+      "winners": 10
+    },
+    "second": {
+      "amount": 42451426,
+      "winners": 112
+    },
+    "third": {
+      "amount": 1465648,
+      "winners": 3244
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 160483
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2668194
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "투싼",
+      "address": "서울 강남구 역삼로 310 한솔필리아 1층 127호",
+      "method": "auto",
+      "lat": 37.49946,
+      "lng": 127.048325
+    },
+    {
+      "rank": 1,
+      "name": "홈돌이로또복권",
+      "address": "인천 남동구 경원대로 971 삼성홈플러스간석점2층내",
+      "method": "auto",
+      "lat": 37.46954,
+      "lng": 126.68899
+    },
+    {
+      "rank": 1,
+      "name": "노다지로또",
+      "address": "인천 서구 완정로 179 검단제이원빌딩 108호",
+      "method": "auto",
+      "lat": 37.602306,
+      "lng": 126.65639
+    },
+    {
+      "rank": 1,
+      "name": "오천억복권방",
+      "address": "광주 서구 상무대로 1087",
+      "method": "auto",
+      "lat": 35.15296,
+      "lng": 126.880745
+    },
+    {
+      "rank": 1,
+      "name": "관저중앙로또",
+      "address": "대전 서구 관저동로99번길 23 편의점",
+      "method": "auto",
+      "lat": 36.300953,
+      "lng": 127.33882
+    },
+    {
+      "rank": 1,
+      "name": "행운가득명당복권",
+      "address": "울산 울주군 점촌5길 23 201호",
+      "method": "auto",
+      "lat": 35.569798,
+      "lng": 129.24046
+    },
+    {
+      "rank": 1,
+      "name": "프랜드편의점",
+      "address": "경기 화성시 3.1만세로 1100-2",
+      "method": "auto",
+      "lat": 37.13201,
+      "lng": 126.90798
+    },
+    {
+      "rank": 1,
+      "name": "진평양행",
+      "address": "강원 강릉시 임영로 107",
+      "method": "auto",
+      "lat": 37.751263,
+      "lng": 128.89407
+    },
+    {
+      "rank": 1,
+      "name": "은혜복권방",
+      "address": "전북 전주시 완산구 당산로 52",
+      "method": "manual",
+      "lat": 35.832005,
+      "lng": 127.11386
+    },
+    {
+      "rank": 1,
+      "name": "우리복권판매점",
+      "address": "경북 포항시 북구 죽파로 35-1 1층 101호",
+      "method": "manual",
+      "lat": 36.02839,
+      "lng": 129.36032
+    }
+  ]
+}

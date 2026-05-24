@@ -1,0 +1,101 @@
+{
+  "round": 503,
+  "date": "2012-07-21",
+  "nums": [
+    1,
+    5,
+    27,
+    30,
+    34,
+    36
+  ],
+  "bonus": 40,
+  "firstWinAmount": 1853634911,
+  "firstWinners": 7,
+  "totalSales": 53572205000,
+  "prizes": {
+    "first": {
+      "amount": 1853634911,
+      "winners": 7
+    },
+    "second": {
+      "amount": 51489859,
+      "winners": 42
+    },
+    "third": {
+      "amount": 1673819,
+      "winners": 1292
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 69822
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1198882
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "노다지복권방]",
+      "address": "서울 노원구 상계로 78,(상계동)",
+      "method": "manual",
+      "lat": 37.656223,
+      "lng": 127.06374
+    },
+    {
+      "rank": 1,
+      "name": "원스탑",
+      "address": "서울 송파구 백제고분로7길 39",
+      "method": "auto",
+      "lat": 37.510902,
+      "lng": 127.08321
+    },
+    {
+      "rank": 1,
+      "name": "안락점로또판매",
+      "address": "부산 동래구 안락동  471-6",
+      "method": "auto",
+      "lat": 35.198776,
+      "lng": 129.11255
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "부산 사상구 괘법동  533서부시외버스터미널1층",
+      "method": "auto",
+      "lat": 35.16308,
+      "lng": 128.981
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "대구 동구 효신로 23",
+      "method": "auto",
+      "lat": 35.874146,
+      "lng": 128.63422
+    },
+    {
+      "rank": 1,
+      "name": "행운 마트",
+      "address": "인천 남동구 만수로 65",
+      "method": "manual",
+      "lat": 37.461594,
+      "lng": 126.73509
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "대전 동구 대전로 437,(가오동)",
+      "method": "auto",
+      "lat": 36.30517,
+      "lng": 127.45271
+    }
+  ]
+}

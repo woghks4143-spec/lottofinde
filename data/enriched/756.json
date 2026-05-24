@@ -1,0 +1,85 @@
+{
+  "round": 756,
+  "date": "2017-05-27",
+  "nums": [
+    10,
+    14,
+    16,
+    18,
+    27,
+    28
+  ],
+  "bonus": 4,
+  "firstWinAmount": 3414434700,
+  "firstWinners": 5,
+  "totalSales": 70992946000,
+  "prizes": {
+    "first": {
+      "amount": 3414434700,
+      "winners": 5
+    },
+    "second": {
+      "amount": 53686081,
+      "winners": 53
+    },
+    "third": {
+      "amount": 1524846,
+      "winners": 1866
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 94800
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1598715
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가로매점",
+      "address": "서울 종로구 종로 186 우리은행 우리은행앞 가판",
+      "method": "auto",
+      "lat": 37.570404,
+      "lng": 126.99847
+    },
+    {
+      "rank": 1,
+      "name": "부강로또",
+      "address": "세종 부강면 부강로 34,(부강리)",
+      "method": "auto",
+      "lat": 36.529217,
+      "lng": 127.3665
+    },
+    {
+      "rank": 1,
+      "name": "버스표가판점",
+      "address": "경기 안양시 동안구 동안로 125-2 범계역4-1출구앞 버스표가판점",
+      "method": "auto",
+      "lat": 37.389736,
+      "lng": 126.95106
+    },
+    {
+      "rank": 1,
+      "name": "가말로또",
+      "address": "전북 남원시 도통동 498-7번지 CU",
+      "method": "auto",
+      "lat": 35.421642,
+      "lng": 127.39352
+    },
+    {
+      "rank": 1,
+      "name": "바다로또방",
+      "address": "경남 통영시 서호동 177-358번지",
+      "method": "auto",
+      "lat": 34.840717,
+      "lng": 128.42125
+    }
+  ]
+}

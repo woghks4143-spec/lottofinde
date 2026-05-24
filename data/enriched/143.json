@@ -1,0 +1,43 @@
+{
+  "round": 143,
+  "date": "2005-08-27",
+  "nums": [
+    26,
+    27,
+    28,
+    42,
+    43,
+    45
+  ],
+  "bonus": 8,
+  "firstWinAmount": 3954584700,
+  "firstWinners": 3,
+  "totalSales": 49415357000,
+  "prizes": {
+    "first": {
+      "amount": 3954584700,
+      "winners": 3
+    },
+    "second": {
+      "amount": 56494068,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1672837,
+      "winners": 1182
+    },
+    "fourth": {
+      "amount": 69221,
+      "winners": 57130
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 986951
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

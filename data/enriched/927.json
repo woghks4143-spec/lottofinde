@@ -1,0 +1,93 @@
+{
+  "round": 927,
+  "date": "2020-09-05",
+  "nums": [
+    4,
+    15,
+    22,
+    38,
+    41,
+    43
+  ],
+  "bonus": 26,
+  "firstWinAmount": 3714203875,
+  "firstWinners": 6,
+  "totalSales": 91067752000,
+  "prizes": {
+    "first": {
+      "amount": 3714203875,
+      "winners": 6
+    },
+    "second": {
+      "amount": 58955618,
+      "winners": 63
+    },
+    "third": {
+      "amount": 1593396,
+      "winners": 2331
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 118446
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1979589
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "씨유역삼에클라트로또판매점",
+      "address": "서울 강남구 역삼동 736-24 1층 씨유역삼에클라트점",
+      "method": "mixed",
+      "lat": 37.498535,
+      "lng": 127.03502
+    },
+    {
+      "rank": 1,
+      "name": "행운플러스",
+      "address": "대전 대덕구 덕암로 214",
+      "method": "manual",
+      "lat": 36.439465,
+      "lng": 127.42388
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "대전 서구 만년남로3번길 164,(만년동)",
+      "method": "auto",
+      "lat": 36.366486,
+      "lng": 127.37305
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 수원시 영통구 반달로7번길 40 평익칼라스위트 평익칼라스위트110호",
+      "method": "auto",
+      "lat": 37.25351,
+      "lng": 127.07518
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "경기 시흥시 복지로 103-1 1층상가",
+      "method": "auto",
+      "lat": 37.44823,
+      "lng": 126.79206
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "경북 구미시 구미중앙로 72",
+      "method": "auto",
+      "lat": 36.128925,
+      "lng": 128.33043
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "round": 781,
+  "date": "2017-11-18",
+  "nums": [
+    11,
+    16,
+    18,
+    19,
+    24,
+    39
+  ],
+  "bonus": 43,
+  "firstWinAmount": 1882891542,
+  "firstWinners": 9,
+  "totalSales": 72483157000,
+  "prizes": {
+    "first": {
+      "amount": 1882891542,
+      "winners": 9
+    },
+    "second": {
+      "amount": 54314180,
+      "winners": 52
+    },
+    "third": {
+      "amount": 1435861,
+      "winners": 1967
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 102959
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1699786
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "터미널로또수리점",
+      "address": "광주 서구 광천동 49-1번지 광주종합버스터미널 내 금호고속사무실부근",
+      "method": "auto",
+      "lat": 35.160297,
+      "lng": 126.88015
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐동천점",
+      "address": "광주 서구 동천동 600번지 세븐일레븐 동천점 내",
+      "method": "auto",
+      "lat": 35.1711,
+      "lng": 126.8682
+    },
+    {
+      "rank": 1,
+      "name": "새상무복권",
+      "address": "광주 서구 치평로 30 수암빌딩 1층 102호",
+      "method": "auto",
+      "lat": 35.149944,
+      "lng": 126.84769
+    },
+    {
+      "rank": 1,
+      "name": "우리로또",
+      "address": "경기 김포시 김포대로 1421",
+      "method": "manual",
+      "lat": 37.651577,
+      "lng": 126.672646
+    },
+    {
+      "rank": 1,
+      "name": "평택로또판매",
+      "address": "경기 평택시 비전5로 7 중앙프라자 105호",
+      "method": "auto",
+      "lat": 36.9969,
+      "lng": 127.09144
+    },
+    {
+      "rank": 1,
+      "name": "왕대박복권전문점",
+      "address": "강원 동해시 중앙로 234 이주민상가1층18호",
+      "method": "auto",
+      "lat": 37.52171,
+      "lng": 129.115
+    },
+    {
+      "rank": 1,
+      "name": "GS25(두정메트로점)",
+      "address": "충남 천안시 서북구 성정동 1451번지",
+      "method": "manual",
+      "lat": 36.826557,
+      "lng": 127.14148
+    },
+    {
+      "rank": 1,
+      "name": "종합복권방",
+      "address": "전남 해남군 해남로 34 종합복권방편의점",
+      "method": "auto",
+      "lat": 34.570763,
+      "lng": 126.61092
+    },
+    {
+      "rank": 1,
+      "name": "대광복권방",
+      "address": "전남 화순군 칠충로 55 대광로제비앙 대광그린상가동 1층109호",
+      "method": "auto",
+      "lat": 35.05548,
+      "lng": 126.97712
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "round": 660,
+  "date": "2015-07-25",
+  "nums": [
+    4,
+    9,
+    23,
+    33,
+    39,
+    44
+  ],
+  "bonus": 14,
+  "firstWinAmount": 1421272575,
+  "firstWinners": 10,
+  "totalSales": 60813322000,
+  "prizes": {
+    "first": {
+      "amount": 1421272575,
+      "winners": 10
+    },
+    "second": {
+      "amount": 49349743,
+      "winners": 48
+    },
+    "third": {
+      "amount": 1214141,
+      "winners": 1951
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 88247
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1408802
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(구로제일)",
+      "address": "서울 구로구  구로동 685-215번지103호",
+      "method": "auto",
+      "lat": 37.49201,
+      "lng": 126.87578
+    },
+    {
+      "rank": 1,
+      "name": "스포츠베팅샵",
+      "address": "서울 서초구 동산로 48 서희빌딩 104호",
+      "method": "mixed",
+      "lat": 37.471325,
+      "lng": 127.04434
+    },
+    {
+      "rank": 1,
+      "name": "buy the way (반포공원점)",
+      "address": "서울 서초구 반포동  709-8번지",
+      "method": "manual",
+      "lat": 37.50922,
+      "lng": 127.02032
+    },
+    {
+      "rank": 1,
+      "name": "잠실매점",
+      "address": "서울 송파구 올림픽로 269 잠실역 8번출구 앞 가판",
+      "method": "auto",
+      "lat": 37.514446,
+      "lng": 127.10071
+    },
+    {
+      "rank": 1,
+      "name": "가락하단",
+      "address": "부산 사하구 하단동  885-9번지 세븐일레븐",
+      "method": "auto",
+      "lat": 35.108837,
+      "lng": 128.95908
+    },
+    {
+      "rank": 1,
+      "name": "각골할인마트",
+      "address": "경기 안산시 상록구 각골로 37",
+      "method": "mixed",
+      "lat": 37.292725,
+      "lng": 126.87227
+    },
+    {
+      "rank": 1,
+      "name": "OK편의점",
+      "address": "경기 이천시 중리천로 56",
+      "method": "auto",
+      "lat": 37.279842,
+      "lng": 127.44385
+    },
+    {
+      "rank": 1,
+      "name": "CU(횡성점)",
+      "address": "강원 횡성군  횡성읍 읍하리118-1번지",
+      "method": "manual",
+      "lat": 37.48886,
+      "lng": 127.9855
+    },
+    {
+      "rank": 1,
+      "name": "현대복권방",
+      "address": "충북 청주시 청원구 향군로 140-1",
+      "method": "auto",
+      "lat": 36.656837,
+      "lng": 127.48003
+    },
+    {
+      "rank": 1,
+      "name": "로또복권판매도통점",
+      "address": "전북 남원시 용성로 232,(도통동)",
+      "method": "auto",
+      "lat": 35.41778,
+      "lng": 127.39722
+    }
+  ]
+}

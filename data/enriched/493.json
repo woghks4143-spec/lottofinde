@@ -1,0 +1,117 @@
+{
+  "round": 493,
+  "date": "2012-05-12",
+  "nums": [
+    20,
+    22,
+    26,
+    33,
+    36,
+    37
+  ],
+  "bonus": 25,
+  "firstWinAmount": 1451120334,
+  "firstWinners": 9,
+  "totalSales": 53231838000,
+  "prizes": {
+    "first": {
+      "amount": 1451120334,
+      "winners": 9
+    },
+    "second": {
+      "amount": 80617797,
+      "winners": 27
+    },
+    "third": {
+      "amount": 1621968,
+      "winners": 1342
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 68608
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1154415
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가판점(신문)",
+      "address": "서울 영등포구 양평로 48",
+      "method": "auto",
+      "lat": 37.534508,
+      "lng": 126.90126
+    },
+    {
+      "rank": 1,
+      "name": "평안당",
+      "address": "서울 종로구 종로 219",
+      "method": "auto",
+      "lat": 37.57123,
+      "lng": 127.00219
+    },
+    {
+      "rank": 1,
+      "name": "GS25(명륜아남)",
+      "address": "서울 종로구 혜화로 9",
+      "method": "auto",
+      "lat": 37.586414,
+      "lng": 127.00013
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "인천 부평구 안남로 279",
+      "method": "manual",
+      "lat": 37.507828,
+      "lng": 126.70886
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "경기 가평군 가평읍  읍내리    448-3",
+      "method": "auto",
+      "lat": 37.831,
+      "lng": 127.512695
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 수원시 권선구 탑동로 2 영보석",
+      "method": "auto",
+      "lat": 37.26914,
+      "lng": 126.975494
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트(여주ＩＣ점)",
+      "address": "경기 여주군 여주읍  점봉리    437-11층234호",
+      "method": "auto",
+      "lat": 37.263885,
+      "lng": 127.63978
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "강원 원주시 단구동  1512-1리더스타워106호",
+      "method": "auto",
+      "lat": 37.361584,
+      "lng": 127.93296
+    },
+    {
+      "rank": 1,
+      "name": "명당복권방",
+      "address": "전남 영암군 삼호읍  용앙리  213-6",
+      "method": "manual",
+      "lat": 34.745518,
+      "lng": 126.473175
+    }
+  ]
+}

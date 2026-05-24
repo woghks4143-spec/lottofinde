@@ -1,0 +1,149 @@
+{
+  "round": 768,
+  "date": "2017-08-19",
+  "nums": [
+    7,
+    27,
+    29,
+    30,
+    38,
+    44
+  ],
+  "bonus": 4,
+  "firstWinAmount": 1363572260,
+  "firstWinners": 13,
+  "totalSales": 72306975000,
+  "prizes": {
+    "first": {
+      "amount": 1363572260,
+      "winners": 13
+    },
+    "second": {
+      "amount": 55743521,
+      "winners": 53
+    },
+    "third": {
+      "amount": 1597841,
+      "winners": 1849
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 93126
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1572387
+    }
+  },
+  "methodCounts": {
+    "auto": 12,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "서울 노원구 하계동 272번지 시영아파트5단지상가104",
+      "method": "auto",
+      "lat": 37.633224,
+      "lng": 127.06564
+    },
+    {
+      "rank": 1,
+      "name": "헬로마트",
+      "address": "서울 도봉구 도봉로170길 8,(도봉동)",
+      "method": "auto",
+      "lat": 37.680374,
+      "lng": 127.04596
+    },
+    {
+      "rank": 1,
+      "name": "서교동가판점",
+      "address": "서울 마포구 양화로 115",
+      "method": "auto",
+      "lat": 37.554047,
+      "lng": 126.91951
+    },
+    {
+      "rank": 1,
+      "name": "세진전자통신",
+      "address": "대구 서구 서대구로 156",
+      "method": "auto",
+      "lat": 35.8719,
+      "lng": 128.5552
+    },
+    {
+      "rank": 1,
+      "name": "인생대역전",
+      "address": "인천 계양구 임학동 10-10번지",
+      "method": "auto",
+      "lat": 37.545486,
+      "lng": 126.7387
+    },
+    {
+      "rank": 1,
+      "name": "GS25시 나눔로또",
+      "address": "경기 양주시 호국로 511",
+      "method": "auto",
+      "lat": 37.716553,
+      "lng": 126.97139
+    },
+    {
+      "rank": 1,
+      "name": "행복충전소",
+      "address": "경기 평택시 탄현로 332-2",
+      "method": "auto",
+      "lat": 37.0818,
+      "lng": 127.05637
+    },
+    {
+      "rank": 1,
+      "name": "행운의시작복권전문점",
+      "address": "강원 삼척시 사대안길 5 8통1반",
+      "method": "auto",
+      "lat": 37.444267,
+      "lng": 129.16542
+    },
+    {
+      "rank": 1,
+      "name": "주공S.P",
+      "address": "충남 서산시 동문동 228-2번지",
+      "method": "auto",
+      "lat": 36.777824,
+      "lng": 126.46421
+    },
+    {
+      "rank": 1,
+      "name": "CU구례중앙점복권방",
+      "address": "전남 구례군 봉동길 8  구례 하나로 마트 앞",
+      "method": "auto",
+      "lat": 35.209152,
+      "lng": 127.46866
+    },
+    {
+      "rank": 1,
+      "name": "하당복권방",
+      "address": "전남 목포시 옥암로 46",
+      "method": "auto",
+      "lat": 34.803894,
+      "lng": 126.429474
+    },
+    {
+      "rank": 1,
+      "name": "플러스하나",
+      "address": "전남 순천시 비봉길 6 상가동 1층 107호",
+      "method": "auto",
+      "lat": 34.93302,
+      "lng": 127.48947
+    },
+    {
+      "rank": 1,
+      "name": "불국사명당복권",
+      "address": "경북 경주시 산업로 3033",
+      "method": "manual",
+      "lat": 35.7765,
+      "lng": 129.29813
+    }
+  ]
+}

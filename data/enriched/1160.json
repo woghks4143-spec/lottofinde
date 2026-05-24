@@ -1,0 +1,141 @@
+{
+  "round": 1160,
+  "date": "2025-02-22",
+  "nums": [
+    7,
+    13,
+    18,
+    36,
+    39,
+    45
+  ],
+  "bonus": 19,
+  "firstWinAmount": 2509359875,
+  "firstWinners": 12,
+  "totalSales": 123177536000,
+  "prizes": {
+    "first": {
+      "amount": 2509359875,
+      "winners": 12
+    },
+    "second": {
+      "amount": 59746664,
+      "winners": 84
+    },
+    "third": {
+      "amount": 1580202,
+      "winners": 3176
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 160611
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2681692
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "천하명당복권",
+      "address": "대구 북구 칠곡중앙대로 545",
+      "method": "auto",
+      "lat": 35.94432,
+      "lng": 128.55064
+    },
+    {
+      "rank": 1,
+      "name": "열정복권",
+      "address": "광주 북구 하남대로 821 1층",
+      "method": "auto",
+      "lat": 35.171238,
+      "lng": 126.8825
+    },
+    {
+      "rank": 1,
+      "name": "8888로또",
+      "address": "대전 서구 월평북로 77",
+      "method": "auto",
+      "lat": 36.362503,
+      "lng": 127.37681
+    },
+    {
+      "rank": 1,
+      "name": "한꿈복권방",
+      "address": "울산 중구 번영로 586",
+      "method": "auto",
+      "lat": 35.568794,
+      "lng": 129.34589
+    },
+    {
+      "rank": 1,
+      "name": "로또대박",
+      "address": "세종  장척로 571",
+      "method": "manual",
+      "lat": 37.499294,
+      "lng": 127.22131
+    },
+    {
+      "rank": 1,
+      "name": "다니엘사",
+      "address": "경기 안산시 단원구 원선1로 38 101호",
+      "method": "auto",
+      "lat": 37.326073,
+      "lng": 126.80417
+    },
+    {
+      "rank": 1,
+      "name": "버스표가판점",
+      "address": "경기 안양시 만안구 안양로 366",
+      "method": "manual",
+      "lat": 37.404003,
+      "lng": 126.917435
+    },
+    {
+      "rank": 1,
+      "name": "장미슈퍼",
+      "address": "충남 부여군 계백로 265 부여군청 로터리 부근",
+      "method": "auto",
+      "lat": 36.27629,
+      "lng": 126.90941
+    },
+    {
+      "rank": 1,
+      "name": "터미널복권방",
+      "address": "전북 정읍시 연지8길 6",
+      "method": "auto",
+      "lat": 35.57231,
+      "lng": 126.84499
+    },
+    {
+      "rank": 1,
+      "name": "좋은사람들로또",
+      "address": "전남 보성군 현충로 85",
+      "method": "auto",
+      "lat": 34.76743,
+      "lng": 127.081055
+    },
+    {
+      "rank": 1,
+      "name": "로그인복권방",
+      "address": "경북 구미시 상사동로 149-4 사곡동",
+      "method": "mixed",
+      "lat": 36.09796,
+      "lng": 128.35878
+    },
+    {
+      "rank": 1,
+      "name": "무지개로또복권",
+      "address": "경남 양산시 덕계2길 17 좌측 복권판매점",
+      "method": "auto",
+      "lat": 35.37062,
+      "lng": 129.14658
+    }
+  ]
+}

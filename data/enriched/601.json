@@ -1,0 +1,117 @@
+{
+  "round": 601,
+  "date": "2014-06-07",
+  "nums": [
+    2,
+    16,
+    19,
+    31,
+    34,
+    35
+  ],
+  "bonus": 37,
+  "firstWinAmount": 1524565209,
+  "firstWinners": 9,
+  "totalSales": 55868455000,
+  "prizes": {
+    "first": {
+      "amount": 1524565209,
+      "winners": 9
+    },
+    "second": {
+      "amount": 81673137,
+      "winners": 28
+    },
+    "third": {
+      "amount": 1508475,
+      "winners": 1516
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 72233
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1205559
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "천하명당미아현대점",
+      "address": "서울 강북구 솔샘로 283 1층",
+      "method": "manual",
+      "lat": 37.618645,
+      "lng": 127.02396
+    },
+    {
+      "rank": 1,
+      "name": "로또수락산점",
+      "address": "서울 노원구 동일로 1689 대덕하이베라스101호",
+      "method": "manual",
+      "lat": 37.67911,
+      "lng": 127.054855
+    },
+    {
+      "rank": 1,
+      "name": "부일카서비스",
+      "address": "부산 동구 자성로133번길 35",
+      "method": "auto",
+      "lat": 35.140015,
+      "lng": 129.06306
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "부산 부산진구 당감서로 84 202호",
+      "method": "manual",
+      "lat": 35.167698,
+      "lng": 129.03735
+    },
+    {
+      "rank": 1,
+      "name": "대운복권",
+      "address": "경기 성남시 중원구 성남대로 1149",
+      "method": "auto",
+      "lat": 37.432377,
+      "lng": 127.12866
+    },
+    {
+      "rank": 1,
+      "name": "하늘채복권방",
+      "address": "경기 수원시 영통구 매탄동  1156-1번지",
+      "method": "auto",
+      "lat": 37.25919,
+      "lng": 127.04074
+    },
+    {
+      "rank": 1,
+      "name": "여기있었네복권방",
+      "address": "충남 논산시 중앙로 417",
+      "method": "auto",
+      "lat": 36.201103,
+      "lng": 127.08766
+    },
+    {
+      "rank": 1,
+      "name": "일공공일안경콘택트수송점",
+      "address": "전북 군산시 수송동  850-6번지",
+      "method": "auto",
+      "lat": 35.964275,
+      "lng": 126.71839
+    },
+    {
+      "rank": 1,
+      "name": "구담쌀슈퍼",
+      "address": "경북 안동시 경동로 908",
+      "method": "auto",
+      "lat": 36.556965,
+      "lng": 128.75449
+    }
+  ]
+}

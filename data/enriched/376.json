@@ -1,0 +1,93 @@
+{
+  "round": 376,
+  "date": "2010-02-13",
+  "nums": [
+    1,
+    11,
+    13,
+    24,
+    28,
+    40
+  ],
+  "bonus": 7,
+  "firstWinAmount": 1956915800,
+  "firstWinners": 6,
+  "totalSales": 50657096000,
+  "prizes": {
+    "first": {
+      "amount": 1956915800,
+      "winners": 6
+    },
+    "second": {
+      "amount": 38370899,
+      "winners": 51
+    },
+    "third": {
+      "amount": 1386900,
+      "winners": 1411
+    },
+    "fourth": {
+      "amount": 56355,
+      "winners": 69450
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1151878
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "서울 구로구 구로동  409-80  1층",
+      "method": "auto",
+      "lat": 37.493923,
+      "lng": 126.88259
+    },
+    {
+      "rank": 1,
+      "name": "가로판매점",
+      "address": "서울 서대문구 신촌로 103,(창천동)",
+      "method": "auto",
+      "lat": 37.55555,
+      "lng": 126.93745
+    },
+    {
+      "rank": 1,
+      "name": "복권코리아",
+      "address": "대구 달서구 와룡로 19,(본동)",
+      "method": "manual",
+      "lat": 35.834194,
+      "lng": 128.537
+    },
+    {
+      "rank": 1,
+      "name": "407억당첨가판점",
+      "address": "강원 춘천시 중앙로 65 국민은행앞 가판",
+      "method": "auto",
+      "lat": 37.87923,
+      "lng": 127.726616
+    },
+    {
+      "rank": 1,
+      "name": "아산직매장",
+      "address": "충남 아산시 어의정로183번길 9",
+      "method": "auto",
+      "lat": 36.7757,
+      "lng": 127.01582
+    },
+    {
+      "rank": 1,
+      "name": "한일슈퍼",
+      "address": "경북 구미시 황상동  205-15",
+      "method": "auto",
+      "lat": 36.15483,
+      "lng": 128.35126
+    }
+  ]
+}

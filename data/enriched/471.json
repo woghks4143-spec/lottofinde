@@ -1,0 +1,101 @@
+{
+  "round": 471,
+  "date": "2011-12-10",
+  "nums": [
+    6,
+    13,
+    29,
+    37,
+    39,
+    41
+  ],
+  "bonus": 43,
+  "firstWinAmount": 1939332858,
+  "firstWinners": 7,
+  "totalSales": 53492340000,
+  "prizes": {
+    "first": {
+      "amount": 1939332858,
+      "winners": 7
+    },
+    "second": {
+      "amount": 75418500,
+      "winners": 30
+    },
+    "third": {
+      "amount": 1856075,
+      "winners": 1219
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 63297
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1096176
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "청수마트",
+      "address": "서울 서초구 강남대로10길 36",
+      "method": "auto",
+      "lat": 37.46892,
+      "lng": 127.04136
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐 수완점",
+      "address": "광주 광산구 장신로 68  101호",
+      "method": "auto",
+      "lat": 35.190487,
+      "lng": 126.81769
+    },
+    {
+      "rank": 1,
+      "name": "Lotto복권",
+      "address": "강원 춘천시 퇴계동  667 7B3L(패밀리마트내)",
+      "method": "manual",
+      "lat": 37.866093,
+      "lng": 127.72451
+    },
+    {
+      "rank": 1,
+      "name": "포커스봉명점",
+      "address": "충북 청주시 흥덕구 직지대로 570-1",
+      "method": "manual",
+      "lat": 36.643013,
+      "lng": 127.45623
+    },
+    {
+      "rank": 1,
+      "name": "세종로또복권방",
+      "address": "충남 연기군 금남면  용포리   88-17",
+      "method": "auto",
+      "lat": 36.463173,
+      "lng": 127.28049
+    },
+    {
+      "rank": 1,
+      "name": "종합복권방",
+      "address": "전남 해남군 해남로 34 종합복권방편의점",
+      "method": "auto",
+      "lat": 34.570763,
+      "lng": 126.61092
+    },
+    {
+      "rank": 1,
+      "name": "GS25시오광장점",
+      "address": "경북 포항시 북구 새천년대로 1063 1층 102호(창포동)",
+      "method": "auto",
+      "lat": 36.063854,
+      "lng": 129.37103
+    }
+  ]
+}

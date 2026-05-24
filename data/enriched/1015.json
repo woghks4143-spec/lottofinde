@@ -1,0 +1,109 @@
+{
+  "round": 1015,
+  "date": "2022-05-14",
+  "nums": [
+    14,
+    23,
+    31,
+    33,
+    37,
+    40
+  ],
+  "bonus": 44,
+  "firstWinAmount": 3051105610,
+  "firstWinners": 8,
+  "totalSales": 102562683000,
+  "prizes": {
+    "first": {
+      "amount": 3051105610,
+      "winners": 8
+    },
+    "second": {
+      "amount": 39883734,
+      "winners": 102
+    },
+    "third": {
+      "amount": 1412549,
+      "winners": 2880
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 144321
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2304033
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "오렌지데이편의점",
+      "address": "부산 해운대구 좌동순환로249번길 11 르네상스오피스102호",
+      "method": "manual",
+      "lat": 35.173973,
+      "lng": 129.1815
+    },
+    {
+      "rank": 1,
+      "name": "복권명당(영남점)",
+      "address": "대구 달서구 월배로 122,(진천동)",
+      "method": "manual",
+      "lat": 35.814716,
+      "lng": 128.52782
+    },
+    {
+      "rank": 1,
+      "name": "1등로또방",
+      "address": "광주 동구 중앙로 249-2",
+      "method": "auto",
+      "lat": 35.15431,
+      "lng": 126.92017
+    },
+    {
+      "rank": 1,
+      "name": "오천억복권방",
+      "address": "광주 서구 상무대로 1087",
+      "method": "auto",
+      "lat": 35.15296,
+      "lng": 126.880745
+    },
+    {
+      "rank": 1,
+      "name": "돈방석",
+      "address": "경기 수원시 장안구 송정로 170 1층 101호(조원동)",
+      "method": "manual",
+      "lat": 37.29805,
+      "lng": 127.01531
+    },
+    {
+      "rank": 1,
+      "name": "복권천국",
+      "address": "전남 여수시 선소로 62 부영아파트상가4동1-2호",
+      "method": "manual",
+      "lat": 34.75757,
+      "lng": 127.667564
+    },
+    {
+      "rank": 1,
+      "name": "큐마트학동점로또",
+      "address": "전남 여수시 학동서5길 2 큐마트내",
+      "method": "manual",
+      "lat": 34.761883,
+      "lng": 127.65653
+    },
+    {
+      "rank": 1,
+      "name": "부강 돈벼락",
+      "address": "경남 양산시 물금로 41 양산물금양우내안애5차리버파크 상가108호 양우대산부동산 내",
+      "method": "auto",
+      "lat": 35.309055,
+      "lng": 128.9885
+    }
+  ]
+}

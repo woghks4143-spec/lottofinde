@@ -1,0 +1,93 @@
+{
+  "round": 322,
+  "date": "2009-01-31",
+  "nums": [
+    9,
+    18,
+    29,
+    32,
+    38,
+    43
+  ],
+  "bonus": 20,
+  "firstWinAmount": 1904544700,
+  "firstWinners": 6,
+  "totalSales": 48948294000,
+  "prizes": {
+    "first": {
+      "amount": 1904544700,
+      "winners": 6
+    },
+    "second": {
+      "amount": 65673956,
+      "winners": 29
+    },
+    "third": {
+      "amount": 1300031,
+      "winners": 1465
+    },
+    "fourth": {
+      "amount": 56158,
+      "winners": 67829
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1085740
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(청담삼익)",
+      "address": "서울 강남구 청담동  133-6번지",
+      "method": "auto",
+      "lat": 37.520863,
+      "lng": 127.0576
+    },
+    {
+      "rank": 1,
+      "name": "LG25계룡병원점",
+      "address": "대전 중구 오류동  168-7번지",
+      "method": "manual",
+      "lat": 36.31166,
+      "lng": 127.39445
+    },
+    {
+      "rank": 1,
+      "name": "GS25(일산토당)",
+      "address": "경기 고양시 덕양구 토당동 토당동 282-2금호프라자1층113 114",
+      "method": "auto",
+      "lat": 37.62558,
+      "lng": 126.81701
+    },
+    {
+      "rank": 1,
+      "name": "화천복권방",
+      "address": "강원 화천군 화천읍  하리   43-33",
+      "method": "auto",
+      "lat": 38.104836,
+      "lng": 127.70451
+    },
+    {
+      "rank": 1,
+      "name": "경기복권방",
+      "address": "충북 충주시 가금면 용전리 용전리 380-4",
+      "method": "auto",
+      "lat": 37.02401,
+      "lng": 127.83744
+    },
+    {
+      "rank": 1,
+      "name": "신일마트",
+      "address": "전북 군산시 의료원로 159",
+      "method": "auto",
+      "lat": 35.95842,
+      "lng": 126.69812
+    }
+  ]
+}

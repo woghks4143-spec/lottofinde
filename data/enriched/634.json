@@ -1,0 +1,141 @@
+{
+  "round": 634,
+  "date": "2015-01-24",
+  "nums": [
+    4,
+    10,
+    11,
+    12,
+    20,
+    27
+  ],
+  "bonus": 38,
+  "firstWinAmount": 1077935106,
+  "firstWinners": 13,
+  "totalSales": 63149567000,
+  "prizes": {
+    "first": {
+      "amount": 1077935106,
+      "winners": 13
+    },
+    "second": {
+      "amount": 43250483,
+      "winners": 54
+    },
+    "third": {
+      "amount": 1057757,
+      "winners": 2208
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 101514
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1562975
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "돈벼락맞는곳",
+      "address": "부산 동구 조방로49번길 18-1",
+      "method": "auto",
+      "lat": 35.139168,
+      "lng": 129.05995
+    },
+    {
+      "rank": 1,
+      "name": "대학도슈퍼",
+      "address": "부산 사상구 가야대로 366-1",
+      "method": "auto",
+      "lat": 35.150974,
+      "lng": 129.01256
+    },
+    {
+      "rank": 1,
+      "name": "행복한사람들 (흥부네)",
+      "address": "경기 광주시 경충대로 763",
+      "method": "auto",
+      "lat": 37.355545,
+      "lng": 127.325386
+    },
+    {
+      "rank": 1,
+      "name": "가판점",
+      "address": "경기 부천시 부일로459번길 8 국민은행버스정류장 옆 가판",
+      "method": "manual",
+      "lat": 37.48641,
+      "lng": 126.78152
+    },
+    {
+      "rank": 1,
+      "name": "영동슈퍼",
+      "address": "경기 부천시 원미구 심곡동  409-11번지",
+      "method": "auto",
+      "lat": 37.48855,
+      "lng": 126.78042
+    },
+    {
+      "rank": 1,
+      "name": "플러스마트",
+      "address": "경기 성남시 중원구 광명로 33",
+      "method": "auto",
+      "lat": 37.433716,
+      "lng": 127.13271
+    },
+    {
+      "rank": 1,
+      "name": "온누리로또",
+      "address": "경기 수원시 권선구 세류동  1075-2번지",
+      "method": "auto",
+      "lat": 37.25713,
+      "lng": 127.017456
+    },
+    {
+      "rank": 1,
+      "name": "GS25(안양병목)",
+      "address": "경기 안양시 만안구 안양4동 782-7번지신광빌딩",
+      "method": "manual",
+      "lat": 37.399616,
+      "lng": 126.91938
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 포천시 솔모루로 86-1",
+      "method": "auto",
+      "lat": 37.8288,
+      "lng": 127.14748
+    },
+    {
+      "rank": 1,
+      "name": "한성로또복권",
+      "address": "강원 정선군 고한읍  고한리  57-5번지",
+      "method": "auto",
+      "lat": 37.196945,
+      "lng": 128.85828
+    },
+    {
+      "rank": 1,
+      "name": "25시슈퍼",
+      "address": "경남 창원시 마산회원구 봉양로 75-5",
+      "method": "manual",
+      "lat": 35.221214,
+      "lng": 128.59532
+    },
+    {
+      "rank": 1,
+      "name": "복권명당창원대원점",
+      "address": "경남 창원시 성산구 두대로 57",
+      "method": "auto",
+      "lat": 35.231815,
+      "lng": 128.65057
+    }
+  ]
+}

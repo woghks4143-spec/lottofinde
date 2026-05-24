@@ -1,0 +1,43 @@
+{
+  "round": 92,
+  "date": "2004-09-04",
+  "nums": [
+    3,
+    14,
+    24,
+    33,
+    35,
+    36
+  ],
+  "bonus": 17,
+  "firstWinAmount": 1233270846,
+  "firstWinners": 11,
+  "totalSales": 58296001000,
+  "prizes": {
+    "first": {
+      "amount": 1233270846,
+      "winners": 11
+    },
+    "second": {
+      "amount": 45219931,
+      "winners": 50
+    },
+    "third": {
+      "amount": 1393098,
+      "winners": 1623
+    },
+    "fourth": {
+      "amount": 57011,
+      "winners": 79319
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1307607
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

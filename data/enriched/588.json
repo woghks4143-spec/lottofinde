@@ -1,0 +1,85 @@
+{
+  "round": 588,
+  "date": "2014-03-08",
+  "nums": [
+    2,
+    8,
+    15,
+    22,
+    25,
+    41
+  ],
+  "bonus": 30,
+  "firstWinAmount": 2889342075,
+  "firstWinners": 5,
+  "totalSales": 59533101000,
+  "prizes": {
+    "first": {
+      "amount": 2889342075,
+      "winners": 5
+    },
+    "second": {
+      "amount": 55995002,
+      "winners": 43
+    },
+    "third": {
+      "amount": 1436626,
+      "winners": 1676
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 78517
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1315684
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행복슈퍼",
+      "address": "서울 성북구 동소문로 49",
+      "method": "manual",
+      "lat": 37.591003,
+      "lng": 127.01112
+    },
+    {
+      "rank": 1,
+      "name": "세류보석복권방",
+      "address": "경기 수원시 권선구 세지로 30",
+      "method": "manual",
+      "lat": 37.254864,
+      "lng": 127.01586
+    },
+    {
+      "rank": 1,
+      "name": "세류보석복권방",
+      "address": "경기 수원시 권선구 세지로 30",
+      "method": "manual",
+      "lat": 37.254864,
+      "lng": 127.01586
+    },
+    {
+      "rank": 1,
+      "name": "드림",
+      "address": "경기 수원시 권선구 정조로 615",
+      "method": "manual",
+      "lat": 37.263794,
+      "lng": 127.01421
+    },
+    {
+      "rank": 1,
+      "name": "대박복권방",
+      "address": "경기 파주시 문산읍 문향로 39",
+      "method": "auto",
+      "lat": 37.855328,
+      "lng": 126.78554
+    }
+  ]
+}

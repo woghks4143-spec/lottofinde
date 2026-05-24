@@ -1,0 +1,133 @@
+{
+  "round": 604,
+  "date": "2014-06-28",
+  "nums": [
+    2,
+    6,
+    18,
+    21,
+    33,
+    34
+  ],
+  "bonus": 30,
+  "firstWinAmount": 1229141557,
+  "firstWinners": 11,
+  "totalSales": 56266399000,
+  "prizes": {
+    "first": {
+      "amount": 1229141557,
+      "winners": 11
+    },
+    "second": {
+      "amount": 62595172,
+      "winners": 36
+    },
+    "third": {
+      "amount": 1553016,
+      "winners": 1451
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 75476
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1266398
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "럭키복권방",
+      "address": "서울 도봉구 노해로63길 79 우림빌딩106",
+      "method": "auto",
+      "lat": 37.653114,
+      "lng": 127.04623
+    },
+    {
+      "rank": 1,
+      "name": "승리상사",
+      "address": "서울 영등포구 신길동  115-33번지",
+      "method": "auto",
+      "lat": 37.517124,
+      "lng": 126.916374
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "auto",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "라이프마트",
+      "address": "인천 중구 연안부두로53번길 36 5호",
+      "method": "auto",
+      "lat": 37.45236,
+      "lng": 126.60402
+    },
+    {
+      "rank": 1,
+      "name": "오천억복권방",
+      "address": "광주 서구 상무대로 1087",
+      "method": "auto",
+      "lat": 35.15296,
+      "lng": 126.880745
+    },
+    {
+      "rank": 1,
+      "name": "럭키로또방",
+      "address": "경기 수원시 영통구 센트럴타운로 15 아이플렉스104호",
+      "method": "auto",
+      "lat": 37.288116,
+      "lng": 127.0574
+    },
+    {
+      "rank": 1,
+      "name": "천하명당우만점",
+      "address": "경기 수원시 팔달구 월드컵로369번길 4",
+      "method": "auto",
+      "lat": 37.29025,
+      "lng": 127.03013
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "경기 안산시 상록구 건건로 41",
+      "method": "auto",
+      "lat": 37.304985,
+      "lng": 126.90198
+    },
+    {
+      "rank": 1,
+      "name": "GS25(동백역점)",
+      "address": "경기 용인시 기흥구 중동  853-1번지",
+      "method": "auto",
+      "lat": 37.269962,
+      "lng": 127.15415
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "전북 익산시 선화로 130",
+      "method": "manual",
+      "lat": 35.94789,
+      "lng": 126.94501
+    },
+    {
+      "rank": 1,
+      "name": "삼계복권전문점",
+      "address": "경남 창원시 마산회원구 경남대로 915",
+      "method": "auto",
+      "lat": 35.231876,
+      "lng": 128.50462
+    }
+  ]
+}

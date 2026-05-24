@@ -1,0 +1,101 @@
+{
+  "round": 571,
+  "date": "2013-11-09",
+  "nums": [
+    11,
+    18,
+    21,
+    26,
+    38,
+    43
+  ],
+  "bonus": 29,
+  "firstWinAmount": 1966538465,
+  "firstWinners": 7,
+  "totalSales": 56493528000,
+  "prizes": {
+    "first": {
+      "amount": 1966538465,
+      "winners": 7
+    },
+    "second": {
+      "amount": 69524088,
+      "winners": 33
+    },
+    "third": {
+      "amount": 1523437,
+      "winners": 1506
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 74042
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1238061
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "서울 관악구 신림동  94-124번지",
+      "method": "auto",
+      "lat": 37.475967,
+      "lng": 126.93765
+    },
+    {
+      "rank": 1,
+      "name": "승차권판매소",
+      "address": "대구 남구  대명동 대명동 2297-1번지토큰박스",
+      "method": "auto",
+      "lat": 35.85427,
+      "lng": 128.57417
+    },
+    {
+      "rank": 1,
+      "name": "잘찍어로또방",
+      "address": "경기 평택시 안현로서5길 62",
+      "method": "auto",
+      "lat": 36.988426,
+      "lng": 126.92788
+    },
+    {
+      "rank": 1,
+      "name": "돈벼락맞는곳",
+      "address": "경남 김해시  한림면 한림면 병동리980-7번지",
+      "method": "auto",
+      "lat": 35.293262,
+      "lng": 128.78296
+    },
+    {
+      "rank": 1,
+      "name": "GS25(양산문성)",
+      "address": "경남 양산시  평산동 평산동 31-5번지",
+      "method": "auto",
+      "lat": 35.384815,
+      "lng": 129.15508
+    },
+    {
+      "rank": 1,
+      "name": "GS25(진해제일)",
+      "address": "경남 창원시 진해구 화천동 화천동 19-2번지",
+      "method": "auto",
+      "lat": 35.152073,
+      "lng": 128.6598
+    },
+    {
+      "rank": 1,
+      "name": "원희슈퍼",
+      "address": "제주 제주시 신광로 28",
+      "method": "auto",
+      "lat": 33.489685,
+      "lng": 126.489975
+    }
+  ]
+}

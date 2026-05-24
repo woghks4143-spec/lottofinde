@@ -1,0 +1,133 @@
+{
+  "round": 1129,
+  "date": "2024-07-20",
+  "nums": [
+    5,
+    10,
+    11,
+    17,
+    28,
+    34
+  ],
+  "bonus": 22,
+  "firstWinAmount": 2369567660,
+  "firstWinners": 11,
+  "totalSales": 110363498000,
+  "prizes": {
+    "first": {
+      "amount": 2369567660,
+      "winners": 11
+    },
+    "second": {
+      "amount": 40600069,
+      "winners": 107
+    },
+    "third": {
+      "amount": 1382625,
+      "winners": 3142
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 154322
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2542398
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "서울 광진구 영화사로 59 1층",
+      "method": "manual",
+      "lat": 37.538918,
+      "lng": 127.06602
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "서울 광진구 영화사로 59 1층",
+      "method": "manual",
+      "lat": 37.538918,
+      "lng": 127.06602
+    },
+    {
+      "rank": 1,
+      "name": "로터리복권방",
+      "address": "부산 서구 자갈치로 4",
+      "method": "auto",
+      "lat": 35.096195,
+      "lng": 129.02484
+    },
+    {
+      "rank": 1,
+      "name": "코사마트금강점",
+      "address": "대구 달서구 용산로 204 1층 코사마트",
+      "method": "manual",
+      "lat": 35.855705,
+      "lng": 128.53079
+    },
+    {
+      "rank": 1,
+      "name": "일산탑복권",
+      "address": "경기 고양시 일산서구 일산로 517 107호",
+      "method": "manual",
+      "lat": 37.67641,
+      "lng": 126.77
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "경기 군포시 대야1로 3 1동",
+      "method": "mixed",
+      "lat": 37.32638,
+      "lng": 126.91891
+    },
+    {
+      "rank": 1,
+      "name": "111호",
+      "address": "경기 성남시 분당구 불정로376번길 37 1층 111호",
+      "method": "auto",
+      "lat": 37.371624,
+      "lng": 127.13944
+    },
+    {
+      "rank": 1,
+      "name": "로또복권(D.C.T)",
+      "address": "경기 용인시 처인구 백옥대로 1072 1층101-1호",
+      "method": "auto",
+      "lat": 37.23172,
+      "lng": 127.20979
+    },
+    {
+      "rank": 1,
+      "name": "떴다GO 1등",
+      "address": "경기 화성시 동탄반석로 172 1층 138호(동탄 파라곤점)",
+      "method": "auto",
+      "lat": 37.20413,
+      "lng": 127.07133
+    },
+    {
+      "rank": 1,
+      "name": "알짜마트왕지점",
+      "address": "전남 순천시 왕궁길 60 중흥파크상가 309-101호",
+      "method": "auto",
+      "lat": 34.956314,
+      "lng": 127.53233
+    },
+    {
+      "rank": 1,
+      "name": "씨스페이스 경주세방매점",
+      "address": "경북 경주시 산업로 4447 (용강동)",
+      "method": "auto",
+      "lat": 35.877205,
+      "lng": 129.22649
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "round": 443,
+  "date": "2011-05-28",
+  "nums": [
+    4,
+    6,
+    10,
+    19,
+    20,
+    44
+  ],
+  "bonus": 14,
+  "firstWinAmount": 1327597584,
+  "firstWinners": 9,
+  "totalSales": 51236072000,
+  "prizes": {
+    "first": {
+      "amount": 1327597584,
+      "winners": 9
+    },
+    "second": {
+      "amount": 48570644,
+      "winners": 41
+    },
+    "third": {
+      "amount": 1193883,
+      "winners": 1668
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 74414
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1193233
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "엘도라도복권점문점",
+      "address": "서울 광진구 용마산로 47",
+      "method": "manual",
+      "lat": 37.55781,
+      "lng": 127.08759
+    },
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 상계주공아파트(10단지) 주공10단지종합상가111",
+      "method": "auto",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "명당복권",
+      "address": "서울 동대문구 왕산로 112-1 가판",
+      "method": "auto",
+      "lat": 37.577915,
+      "lng": 127.035774
+    },
+    {
+      "rank": 1,
+      "name": "행운가판점",
+      "address": "서울 용산구 한강대로 80",
+      "method": "manual",
+      "lat": 37.527348,
+      "lng": 126.9665
+    },
+    {
+      "rank": 1,
+      "name": "1등복권방",
+      "address": "울산 울주군 언양읍  남부리 126-1언양편의점",
+      "method": "auto",
+      "lat": 35.56412,
+      "lng": 129.12718
+    },
+    {
+      "rank": 1,
+      "name": "보광훼미리마트수내트라펠리스",
+      "address": "경기 성남시 분당구 황새울로 234 102호 (수내동, 분당트라팰리스)",
+      "method": "auto",
+      "lat": 37.37911,
+      "lng": 127.11408
+    },
+    {
+      "rank": 1,
+      "name": "로또복권장항점",
+      "address": "충남 서천군 장항읍  창선리   632-2",
+      "method": "manual",
+      "lat": 36.0262,
+      "lng": 126.6999
+    },
+    {
+      "rank": 1,
+      "name": "부흥청과식품점",
+      "address": "경북 경산시 하양읍 하양로 35 우방3차상가",
+      "method": "auto",
+      "lat": 35.90926,
+      "lng": 128.81354
+    },
+    {
+      "rank": 1,
+      "name": "다음정보텔레콤(훼미리마트내)",
+      "address": "경남 진주시 평거로9번길  18 1층 2호",
+      "method": "auto",
+      "lat": 35.173115,
+      "lng": 128.06183
+    }
+  ]
+}

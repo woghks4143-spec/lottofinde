@@ -1,0 +1,43 @@
+{
+  "round": 245,
+  "date": "2007-08-11",
+  "nums": [
+    9,
+    11,
+    27,
+    31,
+    32,
+    38
+  ],
+  "bonus": 22,
+  "firstWinAmount": 1382583129,
+  "firstWinners": 7,
+  "totalSales": 41854623000,
+  "prizes": {
+    "first": {
+      "amount": 1382583129,
+      "winners": 7
+    },
+    "second": {
+      "amount": 46086105,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1477119,
+      "winners": 1092
+    },
+    "fourth": {
+      "amount": 56159,
+      "winners": 57445
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 959435
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "round": 773,
+  "date": "2017-09-23",
+  "nums": [
+    8,
+    12,
+    19,
+    21,
+    31,
+    35
+  ],
+  "bonus": 44,
+  "firstWinAmount": 1609403080,
+  "firstWinners": 11,
+  "totalSales": 74560597000,
+  "prizes": {
+    "first": {
+      "amount": 1609403080,
+      "winners": 11
+    },
+    "second": {
+      "amount": 50871937,
+      "winners": 58
+    },
+    "third": {
+      "amount": 1409061,
+      "winners": 2094
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 104474
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1690404
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 7,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 상계주공아파트(10단지) 주공10단지종합상가111",
+      "method": "auto",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "복돼지복권방",
+      "address": "서울 성동구 아차산로7길 42",
+      "method": "manual",
+      "lat": 37.54864,
+      "lng": 127.05583
+    },
+    {
+      "rank": 1,
+      "name": "한아름로또",
+      "address": "서울 송파구 성내천로  299 1층 세븐일레븐",
+      "method": "manual",
+      "lat": 37.49412,
+      "lng": 127.15571
+    },
+    {
+      "rank": 1,
+      "name": "명문슈퍼",
+      "address": "부산 북구 만덕대로 82,(덕천동)",
+      "method": "manual",
+      "lat": 35.212013,
+      "lng": 129.01376
+    },
+    {
+      "rank": 1,
+      "name": "보람복권방",
+      "address": "울산 남구 화합로 194 18-1",
+      "method": "manual",
+      "lat": 35.541786,
+      "lng": 129.34166
+    },
+    {
+      "rank": 1,
+      "name": "인더라인25시",
+      "address": "경기 부천시 신흥로 170-1 위브더스테이트상가6-109",
+      "method": "auto",
+      "lat": 37.49871,
+      "lng": 126.77855
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "경기 수원시 권선구 매송고색로 720-1",
+      "method": "auto",
+      "lat": 37.251213,
+      "lng": 126.98327
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "경기 평택시 지산로37번길 76",
+      "method": "manual",
+      "lat": 37.08238,
+      "lng": 127.059525
+    },
+    {
+      "rank": 1,
+      "name": "충주복권명당",
+      "address": "충북 충주시 예성로 23,(호암동)",
+      "method": "manual",
+      "lat": 36.961075,
+      "lng": 127.92912
+    },
+    {
+      "rank": 1,
+      "name": "화산복권판매점",
+      "address": "충남 서천군 충서로 187-1",
+      "method": "auto",
+      "lat": 36.09583,
+      "lng": 126.66436
+    },
+    {
+      "rank": 1,
+      "name": "토큰판매",
+      "address": "경북 경산시 대학로 291 토큰박스",
+      "method": "manual",
+      "lat": 35.837166,
+      "lng": 128.75374
+    }
+  ]
+}

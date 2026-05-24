@@ -1,0 +1,109 @@
+{
+  "round": 521,
+  "date": "2012-11-24",
+  "nums": [
+    3,
+    7,
+    18,
+    29,
+    32,
+    36
+  ],
+  "bonus": 19,
+  "firstWinAmount": 1693420922,
+  "firstWinners": 8,
+  "totalSales": 56185373000,
+  "prizes": {
+    "first": {
+      "amount": 1693420922,
+      "winners": 8
+    },
+    "second": {
+      "amount": 42601785,
+      "winners": 53
+    },
+    "third": {
+      "amount": 1400679,
+      "winners": 1612
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 75589
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1250016
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "서울 관악구 난곡로 172",
+      "method": "manual",
+      "lat": 37.47046,
+      "lng": 126.92009
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "서울 성동구 마장동  771-7",
+      "method": "auto",
+      "lat": 37.566628,
+      "lng": 127.043304
+    },
+    {
+      "rank": 1,
+      "name": "5가로또레드탑",
+      "address": "서울 종로구 종로 222",
+      "method": "auto",
+      "lat": 37.570747,
+      "lng": 127.002335
+    },
+    {
+      "rank": 1,
+      "name": "명동2가로또가판대",
+      "address": "서울 중구 남대문로 62",
+      "method": "manual",
+      "lat": 37.56261,
+      "lng": 126.98196
+    },
+    {
+      "rank": 1,
+      "name": "풍향동복권나라",
+      "address": "광주 북구 필문대로 79",
+      "method": "auto",
+      "lat": 35.162693,
+      "lng": 126.92831
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "대전 대덕구 아리랑로 213 대영상가 1층",
+      "method": "auto",
+      "lat": 36.374424,
+      "lng": 127.427124
+    },
+    {
+      "rank": 1,
+      "name": "복권닷컴",
+      "address": "강원 양양군 양양로 62",
+      "method": "manual",
+      "lat": 38.075512,
+      "lng": 128.62233
+    },
+    {
+      "rank": 1,
+      "name": "DC백화점거북점",
+      "address": "전남 여수시 무선로 50 신동아파밀리에아파트 상가 1층 101호",
+      "method": "auto",
+      "lat": 34.76534,
+      "lng": 127.657814
+    }
+  ]
+}

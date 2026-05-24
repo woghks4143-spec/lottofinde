@@ -1,0 +1,43 @@
+{
+  "round": 80,
+  "date": "2004-06-12",
+  "nums": [
+    17,
+    18,
+    24,
+    25,
+    26,
+    30
+  ],
+  "bonus": 1,
+  "firstWinAmount": 13809540000,
+  "firstWinners": 1,
+  "totalSales": 60160440000,
+  "prizes": {
+    "first": {
+      "amount": 13809540000,
+      "winners": 1
+    },
+    "second": {
+      "amount": 143849375,
+      "winners": 16
+    },
+    "third": {
+      "amount": 2651602,
+      "winners": 868
+    },
+    "fourth": {
+      "amount": 114362,
+      "winners": 40251
+    },
+    "fifth": {
+      "amount": 10000,
+      "winners": 706432
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

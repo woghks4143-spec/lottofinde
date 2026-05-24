@@ -28,6 +28,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = path.resolve(__dirname, '..', 'data', 'enriched');
 
 const MIRROR_BASE = 'https://smok95.github.io/lotto/results';
+const MIRROR_STORES = 'https://smok95.github.io/lotto/winning-stores';
 
 function arg(name, fallback = null) {
   const f = process.argv.find((a) => a === `--${name}` || a.startsWith(`--${name}=`));
@@ -101,6 +102,44 @@ async function fetchMirror(round) {
   }
 }
 
+/**
+ * 1등 당첨 판매점 정보 가져오기.
+ * smok95 형식: [{ name, address, combination, lat, lng }]
+ * 우리 형식: WinningStore { rank, name, address, method }
+ *
+ * 참고: smok95은 1등만 제공. 2등은 따로 endpoint 없음 → 1등만 미러.
+ */
+async function fetchStores(round) {
+  const url = `${MIRROR_STORES}/${round}.json`;
+  try {
+    const res = await fetch(url, { signal: AbortSignal.timeout(10_000) });
+    if (!res.ok) {
+      console.warn(`[stores] round ${round}: HTTP ${res.status}`);
+      return [];
+    }
+    const arr = await res.json();
+    if (!Array.isArray(arr)) return [];
+    return arr.map((s) => {
+      const c = String(s.combination || '').trim();
+      let method = 'unknown';
+      if (c === '자동' || /^자동/.test(c)) method = 'auto';
+      else if (c === '수동' || /^수동/.test(c)) method = 'manual';
+      else if (c === '반자동' || /반자동|혼합/.test(c)) method = 'mixed';
+      return {
+        rank: 1, // smok95은 1등만 제공
+        name: String(s.name || '').trim(),
+        address: String(s.address || '').trim(),
+        method,
+        lat: typeof s.lat === 'number' ? s.lat : undefined,
+        lng: typeof s.lng === 'number' ? s.lng : undefined,
+      };
+    }).filter((s) => s.name);
+  } catch (e) {
+    console.warn(`[stores] round ${round}: ${e.message}`);
+    return [];
+  }
+}
+
 async function fetchLatest() {
   const url = `${MIRROR_BASE}/latest.json`;
   try {
@@ -141,15 +180,21 @@ async function main() {
       fail++;
       continue;
     }
+    // 1등 판매점 정보도 가져옴
+    const stores = await fetchStores(r);
+    if (stores.length > 0) {
+      data.topStores = stores;
+    }
+
     const outFile = path.join(OUT_DIR, `${r}.json`);
     await fs.writeFile(outFile, JSON.stringify(data, null, 2));
     const methodStr = data.methodCounts
       ? `auto=${data.methodCounts.auto}, manual=${data.methodCounts.manual}, mixed=${data.methodCounts.mixed}`
       : 'no methodCounts';
-    console.log(`[main] ✓ wrote ${outFile} (nums=${data.nums.join(',')}, bonus=${data.bonus}, ${methodStr})`);
+    console.log(`[main] ✓ wrote ${outFile} (nums=${data.nums.join(',')}, bonus=${data.bonus}, ${methodStr}, 1등판매점=${stores.length}곳)`);
     success++;
     // smok95 서버에 부담 안 주려고 잠시 대기
-    await new Promise((res) => setTimeout(res, 200));
+    await new Promise((res) => setTimeout(res, 300));
   }
 
   // 인덱스 갱신

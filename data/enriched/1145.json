@@ -1,0 +1,117 @@
+{
+  "round": 1145,
+  "date": "2024-11-09",
+  "nums": [
+    2,
+    11,
+    31,
+    33,
+    37,
+    44
+  ],
+  "bonus": 32,
+  "firstWinAmount": 3051630084,
+  "firstWinners": 9,
+  "totalSales": 116115162000,
+  "prizes": {
+    "first": {
+      "amount": 3051630084,
+      "winners": 9
+    },
+    "second": {
+      "amount": 72657860,
+      "winners": 63
+    },
+    "third": {
+      "amount": 1382079,
+      "winners": 3312
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 164055
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2647054
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "비프광장",
+      "address": "부산 중구 중구로5번길 14 1층 105호(남포동6가,더베이먼트)",
+      "method": "auto",
+      "lat": 35.09815,
+      "lng": 129.02661
+    },
+    {
+      "rank": 1,
+      "name": "하나복권",
+      "address": "인천 남동구 구월로 281 세븐일레븐편의점내",
+      "method": "auto",
+      "lat": 37.455925,
+      "lng": 126.72196
+    },
+    {
+      "rank": 1,
+      "name": "CU세종가락마을8단지점",
+      "address": "세종   만남로 92 상가동 101호 CU편의점",
+      "method": "auto",
+      "lat": 36.50707,
+      "lng": 127.24025
+    },
+    {
+      "rank": 1,
+      "name": "바로전산",
+      "address": "경기 광명시 오리로 1000 (광명동)",
+      "method": "manual",
+      "lat": 37.480213,
+      "lng": 126.85236
+    },
+    {
+      "rank": 1,
+      "name": "아름다운슈퍼",
+      "address": "경기 시흥시 도일로 123",
+      "method": "auto",
+      "lat": 37.341576,
+      "lng": 126.78373
+    },
+    {
+      "rank": 1,
+      "name": "로또명당인주점",
+      "address": "충남 아산시 서해로 519-2",
+      "method": "manual",
+      "lat": 36.87784,
+      "lng": 126.89828
+    },
+    {
+      "rank": 1,
+      "name": "이마트24녹동점1등복권방",
+      "address": "전남 고흥군 녹동남촌1길 13 이마트24녹동점옆",
+      "method": "auto",
+      "lat": 34.525757,
+      "lng": 127.14047
+    },
+    {
+      "rank": 1,
+      "name": "이마트24 순천산단점",
+      "address": "전남 순천시 산단1길 6",
+      "method": "manual",
+      "lat": 34.987934,
+      "lng": 127.50839
+    },
+    {
+      "rank": 1,
+      "name": "복권판매점",
+      "address": "경북 경산시 하양로 65",
+      "method": "mixed",
+      "lat": 35.911167,
+      "lng": 128.81583
+    }
+  ]
+}

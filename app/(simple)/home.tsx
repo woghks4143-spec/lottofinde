@@ -124,18 +124,45 @@ export default function SimpleHome() {
         {/* Latest-round banner */}
         <View style={[styles.banner, { backgroundColor: bn.bg, borderWidth: isLight ? 1 : 0, borderColor: bn.border }]}>
           <View style={styles.bannerHead}>
-            <T variant="label1n" style={{ color: bn.fgMuted, fontWeight: '700', fontSize: 14.5 }}>
+            <T variant="label1n" style={{ color: bn.fgMuted, fontWeight: '700', fontSize: 14 }}>
               {draw.round}회 · {koreanDate(draw.date)}
             </T>
             <View style={[styles.bannerPill, { backgroundColor: bn.pillBg }]}>
-              <T variant="caption1" allowFontScaling={false} style={{ color: bn.fg, fontSize: 11, fontWeight: '700', textAlign: 'center' }}>
+              <T variant="caption1" allowFontScaling={false} style={{ color: bn.fg, fontSize: 10.5, fontWeight: '700', textAlign: 'center' }}>
                 최신 결과
               </T>
             </View>
           </View>
           {/* 공 영역 — 박스 없이 가운데 정렬, 살짝 작은 사이즈 + 좁은 간격으로 균형. */}
-          <View style={{ alignItems: 'center', marginTop: 14, marginBottom: 4 }}>
+          <View style={{ alignItems: 'center', marginTop: 10, marginBottom: 4 }}>
             <BallRow nums={draw.nums} bonus={draw.bonus} size="sm" style={{ gap: 3 }} />
+          </View>
+
+          {/* 1~3등 당첨금 + 당첨자 수 — 가장 핵심 정보 3열 카드 */}
+          <View style={[styles.prizeTopRow, { borderTopColor: bn.divider }]}>
+            <PrizeMini
+              label="1등"
+              labelColor={palette.blue700}
+              amount={draw.firstWinAmount ?? draw.prizes?.first?.amount}
+              winners={draw.firstWinners ?? draw.prizes?.first?.winners}
+              bn={bn}
+            />
+            <View style={[styles.prizeMiniDivider, { backgroundColor: bn.divider }]} />
+            <PrizeMini
+              label="2등"
+              labelColor={palette.green700}
+              amount={draw.prizes?.second?.amount}
+              winners={draw.prizes?.second?.winners}
+              bn={bn}
+            />
+            <View style={[styles.prizeMiniDivider, { backgroundColor: bn.divider }]} />
+            <PrizeMini
+              label="3등"
+              labelColor={palette.purple500}
+              amount={draw.prizes?.third?.amount}
+              winners={draw.prizes?.third?.winners}
+              bn={bn}
+            />
           </View>
 
           {/* 회차 한눈에: 합·끝수·홀짝·저고·AC (펼치면 십합·앞세수·뒷세수 추가) */}
@@ -176,14 +203,6 @@ export default function SimpleHome() {
               </T>
               <Icon.chev color={bn.link} size={14} weight={2.2} />
             </Pressable>
-          </View>
-
-          <View style={[styles.row, { marginTop: 14, borderTopWidth: 1, borderTopColor: bn.divider, paddingTop: 12 }]}>
-            <T variant="label1r" style={{ color: bn.fgMuted }}>1등 당첨금</T>
-            <T variant="label1n" style={{ color: bn.fg, fontWeight: '700' }}>
-              {formatWon(draw.firstWinAmount ?? 0)}
-              {draw.firstWinners ? <T variant="caption1" style={{ color: bn.fgTertiary }}>{`  ${draw.firstWinners}명`}</T> : null}
-            </T>
           </View>
         </View>
 
@@ -332,7 +351,7 @@ function Metric({ label, value, hint, bn }: { label: string; value: string; hint
       <T variant="caption2" style={{ color: bn.fgTertiary, fontSize: 9.5, letterSpacing: 0.3 }} allowFontScaling={false}>
         {label}
       </T>
-      <T variant="label1n" style={{ color: bn.fg, fontWeight: '700', marginTop: 1, fontSize: 14 }} allowFontScaling={false}>
+      <T variant="label1n" style={{ color: bn.fg, fontWeight: '700', marginTop: 1, fontSize: 13 }} allowFontScaling={false}>
         {value}
       </T>
       {hint && (
@@ -342,6 +361,48 @@ function Metric({ label, value, hint, bn }: { label: string; value: string; hint
       )}
     </View>
   );
+}
+
+/**
+ * 1~3등 미니 카드 — 등수 라벨, 금액, 당첨자 수.
+ */
+function PrizeMini({
+  label,
+  labelColor,
+  amount,
+  winners,
+  bn,
+}: {
+  label: string;
+  labelColor: string;
+  amount?: number;
+  winners?: number;
+  bn: BannerColors;
+}) {
+  return (
+    <View style={styles.prizeMini}>
+      <T variant="caption2" style={{ color: labelColor, fontSize: 10, fontWeight: '800', letterSpacing: 0.3 }} allowFontScaling={false}>
+        {label}
+      </T>
+      <T variant="label1n" style={{ color: bn.fg, fontWeight: '800', marginTop: 3, fontSize: 12.5 }} numberOfLines={1} allowFontScaling={false}>
+        {amount && amount > 0 ? formatWonShort(amount) : '—'}
+      </T>
+      <T variant="caption2" style={{ color: bn.fgTertiary, fontSize: 9.5, marginTop: 1 }} allowFontScaling={false}>
+        {winners != null && winners > 0 ? `${winners.toLocaleString('ko')}명` : '—'}
+      </T>
+    </View>
+  );
+}
+
+/** 짧은 당첨금 표기: 1등은 "22억", 2등은 "6,352만", 3등은 "144만" */
+function formatWonShort(n: number): string {
+  const eok = Math.floor(n / 100_000_000);
+  const man = Math.floor((n % 100_000_000) / 10_000);
+  if (eok > 0) {
+    return man > 0 ? `${eok}억${man.toLocaleString('ko')}만` : `${eok}억`;
+  }
+  if (man > 0) return `${man.toLocaleString('ko')}만`;
+  return `${n.toLocaleString('ko')}원`;
 }
 
 /** 합계가 "낮음/평범/높음" 어느 구간인지 한 단어로. */
@@ -376,36 +437,52 @@ function formatWon(n: number): string {
 
 const styles = StyleSheet.create({
   root: { flex: 1 },
-  banner: { borderRadius: radius.xl + 2, padding: 18 },
+  banner: { borderRadius: radius.xl + 2, padding: 14 },
   bannerHead: {
     flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 6,
   },
   bannerPill: {
-    paddingHorizontal: 10, paddingVertical: 4, borderRadius: 99,
+    paddingHorizontal: 10, paddingVertical: 3, borderRadius: 99,
     minWidth: 56,
     alignItems: 'center',
     justifyContent: 'center',
   },
+  prizeTopRow: {
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    marginTop: 10,
+    paddingTop: 10,
+    borderTopWidth: 1,
+  },
+  prizeMini: {
+    flex: 1,
+    alignItems: 'center',
+    paddingHorizontal: 4,
+  },
+  prizeMiniDivider: {
+    width: 1,
+    marginVertical: 4,
+  },
   analysisRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 14,
-    paddingTop: 12,
+    marginTop: 10,
+    paddingTop: 10,
     borderTopWidth: 1,
   },
   analysisRowExtra: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 12,
-    paddingTop: 12,
+    marginTop: 10,
+    paddingTop: 10,
     borderTopWidth: 1,
   },
   detailRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 8,
   },
   expandBtn: {
     paddingVertical: 4, paddingHorizontal: 8,

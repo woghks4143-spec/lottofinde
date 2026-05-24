@@ -1,0 +1,69 @@
+{
+  "round": 283,
+  "date": "2008-05-03",
+  "nums": [
+    6,
+    8,
+    18,
+    31,
+    38,
+    45
+  ],
+  "bonus": 42,
+  "firstWinAmount": 3137224600,
+  "firstWinners": 3,
+  "totalSales": 40133316000,
+  "prizes": {
+    "first": {
+      "amount": 3137224600,
+      "winners": 3
+    },
+    "second": {
+      "amount": 65358846,
+      "winners": 24
+    },
+    "third": {
+      "amount": 1478429,
+      "winners": 1061
+    },
+    "fourth": {
+      "amount": 59206,
+      "winners": 52989
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 876107
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또하는날",
+      "address": "부산 연제구 연산동  1505-49",
+      "method": "auto",
+      "lat": 35.185684,
+      "lng": 129.08319
+    },
+    {
+      "rank": 1,
+      "name": "상동매표",
+      "address": "경기 부천시 원미구 상동 상동 412",
+      "method": "auto",
+      "lat": 37.490078,
+      "lng": 126.75341
+    },
+    {
+      "rank": 1,
+      "name": "GS25(양산문성)",
+      "address": "경남 양산시 웅상읍 평산리 평산리 31-5",
+      "method": "auto",
+      "lat": 35.384815,
+      "lng": 129.15508
+    }
+  ]
+}

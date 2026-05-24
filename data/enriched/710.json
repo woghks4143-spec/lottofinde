@@ -1,0 +1,85 @@
+{
+  "round": 710,
+  "date": "2016-07-09",
+  "nums": [
+    3,
+    4,
+    9,
+    24,
+    25,
+    33
+  ],
+  "bonus": 10,
+  "firstWinAmount": 2895441150,
+  "firstWinners": 5,
+  "totalSales": 65083972000,
+  "prizes": {
+    "first": {
+      "amount": 2895441150,
+      "winners": 5
+    },
+    "second": {
+      "amount": 42331011,
+      "winners": 57
+    },
+    "third": {
+      "amount": 1212497,
+      "winners": 1990
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 102058
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1627229
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "북가좌2호점로또판매",
+      "address": "서울 서대문구 북가좌동 329-8번지",
+      "method": "manual",
+      "lat": 37.58209,
+      "lng": 126.9091
+    },
+    {
+      "rank": 1,
+      "name": "황금어장",
+      "address": "부산 중구 중앙대로 96 흥우빌딩1층 나들가게편의점",
+      "method": "manual",
+      "lat": 35.10627,
+      "lng": 129.03659
+    },
+    {
+      "rank": 1,
+      "name": "월드복권",
+      "address": "대구 서구 북비산로 98",
+      "method": "manual",
+      "lat": 35.878357,
+      "lng": 128.54366
+    },
+    {
+      "rank": 1,
+      "name": "황금대박방",
+      "address": "경기 고양시 덕양구 삼송동 30-29번지",
+      "method": "manual",
+      "lat": 37.653103,
+      "lng": 126.89347
+    },
+    {
+      "rank": 1,
+      "name": "에이스복권방",
+      "address": "경기 동두천시 삼육사로 1005 1층",
+      "method": "auto",
+      "lat": 37.899334,
+      "lng": 127.06164
+    }
+  ]
+}

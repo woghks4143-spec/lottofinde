@@ -1,0 +1,109 @@
+{
+  "round": 623,
+  "date": "2014-11-08",
+  "nums": [
+    7,
+    13,
+    30,
+    39,
+    41,
+    45
+  ],
+  "bonus": 25,
+  "firstWinAmount": 1813702594,
+  "firstWinners": 8,
+  "totalSales": 58504142000,
+  "prizes": {
+    "first": {
+      "amount": 1813702594,
+      "winners": 8
+    },
+    "second": {
+      "amount": 69093433,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1660900,
+      "winners": 1456
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 73522
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1245962
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행복공간",
+      "address": "서울 강동구 풍성로 115",
+      "method": "manual",
+      "lat": 37.532127,
+      "lng": 127.12511
+    },
+    {
+      "rank": 1,
+      "name": "돈다발복권방",
+      "address": "서울 종로구 숭인동  288-1번지",
+      "method": "manual",
+      "lat": 37.57309,
+      "lng": 127.01666
+    },
+    {
+      "rank": 1,
+      "name": "덕하복권슈퍼",
+      "address": "울산 울주군 덕하로 238",
+      "method": "auto",
+      "lat": 35.49198,
+      "lng": 129.30516
+    },
+    {
+      "rank": 1,
+      "name": "가판점",
+      "address": "경기 부천시 부일로459번길 8 국민은행버스정류장 옆 가판",
+      "method": "auto",
+      "lat": 37.48641,
+      "lng": 126.78152
+    },
+    {
+      "rank": 1,
+      "name": "서정천하명당",
+      "address": "경기 평택시 송탄로 160",
+      "method": "auto",
+      "lat": 37.058094,
+      "lng": 127.05932
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "강원 인제군 북면 금강로 23 1층",
+      "method": "auto",
+      "lat": 38.122444,
+      "lng": 128.2068
+    },
+    {
+      "rank": 1,
+      "name": "CU(제천역점)",
+      "address": "충북 제천시  화산동 208-1번지",
+      "method": "auto",
+      "lat": 37.129704,
+      "lng": 128.20674
+    },
+    {
+      "rank": 1,
+      "name": "아띠로또판매점",
+      "address": "충남 천안시 서북구 두정동  1063번지 레몬타워 110호",
+      "method": "auto",
+      "lat": 36.837246,
+      "lng": 127.13406
+    }
+  ]
+}

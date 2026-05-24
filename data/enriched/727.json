@@ -1,0 +1,157 @@
+{
+  "round": 727,
+  "date": "2016-11-05",
+  "nums": [
+    7,
+    8,
+    10,
+    19,
+    21,
+    31
+  ],
+  "bonus": 20,
+  "firstWinAmount": 1115107742,
+  "firstWinners": 14,
+  "totalSales": 67559139000,
+  "prizes": {
+    "first": {
+      "amount": 1115107742,
+      "winners": 14
+    },
+    "second": {
+      "amount": 29907105,
+      "winners": 87
+    },
+    "third": {
+      "amount": 1260620,
+      "winners": 2064
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 99271
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1600135
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "럭키복권방",
+      "address": "서울 도봉구 노해로63길 79 우림빌딩106",
+      "method": "auto",
+      "lat": 37.653114,
+      "lng": 127.04623
+    },
+    {
+      "rank": 1,
+      "name": "경성식품",
+      "address": "서울 동대문구 망우로21길 52",
+      "method": "auto",
+      "lat": 37.590435,
+      "lng": 127.06028
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "부산 서구 충무동1가 28-19번지",
+      "method": "auto",
+      "lat": 35.09553,
+      "lng": 129.02344
+    },
+    {
+      "rank": 1,
+      "name": "로또(복권방)",
+      "address": "인천 서구 신석로77번길 38",
+      "method": "auto",
+      "lat": 37.513268,
+      "lng": 126.67086
+    },
+    {
+      "rank": 1,
+      "name": "영웅기획",
+      "address": "광주 남구 독립로 77",
+      "method": "auto",
+      "lat": 35.140537,
+      "lng": 126.90203
+    },
+    {
+      "rank": 1,
+      "name": "초월대박복권방",
+      "address": "경기 광주시 경충대로 1252",
+      "method": "manual",
+      "lat": 37.386677,
+      "lng": 127.28821
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "경기 군포시 당동로 8",
+      "method": "manual",
+      "lat": 37.35095,
+      "lng": 126.943695
+    },
+    {
+      "rank": 1,
+      "name": "풍전슈퍼",
+      "address": "경기 부천시 조마루로 428,(원미동)",
+      "method": "auto",
+      "lat": 37.49708,
+      "lng": 126.79113
+    },
+    {
+      "rank": 1,
+      "name": "아성슈퍼",
+      "address": "경기 부천시 부흥로 202",
+      "method": "auto",
+      "lat": 37.495853,
+      "lng": 126.764984
+    },
+    {
+      "rank": 1,
+      "name": "드림",
+      "address": "경기 수원시 권선구 정조로 615",
+      "method": "manual",
+      "lat": 37.263794,
+      "lng": 127.01421
+    },
+    {
+      "rank": 1,
+      "name": "GS25(안산산호점)",
+      "address": "경기 안산시 단원구 선부동 1081번지 산호한양상가101호",
+      "method": "auto",
+      "lat": 37.336678,
+      "lng": 126.81326
+    },
+    {
+      "rank": 1,
+      "name": "서해로또방",
+      "address": "경기 화성시 화성로 1471",
+      "method": "auto",
+      "lat": 37.223217,
+      "lng": 126.84257
+    },
+    {
+      "rank": 1,
+      "name": "뉴팡팡복권",
+      "address": "전북 전주시 덕진구 쪽구름로 117",
+      "method": "manual",
+      "lat": 35.873688,
+      "lng": 127.07243
+    },
+    {
+      "rank": 1,
+      "name": "영화복권",
+      "address": "경남 창원시 진해구 안청남로 14",
+      "method": "auto",
+      "lat": 35.10107,
+      "lng": 128.8045
+    }
+  ]
+}

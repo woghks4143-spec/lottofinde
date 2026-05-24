@@ -1,0 +1,117 @@
+{
+  "round": 713,
+  "date": "2016-07-30",
+  "nums": [
+    2,
+    5,
+    15,
+    18,
+    19,
+    23
+  ],
+  "bonus": 44,
+  "firstWinAmount": 1714720917,
+  "firstWinners": 9,
+  "totalSales": 64646552000,
+  "prizes": {
+    "first": {
+      "amount": 1714720917,
+      "winners": 9
+    },
+    "second": {
+      "amount": 51441628,
+      "winners": 50
+    },
+    "third": {
+      "amount": 1436115,
+      "winners": 1791
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 87920
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1470125
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "서울 노원구 동일로 992 1층",
+      "method": "auto",
+      "lat": 37.61881,
+      "lng": 127.07561
+    },
+    {
+      "rank": 1,
+      "name": "제이복권방",
+      "address": "서울 종로구 종로 225-1 평창빌딩 1층 103호",
+      "method": "manual",
+      "lat": 37.571293,
+      "lng": 127.00283
+    },
+    {
+      "rank": 1,
+      "name": "복권백화점",
+      "address": "울산 중구 태화동 37-7번지 1층 리버스트 24hour편의점내",
+      "method": "auto",
+      "lat": 35.554863,
+      "lng": 129.30864
+    },
+    {
+      "rank": 1,
+      "name": "마리오슈퍼",
+      "address": "경기 부천시 송내대로265번길 85 뱅뱅프라자 1층 118호",
+      "method": "auto",
+      "lat": 37.50734,
+      "lng": 126.753876
+    },
+    {
+      "rank": 1,
+      "name": "HX복권방",
+      "address": "경기 이천시 부발읍 아미리 726-9 현대시티플라자106호",
+      "method": "mixed",
+      "lat": 37.25275,
+      "lng": 127.48955
+    },
+    {
+      "rank": 1,
+      "name": "아띠로또판매점",
+      "address": "충남 천안시 서북구 두정동 1063번지 레몬타워 110호",
+      "method": "manual",
+      "lat": 36.837246,
+      "lng": 127.13406
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "전북 익산시 선화로 130",
+      "method": "auto",
+      "lat": 35.94789,
+      "lng": 126.94501
+    },
+    {
+      "rank": 1,
+      "name": "로타리상회",
+      "address": "경북 구미시 산호대로 199 상가1층4호",
+      "method": "auto",
+      "lat": 36.101402,
+      "lng": 128.38506
+    },
+    {
+      "rank": 1,
+      "name": "진영로또판매점",
+      "address": "경남 김해시 진영읍 진영로 189-2",
+      "method": "auto",
+      "lat": 35.30304,
+      "lng": 128.73392
+    }
+  ]
+}

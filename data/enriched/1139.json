@@ -1,0 +1,149 @@
+{
+  "round": 1139,
+  "date": "2024-09-28",
+  "nums": [
+    5,
+    12,
+    15,
+    30,
+    37,
+    40
+  ],
+  "bonus": 18,
+  "firstWinAmount": 2167490972,
+  "firstWinners": 13,
+  "totalSales": 117915887000,
+  "prizes": {
+    "first": {
+      "amount": 2167490972,
+      "winners": 13
+    },
+    "second": {
+      "amount": 62616406,
+      "winners": 75
+    },
+    "third": {
+      "amount": 1449454,
+      "winners": 3240
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 163236
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2645260
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "장안평역 3번출구 가판대",
+      "address": "서울 동대문구 장한로 6-1 장한평역 3번출구 앞 가판대",
+      "method": "auto",
+      "lat": 37.561966,
+      "lng": 127.06511
+    },
+    {
+      "rank": 1,
+      "name": "그랜드마트앞가판점",
+      "address": "서울 마포구 신촌로 94",
+      "method": "auto",
+      "lat": 37.554924,
+      "lng": 126.93597
+    },
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "auto",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "호야식품",
+      "address": "서울 양천구 중앙로 234",
+      "method": "manual",
+      "lat": 37.51745,
+      "lng": 126.85433
+    },
+    {
+      "rank": 1,
+      "name": "복남이로또방",
+      "address": "부산 남구 유엔평화로 14",
+      "method": "auto",
+      "lat": 35.13396,
+      "lng": 129.0918
+    },
+    {
+      "rank": 1,
+      "name": "부일카서비스",
+      "address": "부산 동구 자성로133번길 35",
+      "method": "mixed",
+      "lat": 35.140015,
+      "lng": 129.06306
+    },
+    {
+      "rank": 1,
+      "name": "금두꺼비복권방",
+      "address": "경기 고양시 일산서구 강성로 263 재성빌딩1층",
+      "method": "auto",
+      "lat": 37.67674,
+      "lng": 126.74803
+    },
+    {
+      "rank": 1,
+      "name": "일등복권",
+      "address": "경기 양주시 송랑로 223",
+      "method": "auto",
+      "lat": 37.804436,
+      "lng": 127.08527
+    },
+    {
+      "rank": 1,
+      "name": "스피드세븐",
+      "address": "경기 화성시 한절이길 15 101호",
+      "method": "auto",
+      "lat": 37.11733,
+      "lng": 126.91574
+    },
+    {
+      "rank": 1,
+      "name": "흥양마중물",
+      "address": "강원 원주시 치악로 2335 1층",
+      "method": "auto",
+      "lat": 37.3837,
+      "lng": 127.97537
+    },
+    {
+      "rank": 1,
+      "name": "태안로또복권방",
+      "address": "충남 태안군 독샘로 57",
+      "method": "auto",
+      "lat": 36.75318,
+      "lng": 126.29935
+    },
+    {
+      "rank": 1,
+      "name": "알리바이(나주점)",
+      "address": "전남 나주시 나주로 142 알리바이",
+      "method": "manual",
+      "lat": 35.031338,
+      "lng": 126.71719
+    },
+    {
+      "rank": 1,
+      "name": "스포츠복권방",
+      "address": "경남 양산시 황산로 675",
+      "method": "auto",
+      "lat": 35.330875,
+      "lng": 129.0067
+    }
+  ]
+}

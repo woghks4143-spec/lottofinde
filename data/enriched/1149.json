@@ -1,0 +1,181 @@
+{
+  "round": 1149,
+  "date": "2024-12-07",
+  "nums": [
+    8,
+    15,
+    19,
+    21,
+    32,
+    36
+  ],
+  "bonus": 38,
+  "firstWinAmount": 1613380765,
+  "firstWinners": 17,
+  "totalSales": 112146718000,
+  "prizes": {
+    "first": {
+      "amount": 1613380765,
+      "winners": 17
+    },
+    "second": {
+      "amount": 61773588,
+      "winners": 74
+    },
+    "third": {
+      "amount": 1563354,
+      "winners": 2924
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 145209
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2448589
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 8,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "제이복권방",
+      "address": "서울 종로구 종로 225-1 평창빌딩 1층 103호",
+      "method": "auto",
+      "lat": 37.571293,
+      "lng": 127.00283
+    },
+    {
+      "rank": 1,
+      "name": "저스트로또",
+      "address": "서울 중랑구 사가정로 412-3 1층",
+      "method": "auto",
+      "lat": 37.580223,
+      "lng": 127.09049
+    },
+    {
+      "rank": 1,
+      "name": "행복로또",
+      "address": "부산 사상구 사상로 226 1층",
+      "method": "manual",
+      "lat": 35.16512,
+      "lng": 128.98338
+    },
+    {
+      "rank": 1,
+      "name": "복터진나라",
+      "address": "부산 서구 대영로 27 1층 복권판매점",
+      "method": "auto",
+      "lat": 35.109715,
+      "lng": 129.01494
+    },
+    {
+      "rank": 1,
+      "name": "주엽역 로또판매점",
+      "address": "경기 고양시 일산서구 중앙로 1437 도로",
+      "method": "auto",
+      "lat": 37.670036,
+      "lng": 126.76048
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐남양주차산점",
+      "address": "경기 남양주시 수레로 1096",
+      "method": "auto",
+      "lat": 37.635174,
+      "lng": 127.30377
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "경기 안성시 승두길 62",
+      "method": "auto",
+      "lat": 37.000015,
+      "lng": 127.17315
+    },
+    {
+      "rank": 1,
+      "name": "일등복권",
+      "address": "경기 양주시 송랑로 223",
+      "method": "auto",
+      "lat": 37.804436,
+      "lng": 127.08527
+    },
+    {
+      "rank": 1,
+      "name": "대박명당",
+      "address": "경기 양주시 옥정동로5길 6",
+      "method": "manual",
+      "lat": 37.81649,
+      "lng": 127.098755
+    },
+    {
+      "rank": 1,
+      "name": "세븐복권방",
+      "address": "경기 파주시 해올2길 16 107호",
+      "method": "manual",
+      "lat": 37.73408,
+      "lng": 126.731636
+    },
+    {
+      "rank": 1,
+      "name": "세븐복권방",
+      "address": "경기 파주시 해올2길 16 107호",
+      "method": "manual",
+      "lat": 37.73408,
+      "lng": 126.731636
+    },
+    {
+      "rank": 1,
+      "name": "세븐복권방",
+      "address": "경기 파주시 해올2길 16 107호",
+      "method": "manual",
+      "lat": 37.73408,
+      "lng": 126.731636
+    },
+    {
+      "rank": 1,
+      "name": "세븐복권방",
+      "address": "경기 파주시 해올2길 16 107호",
+      "method": "manual",
+      "lat": 37.73408,
+      "lng": 126.731636
+    },
+    {
+      "rank": 1,
+      "name": "세븐복권방",
+      "address": "경기 파주시 해올2길 16 107호",
+      "method": "manual",
+      "lat": 37.73408,
+      "lng": 126.731636
+    },
+    {
+      "rank": 1,
+      "name": "해적책대여점 복권방",
+      "address": "충북 청주시 서원구 대원로 28",
+      "method": "manual",
+      "lat": 36.639973,
+      "lng": 127.479355
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "전남 무안군 영산로 1693 1층",
+      "method": "auto",
+      "lat": 34.90968,
+      "lng": 126.42971
+    },
+    {
+      "rank": 1,
+      "name": "로하",
+      "address": "경남 창원시 의창구 소계로84번길 13-1",
+      "method": "mixed",
+      "lat": 35.257717,
+      "lng": 128.60057
+    }
+  ]
+}

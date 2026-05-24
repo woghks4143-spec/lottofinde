@@ -1,0 +1,117 @@
+{
+  "round": 961,
+  "date": "2021-05-01",
+  "nums": [
+    11,
+    20,
+    29,
+    31,
+    33,
+    42
+  ],
+  "bonus": 43,
+  "firstWinAmount": 2575231209,
+  "firstWinners": 9,
+  "totalSales": 97153309000,
+  "prizes": {
+    "first": {
+      "amount": 2575231209,
+      "winners": 9
+    },
+    "second": {
+      "amount": 52915710,
+      "winners": 73
+    },
+    "third": {
+      "amount": 1422256,
+      "winners": 2716
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 133764
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2197136
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "명당마트",
+      "address": "서울 강서구 양천로 91",
+      "method": "auto",
+      "lat": 37.573605,
+      "lng": 126.81405
+    },
+    {
+      "rank": 1,
+      "name": "현대",
+      "address": "서울 도봉구 도봉로110길 74",
+      "method": "manual",
+      "lat": 37.64619,
+      "lng": 127.037636
+    },
+    {
+      "rank": 1,
+      "name": "씨스페이스(정릉3점)",
+      "address": "서울 성북구  솔샘로6길 66 청수한의원",
+      "method": "manual",
+      "lat": 37.608723,
+      "lng": 127.00776
+    },
+    {
+      "rank": 1,
+      "name": "역곡중앙슈퍼",
+      "address": "경기 부천시  부일로 724",
+      "method": "auto",
+      "lat": 37.48525,
+      "lng": 126.81027
+    },
+    {
+      "rank": 1,
+      "name": "희망복권",
+      "address": "경기 평택시 평택1로20번길 39 1층 복권방",
+      "method": "auto",
+      "lat": 36.99426,
+      "lng": 127.08929
+    },
+    {
+      "rank": 1,
+      "name": "로또",
+      "address": "경기 포천시 죽엽산로196번길 4",
+      "method": "manual",
+      "lat": 37.814644,
+      "lng": 127.16044
+    },
+    {
+      "rank": 1,
+      "name": "금손로또판매점",
+      "address": "충남 당진시 서해로 5760 에이동 1층 101호",
+      "method": "manual",
+      "lat": 36.897835,
+      "lng": 126.6277
+    },
+    {
+      "rank": 1,
+      "name": "정관장홍삼부안점",
+      "address": "전북 부안군 부안읍 석정로 197",
+      "method": "auto",
+      "lat": 35.72811,
+      "lng": 126.737434
+    },
+    {
+      "rank": 1,
+      "name": "대박로또",
+      "address": "경북 영천시 금호로 88 태성맨션",
+      "method": "auto",
+      "lat": 35.93096,
+      "lng": 128.87175
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "round": 378,
+  "date": "2010-02-27",
+  "nums": [
+    5,
+    22,
+    29,
+    31,
+    34,
+    39
+  ],
+  "bonus": 43,
+  "firstWinAmount": 2317698240,
+  "firstWinners": 5,
+  "totalSales": 48866964000,
+  "prizes": {
+    "first": {
+      "amount": 2317698240,
+      "winners": 5
+    },
+    "second": {
+      "amount": 64380507,
+      "winners": 30
+    },
+    "third": {
+      "amount": 1718341,
+      "winners": 1124
+    },
+    "fourth": {
+      "amount": 64659,
+      "winners": 59742
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1023866
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "서울 관악구 남부순환로 1739-9",
+      "method": "auto",
+      "lat": 37.482788,
+      "lng": 126.943474
+    },
+    {
+      "rank": 1,
+      "name": "LG다대성원점",
+      "address": "부산 사하구 다대동  1551-25",
+      "method": "auto",
+      "lat": 35.049816,
+      "lng": 128.9699
+    },
+    {
+      "rank": 1,
+      "name": "SK@24시편의점",
+      "address": "경기 파주시 야동동  589-10",
+      "method": "auto",
+      "lat": 37.773052,
+      "lng": 126.75124
+    },
+    {
+      "rank": 1,
+      "name": "왕대박복권",
+      "address": "강원 속초시 번영로 142 1층, 102호",
+      "method": "auto",
+      "lat": 38.211353,
+      "lng": 128.58932
+    },
+    {
+      "rank": 1,
+      "name": "로터리편의마트",
+      "address": "경북 포항시 북구 서동로 85 육거리",
+      "method": "auto",
+      "lat": 36.040768,
+      "lng": 129.36725
+    }
+  ]
+}

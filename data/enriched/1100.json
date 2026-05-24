@@ -1,0 +1,149 @@
+{
+  "round": 1100,
+  "date": "2023-12-30",
+  "nums": [
+    17,
+    26,
+    29,
+    30,
+    31,
+    43
+  ],
+  "bonus": 12,
+  "firstWinAmount": 2207575472,
+  "firstWinners": 13,
+  "totalSales": 116187023000,
+  "prizes": {
+    "first": {
+      "amount": 2207575472,
+      "winners": 13
+    },
+    "second": {
+      "amount": 59050373,
+      "winners": 81
+    },
+    "third": {
+      "amount": 1667160,
+      "winners": 2869
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 146262
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2503154
+    }
+  },
+  "methodCounts": {
+    "auto": 12,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "길로또복권",
+      "address": "서울 강서구 등촌로 215",
+      "method": "manual",
+      "lat": 37.548992,
+      "lng": 126.86325
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "서울 관악구 은천로 40-1",
+      "method": "auto",
+      "lat": 37.48599,
+      "lng": 126.93982
+    },
+    {
+      "rank": 1,
+      "name": "프리마트",
+      "address": "인천 남동구 주안로 231",
+      "method": "auto",
+      "lat": 37.463516,
+      "lng": 126.695564
+    },
+    {
+      "rank": 1,
+      "name": "로또명당",
+      "address": "인천 부평구 부평대로 32 1층",
+      "method": "auto",
+      "lat": 37.494415,
+      "lng": 126.72295
+    },
+    {
+      "rank": 1,
+      "name": "황금알 복권판매점",
+      "address": "대전 서구 한밭대로570번길 29-4 갤러리빌 8차",
+      "method": "auto",
+      "lat": 36.356964,
+      "lng": 127.36215
+    },
+    {
+      "rank": 1,
+      "name": "코사마트한양점",
+      "address": "경기 고양시 덕양구 마상로 156",
+      "method": "auto",
+      "lat": 37.6584,
+      "lng": 126.83955
+    },
+    {
+      "rank": 1,
+      "name": "리맥스복권방",
+      "address": "경기 구리시 경춘로 239 리맥스프라자 앞 가판대(인창동 676-1)",
+      "method": "auto",
+      "lat": 37.601616,
+      "lng": 127.14163
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "강원 원주시 평원로 23 1층",
+      "method": "auto",
+      "lat": 37.348927,
+      "lng": 127.952644
+    },
+    {
+      "rank": 1,
+      "name": "로또당진합덕원룸점",
+      "address": "충남 당진시 미락5길 27-3 1층 101호",
+      "method": "auto",
+      "lat": 36.80752,
+      "lng": 126.768425
+    },
+    {
+      "rank": 1,
+      "name": "로또복권두정점",
+      "address": "충남 천안시 서북구 두정로 251 대원빌딩104호",
+      "method": "auto",
+      "lat": 36.833515,
+      "lng": 127.14499
+    },
+    {
+      "rank": 1,
+      "name": "포항오거리CU복권",
+      "address": "경북 포항시 북구 죽도로 33 CU포항오거리점내",
+      "method": "auto",
+      "lat": 36.033836,
+      "lng": 129.36467
+    },
+    {
+      "rank": 1,
+      "name": "통도복권",
+      "address": "경남 양산시 통도사로 71 복권판매점",
+      "method": "auto",
+      "lat": 35.49364,
+      "lng": 129.08252
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경남 진주시 창렬로 76-1 1층",
+      "method": "auto",
+      "lat": 35.195347,
+      "lng": 128.06912
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "round": 256,
+  "date": "2007-10-27",
+  "nums": [
+    4,
+    11,
+    14,
+    21,
+    23,
+    43
+  ],
+  "bonus": 32,
+  "firstWinAmount": 4891017000,
+  "firstWinners": 2,
+  "totalSales": 41996580000,
+  "prizes": {
+    "first": {
+      "amount": 4891017000,
+      "winners": 2
+    },
+    "second": {
+      "amount": 47951148,
+      "winners": 34
+    },
+    "third": {
+      "amount": 1367735,
+      "winners": 1192
+    },
+    "fourth": {
+      "amount": 57230,
+      "winners": 56975
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 938980
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

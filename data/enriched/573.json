@@ -1,0 +1,109 @@
+{
+  "round": 573,
+  "date": "2013-11-23",
+  "nums": [
+    2,
+    4,
+    20,
+    34,
+    35,
+    43
+  ],
+  "bonus": 14,
+  "firstWinAmount": 1645691766,
+  "firstWinners": 8,
+  "totalSales": 56092721000,
+  "prizes": {
+    "first": {
+      "amount": 1645691766,
+      "winners": 8
+    },
+    "second": {
+      "amount": 43885114,
+      "winners": 50
+    },
+    "third": {
+      "amount": 1352809,
+      "winners": 1622
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 78997
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1308493
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "CU(수유대로점)",
+      "address": "서울 강북구 노해로 121 두울빌딩",
+      "method": "auto",
+      "lat": 37.64605,
+      "lng": 127.0244
+    },
+    {
+      "rank": 1,
+      "name": "가판점1호",
+      "address": "서울 마포구 합정동  383-14번지",
+      "method": "auto",
+      "lat": 37.549137,
+      "lng": 126.912224
+    },
+    {
+      "rank": 1,
+      "name": "주안로또",
+      "address": "인천 부평구  부평1동 부평1동 529-40번지동아웰빙타운내추럴편의점내109",
+      "method": "auto",
+      "lat": 37.498314,
+      "lng": 126.721054
+    },
+    {
+      "rank": 1,
+      "name": "현대슈퍼",
+      "address": "광주 서구 상무대로 871",
+      "method": "auto",
+      "lat": 35.150524,
+      "lng": 126.857315
+    },
+    {
+      "rank": 1,
+      "name": "대박로또판매점",
+      "address": "경기 수원시 장안구 서부로 2129-1 태양공예가구",
+      "method": "auto",
+      "lat": 37.298717,
+      "lng": 126.97125
+    },
+    {
+      "rank": 1,
+      "name": "복권마당",
+      "address": "경기 연천군 전곡읍 전곡로144번길 10 1층",
+      "method": "auto",
+      "lat": 38.02512,
+      "lng": 127.0694
+    },
+    {
+      "rank": 1,
+      "name": "오창중앙복권",
+      "address": "충북 청주시 청원구 중심상업로 47 103호",
+      "method": "manual",
+      "lat": 36.715076,
+      "lng": 127.42894
+    },
+    {
+      "rank": 1,
+      "name": "세방매점",
+      "address": "경북 경주시 산업로 4447 (용강동)",
+      "method": "auto",
+      "lat": 35.877205,
+      "lng": 129.22649
+    }
+  ]
+}

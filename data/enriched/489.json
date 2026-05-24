@@ -1,0 +1,93 @@
+{
+  "round": 489,
+  "date": "2012-04-14",
+  "nums": [
+    2,
+    4,
+    8,
+    15,
+    20,
+    27
+  ],
+  "bonus": 11,
+  "firstWinAmount": 2106360625,
+  "firstWinners": 6,
+  "totalSales": 53558490000,
+  "prizes": {
+    "first": {
+      "amount": 2106360625,
+      "winners": 6
+    },
+    "second": {
+      "amount": 40506936,
+      "winners": 52
+    },
+    "third": {
+      "amount": 1369546,
+      "winners": 1538
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 75822
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1227452
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "ANY25",
+      "address": "서울 종로구 창경궁로 137 1층",
+      "method": "manual",
+      "lat": 37.574615,
+      "lng": 126.99725
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트과정로",
+      "address": "부산 수영구 과정로 42,(망미동)",
+      "method": "auto",
+      "lat": 35.17517,
+      "lng": 129.10776
+    },
+    {
+      "rank": 1,
+      "name": "신일마트",
+      "address": "전북 군산시 의료원로 159",
+      "method": "auto",
+      "lat": 35.95842,
+      "lng": 126.69812
+    },
+    {
+      "rank": 1,
+      "name": "로또명당",
+      "address": "전남 해남군 우수영로 1",
+      "method": "manual",
+      "lat": 34.596703,
+      "lng": 126.31274
+    },
+    {
+      "rank": 1,
+      "name": "로또복권델리25옥동점",
+      "address": "경북 안동시 옥동  734테마프라자A-161",
+      "method": "auto",
+      "lat": 36.56624,
+      "lng": 128.69998
+    },
+    {
+      "rank": 1,
+      "name": "성심상회",
+      "address": "경북 포항시 북구 불종로 78",
+      "method": "auto",
+      "lat": 36.038174,
+      "lng": 129.36801
+    }
+  ]
+}

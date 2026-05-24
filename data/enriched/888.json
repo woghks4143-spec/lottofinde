@@ -1,0 +1,109 @@
+{
+  "round": 888,
+  "date": "2019-12-07",
+  "nums": [
+    3,
+    7,
+    12,
+    31,
+    34,
+    38
+  ],
+  "bonus": 32,
+  "firstWinAmount": 2370359204,
+  "firstWinners": 8,
+  "totalSales": 82777313000,
+  "prizes": {
+    "first": {
+      "amount": 2370359204,
+      "winners": 8
+    },
+    "second": {
+      "amount": 53567440,
+      "winners": 59
+    },
+    "third": {
+      "amount": 1288414,
+      "winners": 2453
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 123025
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1990715
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "다모아복권방",
+      "address": "서울 구로구 서해안로30길 13-7 1층",
+      "method": "auto",
+      "lat": 37.4933,
+      "lng": 126.844315
+    },
+    {
+      "rank": 1,
+      "name": "복권천국",
+      "address": "부산 남구 못골로 48-2",
+      "method": "auto",
+      "lat": 35.13574,
+      "lng": 129.08777
+    },
+    {
+      "rank": 1,
+      "name": "우정식품",
+      "address": "부산 동래구 온천장로 39",
+      "method": "manual",
+      "lat": 35.21585,
+      "lng": 129.07948
+    },
+    {
+      "rank": 1,
+      "name": "다복슈퍼",
+      "address": "부산 수영구 수영동 451-13번지",
+      "method": "auto",
+      "lat": 35.169216,
+      "lng": 129.11288
+    },
+    {
+      "rank": 1,
+      "name": "서재강변로또",
+      "address": "대구 달성군 다사읍 서재로 172,(서재리)",
+      "method": "manual",
+      "lat": 35.878708,
+      "lng": 128.49748
+    },
+    {
+      "rank": 1,
+      "name": "복권사랑",
+      "address": "경기 가평군 청평중앙로 24 1층 CU청평중앙로점",
+      "method": "auto",
+      "lat": 37.736507,
+      "lng": 127.41756
+    },
+    {
+      "rank": 1,
+      "name": "로또복권4공단점",
+      "address": "경북 구미시 첨단기업1로 18",
+      "method": "auto",
+      "lat": 36.140465,
+      "lng": 128.43942
+    },
+    {
+      "rank": 1,
+      "name": "제일복권",
+      "address": "경남 양산시 양산역2길 7 대상골드타워 103호 복권판매점",
+      "method": "manual",
+      "lat": 35.335594,
+      "lng": 129.02797
+    }
+  ]
+}

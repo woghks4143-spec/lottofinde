@@ -1,0 +1,101 @@
+{
+  "round": 370,
+  "date": "2010-01-02",
+  "nums": [
+    16,
+    18,
+    24,
+    42,
+    44,
+    45
+  ],
+  "bonus": 17,
+  "firstWinAmount": 1678941943,
+  "firstWinners": 7,
+  "totalSales": 49762652000,
+  "prizes": {
+    "first": {
+      "amount": 1678941943,
+      "winners": 7
+    },
+    "second": {
+      "amount": 61211425,
+      "winners": 32
+    },
+    "third": {
+      "amount": 1677026,
+      "winners": 1168
+    },
+    "fourth": {
+      "amount": 64701,
+      "winners": 60549
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1058734
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "소리창고",
+      "address": "서울 강서구 강서로 306",
+      "method": "manual",
+      "lat": 37.552868,
+      "lng": 126.83675
+    },
+    {
+      "rank": 1,
+      "name": "-",
+      "address": "부산 북구 금곡대로 270 상가동 110호",
+      "method": "auto",
+      "lat": 35.231136,
+      "lng": 129.01552
+    },
+    {
+      "rank": 1,
+      "name": "알리바이",
+      "address": "광주 광산구 수등로 253 1층 알리바이",
+      "method": "auto",
+      "lat": 35.185387,
+      "lng": 126.83668
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "대전 동구 자양동  198-17",
+      "method": "auto",
+      "lat": 36.34154,
+      "lng": 127.44839
+    },
+    {
+      "rank": 1,
+      "name": "가판대",
+      "address": "경기 안양시 만안구 안양동 456-2",
+      "method": "auto",
+      "lat": 37.3927,
+      "lng": 126.92598
+    },
+    {
+      "rank": 1,
+      "name": "대박나라복권방",
+      "address": "충남 아산시 서부남로 868",
+      "method": "auto",
+      "lat": 36.777367,
+      "lng": 126.934395
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방(감포)",
+      "address": "경북 경주시 감포로 141",
+      "method": "auto",
+      "lat": 35.80664,
+      "lng": 129.50232
+    }
+  ]
+}

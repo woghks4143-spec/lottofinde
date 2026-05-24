@@ -1,0 +1,125 @@
+{
+  "round": 938,
+  "date": "2020-11-21",
+  "nums": [
+    4,
+    8,
+    10,
+    16,
+    31,
+    36
+  ],
+  "bonus": 9,
+  "firstWinAmount": 2249466563,
+  "firstWinners": 10,
+  "totalSales": 93452425000,
+  "prizes": {
+    "first": {
+      "amount": 2249466563,
+      "winners": 10
+    },
+    "second": {
+      "amount": 58579859,
+      "winners": 64
+    },
+    "third": {
+      "amount": 1481277,
+      "winners": 2531
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 124971
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2096955
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "잠실나루역2번출구",
+      "address": "서울 송파구 올림픽로37길 109 잠실나루역 2번출구",
+      "method": "auto",
+      "lat": 37.522404,
+      "lng": 127.104744
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "auto",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "인천 계양구 안남로 466 1층",
+      "method": "auto",
+      "lat": 37.5245,
+      "lng": 126.71087
+    },
+    {
+      "rank": 1,
+      "name": "로또까페",
+      "address": "인천 계양구 길마로 35 구일빌딩 1층 102호",
+      "method": "auto",
+      "lat": 37.534027,
+      "lng": 126.70959
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "경기 용인시 처인구 금령로 130",
+      "method": "auto",
+      "lat": 37.23509,
+      "lng": 127.2105
+    },
+    {
+      "rank": 1,
+      "name": "올인(allin)",
+      "address": "경기 화성시 3.1만세로 1147",
+      "method": "auto",
+      "lat": 37.135284,
+      "lng": 126.910614
+    },
+    {
+      "rank": 1,
+      "name": "로또마당",
+      "address": "충북 충주시 국원대로 356 1층 세븐일레븐",
+      "method": "auto",
+      "lat": 37.003094,
+      "lng": 127.93002
+    },
+    {
+      "rank": 1,
+      "name": "스타복권방",
+      "address": "충남 논산시 안심로 72",
+      "method": "auto",
+      "lat": 36.127453,
+      "lng": 127.09938
+    },
+    {
+      "rank": 1,
+      "name": "목화휴게소",
+      "address": "경남 사천시 사천대로 912",
+      "method": "auto",
+      "lat": 35.0018,
+      "lng": 128.05415
+    },
+    {
+      "rank": 1,
+      "name": "양산역씨유점",
+      "address": "경남 양산시 양산역6길 3 센트럴스위트 112호 CU편의점",
+      "method": "auto",
+      "lat": 35.337826,
+      "lng": 129.02661
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "round": 650,
+  "date": "2015-05-16",
+  "nums": [
+    3,
+    4,
+    7,
+    11,
+    31,
+    41
+  ],
+  "bonus": 35,
+  "firstWinAmount": 2849298900,
+  "firstWinners": 5,
+  "totalSales": 60991082000,
+  "prizes": {
+    "first": {
+      "amount": 2849298900,
+      "winners": 5
+    },
+    "second": {
+      "amount": 52764795,
+      "winners": 45
+    },
+    "third": {
+      "amount": 1308940,
+      "winners": 1814
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 87030
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1429743
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "럭키마켓",
+      "address": "서울 강동구 명일로 159 1층",
+      "method": "manual",
+      "lat": 37.533146,
+      "lng": 127.14422
+    },
+    {
+      "rank": 1,
+      "name": "두꺼비로또판매점",
+      "address": "서울 관악구 봉천동  1630-1번지",
+      "method": "auto",
+      "lat": 37.486862,
+      "lng": 126.93533
+    },
+    {
+      "rank": 1,
+      "name": "가로매점",
+      "address": "서울 구로구  구로동 604-19번지",
+      "method": "auto",
+      "lat": 37.503567,
+      "lng": 126.87976
+    },
+    {
+      "rank": 1,
+      "name": "행운마트",
+      "address": "인천 부평구 배곶남로9번길 4",
+      "method": "auto",
+      "lat": 37.47179,
+      "lng": 126.69535
+    },
+    {
+      "rank": 1,
+      "name": "포시즌",
+      "address": "경남 김해시 내외중앙로 99 복권판매점",
+      "method": "manual",
+      "lat": 35.238827,
+      "lng": 128.86716
+    }
+  ]
+}

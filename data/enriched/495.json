@@ -1,0 +1,93 @@
+{
+  "round": 495,
+  "date": "2012-05-26",
+  "nums": [
+    4,
+    13,
+    22,
+    27,
+    34,
+    44
+  ],
+  "bonus": 6,
+  "firstWinAmount": 2111645000,
+  "firstWinners": 6,
+  "totalSales": 53645960000,
+  "prizes": {
+    "first": {
+      "amount": 2111645000,
+      "winners": 6
+    },
+    "second": {
+      "amount": 47991932,
+      "winners": 44
+    },
+    "third": {
+      "amount": 1346713,
+      "winners": 1568
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 75762
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1228344
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "ANY25",
+      "address": "서울 종로구 창경궁로 137 1층",
+      "method": "auto",
+      "lat": 37.574615,
+      "lng": 126.99725
+    },
+    {
+      "rank": 1,
+      "name": "프로토베팅샵",
+      "address": "부산 중구 국제시장2길 5 4호",
+      "method": "auto",
+      "lat": 35.099678,
+      "lng": 129.0284
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "대구 수성구 범어동  774-84",
+      "method": "auto",
+      "lat": 35.853756,
+      "lng": 128.62367
+    },
+    {
+      "rank": 1,
+      "name": "형제상회",
+      "address": "대전 서구 계룡로 664-1,(용문동)",
+      "method": "auto",
+      "lat": 36.336784,
+      "lng": 127.39472
+    },
+    {
+      "rank": 1,
+      "name": "인생역전로또방",
+      "address": "대전 유성구 송강동  16-2번지 103호",
+      "method": "manual",
+      "lat": 36.435883,
+      "lng": 127.38648
+    },
+    {
+      "rank": 1,
+      "name": "인생역전로또방",
+      "address": "대전 유성구 송강동  16-2번지 103호",
+      "method": "manual",
+      "lat": 36.435883,
+      "lng": 127.38648
+    }
+  ]
+}

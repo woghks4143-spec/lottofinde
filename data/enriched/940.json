@@ -1,0 +1,109 @@
+{
+  "round": 940,
+  "date": "2020-12-05",
+  "nums": [
+    3,
+    15,
+    20,
+    22,
+    24,
+    41
+  ],
+  "bonus": 11,
+  "firstWinAmount": 2846071079,
+  "firstWinners": 8,
+  "totalSales": 93920183000,
+  "prizes": {
+    "first": {
+      "amount": 2846071079,
+      "winners": 8
+    },
+    "second": {
+      "amount": 74407088,
+      "winners": 51
+    },
+    "third": {
+      "amount": 1629353,
+      "winners": 2329
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 123292
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2087480
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대영당안경원",
+      "address": "부산 동래구 충렬대로237번길 9,(수안동)",
+      "method": "manual",
+      "lat": 35.201954,
+      "lng": 129.08519
+    },
+    {
+      "rank": 1,
+      "name": "아트슈퍼",
+      "address": "부산 부산진구 가야대로 490",
+      "method": "auto",
+      "lat": 35.15293,
+      "lng": 129.0256
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "경기 안양시 만안구 경수대로 1265 103호",
+      "method": "auto",
+      "lat": 37.42011,
+      "lng": 126.90889
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "경기 하남시 신장로 122,(신장동)",
+      "method": "mixed",
+      "lat": 37.53804,
+      "lng": 127.20478
+    },
+    {
+      "rank": 1,
+      "name": "로또왕대박",
+      "address": "경기 화성시 와우안길 46 1층",
+      "method": "manual",
+      "lat": 37.21573,
+      "lng": 126.9766
+    },
+    {
+      "rank": 1,
+      "name": "금능마트",
+      "address": "충북 충주시 후곡길 19 금능마트",
+      "method": "auto",
+      "lat": 36.99255,
+      "lng": 127.93122
+    },
+    {
+      "rank": 1,
+      "name": "LH로또",
+      "address": "전북 전주시 완산구 호암로 91",
+      "method": "manual",
+      "lat": 35.808475,
+      "lng": 127.10428
+    },
+    {
+      "rank": 1,
+      "name": "명품로또",
+      "address": "경북 구미시  신시로 10",
+      "method": "manual",
+      "lat": 36.10882,
+      "lng": 128.33955
+    }
+  ]
+}

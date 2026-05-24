@@ -1,0 +1,93 @@
+{
+  "round": 814,
+  "date": "2018-07-07",
+  "nums": [
+    2,
+    21,
+    28,
+    38,
+    42,
+    45
+  ],
+  "bonus": 30,
+  "firstWinAmount": 3067192063,
+  "firstWinners": 6,
+  "totalSales": 74316543000,
+  "prizes": {
+    "first": {
+      "amount": 3067192063,
+      "winners": 6
+    },
+    "second": {
+      "amount": 58984463,
+      "winners": 52
+    },
+    "third": {
+      "amount": 1673319,
+      "winners": 1833
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 93837
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1585777
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대일복권방",
+      "address": "서울 양천구 목동남로4길 17",
+      "method": "manual",
+      "lat": 37.50896,
+      "lng": 126.8653
+    },
+    {
+      "rank": 1,
+      "name": "구둘공사",
+      "address": "부산 동래구 안락동 633-30번지 CU마트102호",
+      "method": "auto",
+      "lat": 35.19353,
+      "lng": 129.09908
+    },
+    {
+      "rank": 1,
+      "name": "서창로또",
+      "address": "인천 남동구 서창동 538번지 태평2차아파트상가101호",
+      "method": "auto",
+      "lat": 37.43534,
+      "lng": 126.75224
+    },
+    {
+      "rank": 1,
+      "name": "광동서점",
+      "address": "경기 의정부시 서부로 693",
+      "method": "manual",
+      "lat": 37.75493,
+      "lng": 127.03763
+    },
+    {
+      "rank": 1,
+      "name": "봉황로또",
+      "address": "전북 임실군 운수로 6",
+      "method": "auto",
+      "lat": 35.616184,
+      "lng": 127.28901
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "경남 김해시 구산동(북부동) 1083-1 1-1호(CU편의점내)",
+      "method": "manual",
+      "lat": 35.253002,
+      "lng": 128.86708
+    }
+  ]
+}

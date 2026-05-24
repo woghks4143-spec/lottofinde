@@ -1,0 +1,109 @@
+{
+  "round": 635,
+  "date": "2015-01-31",
+  "nums": [
+    11,
+    13,
+    25,
+    26,
+    29,
+    33
+  ],
+  "bonus": 32,
+  "firstWinAmount": 1855587235,
+  "firstWinners": 8,
+  "totalSales": 62429621000,
+  "prizes": {
+    "first": {
+      "amount": 1855587235,
+      "winners": 8
+    },
+    "second": {
+      "amount": 70689038,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1499465,
+      "winners": 1650
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 85675
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1427626
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 상계주공아파트(10단지) 주공10단지종합상가111",
+      "method": "auto",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "재벌 로터리",
+      "address": "부산 중구 구덕로 1 재벌마트",
+      "method": "auto",
+      "lat": 35.097614,
+      "lng": 129.03546
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "auto",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "금산인삼엑스포",
+      "address": "대전 대덕구 비래동 140-10번지",
+      "method": "auto",
+      "lat": 36.354298,
+      "lng": 127.44996
+    },
+    {
+      "rank": 1,
+      "name": "썬마트",
+      "address": "대전 서구 관저동  1109번지 신선타워105호 GS25편의점",
+      "method": "manual",
+      "lat": 36.300804,
+      "lng": 127.33443
+    },
+    {
+      "rank": 1,
+      "name": "오렌지25",
+      "address": "경기 고양시 일산서구 고봉로 291 양우에이스스타디움109",
+      "method": "auto",
+      "lat": 37.68528,
+      "lng": 126.777145
+    },
+    {
+      "rank": 1,
+      "name": "이지마트24 심곡2호",
+      "address": "경기 부천시 양지로 205 1층 118호",
+      "method": "auto",
+      "lat": 37.467976,
+      "lng": 126.822464
+    },
+    {
+      "rank": 1,
+      "name": "꿈에본그자리",
+      "address": "경기 성남시 중원구 산성대로 458",
+      "method": "auto",
+      "lat": 37.452457,
+      "lng": 127.16062
+    }
+  ]
+}

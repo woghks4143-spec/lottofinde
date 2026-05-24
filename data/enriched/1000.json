@@ -1,0 +1,221 @@
+{
+  "round": 1000,
+  "date": "2022-01-29",
+  "nums": [
+    2,
+    8,
+    19,
+    22,
+    32,
+    42
+  ],
+  "bonus": 39,
+  "firstWinAmount": 1246819620,
+  "firstWinners": 22,
+  "totalSales": 118628811000,
+  "prizes": {
+    "first": {
+      "amount": 1246819620,
+      "winners": 22
+    },
+    "second": {
+      "amount": 41941945,
+      "winners": 109
+    },
+    "third": {
+      "amount": 1137798,
+      "winners": 4018
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 180052
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2747686
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 14,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행운식품",
+      "address": "서울 관악구 신원로3길 21",
+      "method": "auto",
+      "lat": 37.48188,
+      "lng": 126.92715
+    },
+    {
+      "rank": 1,
+      "name": "로또백화점 홍은점",
+      "address": "서울 서대문구 세검정로 99-1 1층 좌측",
+      "method": "manual",
+      "lat": 37.596603,
+      "lng": 126.94909
+    },
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "manual",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "서울 성동구 용답중앙15길 12-1 1층",
+      "method": "manual",
+      "lat": 37.56443,
+      "lng": 127.05383
+    },
+    {
+      "rank": 1,
+      "name": "티에스네트웍스",
+      "address": "서울 영등포구 신길로28길  9 상가동 B2층 00006호(신길동, 힐스테이트클래시안)",
+      "method": "auto",
+      "lat": 37.503334,
+      "lng": 126.91101
+    },
+    {
+      "rank": 1,
+      "name": "서면로또",
+      "address": "부산 부산진구 중앙대로680번가길 55-5",
+      "method": "auto",
+      "lat": 35.15601,
+      "lng": 129.06055
+    },
+    {
+      "rank": 1,
+      "name": "로터리복권방",
+      "address": "부산 서구 자갈치로 4",
+      "method": "manual",
+      "lat": 35.096195,
+      "lng": 129.02484
+    },
+    {
+      "rank": 1,
+      "name": "로터리복권방",
+      "address": "부산 서구 자갈치로 4",
+      "method": "manual",
+      "lat": 35.096195,
+      "lng": 129.02484
+    },
+    {
+      "rank": 1,
+      "name": "수퍼복권대박",
+      "address": "인천 연수구 용담로 60 1층",
+      "method": "manual",
+      "lat": 37.418648,
+      "lng": 126.67362
+    },
+    {
+      "rank": 1,
+      "name": "돈벼락맞는곳",
+      "address": "대전 서구 복수남로 16",
+      "method": "manual",
+      "lat": 36.297783,
+      "lng": 127.37957
+    },
+    {
+      "rank": 1,
+      "name": "와우복권방",
+      "address": "대전 중구 평촌로 94-1",
+      "method": "auto",
+      "lat": 36.32221,
+      "lng": 127.397255
+    },
+    {
+      "rank": 1,
+      "name": "웃는로또방",
+      "address": "경기 고양시 덕양구 토당로 102",
+      "method": "manual",
+      "lat": 37.62402,
+      "lng": 126.81769
+    },
+    {
+      "rank": 1,
+      "name": "강선복권",
+      "address": "경기 고양시 일산서구 중앙로 1376 한양상가 1층 8호",
+      "method": "mixed",
+      "lat": 37.66758,
+      "lng": 126.76625
+    },
+    {
+      "rank": 1,
+      "name": "올웨이즈",
+      "address": "경기 군포시  산본로 378 산본사이버텔 사이버텔109호",
+      "method": "auto",
+      "lat": 37.364124,
+      "lng": 126.930565
+    },
+    {
+      "rank": 1,
+      "name": "행운 아이스크림 판매점",
+      "address": "경기 부천시 부일로 434-1 1층",
+      "method": "auto",
+      "lat": 37.486343,
+      "lng": 126.778366
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "경기 안양시 동안구 부림로 194",
+      "method": "manual",
+      "lat": 37.400047,
+      "lng": 126.96133
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "경기 포천시 죽엽산로35번길 1",
+      "method": "manual",
+      "lat": 37.826786,
+      "lng": 127.152664
+    },
+    {
+      "rank": 1,
+      "name": "동탄복합문화센터복권판매점",
+      "address": "경기 화성시 동탄순환대로 725 106호",
+      "method": "auto",
+      "lat": 37.208588,
+      "lng": 127.10831
+    },
+    {
+      "rank": 1,
+      "name": "더블로또",
+      "address": "강원 양구군 양구새싹로 22 1층 GS25",
+      "method": "manual",
+      "lat": 38.10217,
+      "lng": 127.98806
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "충북 청주시 상당구 월평로 204",
+      "method": "manual",
+      "lat": 36.611378,
+      "lng": 127.50161
+    },
+    {
+      "rank": 1,
+      "name": "영유통(로또복권)",
+      "address": "전북 군산시 미룡로 45",
+      "method": "manual",
+      "lat": 35.944042,
+      "lng": 126.68995
+    },
+    {
+      "rank": 1,
+      "name": "로또복권판매",
+      "address": "제주 서귀포시 표선동서로 230",
+      "method": "manual",
+      "lat": 33.324867,
+      "lng": 126.83256
+    }
+  ]
+}

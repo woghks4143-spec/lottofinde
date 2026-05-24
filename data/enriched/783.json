@@ -1,0 +1,77 @@
+{
+  "round": 783,
+  "date": "2017-12-02",
+  "nums": [
+    14,
+    15,
+    16,
+    17,
+    38,
+    45
+  ],
+  "bonus": 36,
+  "firstWinAmount": 4603964625,
+  "firstWinners": 4,
+  "totalSales": 73525256000,
+  "prizes": {
+    "first": {
+      "amount": 4603964625,
+      "winners": 4
+    },
+    "second": {
+      "amount": 85258605,
+      "winners": 36
+    },
+    "third": {
+      "amount": 1642221,
+      "winners": 1869
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 90899
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1532640
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "공항로또",
+      "address": "서울 강서구 공항대로 37 7호",
+      "method": "manual",
+      "lat": 37.56155,
+      "lng": 126.81148
+    },
+    {
+      "rank": 1,
+      "name": "동일통신",
+      "address": "부산 해운대구 선수촌로 16",
+      "method": "auto",
+      "lat": 35.19541,
+      "lng": 129.11856
+    },
+    {
+      "rank": 1,
+      "name": "삼산현대 로또판매",
+      "address": "울산 남구 월평로 225",
+      "method": "auto",
+      "lat": 35.54691,
+      "lng": 129.3294
+    },
+    {
+      "rank": 1,
+      "name": "영화유통",
+      "address": "경북 포항시 북구 양학천로 15",
+      "method": "auto",
+      "lat": 36.023766,
+      "lng": 129.35393
+    }
+  ]
+}

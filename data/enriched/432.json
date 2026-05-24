@@ -1,0 +1,85 @@
+{
+  "round": 432,
+  "date": "2011-03-12",
+  "nums": [
+    2,
+    3,
+    5,
+    11,
+    27,
+    39
+  ],
+  "bonus": 33,
+  "firstWinAmount": 2299427550,
+  "firstWinners": 5,
+  "totalSales": 52348574000,
+  "prizes": {
+    "first": {
+      "amount": 2299427550,
+      "winners": 5
+    },
+    "second": {
+      "amount": 39920618,
+      "winners": 48
+    },
+    "third": {
+      "amount": 1096846,
+      "winners": 1747
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 83754
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1331414
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "럭키마켓",
+      "address": "서울 강동구 명일로 159 1층",
+      "method": "auto",
+      "lat": 37.533146,
+      "lng": 127.14422
+    },
+    {
+      "rank": 1,
+      "name": "복권명당(서부점)",
+      "address": "대구 달서구 월배로 452",
+      "method": "auto",
+      "lat": 35.833633,
+      "lng": 128.55486
+    },
+    {
+      "rank": 1,
+      "name": "L-마트",
+      "address": "경기 부천시 삼작로 22 부천테크노파크100-103",
+      "method": "auto",
+      "lat": 37.518986,
+      "lng": 126.76236
+    },
+    {
+      "rank": 1,
+      "name": "부자되세요복권방",
+      "address": "경기 평택시 진위서로 3",
+      "method": "auto",
+      "lat": 37.109608,
+      "lng": 127.06377
+    },
+    {
+      "rank": 1,
+      "name": "해피복권",
+      "address": "경남 창원시 마산합포구 가포로 98  1층 CU편의점 내",
+      "method": "auto",
+      "lat": 35.175564,
+      "lng": 128.5623
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "round": 891,
+  "date": "2019-12-28",
+  "nums": [
+    9,
+    13,
+    28,
+    31,
+    39,
+    41
+  ],
+  "bonus": 19,
+  "firstWinAmount": 3082673947,
+  "firstWinners": 7,
+  "totalSales": 89742677000,
+  "prizes": {
+    "first": {
+      "amount": 3082673947,
+      "winners": 7
+    },
+    "second": {
+      "amount": 46707182,
+      "winners": 77
+    },
+    "third": {
+      "amount": 1472147,
+      "winners": 2443
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 122132
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1998623
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "auto",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "타운복권방",
+      "address": "광주 북구 밤실로 184-1",
+      "method": "auto",
+      "lat": 35.16375,
+      "lng": 126.93414
+    },
+    {
+      "rank": 1,
+      "name": "GS25 운정호수공원캐슬",
+      "address": "경기 파주시 가온로 184 108호",
+      "method": "manual",
+      "lat": 37.72006,
+      "lng": 126.75289
+    },
+    {
+      "rank": 1,
+      "name": "복권천하 미스터잉크동해점",
+      "address": "강원 동해시 발한로 35",
+      "method": "auto",
+      "lat": 37.535885,
+      "lng": 129.10315
+    },
+    {
+      "rank": 1,
+      "name": "충무로또45국도점",
+      "address": "충남 아산시 충무로 647",
+      "method": "mixed",
+      "lat": 36.83662,
+      "lng": 127.01094
+    },
+    {
+      "rank": 1,
+      "name": "역전로또",
+      "address": "경북 경주시 원화로 260 1층 짐케어내",
+      "method": "manual",
+      "lat": 35.843643,
+      "lng": 129.21754
+    },
+    {
+      "rank": 1,
+      "name": "역전로또",
+      "address": "경북 경주시 원화로 260 1층 짐케어내",
+      "method": "manual",
+      "lat": 35.843643,
+      "lng": 129.21754
+    }
+  ]
+}

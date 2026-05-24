@@ -1,0 +1,93 @@
+{
+  "round": 717,
+  "date": "2016-08-27",
+  "nums": [
+    2,
+    11,
+    19,
+    25,
+    28,
+    32
+  ],
+  "bonus": 44,
+  "firstWinAmount": 2702433688,
+  "firstWinners": 6,
+  "totalSales": 68597839000,
+  "prizes": {
+    "first": {
+      "amount": 2702433688,
+      "winners": 6
+    },
+    "second": {
+      "amount": 57498590,
+      "winners": 47
+    },
+    "third": {
+      "amount": 1369015,
+      "winners": 1974
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 96836
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1567530
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "CU(옥동점)",
+      "address": "울산 남구 옥동 591-1번지",
+      "method": "auto",
+      "lat": 35.53586,
+      "lng": 129.28812
+    },
+    {
+      "rank": 1,
+      "name": "포유25대호점",
+      "address": "경기 오산시 대호로  104",
+      "method": "manual",
+      "lat": 37.159443,
+      "lng": 127.05442
+    },
+    {
+      "rank": 1,
+      "name": "월롱엘지복권방",
+      "address": "경기 파주시 월롱면 덕은리 1247 105호 (파크뷰)",
+      "method": "manual",
+      "lat": 37.811913,
+      "lng": 126.75621
+    },
+    {
+      "rank": 1,
+      "name": "프림",
+      "address": "경기 평택시 서해로 1402",
+      "method": "manual",
+      "lat": 37.0175,
+      "lng": 126.94532
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "경북 구미시 야은로 763,(신평동)",
+      "method": "manual",
+      "lat": 36.123886,
+      "lng": 128.36266
+    },
+    {
+      "rank": 1,
+      "name": "나나 복권판매소",
+      "address": "경남 양산시 상북중앙로 319 복권판매점",
+      "method": "auto",
+      "lat": 35.4122,
+      "lng": 129.05919
+    }
+  ]
+}

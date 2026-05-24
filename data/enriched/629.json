@@ -1,0 +1,85 @@
+{
+  "round": 629,
+  "date": "2014-12-20",
+  "nums": [
+    19,
+    28,
+    31,
+    38,
+    43,
+    44
+  ],
+  "bonus": 1,
+  "firstWinAmount": 2919433575,
+  "firstWinners": 5,
+  "totalSales": 57618701000,
+  "prizes": {
+    "first": {
+      "amount": 2919433575,
+      "winners": 5
+    },
+    "second": {
+      "amount": 71554745,
+      "winners": 34
+    },
+    "third": {
+      "amount": 1841682,
+      "winners": 1321
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 68554
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1183752
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행운마트",
+      "address": "서울 송파구 마천로15길 9 1층",
+      "method": "auto",
+      "lat": 37.50558,
+      "lng": 127.13482
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "부산 중구 구덕로 47",
+      "method": "auto",
+      "lat": 35.09806,
+      "lng": 129.03053
+    },
+    {
+      "rank": 1,
+      "name": "돈벼락복권방",
+      "address": "대구 북구 동변로 82-1 1층",
+      "method": "auto",
+      "lat": 35.920517,
+      "lng": 128.60385
+    },
+    {
+      "rank": 1,
+      "name": "흥건슈퍼",
+      "address": "전북 전주시 완산구 거마평로 25 흥건1차아파트상가 흥건슈퍼",
+      "method": "auto",
+      "lat": 35.794403,
+      "lng": 127.11578
+    },
+    {
+      "rank": 1,
+      "name": "로또복권하대점",
+      "address": "경남 진주시 도동로 188",
+      "method": "auto",
+      "lat": 35.18703,
+      "lng": 128.12248
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "round": 361,
+  "date": "2009-10-31",
+  "nums": [
+    5,
+    10,
+    16,
+    24,
+    27,
+    35
+  ],
+  "bonus": 33,
+  "firstWinAmount": 1473115115,
+  "firstWinners": 7,
+  "totalSales": 45062676000,
+  "prizes": {
+    "first": {
+      "amount": 1473115115,
+      "winners": 7
+    },
+    "second": {
+      "amount": 50548068,
+      "winners": 34
+    },
+    "third": {
+      "amount": 1174733,
+      "winners": 1463
+    },
+    "fourth": {
+      "amount": 51039,
+      "winners": 67347
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1068999
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대연3호점로또판매",
+      "address": "부산 남구 대연4동  1168-14",
+      "method": "auto",
+      "lat": 35.123676,
+      "lng": 129.07991
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트과정로",
+      "address": "부산 수영구 과정로 42,(망미동)",
+      "method": "auto",
+      "lat": 35.17517,
+      "lng": 129.10776
+    },
+    {
+      "rank": 1,
+      "name": "한국종합빌딩(복권)",
+      "address": "인천 남동구 경인로 530 1층",
+      "method": "auto",
+      "lat": 37.461216,
+      "lng": 126.6982
+    },
+    {
+      "rank": 1,
+      "name": "GS25(영통번영)",
+      "address": "경기 수원시 영통구 영통동 1038-1 1층",
+      "method": "manual",
+      "lat": 37.2538,
+      "lng": 127.0769
+    },
+    {
+      "rank": 1,
+      "name": "까치복권방",
+      "address": "경기 시흥시 중심상가로 326 1층102",
+      "method": "manual",
+      "lat": 37.336678,
+      "lng": 126.74821
+    },
+    {
+      "rank": 1,
+      "name": "영화복권방",
+      "address": "경남 김해시 덕정로 158 복권판매점",
+      "method": "auto",
+      "lat": 35.17843,
+      "lng": 128.80179
+    },
+    {
+      "rank": 1,
+      "name": "코리아슈퍼",
+      "address": "경남 통영시 안개로 42 수아지오아파트 상가1층 103호",
+      "method": "auto",
+      "lat": 34.85912,
+      "lng": 128.43123
+    }
+  ]
+}

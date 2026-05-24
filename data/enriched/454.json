@@ -1,0 +1,101 @@
+{
+  "round": 454,
+  "date": "2011-08-13",
+  "nums": [
+    13,
+    25,
+    27,
+    34,
+    38,
+    41
+  ],
+  "bonus": 10,
+  "firstWinAmount": 1609125590,
+  "firstWinners": 7,
+  "totalSales": 48389211000,
+  "prizes": {
+    "first": {
+      "amount": 1609125590,
+      "winners": 7
+    },
+    "second": {
+      "amount": 43658447,
+      "winners": 43
+    },
+    "third": {
+      "amount": 1343818,
+      "winners": 1397
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 74480
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1090420
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "다모아복권",
+      "address": "서울 구로구 경인로19길 4",
+      "method": "auto",
+      "lat": 37.495926,
+      "lng": 126.84278
+    },
+    {
+      "rank": 1,
+      "name": "로또",
+      "address": "서울 금천구 독산동  888-141층",
+      "method": "auto",
+      "lat": 37.476624,
+      "lng": 126.905624
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트노원영성점",
+      "address": "대구 북구 노원동3가  58-46",
+      "method": "auto",
+      "lat": 35.900185,
+      "lng": 128.57185
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "경기 하남시 하남대로 795 1층6호",
+      "method": "auto",
+      "lat": 37.540417,
+      "lng": 127.20887
+    },
+    {
+      "rank": 1,
+      "name": "대흥당",
+      "address": "전북 정읍시 관통로 102",
+      "method": "auto",
+      "lat": 35.558918,
+      "lng": 126.85565
+    },
+    {
+      "rank": 1,
+      "name": "구산복권방",
+      "address": "경남 김해시 구산동  481-3보보스빌딩108호",
+      "method": "auto",
+      "lat": 35.25086,
+      "lng": 128.87222
+    },
+    {
+      "rank": 1,
+      "name": "다음정보텔레콤(훼미리마트내)",
+      "address": "경남 진주시 평거로9번길  18 1층 2호",
+      "method": "manual",
+      "lat": 35.173115,
+      "lng": 128.06183
+    }
+  ]
+}

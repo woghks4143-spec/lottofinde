@@ -1,0 +1,109 @@
+{
+  "round": 810,
+  "date": "2018-06-09",
+  "nums": [
+    5,
+    10,
+    13,
+    21,
+    39,
+    43
+  ],
+  "bonus": 11,
+  "firstWinAmount": 2231598047,
+  "firstWinners": 8,
+  "totalSales": 74388355000,
+  "prizes": {
+    "first": {
+      "amount": 2231598047,
+      "winners": 8
+    },
+    "second": {
+      "amount": 46491626,
+      "winners": 64
+    },
+    "third": {
+      "amount": 1449325,
+      "winners": 2053
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 100608
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1672013
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "명당복권",
+      "address": "서울 동대문구 왕산로 112-1 가판",
+      "method": "auto",
+      "lat": 37.577915,
+      "lng": 127.035774
+    },
+    {
+      "rank": 1,
+      "name": "가판",
+      "address": "서울 마포구 마포대로 58 가든호텔정문옆가판",
+      "method": "auto",
+      "lat": 37.540684,
+      "lng": 126.94833
+    },
+    {
+      "rank": 1,
+      "name": "현아상회",
+      "address": "부산 남구 동명로145번길 3",
+      "method": "auto",
+      "lat": 35.119755,
+      "lng": 129.1127
+    },
+    {
+      "rank": 1,
+      "name": "은행복권방",
+      "address": "경기 시흥시 대은로104번길 1 우남상가2동101호",
+      "method": "manual",
+      "lat": 37.445133,
+      "lng": 126.80047
+    },
+    {
+      "rank": 1,
+      "name": "황금복권마트",
+      "address": "경기 이천시 증신로325번길 5 1층",
+      "method": "auto",
+      "lat": 37.297546,
+      "lng": 127.438866
+    },
+    {
+      "rank": 1,
+      "name": "토큰판매",
+      "address": "경북 경산시 대학로 291 토큰박스",
+      "method": "auto",
+      "lat": 35.837166,
+      "lng": 128.75374
+    },
+    {
+      "rank": 1,
+      "name": "로또복권삼주봉황",
+      "address": "경북 경산시 진량읍 봉회리 57번지",
+      "method": "manual",
+      "lat": 35.88434,
+      "lng": 128.82066
+    },
+    {
+      "rank": 1,
+      "name": "창원병원앞매표소",
+      "address": "경남 창원시 성산구 중앙동 104-1번지 가판",
+      "method": "auto",
+      "lat": 35.2185,
+      "lng": 128.67143
+    }
+  ]
+}

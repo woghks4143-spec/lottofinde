@@ -1,0 +1,165 @@
+{
+  "round": 1049,
+  "date": "2023-01-07",
+  "nums": [
+    3,
+    5,
+    13,
+    20,
+    21,
+    37
+  ],
+  "bonus": 17,
+  "firstWinAmount": 1727810100,
+  "firstWinners": 15,
+  "totalSales": 108444724000,
+  "prizes": {
+    "first": {
+      "amount": 1727810100,
+      "winners": 15
+    },
+    "second": {
+      "amount": 48533992,
+      "winners": 89
+    },
+    "third": {
+      "amount": 1455366,
+      "winners": 2968
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 147061
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2462622
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 6,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "천하명당로또복권",
+      "address": "서울 서대문구 세무서길 12",
+      "method": "auto",
+      "lat": 37.588524,
+      "lng": 126.94564
+    },
+    {
+      "rank": 1,
+      "name": "성호하우징",
+      "address": "서울 서대문구 증가로 53 1층",
+      "method": "auto",
+      "lat": 37.57245,
+      "lng": 126.92872
+    },
+    {
+      "rank": 1,
+      "name": "돈벼락맞는곳",
+      "address": "부산 동구 조방로49번길 18-1",
+      "method": "auto",
+      "lat": 35.139168,
+      "lng": 129.05995
+    },
+    {
+      "rank": 1,
+      "name": "로또대박",
+      "address": "부산 북구 금곡대로 270 상가동 110호",
+      "method": "manual",
+      "lat": 35.231136,
+      "lng": 129.01552
+    },
+    {
+      "rank": 1,
+      "name": "초원복권 신창점",
+      "address": "광주 광산구 신창로 76 1층",
+      "method": "auto",
+      "lat": 35.191975,
+      "lng": 126.83737
+    },
+    {
+      "rank": 1,
+      "name": "한아름 복권",
+      "address": "경기 김포시 장차로 19 102호",
+      "method": "manual",
+      "lat": 37.603813,
+      "lng": 126.77054
+    },
+    {
+      "rank": 1,
+      "name": "럭키로또",
+      "address": "경기 이천시 이섭대천로 1226 1층",
+      "method": "auto",
+      "lat": 37.27969,
+      "lng": 127.44705
+    },
+    {
+      "rank": 1,
+      "name": "탑",
+      "address": "강원 원주시 천사로 94 1층",
+      "method": "auto",
+      "lat": 37.348213,
+      "lng": 127.93562
+    },
+    {
+      "rank": 1,
+      "name": "광양복권나라(로터리)",
+      "address": "전남 광양시 백운로 1",
+      "method": "auto",
+      "lat": 34.971252,
+      "lng": 127.58985
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "경북 김천시 용암로 2",
+      "method": "manual",
+      "lat": 36.11986,
+      "lng": 128.1277
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "경남 거제시 중곡로3길 46 1층",
+      "method": "auto",
+      "lat": 34.894314,
+      "lng": 128.62627
+    },
+    {
+      "rank": 1,
+      "name": "천하명당",
+      "address": "경남 양산시 연호로 46 복권판매점",
+      "method": "manual",
+      "lat": 35.41573,
+      "lng": 129.17523
+    },
+    {
+      "rank": 1,
+      "name": "행복복권방",
+      "address": "경남 창원시 의창구 팔용로 399",
+      "method": "auto",
+      "lat": 35.25288,
+      "lng": 128.6106
+    },
+    {
+      "rank": 1,
+      "name": "동홍코사마트",
+      "address": "제주 서귀포시 동홍서로 108",
+      "method": "manual",
+      "lat": 33.259064,
+      "lng": 126.569405
+    },
+    {
+      "rank": 1,
+      "name": "동홍코사마트",
+      "address": "제주 서귀포시 동홍서로 108",
+      "method": "manual",
+      "lat": 33.259064,
+      "lng": 126.569405
+    }
+  ]
+}

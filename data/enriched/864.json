@@ -1,0 +1,133 @@
+{
+  "round": 864,
+  "date": "2019-06-22",
+  "nums": [
+    3,
+    7,
+    10,
+    13,
+    25,
+    36
+  ],
+  "bonus": 32,
+  "firstWinAmount": 1716553637,
+  "firstWinners": 11,
+  "totalSales": 82220290000,
+  "prizes": {
+    "first": {
+      "amount": 1716553637,
+      "winners": 11
+    },
+    "second": {
+      "amount": 49172110,
+      "winners": 64
+    },
+    "third": {
+      "amount": 1275645,
+      "winners": 2467
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 122913
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1957675
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "미나식품(로또판매점)",
+      "address": "서울 강서구 금낭화로 91-12",
+      "method": "auto",
+      "lat": 37.5735,
+      "lng": 126.81066
+    },
+    {
+      "rank": 1,
+      "name": "기장슈퍼",
+      "address": "부산 기장군 차성동로 69",
+      "method": "mixed",
+      "lat": 35.243927,
+      "lng": 129.2165
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "auto",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "세진전자통신",
+      "address": "대구 서구 서대구로 156",
+      "method": "auto",
+      "lat": 35.8719,
+      "lng": 128.5552
+    },
+    {
+      "rank": 1,
+      "name": "라이프마트",
+      "address": "인천 중구 연안부두로53번길 36 5호",
+      "method": "auto",
+      "lat": 37.45236,
+      "lng": 126.60402
+    },
+    {
+      "rank": 1,
+      "name": "김포로또판매",
+      "address": "경기 김포시 율생로 3",
+      "method": "auto",
+      "lat": 37.652786,
+      "lng": 126.59066
+    },
+    {
+      "rank": 1,
+      "name": "진성식품",
+      "address": "충북 제천시 의병대로 84 1층",
+      "method": "mixed",
+      "lat": 37.136086,
+      "lng": 128.20995
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "충남 계룡시 엄사면 엄사리 184-4",
+      "method": "auto",
+      "lat": 36.28952,
+      "lng": 127.24185
+    },
+    {
+      "rank": 1,
+      "name": "제일복권방",
+      "address": "전북 군산시 미원로 39",
+      "method": "manual",
+      "lat": 35.976982,
+      "lng": 126.709724
+    },
+    {
+      "rank": 1,
+      "name": "나이스로또복권",
+      "address": "전남 여수시 이순신광장로 210",
+      "method": "manual",
+      "lat": 34.73967,
+      "lng": 127.745186
+    },
+    {
+      "rank": 1,
+      "name": "씨스페이스(석적 남율리점)",
+      "address": "경북 칠곡군 남율로9길 24",
+      "method": "auto",
+      "lat": 36.067467,
+      "lng": 128.4018
+    }
+  ]
+}

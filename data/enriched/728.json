@@ -1,0 +1,85 @@
+{
+  "round": 728,
+  "date": "2016-11-12",
+  "nums": [
+    3,
+    6,
+    10,
+    30,
+    34,
+    37
+  ],
+  "bonus": 36,
+  "firstWinAmount": 3243464400,
+  "firstWinners": 5,
+  "totalSales": 68306112000,
+  "prizes": {
+    "first": {
+      "amount": 3243464400,
+      "winners": 5
+    },
+    "second": {
+      "amount": 48265840,
+      "winners": 56
+    },
+    "third": {
+      "amount": 1446168,
+      "winners": 1869
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 94693
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1559062
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "서재강변로또",
+      "address": "대구 달성군 다사읍 서재로 172,(서재리)",
+      "method": "auto",
+      "lat": 35.878708,
+      "lng": 128.49748
+    },
+    {
+      "rank": 1,
+      "name": "대박천하마트",
+      "address": "인천 부평구 굴포로 48",
+      "method": "auto",
+      "lat": 37.51157,
+      "lng": 126.72634
+    },
+    {
+      "rank": 1,
+      "name": "프리웨이스토어",
+      "address": "경기 광주시 회안대로 605 1층",
+      "method": "auto",
+      "lat": 37.40682,
+      "lng": 127.237946
+    },
+    {
+      "rank": 1,
+      "name": "매표소",
+      "address": "경기 부천시 원미구 도당동 255-2번지 도로부지",
+      "method": "auto",
+      "lat": 37.508667,
+      "lng": 126.78507
+    },
+    {
+      "rank": 1,
+      "name": "왕대박천하명당",
+      "address": "충남 천안시 동남구 광풍로 1767 1층 다호",
+      "method": "auto",
+      "lat": 36.77657,
+      "lng": 127.14302
+    }
+  ]
+}

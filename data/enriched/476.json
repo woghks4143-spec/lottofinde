@@ -1,0 +1,77 @@
+{
+  "round": 476,
+  "date": "2012-01-14",
+  "nums": [
+    9,
+    12,
+    13,
+    15,
+    37,
+    38
+  ],
+  "bonus": 27,
+  "firstWinAmount": 3439851469,
+  "firstWinners": 4,
+  "totalSales": 55591819000,
+  "prizes": {
+    "first": {
+      "amount": 3439851469,
+      "winners": 4
+    },
+    "second": {
+      "amount": 67448069,
+      "winners": 34
+    },
+    "third": {
+      "amount": 1772206,
+      "winners": 1294
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 68643
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1203577
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "왕대박복권방",
+      "address": "대구 북구 태전로 27-1",
+      "method": "auto",
+      "lat": 35.92287,
+      "lng": 128.5446
+    },
+    {
+      "rank": 1,
+      "name": "터미널식품",
+      "address": "경기 의정부시 동일로 640,(금오동)",
+      "method": "auto",
+      "lat": 37.745457,
+      "lng": 127.05505
+    },
+    {
+      "rank": 1,
+      "name": "역전광장상회",
+      "address": "경기 파주시 금촌1동  329-19",
+      "method": "auto",
+      "lat": 37.765278,
+      "lng": 126.77464
+    },
+    {
+      "rank": 1,
+      "name": "25시슈퍼",
+      "address": "경남 창원시 마산회원구 봉양로 75-5",
+      "method": "auto",
+      "lat": 35.221214,
+      "lng": 128.59532
+    }
+  ]
+}

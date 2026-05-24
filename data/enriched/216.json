@@ -1,0 +1,43 @@
+{
+  "round": 216,
+  "date": "2007-01-20",
+  "nums": [
+    7,
+    16,
+    17,
+    33,
+    36,
+    40
+  ],
+  "bonus": 1,
+  "firstWinAmount": 848506108,
+  "firstWinners": 13,
+  "totalSales": 48342018000,
+  "prizes": {
+    "first": {
+      "amount": 848506108,
+      "winners": 13
+    },
+    "second": {
+      "amount": 29181427,
+      "winners": 63
+    },
+    "third": {
+      "amount": 703840,
+      "winners": 2612
+    },
+    "fourth": {
+      "amount": 46441,
+      "winners": 79174
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1157342
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "round": 678,
+  "date": "2015-11-28",
+  "nums": [
+    4,
+    5,
+    6,
+    12,
+    25,
+    37
+  ],
+  "bonus": 45,
+  "firstWinAmount": 2288490188,
+  "firstWinners": 6,
+  "totalSales": 60887293000,
+  "prizes": {
+    "first": {
+      "amount": 2288490188,
+      "winners": 6
+    },
+    "second": {
+      "amount": 55816834,
+      "winners": 41
+    },
+    "third": {
+      "amount": 1233688,
+      "winners": 1855
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 93305
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1494095
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(계산동경점)",
+      "address": "인천 계양구 계산동 1076-7번지 도쿄프라자1층2호",
+      "method": "auto",
+      "lat": 37.53578,
+      "lng": 126.73629
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "대전 중구 태평로44번길 27 현암에버드림 상가",
+      "method": "auto",
+      "lat": 36.321293,
+      "lng": 127.39428
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "경기 고양시 덕양구 혜음로 8 삼라마이다스프라자 제1층 제115호",
+      "method": "auto",
+      "lat": 37.701103,
+      "lng": 126.901794
+    },
+    {
+      "rank": 1,
+      "name": "광성슈퍼",
+      "address": "경기 이천시 단월로 33",
+      "method": "auto",
+      "lat": 37.221367,
+      "lng": 127.44998
+    },
+    {
+      "rank": 1,
+      "name": "올인(allin)",
+      "address": "경기 화성시 3.1만세로 1147",
+      "method": "manual",
+      "lat": 37.135284,
+      "lng": 126.910614
+    },
+    {
+      "rank": 1,
+      "name": "열린서점",
+      "address": "전남 목포시 삼각로43번길 10 열린서점",
+      "method": "auto",
+      "lat": 34.80461,
+      "lng": 126.41833
+    }
+  ]
+}

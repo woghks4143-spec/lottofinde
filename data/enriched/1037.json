@@ -1,0 +1,165 @@
+{
+  "round": 1037,
+  "date": "2022-10-15",
+  "nums": [
+    2,
+    14,
+    15,
+    22,
+    27,
+    33
+  ],
+  "bonus": 31,
+  "firstWinAmount": 1708576825,
+  "firstWinners": 15,
+  "totalSales": 104840173000,
+  "prizes": {
+    "first": {
+      "amount": 1708576825,
+      "winners": 15
+    },
+    "second": {
+      "amount": 54762078,
+      "winners": 78
+    },
+    "third": {
+      "amount": 1574435,
+      "winners": 2713
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 137021
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2279500
+    }
+  },
+  "methodCounts": {
+    "auto": 11,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "지원물산",
+      "address": "서울 노원구 공릉로 108,(공릉동)",
+      "method": "auto",
+      "lat": 37.61983,
+      "lng": 127.078094
+    },
+    {
+      "rank": 1,
+      "name": "로또 명당",
+      "address": "대구 동구 화랑로75길 69",
+      "method": "auto",
+      "lat": 35.880478,
+      "lng": 128.66628
+    },
+    {
+      "rank": 1,
+      "name": "초원복권 신창점",
+      "address": "광주 광산구 신창로 76 1층",
+      "method": "auto",
+      "lat": 35.191975,
+      "lng": 126.83737
+    },
+    {
+      "rank": 1,
+      "name": "대전우표사",
+      "address": "대전 동구 중앙로204번길 16-1",
+      "method": "auto",
+      "lat": 36.330036,
+      "lng": 127.432076
+    },
+    {
+      "rank": 1,
+      "name": "대한유통",
+      "address": "울산 북구 박상진11로 1 1층112호",
+      "method": "auto",
+      "lat": 35.65599,
+      "lng": 129.34247
+    },
+    {
+      "rank": 1,
+      "name": "몽키버블티",
+      "address": "경기 군포시 고산로250번길 27 1층 일부호(당동)",
+      "method": "auto",
+      "lat": 37.348663,
+      "lng": 126.94459
+    },
+    {
+      "rank": 1,
+      "name": "꽃길",
+      "address": "경기 수원시 권선구 정조로 571 1층(세류동)",
+      "method": "manual",
+      "lat": 37.2601,
+      "lng": 127.01264
+    },
+    {
+      "rank": 1,
+      "name": "꽃길",
+      "address": "경기 수원시 권선구 정조로 571 1층(세류동)",
+      "method": "manual",
+      "lat": 37.2601,
+      "lng": 127.01264
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 안성시 서동대로 7184 1층 복권방",
+      "method": "manual",
+      "lat": 37.084095,
+      "lng": 127.449036
+    },
+    {
+      "rank": 1,
+      "name": "로또복권합정점",
+      "address": "경기 평택시 중앙로 176 127호 평택합정 SK뷰 주상복합",
+      "method": "manual",
+      "lat": 36.991516,
+      "lng": 127.10191
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐화성봉담수기점",
+      "address": "경기 화성시 세자로 358",
+      "method": "auto",
+      "lat": 37.197536,
+      "lng": 126.98357
+    },
+    {
+      "rank": 1,
+      "name": "포항오거리CU복권",
+      "address": "경북 포항시 북구 죽도로 33 CU포항오거리점내",
+      "method": "auto",
+      "lat": 36.033836,
+      "lng": 129.36467
+    },
+    {
+      "rank": 1,
+      "name": "삼정상회",
+      "address": "경남 김해시 활천로 23 가동 109호 복권판매점",
+      "method": "auto",
+      "lat": 35.22994,
+      "lng": 128.89351
+    },
+    {
+      "rank": 1,
+      "name": "목화휴게소",
+      "address": "경남 사천시 사천대로 912",
+      "method": "auto",
+      "lat": 35.0018,
+      "lng": 128.05415
+    },
+    {
+      "rank": 1,
+      "name": "신세계",
+      "address": "제주 제주시 고마로14길 7",
+      "method": "auto",
+      "lat": 33.506073,
+      "lng": 126.54025
+    }
+  ]
+}

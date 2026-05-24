@@ -1,0 +1,141 @@
+{
+  "round": 1157,
+  "date": "2025-02-01",
+  "nums": [
+    5,
+    7,
+    12,
+    20,
+    25,
+    26
+  ],
+  "bonus": 28,
+  "firstWinAmount": 2257842157,
+  "firstWinners": 12,
+  "totalSales": 123443439000,
+  "prizes": {
+    "first": {
+      "amount": 2257842157,
+      "winners": 12
+    },
+    "second": {
+      "amount": 32026130,
+      "winners": 141
+    },
+    "third": {
+      "amount": 992677,
+      "winners": 4549
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 201847
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 3100779
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "예지행복",
+      "address": "서울 양천구 월정로 59 가동 101호",
+      "method": "mixed",
+      "lat": 37.524853,
+      "lng": 126.84132
+    },
+    {
+      "rank": 1,
+      "name": "당하복권명당",
+      "address": "인천 서구 서곶로 788",
+      "method": "auto",
+      "lat": 37.587936,
+      "lng": 126.67538
+    },
+    {
+      "rank": 1,
+      "name": "NBA(엔비에이)",
+      "address": "인천 중구 신도시남로142번길 6 1동 1층 128호",
+      "method": "auto",
+      "lat": 37.4934,
+      "lng": 126.49157
+    },
+    {
+      "rank": 1,
+      "name": "돈돈복권방",
+      "address": "대전 서구 계룡로 560",
+      "method": "auto",
+      "lat": 36.342228,
+      "lng": 127.38585
+    },
+    {
+      "rank": 1,
+      "name": "팬시코아",
+      "address": "경기 남양주시 퇴계원로 46-1",
+      "method": "manual",
+      "lat": 37.650906,
+      "lng": 127.14208
+    },
+    {
+      "rank": 1,
+      "name": "명당복권방",
+      "address": "경기 남양주시 창현로 7",
+      "method": "manual",
+      "lat": 37.65021,
+      "lng": 127.306244
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "경기 안산시 단원구 선부로 258 102호",
+      "method": "manual",
+      "lat": 37.341152,
+      "lng": 126.82362
+    },
+    {
+      "rank": 1,
+      "name": "천하명당안산",
+      "address": "경기 안산시 상록구 수인로 2020 103호",
+      "method": "manual",
+      "lat": 37.36354,
+      "lng": 126.87623
+    },
+    {
+      "rank": 1,
+      "name": "행운 복권",
+      "address": "강원 동해시 임항로 55 상가동 202-5 가,나호(부곡동,삼정2차아파트)",
+      "method": "mixed",
+      "lat": 37.53892,
+      "lng": 129.10785
+    },
+    {
+      "rank": 1,
+      "name": "돈방석",
+      "address": "전북 전주시 완산구 서신로 35",
+      "method": "auto",
+      "lat": 35.82855,
+      "lng": 127.11558
+    },
+    {
+      "rank": 1,
+      "name": "중앙복권",
+      "address": "전남 신안군 구영2길 74 1층",
+      "method": "auto",
+      "lat": 34.886765,
+      "lng": 126.04432
+    },
+    {
+      "rank": 1,
+      "name": "제일복권",
+      "address": "제주 제주시 서광로 257",
+      "method": "auto",
+      "lat": 33.5001,
+      "lng": 126.524055
+    }
+  ]
+}

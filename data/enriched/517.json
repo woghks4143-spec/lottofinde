@@ -1,0 +1,85 @@
+{
+  "round": 517,
+  "date": "2012-10-27",
+  "nums": [
+    1,
+    9,
+    12,
+    28,
+    36,
+    41
+  ],
+  "bonus": 10,
+  "firstWinAmount": 2659057725,
+  "firstWinners": 5,
+  "totalSales": 54468223000,
+  "prizes": {
+    "first": {
+      "amount": 2659057725,
+      "winners": 5
+    },
+    "second": {
+      "amount": 55397036,
+      "winners": 40
+    },
+    "third": {
+      "amount": 1484181,
+      "winners": 1493
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 70854
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1192872
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "역삼역 로또",
+      "address": "서울 강남구 역삼동  718 범진빌딩 1층",
+      "method": "auto",
+      "lat": 37.516033,
+      "lng": 127.05031
+    },
+    {
+      "rank": 1,
+      "name": "잉크와복권",
+      "address": "서울 강서구 가로공원로76가길 12",
+      "method": "auto",
+      "lat": 37.53307,
+      "lng": 126.83962
+    },
+    {
+      "rank": 1,
+      "name": "킹마트",
+      "address": "충남 천안시 서북구 쌍용동 1060",
+      "method": "manual",
+      "lat": 36.878883,
+      "lng": 127.200836
+    },
+    {
+      "rank": 1,
+      "name": "아띠로또판매점",
+      "address": "충남 천안시 서북구 두정동 1063번지 레몬타워 110호",
+      "method": "manual",
+      "lat": 36.837246,
+      "lng": 127.13406
+    },
+    {
+      "rank": 1,
+      "name": "도깨비방망이",
+      "address": "전남 완도군 완도읍 장보고대로 220 도깨비방망이",
+      "method": "auto",
+      "lat": 34.31606,
+      "lng": 126.7492
+    }
+  ]
+}

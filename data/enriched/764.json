@@ -1,0 +1,101 @@
+{
+  "round": 764,
+  "date": "2017-07-22",
+  "nums": [
+    7,
+    22,
+    24,
+    31,
+    34,
+    36
+  ],
+  "bonus": 15,
+  "firstWinAmount": 2459975465,
+  "firstWinners": 7,
+  "totalSales": 70318932000,
+  "prizes": {
+    "first": {
+      "amount": 2459975465,
+      "winners": 7
+    },
+    "second": {
+      "amount": 65226623,
+      "winners": 44
+    },
+    "third": {
+      "amount": 1504178,
+      "winners": 1908
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 90896
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1530979
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "서울 광진구 긴고랑로 38",
+      "method": "auto",
+      "lat": 37.562798,
+      "lng": 127.08021
+    },
+    {
+      "rank": 1,
+      "name": "현대사",
+      "address": "경기 성남시 분당구 미금일로 77 구미제2조합상가 102호",
+      "method": "auto",
+      "lat": 37.3456,
+      "lng": 127.111084
+    },
+    {
+      "rank": 1,
+      "name": "승일유통",
+      "address": "충북 청주시 흥덕구 월명로 42",
+      "method": "auto",
+      "lat": 36.63832,
+      "lng": 127.45375
+    },
+    {
+      "rank": 1,
+      "name": "복권세상",
+      "address": "전남 목포시 청호로 139 1층 복권세상",
+      "method": "manual",
+      "lat": 34.8039,
+      "lng": 126.37585
+    },
+    {
+      "rank": 1,
+      "name": "홈런복권방",
+      "address": "경북 영덕군 영덕읍 남석길 57,(남석리)",
+      "method": "auto",
+      "lat": 36.409187,
+      "lng": 129.3682
+    },
+    {
+      "rank": 1,
+      "name": "잉크풀",
+      "address": "경남 창원시 진해구 진해대로776번길 15 501동 102호",
+      "method": "auto",
+      "lat": 35.157036,
+      "lng": 128.699
+    },
+    {
+      "rank": 1,
+      "name": "1등로또",
+      "address": "제주 서귀포시 남원읍 남원리 105 CU 남제주점 내",
+      "method": "auto",
+      "lat": 33.279125,
+      "lng": 126.71842
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "round": 1196,
+  "date": "2025-11-01",
+  "nums": [
+    8,
+    12,
+    15,
+    29,
+    40,
+    45
+  ],
+  "bonus": 14,
+  "firstWinAmount": 2001627550,
+  "firstWinners": 15,
+  "totalSales": 121645432000,
+  "prizes": {
+    "first": {
+      "amount": 2001627550,
+      "winners": 15
+    },
+    "second": {
+      "amount": 53234776,
+      "winners": 94
+    },
+    "third": {
+      "amount": 1763860,
+      "winners": 2837
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 153894
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2619093
+    }
+  },
+  "methodCounts": {
+    "auto": 15,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권마을",
+      "address": "서울 구로구 구로동로 72",
+      "method": "auto",
+      "lat": 37.485348,
+      "lng": 126.88605
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "서울 금천구 가산디지털1로 168 A동 103호",
+      "method": "auto",
+      "lat": 37.479958,
+      "lng": 126.882484
+    },
+    {
+      "rank": 1,
+      "name": "뉴빅마트",
+      "address": "부산 기장군 정관중앙로 48 106호",
+      "method": "auto",
+      "lat": 35.321114,
+      "lng": 129.17929
+    },
+    {
+      "rank": 1,
+      "name": "하늘복권방",
+      "address": "부산 해운대구 해운대로 814 A동 137호(좌동, 세종월드프라자)",
+      "method": "auto",
+      "lat": 35.16958,
+      "lng": 129.17767
+    },
+    {
+      "rank": 1,
+      "name": "복덩이 로또",
+      "address": "인천 연수구 함박뫼로12번길 1 102호",
+      "method": "auto",
+      "lat": 37.418625,
+      "lng": 126.67155
+    },
+    {
+      "rank": 1,
+      "name": "100억로또점",
+      "address": "경기 김포시 김포대로 1610 나동 6호",
+      "method": "auto",
+      "lat": 37.663147,
+      "lng": 126.658936
+    },
+    {
+      "rank": 1,
+      "name": "달려라 복권방",
+      "address": "경기 남양주시 남가로 1821 104호",
+      "method": "auto",
+      "lat": 37.694668,
+      "lng": 127.35626
+    },
+    {
+      "rank": 1,
+      "name": "대박의터",
+      "address": "강원 춘천시 영서로 1786",
+      "method": "auto",
+      "lat": 37.836243,
+      "lng": 127.76008
+    },
+    {
+      "rank": 1,
+      "name": "쿡쿡로또명당",
+      "address": "충북 옥천군 금장로 65 세븐일레븐편의점",
+      "method": "auto",
+      "lat": 36.300304,
+      "lng": 127.57118
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "전북 고창군 중앙로 200",
+      "method": "auto",
+      "lat": 35.4349,
+      "lng": 126.697495
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트 우아대로점",
+      "address": "전북 전주시 덕진구 건산로 276",
+      "method": "auto",
+      "lat": 35.835472,
+      "lng": 127.16736
+    },
+    {
+      "rank": 1,
+      "name": "복권세상",
+      "address": "전남 목포시 청호로 139 1층 복권세상",
+      "method": "auto",
+      "lat": 34.8039,
+      "lng": 126.37585
+    },
+    {
+      "rank": 1,
+      "name": "성심상회",
+      "address": "경북 포항시 북구 불종로 78",
+      "method": "auto",
+      "lat": 36.038174,
+      "lng": 129.36801
+    },
+    {
+      "rank": 1,
+      "name": "대박드림",
+      "address": "경북 포항시 북구 천마로72번길 7 1층,111동107호(양덕동)",
+      "method": "auto",
+      "lat": 36.08318,
+      "lng": 129.3978
+    },
+    {
+      "rank": 1,
+      "name": "드림로또",
+      "address": "경남 창원시 진해구 신항4로 49 105호 세븐일레븐",
+      "method": "auto",
+      "lat": 35.087814,
+      "lng": 128.81754
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "round": 359,
+  "date": "2009-10-17",
+  "nums": [
+    1,
+    10,
+    19,
+    20,
+    24,
+    40
+  ],
+  "bonus": 23,
+  "firstWinAmount": 1286712600,
+  "firstWinners": 8,
+  "totalSales": 45288256000,
+  "prizes": {
+    "first": {
+      "amount": 1286712600,
+      "winners": 8
+    },
+    "second": {
+      "amount": 46368022,
+      "winners": 37
+    },
+    "third": {
+      "amount": 1036001,
+      "winners": 1656
+    },
+    "fourth": {
+      "amount": 46822,
+      "winners": 73283
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1097592
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "삼성복권",
+      "address": "서울 강남구 대치동  957-3 1층",
+      "method": "auto",
+      "lat": 37.50557,
+      "lng": 127.05832
+    },
+    {
+      "rank": 1,
+      "name": "행운복권마트",
+      "address": "서울 서초구 서초대로 96 1층",
+      "method": "auto",
+      "lat": 37.487194,
+      "lng": 126.99285
+    },
+    {
+      "rank": 1,
+      "name": "대박찬스",
+      "address": "서울 영등포구 도림로 356 1층복권방",
+      "method": "manual",
+      "lat": 37.508884,
+      "lng": 126.90007
+    },
+    {
+      "rank": 1,
+      "name": "가로판매점",
+      "address": "서울 중구 서소문로 109",
+      "method": "auto",
+      "lat": 37.563053,
+      "lng": 126.97326
+    },
+    {
+      "rank": 1,
+      "name": "마두역상행선가판대",
+      "address": "경기 고양시 일산동구 중앙로 1181 교보생명 일산사옥 마두역상행선가판대",
+      "method": "manual",
+      "lat": 37.65222,
+      "lng": 126.77706
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "경기 부천시 삼작로 305 성진그린타운102-102",
+      "method": "auto",
+      "lat": 37.5203,
+      "lng": 126.79547
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "경기 파주시 문향로67번길 2 순금당안경원",
+      "method": "auto",
+      "lat": 37.858105,
+      "lng": 126.784996
+    },
+    {
+      "rank": 1,
+      "name": "가자복권천국",
+      "address": "전남 목포시 신흥로45번길 2",
+      "method": "manual",
+      "lat": 34.803482,
+      "lng": 126.42581
+    }
+  ]
+}

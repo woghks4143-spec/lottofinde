@@ -1,0 +1,61 @@
+{
+  "round": 302,
+  "date": "2008-09-13",
+  "nums": [
+    13,
+    19,
+    20,
+    32,
+    38,
+    42
+  ],
+  "bonus": 4,
+  "firstWinAmount": 5472167250,
+  "firstWinners": 2,
+  "totalSales": 46382605000,
+  "prizes": {
+    "first": {
+      "amount": 5472167250,
+      "winners": 2
+    },
+    "second": {
+      "amount": 41455813,
+      "winners": 44
+    },
+    "third": {
+      "amount": 1608515,
+      "winners": 1134
+    },
+    "fourth": {
+      "amount": 61360,
+      "winners": 59455
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 990149
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "제일약국",
+      "address": "서울 강남구 역삼동  829-15",
+      "method": "auto",
+      "lat": 37.49431,
+      "lng": 127.03347
+    },
+    {
+      "rank": 1,
+      "name": "현대사",
+      "address": "경기 성남시 분당구 미금일로 77 구미제2조합상가 102호",
+      "method": "manual",
+      "lat": 37.3456,
+      "lng": 127.111084
+    }
+  ]
+}

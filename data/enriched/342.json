@@ -1,0 +1,69 @@
+{
+  "round": 342,
+  "date": "2009-06-20",
+  "nums": [
+    1,
+    13,
+    14,
+    33,
+    34,
+    43
+  ],
+  "bonus": 25,
+  "firstWinAmount": 3454095800,
+  "firstWinners": 3,
+  "totalSales": 43782188000,
+  "prizes": {
+    "first": {
+      "amount": 3454095800,
+      "winners": 3
+    },
+    "second": {
+      "amount": 59553376,
+      "winners": 29
+    },
+    "third": {
+      "amount": 1467331,
+      "winners": 1177
+    },
+    "fourth": {
+      "amount": 61517,
+      "winners": 56149
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 924123
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "한국종합빌딩(복권)",
+      "address": "인천 남동구 경인로 530 1층",
+      "method": "auto",
+      "lat": 37.461216,
+      "lng": 126.6982
+    },
+    {
+      "rank": 1,
+      "name": "황금로또",
+      "address": "강원 원주시 현충로318번길 35 1층",
+      "method": "auto",
+      "lat": 37.381992,
+      "lng": 127.950325
+    },
+    {
+      "rank": 1,
+      "name": "복권마을",
+      "address": "충북 충주시 봉황1길 2,(봉방동)",
+      "method": "auto",
+      "lat": 36.976875,
+      "lng": 127.92121
+    }
+  ]
+}

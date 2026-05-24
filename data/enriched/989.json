@@ -1,0 +1,77 @@
+{
+  "round": 989,
+  "date": "2021-11-13",
+  "nums": [
+    17,
+    18,
+    21,
+    27,
+    29,
+    33
+  ],
+  "bonus": 26,
+  "firstWinAmount": 5826768563,
+  "firstWinners": 4,
+  "totalSales": 96525658000,
+  "prizes": {
+    "first": {
+      "amount": 5826768563,
+      "winners": 4
+    },
+    "second": {
+      "amount": 61658927,
+      "winners": 63
+    },
+    "third": {
+      "amount": 1589408,
+      "winners": 2444
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 127891
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2158436
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "명당마트",
+      "address": "서울 강서구 양천로 91",
+      "method": "auto",
+      "lat": 37.573605,
+      "lng": 126.81405
+    },
+    {
+      "rank": 1,
+      "name": "로또픽",
+      "address": "서울 양천구 지양로 62 1층 일부",
+      "method": "auto",
+      "lat": 37.521214,
+      "lng": 126.83438
+    },
+    {
+      "rank": 1,
+      "name": "태안로또명당",
+      "address": "충남 태안군 샘골로 12-1 구)등대식관",
+      "method": "auto",
+      "lat": 36.750523,
+      "lng": 126.301796
+    },
+    {
+      "rank": 1,
+      "name": "진양상회",
+      "address": "경북 영주시 선비로 68",
+      "method": "auto",
+      "lat": 36.811275,
+      "lng": 128.62402
+    }
+  ]
+}

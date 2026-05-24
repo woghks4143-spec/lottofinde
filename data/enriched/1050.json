@@ -1,0 +1,181 @@
+{
+  "round": 1050,
+  "date": "2023-01-14",
+  "nums": [
+    6,
+    12,
+    31,
+    35,
+    38,
+    43
+  ],
+  "bonus": 17,
+  "firstWinAmount": 1535083280,
+  "firstWinners": 17,
+  "totalSales": 108072602000,
+  "prizes": {
+    "first": {
+      "amount": 1535083280,
+      "winners": 17
+    },
+    "second": {
+      "amount": 62134324,
+      "winners": 70
+    },
+    "third": {
+      "amount": 1517587,
+      "winners": 2866
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 144610
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2402116
+    }
+  },
+  "methodCounts": {
+    "auto": 14,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행운드림복권방",
+      "address": "서울 동대문구 천호대로69길 12 골든메카",
+      "method": "auto",
+      "lat": 37.568306,
+      "lng": 127.051796
+    },
+    {
+      "rank": 1,
+      "name": "오케이상사",
+      "address": "서울 서초구 신반포로 176 센트럴시티내100호매점",
+      "method": "auto",
+      "lat": 37.504353,
+      "lng": 127.00359
+    },
+    {
+      "rank": 1,
+      "name": "짱복권",
+      "address": "서울 종로구 종로 269 삼신빌딩 1층",
+      "method": "manual",
+      "lat": 37.571327,
+      "lng": 127.0079
+    },
+    {
+      "rank": 1,
+      "name": "복권천국",
+      "address": "부산 서구 구덕로 207-1",
+      "method": "auto",
+      "lat": 35.10316,
+      "lng": 129.01976
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "대구 동구 동촌로 36",
+      "method": "auto",
+      "lat": 35.890057,
+      "lng": 128.64676
+    },
+    {
+      "rank": 1,
+      "name": "복권천국",
+      "address": "대구 북구 관음중앙로25길 3",
+      "method": "auto",
+      "lat": 35.944695,
+      "lng": 128.54535
+    },
+    {
+      "rank": 1,
+      "name": "행운마트",
+      "address": "인천 동구 송림로 71-1",
+      "method": "auto",
+      "lat": 37.47542,
+      "lng": 126.642715
+    },
+    {
+      "rank": 1,
+      "name": "라이프마트",
+      "address": "인천 중구 연안부두로53번길 36 5호",
+      "method": "auto",
+      "lat": 37.45236,
+      "lng": 126.60402
+    },
+    {
+      "rank": 1,
+      "name": "영화유통(1등복권방)",
+      "address": "울산 남구 신정로 19 삼성아파트 상가 204-101",
+      "method": "auto",
+      "lat": 35.533833,
+      "lng": 129.32205
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐 중동현대점",
+      "address": "경기 부천시 석천로183번길  35 102호",
+      "method": "auto",
+      "lat": 37.503925,
+      "lng": 126.76111
+    },
+    {
+      "rank": 1,
+      "name": "복권백화점",
+      "address": "경기 파주시 평화로 70",
+      "method": "manual",
+      "lat": 37.763588,
+      "lng": 126.76989
+    },
+    {
+      "rank": 1,
+      "name": "진평양행",
+      "address": "강원 강릉시 임영로 107",
+      "method": "auto",
+      "lat": 37.751263,
+      "lng": 128.89407
+    },
+    {
+      "rank": 1,
+      "name": "로또방",
+      "address": "충북 증평군 중앙로 176",
+      "method": "manual",
+      "lat": 36.782047,
+      "lng": 127.57918
+    },
+    {
+      "rank": 1,
+      "name": "복권명당(이마트24 온천대로점)",
+      "address": "충남 아산시 곡교천로 161 101호",
+      "method": "auto",
+      "lat": 36.79529,
+      "lng": 126.99672
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방 보생당건강원",
+      "address": "전북 익산시 무왕로 1268",
+      "method": "auto",
+      "lat": 35.960304,
+      "lng": 126.99727
+    },
+    {
+      "rank": 1,
+      "name": "CU(구평희망점)",
+      "address": "경북 구미시 인동46길 5 cu 구평희망점",
+      "method": "auto",
+      "lat": 36.09269,
+      "lng": 128.44077
+    },
+    {
+      "rank": 1,
+      "name": "삼삼마트",
+      "address": "경남 진주시 진주대로 1165-1",
+      "method": "auto",
+      "lat": 35.19521,
+      "lng": 128.07565
+    }
+  ]
+}

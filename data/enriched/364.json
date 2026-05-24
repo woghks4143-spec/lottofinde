@@ -1,0 +1,77 @@
+{
+  "round": 364,
+  "date": "2009-11-21",
+  "nums": [
+    2,
+    5,
+    7,
+    14,
+    16,
+    40
+  ],
+  "bonus": 4,
+  "firstWinAmount": 2531914800,
+  "firstWinners": 4,
+  "totalSales": 44192004000,
+  "prizes": {
+    "first": {
+      "amount": 2531914800,
+      "winners": 4
+    },
+    "second": {
+      "amount": 45620087,
+      "winners": 37
+    },
+    "third": {
+      "amount": 1340702,
+      "winners": 1259
+    },
+    "fourth": {
+      "amount": 53421,
+      "winners": 63195
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1043314
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권왕국",
+      "address": "대전 서구 동서대로1047번길 2",
+      "method": "auto",
+      "lat": 36.330875,
+      "lng": 127.37787
+    },
+    {
+      "rank": 1,
+      "name": "복권천국",
+      "address": "대전 중구 보문로 173",
+      "method": "auto",
+      "lat": 36.31838,
+      "lng": 127.42514
+    },
+    {
+      "rank": 1,
+      "name": "대박로또",
+      "address": "경기 안산시 상록구 사동 11521층",
+      "method": "manual",
+      "lat": 37.291874,
+      "lng": 126.83871
+    },
+    {
+      "rank": 1,
+      "name": "유방매표소",
+      "address": "경기 용인시 처인구 유방동 310-10",
+      "method": "auto",
+      "lat": 37.258778,
+      "lng": 127.212906
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "round": 689,
+  "date": "2016-02-13",
+  "nums": [
+    7,
+    17,
+    19,
+    30,
+    36,
+    38
+  ],
+  "bonus": 34,
+  "firstWinAmount": 2321775911,
+  "firstWinners": 7,
+  "totalSales": 67460147000,
+  "prizes": {
+    "first": {
+      "amount": 2321775911,
+      "winners": 7
+    },
+    "second": {
+      "amount": 61562241,
+      "winners": 44
+    },
+    "third": {
+      "amount": 1497368,
+      "winners": 1809
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 90296
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1509073
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "왕대박복권방",
+      "address": "부산 사하구 다대동 958-15번지 친철슈퍼",
+      "method": "auto",
+      "lat": 35.066494,
+      "lng": 128.98042
+    },
+    {
+      "rank": 1,
+      "name": "좋은이웃들",
+      "address": "경기 군포시 산본천로199번길 42-4",
+      "method": "manual",
+      "lat": 37.371876,
+      "lng": 126.93826
+    },
+    {
+      "rank": 1,
+      "name": "복권전문점",
+      "address": "경기 시흥시 정왕동 1625-6번지 105호 훼미리마트내",
+      "method": "auto",
+      "lat": 37.337143,
+      "lng": 126.74829
+    },
+    {
+      "rank": 1,
+      "name": "홍천대명로또",
+      "address": "강원 홍천군 서면 굴업리 361-7 1층 (with-me편의점)",
+      "method": "auto",
+      "lat": 37.693012,
+      "lng": 127.89306
+    },
+    {
+      "rank": 1,
+      "name": "동남슈퍼",
+      "address": "전북 부안군 번영로 173",
+      "method": "manual",
+      "lat": 35.727222,
+      "lng": 126.73916
+    },
+    {
+      "rank": 1,
+      "name": "제일복권",
+      "address": "전북 전주시 완산구 홍산1길 7",
+      "method": "auto",
+      "lat": 35.814102,
+      "lng": 127.10863
+    },
+    {
+      "rank": 1,
+      "name": "구산복권방",
+      "address": "경남 김해시 구산동 481-3번지 보보스빌딩108호",
+      "method": "auto",
+      "lat": 35.25086,
+      "lng": 128.87222
+    }
+  ]
+}

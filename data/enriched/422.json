@@ -1,0 +1,93 @@
+{
+  "round": 422,
+  "date": "2011-01-01",
+  "nums": [
+    8,
+    15,
+    19,
+    21,
+    34,
+    44
+  ],
+  "bonus": 12,
+  "firstWinAmount": 2205251375,
+  "firstWinners": 6,
+  "totalSales": 52730602000,
+  "prizes": {
+    "first": {
+      "amount": 2205251375,
+      "winners": 6
+    },
+    "second": {
+      "amount": 105011971,
+      "winners": 21
+    },
+    "third": {
+      "amount": 1705531,
+      "winners": 1293
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 64044
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1104218
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "새시대복권방",
+      "address": "서울 금천구 탑골로 6-1",
+      "method": "manual",
+      "lat": 37.450966,
+      "lng": 126.91035
+    },
+    {
+      "rank": 1,
+      "name": "-",
+      "address": "서울 서초구 방배동  782-1",
+      "method": "auto",
+      "lat": 37.493843,
+      "lng": 126.98309
+    },
+    {
+      "rank": 1,
+      "name": "세원로또복권방",
+      "address": "부산 수영구 수영로725번길 53 수영 엔스타Ⅱ 101호",
+      "method": "auto",
+      "lat": 35.16832,
+      "lng": 129.11609
+    },
+    {
+      "rank": 1,
+      "name": "코만도",
+      "address": "대전 대덕구 석봉로43번길 1",
+      "method": "auto",
+      "lat": 36.447594,
+      "lng": 127.4265
+    },
+    {
+      "rank": 1,
+      "name": "우리들덕신점",
+      "address": "울산 울주군 덕신로 273",
+      "method": "auto",
+      "lat": 35.434177,
+      "lng": 129.3114
+    },
+    {
+      "rank": 1,
+      "name": "나라통신",
+      "address": "경기 오산시 오산로 200 OK노래연습장",
+      "method": "auto",
+      "lat": 37.14465,
+      "lng": 127.068695
+    }
+  ]
+}

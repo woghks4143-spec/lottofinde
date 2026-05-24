@@ -1,0 +1,109 @@
+{
+  "round": 973,
+  "date": "2021-07-24",
+  "nums": [
+    22,
+    26,
+    31,
+    37,
+    41,
+    42
+  ],
+  "bonus": 24,
+  "firstWinAmount": 2912742750,
+  "firstWinners": 8,
+  "totalSales": 93953872000,
+  "prizes": {
+    "first": {
+      "amount": 2912742750,
+      "winners": 8
+    },
+    "second": {
+      "amount": 92468024,
+      "winners": 42
+    },
+    "third": {
+      "amount": 1720717,
+      "winners": 2257
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 117757
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2003966
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "auto",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "잠실매점",
+      "address": "서울 송파구 올림픽로 269 잠실역 8번출구 앞 가판",
+      "method": "auto",
+      "lat": 37.514446,
+      "lng": 127.10071
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "부산 중구 해관로 47-2",
+      "method": "auto",
+      "lat": 35.103176,
+      "lng": 129.03546
+    },
+    {
+      "rank": 1,
+      "name": "진우행운복권방",
+      "address": "경기 광주시 도척로 327 1층",
+      "method": "auto",
+      "lat": 37.323624,
+      "lng": 127.336555
+    },
+    {
+      "rank": 1,
+      "name": "로또휴게실",
+      "address": "경기 용인시 기흥구 용구대로 1885",
+      "method": "auto",
+      "lat": 37.256386,
+      "lng": 127.10432
+    },
+    {
+      "rank": 1,
+      "name": "세명24시로또",
+      "address": "충북 제천시 바이오밸리로  211 3호",
+      "method": "auto",
+      "lat": 37.144123,
+      "lng": 128.19807
+    },
+    {
+      "rank": 1,
+      "name": "상남슈퍼체인",
+      "address": "경남 창원시 성산구 마디미로 28 상남재래시장 상남시장2층C-211호",
+      "method": "auto",
+      "lat": 35.222206,
+      "lng": 128.68338
+    },
+    {
+      "rank": 1,
+      "name": "로또정량점",
+      "address": "경남 통영시 통영해안로 395",
+      "method": "auto",
+      "lat": 34.845318,
+      "lng": 128.43121
+    }
+  ]
+}

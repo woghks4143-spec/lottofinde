@@ -1,0 +1,37 @@
+{
+  "round": 41,
+  "date": "2003-09-13",
+  "nums": [
+    13,
+    20,
+    23,
+    35,
+    38,
+    43
+  ],
+  "bonus": 34,
+  "totalSales": 57624562000,
+  "prizes": {
+    "second": {
+      "amount": 109404000,
+      "winners": 21
+    },
+    "third": {
+      "amount": 3282100,
+      "winners": 700
+    },
+    "fourth": {
+      "amount": 135900,
+      "winners": 33805
+    },
+    "fifth": {
+      "amount": 10000,
+      "winners": 583744
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "round": 266,
+  "date": "2008-01-05",
+  "nums": [
+    3,
+    4,
+    9,
+    11,
+    22,
+    42
+  ],
+  "bonus": 37,
+  "firstWinAmount": 3207211700,
+  "firstWinners": 3,
+  "totalSales": 41937067000,
+  "prizes": {
+    "first": {
+      "amount": 3207211700,
+      "winners": 3
+    },
+    "second": {
+      "amount": 44544607,
+      "winners": 36
+    },
+    "third": {
+      "amount": 1343054,
+      "winners": 1194
+    },
+    "fourth": {
+      "amount": 54526,
+      "winners": 58820
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 986495
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "안목마트",
+      "address": "서울 강북구 한천로 1024,(번동)",
+      "method": "manual",
+      "lat": 37.639324,
+      "lng": 127.02814
+    },
+    {
+      "rank": 1,
+      "name": "라스정보통신",
+      "address": "서울 강북구 수유동  256-22  미니스톱내",
+      "method": "auto",
+      "lat": 37.646267,
+      "lng": 127.00816
+    },
+    {
+      "rank": 1,
+      "name": "월드컵복권방",
+      "address": "경기 광주시 경안로 20",
+      "method": "auto",
+      "lat": 37.409946,
+      "lng": 127.2584
+    }
+  ]
+}

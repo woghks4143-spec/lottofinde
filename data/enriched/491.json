@@ -1,0 +1,77 @@
+{
+  "round": 491,
+  "date": "2012-04-28",
+  "nums": [
+    8,
+    17,
+    35,
+    36,
+    39,
+    42
+  ],
+  "bonus": 4,
+  "firstWinAmount": 3304634438,
+  "firstWinners": 4,
+  "totalSales": 53413874000,
+  "prizes": {
+    "first": {
+      "amount": 3304634438,
+      "winners": 4
+    },
+    "second": {
+      "amount": 71067408,
+      "winners": 31
+    },
+    "third": {
+      "amount": 1619919,
+      "winners": 1360
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 68290
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1133544
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "울산 울주군 해맞이로 1578",
+      "method": "manual",
+      "lat": 35.382607,
+      "lng": 129.34232
+    },
+    {
+      "rank": 1,
+      "name": "진성식품",
+      "address": "충북 제천시 의병대로 84 1층",
+      "method": "auto",
+      "lat": 37.136086,
+      "lng": 128.20995
+    },
+    {
+      "rank": 1,
+      "name": "한성슈퍼",
+      "address": "전북 익산시 익산대로 52",
+      "method": "auto",
+      "lat": 35.93115,
+      "lng": 126.94382
+    },
+    {
+      "rank": 1,
+      "name": "웃는사람들해도점",
+      "address": "경북 포항시 남구 해동로 62",
+      "method": "auto",
+      "lat": 36.025005,
+      "lng": 129.37314
+    }
+  ]
+}

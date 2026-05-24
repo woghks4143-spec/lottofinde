@@ -1,0 +1,117 @@
+{
+  "round": 782,
+  "date": "2017-11-25",
+  "nums": [
+    6,
+    18,
+    31,
+    34,
+    38,
+    45
+  ],
+  "bonus": 20,
+  "firstWinAmount": 1946487625,
+  "firstWinners": 9,
+  "totalSales": 72253973000,
+  "prizes": {
+    "first": {
+      "amount": 1946487625,
+      "winners": 9
+    },
+    "second": {
+      "amount": 59586356,
+      "winners": 49
+    },
+    "third": {
+      "amount": 1426347,
+      "winners": 2047
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 96821
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1585617
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "뉴빅마트",
+      "address": "부산 기장군 정관중앙로 48 106호",
+      "method": "auto",
+      "lat": 35.321114,
+      "lng": 129.17929
+    },
+    {
+      "rank": 1,
+      "name": "1등로또복권",
+      "address": "광주 서구 무진대로 904 광주종합터미널 내 영풍문고 앞",
+      "method": "auto",
+      "lat": 35.160297,
+      "lng": 126.88015
+    },
+    {
+      "rank": 1,
+      "name": "홈돌이로또복권",
+      "address": "경기 김포시 중봉로 14 삼성홈플러스2층",
+      "method": "auto",
+      "lat": 37.623863,
+      "lng": 126.69863
+    },
+    {
+      "rank": 1,
+      "name": "만물전파사",
+      "address": "경기 남양주시 마석중앙로 74",
+      "method": "auto",
+      "lat": 37.652023,
+      "lng": 127.307846
+    },
+    {
+      "rank": 1,
+      "name": "북문복권방",
+      "address": "경기 수원시 장안구 정조로 927-1",
+      "method": "auto",
+      "lat": 37.29028,
+      "lng": 127.01279
+    },
+    {
+      "rank": 1,
+      "name": "대성미니슈퍼",
+      "address": "경기 이천시 샘재로 154",
+      "method": "auto",
+      "lat": 37.11726,
+      "lng": 127.62923
+    },
+    {
+      "rank": 1,
+      "name": "해뜰날복권방",
+      "address": "경기 화성시 효행로 241 남수원씨티프라자 103호",
+      "method": "auto",
+      "lat": 37.22605,
+      "lng": 126.97234
+    },
+    {
+      "rank": 1,
+      "name": "사천큰마트",
+      "address": "경남 사천시 사천읍 평화2길 22",
+      "method": "manual",
+      "lat": 35.083054,
+      "lng": 128.08704
+    },
+    {
+      "rank": 1,
+      "name": "명당",
+      "address": "경남 진주시 동부로 1356 1층 일부호",
+      "method": "auto",
+      "lat": 35.18731,
+      "lng": 128.22482
+    }
+  ]
+}

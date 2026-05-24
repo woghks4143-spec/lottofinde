@@ -1,0 +1,53 @@
+{
+  "round": 298,
+  "date": "2008-08-16",
+  "nums": [
+    5,
+    9,
+    27,
+    29,
+    37,
+    40
+  ],
+  "bonus": 19,
+  "firstWinAmount": 9909778500,
+  "firstWinners": 1,
+  "totalSales": 43151675000,
+  "prizes": {
+    "first": {
+      "amount": 9909778500,
+      "winners": 1
+    },
+    "second": {
+      "amount": 41290744,
+      "winners": 40
+    },
+    "third": {
+      "amount": 1220717,
+      "winners": 1353
+    },
+    "fourth": {
+      "amount": 51970,
+      "winners": 63561
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1011908
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "화북슈퍼",
+      "address": "제주 제주시 진남로6길 21",
+      "method": "manual",
+      "lat": 33.520645,
+      "lng": 126.56565
+    }
+  ]
+}

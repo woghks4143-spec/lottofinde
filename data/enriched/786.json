@@ -1,0 +1,77 @@
+{
+  "round": 786,
+  "date": "2017-12-23",
+  "nums": [
+    12,
+    15,
+    16,
+    20,
+    24,
+    30
+  ],
+  "bonus": 38,
+  "firstWinAmount": 4551365250,
+  "firstWinners": 4,
+  "totalSales": 75930156000,
+  "prizes": {
+    "first": {
+      "amount": 4551365250,
+      "winners": 4
+    },
+    "second": {
+      "amount": 31606704,
+      "winners": 96
+    },
+    "third": {
+      "amount": 1470080,
+      "winners": 2064
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 103000
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1708226
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 상계주공아파트(10단지) 주공10단지종합상가111",
+      "method": "auto",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "CU(삼덕보성점)",
+      "address": "대구 중구 삼덕동3가(삼덕동) 358-5 1층 cu편의점(삼덕보성점)",
+      "method": "mixed",
+      "lat": 35.863003,
+      "lng": 128.60513
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "경기 포천시 호국로 1900",
+      "method": "mixed",
+      "lat": 37.92011,
+      "lng": 127.221146
+    },
+    {
+      "rank": 1,
+      "name": "대산슈퍼",
+      "address": "충남 천안시 동남구 복구정3길 1",
+      "method": "auto",
+      "lat": 36.76989,
+      "lng": 127.250206
+    }
+  ]
+}

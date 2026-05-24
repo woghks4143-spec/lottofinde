@@ -1,0 +1,69 @@
+{
+  "round": 338,
+  "date": "2009-05-23",
+  "nums": [
+    2,
+    13,
+    34,
+    38,
+    42,
+    45
+  ],
+  "bonus": 16,
+  "firstWinAmount": 3383431000,
+  "firstWinners": 3,
+  "totalSales": 43136020000,
+  "prizes": {
+    "first": {
+      "amount": 3383431000,
+      "winners": 3
+    },
+    "second": {
+      "amount": 43377321,
+      "winners": 39
+    },
+    "third": {
+      "amount": 1506426,
+      "winners": 1123
+    },
+    "fourth": {
+      "amount": 62091,
+      "winners": 54492
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 930171
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행복슈퍼",
+      "address": "서울 성북구 동소문로 49",
+      "method": "auto",
+      "lat": 37.591003,
+      "lng": 127.01112
+    },
+    {
+      "rank": 1,
+      "name": "대박행진복권랜드",
+      "address": "경기 파주시 금빛로 22 금촌프라자107호",
+      "method": "auto",
+      "lat": 37.751614,
+      "lng": 126.76691
+    },
+    {
+      "rank": 1,
+      "name": "세형전기",
+      "address": "경기 평택시 평택3로56번길 28-8",
+      "method": "manual",
+      "lat": 36.993435,
+      "lng": 127.09534
+    }
+  ]
+}

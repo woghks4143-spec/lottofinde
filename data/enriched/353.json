@@ -1,0 +1,61 @@
+{
+  "round": 353,
+  "date": "2009-09-05",
+  "nums": [
+    11,
+    16,
+    19,
+    22,
+    29,
+    36
+  ],
+  "bonus": 26,
+  "firstWinAmount": 5290838250,
+  "firstWinners": 2,
+  "totalSales": 44552925000,
+  "prizes": {
+    "first": {
+      "amount": 5290838250,
+      "winners": 2
+    },
+    "second": {
+      "amount": 60814233,
+      "winners": 29
+    },
+    "third": {
+      "amount": 1692527,
+      "winners": 1042
+    },
+    "fourth": {
+      "amount": 65058,
+      "winners": 54217
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 928067
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "신도복권명소",
+      "address": "대전 대덕구 비래동  151-4",
+      "method": "manual",
+      "lat": 36.355057,
+      "lng": 127.45455
+    },
+    {
+      "rank": 1,
+      "name": "대성기획",
+      "address": "경기 용인시 기흥구 구성로 75-1",
+      "method": "auto",
+      "lat": 37.29493,
+      "lng": 127.1179
+    }
+  ]
+}

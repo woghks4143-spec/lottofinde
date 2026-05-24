@@ -1,0 +1,77 @@
+{
+  "round": 645,
+  "date": "2015-04-11",
+  "nums": [
+    1,
+    4,
+    16,
+    26,
+    40,
+    41
+  ],
+  "bonus": 31,
+  "firstWinAmount": 3696297750,
+  "firstWinners": 4,
+  "totalSales": 62661756000,
+  "prizes": {
+    "first": {
+      "amount": 3696297750,
+      "winners": 4
+    },
+    "second": {
+      "amount": 88007090,
+      "winners": 28
+    },
+    "third": {
+      "amount": 1395356,
+      "winners": 1766
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 87873
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1444728
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "CU(망우점)",
+      "address": "서울 중랑구  망우동 470-10번지",
+      "method": "auto",
+      "lat": 37.598965,
+      "lng": 127.0976
+    },
+    {
+      "rank": 1,
+      "name": "장군슈퍼",
+      "address": "인천 연수구 청량로 104",
+      "method": "auto",
+      "lat": 37.41734,
+      "lng": 126.65594
+    },
+    {
+      "rank": 1,
+      "name": "로또명당",
+      "address": "경기 시흥시 신현로 21-1 101호",
+      "method": "manual",
+      "lat": 37.40707,
+      "lng": 126.78708
+    },
+    {
+      "rank": 1,
+      "name": "CU(광탄개나리)",
+      "address": "경기 파주시  광탄면 신산리358-10번지",
+      "method": "auto",
+      "lat": 37.78273,
+      "lng": 126.84627
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "round": 847,
+  "date": "2019-02-23",
+  "nums": [
+    12,
+    16,
+    26,
+    28,
+    30,
+    42
+  ],
+  "bonus": 22,
+  "firstWinAmount": 2520846657,
+  "firstWinners": 8,
+  "totalSales": 83782512000,
+  "prizes": {
+    "first": {
+      "amount": 2520846657,
+      "winners": 8
+    },
+    "second": {
+      "amount": 84028222,
+      "winners": 40
+    },
+    "third": {
+      "amount": 1375821,
+      "winners": 2443
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 114324
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1857205
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "운수대통가판점",
+      "address": "서울 성동구 왕십리로 327",
+      "method": "auto",
+      "lat": 37.562363,
+      "lng": 127.03318
+    },
+    {
+      "rank": 1,
+      "name": "GS25(서면제일점)",
+      "address": "부산 부산진구 부전동 220-1",
+      "method": "auto",
+      "lat": 35.1539,
+      "lng": 129.06163
+    },
+    {
+      "rank": 1,
+      "name": "남경슈퍼",
+      "address": "부산 연제구 연수로 204-1,(연산동)",
+      "method": "auto",
+      "lat": 35.173622,
+      "lng": 129.09308
+    },
+    {
+      "rank": 1,
+      "name": "포시즌신리점. 은비복권",
+      "address": "부산 연제구 연수로 144 포시즌실리점 내",
+      "method": "auto",
+      "lat": 35.2134,
+      "lng": 129.02145
+    },
+    {
+      "rank": 1,
+      "name": "로또구영편의점",
+      "address": "울산 울주군 범서읍 구영로 100 구영프라자1층111호",
+      "method": "manual",
+      "lat": 35.573647,
+      "lng": 129.2414
+    },
+    {
+      "rank": 1,
+      "name": "태양정보통신",
+      "address": "경기 광주시 고불로 56 상가1층",
+      "method": "auto",
+      "lat": 37.39323,
+      "lng": 127.23178
+    },
+    {
+      "rank": 1,
+      "name": "에이원",
+      "address": "경기 안양시 동안구 관평로319번길 29",
+      "method": "auto",
+      "lat": 37.40511,
+      "lng": 126.95588
+    },
+    {
+      "rank": 1,
+      "name": "나나 복권판매소",
+      "address": "경남 양산시 상북중앙로 319 복권판매점",
+      "method": "auto",
+      "lat": 35.4122,
+      "lng": 129.05919
+    }
+  ]
+}

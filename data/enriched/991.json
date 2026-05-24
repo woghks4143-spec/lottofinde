@@ -1,0 +1,109 @@
+{
+  "round": 991,
+  "date": "2021-11-27",
+  "nums": [
+    13,
+    18,
+    25,
+    31,
+    33,
+    44
+  ],
+  "bonus": 38,
+  "firstWinAmount": 2904166032,
+  "firstWinners": 8,
+  "totalSales": 98026282000,
+  "prizes": {
+    "first": {
+      "amount": 2904166032,
+      "winners": 8
+    },
+    "second": {
+      "amount": 35202013,
+      "winners": 110
+    },
+    "third": {
+      "amount": 1304218,
+      "winners": 2969
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 138068
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2226394
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "아현역3번출구앞가판점",
+      "address": "서울 마포구 마포대로 249 아현산업정보학교 아현역3번출구앞",
+      "method": "auto",
+      "lat": 37.556522,
+      "lng": 126.95708
+    },
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "auto",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "부산 북구 덕천로 287",
+      "method": "auto",
+      "lat": 35.20986,
+      "lng": 129.03535
+    },
+    {
+      "rank": 1,
+      "name": "한꿈복권방",
+      "address": "울산 중구 번영로 586",
+      "method": "manual",
+      "lat": 35.568794,
+      "lng": 129.34589
+    },
+    {
+      "rank": 1,
+      "name": "마이더스로또복권방",
+      "address": "경기 안양시 동안구 안양판교로 12-2,(관양동)",
+      "method": "auto",
+      "lat": 37.400826,
+      "lng": 126.977646
+    },
+    {
+      "rank": 1,
+      "name": "명당로또복권판매점",
+      "address": "경기 용인시 기흥구 구성2로 18-5 102호",
+      "method": "manual",
+      "lat": 37.27392,
+      "lng": 127.15018
+    },
+    {
+      "rank": 1,
+      "name": "금손로또판매점",
+      "address": "충남 당진시 서해로 5760 에이동 1층 101호",
+      "method": "manual",
+      "lat": 36.897835,
+      "lng": 126.6277
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점(무지개점)",
+      "address": "경북 포항시 남구 중앙로 110 중간 상가",
+      "method": "auto",
+      "lat": 36.02301,
+      "lng": 129.36882
+    }
+  ]
+}

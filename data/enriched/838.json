@@ -1,0 +1,85 @@
+{
+  "round": 838,
+  "date": "2018-12-22",
+  "nums": [
+    9,
+    14,
+    17,
+    33,
+    36,
+    38
+  ],
+  "bonus": 20,
+  "firstWinAmount": 3813733050,
+  "firstWinners": 5,
+  "totalSales": 79414484000,
+  "prizes": {
+    "first": {
+      "amount": 3813733050,
+      "winners": 5
+    },
+    "second": {
+      "amount": 46736925,
+      "winners": 68
+    },
+    "third": {
+      "amount": 1431582,
+      "winners": 2220
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 107897
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1777501
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "우일",
+      "address": "서울 송파구 마천로 235",
+      "method": "auto",
+      "lat": 37.49996,
+      "lng": 127.14397
+    },
+    {
+      "rank": 1,
+      "name": "무지개복권",
+      "address": "경기 오산시 현충로 95",
+      "method": "manual",
+      "lat": 37.160877,
+      "lng": 127.07752
+    },
+    {
+      "rank": 1,
+      "name": "프림",
+      "address": "경기 평택시 서해로 1402",
+      "method": "auto",
+      "lat": 37.0175,
+      "lng": 126.94532
+    },
+    {
+      "rank": 1,
+      "name": "왕대박복권방",
+      "address": "충북 청주시 청원구 두릉유리로 1119",
+      "method": "manual",
+      "lat": 36.741096,
+      "lng": 127.45344
+    },
+    {
+      "rank": 1,
+      "name": "NG24",
+      "address": "경북 칠곡군 북중리3길 59",
+      "method": "auto",
+      "lat": 36.079823,
+      "lng": 128.41183
+    }
+  ]
+}

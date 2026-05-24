@@ -1,0 +1,125 @@
+{
+  "round": 926,
+  "date": "2020-08-29",
+  "nums": [
+    10,
+    16,
+    18,
+    20,
+    25,
+    31
+  ],
+  "bonus": 6,
+  "firstWinAmount": 2032490663,
+  "firstWinners": 10,
+  "totalSales": 88372251000,
+  "prizes": {
+    "first": {
+      "amount": 2032490663,
+      "winners": 10
+    },
+    "second": {
+      "amount": 47048395,
+      "winners": 72
+    },
+    "third": {
+      "amount": 1158907,
+      "winners": 2923
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 133167
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2085580
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "헬로마트",
+      "address": "서울 도봉구 도봉로170길 8,(도봉동)",
+      "method": "auto",
+      "lat": 37.680374,
+      "lng": 127.04596
+    },
+    {
+      "rank": 1,
+      "name": "행운복권마트",
+      "address": "서울 종로구 지봉로 58",
+      "method": "manual",
+      "lat": 37.575314,
+      "lng": 127.015854
+    },
+    {
+      "rank": 1,
+      "name": "뉴빅마트",
+      "address": "부산 기장군 정관중앙로 48 106호",
+      "method": "auto",
+      "lat": 35.321114,
+      "lng": 129.17929
+    },
+    {
+      "rank": 1,
+      "name": "명당일세",
+      "address": "경기 평택시 평택로 80",
+      "method": "auto",
+      "lat": 36.994064,
+      "lng": 127.08486
+    },
+    {
+      "rank": 1,
+      "name": "대박복권",
+      "address": "충남 홍성군 충서로 2423 세븐일레븐",
+      "method": "auto",
+      "lat": 36.63776,
+      "lng": 126.74336
+    },
+    {
+      "rank": 1,
+      "name": "로또복권 황성점",
+      "address": "경북 경주시 황성로27번길 2 4호",
+      "method": "manual",
+      "lat": 35.86579,
+      "lng": 129.21443
+    },
+    {
+      "rank": 1,
+      "name": "로또방양덕점",
+      "address": "경북 포항시 북구 양덕로50번길 14 이마트24포항양덕점",
+      "method": "manual",
+      "lat": 36.08293,
+      "lng": 129.4035
+    },
+    {
+      "rank": 1,
+      "name": "씨유(거창대동점)",
+      "address": "경남 거창군 거창대로 93",
+      "method": "auto",
+      "lat": 35.689865,
+      "lng": 127.91475
+    },
+    {
+      "rank": 1,
+      "name": "나눔로또",
+      "address": "경남 함안군 용산1길 33 1층",
+      "method": "auto",
+      "lat": 35.30895,
+      "lng": 128.51694
+    },
+    {
+      "rank": 1,
+      "name": "성자점빵",
+      "address": "제주 제주시 남광로 5 1층",
+      "method": "auto",
+      "lat": 33.49232,
+      "lng": 126.5368
+    }
+  ]
+}

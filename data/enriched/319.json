@@ -1,0 +1,85 @@
+{
+  "round": 319,
+  "date": "2009-01-10",
+  "nums": [
+    5,
+    8,
+    22,
+    28,
+    33,
+    42
+  ],
+  "bonus": 37,
+  "firstWinAmount": 2135659380,
+  "firstWinners": 5,
+  "totalSales": 45435183000,
+  "prizes": {
+    "first": {
+      "amount": 2135659380,
+      "winners": 5
+    },
+    "second": {
+      "amount": 68450622,
+      "winners": 26
+    },
+    "third": {
+      "amount": 1546235,
+      "winners": 1151
+    },
+    "fourth": {
+      "amount": 59833,
+      "winners": 59490
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 984086
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권명당(서부점)",
+      "address": "대구 달서구 월배로 452",
+      "method": "manual",
+      "lat": 35.833633,
+      "lng": 128.55486
+    },
+    {
+      "rank": 1,
+      "name": "복권명당(서부점)",
+      "address": "대구 달서구 월배로 452",
+      "method": "manual",
+      "lat": 35.833633,
+      "lng": 128.55486
+    },
+    {
+      "rank": 1,
+      "name": "로또복권판매",
+      "address": "대구 북구 구암동  831-7",
+      "method": "auto",
+      "lat": 35.892487,
+      "lng": 128.60565
+    },
+    {
+      "rank": 1,
+      "name": "인생대역전",
+      "address": "인천 계양구 임학동  10-10",
+      "method": "manual",
+      "lat": 37.545486,
+      "lng": 126.7387
+    },
+    {
+      "rank": 1,
+      "name": "초월대박복권방",
+      "address": "경기 광주시 경충대로 1252",
+      "method": "auto",
+      "lat": 37.386677,
+      "lng": 127.28821
+    }
+  ]
+}

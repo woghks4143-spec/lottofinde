@@ -1,0 +1,125 @@
+{
+  "round": 869,
+  "date": "2019-07-27",
+  "nums": [
+    2,
+    6,
+    20,
+    27,
+    37,
+    39
+  ],
+  "bonus": 4,
+  "firstWinAmount": 1922582588,
+  "firstWinners": 10,
+  "totalSales": 80268389000,
+  "prizes": {
+    "first": {
+      "amount": 1922582588,
+      "winners": 10
+    },
+    "second": {
+      "amount": 57219720,
+      "winners": 56
+    },
+    "third": {
+      "amount": 1449912,
+      "winners": 2210
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 108562
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1814332
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "오케이상사",
+      "address": "서울 서초구 신반포로 176 센트럴시티내100호매점",
+      "method": "auto",
+      "lat": 37.504353,
+      "lng": 127.00359
+    },
+    {
+      "rank": 1,
+      "name": "경기상회",
+      "address": "인천 남동구 장승남로 42 은빛프라자 104호",
+      "method": "manual",
+      "lat": 37.443142,
+      "lng": 126.73679
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "광주 광산구 금봉로 95 1층",
+      "method": "auto",
+      "lat": 35.152218,
+      "lng": 126.808975
+    },
+    {
+      "rank": 1,
+      "name": "아스타",
+      "address": "광주 서구 상무대로 917",
+      "method": "auto",
+      "lat": 35.15136,
+      "lng": 126.862305
+    },
+    {
+      "rank": 1,
+      "name": "GS25울산동구남목점",
+      "address": "울산 동구 동해안로 27",
+      "method": "auto",
+      "lat": 35.541866,
+      "lng": 129.42636
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "경기 가평군 가평읍 읍내리 448-3 1층",
+      "method": "auto",
+      "lat": 37.831,
+      "lng": 127.512695
+    },
+    {
+      "rank": 1,
+      "name": "분당고속터미널",
+      "address": "경기 성남시 분당구 성남대로925번길 16 분당종합터미널 테마폴리스1층",
+      "method": "manual",
+      "lat": 37.413086,
+      "lng": 127.127304
+    },
+    {
+      "rank": 1,
+      "name": "행복충전소",
+      "address": "경기 평택시 탄현로 332-2",
+      "method": "auto",
+      "lat": 37.0818,
+      "lng": 127.05637
+    },
+    {
+      "rank": 1,
+      "name": "황금알복권방",
+      "address": "충북 진천군 장기길 102",
+      "method": "auto",
+      "lat": 36.990017,
+      "lng": 127.445274
+    },
+    {
+      "rank": 1,
+      "name": "대박로또방",
+      "address": "전북 장수군 장천로 170",
+      "method": "auto",
+      "lat": 35.647224,
+      "lng": 127.5186
+    }
+  ]
+}

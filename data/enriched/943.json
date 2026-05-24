@@ -1,0 +1,101 @@
+{
+  "round": 943,
+  "date": "2020-12-26",
+  "nums": [
+    1,
+    8,
+    13,
+    36,
+    44,
+    45
+  ],
+  "bonus": 39,
+  "firstWinAmount": 3435045108,
+  "firstWinners": 7,
+  "totalSales": 100081432000,
+  "prizes": {
+    "first": {
+      "amount": 3435045108,
+      "winners": 7
+    },
+    "second": {
+      "amount": 54156117,
+      "winners": 74
+    },
+    "third": {
+      "amount": 1472283,
+      "winners": 2722
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 135763
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2238429
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 상계주공아파트(10단지) 주공10단지종합상가111",
+      "method": "auto",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "로또수락산점",
+      "address": "서울 노원구 동일로 1689 대덕하이베라스101호",
+      "method": "manual",
+      "lat": 37.67911,
+      "lng": 127.054855
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "인천 계양구 안남로 466 1층",
+      "method": "auto",
+      "lat": 37.5245,
+      "lng": 126.71087
+    },
+    {
+      "rank": 1,
+      "name": "관촌방",
+      "address": "경기 이천시 경충대로 2241 1층 상가",
+      "method": "manual",
+      "lat": 37.29453,
+      "lng": 127.418495
+    },
+    {
+      "rank": 1,
+      "name": "동행행운lotto방",
+      "address": "경기 화성시  한절이1길 6-13",
+      "method": "auto",
+      "lat": 37.11778,
+      "lng": 126.91532
+    },
+    {
+      "rank": 1,
+      "name": "GMART",
+      "address": "경북 구미시 구미중앙로 57-3",
+      "method": "auto",
+      "lat": 36.130028,
+      "lng": 128.32906
+    },
+    {
+      "rank": 1,
+      "name": "GS25(양산신평점)",
+      "address": "경남 양산시  신평중앙길 1 GS25",
+      "method": "manual",
+      "lat": 35.491062,
+      "lng": 129.08658
+    }
+  ]
+}

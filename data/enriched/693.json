@@ -1,0 +1,125 @@
+{
+  "round": 693,
+  "date": "2016-03-12",
+  "nums": [
+    1,
+    6,
+    11,
+    28,
+    34,
+    42
+  ],
+  "bonus": 30,
+  "firstWinAmount": 1642763813,
+  "firstWinners": 10,
+  "totalSales": 67352935000,
+  "prizes": {
+    "first": {
+      "amount": 1642763813,
+      "winners": 10
+    },
+    "second": {
+      "amount": 63673016,
+      "winners": 43
+    },
+    "third": {
+      "amount": 1618168,
+      "winners": 1692
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 87017
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1484420
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "천하명당복권방독산점",
+      "address": "서울 금천구 독산로85길 16",
+      "method": "manual",
+      "lat": 37.472534,
+      "lng": 126.90221
+    },
+    {
+      "rank": 1,
+      "name": "삼육구마트",
+      "address": "서울 양천구 목동중앙서로 43 1층",
+      "method": "auto",
+      "lat": 37.53738,
+      "lng": 126.86832
+    },
+    {
+      "rank": 1,
+      "name": "심봤다복권나라",
+      "address": "대구 북구 노원로 128",
+      "method": "auto",
+      "lat": 35.8964,
+      "lng": 128.57538
+    },
+    {
+      "rank": 1,
+      "name": "세이브슈퍼",
+      "address": "대구 수성구 달구벌대로 2467",
+      "method": "auto",
+      "lat": 35.85927,
+      "lng": 128.63261
+    },
+    {
+      "rank": 1,
+      "name": "GS25(대전원내점)",
+      "address": "대전 유성구 원내동 343-11번지",
+      "method": "auto",
+      "lat": 36.29803,
+      "lng": 127.319984
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 광주시 양벌로 329",
+      "method": "auto",
+      "lat": 37.369953,
+      "lng": 127.246414
+    },
+    {
+      "rank": 1,
+      "name": "버스표가판점",
+      "address": "경기 안양시 동안구 흥안대로  498-2",
+      "method": "auto",
+      "lat": 37.398514,
+      "lng": 126.97752
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 의정부시 충의로 55",
+      "method": "auto",
+      "lat": 37.73674,
+      "lng": 127.08712
+    },
+    {
+      "rank": 1,
+      "name": "로또편의점",
+      "address": "전남 강진군 보은로 115",
+      "method": "mixed",
+      "lat": 34.63695,
+      "lng": 126.77138
+    },
+    {
+      "rank": 1,
+      "name": "베스트원",
+      "address": "전남 영광군 신남로 209-1 1층",
+      "method": "auto",
+      "lat": 35.276035,
+      "lng": 126.5051
+    }
+  ]
+}

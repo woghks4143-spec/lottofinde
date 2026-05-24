@@ -1,0 +1,101 @@
+{
+  "round": 815,
+  "date": "2018-07-14",
+  "nums": [
+    17,
+    21,
+    25,
+    26,
+    27,
+    36
+  ],
+  "bonus": 4,
+  "firstWinAmount": 2579855358,
+  "firstWinners": 7,
+  "totalSales": 73416400000,
+  "prizes": {
+    "first": {
+      "amount": 2579855358,
+      "winners": 7
+    },
+    "second": {
+      "amount": 77175161,
+      "winners": 39
+    },
+    "third": {
+      "amount": 1767371,
+      "winners": 1703
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 92977
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1596140
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "노다지복권",
+      "address": "부산 남구 문현동 60-2번지 애플마트내",
+      "method": "auto",
+      "lat": 35.144684,
+      "lng": 129.07649
+    },
+    {
+      "rank": 1,
+      "name": "열린복권방",
+      "address": "부산 사상구 괘법동 546-16번지 프라자슈퍼",
+      "method": "auto",
+      "lat": 35.162617,
+      "lng": 128.98518
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "auto",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "공항게임방",
+      "address": "대구 동구 지저동 669-41번지",
+      "method": "auto",
+      "lat": 35.89689,
+      "lng": 128.63763
+    },
+    {
+      "rank": 1,
+      "name": "CU(원종깨비점)",
+      "address": "경기 부천시 오정구 원종동 280-9번지 덕산아파트",
+      "method": "mixed",
+      "lat": 37.522907,
+      "lng": 126.80514
+    },
+    {
+      "rank": 1,
+      "name": "씨유당진시청점",
+      "address": "충남 당진시 서부로 63",
+      "method": "auto",
+      "lat": 36.887363,
+      "lng": 126.62902
+    },
+    {
+      "rank": 1,
+      "name": "창원병원앞매표소",
+      "address": "경남 창원시 성산구 중앙동 104-1번지 가판",
+      "method": "mixed",
+      "lat": 35.2185,
+      "lng": 128.67143
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "round": 632,
+  "date": "2015-01-10",
+  "nums": [
+    15,
+    18,
+    21,
+    32,
+    35,
+    44
+  ],
+  "bonus": 6,
+  "firstWinAmount": 1432587716,
+  "firstWinners": 11,
+  "totalSales": 63066603000,
+  "prizes": {
+    "first": {
+      "amount": 1432587716,
+      "winners": 11
+    },
+    "second": {
+      "amount": 50507901,
+      "winners": 52
+    },
+    "third": {
+      "amount": 1596603,
+      "winners": 1645
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 78418
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1320223
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(구로미성)",
+      "address": "서울 구로구  신도림동 399번지기임빌딩101",
+      "method": "auto",
+      "lat": 37.506195,
+      "lng": 126.876656
+    },
+    {
+      "rank": 1,
+      "name": "연신내3호점로또판매",
+      "address": "서울 은평구 진관동  은평뉴타운구파발아파트 22번지  905동 107호",
+      "method": "auto",
+      "lat": 37.638287,
+      "lng": 126.9178
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "인천 서구 거북로 80",
+      "method": "auto",
+      "lat": 37.503014,
+      "lng": 126.670654
+    },
+    {
+      "rank": 1,
+      "name": "대박로또방",
+      "address": "대전 서구 탄방동  764번지 세븐일레븐 편의점",
+      "method": "auto",
+      "lat": 36.346104,
+      "lng": 127.387665
+    },
+    {
+      "rank": 1,
+      "name": "월드컵복권방",
+      "address": "경기 광주시 경안로 20",
+      "method": "auto",
+      "lat": 37.409946,
+      "lng": 127.2584
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 성남시 분당구 구미동  185-1번지 비즈파이코리아103호",
+      "method": "auto",
+      "lat": 37.339294,
+      "lng": 127.10936
+    },
+    {
+      "rank": 1,
+      "name": "준",
+      "address": "경기 평택시 서동대로 1152",
+      "method": "auto",
+      "lat": 36.982677,
+      "lng": 126.882225
+    },
+    {
+      "rank": 1,
+      "name": "창운로또",
+      "address": "충북 청주시 흥덕구 오송생명로 208-9 리움오피스텔 1층 104호",
+      "method": "manual",
+      "lat": 36.63015,
+      "lng": 127.33232
+    },
+    {
+      "rank": 1,
+      "name": "복권천지",
+      "address": "전남 여수시 흥국로 79",
+      "method": "manual",
+      "lat": 34.76119,
+      "lng": 127.67327
+    },
+    {
+      "rank": 1,
+      "name": "행복복권방",
+      "address": "경남 창원시 의창구 팔용로 399",
+      "method": "auto",
+      "lat": 35.25288,
+      "lng": 128.6106
+    },
+    {
+      "rank": 1,
+      "name": "프리코너로또방",
+      "address": "경남 창원시 마산회원구 석전동로 1",
+      "method": "auto",
+      "lat": 35.231186,
+      "lng": 128.57639
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "round": 589,
+  "date": "2014-03-15",
+  "nums": [
+    6,
+    8,
+    28,
+    33,
+    38,
+    39
+  ],
+  "bonus": 22,
+  "firstWinAmount": 2136877983,
+  "firstWinners": 7,
+  "totalSales": 60643729000,
+  "prizes": {
+    "first": {
+      "amount": 2136877983,
+      "winners": 7
+    },
+    "second": {
+      "amount": 59357722,
+      "winners": 42
+    },
+    "third": {
+      "amount": 1599118,
+      "winners": 1559
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 77435
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1301184
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "보경식품",
+      "address": "서울 강북구 도봉로 211,(미아동)",
+      "method": "auto",
+      "lat": 37.627495,
+      "lng": 127.02538
+    },
+    {
+      "rank": 1,
+      "name": "종합가판점",
+      "address": "서울 동대문구 왕산로40길 6 건물 앞쪽 가판점 청량리역 5번출구 앞쪽",
+      "method": "auto",
+      "lat": 37.579697,
+      "lng": 127.04497
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "경기 화성시 남양시장로 83",
+      "method": "manual",
+      "lat": 37.209915,
+      "lng": 126.81828
+    },
+    {
+      "rank": 1,
+      "name": "그린로또",
+      "address": "강원 양양군 양양로 71",
+      "method": "auto",
+      "lat": 38.07482,
+      "lng": 128.62141
+    },
+    {
+      "rank": 1,
+      "name": "행운예감",
+      "address": "충북 충주시 국원대로 5 1층",
+      "method": "auto",
+      "lat": 36.969822,
+      "lng": 127.93024
+    },
+    {
+      "rank": 1,
+      "name": "삼호복권방",
+      "address": "전남 영암군 신항로 76 1층",
+      "method": "auto",
+      "lat": 34.74501,
+      "lng": 126.381775
+    },
+    {
+      "rank": 1,
+      "name": "로또복권삼주봉황",
+      "address": "경북 경산시 진량읍  봉회리  57번지",
+      "method": "manual",
+      "lat": 35.88434,
+      "lng": 128.82066
+    }
+  ]
+}

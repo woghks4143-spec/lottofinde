@@ -1,0 +1,141 @@
+{
+  "round": 1021,
+  "date": "2022-06-25",
+  "nums": [
+    12,
+    15,
+    17,
+    24,
+    29,
+    45
+  ],
+  "bonus": 16,
+  "firstWinAmount": 2108962250,
+  "firstWinners": 12,
+  "totalSales": 101960162000,
+  "prizes": {
+    "first": {
+      "amount": 2108962250,
+      "winners": 12
+    },
+    "second": {
+      "amount": 75320081,
+      "winners": 56
+    },
+    "third": {
+      "amount": 1713907,
+      "winners": 2461
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 126484
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2182497
+    }
+  },
+  "methodCounts": {
+    "auto": 11,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "황금대박점",
+      "address": "서울 노원구 공릉로 328,(하계동)",
+      "method": "auto",
+      "lat": 37.63598,
+      "lng": 127.07099
+    },
+    {
+      "rank": 1,
+      "name": "대만상사",
+      "address": "서울 성북구 보국문로11길 30",
+      "method": "auto",
+      "lat": 37.608795,
+      "lng": 127.008354
+    },
+    {
+      "rank": 1,
+      "name": "G마트",
+      "address": "서울 영등포구 디지털로 387",
+      "method": "auto",
+      "lat": 37.491634,
+      "lng": 126.902115
+    },
+    {
+      "rank": 1,
+      "name": "야단법석",
+      "address": "대구 북구 호암로 20 123동112호(성광우방상가 내)",
+      "method": "auto",
+      "lat": 35.88199,
+      "lng": 128.59221
+    },
+    {
+      "rank": 1,
+      "name": "유연마트",
+      "address": "대전 동구 계족로 88",
+      "method": "auto",
+      "lat": 36.32213,
+      "lng": 127.4451
+    },
+    {
+      "rank": 1,
+      "name": "대운복권",
+      "address": "경기 성남시 중원구 성남대로 1149",
+      "method": "auto",
+      "lat": 37.432377,
+      "lng": 127.12866
+    },
+    {
+      "rank": 1,
+      "name": "스타복권방",
+      "address": "충남 논산시 안심로 72",
+      "method": "manual",
+      "lat": 36.127453,
+      "lng": 127.09938
+    },
+    {
+      "rank": 1,
+      "name": "오복로또",
+      "address": "충남 부여군 성흥로 178",
+      "method": "auto",
+      "lat": 36.18377,
+      "lng": 126.89627
+    },
+    {
+      "rank": 1,
+      "name": "로또명당인주점",
+      "address": "충남 아산시 서해로 519-2",
+      "method": "auto",
+      "lat": 36.87784,
+      "lng": 126.89828
+    },
+    {
+      "rank": 1,
+      "name": "롯데마트",
+      "address": "전북 군산시 하나운로 43",
+      "method": "auto",
+      "lat": 35.963455,
+      "lng": 126.69942
+    },
+    {
+      "rank": 1,
+      "name": "불타는복권",
+      "address": "경북 영주시 기주로 84",
+      "method": "auto",
+      "lat": 36.86992,
+      "lng": 128.52666
+    },
+    {
+      "rank": 1,
+      "name": "목화휴게소",
+      "address": "경남 사천시 사천대로 912",
+      "method": "auto",
+      "lat": 35.0018,
+      "lng": 128.05415
+    }
+  ]
+}

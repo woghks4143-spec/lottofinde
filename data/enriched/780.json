@@ -1,0 +1,133 @@
+{
+  "round": 780,
+  "date": "2017-11-11",
+  "nums": [
+    15,
+    17,
+    19,
+    21,
+    27,
+    45
+  ],
+  "bonus": 16,
+  "firstWinAmount": 1667520137,
+  "firstWinners": 11,
+  "totalSales": 74232084000,
+  "prizes": {
+    "first": {
+      "amount": 1667520137,
+      "winners": 11
+    },
+    "second": {
+      "amount": 67936006,
+      "winners": 45
+    },
+    "third": {
+      "amount": 1818632,
+      "winners": 1681
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 92630
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1605516
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대박복권",
+      "address": "서울 강서구 등촌동 674-1번지 미니스톱내발산역점(내)",
+      "method": "auto",
+      "lat": 37.559284,
+      "lng": 126.838844
+    },
+    {
+      "rank": 1,
+      "name": "가판 창동역점",
+      "address": "서울 도봉구 마들로11길 73 창동역문화마당앞",
+      "method": "auto",
+      "lat": 37.653225,
+      "lng": 127.04908
+    },
+    {
+      "rank": 1,
+      "name": "명당복권방",
+      "address": "대전 서구 도마동 89-19번지",
+      "method": "auto",
+      "lat": 36.316864,
+      "lng": 127.37873
+    },
+    {
+      "rank": 1,
+      "name": "로또복권판매소",
+      "address": "경기 고양시 덕양구 성사동 408-7번지 성사동 원당역편의점",
+      "method": "auto",
+      "lat": 37.654106,
+      "lng": 126.84189
+    },
+    {
+      "rank": 1,
+      "name": "종합복권슈퍼",
+      "address": "경기 시흥시 마유로 336 정일빌딩104",
+      "method": "auto",
+      "lat": 37.34572,
+      "lng": 126.73561
+    },
+    {
+      "rank": 1,
+      "name": "찬스복권",
+      "address": "충북 청주시 서원구 분평동 1372번지 금송빌딩104호",
+      "method": "auto",
+      "lat": 36.607517,
+      "lng": 127.48992
+    },
+    {
+      "rank": 1,
+      "name": "복권1번지편의점",
+      "address": "전북 완주군 봉동중앙로 88",
+      "method": "auto",
+      "lat": 35.928066,
+      "lng": 127.16296
+    },
+    {
+      "rank": 1,
+      "name": "팡팡복권마트.잡화슈퍼",
+      "address": "전북 전주시 덕진구 가리내로 26",
+      "method": "auto",
+      "lat": 35.834366,
+      "lng": 127.13327
+    },
+    {
+      "rank": 1,
+      "name": "정아복권방",
+      "address": "전남 목포시 상동(신흥동) 1141-16 1층",
+      "method": "auto",
+      "lat": 34.794643,
+      "lng": 126.38077
+    },
+    {
+      "rank": 1,
+      "name": "강남슈퍼내복권판매",
+      "address": "전남 순천시 이수로 280 동양빌딩1층 행운슈퍼",
+      "method": "manual",
+      "lat": 34.951668,
+      "lng": 127.51517
+    },
+    {
+      "rank": 1,
+      "name": "삼성유통",
+      "address": "경남 거제시 연초면 한내리 621-2",
+      "method": "auto",
+      "lat": 34.93521,
+      "lng": 128.59935
+    }
+  ]
+}

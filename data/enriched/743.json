@@ -1,0 +1,101 @@
+{
+  "round": 743,
+  "date": "2017-02-25",
+  "nums": [
+    15,
+    19,
+    21,
+    34,
+    41,
+    44
+  ],
+  "bonus": 10,
+  "firstWinAmount": 2608641000,
+  "firstWinners": 7,
+  "totalSales": 73436852000,
+  "prizes": {
+    "first": {
+      "amount": 2608641000,
+      "winners": 7
+    },
+    "second": {
+      "amount": 66161185,
+      "winners": 46
+    },
+    "third": {
+      "amount": 1535527,
+      "winners": 1982
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 91886
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1555362
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "-",
+      "address": "서울 금천구 남부순환로 1390 전영수내과의원 가판",
+      "method": "manual",
+      "lat": 37.479816,
+      "lng": 126.90518
+    },
+    {
+      "rank": 1,
+      "name": "정원복권방",
+      "address": "서울 도봉구 도봉로 468 흥일빌딩 1층 101-3호",
+      "method": "auto",
+      "lat": 37.64732,
+      "lng": 127.03438
+    },
+    {
+      "rank": 1,
+      "name": "평안당",
+      "address": "서울 종로구 종로 219",
+      "method": "auto",
+      "lat": 37.57123,
+      "lng": 127.00219
+    },
+    {
+      "rank": 1,
+      "name": "셀프카메라",
+      "address": "부산 부산진구 가야대로443번길 30",
+      "method": "auto",
+      "lat": 35.154446,
+      "lng": 129.02167
+    },
+    {
+      "rank": 1,
+      "name": "빅세일복권방",
+      "address": "부산 부산진구 서면문화로 6",
+      "method": "manual",
+      "lat": 35.158302,
+      "lng": 129.05809
+    },
+    {
+      "rank": 1,
+      "name": "행운가득복권",
+      "address": "경기 화성시 반월동 460 1층 101호",
+      "method": "auto",
+      "lat": 37.2468,
+      "lng": 127.04147
+    },
+    {
+      "rank": 1,
+      "name": "왕대박복권",
+      "address": "강원 속초시 번영로 142 1층, 102호",
+      "method": "auto",
+      "lat": 38.211353,
+      "lng": 128.58932
+    }
+  ]
+}

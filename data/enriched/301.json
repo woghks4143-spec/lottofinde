@@ -1,0 +1,101 @@
+{
+  "round": 301,
+  "date": "2008-09-06",
+  "nums": [
+    7,
+    11,
+    13,
+    33,
+    37,
+    43
+  ],
+  "bonus": 26,
+  "firstWinAmount": 1447385015,
+  "firstWinners": 7,
+  "totalSales": 44377177000,
+  "prizes": {
+    "first": {
+      "amount": 1447385015,
+      "winners": 7
+    },
+    "second": {
+      "amount": 35927997,
+      "winners": 47
+    },
+    "third": {
+      "amount": 1328573,
+      "winners": 1271
+    },
+    "fourth": {
+      "amount": 51361,
+      "winners": 65756
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1060486
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "성경스튜디오",
+      "address": "서울 동대문구 청량리동  678   1층",
+      "method": "manual",
+      "lat": 37.583195,
+      "lng": 127.04383
+    },
+    {
+      "rank": 1,
+      "name": "교통카드",
+      "address": "서울 서초구 강남대로 517",
+      "method": "auto",
+      "lat": 37.5081,
+      "lng": 127.022255
+    },
+    {
+      "rank": 1,
+      "name": "청계로또",
+      "address": "서울 성동구 상왕십리동  12-46호",
+      "method": "manual",
+      "lat": 37.570553,
+      "lng": 127.02583
+    },
+    {
+      "rank": 1,
+      "name": "가로판매점",
+      "address": "서울 양천구 신월6동  550-5",
+      "method": "auto",
+      "lat": 37.518017,
+      "lng": 126.84222
+    },
+    {
+      "rank": 1,
+      "name": "로또왕대박",
+      "address": "경기 화성시 와우안길 46 1층",
+      "method": "auto",
+      "lat": 37.21573,
+      "lng": 126.9766
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "강원 원주시 관설동  1702-1",
+      "method": "auto",
+      "lat": 37.318775,
+      "lng": 127.965
+    },
+    {
+      "rank": 1,
+      "name": "GS25(양산문성)",
+      "address": "경남 양산시 웅상읍 평산리 평산리 31-5",
+      "method": "auto",
+      "lat": 35.384815,
+      "lng": 129.15508
+    }
+  ]
+}

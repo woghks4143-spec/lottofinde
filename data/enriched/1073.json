@@ -1,0 +1,133 @@
+{
+  "round": 1073,
+  "date": "2023-06-24",
+  "nums": [
+    6,
+    18,
+    28,
+    30,
+    32,
+    38
+  ],
+  "bonus": 15,
+  "firstWinAmount": 2345227603,
+  "firstWinners": 11,
+  "totalSales": 107352123000,
+  "prizes": {
+    "first": {
+      "amount": 2345227603,
+      "winners": 11
+    },
+    "second": {
+      "amount": 69348129,
+      "winners": 62
+    },
+    "third": {
+      "amount": 1436067,
+      "winners": 2994
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 146834
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2387538
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "manual",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "영광정보통신",
+      "address": "서울 성북구 화랑로 92 1층 우측1호",
+      "method": "manual",
+      "lat": 37.602676,
+      "lng": 127.0425
+    },
+    {
+      "rank": 1,
+      "name": "지에스25 월성파크",
+      "address": "대구 달서구 상원로 195 GS25월성파크점",
+      "method": "auto",
+      "lat": 35.823997,
+      "lng": 128.52538
+    },
+    {
+      "rank": 1,
+      "name": "지에스25 계산브래뉴점",
+      "address": "인천 계양구 계양대로 215 1층 107호",
+      "method": "auto",
+      "lat": 37.54294,
+      "lng": 126.721535
+    },
+    {
+      "rank": 1,
+      "name": "주인공",
+      "address": "인천 서구 원당대로 853 1층",
+      "method": "auto",
+      "lat": 37.59381,
+      "lng": 126.696205
+    },
+    {
+      "rank": 1,
+      "name": "알리바이",
+      "address": "광주 광산구 수등로 253 1층 알리바이",
+      "method": "auto",
+      "lat": 35.185387,
+      "lng": 126.83668
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "충북 음성군 장감로 161-1 1층복권방",
+      "method": "auto",
+      "lat": 36.992683,
+      "lng": 127.5975
+    },
+    {
+      "rank": 1,
+      "name": "청룡로또판매점",
+      "address": "충남 당진시 청룡길 159 용기빌딩",
+      "method": "auto",
+      "lat": 36.888615,
+      "lng": 126.63263
+    },
+    {
+      "rank": 1,
+      "name": "777천하명당",
+      "address": "충남 서천군 충절로 54",
+      "method": "auto",
+      "lat": 36.074856,
+      "lng": 126.68902
+    },
+    {
+      "rank": 1,
+      "name": "로또명당인주점",
+      "address": "충남 아산시 서해로 519-2",
+      "method": "auto",
+      "lat": 36.87784,
+      "lng": 126.89828
+    },
+    {
+      "rank": 1,
+      "name": "로또명당 신마산점",
+      "address": "경남 창원시 마산합포구 문화동7길 3 1층",
+      "method": "auto",
+      "lat": 35.184795,
+      "lng": 128.5606
+    }
+  ]
+}

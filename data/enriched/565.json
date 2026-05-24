@@ -1,0 +1,109 @@
+{
+  "round": 565,
+  "date": "2013-09-28",
+  "nums": [
+    4,
+    10,
+    18,
+    27,
+    40,
+    45
+  ],
+  "bonus": 38,
+  "firstWinAmount": 1742064469,
+  "firstWinners": 8,
+  "totalSales": 59556622000,
+  "prizes": {
+    "first": {
+      "amount": 1742064469,
+      "winners": 8
+    },
+    "second": {
+      "amount": 59557760,
+      "winners": 39
+    },
+    "third": {
+      "amount": 1244777,
+      "winners": 1866
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 85438
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1384878
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "현대슈퍼",
+      "address": "광주 서구 상무대로 871",
+      "method": "manual",
+      "lat": 35.150524,
+      "lng": 126.857315
+    },
+    {
+      "rank": 1,
+      "name": "CN마트",
+      "address": "울산 동구 대학길 76 1층102호",
+      "method": "auto",
+      "lat": 35.49841,
+      "lng": 129.42188
+    },
+    {
+      "rank": 1,
+      "name": "성진",
+      "address": "경기 성남시 수정구 모란로 91",
+      "method": "auto",
+      "lat": 37.44118,
+      "lng": 127.125694
+    },
+    {
+      "rank": 1,
+      "name": "보물단지",
+      "address": "경기 시흥시 서촌상가2길 10 1층 109호(정왕동,두원프라자)",
+      "method": "auto",
+      "lat": 37.346966,
+      "lng": 126.733826
+    },
+    {
+      "rank": 1,
+      "name": "행복충전소",
+      "address": "경기 평택시 탄현로 332-2",
+      "method": "auto",
+      "lat": 37.0818,
+      "lng": 127.05637
+    },
+    {
+      "rank": 1,
+      "name": "동해복권방",
+      "address": "강원 강릉시 하평길 40",
+      "method": "manual",
+      "lat": 37.770157,
+      "lng": 128.91298
+    },
+    {
+      "rank": 1,
+      "name": "로또복권장항점",
+      "address": "충남 서천군 장항읍  창선리   632-2",
+      "method": "auto",
+      "lat": 36.0262,
+      "lng": 126.6999
+    },
+    {
+      "rank": 1,
+      "name": "흥건슈퍼",
+      "address": "전북 전주시 완산구 거마평로 25 흥건1차아파트상가 흥건슈퍼",
+      "method": "auto",
+      "lat": 35.794403,
+      "lng": 127.11578
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "round": 108,
+  "date": "2004-12-25",
+  "nums": [
+    7,
+    18,
+    22,
+    23,
+    29,
+    44
+  ],
+  "bonus": 12,
+  "firstWinAmount": 1998900772,
+  "firstWinners": 7,
+  "totalSales": 58875228000,
+  "prizes": {
+    "first": {
+      "amount": 1998900772,
+      "winners": 7
+    },
+    "second": {
+      "amount": 56879291,
+      "winners": 41
+    },
+    "third": {
+      "amount": 1595111,
+      "winners": 1462
+    },
+    "fourth": {
+      "amount": 65853,
+      "winners": 70827
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1223421
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

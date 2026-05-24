@@ -1,0 +1,101 @@
+{
+  "round": 459,
+  "date": "2011-09-17",
+  "nums": [
+    4,
+    6,
+    10,
+    14,
+    25,
+    40
+  ],
+  "bonus": 12,
+  "firstWinAmount": 1655842233,
+  "firstWinners": 7,
+  "totalSales": 49890095000,
+  "prizes": {
+    "first": {
+      "amount": 1655842233,
+      "winners": 7
+    },
+    "second": {
+      "amount": 41995999,
+      "winners": 46
+    },
+    "third": {
+      "amount": 1260977,
+      "winners": 1532
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 73084
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1167264
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "현대슈퍼",
+      "address": "서울 강남구 개포로 508 107호 소망빌딩",
+      "method": "manual",
+      "lat": 37.48923,
+      "lng": 127.067955
+    },
+    {
+      "rank": 1,
+      "name": "GS25(서초금호)",
+      "address": "서울 서초구 서초동  1689-1",
+      "method": "auto",
+      "lat": 37.495155,
+      "lng": 127.017624
+    },
+    {
+      "rank": 1,
+      "name": "럭키슈퍼",
+      "address": "서울 용산구 후암로 52",
+      "method": "manual",
+      "lat": 37.550594,
+      "lng": 126.97736
+    },
+    {
+      "rank": 1,
+      "name": "현대슈퍼",
+      "address": "광주 서구 상무대로 871",
+      "method": "auto",
+      "lat": 35.150524,
+      "lng": 126.857315
+    },
+    {
+      "rank": 1,
+      "name": "산본전기",
+      "address": "경기 군포시 번영로 514 현대프라자 현대프라자105호",
+      "method": "auto",
+      "lat": 37.358086,
+      "lng": 126.93424
+    },
+    {
+      "rank": 1,
+      "name": "로또랜드",
+      "address": "경기 시흥시 정왕동  1189-11",
+      "method": "auto",
+      "lat": 37.346035,
+      "lng": 126.74929
+    },
+    {
+      "rank": 1,
+      "name": "세경로또방",
+      "address": "경기 안양시 동안구 달안로 112 한가람세경아파트 1층 복권방",
+      "method": "manual",
+      "lat": 37.39631,
+      "lng": 126.95475
+    }
+  ]
+}

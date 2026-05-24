@@ -1,0 +1,125 @@
+{
+  "round": 1029,
+  "date": "2022-08-20",
+  "nums": [
+    12,
+    30,
+    32,
+    37,
+    39,
+    41
+  ],
+  "bonus": 24,
+  "firstWinAmount": 2527848450,
+  "firstWinners": 10,
+  "totalSales": 101336312000,
+  "prizes": {
+    "first": {
+      "amount": 2527848450,
+      "winners": 10
+    },
+    "second": {
+      "amount": 67952916,
+      "winners": 62
+    },
+    "third": {
+      "amount": 1611738,
+      "winners": 2614
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 125573
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2136972
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "auto",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "통일복권방",
+      "address": "서울 송파구 백제고분로7길 6",
+      "method": "mixed",
+      "lat": 37.510223,
+      "lng": 127.07944
+    },
+    {
+      "rank": 1,
+      "name": "씨유 장기파랑새점",
+      "address": "대구 달서구 용산로 63-1 1층  CU편의점",
+      "method": "auto",
+      "lat": 35.84313,
+      "lng": 128.5309
+    },
+    {
+      "rank": 1,
+      "name": "가평로또방",
+      "address": "경기 가평군 석봉로 240 스마트빌딩 1층",
+      "method": "auto",
+      "lat": 37.83634,
+      "lng": 127.50878
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "경기 군포시 대야1로 3 현대팰리스 1동",
+      "method": "auto",
+      "lat": 37.32638,
+      "lng": 126.91891
+    },
+    {
+      "rank": 1,
+      "name": "송추장흥로또",
+      "address": "경기 양주시 호국로 511",
+      "method": "auto",
+      "lat": 37.716553,
+      "lng": 126.97139
+    },
+    {
+      "rank": 1,
+      "name": "신나는복권방",
+      "address": "경기 파주시 문향로 51-1",
+      "method": "auto",
+      "lat": 37.856716,
+      "lng": 126.78506
+    },
+    {
+      "rank": 1,
+      "name": "현대장미슈퍼",
+      "address": "전북 익산시 동서로61길 41 현대아파트1층108호",
+      "method": "auto",
+      "lat": 35.95509,
+      "lng": 126.98032
+    },
+    {
+      "rank": 1,
+      "name": "한성슈퍼",
+      "address": "전북 익산시 익산대로 52",
+      "method": "auto",
+      "lat": 35.93115,
+      "lng": 126.94382
+    },
+    {
+      "rank": 1,
+      "name": "송도하우스",
+      "address": "전남 목포시 영산로 525 목포터미널 내",
+      "method": "auto",
+      "lat": 34.812717,
+      "lng": 126.41759
+    }
+  ]
+}

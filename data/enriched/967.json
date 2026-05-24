@@ -1,0 +1,77 @@
+{
+  "round": 967,
+  "date": "2021-06-12",
+  "nums": [
+    1,
+    6,
+    13,
+    37,
+    38,
+    40
+  ],
+  "bonus": 9,
+  "firstWinAmount": 5809776094,
+  "firstWinners": 4,
+  "totalSales": 94515565000,
+  "prizes": {
+    "first": {
+      "amount": 5809776094,
+      "winners": 4
+    },
+    "second": {
+      "amount": 56133103,
+      "winners": 69
+    },
+    "third": {
+      "amount": 1564923,
+      "winners": 2475
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 121200
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2042462
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "그린마트",
+      "address": "서울 송파구 백제고분로19길 26 1층",
+      "method": "manual",
+      "lat": 37.506878,
+      "lng": 127.08749
+    },
+    {
+      "rank": 1,
+      "name": "토큰박스(퀸스로드점)",
+      "address": "대구 서구 당산로 289 가로판매대 7-1",
+      "method": "auto",
+      "lat": 35.86223,
+      "lng": 128.54602
+    },
+    {
+      "rank": 1,
+      "name": "포유25시편의점복권방",
+      "address": "충남 당진시 덕평로 1304 3동 포유25시편의점내",
+      "method": "manual",
+      "lat": 36.87114,
+      "lng": 126.753
+    },
+    {
+      "rank": 1,
+      "name": "신천하명당",
+      "address": "충남 예산군 발연로 1 이마트 24 내",
+      "method": "auto",
+      "lat": 36.698784,
+      "lng": 126.8296
+    }
+  ]
+}

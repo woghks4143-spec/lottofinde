@@ -1,0 +1,125 @@
+{
+  "round": 949,
+  "date": "2021-02-06",
+  "nums": [
+    14,
+    21,
+    35,
+    36,
+    40,
+    44
+  ],
+  "bonus": 30,
+  "firstWinAmount": 2458569713,
+  "firstWinners": 10,
+  "totalSales": 100518909000,
+  "prizes": {
+    "first": {
+      "amount": 2458569713,
+      "winners": 10
+    },
+    "second": {
+      "amount": 63040250,
+      "winners": 65
+    },
+    "third": {
+      "amount": 1579652,
+      "winners": 2594
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 130363
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2192075
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또 명당 가판점",
+      "address": "서울 금천구 남부순환로 1390 전영수내과의원 가판",
+      "method": "auto",
+      "lat": 37.479816,
+      "lng": 126.90518
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "서울 성동구 용답중앙15길 12-1 1층",
+      "method": "auto",
+      "lat": 37.56443,
+      "lng": 127.05383
+    },
+    {
+      "rank": 1,
+      "name": "돼지의꿈",
+      "address": "광주 북구 경열로 212",
+      "method": "mixed",
+      "lat": 35.158195,
+      "lng": 126.90632
+    },
+    {
+      "rank": 1,
+      "name": "일주일행복로또(파장매표소)",
+      "address": "경기 수원시 장안구 파장로82번길 3 유일청과",
+      "method": "auto",
+      "lat": 37.30682,
+      "lng": 126.99182
+    },
+    {
+      "rank": 1,
+      "name": "플러스복권",
+      "address": "경기 시흥시 큰솔로 42 102호",
+      "method": "auto",
+      "lat": 37.34115,
+      "lng": 126.752716
+    },
+    {
+      "rank": 1,
+      "name": "로또",
+      "address": "경기 포천시 죽엽산로196번길 4",
+      "method": "auto",
+      "lat": 37.814644,
+      "lng": 127.16044
+    },
+    {
+      "rank": 1,
+      "name": "우리로또",
+      "address": "충남 서산시 충의로 1231 화천슈퍼 이마트24편의점",
+      "method": "auto",
+      "lat": 36.877323,
+      "lng": 126.439514
+    },
+    {
+      "rank": 1,
+      "name": "왕대박복권방",
+      "address": "경북 문경시 중앙로 15,(모전동)",
+      "method": "auto",
+      "lat": 36.588123,
+      "lng": 128.19293
+    },
+    {
+      "rank": 1,
+      "name": "영화유통",
+      "address": "경북 포항시 북구 양학천로 15",
+      "method": "auto",
+      "lat": 36.023766,
+      "lng": 129.35393
+    },
+    {
+      "rank": 1,
+      "name": "경일통신",
+      "address": "경남 창원시 마산회원구 북성로 340",
+      "method": "auto",
+      "lat": 35.23382,
+      "lng": 128.56064
+    }
+  ]
+}

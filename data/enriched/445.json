@@ -1,0 +1,101 @@
+{
+  "round": 445,
+  "date": "2011-06-11",
+  "nums": [
+    13,
+    20,
+    21,
+    30,
+    39,
+    45
+  ],
+  "bonus": 32,
+  "firstWinAmount": 1791683036,
+  "firstWinners": 7,
+  "totalSales": 50053080000,
+  "prizes": {
+    "first": {
+      "amount": 1791683036,
+      "winners": 7
+    },
+    "second": {
+      "amount": 74653460,
+      "winners": 28
+    },
+    "third": {
+      "amount": 1766946,
+      "winners": 1183
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 61433
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1046503
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "또와식품",
+      "address": "서울 강서구 양천로 694",
+      "method": "auto",
+      "lat": 37.55008,
+      "lng": 126.872826
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트(대림중앙점)",
+      "address": "서울 영등포구 대림로 209 1층",
+      "method": "auto",
+      "lat": 37.499256,
+      "lng": 126.897675
+    },
+    {
+      "rank": 1,
+      "name": "은경슈퍼",
+      "address": "부산 사하구 다대동  920-7",
+      "method": "auto",
+      "lat": 35.057266,
+      "lng": 128.97052
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권",
+      "address": "대구 북구 칠곡중앙대로 545,(읍내동)",
+      "method": "manual",
+      "lat": 35.94432,
+      "lng": 128.55064
+    },
+    {
+      "rank": 1,
+      "name": "GS25(대전대림)",
+      "address": "대전 유성구 궁동  405-11",
+      "method": "manual",
+      "lat": 36.36217,
+      "lng": 127.35296
+    },
+    {
+      "rank": 1,
+      "name": "왕대박",
+      "address": "경기 평택시 안정로29번길 32 1층 우측",
+      "method": "manual",
+      "lat": 36.96071,
+      "lng": 127.0464
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "충북 제천시 명륜로 67 1층",
+      "method": "auto",
+      "lat": 37.142334,
+      "lng": 128.20863
+    }
+  ]
+}

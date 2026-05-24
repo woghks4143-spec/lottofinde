@@ -1,0 +1,61 @@
+{
+  "round": 609,
+  "date": "2014-08-02",
+  "nums": [
+    4,
+    8,
+    27,
+    34,
+    39,
+    40
+  ],
+  "bonus": 13,
+  "firstWinAmount": 6339311438,
+  "firstWinners": 2,
+  "totalSales": 54858201000,
+  "prizes": {
+    "first": {
+      "amount": 6339311438,
+      "winners": 2
+    },
+    "second": {
+      "amount": 44959656,
+      "winners": 47
+    },
+    "third": {
+      "amount": 1303581,
+      "winners": 1621
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 80472
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1300134
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "경남복권방",
+      "address": "서울 강북구 도봉로50길 11  1층",
+      "method": "auto",
+      "lat": 37.62561,
+      "lng": 127.02731
+    },
+    {
+      "rank": 1,
+      "name": "행운대박복권",
+      "address": "서울 영등포구 영신로19길 8-1",
+      "method": "auto",
+      "lat": 37.514385,
+      "lng": 126.90675
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "round": 806,
+  "date": "2018-05-12",
+  "nums": [
+    14,
+    20,
+    23,
+    31,
+    37,
+    38
+  ],
+  "bonus": 27,
+  "firstWinAmount": 2640760875,
+  "firstWinners": 7,
+  "totalSales": 74030583000,
+  "prizes": {
+    "first": {
+      "amount": 2640760875,
+      "winners": 7
+    },
+    "second": {
+      "amount": 54050662,
+      "winners": 57
+    },
+    "third": {
+      "amount": 1665345,
+      "winners": 1850
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 91180
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1561838
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "롯또",
+      "address": "부산 해운대구 윗반송로 77 1층",
+      "method": "auto",
+      "lat": 35.230892,
+      "lng": 129.15727
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "auto",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "운수대통",
+      "address": "인천 부평구 동암광장로 6 1층 A호",
+      "method": "auto",
+      "lat": 37.470837,
+      "lng": 126.70217
+    },
+    {
+      "rank": 1,
+      "name": "역곡중앙슈퍼",
+      "address": "경기 부천시 원미구 역곡동 79-5번지",
+      "method": "mixed",
+      "lat": 37.48525,
+      "lng": 126.81027
+    },
+    {
+      "rank": 1,
+      "name": "복권사랑",
+      "address": "경기 양주시 평화로 1444,(덕계동)",
+      "method": "auto",
+      "lat": 37.81949,
+      "lng": 127.047104
+    },
+    {
+      "rank": 1,
+      "name": "로또명당인주점",
+      "address": "충남 아산시 서해로 519-2",
+      "method": "auto",
+      "lat": 36.87784,
+      "lng": 126.89828
+    },
+    {
+      "rank": 1,
+      "name": "로또복권판매",
+      "address": "경북 상주시 삼백로 159",
+      "method": "manual",
+      "lat": 36.41895,
+      "lng": 128.16113
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "round": 707,
+  "date": "2016-06-18",
+  "nums": [
+    2,
+    12,
+    19,
+    24,
+    39,
+    44
+  ],
+  "bonus": 35,
+  "firstWinAmount": 1322167313,
+  "firstWinners": 12,
+  "totalSales": 66813924000,
+  "prizes": {
+    "first": {
+      "amount": 1322167313,
+      "winners": 12
+    },
+    "second": {
+      "amount": 35734252,
+      "winners": 74
+    },
+    "third": {
+      "amount": 1318213,
+      "winners": 2006
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 94281
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1507647
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 6,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "예스마트",
+      "address": "서울 강서구 화곡로42길 35",
+      "method": "auto",
+      "lat": 37.54598,
+      "lng": 126.84741
+    },
+    {
+      "rank": 1,
+      "name": "토큰판매소",
+      "address": "서울 송파구 바람드리길 62",
+      "method": "manual",
+      "lat": 37.536663,
+      "lng": 127.12238
+    },
+    {
+      "rank": 1,
+      "name": "복권명당(동아스포츠점)",
+      "address": "대구 수성구 지범로 91 1층",
+      "method": "manual",
+      "lat": 35.825844,
+      "lng": 128.63191
+    },
+    {
+      "rank": 1,
+      "name": "무한대박",
+      "address": "인천 연수구 새말로 107",
+      "method": "auto",
+      "lat": 37.41867,
+      "lng": 126.68115
+    },
+    {
+      "rank": 1,
+      "name": "소망복권(cu정발산건영점)",
+      "address": "경기 고양시 일산동구 정발산동 697",
+      "method": "auto",
+      "lat": 37.668194,
+      "lng": 126.77163
+    },
+    {
+      "rank": 1,
+      "name": "금도깨비복권전문점",
+      "address": "경기 김포시 하성면 월하로 721",
+      "method": "auto",
+      "lat": 37.709766,
+      "lng": 126.634705
+    },
+    {
+      "rank": 1,
+      "name": "홈돌이로또복권",
+      "address": "경기 김포시 중봉로 14 삼성홈플러스2층",
+      "method": "manual",
+      "lat": 37.623863,
+      "lng": 126.69863
+    },
+    {
+      "rank": 1,
+      "name": "복권백화점",
+      "address": "경기 파주시 평화로 70",
+      "method": "auto",
+      "lat": 37.763588,
+      "lng": 126.76989
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "충북 증평군 중앙로 199-1",
+      "method": "manual",
+      "lat": 36.783936,
+      "lng": 127.58088
+    },
+    {
+      "rank": 1,
+      "name": "굿모닝",
+      "address": "전남 순천시 중앙로 220 굿모닝",
+      "method": "auto",
+      "lat": 34.965294,
+      "lng": 127.484985
+    },
+    {
+      "rank": 1,
+      "name": "무진장로또",
+      "address": "제주 제주시 일도일동(일도1동) 1047-4",
+      "method": "manual",
+      "lat": 33.511913,
+      "lng": 126.53149
+    },
+    {
+      "rank": 1,
+      "name": "킴스정보",
+      "address": "제주 제주시 용담이동(용담2동) 2681-35",
+      "method": "manual",
+      "lat": 33.50696,
+      "lng": 126.5094
+    }
+  ]
+}

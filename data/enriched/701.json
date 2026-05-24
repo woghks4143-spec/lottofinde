@@ -1,0 +1,125 @@
+{
+  "round": 701,
+  "date": "2016-05-07",
+  "nums": [
+    3,
+    10,
+    14,
+    16,
+    36,
+    38
+  ],
+  "bonus": 35,
+  "firstWinAmount": 1583183175,
+  "firstWinners": 10,
+  "totalSales": 64454138000,
+  "prizes": {
+    "first": {
+      "amount": 1583183175,
+      "winners": 10
+    },
+    "second": {
+      "amount": 65965966,
+      "winners": 40
+    },
+    "third": {
+      "amount": 1590500,
+      "winners": 1659
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 81917
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1404422
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "CU(타워팰리스점)",
+      "address": "서울 강남구 언주로30길 56",
+      "method": "manual",
+      "lat": 37.488213,
+      "lng": 127.05441
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "서울 강남구 강남대로122길 50 상명빌딩 103호",
+      "method": "auto",
+      "lat": 37.508858,
+      "lng": 127.027054
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "서울 관악구 남부순환로 1739-9",
+      "method": "auto",
+      "lat": 37.482788,
+      "lng": 126.943474
+    },
+    {
+      "rank": 1,
+      "name": "중구-가로가판대-37",
+      "address": "서울 중구 남대문로 20-2,(남대문로3가)",
+      "method": "auto",
+      "lat": 37.56083,
+      "lng": 126.97805
+    },
+    {
+      "rank": 1,
+      "name": "왕대박",
+      "address": "부산 동래구 여고로113번길 59-4",
+      "method": "auto",
+      "lat": 35.201073,
+      "lng": 129.0741
+    },
+    {
+      "rank": 1,
+      "name": "대박로또",
+      "address": "대구 북구 고성북로 3 고성아파트상가101동18호",
+      "method": "mixed",
+      "lat": 35.88018,
+      "lng": 128.58212
+    },
+    {
+      "rank": 1,
+      "name": "용두천하",
+      "address": "광주 북구 하서로 373",
+      "method": "auto",
+      "lat": 35.20835,
+      "lng": 126.87351
+    },
+    {
+      "rank": 1,
+      "name": "행운로또복권",
+      "address": "울산 남구 무거동 852-1 CU마트 내",
+      "method": "auto",
+      "lat": 35.547806,
+      "lng": 129.26038
+    },
+    {
+      "rank": 1,
+      "name": "코리아마트",
+      "address": "경기 광명시 안재로14번길 27",
+      "method": "auto",
+      "lat": 37.461033,
+      "lng": 126.87407
+    },
+    {
+      "rank": 1,
+      "name": "복권백화점",
+      "address": "경기 여주시 세종로 41 1층",
+      "method": "auto",
+      "lat": 37.294037,
+      "lng": 127.63629
+    }
+  ]
+}

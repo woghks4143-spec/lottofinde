@@ -1,0 +1,149 @@
+{
+  "round": 902,
+  "date": "2020-03-14",
+  "nums": [
+    7,
+    19,
+    23,
+    24,
+    36,
+    39
+  ],
+  "bonus": 30,
+  "firstWinAmount": 1619317529,
+  "firstWinners": 13,
+  "totalSales": 87501981000,
+  "prizes": {
+    "first": {
+      "amount": 1619317529,
+      "winners": 13
+    },
+    "second": {
+      "amount": 52365990,
+      "winners": 67
+    },
+    "third": {
+      "amount": 1479141,
+      "winners": 2372
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 119126
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1945304
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "코코마켓",
+      "address": "서울 강서구 화곡로 137",
+      "method": "auto",
+      "lat": 37.540974,
+      "lng": 126.836975
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "서울 관악구 남부순환로 1739-9",
+      "method": "manual",
+      "lat": 37.482788,
+      "lng": 126.943474
+    },
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "manual",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "로또",
+      "address": "서울 중구 신당동 133-14번지",
+      "method": "auto",
+      "lat": 37.56378,
+      "lng": 127.0194
+    },
+    {
+      "rank": 1,
+      "name": "GS25(부산미남점)",
+      "address": "부산 동래구 미남로 131",
+      "method": "auto",
+      "lat": 35.205826,
+      "lng": 129.06937
+    },
+    {
+      "rank": 1,
+      "name": "동일통신",
+      "address": "부산 해운대구 선수촌로 16",
+      "method": "auto",
+      "lat": 35.19541,
+      "lng": 129.11856
+    },
+    {
+      "rank": 1,
+      "name": "연우로또",
+      "address": "인천 계양구 향교로 32-1 1층",
+      "method": "auto",
+      "lat": 37.54027,
+      "lng": 126.72173
+    },
+    {
+      "rank": 1,
+      "name": "부자로또",
+      "address": "울산 남구 월평로 238",
+      "method": "auto",
+      "lat": 35.546936,
+      "lng": 129.33083
+    },
+    {
+      "rank": 1,
+      "name": "나들가게",
+      "address": "경기 부천시 경인로224번길 91 1층 슈퍼",
+      "method": "auto",
+      "lat": 37.479206,
+      "lng": 126.77946
+    },
+    {
+      "rank": 1,
+      "name": "서울로또방",
+      "address": "충북 옥천군 삼금로 8",
+      "method": "manual",
+      "lat": 36.29949,
+      "lng": 127.56668
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "충북 증평군 중앙로 199-1",
+      "method": "manual",
+      "lat": 36.783936,
+      "lng": 127.58088
+    },
+    {
+      "rank": 1,
+      "name": "승일유통",
+      "address": "충북 청주시 흥덕구 월명로 42",
+      "method": "auto",
+      "lat": 36.63832,
+      "lng": 127.45375
+    },
+    {
+      "rank": 1,
+      "name": "나래복권",
+      "address": "충북 충주시 충원대로 952 1층",
+      "method": "manual",
+      "lat": 37.0107,
+      "lng": 127.91579
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "round": 722,
+  "date": "2016-10-01",
+  "nums": [
+    12,
+    14,
+    21,
+    30,
+    39,
+    43
+  ],
+  "bonus": 45,
+  "firstWinAmount": 4365422719,
+  "firstWinners": 4,
+  "totalSales": 69446489000,
+  "prizes": {
+    "first": {
+      "amount": 4365422719,
+      "winners": 4
+    },
+    "second": {
+      "amount": 63266996,
+      "winners": 46
+    },
+    "third": {
+      "amount": 1724101,
+      "winners": 1688
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 84912
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1439078
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "월드24시",
+      "address": "서울 은평구 통일로 855-15",
+      "method": "auto",
+      "lat": 37.61925,
+      "lng": 126.919785
+    },
+    {
+      "rank": 1,
+      "name": "광성슈퍼",
+      "address": "경기 이천시 단월로 33",
+      "method": "auto",
+      "lat": 37.221367,
+      "lng": 127.44998
+    },
+    {
+      "rank": 1,
+      "name": "광성슈퍼",
+      "address": "경기 이천시 단월로 33",
+      "method": "auto",
+      "lat": 37.221367,
+      "lng": 127.44998
+    },
+    {
+      "rank": 1,
+      "name": "대흥슈퍼",
+      "address": "전북 익산시 익산대로20길 43",
+      "method": "auto",
+      "lat": 35.941715,
+      "lng": 126.95285
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "round": 1179,
+  "date": "2025-07-05",
+  "nums": [
+    3,
+    16,
+    18,
+    24,
+    40,
+    44
+  ],
+  "bonus": 21,
+  "firstWinAmount": 2162821097,
+  "firstWinners": 13,
+  "totalSales": 115024678000,
+  "prizes": {
+    "first": {
+      "amount": 2162821097,
+      "winners": 13
+    },
+    "second": {
+      "amount": 74382737,
+      "winners": 63
+    },
+    "third": {
+      "amount": 1567787,
+      "winners": 2989
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 148832
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2516368
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 6,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "주황이 복권방",
+      "address": "서울 서초구 사임당로 178 110호",
+      "method": "auto",
+      "lat": 37.492226,
+      "lng": 127.02905
+    },
+    {
+      "rank": 1,
+      "name": "가로판매점",
+      "address": "서울 용산구 원효로 179",
+      "method": "auto",
+      "lat": 37.536076,
+      "lng": 126.96253
+    },
+    {
+      "rank": 1,
+      "name": "승보슈퍼",
+      "address": "서울 중구 마장로9길 49-19",
+      "method": "manual",
+      "lat": 37.570137,
+      "lng": 127.0184
+    },
+    {
+      "rank": 1,
+      "name": "범일서적",
+      "address": "부산 동구 진시장로 19-2 1층복권방",
+      "method": "mixed",
+      "lat": 35.137386,
+      "lng": 129.05898
+    },
+    {
+      "rank": 1,
+      "name": "하영",
+      "address": "인천 서구 청라에메랄드로 65 아파트 상가 102호",
+      "method": "manual",
+      "lat": 37.53106,
+      "lng": 126.6557
+    },
+    {
+      "rank": 1,
+      "name": "하영",
+      "address": "인천 서구 청라에메랄드로 65 아파트 상가 102호",
+      "method": "manual",
+      "lat": 37.53106,
+      "lng": 126.6557
+    },
+    {
+      "rank": 1,
+      "name": "로또또",
+      "address": "경기 김포시 봉수대로 1704 102호",
+      "method": "manual",
+      "lat": 37.62097,
+      "lng": 126.63304
+    },
+    {
+      "rank": 1,
+      "name": "경춘마트",
+      "address": "경기 남양주시 경춘로992번길 1",
+      "method": "manual",
+      "lat": 37.634228,
+      "lng": 127.21185
+    },
+    {
+      "rank": 1,
+      "name": "이마트24 용두휴게소",
+      "address": "충남 천안시 동남구 매봉로 210 용두휴게소 이마트24 내",
+      "method": "auto",
+      "lat": 36.74836,
+      "lng": 127.30957
+    },
+    {
+      "rank": 1,
+      "name": "흥건슈퍼",
+      "address": "전북 전주시 완산구 거마평로 25 흥건슈퍼",
+      "method": "auto",
+      "lat": 35.794403,
+      "lng": 127.11578
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "전남 순천시 오천4길 21 111동108호",
+      "method": "auto",
+      "lat": 34.932903,
+      "lng": 127.493416
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "경북 구미시 상사동로 163-8 송일빌102호",
+      "method": "auto",
+      "lat": 36.09924,
+      "lng": 128.35825
+    },
+    {
+      "rank": 1,
+      "name": "믿음사복권방",
+      "address": "경남 함양군 금성길 1",
+      "method": "manual",
+      "lat": 35.628475,
+      "lng": 127.812
+    }
+  ]
+}

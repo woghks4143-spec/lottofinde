@@ -1,0 +1,125 @@
+{
+  "round": 673,
+  "date": "2015-10-24",
+  "nums": [
+    7,
+    10,
+    17,
+    29,
+    33,
+    44
+  ],
+  "bonus": 5,
+  "firstWinAmount": 1491453300,
+  "firstWinners": 10,
+  "totalSales": 63163578000,
+  "prizes": {
+    "first": {
+      "amount": 1491453300,
+      "winners": 10
+    },
+    "second": {
+      "amount": 71021586,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1333560,
+      "winners": 1864
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 88838
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1450769
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "삼익마트",
+      "address": "서울 강동구 상암로 211 1층",
+      "method": "auto",
+      "lat": 37.546654,
+      "lng": 127.14613
+    },
+    {
+      "rank": 1,
+      "name": "동서복권",
+      "address": "서울 송파구 문정동  53-9번지",
+      "method": "mixed",
+      "lat": 37.488716,
+      "lng": 127.12215
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "부산 중구 동광동5가  16번지",
+      "method": "manual",
+      "lat": 35.107334,
+      "lng": 129.03322
+    },
+    {
+      "rank": 1,
+      "name": "로또일도점",
+      "address": "대구 북구 학정로 421 일도프라자101호",
+      "method": "auto",
+      "lat": 35.942387,
+      "lng": 128.5631
+    },
+    {
+      "rank": 1,
+      "name": "구월슈퍼",
+      "address": "인천 남동구 문화로145번길 13",
+      "method": "manual",
+      "lat": 37.45191,
+      "lng": 126.69915
+    },
+    {
+      "rank": 1,
+      "name": "대박로또판매점",
+      "address": "경기 수원시 장안구 서부로 2129-1 태양공예가구",
+      "method": "manual",
+      "lat": 37.298717,
+      "lng": 126.97125
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 양평군 용문로 358-1 1층",
+      "method": "manual",
+      "lat": 37.484356,
+      "lng": 127.59362
+    },
+    {
+      "rank": 1,
+      "name": "개그스토리마트 동백점",
+      "address": "경기 용인시 기흥구 평촌1로1번길 7 101호 마실",
+      "method": "auto",
+      "lat": 37.283543,
+      "lng": 127.15347
+    },
+    {
+      "rank": 1,
+      "name": "동부슈퍼로또",
+      "address": "충남 보령시 중앙로 178 동부아파트상가107호",
+      "method": "auto",
+      "lat": 36.35449,
+      "lng": 126.5852
+    },
+    {
+      "rank": 1,
+      "name": "복권천지",
+      "address": "전남 여수시 흥국로 79",
+      "method": "auto",
+      "lat": 34.76119,
+      "lng": 127.67327
+    }
+  ]
+}

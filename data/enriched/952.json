@@ -1,0 +1,117 @@
+{
+  "round": 952,
+  "date": "2021-02-27",
+  "nums": [
+    4,
+    12,
+    22,
+    24,
+    33,
+    41
+  ],
+  "bonus": 38,
+  "firstWinAmount": 2713699834,
+  "firstWinners": 9,
+  "totalSales": 102355646000,
+  "prizes": {
+    "first": {
+      "amount": 2713699834,
+      "winners": 9
+    },
+    "second": {
+      "amount": 43769353,
+      "winners": 93
+    },
+    "third": {
+      "amount": 1339438,
+      "winners": 3039
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 141776
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2304925
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(구로제일점)",
+      "address": "서울 구로구  구일로4길 33 103호",
+      "method": "manual",
+      "lat": 37.49201,
+      "lng": 126.87578
+    },
+    {
+      "rank": 1,
+      "name": "부일카서비스",
+      "address": "부산 동구 자성로133번길 35",
+      "method": "auto",
+      "lat": 35.140015,
+      "lng": 129.06306
+    },
+    {
+      "rank": 1,
+      "name": "복권명당(서부점)",
+      "address": "대구 달서구 월배로 452",
+      "method": "manual",
+      "lat": 35.833633,
+      "lng": 128.55486
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "경기 수원시 팔달구 권광로 213",
+      "method": "auto",
+      "lat": 37.26662,
+      "lng": 127.0332
+    },
+    {
+      "rank": 1,
+      "name": "하이로또복권방",
+      "address": "경기 안양시 동안구 흥안대로 450,(평촌동)",
+      "method": "manual",
+      "lat": 37.39401,
+      "lng": 126.97562
+    },
+    {
+      "rank": 1,
+      "name": "율암25시편의점",
+      "address": "경기 화성시 시청로 822-10",
+      "method": "auto",
+      "lat": 37.166355,
+      "lng": 126.88175
+    },
+    {
+      "rank": 1,
+      "name": "혁신대박",
+      "address": "충북 음성군 원중로 1434  103호(에스타워)",
+      "method": "auto",
+      "lat": 36.909523,
+      "lng": 127.54108
+    },
+    {
+      "rank": 1,
+      "name": "도깨비방망이",
+      "address": "전남 완도군 완도읍 장보고대로 220 도깨비방망이",
+      "method": "manual",
+      "lat": 34.31606,
+      "lng": 126.7492
+    },
+    {
+      "rank": 1,
+      "name": "로또복권 하대점",
+      "address": "경남 진주시 도동로 188",
+      "method": "manual",
+      "lat": 35.18703,
+      "lng": 128.12248
+    }
+  ]
+}

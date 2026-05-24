@@ -1,0 +1,125 @@
+{
+  "round": 954,
+  "date": "2021-03-13",
+  "nums": [
+    1,
+    9,
+    26,
+    28,
+    30,
+    41
+  ],
+  "bonus": 32,
+  "firstWinAmount": 2478795900,
+  "firstWinners": 10,
+  "totalSales": 101455314000,
+  "prizes": {
+    "first": {
+      "amount": 2478795900,
+      "winners": 10
+    },
+    "second": {
+      "amount": 64551977,
+      "winners": 64
+    },
+    "third": {
+      "amount": 1554884,
+      "winners": 2657
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 132057
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2214839
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "서울 서대문구 북아현로 34-3",
+      "method": "manual",
+      "lat": 37.560616,
+      "lng": 126.95637
+    },
+    {
+      "rank": 1,
+      "name": "버스판매소",
+      "address": "서울 영등포구 영중로 2 1층(영등포동3가)",
+      "method": "auto",
+      "lat": 37.516743,
+      "lng": 126.906746
+    },
+    {
+      "rank": 1,
+      "name": "가자세계주류(종로점)",
+      "address": "서울 종로구 수표로 112-1",
+      "method": "auto",
+      "lat": 37.571312,
+      "lng": 126.98937
+    },
+    {
+      "rank": 1,
+      "name": "신호 로또판매점",
+      "address": "부산 강서구 신호산단2로  53-1 1층 103호",
+      "method": "auto",
+      "lat": 35.084236,
+      "lng": 128.8777
+    },
+    {
+      "rank": 1,
+      "name": "팬레코드",
+      "address": "부산 남구 수영로 253",
+      "method": "auto",
+      "lat": 35.135506,
+      "lng": 129.09416
+    },
+    {
+      "rank": 1,
+      "name": "럭키복권",
+      "address": "경기 김포시 김포대로 2231 1층 2호",
+      "method": "auto",
+      "lat": 37.71163,
+      "lng": 126.59931
+    },
+    {
+      "rank": 1,
+      "name": "쿠아안경원",
+      "address": "경기 안산시 단원구 신각길 44 휴먼빌2차아파트상가102호",
+      "method": "auto",
+      "lat": 37.337414,
+      "lng": 126.77469
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "경기 의정부시 평화로 223,(호원동)",
+      "method": "auto",
+      "lat": 37.711746,
+      "lng": 127.04727
+    },
+    {
+      "rank": 1,
+      "name": "지에스(GS)25 진동에이스점",
+      "address": "경남 창원시 마산합포구 신서촌1길 49 1층 GS편의점내",
+      "method": "manual",
+      "lat": 35.115906,
+      "lng": 128.48639
+    },
+    {
+      "rank": 1,
+      "name": "영화복권",
+      "address": "경남 창원시 진해구 안청남로 14",
+      "method": "auto",
+      "lat": 35.10107,
+      "lng": 128.8045
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "round": 514,
+  "date": "2012-10-06",
+  "nums": [
+    1,
+    15,
+    20,
+    26,
+    35,
+    42
+  ],
+  "bonus": 9,
+  "firstWinAmount": 4451055500,
+  "firstWinners": 3,
+  "totalSales": 54452404000,
+  "prizes": {
+    "first": {
+      "amount": 4451055500,
+      "winners": 3
+    },
+    "second": {
+      "amount": 61820216,
+      "winners": 36
+    },
+    "third": {
+      "amount": 1634015,
+      "winners": 1362
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 70323
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1181166
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "김포로또",
+      "address": "경기 김포시 돌문로 48 한솔프라자101",
+      "method": "auto",
+      "lat": 37.619404,
+      "lng": 126.71802
+    },
+    {
+      "rank": 1,
+      "name": "운수대통",
+      "address": "경기 시흥시 시흥대로1073번길 5 101호",
+      "method": "auto",
+      "lat": 37.4317,
+      "lng": 126.79205
+    },
+    {
+      "rank": 1,
+      "name": "매표소",
+      "address": "충남 천안시 서북구 부송로 191 창대정밀 1동",
+      "method": "auto",
+      "lat": 36.882374,
+      "lng": 127.11257
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "round": 497,
+  "date": "2012-06-09",
+  "nums": [
+    19,
+    20,
+    23,
+    24,
+    43,
+    44
+  ],
+  "bonus": 13,
+  "firstWinAmount": 2222817813,
+  "firstWinners": 6,
+  "totalSales": 52411585000,
+  "prizes": {
+    "first": {
+      "amount": 2222817813,
+      "winners": 6
+    },
+    "second": {
+      "amount": 74093928,
+      "winners": 30
+    },
+    "third": {
+      "amount": 1936253,
+      "winners": 1148
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 61101
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1073640
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "농심로또",
+      "address": "부산 부산진구 부전동  417-7",
+      "method": "auto",
+      "lat": 35.15874,
+      "lng": 129.05455
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "auto",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "왕대박복권",
+      "address": "대구 달성군 달구벌대로 812",
+      "method": "auto",
+      "lat": 35.860928,
+      "lng": 128.46127
+    },
+    {
+      "rank": 1,
+      "name": "현대화체인점",
+      "address": "경기 수원시 장안구 장안로 99-1 1층",
+      "method": "auto",
+      "lat": 37.293015,
+      "lng": 127.00113
+    },
+    {
+      "rank": 1,
+      "name": "파란만장복권방",
+      "address": "경기 화성시 진안동  878-4번지 101호",
+      "method": "auto",
+      "lat": 37.21241,
+      "lng": 127.038826
+    },
+    {
+      "rank": 1,
+      "name": "속초복권샵",
+      "address": "강원 속초시 수복로 135-1 1층",
+      "method": "auto",
+      "lat": 38.20202,
+      "lng": 128.58363
+    }
+  ]
+}

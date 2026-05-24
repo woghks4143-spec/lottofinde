@@ -1,0 +1,109 @@
+{
+  "round": 797,
+  "date": "2018-03-10",
+  "nums": [
+    5,
+    22,
+    31,
+    32,
+    39,
+    45
+  ],
+  "bonus": 36,
+  "firstWinAmount": 2397028125,
+  "firstWinners": 8,
+  "totalSales": 77339940000,
+  "prizes": {
+    "first": {
+      "amount": 2397028125,
+      "winners": 8
+    },
+    "second": {
+      "amount": 94001103,
+      "winners": 34
+    },
+    "third": {
+      "amount": 1710941,
+      "winners": 1868
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 97900
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1641334
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "바이드",
+      "address": "부산 연제구 연산동 710-1번지 세븐일레븐연산점 내",
+      "method": "auto",
+      "lat": 35.183994,
+      "lng": 129.08246
+    },
+    {
+      "rank": 1,
+      "name": "차밍복권방",
+      "address": "광주 광산구 풍영로 41 동구빌딩1층",
+      "method": "auto",
+      "lat": 35.175617,
+      "lng": 126.811584
+    },
+    {
+      "rank": 1,
+      "name": "영화유통(1등복권방)",
+      "address": "울산 남구 신정로 19 삼성아파트 상가 204-101",
+      "method": "auto",
+      "lat": 35.533833,
+      "lng": 129.32205
+    },
+    {
+      "rank": 1,
+      "name": "일산탑복권",
+      "address": "경기 고양시 일산서구 일산로 517 107호",
+      "method": "auto",
+      "lat": 37.67641,
+      "lng": 126.77
+    },
+    {
+      "rank": 1,
+      "name": "CU(정동진모래시계점)",
+      "address": "강원 강릉시 강동면 정동진리 3-2번지",
+      "method": "auto",
+      "lat": 37.68632,
+      "lng": 129.0366
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "충남 아산시 음봉로 582",
+      "method": "auto",
+      "lat": 36.838066,
+      "lng": 127.073845
+    },
+    {
+      "rank": 1,
+      "name": "무지개",
+      "address": "전북 군산시 수송남로 36-1",
+      "method": "auto",
+      "lat": 35.962677,
+      "lng": 126.71455
+    },
+    {
+      "rank": 1,
+      "name": "로또복권애니타임점",
+      "address": "경북 구미시 인동중앙로11길 24 애니타임편의점 내",
+      "method": "auto",
+      "lat": 36.10904,
+      "lng": 128.42
+    }
+  ]
+}

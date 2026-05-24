@@ -1,0 +1,141 @@
+{
+  "round": 1115,
+  "date": "2024-04-13",
+  "nums": [
+    7,
+    12,
+    23,
+    32,
+    34,
+    36
+  ],
+  "bonus": 8,
+  "firstWinAmount": 2257278282,
+  "firstWinners": 12,
+  "totalSales": 113939215000,
+  "prizes": {
+    "first": {
+      "amount": 2257278282,
+      "winners": 12
+    },
+    "second": {
+      "amount": 75242610,
+      "winners": 60
+    },
+    "third": {
+      "amount": 1454901,
+      "winners": 3103
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 158614
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2584491
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "74호종합가판",
+      "address": "서울 종로구 청계천로 111 가판",
+      "method": "auto",
+      "lat": 37.568413,
+      "lng": 126.98985
+    },
+    {
+      "rank": 1,
+      "name": "도시복권",
+      "address": "대구 달서구 조암로 62 1층 103호",
+      "method": "auto",
+      "lat": 35.823807,
+      "lng": 128.52347
+    },
+    {
+      "rank": 1,
+      "name": "대박천하마트",
+      "address": "인천 부평구 굴포로 48",
+      "method": "manual",
+      "lat": 37.51157,
+      "lng": 126.72634
+    },
+    {
+      "rank": 1,
+      "name": "럭키로또카페",
+      "address": "경기 광주시 회안대로 13 매산제일교회 건물 1층",
+      "method": "auto",
+      "lat": 37.356575,
+      "lng": 127.24592
+    },
+    {
+      "rank": 1,
+      "name": "로또 복권방",
+      "address": "경기 양주시 칠봉산로 195-7 102호(봉양동)",
+      "method": "auto",
+      "lat": 37.851795,
+      "lng": 127.07751
+    },
+    {
+      "rank": 1,
+      "name": "복돼지복권방",
+      "address": "경기 화성시 3.1만세로 43",
+      "method": "manual",
+      "lat": 37.08277,
+      "lng": 126.81872
+    },
+    {
+      "rank": 1,
+      "name": "주택복권방",
+      "address": "강원 원주시 우산초교길 29 1층",
+      "method": "auto",
+      "lat": 37.36735,
+      "lng": 127.937904
+    },
+    {
+      "rank": 1,
+      "name": "북부상회",
+      "address": "전남 광양시 인덕로 1082",
+      "method": "auto",
+      "lat": 34.979324,
+      "lng": 127.58303
+    },
+    {
+      "rank": 1,
+      "name": "에이스로또",
+      "address": "전남 여수시 여서로 154 참마트내",
+      "method": "manual",
+      "lat": 34.74815,
+      "lng": 127.69863
+    },
+    {
+      "rank": 1,
+      "name": "불국사명당복권",
+      "address": "경북 경주시 산업로 3033",
+      "method": "manual",
+      "lat": 35.7765,
+      "lng": 129.29813
+    },
+    {
+      "rank": 1,
+      "name": "돈벼락맞는곳 로또점",
+      "address": "경남 김해시 선천로 117 복권판매점",
+      "method": "auto",
+      "lat": 35.234467,
+      "lng": 128.84518
+    },
+    {
+      "rank": 1,
+      "name": "제주 일번가",
+      "address": "제주 제주시 하귀로23길 1",
+      "method": "manual",
+      "lat": 33.480183,
+      "lng": 126.40282
+    }
+  ]
+}

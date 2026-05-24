@@ -1,0 +1,61 @@
+{
+  "round": 1018,
+  "date": "2022-06-04",
+  "nums": [
+    3,
+    19,
+    21,
+    25,
+    37,
+    45
+  ],
+  "bonus": 35,
+  "firstWinAmount": 12361744688,
+  "firstWinners": 2,
+  "totalSales": 101151805000,
+  "prizes": {
+    "first": {
+      "amount": 12361744688,
+      "winners": 2
+    },
+    "second": {
+      "amount": 66460993,
+      "winners": 62
+    },
+    "third": {
+      "amount": 1530109,
+      "winners": 2693
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 130602
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2216230
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "씨스페이스 범어사역점",
+      "address": "부산 금정구 중앙대로 2097 1층",
+      "method": "auto",
+      "lat": 35.27163,
+      "lng": 129.09242
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "인천 미추홀구 한나루로 400 학익시장 외7필지125호",
+      "method": "auto",
+      "lat": 37.443375,
+      "lng": 126.66496
+    }
+  ]
+}

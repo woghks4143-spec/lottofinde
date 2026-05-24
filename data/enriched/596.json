@@ -1,0 +1,125 @@
+{
+  "round": 596,
+  "date": "2014-05-03",
+  "nums": [
+    3,
+    4,
+    12,
+    14,
+    25,
+    43
+  ],
+  "bonus": 17,
+  "firstWinAmount": 1328267663,
+  "firstWinners": 10,
+  "totalSales": 56561071000,
+  "prizes": {
+    "first": {
+      "amount": 1328267663,
+      "winners": 10
+    },
+    "second": {
+      "amount": 53994621,
+      "winners": 41
+    },
+    "third": {
+      "amount": 1340872,
+      "winners": 1651
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 80007
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1313990
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "부산 남구 석포로 41",
+      "method": "manual",
+      "lat": 35.123302,
+      "lng": 129.08534
+    },
+    {
+      "rank": 1,
+      "name": "씨엔유 삼산한길",
+      "address": "인천 부평구 삼산동  121-48번지 CU삼산한길점",
+      "method": "auto",
+      "lat": 37.518158,
+      "lng": 126.74386
+    },
+    {
+      "rank": 1,
+      "name": "훼미리대박복권방",
+      "address": "인천 서구 가좌동  247-1번지 102호",
+      "method": "auto",
+      "lat": 37.488895,
+      "lng": 126.68247
+    },
+    {
+      "rank": 1,
+      "name": "복권마을",
+      "address": "경기 안양시 동안구 흥안대로133번길 4 제1동 제1층 제104호",
+      "method": "auto",
+      "lat": 37.371513,
+      "lng": 126.95739
+    },
+    {
+      "rank": 1,
+      "name": "CU(안양석수점)",
+      "address": "경기 안양시 만안구 석수동  325-13번지",
+      "method": "auto",
+      "lat": 37.41083,
+      "lng": 126.91185
+    },
+    {
+      "rank": 1,
+      "name": "무지개복권",
+      "address": "경기 오산시 현충로 95",
+      "method": "manual",
+      "lat": 37.160877,
+      "lng": 127.07752
+    },
+    {
+      "rank": 1,
+      "name": "신봉",
+      "address": "충북 청주시 흥덕구 신봉동  168-8번지 신봉삼성아파트3단지 앞도로변",
+      "method": "auto",
+      "lat": 36.655724,
+      "lng": 127.469376
+    },
+    {
+      "rank": 1,
+      "name": "여기있었네복권방",
+      "address": "전북 김제시 남북로 171",
+      "method": "auto",
+      "lat": 35.79936,
+      "lng": 126.88456
+    },
+    {
+      "rank": 1,
+      "name": "C.C.S24시편의점",
+      "address": "전북 전주시 덕진구 백제대로 835",
+      "method": "manual",
+      "lat": 35.849266,
+      "lng": 127.1594
+    },
+    {
+      "rank": 1,
+      "name": "북마산복권전문점",
+      "address": "경남 창원시 마산합포구 북성로 98",
+      "method": "auto",
+      "lat": 35.215973,
+      "lng": 128.5708
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "round": 1004,
+  "date": "2022-02-26",
+  "nums": [
+    7,
+    15,
+    30,
+    37,
+    39,
+    44
+  ],
+  "bonus": 18,
+  "firstWinAmount": 2576251913,
+  "firstWinners": 10,
+  "totalSales": 106112471000,
+  "prizes": {
+    "first": {
+      "amount": 2576251913,
+      "winners": 10
+    },
+    "second": {
+      "amount": 63143430,
+      "winners": 68
+    },
+    "third": {
+      "amount": 1541743,
+      "winners": 2785
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 140047
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2340772
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "금손복권",
+      "address": "서울 마포구 새창로 22 1층(도화동)",
+      "method": "auto",
+      "lat": 37.541885,
+      "lng": 126.9523
+    },
+    {
+      "rank": 1,
+      "name": "교통카드",
+      "address": "서울 서초구 강남대로 517",
+      "method": "auto",
+      "lat": 37.5081,
+      "lng": 127.022255
+    },
+    {
+      "rank": 1,
+      "name": "G마트",
+      "address": "서울 영등포구 디지털로 387",
+      "method": "auto",
+      "lat": 37.491634,
+      "lng": 126.902115
+    },
+    {
+      "rank": 1,
+      "name": "만복래",
+      "address": "인천 부평구 주부토로 20-2 1층",
+      "method": "auto",
+      "lat": 37.496822,
+      "lng": 126.72482
+    },
+    {
+      "rank": 1,
+      "name": "잉크와복권",
+      "address": "경기 광명시 시청로 69,(철산동)",
+      "method": "auto",
+      "lat": 37.48272,
+      "lng": 126.865616
+    },
+    {
+      "rank": 1,
+      "name": "대박로또",
+      "address": "충남 당진시 서해로 6869",
+      "method": "auto",
+      "lat": 36.8866,
+      "lng": 126.74026
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "충남 홍성군 조양로 180",
+      "method": "auto",
+      "lat": 36.60072,
+      "lng": 126.66951
+    },
+    {
+      "rank": 1,
+      "name": "포시즌마트 빛가람희망로또",
+      "address": "전남 나주시 그린로 351 110호 포시즌마트",
+      "method": "auto",
+      "lat": 35.017883,
+      "lng": 126.793915
+    },
+    {
+      "rank": 1,
+      "name": "로또야놀자",
+      "address": "경북 경주시 양정로 211,(동천동)",
+      "method": "auto",
+      "lat": 35.85151,
+      "lng": 129.22398
+    },
+    {
+      "rank": 1,
+      "name": "로또월드",
+      "address": "경북 성주군 성주순환로 113 1층 창민전기",
+      "method": "manual",
+      "lat": 35.926235,
+      "lng": 128.2815
+    }
+  ]
+}

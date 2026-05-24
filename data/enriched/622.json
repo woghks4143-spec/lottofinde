@@ -1,0 +1,117 @@
+{
+  "round": 622,
+  "date": "2014-11-01",
+  "nums": [
+    9,
+    15,
+    16,
+    21,
+    28,
+    34
+  ],
+  "bonus": 24,
+  "firstWinAmount": 1630598292,
+  "firstWinners": 9,
+  "totalSales": 59601329000,
+  "prizes": {
+    "first": {
+      "amount": 1630598292,
+      "winners": 9
+    },
+    "second": {
+      "amount": 71938160,
+      "winners": 34
+    },
+    "third": {
+      "amount": 1501472,
+      "winners": 1629
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 77626
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1270437
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "베네시티앞가판",
+      "address": "서울 강동구 올림픽로 664 대우베네시티cafe7gram앞",
+      "method": "auto",
+      "lat": 37.540554,
+      "lng": 127.12498
+    },
+    {
+      "rank": 1,
+      "name": "대박천하복권방",
+      "address": "서울 은평구 연서로 150 1층 1호",
+      "method": "auto",
+      "lat": 37.60352,
+      "lng": 126.91597
+    },
+    {
+      "rank": 1,
+      "name": "월드사진관",
+      "address": "부산 사하구 윤공단로14번길 53",
+      "method": "auto",
+      "lat": 35.057266,
+      "lng": 128.96973
+    },
+    {
+      "rank": 1,
+      "name": "라이프마트",
+      "address": "인천 중구 연안부두로53번길 36 5호",
+      "method": "auto",
+      "lat": 37.45236,
+      "lng": 126.60402
+    },
+    {
+      "rank": 1,
+      "name": "CU(신흥점)",
+      "address": "인천 중구 신흥동3가  31-49번지",
+      "method": "manual",
+      "lat": 37.48932,
+      "lng": 126.563446
+    },
+    {
+      "rank": 1,
+      "name": "인천상회",
+      "address": "인천 중구 차이나타운로 42",
+      "method": "auto",
+      "lat": 37.47559,
+      "lng": 126.6194
+    },
+    {
+      "rank": 1,
+      "name": "복권천국",
+      "address": "경기 부천시 고강로92번길 41",
+      "method": "auto",
+      "lat": 37.52846,
+      "lng": 126.814476
+    },
+    {
+      "rank": 1,
+      "name": "코코블루",
+      "address": "경기 성남시 분당구 서현로210번길 20 코코프라자지하2호",
+      "method": "auto",
+      "lat": 37.38594,
+      "lng": 127.12409
+    },
+    {
+      "rank": 1,
+      "name": "복터진날",
+      "address": "경기 안성시 진사길 31 우림아파트상가 B-03호",
+      "method": "auto",
+      "lat": 36.991642,
+      "lng": 127.14038
+    }
+  ]
+}

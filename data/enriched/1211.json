@@ -1,0 +1,157 @@
+{
+  "round": 1211,
+  "date": "2026-02-14",
+  "nums": [
+    23,
+    26,
+    27,
+    35,
+    38,
+    40
+  ],
+  "bonus": 10,
+  "firstWinAmount": 2370956036,
+  "firstWinners": 14,
+  "totalSales": 134945802000,
+  "prizes": {
+    "first": {
+      "amount": 2370956036,
+      "winners": 14
+    },
+    "second": {
+      "amount": 64328265,
+      "winners": 86
+    },
+    "third": {
+      "amount": 1660334,
+      "winners": 3332
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 174056
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2902451
+    }
+  },
+  "methodCounts": {
+    "auto": 13,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "그린슈퍼",
+      "address": "서울 동대문구 왕산로 138",
+      "method": "auto",
+      "lat": 37.57798,
+      "lng": 127.038635
+    },
+    {
+      "rank": 1,
+      "name": "쌍둥이네복권방",
+      "address": "서울 중구 청파로 451-1 1층",
+      "method": "auto",
+      "lat": 37.559643,
+      "lng": 126.96806
+    },
+    {
+      "rank": 1,
+      "name": "복드림 복권방",
+      "address": "부산 북구 기찰로 155 (덕천동)",
+      "method": "auto",
+      "lat": 35.214546,
+      "lng": 129.02159
+    },
+    {
+      "rank": 1,
+      "name": "오천억복권방",
+      "address": "광주 서구 상무대로 1087",
+      "method": "auto",
+      "lat": 35.152924,
+      "lng": 126.88073
+    },
+    {
+      "rank": 1,
+      "name": "현대마트점",
+      "address": "광주 서구 상무대로 871 1층(쌍촌동)",
+      "method": "auto",
+      "lat": 35.150517,
+      "lng": 126.85729
+    },
+    {
+      "rank": 1,
+      "name": "8888로또",
+      "address": "대전 서구 월평북로 77",
+      "method": "auto",
+      "lat": 36.362503,
+      "lng": 127.37681
+    },
+    {
+      "rank": 1,
+      "name": "홈런1등로또",
+      "address": "경기 수원시 장안구 송원로 13 1층(송죽동)",
+      "method": "auto",
+      "lat": 37.297134,
+      "lng": 127.0053
+    },
+    {
+      "rank": 1,
+      "name": "씨유용인청덕중앙점",
+      "address": "경기 용인시 기흥구 구성3로28번길 12 101호",
+      "method": "auto",
+      "lat": 37.2946,
+      "lng": 127.15173
+    },
+    {
+      "rank": 1,
+      "name": "화랑로또판매점",
+      "address": "경기 화성시 푸른들판로 660",
+      "method": "auto",
+      "lat": 37.167336,
+      "lng": 126.89571
+    },
+    {
+      "rank": 1,
+      "name": "영유통(로또복권)",
+      "address": "전북 군산시 미룡로 45",
+      "method": "auto",
+      "lat": 35.944042,
+      "lng": 126.68995
+    },
+    {
+      "rank": 1,
+      "name": "영유통(로또복권)",
+      "address": "전북 군산시 미룡로 45",
+      "method": "auto",
+      "lat": 35.944042,
+      "lng": 126.68995
+    },
+    {
+      "rank": 1,
+      "name": "나눔로또편의점",
+      "address": "전남 광양시 공영로 90",
+      "method": "auto",
+      "lat": 34.935658,
+      "lng": 127.699066
+    },
+    {
+      "rank": 1,
+      "name": "대우 행복 복권",
+      "address": "경남 거제시 장승포로 11 1층",
+      "method": "auto",
+      "lat": 34.867863,
+      "lng": 128.72533
+    },
+    {
+      "rank": 1,
+      "name": "나나 복권판매소",
+      "address": "경남 양산시 상북중앙로 319 복권판매점",
+      "method": "manual",
+      "lat": 35.4122,
+      "lng": 129.05919
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "round": 679,
+  "date": "2015-12-05",
+  "nums": [
+    3,
+    5,
+    7,
+    14,
+    26,
+    34
+  ],
+  "bonus": 35,
+  "firstWinAmount": 2863005600,
+  "firstWinners": 5,
+  "totalSales": 62220918000,
+  "prizes": {
+    "first": {
+      "amount": 2863005600,
+      "winners": 5
+    },
+    "second": {
+      "amount": 44182186,
+      "winners": 54
+    },
+    "third": {
+      "amount": 1304450,
+      "winners": 1829
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 91171
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1493041
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "서울 강동구 천호대로170길 47 1층",
+      "method": "manual",
+      "lat": 37.53326,
+      "lng": 127.132614
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "서울 관악구 관천로10길 20 1층",
+      "method": "auto",
+      "lat": 37.485016,
+      "lng": 126.92646
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "인천 서구 중봉대로612번길 10-16 109호(청라동, 마르씨엘)",
+      "method": "auto",
+      "lat": 37.533318,
+      "lng": 126.65199
+    },
+    {
+      "rank": 1,
+      "name": "복권파는집",
+      "address": "경남 창원시 마산회원구 3·15대로 765",
+      "method": "mixed",
+      "lat": 35.240227,
+      "lng": 128.58365
+    },
+    {
+      "rank": 1,
+      "name": "봉암마트",
+      "address": "경남 창원시 마산합포구 합포로 126-1 1층",
+      "method": "manual",
+      "lat": 35.209354,
+      "lng": 128.58305
+    }
+  ]
+}

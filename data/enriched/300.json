@@ -1,0 +1,141 @@
+{
+  "round": 300,
+  "date": "2008-08-30",
+  "nums": [
+    7,
+    9,
+    10,
+    12,
+    26,
+    38
+  ],
+  "bonus": 39,
+  "firstWinAmount": 836092425,
+  "firstWinners": 12,
+  "totalSales": 44465047000,
+  "prizes": {
+    "first": {
+      "amount": 836092425,
+      "winners": 12
+    },
+    "second": {
+      "amount": 49181908,
+      "winners": 34
+    },
+    "third": {
+      "amount": 1180922,
+      "winners": 1416
+    },
+    "fourth": {
+      "amount": 47646,
+      "winners": 70193
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1102135
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또복권판매소",
+      "address": "서울 구로구 디지털로27길 90",
+      "method": "auto",
+      "lat": 37.48446,
+      "lng": 126.88917
+    },
+    {
+      "rank": 1,
+      "name": "부일카서비스",
+      "address": "부산 동구 자성로133번길 35",
+      "method": "auto",
+      "lat": 35.140015,
+      "lng": 129.06306
+    },
+    {
+      "rank": 1,
+      "name": "쿨복권방",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "manual",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "대구 동구 아양로 294 1층",
+      "method": "auto",
+      "lat": 35.88992,
+      "lng": 128.6426
+    },
+    {
+      "rank": 1,
+      "name": "로또복권신매체인점",
+      "address": "대구 수성구 달구벌대로 3233 신매동 효성백년가약상가 401동7호",
+      "method": "manual",
+      "lat": 35.8391,
+      "lng": 128.71039
+    },
+    {
+      "rank": 1,
+      "name": "풍향동복권나라",
+      "address": "광주 북구 필문대로 79",
+      "method": "auto",
+      "lat": 35.162693,
+      "lng": 126.92831
+    },
+    {
+      "rank": 1,
+      "name": "오렌지25",
+      "address": "경기 고양시 일산서구 고봉로 291 양우에이스스타디움109",
+      "method": "auto",
+      "lat": 37.68528,
+      "lng": 126.777145
+    },
+    {
+      "rank": 1,
+      "name": "일록로또복권방",
+      "address": "경기 수원시 장안구 파장로 70 임채순베이커리",
+      "method": "manual",
+      "lat": 37.306053,
+      "lng": 126.99316
+    },
+    {
+      "rank": 1,
+      "name": "일록로또복권방",
+      "address": "경기 수원시 장안구 파장로 70 임채순베이커리",
+      "method": "manual",
+      "lat": 37.306053,
+      "lng": 126.99316
+    },
+    {
+      "rank": 1,
+      "name": "행운방",
+      "address": "경기 용인시 기흥구 보정동 1804-4엔림프라자101호",
+      "method": "auto",
+      "lat": 37.320713,
+      "lng": 127.115105
+    },
+    {
+      "rank": 1,
+      "name": "천하명당 복권방",
+      "address": "경남 거제시 옥포성안로 60",
+      "method": "auto",
+      "lat": 34.891693,
+      "lng": 128.69492
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트함양한주점",
+      "address": "경남 함양군 고운로 80-1",
+      "method": "auto",
+      "lat": 35.520874,
+      "lng": 127.73024
+    }
+  ]
+}

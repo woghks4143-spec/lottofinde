@@ -1,0 +1,117 @@
+{
+  "round": 442,
+  "date": "2011-05-21",
+  "nums": [
+    25,
+    27,
+    29,
+    36,
+    38,
+    40
+  ],
+  "bonus": 41,
+  "firstWinAmount": 1413413042,
+  "firstWinners": 9,
+  "totalSales": 51219943000,
+  "prizes": {
+    "first": {
+      "amount": 1413413042,
+      "winners": 9
+    },
+    "second": {
+      "amount": 78522947,
+      "winners": 27
+    },
+    "third": {
+      "amount": 1668073,
+      "winners": 1271
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 63699
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1092813
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(광복)",
+      "address": "부산 중구 동광동2가  7-2",
+      "method": "auto",
+      "lat": 35.099934,
+      "lng": 129.03513
+    },
+    {
+      "rank": 1,
+      "name": "도깨비복권방",
+      "address": "인천 계양구 봉오대로 677",
+      "method": "manual",
+      "lat": 37.53094,
+      "lng": 126.724
+    },
+    {
+      "rank": 1,
+      "name": "GS25(하이비젼)",
+      "address": "인천 남동구 구월동  1141-7하이비젼빌딩101",
+      "method": "auto",
+      "lat": 37.45207,
+      "lng": 126.70678
+    },
+    {
+      "rank": 1,
+      "name": "복권마을",
+      "address": "인천 부평구 마장로 424",
+      "method": "auto",
+      "lat": 37.515896,
+      "lng": 126.70455
+    },
+    {
+      "rank": 1,
+      "name": "미래복권닷컴",
+      "address": "경기 성남시 분당구 장안로25번길 28 건영아파트상가114호",
+      "method": "auto",
+      "lat": 37.37122,
+      "lng": 127.13987
+    },
+    {
+      "rank": 1,
+      "name": "동아슈퍼마켓",
+      "address": "경기 안산시 단원구 원곡동 748-6",
+      "method": "manual",
+      "lat": 37.331112,
+      "lng": 126.79315
+    },
+    {
+      "rank": 1,
+      "name": "인덕원가판점",
+      "address": "경기 안양시 동안구 관악대로 478",
+      "method": "auto",
+      "lat": 37.402664,
+      "lng": 126.97511
+    },
+    {
+      "rank": 1,
+      "name": "반딧불로또",
+      "address": "전북 무주군 무주읍  읍내리 249-4",
+      "method": "manual",
+      "lat": 36.007782,
+      "lng": 127.663
+    },
+    {
+      "rank": 1,
+      "name": "삼례로또복권",
+      "address": "전북 완주군 삼례읍 동학로 32",
+      "method": "manual",
+      "lat": 35.91063,
+      "lng": 127.074875
+    }
+  ]
+}

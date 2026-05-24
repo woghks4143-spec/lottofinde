@@ -1,0 +1,101 @@
+{
+  "round": 532,
+  "date": "2013-02-09",
+  "nums": [
+    16,
+    17,
+    23,
+    24,
+    29,
+    44
+  ],
+  "bonus": 3,
+  "firstWinAmount": 2216896286,
+  "firstWinners": 7,
+  "totalSales": 61687384000,
+  "prizes": {
+    "first": {
+      "amount": 2216896286,
+      "winners": 7
+    },
+    "second": {
+      "amount": 99476116,
+      "winners": 26
+    },
+    "third": {
+      "amount": 1747554,
+      "winners": 1480
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 74186
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1288672
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권세상",
+      "address": "서울 양천구 신월로 187",
+      "method": "auto",
+      "lat": 37.51969,
+      "lng": 126.84364
+    },
+    {
+      "rank": 1,
+      "name": "감전복권방",
+      "address": "부산 사상구 새벽시장로 59 야따이",
+      "method": "auto",
+      "lat": 35.15534,
+      "lng": 128.9803
+    },
+    {
+      "rank": 1,
+      "name": "로또대박마트",
+      "address": "대전 동구 대전로 248 샘터하우스슈퍼 로또대박마트",
+      "method": "auto",
+      "lat": 36.2904,
+      "lng": 127.46335
+    },
+    {
+      "rank": 1,
+      "name": "화영하이퍼",
+      "address": "경기 성남시 수정구 단대동 176-4번지",
+      "method": "auto",
+      "lat": 37.44698,
+      "lng": 127.156685
+    },
+    {
+      "rank": 1,
+      "name": "버스표가판점",
+      "address": "경기 안양시 동안구 관악대로 291",
+      "method": "auto",
+      "lat": 37.40312,
+      "lng": 126.95526
+    },
+    {
+      "rank": 1,
+      "name": "행복충전소",
+      "address": "경기 평택시 탄현로 332-2",
+      "method": "auto",
+      "lat": 37.0818,
+      "lng": 127.05637
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "경북 경주시 동문로 46",
+      "method": "auto",
+      "lat": 35.848606,
+      "lng": 129.2142
+    }
+  ]
+}

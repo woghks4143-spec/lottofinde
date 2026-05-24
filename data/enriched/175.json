@@ -1,0 +1,43 @@
+{
+  "round": 175,
+  "date": "2006-04-08",
+  "nums": [
+    19,
+    26,
+    28,
+    31,
+    33,
+    36
+  ],
+  "bonus": 17,
+  "firstWinAmount": 2371132620,
+  "firstWinners": 5,
+  "totalSales": 50895147000,
+  "prizes": {
+    "first": {
+      "amount": 2371132620,
+      "winners": 5
+    },
+    "second": {
+      "amount": 41165497,
+      "winners": 48
+    },
+    "third": {
+      "amount": 1466922,
+      "winners": 1347
+    },
+    "fourth": {
+      "amount": 58473,
+      "winners": 67585
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1137627
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

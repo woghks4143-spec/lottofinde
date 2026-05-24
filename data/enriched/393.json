@@ -1,0 +1,109 @@
+{
+  "round": 393,
+  "date": "2010-06-12",
+  "nums": [
+    9,
+    16,
+    28,
+    40,
+    41,
+    43
+  ],
+  "bonus": 21,
+  "firstWinAmount": 1362003975,
+  "firstWinners": 8,
+  "totalSales": 45989116000,
+  "prizes": {
+    "first": {
+      "amount": 1362003975,
+      "winners": 8
+    },
+    "second": {
+      "amount": 51885866,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1694035,
+      "winners": 1072
+    },
+    "fourth": {
+      "amount": 64915,
+      "winners": 55951
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 966901
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "신명",
+      "address": "서울 강서구 방화동로3길 1",
+      "method": "auto",
+      "lat": 37.562435,
+      "lng": 126.80841
+    },
+    {
+      "rank": 1,
+      "name": "복권",
+      "address": "서울 관악구 낙성대역길 91 우선빌딩 1층",
+      "method": "manual",
+      "lat": 37.474445,
+      "lng": 126.96383
+    },
+    {
+      "rank": 1,
+      "name": "도깨비방(로또)",
+      "address": "서울 은평구 수색동  102-20",
+      "method": "auto",
+      "lat": 37.581886,
+      "lng": 126.89631
+    },
+    {
+      "rank": 1,
+      "name": "코리아마트(앞산점)",
+      "address": "대구 남구 대명서로 76 미니스톱 대명서로점",
+      "method": "auto",
+      "lat": 35.831856,
+      "lng": 128.55983
+    },
+    {
+      "rank": 1,
+      "name": "세진전자통신",
+      "address": "대구 서구 서대구로 156",
+      "method": "auto",
+      "lat": 35.8719,
+      "lng": 128.5552
+    },
+    {
+      "rank": 1,
+      "name": "아성슈퍼",
+      "address": "경기 부천시 부흥로 202",
+      "method": "auto",
+      "lat": 37.495853,
+      "lng": 126.764984
+    },
+    {
+      "rank": 1,
+      "name": "까치복권방",
+      "address": "경기 시흥시 중심상가로 326 1층102",
+      "method": "manual",
+      "lat": 37.336678,
+      "lng": 126.74821
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "충남 천안시 동남구 원성천1길 151 2호",
+      "method": "auto",
+      "lat": 36.808594,
+      "lng": 127.1619
+    }
+  ]
+}

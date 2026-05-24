@@ -1,0 +1,117 @@
+{
+  "round": 658,
+  "date": "2015-07-11",
+  "nums": [
+    8,
+    19,
+    25,
+    28,
+    32,
+    36
+  ],
+  "bonus": 37,
+  "firstWinAmount": 1634031375,
+  "firstWinners": 9,
+  "totalSales": 61131243000,
+  "prizes": {
+    "first": {
+      "amount": 1634031375,
+      "winners": 9
+    },
+    "second": {
+      "amount": 64501239,
+      "winners": 38
+    },
+    "third": {
+      "amount": 1460696,
+      "winners": 1678
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 82738
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1364069
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "성모마트",
+      "address": "서울 강남구 역삼동  813번지",
+      "method": "auto",
+      "lat": 37.502804,
+      "lng": 127.02634
+    },
+    {
+      "rank": 1,
+      "name": "로또",
+      "address": "서울 광진구 자양4동  6-39번지",
+      "method": "auto",
+      "lat": 37.540123,
+      "lng": 127.067696
+    },
+    {
+      "rank": 1,
+      "name": "버스토큰판매소",
+      "address": "서울 구로구 시흥대로 583-1 꽃집 옆 가판대",
+      "method": "auto",
+      "lat": 37.48411,
+      "lng": 126.902695
+    },
+    {
+      "rank": 1,
+      "name": "왕대박로또",
+      "address": "대구 달서구 구마로39길 88 1층 9,10,11호",
+      "method": "manual",
+      "lat": 35.84132,
+      "lng": 128.54912
+    },
+    {
+      "rank": 1,
+      "name": "동원슈퍼",
+      "address": "광주 남구 대남대로 277-1,(월산동)",
+      "method": "auto",
+      "lat": 35.137066,
+      "lng": 126.89665
+    },
+    {
+      "rank": 1,
+      "name": "맑은샘",
+      "address": "광주 동구 중앙로 161-1 NC웨이브 정문앞 가판",
+      "method": "auto",
+      "lat": 35.148766,
+      "lng": 126.9131
+    },
+    {
+      "rank": 1,
+      "name": "로또(파발마점)",
+      "address": "경기 시흥시 마유로 415 역전프라자105호",
+      "method": "manual",
+      "lat": 37.351974,
+      "lng": 126.740585
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "전남 여수시 중앙로 62 1층",
+      "method": "auto",
+      "lat": 34.73992,
+      "lng": 127.73436
+    },
+    {
+      "rank": 1,
+      "name": "삼삼마트",
+      "address": "경남 진주시 진주대로 1165-1",
+      "method": "auto",
+      "lat": 35.19521,
+      "lng": 128.07565
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "round": 556,
+  "date": "2013-07-27",
+  "nums": [
+    12,
+    20,
+    23,
+    28,
+    30,
+    44
+  ],
+  "bonus": 43,
+  "firstWinAmount": 2005209161,
+  "firstWinners": 7,
+  "totalSales": 57374791000,
+  "prizes": {
+    "first": {
+      "amount": 2005209161,
+      "winners": 7
+    },
+    "second": {
+      "amount": 57058798,
+      "winners": 41
+    },
+    "third": {
+      "amount": 1657981,
+      "winners": 1411
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 73689
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1257532
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(논현동우)",
+      "address": "서울 강남구 논현동  232-5번지",
+      "method": "auto",
+      "lat": 37.509174,
+      "lng": 127.03647
+    },
+    {
+      "rank": 1,
+      "name": "아이티텔랜드",
+      "address": "서울 노원구 상계동  749 1층",
+      "method": "auto",
+      "lat": 37.6513,
+      "lng": 127.06175
+    },
+    {
+      "rank": 1,
+      "name": "연화네마트",
+      "address": "광주 북구 양산택지로 17",
+      "method": "auto",
+      "lat": 35.208187,
+      "lng": 126.87869
+    },
+    {
+      "rank": 1,
+      "name": "현대25시편의점",
+      "address": "경기 고양시 덕양구 지도로 75 101호",
+      "method": "manual",
+      "lat": 37.62388,
+      "lng": 126.8241
+    },
+    {
+      "rank": 1,
+      "name": "CU(단계공원점)",
+      "address": "강원 원주시 단계동  853번지",
+      "method": "auto",
+      "lat": 37.345882,
+      "lng": 127.93049
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "충남 당진시 당진읍  읍내리   227-3번지",
+      "method": "auto",
+      "lat": 36.89354,
+      "lng": 126.62829
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "전남 여수시 중앙로 62 1층",
+      "method": "auto",
+      "lat": 34.73992,
+      "lng": 127.73436
+    }
+  ]
+}

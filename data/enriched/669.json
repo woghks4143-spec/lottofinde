@@ -1,0 +1,93 @@
+{
+  "round": 669,
+  "date": "2015-09-26",
+  "nums": [
+    7,
+    8,
+    20,
+    29,
+    33,
+    38
+  ],
+  "bonus": 9,
+  "firstWinAmount": 2708173188,
+  "firstWinners": 6,
+  "totalSales": 67952211000,
+  "prizes": {
+    "first": {
+      "amount": 2708173188,
+      "winners": 6
+    },
+    "second": {
+      "amount": 52080254,
+      "winners": 52
+    },
+    "third": {
+      "amount": 1389520,
+      "winners": 1949
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 93078
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1531364
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(민락중앙)",
+      "address": "부산 수영구  민락동 181-82번지1층",
+      "method": "manual",
+      "lat": 35.155888,
+      "lng": 129.125
+    },
+    {
+      "rank": 1,
+      "name": "라이프마트",
+      "address": "인천 중구 연안부두로53번길 36 5호",
+      "method": "auto",
+      "lat": 37.45236,
+      "lng": 126.60402
+    },
+    {
+      "rank": 1,
+      "name": "드림복권방",
+      "address": "경기 수원시 권선구 정조로 515",
+      "method": "auto",
+      "lat": 37.25527,
+      "lng": 127.011055
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "경기 수원시 팔달구 권광로 213",
+      "method": "manual",
+      "lat": 37.26662,
+      "lng": 127.0332
+    },
+    {
+      "rank": 1,
+      "name": "재우텔레콤",
+      "address": "경기 하남시 신평로 74",
+      "method": "auto",
+      "lat": 37.539894,
+      "lng": 127.20607
+    },
+    {
+      "rank": 1,
+      "name": "복권왕국",
+      "address": "충북 제천시 풍양로 108 중앙시장상가 지하145",
+      "method": "auto",
+      "lat": 37.136654,
+      "lng": 128.2113
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "round": 572,
+  "date": "2013-11-16",
+  "nums": [
+    3,
+    13,
+    18,
+    33,
+    37,
+    45
+  ],
+  "bonus": 1,
+  "firstWinAmount": 1668216188,
+  "firstWinners": 8,
+  "totalSales": 56473602000,
+  "prizes": {
+    "first": {
+      "amount": 1668216188,
+      "winners": 8
+    },
+    "second": {
+      "amount": 41967703,
+      "winners": 53
+    },
+    "third": {
+      "amount": 1282750,
+      "winners": 1734
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 81361
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1274889
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "오늘을잡아라",
+      "address": "서울 도봉구  창동 창동  74-5번지신원빌딩1층",
+      "method": "manual",
+      "lat": 37.652683,
+      "lng": 127.04636
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "서울 송파구 백제고분로32길 23 1층복권나라",
+      "method": "auto",
+      "lat": 37.500347,
+      "lng": 127.095024
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "대구 동구 아양로 294 1층",
+      "method": "auto",
+      "lat": 35.88992,
+      "lng": 128.6426
+    },
+    {
+      "rank": 1,
+      "name": "삼정로또복권방",
+      "address": "광주 북구 삼정로 10 두암주공4단지아파트 주공4단지 1층 우리마트",
+      "method": "manual",
+      "lat": 35.162807,
+      "lng": 126.937965
+    },
+    {
+      "rank": 1,
+      "name": "영화모음",
+      "address": "경기 수원시 장안구 금당로39번길 6 뉴타운프라자A-107",
+      "method": "auto",
+      "lat": 37.30316,
+      "lng": 127.0161
+    },
+    {
+      "rank": 1,
+      "name": "Letsgo복권유통",
+      "address": "전북 전주시 덕진구 무삼지로 29",
+      "method": "manual",
+      "lat": 35.82817,
+      "lng": 127.16468
+    },
+    {
+      "rank": 1,
+      "name": "행운의집",
+      "address": "경북 안동시  북문동 북문동 23-7번지",
+      "method": "auto",
+      "lat": 36.566982,
+      "lng": 128.7295
+    },
+    {
+      "rank": 1,
+      "name": "구산복권방",
+      "address": "경남 김해시  구산동 구산동 481-3번지보보스빌딩108호",
+      "method": "auto",
+      "lat": 35.25086,
+      "lng": 128.87222
+    }
+  ]
+}

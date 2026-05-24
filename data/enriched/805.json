@@ -1,0 +1,77 @@
+{
+  "round": 805,
+  "date": "2018-05-05",
+  "nums": [
+    3,
+    12,
+    13,
+    18,
+    31,
+    32
+  ],
+  "bonus": 42,
+  "firstWinAmount": 4266061969,
+  "firstWinners": 4,
+  "totalSales": 73065981000,
+  "prizes": {
+    "first": {
+      "amount": 4266061969,
+      "winners": 4
+    },
+    "second": {
+      "amount": 53661157,
+      "winners": 53
+    },
+    "third": {
+      "amount": 1370623,
+      "winners": 2075
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 105602
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1700112
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대박복권방",
+      "address": "서울 강남구 역삼동 761-2번지",
+      "method": "auto",
+      "lat": 37.496937,
+      "lng": 127.04635
+    },
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "auto",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "종합복권슈퍼",
+      "address": "경기 시흥시 마유로 336 정일빌딩104",
+      "method": "mixed",
+      "lat": 37.34572,
+      "lng": 126.73561
+    },
+    {
+      "rank": 1,
+      "name": "반딧불로또",
+      "address": "경남 거제시 아주동 1696-6 1층 cu편의점 내",
+      "method": "auto",
+      "lat": 34.86537,
+      "lng": 128.68983
+    }
+  ]
+}

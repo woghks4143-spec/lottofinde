@@ -1,0 +1,93 @@
+{
+  "round": 643,
+  "date": "2015-03-28",
+  "nums": [
+    15,
+    24,
+    31,
+    32,
+    33,
+    40
+  ],
+  "bonus": 13,
+  "firstWinAmount": 2535763625,
+  "firstWinners": 6,
+  "totalSales": 63110068000,
+  "prizes": {
+    "first": {
+      "amount": 2535763625,
+      "winners": 6
+    },
+    "second": {
+      "amount": 58971248,
+      "winners": 43
+    },
+    "third": {
+      "amount": 1662796,
+      "winners": 1525
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 84656
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1407225
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가로판매대",
+      "address": "서울 동작구 사당동  134-7번지 가판점",
+      "method": "manual",
+      "lat": 37.488304,
+      "lng": 126.98191
+    },
+    {
+      "rank": 1,
+      "name": "월드복권",
+      "address": "광주 남구 봉선2로 51",
+      "method": "auto",
+      "lat": 35.13285,
+      "lng": 126.918625
+    },
+    {
+      "rank": 1,
+      "name": "명당골복권방",
+      "address": "경기 수원시 권선구 동수원로242번길 15 104호",
+      "method": "auto",
+      "lat": 37.251095,
+      "lng": 127.03546
+    },
+    {
+      "rank": 1,
+      "name": "황금 복권방",
+      "address": "경기 용인시 기흥구 어정로 129 어정프라자 어정프라자 103호",
+      "method": "manual",
+      "lat": 37.275894,
+      "lng": 127.144035
+    },
+    {
+      "rank": 1,
+      "name": "대광복권방",
+      "address": "전남 화순군 칠충로 55 대광로제비앙 대광그린상가동 1층109호",
+      "method": "manual",
+      "lat": 35.05548,
+      "lng": 126.97712
+    },
+    {
+      "rank": 1,
+      "name": "잉크충전",
+      "address": "경남 진주시 하대동  300-19번지",
+      "method": "auto",
+      "lat": 35.196117,
+      "lng": 128.1154
+    }
+  ]
+}

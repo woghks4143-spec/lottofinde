@@ -1,0 +1,61 @@
+{
+  "round": 656,
+  "date": "2015-06-27",
+  "nums": [
+    3,
+    7,
+    14,
+    16,
+    31,
+    40
+  ],
+  "bonus": 39,
+  "firstWinAmount": 7330002750,
+  "firstWinners": 2,
+  "totalSales": 61328118000,
+  "prizes": {
+    "first": {
+      "amount": 7330002750,
+      "winners": 2
+    },
+    "second": {
+      "amount": 50902797,
+      "winners": 48
+    },
+    "third": {
+      "amount": 1398589,
+      "winners": 1747
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 83772
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1385757
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "파워마트 복권나라",
+      "address": "광주 북구 서하로  117 101호 (매곡동)",
+      "method": "auto",
+      "lat": 35.187523,
+      "lng": 126.89344
+    },
+    {
+      "rank": 1,
+      "name": "현대25편의점",
+      "address": "경기 고양시 일산서구 미래로 164",
+      "method": "auto",
+      "lat": 37.69311,
+      "lng": 126.74687
+    }
+  ]
+}

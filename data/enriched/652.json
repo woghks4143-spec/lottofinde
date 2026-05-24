@@ -1,0 +1,85 @@
+{
+  "round": 652,
+  "date": "2015-05-30",
+  "nums": [
+    3,
+    13,
+    15,
+    40,
+    41,
+    44
+  ],
+  "bonus": 20,
+  "firstWinAmount": 3003483525,
+  "firstWinners": 5,
+  "totalSales": 60426977000,
+  "prizes": {
+    "first": {
+      "amount": 3003483525,
+      "winners": 5
+    },
+    "second": {
+      "amount": 69525082,
+      "winners": 36
+    },
+    "third": {
+      "amount": 1664165,
+      "winners": 1504
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 75739
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1280663
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행운로또",
+      "address": "서울 강동구  길동 125-5번지",
+      "method": "manual",
+      "lat": 37.537727,
+      "lng": 127.14621
+    },
+    {
+      "rank": 1,
+      "name": "GS25(성북장위)",
+      "address": "서울 성북구  장위동 66-9번지청마빌딩1층",
+      "method": "manual",
+      "lat": 37.611862,
+      "lng": 127.05452
+    },
+    {
+      "rank": 1,
+      "name": "버스판매소",
+      "address": "서울 영등포구 영중로 2 1층(영등포동3가)",
+      "method": "auto",
+      "lat": 37.516743,
+      "lng": 126.906746
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "부산 동래구 충렬대로428번길 30 보해이브 102호 1호",
+      "method": "manual",
+      "lat": 35.1952,
+      "lng": 129.1042
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "경기 성남시 분당구 금곡동  192번지 두산위브상가109호",
+      "method": "manual",
+      "lat": 37.35534,
+      "lng": 127.10517
+    }
+  ]
+}

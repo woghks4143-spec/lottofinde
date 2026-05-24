@@ -1,0 +1,77 @@
+{
+  "round": 288,
+  "date": "2008-06-07",
+  "nums": [
+    1,
+    12,
+    17,
+    28,
+    35,
+    41
+  ],
+  "bonus": 10,
+  "firstWinAmount": 2357261550,
+  "firstWinners": 4,
+  "totalSales": 39970134000,
+  "prizes": {
+    "first": {
+      "amount": 2357261550,
+      "winners": 4
+    },
+    "second": {
+      "amount": 65479488,
+      "winners": 24
+    },
+    "third": {
+      "amount": 1488171,
+      "winners": 1056
+    },
+    "fourth": {
+      "amount": 62553,
+      "winners": 50246
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 853998
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "성원식품",
+      "address": "서울 서초구 서초3동  1451-2 성원빌딩 102",
+      "method": "auto",
+      "lat": 37.484188,
+      "lng": 127.01368
+    },
+    {
+      "rank": 1,
+      "name": "㈜ Cspace 다대제일점",
+      "address": "부산 사하구 다대동  820-12  4/5",
+      "method": "manual",
+      "lat": 35.056534,
+      "lng": 128.97162
+    },
+    {
+      "rank": 1,
+      "name": "대승복권",
+      "address": "부산 해운대구 좌동  1484-1 대승플라자빌딩 101",
+      "method": "auto",
+      "lat": 35.169605,
+      "lng": 129.17772
+    },
+    {
+      "rank": 1,
+      "name": "로또명당",
+      "address": "충북 진천군 중앙북로 61",
+      "method": "manual",
+      "lat": 36.85867,
+      "lng": 127.44359
+    }
+  ]
+}

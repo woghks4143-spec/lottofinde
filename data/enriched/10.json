@@ -1,0 +1,43 @@
+{
+  "round": 10,
+  "date": "2003-02-08",
+  "nums": [
+    9,
+    25,
+    30,
+    33,
+    41,
+    44
+  ],
+  "bonus": 6,
+  "firstWinAmount": 6430437900,
+  "firstWinners": 13,
+  "totalSales": 260856392000,
+  "prizes": {
+    "first": {
+      "amount": 6430437900,
+      "winners": 13
+    },
+    "second": {
+      "amount": 40813400,
+      "winners": 236
+    },
+    "third": {
+      "amount": 856400,
+      "winners": 11247
+    },
+    "fourth": {
+      "amount": 27300,
+      "winners": 703234
+    },
+    "fifth": {
+      "amount": 10000,
+      "winners": 3410846
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "round": 480,
+  "date": "2012-02-11",
+  "nums": [
+    3,
+    5,
+    10,
+    17,
+    30,
+    31
+  ],
+  "bonus": 16,
+  "firstWinAmount": 2996742282,
+  "firstWinners": 4,
+  "totalSales": 55415681000,
+  "prizes": {
+    "first": {
+      "amount": 2996742282,
+      "winners": 4
+    },
+    "second": {
+      "amount": 39956564,
+      "winners": 50
+    },
+    "third": {
+      "amount": 1007478,
+      "winners": 1983
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 96288
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1382163
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(성북장위)",
+      "address": "서울 성북구 장위동  66-9청아빌딩1층",
+      "method": "auto",
+      "lat": 37.611862,
+      "lng": 127.05452
+    },
+    {
+      "rank": 1,
+      "name": "포시즌마전점",
+      "address": "인천 서구 완정로10번길 6-6 검단2지구37블록1롯트",
+      "method": "auto",
+      "lat": 37.59451,
+      "lng": 126.67347
+    },
+    {
+      "rank": 1,
+      "name": "올인(allin)",
+      "address": "경기 화성시 3.1만세로 1147",
+      "method": "auto",
+      "lat": 37.135284,
+      "lng": 126.910614
+    },
+    {
+      "rank": 1,
+      "name": "돈벼락맞는곳",
+      "address": "경남 김해시 한림면  병동리    980-7",
+      "method": "manual",
+      "lat": 35.293262,
+      "lng": 128.78296
+    }
+  ]
+}

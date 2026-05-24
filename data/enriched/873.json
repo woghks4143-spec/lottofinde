@@ -1,0 +1,125 @@
+{
+  "round": 873,
+  "date": "2019-08-24",
+  "nums": [
+    3,
+    5,
+    12,
+    13,
+    33,
+    39
+  ],
+  "bonus": 38,
+  "firstWinAmount": 1874553225,
+  "firstWinners": 10,
+  "totalSales": 82375586000,
+  "prizes": {
+    "first": {
+      "amount": 1874553225,
+      "winners": 10
+    },
+    "second": {
+      "amount": 45944932,
+      "winners": 68
+    },
+    "third": {
+      "amount": 1315476,
+      "winners": 2375
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 123684
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2001910
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "CU(수유대로점)",
+      "address": "서울 강북구 노해로 121 두울빌딩",
+      "method": "auto",
+      "lat": 37.64605,
+      "lng": 127.0244
+    },
+    {
+      "rank": 1,
+      "name": "CU(포레스트힐점)",
+      "address": "서울 종로구 효제동(종로5.6가동) 65-2 1층 101호 씨유포레스트힐점",
+      "method": "auto",
+      "lat": 37.574207,
+      "lng": 127.00181
+    },
+    {
+      "rank": 1,
+      "name": "세진전자통신",
+      "address": "대구 서구 서대구로 156",
+      "method": "manual",
+      "lat": 35.8719,
+      "lng": 128.5552
+    },
+    {
+      "rank": 1,
+      "name": "지산로또방",
+      "address": "광주 동구 지호로 25-2",
+      "method": "auto",
+      "lat": 35.14832,
+      "lng": 126.93205
+    },
+    {
+      "rank": 1,
+      "name": "나눔로또",
+      "address": "세종  장군면 도계리 154-1 CU편의점",
+      "method": "manual",
+      "lat": 36.497536,
+      "lng": 127.20573
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권",
+      "address": "강원 횡성군 문정로 52",
+      "method": "manual",
+      "lat": 37.488537,
+      "lng": 127.98868
+    },
+    {
+      "rank": 1,
+      "name": "쿡쿡로또명당",
+      "address": "충북 옥천군 금장로 65 상점 세븐일레븐편의점",
+      "method": "auto",
+      "lat": 36.30031,
+      "lng": 127.57118
+    },
+    {
+      "rank": 1,
+      "name": "CU(거제해금강)",
+      "address": "경남 거제시 고현동 997-5번지",
+      "method": "manual",
+      "lat": 34.894135,
+      "lng": 128.63022
+    },
+    {
+      "rank": 1,
+      "name": "e마트24(진양호점)",
+      "address": "경남 진주시 남강로 58 1층",
+      "method": "auto",
+      "lat": 35.162823,
+      "lng": 128.03957
+    },
+    {
+      "rank": 1,
+      "name": "완월로또",
+      "address": "경남 창원시 마산합포구 고운로 175 한미초록빌라 세븐일레븐 내",
+      "method": "manual",
+      "lat": 35.197372,
+      "lng": 128.56186
+    }
+  ]
+}

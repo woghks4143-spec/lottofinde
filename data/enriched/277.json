@@ -1,0 +1,69 @@
+{
+  "round": 277,
+  "date": "2008-03-22",
+  "nums": [
+    10,
+    12,
+    13,
+    15,
+    25,
+    29
+  ],
+  "bonus": 20,
+  "firstWinAmount": 3272627800,
+  "firstWinners": 3,
+  "totalSales": 41868708000,
+  "prizes": {
+    "first": {
+      "amount": 3272627800,
+      "winners": 3
+    },
+    "second": {
+      "amount": 52784320,
+      "winners": 31
+    },
+    "third": {
+      "amount": 1482169,
+      "winners": 1104
+    },
+    "fourth": {
+      "amount": 59211,
+      "winners": 55271
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 914243
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가로공원충전소",
+      "address": "서울 양천구 신월1동  146-1",
+      "method": "auto",
+      "lat": 37.53567,
+      "lng": 126.828926
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "충남 예산군 예산로 241",
+      "method": "auto",
+      "lat": 36.680298,
+      "lng": 126.85137
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "경남 진주시 신안동  705-4 주공3차아파트상가 101호",
+      "method": "auto",
+      "lat": 35.177094,
+      "lng": 128.06514
+    }
+  ]
+}

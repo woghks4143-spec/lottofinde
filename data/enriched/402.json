@@ -1,0 +1,77 @@
+{
+  "round": 402,
+  "date": "2010-08-14",
+  "nums": [
+    5,
+    9,
+    15,
+    19,
+    22,
+    36
+  ],
+  "bonus": 32,
+  "firstWinAmount": 2662206188,
+  "firstWinners": 4,
+  "totalSales": 45002946000,
+  "prizes": {
+    "first": {
+      "amount": 2662206188,
+      "winners": 4
+    },
+    "second": {
+      "amount": 43287906,
+      "winners": 41
+    },
+    "third": {
+      "amount": 1396385,
+      "winners": 1271
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 62656
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1034048
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대박복권방",
+      "address": "경기 성남시 중원구 금상로57번길 5",
+      "method": "auto",
+      "lat": 37.440575,
+      "lng": 127.162125
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "경기 수원시 팔달구 매산로 2",
+      "method": "manual",
+      "lat": 37.26661,
+      "lng": 127.00185
+    },
+    {
+      "rank": 1,
+      "name": "옥산행운로또복권방",
+      "address": "충북 청원군 옥산면 오산리 196-7",
+      "method": "auto",
+      "lat": 36.66392,
+      "lng": 127.374756
+    },
+    {
+      "rank": 1,
+      "name": "강남25시편의점",
+      "address": "경남 거제시 옥포동  550-17",
+      "method": "auto",
+      "lat": 34.889126,
+      "lng": 128.69196
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "round": 811,
+  "date": "2018-06-16",
+  "nums": [
+    8,
+    11,
+    19,
+    21,
+    36,
+    45
+  ],
+  "bonus": 25,
+  "firstWinAmount": 2524148197,
+  "firstWinners": 7,
+  "totalSales": 74570813000,
+  "prizes": {
+    "first": {
+      "amount": 2524148197,
+      "winners": 7
+    },
+    "second": {
+      "amount": 60098767,
+      "winners": 49
+    },
+    "third": {
+      "amount": 1369057,
+      "winners": 2151
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 104155
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1703788
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "영훈슈퍼마켓",
+      "address": "서울 도봉구 덕릉로 222,(창동)",
+      "method": "auto",
+      "lat": 37.63781,
+      "lng": 127.03763
+    },
+    {
+      "rank": 1,
+      "name": "토큰판매소",
+      "address": "서울 송파구 바람드리길 62",
+      "method": "auto",
+      "lat": 37.536663,
+      "lng": 127.12238
+    },
+    {
+      "rank": 1,
+      "name": "GS25(성애병원점)",
+      "address": "서울 영등포구 신길동(신길제1동) 467-3",
+      "method": "manual",
+      "lat": 37.512157,
+      "lng": 126.9217
+    },
+    {
+      "rank": 1,
+      "name": "위드미울산삼산본동점",
+      "address": "울산 남구 돋질로 445",
+      "method": "auto",
+      "lat": 35.54275,
+      "lng": 129.35355
+    },
+    {
+      "rank": 1,
+      "name": "삼성복권방",
+      "address": "경기 동두천시 어수로 100-1",
+      "method": "manual",
+      "lat": 37.902187,
+      "lng": 127.05362
+    },
+    {
+      "rank": 1,
+      "name": "천하명당",
+      "address": "전남 여수시 망마로 107",
+      "method": "mixed",
+      "lat": 34.757214,
+      "lng": 127.67405
+    },
+    {
+      "rank": 1,
+      "name": "동원복권",
+      "address": "경남 양산시 북정중앙로 30",
+      "method": "auto",
+      "lat": 35.36137,
+      "lng": 129.04784
+    }
+  ]
+}

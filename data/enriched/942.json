@@ -1,0 +1,93 @@
+{
+  "round": 942,
+  "date": "2020-12-19",
+  "nums": [
+    10,
+    12,
+    18,
+    35,
+    42,
+    43
+  ],
+  "bonus": 39,
+  "firstWinAmount": 3761680313,
+  "firstWinners": 6,
+  "totalSales": 92731965000,
+  "prizes": {
+    "first": {
+      "amount": 3761680313,
+      "winners": 6
+    },
+    "second": {
+      "amount": 72340007,
+      "winners": 52
+    },
+    "third": {
+      "amount": 1521101,
+      "winners": 2473
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 120907
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2045438
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "미니24시",
+      "address": "인천 미추홀구 경인로 437",
+      "method": "auto",
+      "lat": 37.45814,
+      "lng": 126.688675
+    },
+    {
+      "rank": 1,
+      "name": "진우행운복권방",
+      "address": "경기 광주시 도척로 327 1층",
+      "method": "manual",
+      "lat": 37.323624,
+      "lng": 127.336555
+    },
+    {
+      "rank": 1,
+      "name": "행복한삼남매",
+      "address": "경기 양평군 강남로 689 1층",
+      "method": "auto",
+      "lat": 37.49723,
+      "lng": 127.45693
+    },
+    {
+      "rank": 1,
+      "name": "서울로또방",
+      "address": "충북 옥천군 삼금로 8",
+      "method": "manual",
+      "lat": 36.29949,
+      "lng": 127.56668
+    },
+    {
+      "rank": 1,
+      "name": "팡팡복권방",
+      "address": "전북 익산시 인북로 99",
+      "method": "auto",
+      "lat": 35.93792,
+      "lng": 126.95264
+    },
+    {
+      "rank": 1,
+      "name": "로또명당 중리점",
+      "address": "경남 창원시 마산회원구  옥정1길 21 수미산장 1층",
+      "method": "auto",
+      "lat": 35.249344,
+      "lng": 128.5225
+    }
+  ]
+}

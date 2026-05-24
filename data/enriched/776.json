@@ -1,0 +1,101 @@
+{
+  "round": 776,
+  "date": "2017-10-14",
+  "nums": [
+    8,
+    9,
+    18,
+    21,
+    28,
+    40
+  ],
+  "bonus": 20,
+  "firstWinAmount": 2557579393,
+  "firstWinners": 7,
+  "totalSales": 74826082000,
+  "prizes": {
+    "first": {
+      "amount": 2557579393,
+      "winners": 7
+    },
+    "second": {
+      "amount": 59676853,
+      "winners": 50
+    },
+    "third": {
+      "amount": 1491176,
+      "winners": 2001
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 102081
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1687650
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "굿타임",
+      "address": "서울 서대문구 연희로 36,(연희동)",
+      "method": "auto",
+      "lat": 37.561817,
+      "lng": 126.927475
+    },
+    {
+      "rank": 1,
+      "name": "럭키슈퍼",
+      "address": "서울 용산구 후암로 52",
+      "method": "manual",
+      "lat": 37.550594,
+      "lng": 126.97736
+    },
+    {
+      "rank": 1,
+      "name": "복권왕국",
+      "address": "대전 서구 정림동 594번지",
+      "method": "manual",
+      "lat": 36.306316,
+      "lng": 127.36585
+    },
+    {
+      "rank": 1,
+      "name": "선봉로또",
+      "address": "울산 남구 삼산동 1468-6번지 CU판매점 내",
+      "method": "mixed",
+      "lat": 35.543747,
+      "lng": 129.33267
+    },
+    {
+      "rank": 1,
+      "name": "씨지랜드",
+      "address": "경기 부천시 송내대로73번길 11 금강리빙스텔111",
+      "method": "auto",
+      "lat": 37.4901,
+      "lng": 126.75339
+    },
+    {
+      "rank": 1,
+      "name": "동탄복권방",
+      "address": "경기 화성시 동탄순환대로 702 성산타워 B동 101호",
+      "method": "auto",
+      "lat": 37.20735,
+      "lng": 127.11097
+    },
+    {
+      "rank": 1,
+      "name": "동덕로또방",
+      "address": "충남 아산시 시장남길 26",
+      "method": "auto",
+      "lat": 36.782608,
+      "lng": 127.00331
+    }
+  ]
+}

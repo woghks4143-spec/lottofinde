@@ -1,0 +1,85 @@
+{
+  "round": 408,
+  "date": "2010-09-25",
+  "nums": [
+    9,
+    20,
+    21,
+    22,
+    30,
+    37
+  ],
+  "bonus": 16,
+  "firstWinAmount": 2235375825,
+  "firstWinners": 5,
+  "totalSales": 46406711000,
+  "prizes": {
+    "first": {
+      "amount": 2235375825,
+      "winners": 5
+    },
+    "second": {
+      "amount": 56448885,
+      "winners": 33
+    },
+    "third": {
+      "amount": 1497439,
+      "winners": 1244
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 62101
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1039160
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "부자랑복권방",
+      "address": "서울 중랑구 사가정로 359,(면목동)",
+      "method": "auto",
+      "lat": 37.581257,
+      "lng": 127.0845
+    },
+    {
+      "rank": 1,
+      "name": "우정식품",
+      "address": "부산 동래구 온천장로 39",
+      "method": "manual",
+      "lat": 35.21585,
+      "lng": 129.07948
+    },
+    {
+      "rank": 1,
+      "name": "알리바이",
+      "address": "광주 광산구 수등로 253 1층 알리바이",
+      "method": "auto",
+      "lat": 35.185387,
+      "lng": 126.83668
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "광주 북구 서하로  117 101호 (매곡동)",
+      "method": "auto",
+      "lat": 35.187523,
+      "lng": 126.89344
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "경기 수원시 팔달구 매산로 2",
+      "method": "manual",
+      "lat": 37.26661,
+      "lng": 127.00185
+    }
+  ]
+}

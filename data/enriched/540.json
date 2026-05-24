@@ -1,0 +1,101 @@
+{
+  "round": 540,
+  "date": "2013-04-06",
+  "nums": [
+    3,
+    12,
+    13,
+    15,
+    34,
+    36
+  ],
+  "bonus": 14,
+  "firstWinAmount": 1989365250,
+  "firstWinners": 7,
+  "totalSales": 56739658000,
+  "prizes": {
+    "first": {
+      "amount": 1989365250,
+      "winners": 7
+    },
+    "second": {
+      "amount": 89266390,
+      "winners": 26
+    },
+    "third": {
+      "amount": 1647216,
+      "winners": 1409
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 72629
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1234194
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "옥수정로또판매",
+      "address": "서울 성동구 성수동2가  317-9",
+      "method": "auto",
+      "lat": 37.542248,
+      "lng": 127.056526
+    },
+    {
+      "rank": 1,
+      "name": "가판점(신문)",
+      "address": "서울 영등포구 양평로 48",
+      "method": "auto",
+      "lat": 37.534508,
+      "lng": 126.90126
+    },
+    {
+      "rank": 1,
+      "name": "ALWAYSMART",
+      "address": "경기 고양시 일산동구 백마로 501-2",
+      "method": "auto",
+      "lat": 37.663174,
+      "lng": 126.803696
+    },
+    {
+      "rank": 1,
+      "name": "복권왕국",
+      "address": "경기 부천시 조마루로105번길 34-7",
+      "method": "auto",
+      "lat": 37.501698,
+      "lng": 126.75627
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 포천시 솔모루로 86-1",
+      "method": "auto",
+      "lat": 37.8288,
+      "lng": 127.14748
+    },
+    {
+      "rank": 1,
+      "name": "대박행운복권방",
+      "address": "충남 아산시 온천대로 104 서해안 휴게소내 편의점",
+      "method": "manual",
+      "lat": 36.746223,
+      "lng": 126.86672
+    },
+    {
+      "rank": 1,
+      "name": "월드복권방",
+      "address": "경남 통영시 북신시장1길 12 월드마트 내",
+      "method": "auto",
+      "lat": 34.856834,
+      "lng": 128.42749
+    }
+  ]
+}

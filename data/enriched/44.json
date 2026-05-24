@@ -1,0 +1,43 @@
+{
+  "round": 44,
+  "date": "2003-10-04",
+  "nums": [
+    3,
+    11,
+    21,
+    30,
+    38,
+    45
+  ],
+  "bonus": 39,
+  "firstWinAmount": 3362155800,
+  "firstWinners": 5,
+  "totalSales": 69956950000,
+  "prizes": {
+    "first": {
+      "amount": 3362155800,
+      "winners": 5
+    },
+    "second": {
+      "amount": 121817200,
+      "winners": 23
+    },
+    "third": {
+      "amount": 3569100,
+      "winners": 785
+    },
+    "fourth": {
+      "amount": 139700,
+      "winners": 40092
+    },
+    "fifth": {
+      "amount": 10000,
+      "winners": 696051
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

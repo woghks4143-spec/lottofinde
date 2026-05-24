@@ -1,0 +1,117 @@
+{
+  "round": 539,
+  "date": "2013-03-30",
+  "nums": [
+    3,
+    19,
+    22,
+    31,
+    42,
+    43
+  ],
+  "bonus": 26,
+  "firstWinAmount": 1621036667,
+  "firstWinners": 9,
+  "totalSales": 59168870000,
+  "prizes": {
+    "first": {
+      "amount": 1621036667,
+      "winners": 9
+    },
+    "second": {
+      "amount": 57894167,
+      "winners": 42
+    },
+    "third": {
+      "amount": 1600761,
+      "winners": 1519
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 75592
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1270479
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행운찬스복권방",
+      "address": "서울 강북구 덕릉로 140",
+      "method": "manual",
+      "lat": 37.63495,
+      "lng": 127.029434
+    },
+    {
+      "rank": 1,
+      "name": "굿타임",
+      "address": "서울 서대문구 연희로 36,(연희동)",
+      "method": "auto",
+      "lat": 37.561817,
+      "lng": 126.927475
+    },
+    {
+      "rank": 1,
+      "name": "월드24시",
+      "address": "서울 은평구 통일로 855-15",
+      "method": "manual",
+      "lat": 37.61925,
+      "lng": 126.919785
+    },
+    {
+      "rank": 1,
+      "name": "복권명당율하점",
+      "address": "대구 동구 율하동로23길 37",
+      "method": "manual",
+      "lat": 35.87035,
+      "lng": 128.69803
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "경기 군포시 산본로323번길 16-6 신명타워 신명빌딩1층1005호",
+      "method": "auto",
+      "lat": 37.359245,
+      "lng": 126.93236
+    },
+    {
+      "rank": 1,
+      "name": "역곡중앙슈퍼",
+      "address": "경기 부천시 원미구 역곡동 79-5",
+      "method": "auto",
+      "lat": 37.48525,
+      "lng": 126.81027
+    },
+    {
+      "rank": 1,
+      "name": "온누리로또",
+      "address": "경기 수원시 권선구 세류동 1075-2 1층",
+      "method": "auto",
+      "lat": 37.25713,
+      "lng": 127.017456
+    },
+    {
+      "rank": 1,
+      "name": "백만장자",
+      "address": "경기 용인시 기흥구 흥덕2로105번길 6 흥덕U프라자 흥덕유프라자111호",
+      "method": "manual",
+      "lat": 37.27728,
+      "lng": 127.07333
+    },
+    {
+      "rank": 1,
+      "name": "이삭",
+      "address": "전남 목포시 남악2로 54 남악프라자A동103호",
+      "method": "auto",
+      "lat": 34.809925,
+      "lng": 126.45526
+    }
+  ]
+}

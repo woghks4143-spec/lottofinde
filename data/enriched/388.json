@@ -1,0 +1,77 @@
+{
+  "round": 388,
+  "date": "2010-05-08",
+  "nums": [
+    1,
+    8,
+    9,
+    17,
+    29,
+    32
+  ],
+  "bonus": 45,
+  "firstWinAmount": 2545543875,
+  "firstWinners": 4,
+  "totalSales": 44308705000,
+  "prizes": {
+    "first": {
+      "amount": 2545543875,
+      "winners": 4
+    },
+    "second": {
+      "amount": 56567642,
+      "winners": 30
+    },
+    "third": {
+      "amount": 1337297,
+      "winners": 1269
+    },
+    "fourth": {
+      "amount": 55211,
+      "winners": 61475
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1036812
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "대전 중구 충무로 124,(대사동)",
+      "method": "auto",
+      "lat": 36.318714,
+      "lng": 127.43058
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "울산 중구 서동  53-1 1층 우리들편의점내",
+      "method": "auto",
+      "lat": 35.58103,
+      "lng": 129.34705
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트(동해발한점)",
+      "address": "강원 동해시 발한동  39-14",
+      "method": "auto",
+      "lat": 37.54819,
+      "lng": 129.10857
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "강원 태백시 황지로 32",
+      "method": "manual",
+      "lat": 37.161564,
+      "lng": 128.99089
+    }
+  ]
+}

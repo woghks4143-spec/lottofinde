@@ -1,0 +1,93 @@
+{
+  "round": 314,
+  "date": "2008-12-06",
+  "nums": [
+    15,
+    17,
+    19,
+    34,
+    38,
+    41
+  ],
+  "bonus": 2,
+  "firstWinAmount": 1660512200,
+  "firstWinners": 6,
+  "totalSales": 42328094000,
+  "prizes": {
+    "first": {
+      "amount": 1660512200,
+      "winners": 6
+    },
+    "second": {
+      "amount": 69188009,
+      "winners": 24
+    },
+    "third": {
+      "amount": 1556244,
+      "winners": 1067
+    },
+    "fourth": {
+      "amount": 60502,
+      "winners": 54892
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 911785
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "팡팡복권방",
+      "address": "서울 은평구 응암동  61-531층",
+      "method": "manual",
+      "lat": 37.590263,
+      "lng": 126.909645
+    },
+    {
+      "rank": 1,
+      "name": "가로판매점117호",
+      "address": "서울 중구 장충단로 257",
+      "method": "auto",
+      "lat": 37.567608,
+      "lng": 127.00848
+    },
+    {
+      "rank": 1,
+      "name": "로또주안점",
+      "address": "인천 남구 숭의동  408-7",
+      "method": "auto",
+      "lat": 37.462997,
+      "lng": 126.64097
+    },
+    {
+      "rank": 1,
+      "name": "탑포인트부평점",
+      "address": "인천 부평구 부평동  557-11층",
+      "method": "auto",
+      "lat": 37.492844,
+      "lng": 126.72959
+    },
+    {
+      "rank": 1,
+      "name": "천하제일복권명당",
+      "address": "대전 동구 새울로 93",
+      "method": "manual",
+      "lat": 36.326717,
+      "lng": 127.4615
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트(원주터미널)",
+      "address": "강원 원주시 우산동  90-3",
+      "method": "auto",
+      "lat": 37.367092,
+      "lng": 127.93948
+    }
+  ]
+}

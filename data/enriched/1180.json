@@ -1,0 +1,133 @@
+{
+  "round": 1180,
+  "date": "2025-07-12",
+  "nums": [
+    6,
+    12,
+    18,
+    37,
+    40,
+    41
+  ],
+  "bonus": 3,
+  "firstWinAmount": 2535566421,
+  "firstWinners": 11,
+  "totalSales": 115377965000,
+  "prizes": {
+    "first": {
+      "amount": 2535566421,
+      "winners": 11
+    },
+    "second": {
+      "amount": 64563034,
+      "winners": 72
+    },
+    "third": {
+      "amount": 1544365,
+      "winners": 3010
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 153274
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2567395
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "auto",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "성광복권명당",
+      "address": "부산 연제구 과정로 335",
+      "method": "auto",
+      "lat": 35.19,
+      "lng": 129.0911
+    },
+    {
+      "rank": 1,
+      "name": "대박",
+      "address": "경기 구리시 안골로103번길 46",
+      "method": "auto",
+      "lat": 37.599422,
+      "lng": 127.14154
+    },
+    {
+      "rank": 1,
+      "name": "행운드림로또&토토",
+      "address": "경기 김포시 초당로16번길 77 1층 106호",
+      "method": "manual",
+      "lat": 37.63979,
+      "lng": 126.67515
+    },
+    {
+      "rank": 1,
+      "name": "내츄럴하우스복권판매점",
+      "address": "경기 평택시 중앙로 1 1층 상가",
+      "method": "auto",
+      "lat": 36.99572,
+      "lng": 127.08358
+    },
+    {
+      "rank": 1,
+      "name": "백억만로또",
+      "address": "강원 춘천시 퇴계로 15 7B-3L",
+      "method": "auto",
+      "lat": 37.866093,
+      "lng": 127.72451
+    },
+    {
+      "rank": 1,
+      "name": "오창중앙복권",
+      "address": "충북 청주시 청원구 중심상업로 47 103호",
+      "method": "auto",
+      "lat": 36.715076,
+      "lng": 127.42894
+    },
+    {
+      "rank": 1,
+      "name": "로또명당인주점",
+      "address": "충남 아산시 서해로 519-2",
+      "method": "auto",
+      "lat": 36.87784,
+      "lng": 126.89828
+    },
+    {
+      "rank": 1,
+      "name": "공단로또명당",
+      "address": "경북 포항시 남구 철강로 200 1층(장흥동)",
+      "method": "auto",
+      "lat": 35.98611,
+      "lng": 129.3638
+    },
+    {
+      "rank": 1,
+      "name": "해보라마트",
+      "address": "경남 김해시 율하7로 22 101호",
+      "method": "auto",
+      "lat": 35.17334,
+      "lng": 128.82556
+    },
+    {
+      "rank": 1,
+      "name": "공단로또점",
+      "address": "경남 함안군 삼칠로 831 슈퍼 옆 1층",
+      "method": "auto",
+      "lat": 35.360252,
+      "lng": 128.48526
+    }
+  ]
+}

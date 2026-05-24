@@ -1,0 +1,165 @@
+{
+  "round": 827,
+  "date": "2018-10-06",
+  "nums": [
+    5,
+    11,
+    12,
+    29,
+    33,
+    44
+  ],
+  "bonus": 14,
+  "firstWinAmount": 1206500375,
+  "firstWinners": 15,
+  "totalSales": 76490125000,
+  "prizes": {
+    "first": {
+      "amount": 1206500375,
+      "winners": 15
+    },
+    "second": {
+      "amount": 65570673,
+      "winners": 46
+    },
+    "third": {
+      "amount": 1427474,
+      "winners": 2113
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 106164
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1761371
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 7,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "갈렙분식한식",
+      "address": "서울 중랑구 용마산로115길 92",
+      "method": "manual",
+      "lat": 37.59823,
+      "lng": 127.09528
+    },
+    {
+      "rank": 1,
+      "name": "갈렙분식한식",
+      "address": "서울 중랑구 용마산로115길 92",
+      "method": "manual",
+      "lat": 37.59823,
+      "lng": 127.09528
+    },
+    {
+      "rank": 1,
+      "name": "갈렙분식한식",
+      "address": "서울 중랑구 용마산로115길 92",
+      "method": "manual",
+      "lat": 37.59823,
+      "lng": 127.09528
+    },
+    {
+      "rank": 1,
+      "name": "갈렙분식한식",
+      "address": "서울 중랑구 용마산로115길 92",
+      "method": "manual",
+      "lat": 37.59823,
+      "lng": 127.09528
+    },
+    {
+      "rank": 1,
+      "name": "갈렙분식한식",
+      "address": "서울 중랑구 용마산로115길 92",
+      "method": "manual",
+      "lat": 37.59823,
+      "lng": 127.09528
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "부산 동구 범일동 830-200번지 한양아파트3동상가1층 세븐일레븐",
+      "method": "auto",
+      "lat": 35.14066,
+      "lng": 129.06378
+    },
+    {
+      "rank": 1,
+      "name": "복권명당(서부점)",
+      "address": "대구 달서구 월배로 452",
+      "method": "auto",
+      "lat": 35.833633,
+      "lng": 128.55486
+    },
+    {
+      "rank": 1,
+      "name": "로또세븐죽전점",
+      "address": "대구 달서구 성서공단남로 37 1층 117호",
+      "method": "manual",
+      "lat": 35.85018,
+      "lng": 128.53491
+    },
+    {
+      "rank": 1,
+      "name": "대박(토토)",
+      "address": "광주 북구 군왕로 196",
+      "method": "manual",
+      "lat": 35.178318,
+      "lng": 126.9351
+    },
+    {
+      "rank": 1,
+      "name": "영통대박복권",
+      "address": "경기 수원시 영통구 법조로149번길 101 1층 101호 CU편의점 내",
+      "method": "auto",
+      "lat": 37.29386,
+      "lng": 127.068924
+    },
+    {
+      "rank": 1,
+      "name": "행복정보통신",
+      "address": "경기 연천군 연천로 264-1",
+      "method": "auto",
+      "lat": 38.100468,
+      "lng": 127.07499
+    },
+    {
+      "rank": 1,
+      "name": "대성기획",
+      "address": "경기 용인시 기흥구 구성로 75-1",
+      "method": "auto",
+      "lat": 37.29493,
+      "lng": 127.1179
+    },
+    {
+      "rank": 1,
+      "name": "행운로또",
+      "address": "경기 하남시 미사강변중앙로 164 101호",
+      "method": "auto",
+      "lat": 37.561512,
+      "lng": 127.19113
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "전북 군산시 번영로 891",
+      "method": "auto",
+      "lat": 35.94672,
+      "lng": 126.81039
+    },
+    {
+      "rank": 1,
+      "name": "구례로또",
+      "address": "전남 구례군 구례읍 로터리길 2-1",
+      "method": "auto",
+      "lat": 35.208714,
+      "lng": 127.464806
+    }
+  ]
+}

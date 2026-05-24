@@ -1,0 +1,69 @@
+{
+  "round": 284,
+  "date": "2008-05-10",
+  "nums": [
+    2,
+    7,
+    15,
+    24,
+    30,
+    45
+  ],
+  "bonus": 28,
+  "firstWinAmount": 3117640300,
+  "firstWinners": 3,
+  "totalSales": 39773403000,
+  "prizes": {
+    "first": {
+      "amount": 3117640300,
+      "winners": 3
+    },
+    "second": {
+      "amount": 111344297,
+      "winners": 14
+    },
+    "third": {
+      "amount": 1632273,
+      "winners": 955
+    },
+    "fourth": {
+      "amount": 61691,
+      "winners": 50537
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 859700
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "하이마트",
+      "address": "인천 서구 심곡동  333-7",
+      "method": "auto",
+      "lat": 37.54449,
+      "lng": 126.672325
+    },
+    {
+      "rank": 1,
+      "name": "대박나라 베팅숍",
+      "address": "경기 부천시 성주로 84,(송내동)",
+      "method": "auto",
+      "lat": 37.479435,
+      "lng": 126.765434
+    },
+    {
+      "rank": 1,
+      "name": "현대보석",
+      "address": "전북 전주시 덕진구 시천로 96-14",
+      "method": "manual",
+      "lat": 35.867195,
+      "lng": 127.11614
+    }
+  ]
+}

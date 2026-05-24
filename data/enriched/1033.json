@@ -1,0 +1,149 @@
+{
+  "round": 1033,
+  "date": "2022-09-17",
+  "nums": [
+    3,
+    11,
+    15,
+    20,
+    35,
+    44
+  ],
+  "bonus": 10,
+  "firstWinAmount": 1913414943,
+  "firstWinners": 13,
+  "totalSales": 104642258000,
+  "prizes": {
+    "first": {
+      "amount": 1913414943,
+      "winners": 13
+    },
+    "second": {
+      "amount": 52477625,
+      "winners": 79
+    },
+    "third": {
+      "amount": 1344708,
+      "winners": 3083
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 145505
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2376004
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "월드 복권방",
+      "address": "서울 강서구 곰달래로53길 41 1층 102호(화곡동, 재룡빌딩)",
+      "method": "auto",
+      "lat": 37.533516,
+      "lng": 126.85879
+    },
+    {
+      "rank": 1,
+      "name": "헬스프라자",
+      "address": "서울 관악구 관악로 184 1층",
+      "method": "manual",
+      "lat": 37.48153,
+      "lng": 126.95316
+    },
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "auto",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "서울 은평구 서오릉로 10,(녹번동)",
+      "method": "manual",
+      "lat": 37.602295,
+      "lng": 126.92678
+    },
+    {
+      "rank": 1,
+      "name": "송천복권방",
+      "address": "부산 해운대구 선수촌로 108",
+      "method": "auto",
+      "lat": 35.169605,
+      "lng": 129.17772
+    },
+    {
+      "rank": 1,
+      "name": "복권왕국",
+      "address": "인천 부평구 경인로 931",
+      "method": "auto",
+      "lat": 37.487656,
+      "lng": 126.72289
+    },
+    {
+      "rank": 1,
+      "name": "복권천국",
+      "address": "인천 부평구 평천로 306 양영빌딩1층",
+      "method": "auto",
+      "lat": 37.51709,
+      "lng": 126.72441
+    },
+    {
+      "rank": 1,
+      "name": "성호복권방",
+      "address": "대전 대덕구 신일동로 1",
+      "method": "auto",
+      "lat": 36.444744,
+      "lng": 127.40511
+    },
+    {
+      "rank": 1,
+      "name": "대박로또복권",
+      "address": "경기 김포시 통진읍 김포대로 2449",
+      "method": "auto",
+      "lat": 37.696945,
+      "lng": 126.577286
+    },
+    {
+      "rank": 1,
+      "name": "대박행진 복권랜드",
+      "address": "경기 파주시 금빛로 22 금촌프라자107호",
+      "method": "auto",
+      "lat": 37.751614,
+      "lng": 126.76691
+    },
+    {
+      "rank": 1,
+      "name": "CU(제천고암점)",
+      "address": "충북 제천시 고암로 69 1층 CU편의점",
+      "method": "auto",
+      "lat": 37.157856,
+      "lng": 128.21468
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐 천안메르디앙점",
+      "address": "충남 천안시 서북구 성정공원5로 30 105호(세븐일레븐)",
+      "method": "manual",
+      "lat": 36.82764,
+      "lng": 127.140884
+    },
+    {
+      "rank": 1,
+      "name": "포시즌",
+      "address": "경남 김해시 내외중앙로 99 복권판매점",
+      "method": "manual",
+      "lat": 35.238827,
+      "lng": 128.86716
+    }
+  ]
+}

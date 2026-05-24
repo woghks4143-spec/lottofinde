@@ -1,0 +1,53 @@
+{
+  "round": 391,
+  "date": "2010-05-29",
+  "nums": [
+    10,
+    11,
+    18,
+    22,
+    28,
+    39
+  ],
+  "bonus": 30,
+  "firstWinAmount": 10508749800,
+  "firstWinners": 1,
+  "totalSales": 45161516000,
+  "prizes": {
+    "first": {
+      "amount": 10508749800,
+      "winners": 1
+    },
+    "second": {
+      "amount": 54733072,
+      "winners": 32
+    },
+    "third": {
+      "amount": 1309992,
+      "winners": 1337
+    },
+    "fourth": {
+      "amount": 57611,
+      "winners": 60803
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1013235
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "안전열쇠",
+      "address": "인천 계양구 경명대로 1124 명인프라자102호",
+      "method": "manual",
+      "lat": 37.54285,
+      "lng": 126.731895
+    }
+  ]
+}

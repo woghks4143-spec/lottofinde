@@ -1,0 +1,101 @@
+{
+  "round": 886,
+  "date": "2019-11-23",
+  "nums": [
+    19,
+    23,
+    28,
+    37,
+    42,
+    45
+  ],
+  "bonus": 2,
+  "firstWinAmount": 2974643786,
+  "firstWinners": 7,
+  "totalSales": 84186094000,
+  "prizes": {
+    "first": {
+      "amount": 2974643786,
+      "winners": 7
+    },
+    "second": {
+      "amount": 58820640,
+      "winners": 59
+    },
+    "third": {
+      "amount": 1621691,
+      "winners": 2140
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 109766
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1768281
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "명당복권방",
+      "address": "서울 동작구 상도로 281 1층",
+      "method": "auto",
+      "lat": 37.50238,
+      "lng": 126.94859
+    },
+    {
+      "rank": 1,
+      "name": "셀피아",
+      "address": "울산 북구 명촌7길 43 복권판매점",
+      "method": "auto",
+      "lat": 35.553764,
+      "lng": 129.35832
+    },
+    {
+      "rank": 1,
+      "name": "K-마트",
+      "address": "경기 의정부시 평화로 359 회룡한주아파트 상가동 110호",
+      "method": "auto",
+      "lat": 37.723663,
+      "lng": 127.04769
+    },
+    {
+      "rank": 1,
+      "name": "명당복권방",
+      "address": "충북 청주시 청원구 주성동 163-3",
+      "method": "auto",
+      "lat": 36.677174,
+      "lng": 127.49765
+    },
+    {
+      "rank": 1,
+      "name": "금진슈퍼",
+      "address": "전남 여수시 좌수영로 11",
+      "method": "auto",
+      "lat": 34.741383,
+      "lng": 127.72764
+    },
+    {
+      "rank": 1,
+      "name": "영화마을흥해점",
+      "address": "경북 포항시 북구 흥해읍 흥해로 26,(남성리)",
+      "method": "manual",
+      "lat": 36.107815,
+      "lng": 129.34518
+    },
+    {
+      "rank": 1,
+      "name": "코리아슈퍼",
+      "address": "경남 통영시 안개로 42 수아지오아파트 상가1층 103호",
+      "method": "auto",
+      "lat": 34.85912,
+      "lng": 128.43123
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "round": 828,
+  "date": "2018-10-13",
+  "nums": [
+    4,
+    7,
+    13,
+    29,
+    31,
+    39
+  ],
+  "bonus": 18,
+  "firstWinAmount": 1455185972,
+  "firstWinners": 13,
+  "totalSales": 77552827000,
+  "prizes": {
+    "first": {
+      "amount": 1455185972,
+      "winners": 13
+    },
+    "second": {
+      "amount": 50853274,
+      "winners": 62
+    },
+    "third": {
+      "amount": 1602085,
+      "winners": 1968
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 100644
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1704198
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "정화식품",
+      "address": "부산 동래구 충렬대로 248",
+      "method": "auto",
+      "lat": 35.201023,
+      "lng": 129.08624
+    },
+    {
+      "rank": 1,
+      "name": "운수대통복권방",
+      "address": "부산 부산진구 전포대로200번길 13",
+      "method": "auto",
+      "lat": 35.154648,
+      "lng": 129.0664
+    },
+    {
+      "rank": 1,
+      "name": "로또흑석점",
+      "address": "광주 광산구 흑석동 595 CU편의점 내",
+      "method": "auto",
+      "lat": 35.182293,
+      "lng": 126.81116
+    },
+    {
+      "rank": 1,
+      "name": "GS25(수원삼성점)",
+      "address": "경기 수원시 영통구 매탄동 1267-7번지 중앙프라자104호",
+      "method": "mixed",
+      "lat": 37.259037,
+      "lng": 127.04512
+    },
+    {
+      "rank": 1,
+      "name": "헬로복권",
+      "address": "경기 안성시 종합운동장로 161",
+      "method": "auto",
+      "lat": 37.012398,
+      "lng": 12.238893
+    },
+    {
+      "rank": 1,
+      "name": "신세계로또",
+      "address": "경기 양평군 공흥로 16 1층",
+      "method": "auto",
+      "lat": 37.4935,
+      "lng": 127.49934
+    },
+    {
+      "rank": 1,
+      "name": "1등행운로또",
+      "address": "충남 아산시 온천대로 1315",
+      "method": "auto",
+      "lat": 36.78663,
+      "lng": 126.98499
+    },
+    {
+      "rank": 1,
+      "name": "터미널매점",
+      "address": "충남 예산군 예산읍 산성리 647",
+      "method": "auto",
+      "lat": 36.694378,
+      "lng": 126.832756
+    },
+    {
+      "rank": 1,
+      "name": "베스트원",
+      "address": "전남 영광군 신남로 209-1 1층",
+      "method": "manual",
+      "lat": 35.276035,
+      "lng": 126.5051
+    },
+    {
+      "rank": 1,
+      "name": "주택복권2호점",
+      "address": "경북 구미시 금오시장로 13 114호",
+      "method": "manual",
+      "lat": 36.126236,
+      "lng": 128.3407
+    },
+    {
+      "rank": 1,
+      "name": "씨유(진해제일점)",
+      "address": "경남 창원시 진해구 덕산로46번길 2 동부회센타 1층 102~105호",
+      "method": "auto",
+      "lat": 35.145824,
+      "lng": 128.70442
+    },
+    {
+      "rank": 1,
+      "name": "성산복권방",
+      "address": "제주 서귀포시 성산읍 고성리 1197-8",
+      "method": "auto",
+      "lat": 33.450214,
+      "lng": 126.91453
+    },
+    {
+      "rank": 1,
+      "name": "GS25(제주삼화점)",
+      "address": "제주 제주시 화북일동 1023-2",
+      "method": "manual",
+      "lat": 33.514515,
+      "lng": 126.5761
+    }
+  ]
+}

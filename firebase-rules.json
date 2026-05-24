@@ -1,0 +1,28 @@
+{
+  "rules": {
+    "pools": {
+      "$round": {
+        ".read": true,
+        ".write": true,
+        ".validate": "newData.hasChildren(['total', 'consumed'])",
+        "total": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 200000"
+        },
+        "consumed": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && (!data.exists() || newData.val() >= data.val()) && newData.val() <= newData.parent().child('total').val()"
+        },
+        "allocations": {
+          "$deviceSeed": {
+            ".validate": "newData.hasChildren(['from', 'to'])",
+            "from": { ".validate": "newData.isNumber() && newData.val() >= 0" },
+            "to": { ".validate": "newData.isNumber() && newData.val() >= newData.parent().child('from').val()" },
+            "totalReceived": { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 50" },
+            "firstAllocAt": { ".validate": "newData.isNumber()" },
+            "lastAllocAt": { ".validate": "newData.isNumber()" }
+          }
+        },
+        "updatedAt": { ".validate": "newData.isNumber()" }
+      }
+    }
+  }
+}

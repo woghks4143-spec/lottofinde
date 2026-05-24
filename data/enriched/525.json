@@ -1,0 +1,117 @@
+{
+  "round": 525,
+  "date": "2012-12-22",
+  "nums": [
+    11,
+    23,
+    26,
+    29,
+    39,
+    44
+  ],
+  "bonus": 22,
+  "firstWinAmount": 1501132375,
+  "firstWinners": 9,
+  "totalSales": 55566007000,
+  "prizes": {
+    "first": {
+      "amount": 1501132375,
+      "winners": 9
+    },
+    "second": {
+      "amount": 54919478,
+      "winners": 41
+    },
+    "third": {
+      "amount": 1459300,
+      "winners": 1543
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 73791
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1215973
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행운로또",
+      "address": "서울 동작구 흑석동  43-94",
+      "method": "manual",
+      "lat": 37.506958,
+      "lng": 126.96618
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "서울 은평구 서오릉로 10,(녹번동)",
+      "method": "auto",
+      "lat": 37.602295,
+      "lng": 126.92678
+    },
+    {
+      "rank": 1,
+      "name": "사이버정보통신",
+      "address": "부산 부산진구 동평로 411 백조상가동103-1호",
+      "method": "manual",
+      "lat": 35.17425,
+      "lng": 129.07022
+    },
+    {
+      "rank": 1,
+      "name": "플러스로또",
+      "address": "대구 달서구 월곡로45길 56,(상인동)",
+      "method": "auto",
+      "lat": 35.81329,
+      "lng": 128.53883
+    },
+    {
+      "rank": 1,
+      "name": "미니스톱인천효성점",
+      "address": "인천 계양구 안남로 551",
+      "method": "auto",
+      "lat": 37.532257,
+      "lng": 126.71038
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "경기 고양시 일산동구 장항동 752삼성메르헨상가102-2",
+      "method": "auto",
+      "lat": 37.660133,
+      "lng": 126.76643
+    },
+    {
+      "rank": 1,
+      "name": "행복한사람들 (흥부네)",
+      "address": "경기 광주시 경충대로 763",
+      "method": "auto",
+      "lat": 37.355545,
+      "lng": 127.325386
+    },
+    {
+      "rank": 1,
+      "name": "CU(원주W-CITY점)",
+      "address": "강원 원주시 단계동  877-1",
+      "method": "auto",
+      "lat": 37.344868,
+      "lng": 127.93092
+    },
+    {
+      "rank": 1,
+      "name": "로또복권두정점",
+      "address": "충남 천안시 서북구 두정로 251 대원빌딩104호",
+      "method": "manual",
+      "lat": 36.833515,
+      "lng": 127.14499
+    }
+  ]
+}

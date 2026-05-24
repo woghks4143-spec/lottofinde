@@ -1,0 +1,61 @@
+{
+  "round": 320,
+  "date": "2009-01-17",
+  "nums": [
+    16,
+    19,
+    23,
+    25,
+    41,
+    45
+  ],
+  "bonus": 3,
+  "firstWinAmount": 5513067900,
+  "firstWinners": 2,
+  "totalSales": 46659886000,
+  "prizes": {
+    "first": {
+      "amount": 5513067900,
+      "winners": 2
+    },
+    "second": {
+      "amount": 73507572,
+      "winners": 25
+    },
+    "third": {
+      "amount": 1699991,
+      "winners": 1081
+    },
+    "fourth": {
+      "amount": 64412,
+      "winners": 57061
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 990610
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "코사마트",
+      "address": "경기 부천시 오정로 203,(내동)",
+      "method": "auto",
+      "lat": 37.52708,
+      "lng": 126.78259
+    },
+    {
+      "rank": 1,
+      "name": "알리바이(나주점)",
+      "address": "전남 나주시 나주로 142 알리바이",
+      "method": "manual",
+      "lat": 35.031338,
+      "lng": 126.71719
+    }
+  ]
+}

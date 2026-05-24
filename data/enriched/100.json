@@ -1,0 +1,43 @@
+{
+  "round": 100,
+  "date": "2004-10-30",
+  "nums": [
+    1,
+    7,
+    11,
+    23,
+    37,
+    42
+  ],
+  "bonus": 6,
+  "firstWinAmount": 3315315525,
+  "firstWinners": 4,
+  "totalSales": 56561977000,
+  "prizes": {
+    "first": {
+      "amount": 3315315525,
+      "winners": 4
+    },
+    "second": {
+      "amount": 61394732,
+      "winners": 36
+    },
+    "third": {
+      "amount": 1431484,
+      "winners": 1544
+    },
+    "fourth": {
+      "amount": 57484,
+      "winners": 76899
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1235777
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

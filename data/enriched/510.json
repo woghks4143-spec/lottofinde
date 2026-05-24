@@ -1,0 +1,85 @@
+{
+  "round": 510,
+  "date": "2012-09-08",
+  "nums": [
+    12,
+    29,
+    32,
+    33,
+    39,
+    40
+  ],
+  "bonus": 42,
+  "firstWinAmount": 2644158150,
+  "firstWinners": 5,
+  "totalSales": 53964992000,
+  "prizes": {
+    "first": {
+      "amount": 2644158150,
+      "winners": 5
+    },
+    "second": {
+      "amount": 88138605,
+      "winners": 25
+    },
+    "third": {
+      "amount": 1670558,
+      "winners": 1319
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 69724
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1173715
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "신문가판대",
+      "address": "서울 성북구 보문동1가  147-48보문시장앞",
+      "method": "auto",
+      "lat": 37.584087,
+      "lng": 127.02031
+    },
+    {
+      "rank": 1,
+      "name": "데이앤나잇",
+      "address": "서울 성북구 종암로 132 종암우림카이저팰리스 1층 101호",
+      "method": "auto",
+      "lat": 37.601955,
+      "lng": 127.03346
+    },
+    {
+      "rank": 1,
+      "name": "에이스상사",
+      "address": "부산 연제구 연수로 224 1층",
+      "method": "auto",
+      "lat": 35.18562,
+      "lng": 129.08444
+    },
+    {
+      "rank": 1,
+      "name": "원당역복권방",
+      "address": "경기 고양시 덕양구 성사동 410-17",
+      "method": "auto",
+      "lat": 37.653427,
+      "lng": 126.843094
+    },
+    {
+      "rank": 1,
+      "name": "로터리편의마트",
+      "address": "경북 포항시 북구 서동로 85 육거리",
+      "method": "auto",
+      "lat": 36.040768,
+      "lng": 129.36725
+    }
+  ]
+}

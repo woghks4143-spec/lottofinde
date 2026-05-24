@@ -1,0 +1,173 @@
+{
+  "round": 742,
+  "date": "2017-02-18",
+  "nums": [
+    8,
+    10,
+    13,
+    36,
+    37,
+    40
+  ],
+  "bonus": 6,
+  "firstWinAmount": 1111814813,
+  "firstWinners": 16,
+  "totalSales": 73857792000,
+  "prizes": {
+    "first": {
+      "amount": 1111814813,
+      "winners": 16
+    },
+    "second": {
+      "amount": 67382716,
+      "winners": 44
+    },
+    "third": {
+      "amount": 1492870,
+      "winners": 1986
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 98348
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1658556
+    }
+  },
+  "methodCounts": {
+    "auto": 11,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "서울 광진구 능동로 413",
+      "method": "auto",
+      "lat": 37.565952,
+      "lng": 127.08408
+    },
+    {
+      "rank": 1,
+      "name": "-",
+      "address": "서울 서초구 신반포로 194 강남고속버스터미널 코너1호점 (하차장로또)",
+      "method": "auto",
+      "lat": 37.50551,
+      "lng": 127.007034
+    },
+    {
+      "rank": 1,
+      "name": "묵동식품",
+      "address": "서울 중랑구 동일로 919",
+      "method": "auto",
+      "lat": 37.612457,
+      "lng": 127.07704
+    },
+    {
+      "rank": 1,
+      "name": "하프타임(괴정점)",
+      "address": "부산 사하구 승학로284번길 42",
+      "method": "auto",
+      "lat": 35.102444,
+      "lng": 128.9978
+    },
+    {
+      "rank": 1,
+      "name": "세진전자통신",
+      "address": "대구 서구 서대구로 156",
+      "method": "auto",
+      "lat": 35.8719,
+      "lng": 128.5552
+    },
+    {
+      "rank": 1,
+      "name": "도안스마트공인중개사사무소",
+      "address": "대전 유성구 원신흥남로 13",
+      "method": "manual",
+      "lat": 36.333645,
+      "lng": 127.33791
+    },
+    {
+      "rank": 1,
+      "name": "그린로또",
+      "address": "대전 중구 대흥로 94",
+      "method": "manual",
+      "lat": 36.322495,
+      "lng": 127.42251
+    },
+    {
+      "rank": 1,
+      "name": "베스토아",
+      "address": "경기 성남시 분당구 내정로166번길 43 104호(수내동, 금산프라자빌딩)",
+      "method": "auto",
+      "lat": 37.37034,
+      "lng": 127.12261
+    },
+    {
+      "rank": 1,
+      "name": "인덕원가판점",
+      "address": "경기 안양시 동안구 관악대로 478",
+      "method": "auto",
+      "lat": 37.402664,
+      "lng": 126.97511
+    },
+    {
+      "rank": 1,
+      "name": "금도끼 은도끼",
+      "address": "경기 양주시 부흥로 1830",
+      "method": "manual",
+      "lat": 37.788265,
+      "lng": 127.07031
+    },
+    {
+      "rank": 1,
+      "name": "서정천하명당",
+      "address": "경기 평택시 송탄로 160",
+      "method": "auto",
+      "lat": 37.058094,
+      "lng": 127.05932
+    },
+    {
+      "rank": 1,
+      "name": "준",
+      "address": "경기 평택시 서동대로 1152",
+      "method": "auto",
+      "lat": 36.982677,
+      "lng": 126.882225
+    },
+    {
+      "rank": 1,
+      "name": "로또다 로또",
+      "address": "충북 청주시 청원구 2산단1로 14 편의점",
+      "method": "manual",
+      "lat": 36.731724,
+      "lng": 127.45047
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "충남 공주시 번영1로 41",
+      "method": "auto",
+      "lat": 36.471832,
+      "lng": 127.13313
+    },
+    {
+      "rank": 1,
+      "name": "대박행운복권방",
+      "address": "충남 아산시 온천대로 104 서해안 휴게소내 편의점",
+      "method": "mixed",
+      "lat": 36.746223,
+      "lng": 126.86672
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "제주 제주시 중앙로 129",
+      "method": "auto",
+      "lat": 33.507114,
+      "lng": 126.52496
+    }
+  ]
+}

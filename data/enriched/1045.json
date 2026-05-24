@@ -1,0 +1,149 @@
+{
+  "round": 1045,
+  "date": "2022-12-10",
+  "nums": [
+    6,
+    14,
+    15,
+    19,
+    21,
+    41
+  ],
+  "bonus": 37,
+  "firstWinAmount": 1990060443,
+  "firstWinners": 13,
+  "totalSales": 105380282000,
+  "prizes": {
+    "first": {
+      "amount": 1990060443,
+      "winners": 13
+    },
+    "second": {
+      "amount": 64355189,
+      "winners": 67
+    },
+    "third": {
+      "amount": 1597554,
+      "winners": 2699
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 135872
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2280432
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "과자종합상사",
+      "address": "서울 구로구 경인로33길 82",
+      "method": "auto",
+      "lat": 37.501507,
+      "lng": 126.85085
+    },
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "auto",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "대구 달성군 논공읍 논공중앙로 106,(북리)",
+      "method": "manual",
+      "lat": 35.72692,
+      "lng": 128.44666
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "대구 달성군 현풍중앙로 21 세븐일레븐 내",
+      "method": "auto",
+      "lat": 35.69147,
+      "lng": 128.44647
+    },
+    {
+      "rank": 1,
+      "name": "하나복권",
+      "address": "인천 남동구 구월로 281 세븐일레븐편의점내",
+      "method": "auto",
+      "lat": 37.455925,
+      "lng": 126.72196
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "대전 대덕구 신탄진로 211",
+      "method": "auto",
+      "lat": 36.39926,
+      "lng": 127.42286
+    },
+    {
+      "rank": 1,
+      "name": "돈벼락맞는곳",
+      "address": "대전 서구 복수남로 16",
+      "method": "auto",
+      "lat": 36.297783,
+      "lng": 127.37957
+    },
+    {
+      "rank": 1,
+      "name": "행복미니슈퍼",
+      "address": "경기 부천시 부일로 409",
+      "method": "mixed",
+      "lat": 37.487118,
+      "lng": 126.77558
+    },
+    {
+      "rank": 1,
+      "name": "사랑복권방",
+      "address": "경기 시흥시 장현능곡로 155 지하1층 B1055호",
+      "method": "auto",
+      "lat": 37.37105,
+      "lng": 126.80731
+    },
+    {
+      "rank": 1,
+      "name": "동행복권",
+      "address": "경기 양주시 독바위로 79-13 c동 10호",
+      "method": "manual",
+      "lat": 37.83508,
+      "lng": 127.06513
+    },
+    {
+      "rank": 1,
+      "name": "복돼지복권방",
+      "address": "경기 화성시 3.1만세로 43",
+      "method": "auto",
+      "lat": 37.08277,
+      "lng": 126.81872
+    },
+    {
+      "rank": 1,
+      "name": "대박의터",
+      "address": "강원 춘천시 영서로 1786",
+      "method": "auto",
+      "lat": 37.836243,
+      "lng": 127.76008
+    },
+    {
+      "rank": 1,
+      "name": "복권마트",
+      "address": "강원 홍천군 홍천로 409 1층",
+      "method": "auto",
+      "lat": 37.690258,
+      "lng": 127.88947
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "round": 465,
+  "date": "2011-10-29",
+  "nums": [
+    1,
+    8,
+    11,
+    13,
+    22,
+    38
+  ],
+  "bonus": 31,
+  "firstWinAmount": 1923662893,
+  "firstWinners": 7,
+  "totalSales": 57793294000,
+  "prizes": {
+    "first": {
+      "amount": 1923662893,
+      "winners": 7
+    },
+    "second": {
+      "amount": 48788552,
+      "winners": 46
+    },
+    "third": {
+      "amount": 1295023,
+      "winners": 1733
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 83244
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1356052
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "형제상회",
+      "address": "서울 동대문구 무학로 92",
+      "method": "manual",
+      "lat": 37.57249,
+      "lng": 127.03075
+    },
+    {
+      "rank": 1,
+      "name": "대박찬스",
+      "address": "광주 북구 서하로 196,(오치동)",
+      "method": "auto",
+      "lat": 35.18705,
+      "lng": 126.901886
+    },
+    {
+      "rank": 1,
+      "name": "그린하이퍼",
+      "address": "경기 시흥시 월곶동  1006-3유호플러스빌123호",
+      "method": "manual",
+      "lat": 37.3885,
+      "lng": 126.74019
+    },
+    {
+      "rank": 1,
+      "name": "복권전문점",
+      "address": "경기 시흥시 정왕동  1625-6105훼미리마트내",
+      "method": "auto",
+      "lat": 37.337143,
+      "lng": 126.74829
+    },
+    {
+      "rank": 1,
+      "name": "포유25다농점",
+      "address": "경기 오산시 오산동  924-1거성그린프라자114",
+      "method": "manual",
+      "lat": 37.149662,
+      "lng": 127.0754
+    },
+    {
+      "rank": 1,
+      "name": "행운로또복권",
+      "address": "경기 오산시 오산동  876-2",
+      "method": "auto",
+      "lat": 37.14875,
+      "lng": 127.068886
+    },
+    {
+      "rank": 1,
+      "name": "세븐",
+      "address": "제주 제주시 동광로 142",
+      "method": "auto",
+      "lat": 33.508163,
+      "lng": 126.54173
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "round": 528,
+  "date": "2013-01-12",
+  "nums": [
+    5,
+    17,
+    25,
+    31,
+    39,
+    40
+  ],
+  "bonus": 10,
+  "firstWinAmount": 1197889125,
+  "firstWinners": 11,
+  "totalSales": 57548541000,
+  "prizes": {
+    "first": {
+      "amount": 1197889125,
+      "winners": 11
+    },
+    "second": {
+      "amount": 25536397,
+      "winners": 86
+    },
+    "third": {
+      "amount": 1212662,
+      "winners": 1811
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 87443
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1366616
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "현진식품",
+      "address": "서울 구로구 중앙로 32",
+      "method": "auto",
+      "lat": 37.500774,
+      "lng": 126.86386
+    },
+    {
+      "rank": 1,
+      "name": "GS25 동래대산점",
+      "address": "부산 동래구 명륜로 65",
+      "method": "manual",
+      "lat": 35.199955,
+      "lng": 129.08417
+    },
+    {
+      "rank": 1,
+      "name": "행운플러스",
+      "address": "부산 사상구 괘감로 103 1층복권방",
+      "method": "manual",
+      "lat": 35.15718,
+      "lng": 128.98598
+    },
+    {
+      "rank": 1,
+      "name": "복권휴게실",
+      "address": "대구 달서구 월성동  819원더풀스파랜드상가1층 115호 116호일부",
+      "method": "auto",
+      "lat": 35.8244,
+      "lng": 128.52473
+    },
+    {
+      "rank": 1,
+      "name": "대전하이퍼",
+      "address": "대전 중구 보문산로 76",
+      "method": "auto",
+      "lat": 36.305202,
+      "lng": 127.388824
+    },
+    {
+      "rank": 1,
+      "name": "행운로또복권",
+      "address": "울산 중구 학성동  153-2",
+      "method": "manual",
+      "lat": 35.561115,
+      "lng": 129.33919
+    },
+    {
+      "rank": 1,
+      "name": "삼성통신",
+      "address": "경기 구리시 검배로 89,(수택동)",
+      "method": "manual",
+      "lat": 37.595184,
+      "lng": 127.14801
+    },
+    {
+      "rank": 1,
+      "name": "중앙로또",
+      "address": "경기 안산시 단원구 고잔동 681-7대덕프라자 102호",
+      "method": "auto",
+      "lat": 37.315105,
+      "lng": 126.82523
+    },
+    {
+      "rank": 1,
+      "name": "파란만장복권방",
+      "address": "경기 화성시 진안동  878-4번지 101호",
+      "method": "auto",
+      "lat": 37.21241,
+      "lng": 127.038826
+    },
+    {
+      "rank": 1,
+      "name": "왔다복권",
+      "address": "충남 천안시 서북구 서부16길 9",
+      "method": "auto",
+      "lat": 36.823116,
+      "lng": 127.13769
+    },
+    {
+      "rank": 1,
+      "name": "킴스피씨",
+      "address": "제주 제주시 용담2동  2681-35",
+      "method": "auto",
+      "lat": 33.50696,
+      "lng": 126.5094
+    }
+  ]
+}

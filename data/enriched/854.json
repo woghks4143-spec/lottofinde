@@ -1,0 +1,93 @@
+{
+  "round": 854,
+  "date": "2019-04-13",
+  "nums": [
+    20,
+    25,
+    31,
+    32,
+    36,
+    43
+  ],
+  "bonus": 3,
+  "firstWinAmount": 3421706750,
+  "firstWinners": 6,
+  "totalSales": 81823338000,
+  "prizes": {
+    "first": {
+      "amount": 3421706750,
+      "winners": 6
+    },
+    "second": {
+      "amount": 77766063,
+      "winners": 44
+    },
+    "third": {
+      "amount": 1834696,
+      "winners": 1865
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 99152
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1716083
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "씨스페이스(범어사역점)",
+      "address": "부산 금정구 남산동 21-4번지",
+      "method": "auto",
+      "lat": 35.27165,
+      "lng": 129.09244
+    },
+    {
+      "rank": 1,
+      "name": "교통카드충전소",
+      "address": "경기 고양시 덕양구 화정로 지하 60 화정역 2번출구",
+      "method": "auto",
+      "lat": 37.634552,
+      "lng": 126.83321
+    },
+    {
+      "rank": 1,
+      "name": "행복한사람들 (흥부네)",
+      "address": "경기 광주시 경충대로 763",
+      "method": "mixed",
+      "lat": 37.355545,
+      "lng": 127.325386
+    },
+    {
+      "rank": 1,
+      "name": "매탄동슈퍼",
+      "address": "경기 수원시 영통구 매봉로49번길 51",
+      "method": "manual",
+      "lat": 37.27264,
+      "lng": 127.05042
+    },
+    {
+      "rank": 1,
+      "name": "행운을주는로또판매점",
+      "address": "경기 안산시 단원구 초지로 90 태영프라자 태영프라자111호",
+      "method": "manual",
+      "lat": 37.306877,
+      "lng": 126.81511
+    },
+    {
+      "rank": 1,
+      "name": "퓨전로또판매점성동점",
+      "address": "경북 경주시 원화로 291,(성동동)",
+      "method": "auto",
+      "lat": 35.846596,
+      "lng": 129.217
+    }
+  ]
+}

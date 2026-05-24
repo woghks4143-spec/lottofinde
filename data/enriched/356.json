@@ -1,0 +1,117 @@
+{
+  "round": 356,
+  "date": "2009-09-26",
+  "nums": [
+    2,
+    8,
+    14,
+    25,
+    29,
+    45
+  ],
+  "bonus": 24,
+  "firstWinAmount": 1157185267,
+  "firstWinners": 9,
+  "totalSales": 44684958000,
+  "prizes": {
+    "first": {
+      "amount": 1157185267,
+      "winners": 9
+    },
+    "second": {
+      "amount": 46912917,
+      "winners": 37
+    },
+    "third": {
+      "amount": 1374330,
+      "winners": 1263
+    },
+    "fourth": {
+      "amount": 56761,
+      "winners": 61162
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 996940
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "한냉매점",
+      "address": "서울 동작구 노들로 674 노량진수산물도매시장 2층 10호",
+      "method": "manual",
+      "lat": 37.51461,
+      "lng": 126.93681
+    },
+    {
+      "rank": 1,
+      "name": "가로판매점",
+      "address": "서울 용산구 원효로 166",
+      "method": "manual",
+      "lat": 37.53501,
+      "lng": 126.961555
+    },
+    {
+      "rank": 1,
+      "name": "제이복권방",
+      "address": "서울 종로구 종로 225-1 평창빌딩 1층 103호",
+      "method": "manual",
+      "lat": 37.571293,
+      "lng": 127.00283
+    },
+    {
+      "rank": 1,
+      "name": "버스매표소447",
+      "address": "인천 동구 송림동  50-120",
+      "method": "auto",
+      "lat": 37.477295,
+      "lng": 126.645164
+    },
+    {
+      "rank": 1,
+      "name": "GS25(수원행복)",
+      "address": "경기 수원시 영통구 영통동 974-6 세일빌딩 111",
+      "method": "auto",
+      "lat": 37.24678,
+      "lng": 127.06075
+    },
+    {
+      "rank": 1,
+      "name": "공단로또복권방",
+      "address": "경기 안성시 미양면 계륵리 271-9",
+      "method": "auto",
+      "lat": 36.979202,
+      "lng": 127.25985
+    },
+    {
+      "rank": 1,
+      "name": "로또휴게실",
+      "address": "경기 용인시 기흥구 용구대로 1885",
+      "method": "auto",
+      "lat": 37.256386,
+      "lng": 127.10432
+    },
+    {
+      "rank": 1,
+      "name": "로또복권판매점",
+      "address": "경기 평택시 서정로 237",
+      "method": "auto",
+      "lat": 37.06594,
+      "lng": 127.059685
+    },
+    {
+      "rank": 1,
+      "name": "시외버스터미널로또복권방",
+      "address": "충남 논산시 계백로 1000",
+      "method": "auto",
+      "lat": 36.203087,
+      "lng": 127.088264
+    }
+  ]
+}

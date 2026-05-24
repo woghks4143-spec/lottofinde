@@ -1,0 +1,101 @@
+{
+  "round": 490,
+  "date": "2012-04-21",
+  "nums": [
+    2,
+    7,
+    26,
+    29,
+    40,
+    43
+  ],
+  "bonus": 42,
+  "firstWinAmount": 1860234161,
+  "firstWinners": 7,
+  "totalSales": 52590121000,
+  "prizes": {
+    "first": {
+      "amount": 1860234161,
+      "winners": 7
+    },
+    "second": {
+      "amount": 74837007,
+      "winners": 29
+    },
+    "third": {
+      "amount": 1599318,
+      "winners": 1357
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 65961
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1126965
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "광림마트",
+      "address": "서울 강남구 도곡로 213",
+      "method": "manual",
+      "lat": 37.493053,
+      "lng": 127.04207
+    },
+    {
+      "rank": 1,
+      "name": "현진식품",
+      "address": "서울 구로구 중앙로 32",
+      "method": "auto",
+      "lat": 37.500774,
+      "lng": 126.86386
+    },
+    {
+      "rank": 1,
+      "name": "코리아마트",
+      "address": "대구 달서구 당산로 193",
+      "method": "auto",
+      "lat": 35.85376,
+      "lng": 128.54796
+    },
+    {
+      "rank": 1,
+      "name": "용꿈돼지꿈",
+      "address": "인천 부평구 동암남로 11",
+      "method": "auto",
+      "lat": 37.470974,
+      "lng": 126.70482
+    },
+    {
+      "rank": 1,
+      "name": "황금복권마트",
+      "address": "경기 이천시 증신로325번길 5 1층",
+      "method": "manual",
+      "lat": 37.297546,
+      "lng": 127.438866
+    },
+    {
+      "rank": 1,
+      "name": "청룡마트",
+      "address": "충남 천안시 동남구 풍세로 1010-31 현대아파트상가B-102호",
+      "method": "auto",
+      "lat": 36.797386,
+      "lng": 127.15389
+    },
+    {
+      "rank": 1,
+      "name": "외동복권",
+      "address": "경남 김해시 동남로49번길 83 GS25 김해대동점",
+      "method": "auto",
+      "lat": 35.236355,
+      "lng": 128.98598
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "round": 1032,
+  "date": "2022-09-10",
+  "nums": [
+    1,
+    6,
+    12,
+    19,
+    36,
+    42
+  ],
+  "bonus": 28,
+  "firstWinAmount": 2675257538,
+  "firstWinners": 10,
+  "totalSales": 110907011000,
+  "prizes": {
+    "first": {
+      "amount": 2675257538,
+      "winners": 10
+    },
+    "second": {
+      "amount": 49541807,
+      "winners": 90
+    },
+    "third": {
+      "amount": 1448591,
+      "winners": 3078
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 149807
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2458611
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "일등복권방",
+      "address": "부산 남구 고동골로 3",
+      "method": "auto",
+      "lat": 35.137333,
+      "lng": 129.07097
+    },
+    {
+      "rank": 1,
+      "name": "미니스톱 새법조타운점",
+      "address": "부산 연제구 법원로16번길 10 금복빌딩",
+      "method": "auto",
+      "lat": 35.190254,
+      "lng": 129.07347
+    },
+    {
+      "rank": 1,
+      "name": "행운생활건강",
+      "address": "인천 서구 고래울로 42",
+      "method": "manual",
+      "lat": 37.486103,
+      "lng": 126.68637
+    },
+    {
+      "rank": 1,
+      "name": "복권명당(광주시청점)",
+      "address": "경기 광주시 회안대로 900 로얄프라자 115호",
+      "method": "auto",
+      "lat": 37.427338,
+      "lng": 127.25636
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "경기 군포시 산본로323번길 16-6 신명타워 신명빌딩1층1005호",
+      "method": "auto",
+      "lat": 37.359245,
+      "lng": 126.93236
+    },
+    {
+      "rank": 1,
+      "name": "1번지복권방",
+      "address": "경기 성남시 중원구 희망로 448 1층일부 (금광동)",
+      "method": "auto",
+      "lat": 37.444973,
+      "lng": 127.15739
+    },
+    {
+      "rank": 1,
+      "name": "번개로또복권방",
+      "address": "경기 수원시 장안구 경수대로973번길 13-4 1층 (송죽동)",
+      "method": "auto",
+      "lat": 37.30316,
+      "lng": 127.00393
+    },
+    {
+      "rank": 1,
+      "name": "대박천국",
+      "address": "전북 군산시 가도로 217 다모아",
+      "method": "auto",
+      "lat": 35.965725,
+      "lng": 126.56664
+    },
+    {
+      "rank": 1,
+      "name": "에코시티복권판매점",
+      "address": "전북 전주시 덕진구 세병로 8",
+      "method": "manual",
+      "lat": 35.8721,
+      "lng": 127.12022
+    },
+    {
+      "rank": 1,
+      "name": "코아복권판매점",
+      "address": "전북 전주시 완산구 팔달로 252",
+      "method": "auto",
+      "lat": 35.824684,
+      "lng": 127.14472
+    }
+  ]
+}

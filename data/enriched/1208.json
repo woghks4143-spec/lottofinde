@@ -1,0 +1,93 @@
+{
+  "round": 1208,
+  "date": "2026-01-24",
+  "nums": [
+    6,
+    27,
+    30,
+    36,
+    38,
+    42
+  ],
+  "bonus": 25,
+  "firstWinAmount": 5001713625,
+  "firstWinners": 6,
+  "totalSales": 120408668000,
+  "prizes": {
+    "first": {
+      "amount": 5001713625,
+      "winners": 6
+    },
+    "second": {
+      "amount": 73554613,
+      "winners": 68
+    },
+    "third": {
+      "amount": 1705906,
+      "winners": 2932
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 149359
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2544535
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "고척대박복권&카페",
+      "address": "서울 구로구 경인로47길 68 1층(고척동)",
+      "method": "auto",
+      "lat": 37.501953,
+      "lng": 126.86476
+    },
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "auto",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "가로판매점",
+      "address": "서울 영등포구 양평로 46 가판",
+      "method": "auto",
+      "lat": 37.534466,
+      "lng": 126.901596
+    },
+    {
+      "rank": 1,
+      "name": "왕대박 복권판매점",
+      "address": "대전 유성구 문화원로 54 서은빌딩 102호(궁동)",
+      "method": "auto",
+      "lat": 36.359673,
+      "lng": 127.34168
+    },
+    {
+      "rank": 1,
+      "name": "지에스25 안성칠곡",
+      "address": "경기 안성시 만세로 1182 지에스25 안성칠곡",
+      "method": "auto",
+      "lat": 37.04363,
+      "lng": 127.15039
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "경기 오산시 성호새싹길 11",
+      "method": "auto",
+      "lat": 37.14982,
+      "lng": 127.06984
+    }
+  ]
+}

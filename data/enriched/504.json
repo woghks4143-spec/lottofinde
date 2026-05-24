@@ -1,0 +1,117 @@
+{
+  "round": 504,
+  "date": "2012-07-28",
+  "nums": [
+    6,
+    14,
+    22,
+    26,
+    43,
+    44
+  ],
+  "bonus": 31,
+  "firstWinAmount": 1443236959,
+  "firstWinners": 9,
+  "totalSales": 51787037000,
+  "prizes": {
+    "first": {
+      "amount": 1443236959,
+      "winners": 9
+    },
+    "second": {
+      "amount": 74650188,
+      "winners": 29
+    },
+    "third": {
+      "amount": 1672995,
+      "winners": 1294
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 63257
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1082365
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "군자로또점",
+      "address": "서울 광진구 능동로 295",
+      "method": "manual",
+      "lat": 37.55615,
+      "lng": 127.0786
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "서울 성북구 하월곡동  70-150",
+      "method": "auto",
+      "lat": 37.60493,
+      "lng": 127.0369
+    },
+    {
+      "rank": 1,
+      "name": "복드림",
+      "address": "서울 영등포구 양평로 117",
+      "method": "auto",
+      "lat": 37.537376,
+      "lng": 126.89446
+    },
+    {
+      "rank": 1,
+      "name": "대박유통",
+      "address": "부산 중구 구덕로 80 1층",
+      "method": "auto",
+      "lat": 35.097702,
+      "lng": 129.02716
+    },
+    {
+      "rank": 1,
+      "name": "엔타임편의점(대승복권)",
+      "address": "부산 해운대구 좌동  1479-3 세종월드프라자 137",
+      "method": "auto",
+      "lat": 35.169605,
+      "lng": 129.17772
+    },
+    {
+      "rank": 1,
+      "name": "마두역상행선가판대",
+      "address": "경기 고양시 일산동구 중앙로 1181 교보생명 일산사옥 마두역상행선가판대",
+      "method": "auto",
+      "lat": 37.65222,
+      "lng": 126.77706
+    },
+    {
+      "rank": 1,
+      "name": "복권마트",
+      "address": "경기 부천시 소사로 253 1층",
+      "method": "auto",
+      "lat": 37.48085,
+      "lng": 126.79526
+    },
+    {
+      "rank": 1,
+      "name": "NG24시편의점",
+      "address": "경북 구미시 수출대로 555",
+      "method": "auto",
+      "lat": 36.110912,
+      "lng": 128.42572
+    },
+    {
+      "rank": 1,
+      "name": "수성그린마트",
+      "address": "경남 창원시 진해구 경화시장로 34 26호 10호",
+      "method": "auto",
+      "lat": 35.15674,
+      "lng": 128.6909
+    }
+  ]
+}

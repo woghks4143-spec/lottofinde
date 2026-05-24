@@ -108,13 +108,17 @@ export const useJachanism = create<JachanismState>()(
       name: 'lottofinder.jachanism.v2',  // v2: 번들 백테스트 시드 도입
       storage: createJSONStorage(() => AsyncStorage),
       version: 2,
-      // 기존 persist 데이터에 backtest가 없거나 latestRound 불일치면 seed 사용
+      // 기존 persist 데이터에 backtest가 아예 없으면 seed로 시작.
+      // 있으면 그대로 사용 (이전에 계산해서 저장된 캐시 영구 유지).
+      // latestRound 일치 여부는 화면(pro-jachanism)에서 비교하고, 안 맞으면 거기서 재계산.
       merge: (persistedState, currentState) => {
         const merged = { ...currentState, ...(persistedState as Partial<JachanismState>) };
         const p = persistedState as Partial<JachanismState> | undefined;
-        if (!p?.backtest || p.backtest.latestRound !== seedCache.latestRound) {
+        if (!p?.backtest) {
           merged.backtest = seedCache;
         }
+        // 새로고침 시 computing 플래그는 항상 리셋 (이전 세션에서 hang된 경우 대응)
+        merged.computing = false;
         return merged;
       },
       // deviceSeed는 첫 마운트 시 store가 만든 값으로 영속됨 → 이후엔 그대로 사용

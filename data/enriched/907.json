@@ -1,0 +1,101 @@
+{
+  "round": 907,
+  "date": "2020-04-18",
+  "nums": [
+    21,
+    27,
+    29,
+    38,
+    40,
+    44
+  ],
+  "bonus": 37,
+  "firstWinAmount": 3165059036,
+  "firstWinners": 7,
+  "totalSales": 89331282000,
+  "prizes": {
+    "first": {
+      "amount": 3165059036,
+      "winners": 7
+    },
+    "second": {
+      "amount": 55112969,
+      "winners": 67
+    },
+    "third": {
+      "amount": 1605465,
+      "winners": 2300
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 112189
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1903128
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행복편의점",
+      "address": "서울 구로구 구로중앙로 14",
+      "method": "auto",
+      "lat": 37.491585,
+      "lng": 126.89228
+    },
+    {
+      "rank": 1,
+      "name": "세종로또방",
+      "address": "세종 용포로 32",
+      "method": "auto",
+      "lat": 36.461655,
+      "lng": 127.280685
+    },
+    {
+      "rank": 1,
+      "name": "대박",
+      "address": "경기 고양시 덕양구 권율대로 892 101호",
+      "method": "auto",
+      "lat": 37.6632,
+      "lng": 126.89014
+    },
+    {
+      "rank": 1,
+      "name": "로또삼성복권방",
+      "address": "경기 수원시 영통구 매영로 141 원천훼밀리타운 원천훼미리타운105호",
+      "method": "auto",
+      "lat": 37.26672,
+      "lng": 127.05813
+    },
+    {
+      "rank": 1,
+      "name": "GS25(천안시민점)",
+      "address": "충남 천안시 동남구 신부동 469-1번지",
+      "method": "auto",
+      "lat": 36.818356,
+      "lng": 127.15929
+    },
+    {
+      "rank": 1,
+      "name": "운수대통복권방",
+      "address": "전북 익산시 무왕로23길 3",
+      "method": "manual",
+      "lat": 35.9597,
+      "lng": 126.98842
+    },
+    {
+      "rank": 1,
+      "name": "Letsgo복권유통",
+      "address": "전북 전주시 덕진구 무삼지로 29",
+      "method": "auto",
+      "lat": 35.82817,
+      "lng": 127.16468
+    }
+  ]
+}

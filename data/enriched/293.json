@@ -1,0 +1,93 @@
+{
+  "round": 293,
+  "date": "2008-07-12",
+  "nums": [
+    1,
+    9,
+    17,
+    21,
+    29,
+    33
+  ],
+  "bonus": 24,
+  "firstWinAmount": 1656764400,
+  "firstWinners": 6,
+  "totalSales": 42399708000,
+  "prizes": {
+    "first": {
+      "amount": 1656764400,
+      "winners": 6
+    },
+    "second": {
+      "amount": 78893543,
+      "winners": 21
+    },
+    "third": {
+      "amount": 1435672,
+      "winners": 1154
+    },
+    "fourth": {
+      "amount": 54268,
+      "winners": 61059
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 926442
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "교통카드판매대",
+      "address": "서울 강동구 성내동  56-14 동인의원앞",
+      "method": "auto",
+      "lat": 37.54225,
+      "lng": 127.13089
+    },
+    {
+      "rank": 1,
+      "name": "경남마트",
+      "address": "서울 구로구 고척로52길 21 경남상가201호",
+      "method": "auto",
+      "lat": 37.50424,
+      "lng": 126.85668
+    },
+    {
+      "rank": 1,
+      "name": "오케이상사",
+      "address": "서울 서초구 신반포로 176 센트럴시티내100호매점",
+      "method": "auto",
+      "lat": 37.504353,
+      "lng": 127.00359
+    },
+    {
+      "rank": 1,
+      "name": "라이프25복권",
+      "address": "인천 부평구 산곡동  181-69 외1필지 1층",
+      "method": "auto",
+      "lat": 37.518158,
+      "lng": 126.74386
+    },
+    {
+      "rank": 1,
+      "name": "터미널 편의점 1층",
+      "address": "경기 수원시 권선구 권선동 권선동 1189 수원복합터미널 1301",
+      "method": "auto",
+      "lat": 37.25043,
+      "lng": 127.02087
+    },
+    {
+      "rank": 1,
+      "name": "복권천국",
+      "address": "경남 양산시 중주동  693-2",
+      "method": "auto",
+      "lat": 35.33519,
+      "lng": 129.02783
+    }
+  ]
+}

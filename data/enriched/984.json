@@ -1,0 +1,101 @@
+{
+  "round": 984,
+  "date": "2021-10-09",
+  "nums": [
+    3,
+    10,
+    23,
+    35,
+    36,
+    37
+  ],
+  "bonus": 18,
+  "firstWinAmount": 3453006268,
+  "firstWinners": 7,
+  "totalSales": 98762367000,
+  "prizes": {
+    "first": {
+      "amount": 3453006268,
+      "winners": 7
+    },
+    "second": {
+      "amount": 62945427,
+      "winners": 64
+    },
+    "third": {
+      "amount": 1551814,
+      "winners": 2596
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 128129
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2149335
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "서울 마포구 백범로 127",
+      "method": "auto",
+      "lat": 37.54653,
+      "lng": 126.94544
+    },
+    {
+      "rank": 1,
+      "name": "재원마트",
+      "address": "서울 성북구 종암로21길 81",
+      "method": "auto",
+      "lat": 37.60171,
+      "lng": 127.03192
+    },
+    {
+      "rank": 1,
+      "name": "가온공인중개사무소",
+      "address": "인천 강화군 강화대로 294 (주)하늘환경 가온공인중개사",
+      "method": "auto",
+      "lat": 37.742218,
+      "lng": 126.496376
+    },
+    {
+      "rank": 1,
+      "name": "버스표가판점",
+      "address": "경기 안양시 동안구 동안로 125-2 범계역4-1출구앞 버스표가판점",
+      "method": "auto",
+      "lat": 37.389736,
+      "lng": 126.95106
+    },
+    {
+      "rank": 1,
+      "name": "복권마트",
+      "address": "강원 홍천군 홍천로 409 1층",
+      "method": "auto",
+      "lat": 37.690258,
+      "lng": 127.88947
+    },
+    {
+      "rank": 1,
+      "name": "이마트24 순천산단점",
+      "address": "전남 순천시 산단1길 6 중앙정밀기계,마트",
+      "method": "auto",
+      "lat": 34.987934,
+      "lng": 127.50839
+    },
+    {
+      "rank": 1,
+      "name": "신라슈퍼",
+      "address": "경북 포항시 남구 동해면 일월로 112,(약전리)",
+      "method": "auto",
+      "lat": 35.987953,
+      "lng": 129.4453
+    }
+  ]
+}

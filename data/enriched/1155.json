@@ -1,0 +1,101 @@
+{
+  "round": 1155,
+  "date": "2025-01-18",
+  "nums": [
+    10,
+    16,
+    19,
+    27,
+    37,
+    38
+  ],
+  "bonus": 13,
+  "firstWinAmount": 4066375179,
+  "firstWinners": 7,
+  "totalSales": 118482730000,
+  "prizes": {
+    "first": {
+      "amount": 4066375179,
+      "winners": 7
+    },
+    "second": {
+      "amount": 60821851,
+      "winners": 78
+    },
+    "third": {
+      "amount": 1496091,
+      "winners": 3171
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 160366
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2654046
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가로판매소",
+      "address": "서울 구로구 새말로 117-24 (신도림역2번출구)(구로동)",
+      "method": "manual",
+      "lat": 37.50696,
+      "lng": 126.8903
+    },
+    {
+      "rank": 1,
+      "name": "운수대통가판점",
+      "address": "서울 성동구 왕십리로 327",
+      "method": "auto",
+      "lat": 37.562363,
+      "lng": 127.03318
+    },
+    {
+      "rank": 1,
+      "name": "다온복권방",
+      "address": "부산 금정구 부곡로 122 좌측 복권판매점",
+      "method": "auto",
+      "lat": 35.226704,
+      "lng": 129.09212
+    },
+    {
+      "rank": 1,
+      "name": "씨스페이스 로또명당점",
+      "address": "대전 서구 관저로129번길 3",
+      "method": "manual",
+      "lat": 36.299126,
+      "lng": 127.33612
+    },
+    {
+      "rank": 1,
+      "name": "한꿈복권방",
+      "address": "울산 중구 번영로 586",
+      "method": "auto",
+      "lat": 35.568794,
+      "lng": 129.34589
+    },
+    {
+      "rank": 1,
+      "name": "자매점",
+      "address": "경기 파주시 문화로 95 1층",
+      "method": "auto",
+      "lat": 37.762638,
+      "lng": 126.77474
+    },
+    {
+      "rank": 1,
+      "name": "신불당로또",
+      "address": "충남 천안시 서북구 불당21로 40 501동 지1층 B143호",
+      "method": "auto",
+      "lat": 36.812565,
+      "lng": 127.10497
+    }
+  ]
+}

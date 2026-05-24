@@ -1,0 +1,125 @@
+{
+  "round": 964,
+  "date": "2021-05-22",
+  "nums": [
+    6,
+    21,
+    36,
+    38,
+    39,
+    43
+  ],
+  "bonus": 30,
+  "firstWinAmount": 2345861063,
+  "firstWinners": 10,
+  "totalSales": 95549895000,
+  "prizes": {
+    "first": {
+      "amount": 2345861063,
+      "winners": 10
+    },
+    "second": {
+      "amount": 75187855,
+      "winners": 52
+    },
+    "third": {
+      "amount": 1597781,
+      "winners": 2447
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 123780
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2061560
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대박종합복권가로판매점",
+      "address": "서울 서대문구 신촌로 75,(창천동)",
+      "method": "auto",
+      "lat": 37.55614,
+      "lng": 126.934845
+    },
+    {
+      "rank": 1,
+      "name": "왕자사진관",
+      "address": "서울 중랑구 양원역로 2 일흥빌딩1층1,2호",
+      "method": "manual",
+      "lat": 37.600822,
+      "lng": 127.10859
+    },
+    {
+      "rank": 1,
+      "name": "GS25 뉴강서역점",
+      "address": "부산 강서구 대저로 275 1층",
+      "method": "auto",
+      "lat": 35.212795,
+      "lng": 128.98227
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐 현풍대로점",
+      "address": "대구 달성군 비슬로 581 세븐일레븐현풍대로점",
+      "method": "auto",
+      "lat": 35.690544,
+      "lng": 128.44447
+    },
+    {
+      "rank": 1,
+      "name": "하늘바다 편의점 복권방",
+      "address": "인천 부평구 부흥로 389 백산빌딩 1층 102호",
+      "method": "auto",
+      "lat": 37.498116,
+      "lng": 126.7353
+    },
+    {
+      "rank": 1,
+      "name": "대박복권방",
+      "address": "인천 서구 대평로 3",
+      "method": "auto",
+      "lat": 37.547123,
+      "lng": 126.67662
+    },
+    {
+      "rank": 1,
+      "name": "성명전력",
+      "address": "경기 동두천시 큰시장로 43",
+      "method": "manual",
+      "lat": 37.90014,
+      "lng": 127.05292
+    },
+    {
+      "rank": 1,
+      "name": "용꿈돼지꿈복권방",
+      "address": "경기 시흥시 하중로 235 법조타운103호",
+      "method": "auto",
+      "lat": 37.390877,
+      "lng": 126.806526
+    },
+    {
+      "rank": 1,
+      "name": "대박로또방",
+      "address": "경남 양산시 삼호로 71 1층 2호",
+      "method": "auto",
+      "lat": 35.40772,
+      "lng": 129.17218
+    },
+    {
+      "rank": 1,
+      "name": "태금편의점",
+      "address": "경남 창원시 마산회원구 옥정3길 25 신축건물1층",
+      "method": "auto",
+      "lat": 35.25252,
+      "lng": 128.51942
+    }
+  ]
+}

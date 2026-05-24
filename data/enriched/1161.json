@@ -1,0 +1,173 @@
+{
+  "round": 1161,
+  "date": "2025-03-01",
+  "nums": [
+    2,
+    12,
+    20,
+    24,
+    34,
+    42
+  ],
+  "bonus": 37,
+  "firstWinAmount": 1792657969,
+  "firstWinners": 16,
+  "totalSales": 123230590000,
+  "prizes": {
+    "first": {
+      "amount": 1792657969,
+      "winners": 16
+    },
+    "second": {
+      "amount": 40858302,
+      "winners": 117
+    },
+    "third": {
+      "amount": 1163970,
+      "winners": 4107
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 181457
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2859815
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 6,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "신일",
+      "address": "서울 강서구 까치산로 177 1층 101호",
+      "method": "auto",
+      "lat": 37.553062,
+      "lng": 126.85334
+    },
+    {
+      "rank": 1,
+      "name": "동행로또복권판매",
+      "address": "인천 동구 화도진로 33-1 1층",
+      "method": "auto",
+      "lat": 37.475677,
+      "lng": 126.63414
+    },
+    {
+      "rank": 1,
+      "name": "대박신화복권판매점",
+      "address": "인천 미추홀구 인하로 267",
+      "method": "manual",
+      "lat": 37.44831,
+      "lng": 126.677795
+    },
+    {
+      "rank": 1,
+      "name": "복권왕국",
+      "address": "인천 부평구 부흥로 359 1층",
+      "method": "auto",
+      "lat": 37.49818,
+      "lng": 126.731926
+    },
+    {
+      "rank": 1,
+      "name": "드림복권방",
+      "address": "인천 연수구 아트센터대로168번길 100 G동 180호(송도동,한라 웨스턴파크 송도)",
+      "method": "auto",
+      "lat": 37.405178,
+      "lng": 126.62886
+    },
+    {
+      "rank": 1,
+      "name": "이마트24중울산점",
+      "address": "울산 중구 옥골샘4길 21",
+      "method": "manual",
+      "lat": 35.55714,
+      "lng": 129.32382
+    },
+    {
+      "rank": 1,
+      "name": "대길복권",
+      "address": "경기 수원시 장안구 서부로 2129-1 1층 (율전동)",
+      "method": "auto",
+      "lat": 37.298744,
+      "lng": 126.971306
+    },
+    {
+      "rank": 1,
+      "name": "46중통 로또판매점",
+      "address": "경기 시흥시 중심상가로 39 106호",
+      "method": "manual",
+      "lat": 37.352856,
+      "lng": 126.7229
+    },
+    {
+      "rank": 1,
+      "name": "종합복권슈퍼",
+      "address": "경기 시흥시 마유로 336 정일빌딩104",
+      "method": "auto",
+      "lat": 37.34572,
+      "lng": 126.73561
+    },
+    {
+      "rank": 1,
+      "name": "종합복권슈퍼",
+      "address": "경기 시흥시 마유로 336 정일빌딩104",
+      "method": "auto",
+      "lat": 37.34572,
+      "lng": 126.73561
+    },
+    {
+      "rank": 1,
+      "name": "대선세무경영사무소",
+      "address": "경기 안산시 상록구 석호로 189 101호",
+      "method": "manual",
+      "lat": 37.295925,
+      "lng": 126.85253
+    },
+    {
+      "rank": 1,
+      "name": "느낌 복권판매점",
+      "address": "경기 안산시 상록구 용신로 328",
+      "method": "auto",
+      "lat": 37.30168,
+      "lng": 126.85823
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "경기 오산시 성호대로93번길 27",
+      "method": "manual",
+      "lat": 37.151245,
+      "lng": 127.07145
+    },
+    {
+      "rank": 1,
+      "name": "세븐복권",
+      "address": "충북 증평군 초중6길 19 1층(세븐일레븐 내)",
+      "method": "manual",
+      "lat": 36.776863,
+      "lng": 127.569046
+    },
+    {
+      "rank": 1,
+      "name": "복조리복권방",
+      "address": "전북 장수군 장계천변길 55-4",
+      "method": "auto",
+      "lat": 35.731014,
+      "lng": 127.58352
+    },
+    {
+      "rank": 1,
+      "name": "로또복권 포항IC점",
+      "address": "경북 포항시 북구 새마을로 340 세븐일레븐 옆",
+      "method": "auto",
+      "lat": 36.045876,
+      "lng": 129.32777
+    }
+  ]
+}

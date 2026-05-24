@@ -1,0 +1,69 @@
+{
+  "round": 535,
+  "date": "2013-03-02",
+  "nums": [
+    11,
+    12,
+    14,
+    15,
+    18,
+    39
+  ],
+  "bonus": 34,
+  "firstWinAmount": 4935603000,
+  "firstWinners": 3,
+  "totalSales": 60523884000,
+  "prizes": {
+    "first": {
+      "amount": 4935603000,
+      "winners": 3
+    },
+    "second": {
+      "amount": 79606500,
+      "winners": 31
+    },
+    "third": {
+      "amount": 1632144,
+      "winners": 1512
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 76742
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1336486
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "캐논종합",
+      "address": "서울 용산구 청파로 101 나진10동가125호",
+      "method": "auto",
+      "lat": 37.533337,
+      "lng": 126.962296
+    },
+    {
+      "rank": 1,
+      "name": "부일카서비스",
+      "address": "부산 동구 자성로133번길 35",
+      "method": "auto",
+      "lat": 35.140015,
+      "lng": 129.06306
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "경기 파주시 금촌동  374-11",
+      "method": "auto",
+      "lat": 37.765816,
+      "lng": 126.77012
+    }
+  ]
+}

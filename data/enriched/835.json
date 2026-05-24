@@ -1,0 +1,165 @@
+{
+  "round": 835,
+  "date": "2018-12-01",
+  "nums": [
+    9,
+    10,
+    13,
+    28,
+    38,
+    45
+  ],
+  "bonus": 35,
+  "firstWinAmount": 1233681125,
+  "firstWinners": 15,
+  "totalSales": 77694435000,
+  "prizes": {
+    "first": {
+      "amount": 1233681125,
+      "winners": 15
+    },
+    "second": {
+      "amount": 53175911,
+      "winners": 58
+    },
+    "third": {
+      "amount": 1337469,
+      "winners": 2306
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 106763
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1767089
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 상계주공아파트(10단지) 주공10단지종합상가111",
+      "method": "auto",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "제이복권방",
+      "address": "서울 종로구 종로 225-1 평창빌딩 1층 103호",
+      "method": "auto",
+      "lat": 37.571293,
+      "lng": 127.00283
+    },
+    {
+      "rank": 1,
+      "name": "다연마트",
+      "address": "서울 중랑구 겸재로 122",
+      "method": "auto",
+      "lat": 37.58679,
+      "lng": 127.08132
+    },
+    {
+      "rank": 1,
+      "name": "돈벼락맞는곳",
+      "address": "부산 사상구 낙동대로 910 마트월드 A-160호",
+      "method": "manual",
+      "lat": 35.141865,
+      "lng": 128.971
+    },
+    {
+      "rank": 1,
+      "name": "위너로또",
+      "address": "인천 남동구 구월남로 212  동원프라자 101호",
+      "method": "auto",
+      "lat": 37.45245,
+      "lng": 126.71311
+    },
+    {
+      "rank": 1,
+      "name": "찬스복권방",
+      "address": "인천 부평구 육동로 20-1 1층",
+      "method": "manual",
+      "lat": 37.48712,
+      "lng": 126.72512
+    },
+    {
+      "rank": 1,
+      "name": "GS25(십정센터점)",
+      "address": "인천 부평구 십정동 117번지 B동",
+      "method": "manual",
+      "lat": 37.478703,
+      "lng": 126.6906
+    },
+    {
+      "rank": 1,
+      "name": "신흥엑스포쇼핑",
+      "address": "인천 서구 가석로156번길 20",
+      "method": "manual",
+      "lat": 37.49705,
+      "lng": 126.67706
+    },
+    {
+      "rank": 1,
+      "name": "행복로또",
+      "address": "광주 동구 남문로 699 행복로또",
+      "method": "auto",
+      "lat": 35.13296,
+      "lng": 126.92802
+    },
+    {
+      "rank": 1,
+      "name": "대박나라",
+      "address": "대전 유성구 유성대로720번길 39",
+      "method": "manual",
+      "lat": 36.35737,
+      "lng": 127.33416
+    },
+    {
+      "rank": 1,
+      "name": "역전광장상회",
+      "address": "경기 파주시 금촌1동 329-19번지",
+      "method": "auto",
+      "lat": 37.765278,
+      "lng": 126.77464
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "경기 평택시 서정남로 131",
+      "method": "auto",
+      "lat": 37.060966,
+      "lng": 127.05394
+    },
+    {
+      "rank": 1,
+      "name": "대박찬스",
+      "address": "전북 군산시 칠성로 164",
+      "method": "auto",
+      "lat": 35.969368,
+      "lng": 126.67934
+    },
+    {
+      "rank": 1,
+      "name": "나이스로또복권",
+      "address": "전남 여수시 이순신광장로 210",
+      "method": "auto",
+      "lat": 34.73967,
+      "lng": 127.745186
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방(감포)",
+      "address": "경북 경주시 감포로 141",
+      "method": "auto",
+      "lat": 35.80664,
+      "lng": 129.50232
+    }
+  ]
+}

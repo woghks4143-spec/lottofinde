@@ -1,0 +1,77 @@
+{
+  "round": 274,
+  "date": "2008-03-01",
+  "nums": [
+    13,
+    14,
+    15,
+    26,
+    35,
+    39
+  ],
+  "bonus": 25,
+  "firstWinAmount": 2505085575,
+  "firstWinners": 4,
+  "totalSales": 42631711000,
+  "prizes": {
+    "first": {
+      "amount": 2505085575,
+      "winners": 4
+    },
+    "second": {
+      "amount": 45136678,
+      "winners": 37
+    },
+    "third": {
+      "amount": 1331784,
+      "winners": 1254
+    },
+    "fourth": {
+      "amount": 58277,
+      "winners": 57315
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 923057
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "영훈슈퍼마켓",
+      "address": "서울 도봉구 덕릉로 222,(창동)",
+      "method": "auto",
+      "lat": 37.63781,
+      "lng": 127.03763
+    },
+    {
+      "rank": 1,
+      "name": "로또",
+      "address": "서울 중구 신당동  133-14",
+      "method": "auto",
+      "lat": 37.56378,
+      "lng": 127.0194
+    },
+    {
+      "rank": 1,
+      "name": "오렌지마트",
+      "address": "부산 사하구 장림번영로 96 105동 101호",
+      "method": "auto",
+      "lat": 35.08012,
+      "lng": 128.97574
+    },
+    {
+      "rank": 1,
+      "name": "북마산복권전문점",
+      "address": "경남 창원시 마산합포구 북성로 98",
+      "method": "manual",
+      "lat": 35.215973,
+      "lng": 128.5708
+    }
+  ]
+}

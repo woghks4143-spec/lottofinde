@@ -1,0 +1,109 @@
+{
+  "round": 801,
+  "date": "2018-04-07",
+  "nums": [
+    17,
+    25,
+    28,
+    37,
+    43,
+    44
+  ],
+  "bonus": 2,
+  "firstWinAmount": 2256786657,
+  "firstWinners": 8,
+  "totalSales": 74034792000,
+  "prizes": {
+    "first": {
+      "amount": 2256786657,
+      "winners": 8
+    },
+    "second": {
+      "amount": 59000959,
+      "winners": 51
+    },
+    "third": {
+      "amount": 1505278,
+      "winners": 1999
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 97006
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1618941
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "클로버 복권판매점",
+      "address": "서울 송파구 백제고분로50길 19 102호",
+      "method": "manual",
+      "lat": 37.513836,
+      "lng": 127.117065
+    },
+    {
+      "rank": 1,
+      "name": "영남건재상사",
+      "address": "부산 연제구 과정로 200-1",
+      "method": "auto",
+      "lat": 35.188087,
+      "lng": 129.1054
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "인천 서구 신현로 44 1층102호",
+      "method": "auto",
+      "lat": 37.51731,
+      "lng": 126.67237
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "대전 서구 갈마중로 28,(갈마동)",
+      "method": "auto",
+      "lat": 36.347527,
+      "lng": 127.37245
+    },
+    {
+      "rank": 1,
+      "name": "팡팡복권방",
+      "address": "경기 군포시 당동(군포1동) 750-26",
+      "method": "mixed",
+      "lat": 37.353596,
+      "lng": 126.9465
+    },
+    {
+      "rank": 1,
+      "name": "복권사랑",
+      "address": "경기 안산시 단원구 와동로 117",
+      "method": "auto",
+      "lat": 37.340343,
+      "lng": 126.82688
+    },
+    {
+      "rank": 1,
+      "name": "나눔로또 신동탄점",
+      "address": "경기 화성시 능동 1098-8",
+      "method": "auto",
+      "lat": 37.215828,
+      "lng": 127.05615
+    },
+    {
+      "rank": 1,
+      "name": "행운로또",
+      "address": "충남 아산시 충무로 1396",
+      "method": "auto",
+      "lat": 36.897526,
+      "lng": 127.03526
+    }
+  ]
+}

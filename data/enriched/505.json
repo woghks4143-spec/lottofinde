@@ -1,0 +1,93 @@
+{
+  "round": 505,
+  "date": "2012-08-04",
+  "nums": [
+    7,
+    20,
+    22,
+    25,
+    38,
+    40
+  ],
+  "bonus": 44,
+  "firstWinAmount": 1917955188,
+  "firstWinners": 6,
+  "totalSales": 49103223000,
+  "prizes": {
+    "first": {
+      "amount": 1917955188,
+      "winners": 6
+    },
+    "second": {
+      "amount": 50472505,
+      "winners": 38
+    },
+    "third": {
+      "amount": 1331914,
+      "winners": 1440
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 69758
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1144014
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "구청앞로또명당",
+      "address": "서울 강북구 수유3동  191-58",
+      "method": "auto",
+      "lat": 37.639614,
+      "lng": 127.0263
+    },
+    {
+      "rank": 1,
+      "name": "하늘과바다",
+      "address": "인천 부평구 부개동  67-9",
+      "method": "manual",
+      "lat": 37.49801,
+      "lng": 126.7352
+    },
+    {
+      "rank": 1,
+      "name": "버스매표소 복권판매소",
+      "address": "인천 중구 우현로 69 중앙로지하상가 163호",
+      "method": "manual",
+      "lat": 37.47554,
+      "lng": 126.631294
+    },
+    {
+      "rank": 1,
+      "name": "광성슈퍼",
+      "address": "경기 이천시 단월로 33",
+      "method": "manual",
+      "lat": 37.221367,
+      "lng": 127.44998
+    },
+    {
+      "rank": 1,
+      "name": "팡팡복권방",
+      "address": "전북 익산시 인북로 99",
+      "method": "auto",
+      "lat": 35.93792,
+      "lng": 126.95264
+    },
+    {
+      "rank": 1,
+      "name": "로또복권판매",
+      "address": "경북 상주시 삼백로 159",
+      "method": "auto",
+      "lat": 36.41895,
+      "lng": 128.16113
+    }
+  ]
+}

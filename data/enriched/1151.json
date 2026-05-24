@@ -1,0 +1,181 @@
+{
+  "round": 1151,
+  "date": "2024-12-21",
+  "nums": [
+    2,
+    3,
+    9,
+    15,
+    27,
+    29
+  ],
+  "bonus": 8,
+  "firstWinAmount": 1620503030,
+  "firstWinners": 17,
+  "totalSales": 116118444000,
+  "prizes": {
+    "first": {
+      "amount": 1620503030,
+      "winners": 17
+    },
+    "second": {
+      "amount": 45013974,
+      "winners": 102
+    },
+    "third": {
+      "amount": 1370166,
+      "winners": 3351
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 163055
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2635014
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 8,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "일확천금",
+      "address": "서울 강동구 진황도로 168-1",
+      "method": "auto",
+      "lat": 37.53109,
+      "lng": 127.142075
+    },
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "manual",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "복권세상",
+      "address": "서울 양천구 곰달래로5길 26",
+      "method": "auto",
+      "lat": 37.531918,
+      "lng": 126.83368
+    },
+    {
+      "rank": 1,
+      "name": "빅세일복권방",
+      "address": "부산 부산진구 서면문화로 6",
+      "method": "auto",
+      "lat": 35.158302,
+      "lng": 129.05809
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "대구 동구 아양로 294 1층",
+      "method": "manual",
+      "lat": 35.890434,
+      "lng": 128.64297
+    },
+    {
+      "rank": 1,
+      "name": "로또명당 퍼니마트",
+      "address": "인천 미추홀구 문학길 4 편의점내",
+      "method": "mixed",
+      "lat": 37.43852,
+      "lng": 126.681046
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "대전 서구 갈마중로 28",
+      "method": "manual",
+      "lat": 36.347527,
+      "lng": 127.37245
+    },
+    {
+      "rank": 1,
+      "name": "오렌지25",
+      "address": "경기 고양시 일산서구 고봉로 291 양우에이스스타디움109",
+      "method": "auto",
+      "lat": 37.68528,
+      "lng": 126.777145
+    },
+    {
+      "rank": 1,
+      "name": "로또복권로데오서현점",
+      "address": "경기 성남시 분당구 분당로53번길 20 1층 109호(서현동, 이랜드분당프라자)",
+      "method": "manual",
+      "lat": 37.38407,
+      "lng": 127.12263
+    },
+    {
+      "rank": 1,
+      "name": "오늘의로또",
+      "address": "경기 오산시 궐리사로 75",
+      "method": "manual",
+      "lat": 37.15869,
+      "lng": 127.06062
+    },
+    {
+      "rank": 1,
+      "name": "오늘의로또",
+      "address": "경기 오산시 궐리사로 75",
+      "method": "manual",
+      "lat": 37.15869,
+      "lng": 127.06062
+    },
+    {
+      "rank": 1,
+      "name": "오늘의로또",
+      "address": "경기 오산시 궐리사로 75",
+      "method": "manual",
+      "lat": 37.15869,
+      "lng": 127.06062
+    },
+    {
+      "rank": 1,
+      "name": "오늘의로또",
+      "address": "경기 오산시 궐리사로 75",
+      "method": "manual",
+      "lat": 37.15869,
+      "lng": 127.06062
+    },
+    {
+      "rank": 1,
+      "name": "복권",
+      "address": "경기 의정부시 태평로 75",
+      "method": "auto",
+      "lat": 37.739246,
+      "lng": 127.05129
+    },
+    {
+      "rank": 1,
+      "name": "럭키로또복권판매점",
+      "address": "충북 청주시 상당구 무농정로 10-1",
+      "method": "auto",
+      "lat": 36.605873,
+      "lng": 127.50429
+    },
+    {
+      "rank": 1,
+      "name": "오사랑복권",
+      "address": "충북 청주시 흥덕구 진재로 42",
+      "method": "auto",
+      "lat": 36.634895,
+      "lng": 127.42964
+    },
+    {
+      "rank": 1,
+      "name": "청호복권방",
+      "address": "전남 목포시 용당로 296 1층 2호",
+      "method": "auto",
+      "lat": 34.81318,
+      "lng": 126.39991
+    }
+  ]
+}

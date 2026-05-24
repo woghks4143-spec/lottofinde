@@ -1,0 +1,69 @@
+{
+  "round": 360,
+  "date": "2009-10-24",
+  "nums": [
+    4,
+    16,
+    23,
+    25,
+    35,
+    40
+  ],
+  "bonus": 27,
+  "firstWinAmount": 3566716200,
+  "firstWinners": 3,
+  "totalSales": 45719032000,
+  "prizes": {
+    "first": {
+      "amount": 3566716200,
+      "winners": 3
+    },
+    "second": {
+      "amount": 54041155,
+      "winners": 33
+    },
+    "third": {
+      "amount": 1476290,
+      "winners": 1208
+    },
+    "fourth": {
+      "amount": 59139,
+      "winners": 60311
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1005187
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "서울 구로구 도림로 55-1",
+      "method": "auto",
+      "lat": 37.4888,
+      "lng": 126.89002
+    },
+    {
+      "rank": 1,
+      "name": "럭키슈퍼",
+      "address": "서울 용산구 후암로 52",
+      "method": "auto",
+      "lat": 37.550594,
+      "lng": 126.97736
+    },
+    {
+      "rank": 1,
+      "name": "창원병원앞매표소",
+      "address": "경남 창원시 중앙동  104-1",
+      "method": "auto",
+      "lat": 35.2185,
+      "lng": 128.67143
+    }
+  ]
+}

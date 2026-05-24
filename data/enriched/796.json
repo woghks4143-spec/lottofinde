@@ -1,0 +1,101 @@
+{
+  "round": 796,
+  "date": "2018-03-03",
+  "nums": [
+    1,
+    21,
+    26,
+    36,
+    40,
+    41
+  ],
+  "bonus": 5,
+  "firstWinAmount": 2763490340,
+  "firstWinners": 7,
+  "totalSales": 77685943000,
+  "prizes": {
+    "first": {
+      "amount": 2763490340,
+      "winners": 7
+    },
+    "second": {
+      "amount": 70088524,
+      "winners": 46
+    },
+    "third": {
+      "amount": 1678331,
+      "winners": 1921
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 96701
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1643069
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권세상",
+      "address": "서울 양천구 신월로 187",
+      "method": "auto",
+      "lat": 37.51969,
+      "lng": 126.84364
+    },
+    {
+      "rank": 1,
+      "name": "GS25(칠곡구안점)",
+      "address": "대구 북구 읍내동 1341-4번지",
+      "method": "auto",
+      "lat": 35.935154,
+      "lng": 128.54915
+    },
+    {
+      "rank": 1,
+      "name": "메트로센터점",
+      "address": "대구 중구 달구벌대로 지하 2100 메트로센터C412호",
+      "method": "auto",
+      "lat": 35.86582,
+      "lng": 128.59314
+    },
+    {
+      "rank": 1,
+      "name": "대박복권",
+      "address": "경기 부천시 원미구 심곡동(심곡2동) 173-1 실주소 : 경기 부천시 원미구 심곡동 316-2 부천역 지하상가 w6 7-2 호",
+      "method": "auto",
+      "lat": 37.484024,
+      "lng": 126.78282
+    },
+    {
+      "rank": 1,
+      "name": "건강마트",
+      "address": "경기 하남시 신장2동 315-2번지",
+      "method": "auto",
+      "lat": 37.547123,
+      "lng": 127.211426
+    },
+    {
+      "rank": 1,
+      "name": "대박복권",
+      "address": "전남 나주시 구진포로 483 대박복권",
+      "method": "auto",
+      "lat": 35.00971,
+      "lng": 126.711395
+    },
+    {
+      "rank": 1,
+      "name": "제일마트",
+      "address": "전남 나주시 중앙로 21 제일마트",
+      "method": "auto",
+      "lat": 35.031143,
+      "lng": 126.71974
+    }
+  ]
+}

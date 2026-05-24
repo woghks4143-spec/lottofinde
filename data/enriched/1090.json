@@ -1,0 +1,133 @@
+{
+  "round": 1090,
+  "date": "2023-10-21",
+  "nums": [
+    12,
+    19,
+    21,
+    29,
+    40,
+    45
+  ],
+  "bonus": 1,
+  "firstWinAmount": 2386494614,
+  "firstWinners": 11,
+  "totalSales": 108364862000,
+  "prizes": {
+    "first": {
+      "amount": 2386494614,
+      "winners": 11
+    },
+    "second": {
+      "amount": 49718638,
+      "winners": 88
+    },
+    "third": {
+      "amount": 1492747,
+      "winners": 2931
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 143714
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2398962
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "경성식품",
+      "address": "서울 동대문구 망우로21길 52",
+      "method": "manual",
+      "lat": 37.590435,
+      "lng": 127.06028
+    },
+    {
+      "rank": 1,
+      "name": "주아킹 목동점",
+      "address": "서울 양천구 목동로 213 1층",
+      "method": "auto",
+      "lat": 37.527397,
+      "lng": 126.86379
+    },
+    {
+      "rank": 1,
+      "name": "복권명당(서부점)",
+      "address": "대구 달서구 월배로 452",
+      "method": "auto",
+      "lat": 35.833633,
+      "lng": 128.55486
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권",
+      "address": "대구 북구 칠곡중앙대로 545",
+      "method": "auto",
+      "lat": 35.94432,
+      "lng": 128.55064
+    },
+    {
+      "rank": 1,
+      "name": "평화(북구사수점)",
+      "address": "대구 북구 한강로 92 1층 101호",
+      "method": "auto",
+      "lat": 35.896557,
+      "lng": 128.51958
+    },
+    {
+      "rank": 1,
+      "name": "버스표판매소",
+      "address": "경기 고양시 덕양구 화신로 76 샘터마을1단지아파트 971번지선",
+      "method": "auto",
+      "lat": 37.619034,
+      "lng": 126.840454
+    },
+    {
+      "rank": 1,
+      "name": "인생로또 645",
+      "address": "경기 남양주시 다산순환로 356 다산푸리마타워 1층 102호",
+      "method": "auto",
+      "lat": 37.625202,
+      "lng": 127.155396
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "경기 부천시 양지로 205 1층 118호",
+      "method": "auto",
+      "lat": 37.467976,
+      "lng": 126.822464
+    },
+    {
+      "rank": 1,
+      "name": "왕대박유통",
+      "address": "충북 청주시 흥덕구 서현동로 25 화인프라자 1층",
+      "method": "auto",
+      "lat": 36.624504,
+      "lng": 127.429245
+    },
+    {
+      "rank": 1,
+      "name": "채널큐",
+      "address": "경남 창원시 마산합포구 산호남로 11-1",
+      "method": "manual",
+      "lat": 35.21755,
+      "lng": 128.58145
+    },
+    {
+      "rank": 1,
+      "name": "행운&빈센트",
+      "address": "제주 서귀포시 동문로 64",
+      "method": "auto",
+      "lat": 33.24906,
+      "lng": 126.56697
+    }
+  ]
+}

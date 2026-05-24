@@ -1,0 +1,53 @@
+{
+  "round": 390,
+  "date": "2010-05-22",
+  "nums": [
+    16,
+    17,
+    28,
+    37,
+    39,
+    40
+  ],
+  "bonus": 15,
+  "firstWinAmount": 10373997900,
+  "firstWinners": 1,
+  "totalSales": 44189673000,
+  "prizes": {
+    "first": {
+      "amount": 10373997900,
+      "winners": 1
+    },
+    "second": {
+      "amount": 46729721,
+      "winners": 37
+    },
+    "third": {
+      "amount": 1590617,
+      "winners": 1087
+    },
+    "fourth": {
+      "amount": 61934,
+      "winners": 55834
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 960968
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행복공간",
+      "address": "서울 강동구 풍성로 115",
+      "method": "auto",
+      "lat": 37.532127,
+      "lng": 127.12511
+    }
+  ]
+}

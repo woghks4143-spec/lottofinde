@@ -1,0 +1,77 @@
+{
+  "round": 729,
+  "date": "2016-11-19",
+  "nums": [
+    11,
+    17,
+    21,
+    26,
+    36,
+    45
+  ],
+  "bonus": 16,
+  "firstWinAmount": 4198250719,
+  "firstWinners": 4,
+  "totalSales": 68784161000,
+  "prizes": {
+    "first": {
+      "amount": 4198250719,
+      "winners": 4
+    },
+    "second": {
+      "amount": 79966681,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1492712,
+      "winners": 1875
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 89560
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1504682
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "셀프카메라",
+      "address": "부산 부산진구 가야대로443번길 30",
+      "method": "auto",
+      "lat": 35.154446,
+      "lng": 129.02167
+    },
+    {
+      "rank": 1,
+      "name": "로또하는날",
+      "address": "부산 연제구 연산동 590-38번지 원플러스25점포 내",
+      "method": "auto",
+      "lat": 35.185684,
+      "lng": 129.08319
+    },
+    {
+      "rank": 1,
+      "name": "진도로또",
+      "address": "전남 진도군 진도읍 동외리 1151-2 진도로또",
+      "method": "auto",
+      "lat": 34.481274,
+      "lng": 126.269325
+    },
+    {
+      "rank": 1,
+      "name": "씨유월영마을점",
+      "address": "경남 창원시 마산합포구 월영남로 21,(해운동)",
+      "method": "manual",
+      "lat": 35.17691,
+      "lng": 128.55867
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "round": 498,
+  "date": "2012-06-16",
+  "nums": [
+    13,
+    14,
+    24,
+    32,
+    39,
+    41
+  ],
+  "bonus": 3,
+  "firstWinAmount": 3244503094,
+  "firstWinners": 4,
+  "totalSales": 52851253000,
+  "prizes": {
+    "first": {
+      "amount": 3244503094,
+      "winners": 4
+    },
+    "second": {
+      "amount": 61800059,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1621441,
+      "winners": 1334
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 68471
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1139612
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "서울 관악구 장군봉1길 43 1층",
+      "method": "auto",
+      "lat": 37.481728,
+      "lng": 126.94244
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트(소피텔점)",
+      "address": "서울 중구 묵정동  18-9",
+      "method": "auto",
+      "lat": 37.560562,
+      "lng": 127.00166
+    },
+    {
+      "rank": 1,
+      "name": "뉴빅마트",
+      "address": "부산 기장군 정관중앙로 48 106호",
+      "method": "auto",
+      "lat": 35.321114,
+      "lng": 129.17929
+    },
+    {
+      "rank": 1,
+      "name": "황금복권마트",
+      "address": "경기 이천시 증신로325번길 5 1층",
+      "method": "auto",
+      "lat": 37.297546,
+      "lng": 127.438866
+    }
+  ]
+}

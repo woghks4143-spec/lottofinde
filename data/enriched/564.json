@@ -1,0 +1,101 @@
+{
+  "round": 564,
+  "date": "2013-09-21",
+  "nums": [
+    14,
+    19,
+    25,
+    26,
+    27,
+    34
+  ],
+  "bonus": 2,
+  "firstWinAmount": 1934801143,
+  "firstWinners": 7,
+  "totalSales": 58012468000,
+  "prizes": {
+    "first": {
+      "amount": 1934801143,
+      "winners": 7
+    },
+    "second": {
+      "amount": 70539625,
+      "winners": 32
+    },
+    "third": {
+      "amount": 1368871,
+      "winners": 1649
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 83100
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1358618
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "서울 관악구 난곡로 247",
+      "method": "auto",
+      "lat": 37.476097,
+      "lng": 126.91573
+    },
+    {
+      "rank": 1,
+      "name": "-",
+      "address": "서울 금천구 독산동  1012-15번지 1012-15",
+      "method": "auto",
+      "lat": 37.46836,
+      "lng": 126.89843
+    },
+    {
+      "rank": 1,
+      "name": "가로판매대제13호",
+      "address": "서울 중구 퇴계로 36,(남창동)",
+      "method": "auto",
+      "lat": 37.55729,
+      "lng": 126.97701
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "대구 달성군 논공읍 논공중앙로 106,(북리)",
+      "method": "manual",
+      "lat": 35.72692,
+      "lng": 128.44666
+    },
+    {
+      "rank": 1,
+      "name": "준원슈퍼",
+      "address": "대전 중구 보문로260번길 43",
+      "method": "auto",
+      "lat": 36.32657,
+      "lng": 127.42424
+    },
+    {
+      "rank": 1,
+      "name": "주엽간판점",
+      "address": "경기 고양시 일산서구 중앙로 1437 화성프라자 도로",
+      "method": "auto",
+      "lat": 37.670036,
+      "lng": 126.76048
+    },
+    {
+      "rank": 1,
+      "name": "로또훼미리마트왜관점",
+      "address": "경북 칠곡군 왜관읍  왜관리191-3번지CU편의점 내",
+      "method": "auto",
+      "lat": 35.99602,
+      "lng": 128.39926
+    }
+  ]
+}

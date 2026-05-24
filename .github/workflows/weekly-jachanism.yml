@@ -1,0 +1,79 @@
+name: Weekly jachanism (Python algorithm)
+
+# 매주 월요일 09:00 KST (= UTC 일요일 00:00) 자동 실행
+# 실제 JACKPOT_UNION_v1 Python 알고리즘으로 풀+백테스트 사전 계산
+# 결과는 data/jachanism/에 저장 → 앱은 fetch만 (사용자 대기시간 0)
+on:
+  schedule:
+    - cron: '0 0 * * 1'   # 월 09:00 KST
+    - cron: '0 3 * * 1'   # 월 12:00 KST (재시도)
+  workflow_dispatch:
+    inputs:
+      round:
+        description: '특정 회차 풀 강제 재생성 (비우면 자동)'
+        required: false
+        default: ''
+      backtest_n:
+        description: '백테스트 회차 수 (기본 52 = 1년)'
+        required: false
+        default: '52'
+      skip_pool:
+        description: '풀 생성 건너뛰기'
+        type: boolean
+        default: false
+      skip_backtest:
+        description: '백테스트 건너뛰기'
+        type: boolean
+        default: false
+
+concurrency:
+  group: weekly-jachanism
+  cancel-in-progress: false
+
+jobs:
+  compute:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install numpy
+        run: pip install numpy
+
+      - name: Run JACKPOT_UNION_v1 algorithm
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.round }}" ]; then
+            ARGS="$ARGS --round ${{ github.event.inputs.round }}"
+          fi
+          if [ -n "${{ github.event.inputs.backtest_n }}" ]; then
+            ARGS="$ARGS --backtest-n ${{ github.event.inputs.backtest_n }}"
+          fi
+          if [ "${{ github.event.inputs.skip_pool }}" = "true" ]; then
+            ARGS="$ARGS --skip-pool"
+          fi
+          if [ "${{ github.event.inputs.skip_backtest }}" = "true" ]; then
+            ARGS="$ARGS --skip-backtest"
+          fi
+          python scripts/compute-jachanism.py $ARGS
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/jachanism/
+          if git diff --cached --quiet; then
+            echo "✅ No changes (already computed)"
+          else
+            POOLS_COUNT=$(ls data/jachanism/pool_*.json 2>/dev/null | wc -l | tr -d ' ')
+            git commit -m "[auto] 귀찮이즘 풀+백테스트 갱신 — JACKPOT_UNION_v1 (풀 ${POOLS_COUNT}개, $(date -u +'%Y-%m-%d %H:%M UTC'))"
+            git push
+            echo "✅ Pushed jachanism data"
+          fi

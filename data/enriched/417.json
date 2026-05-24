@@ -1,0 +1,77 @@
+{
+  "round": 417,
+  "date": "2010-11-27",
+  "nums": [
+    4,
+    5,
+    14,
+    20,
+    22,
+    43
+  ],
+  "bonus": 44,
+  "firstWinAmount": 2818329938,
+  "firstWinners": 4,
+  "totalSales": 45968256000,
+  "prizes": {
+    "first": {
+      "amount": 2818329938,
+      "winners": 4
+    },
+    "second": {
+      "amount": 55261372,
+      "winners": 34
+    },
+    "third": {
+      "amount": 1590929,
+      "winners": 1181
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 58879
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1001817
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "서울 도봉구 도봉로113길 15",
+      "method": "auto",
+      "lat": 37.64802,
+      "lng": 127.033134
+    },
+    {
+      "rank": 1,
+      "name": "천하제일복권명당유성점",
+      "address": "대전 유성구 유성대로654번길 111",
+      "method": "auto",
+      "lat": 36.350956,
+      "lng": 127.33514
+    },
+    {
+      "rank": 1,
+      "name": "왕대박복권",
+      "address": "전북 전주시 덕진구 가련산로 17",
+      "method": "auto",
+      "lat": 35.841637,
+      "lng": 127.11063
+    },
+    {
+      "rank": 1,
+      "name": "벼락부자",
+      "address": "전남 목포시 섶나루길 122 상가 1,2,3호",
+      "method": "auto",
+      "lat": 34.81054,
+      "lng": 126.41894
+    }
+  ]
+}

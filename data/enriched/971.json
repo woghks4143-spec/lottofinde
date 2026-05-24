@@ -1,0 +1,93 @@
+{
+  "round": 971,
+  "date": "2021-07-10",
+  "nums": [
+    2,
+    6,
+    17,
+    18,
+    21,
+    26
+  ],
+  "bonus": 7,
+  "firstWinAmount": 3725880250,
+  "firstWinners": 6,
+  "totalSales": 94471924000,
+  "prizes": {
+    "first": {
+      "amount": 3725880250,
+      "winners": 6
+    },
+    "second": {
+      "amount": 60094843,
+      "winners": 62
+    },
+    "third": {
+      "amount": 1387665,
+      "winners": 2685
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 131409
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2171694
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "서울 관악구 남부순환로 1739-9",
+      "method": "auto",
+      "lat": 37.482788,
+      "lng": 126.943474
+    },
+    {
+      "rank": 1,
+      "name": "대박복권방",
+      "address": "서울 성북구 돌곶이로 60",
+      "method": "auto",
+      "lat": 37.609234,
+      "lng": 127.058945
+    },
+    {
+      "rank": 1,
+      "name": "돈벼락맞는곳",
+      "address": "부산 동구 조방로49번길 18-1",
+      "method": "auto",
+      "lat": 35.139168,
+      "lng": 129.05995
+    },
+    {
+      "rank": 1,
+      "name": "화전대박복권",
+      "address": "경기 고양시 덕양구 화랑로 33",
+      "method": "mixed",
+      "lat": 37.601593,
+      "lng": 126.87029
+    },
+    {
+      "rank": 1,
+      "name": "GS25(청주수곡점)",
+      "address": "충북 청주시 서원구  수곡로 45",
+      "method": "manual",
+      "lat": 36.61605,
+      "lng": 127.47295
+    },
+    {
+      "rank": 1,
+      "name": "로또명당해미점",
+      "address": "충남 서산시 남문2로 108",
+      "method": "auto",
+      "lat": 36.71344,
+      "lng": 126.54419
+    }
+  ]
+}

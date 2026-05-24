@@ -1,0 +1,125 @@
+{
+  "round": 696,
+  "date": "2016-04-02",
+  "nums": [
+    1,
+    7,
+    16,
+    18,
+    34,
+    38
+  ],
+  "bonus": 21,
+  "firstWinAmount": 1632054413,
+  "firstWinners": 10,
+  "totalSales": 67542971000,
+  "prizes": {
+    "first": {
+      "amount": 1632054413,
+      "winners": 10
+    },
+    "second": {
+      "amount": 61820243,
+      "winners": 44
+    },
+    "third": {
+      "amount": 1580530,
+      "winners": 1721
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 90020
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1501952
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "씨스페이스(숭인2점)",
+      "address": "서울 종로구 숭인동(숭인제2동) 178-89",
+      "method": "auto",
+      "lat": 37.574642,
+      "lng": 127.01979
+    },
+    {
+      "rank": 1,
+      "name": "사거리슈퍼",
+      "address": "부산 사상구 감전동 118-8번지 세븐일레븐편의점",
+      "method": "manual",
+      "lat": 35.15563,
+      "lng": 128.99068
+    },
+    {
+      "rank": 1,
+      "name": "세진전자통신",
+      "address": "대구 서구 서대구로 156",
+      "method": "auto",
+      "lat": 35.8719,
+      "lng": 128.5552
+    },
+    {
+      "rank": 1,
+      "name": "우리상회",
+      "address": "인천 동구 송림동 31-16번지",
+      "method": "auto",
+      "lat": 37.47762,
+      "lng": 126.64983
+    },
+    {
+      "rank": 1,
+      "name": "소요산복권판매점",
+      "address": "경기 동두천시 평화로2922번길 2",
+      "method": "manual",
+      "lat": 37.94722,
+      "lng": 127.06189
+    },
+    {
+      "rank": 1,
+      "name": "대박복권방",
+      "address": "경기 양주시 가래비길 33",
+      "method": "auto",
+      "lat": 37.82246,
+      "lng": 126.986694
+    },
+    {
+      "rank": 1,
+      "name": "둔포로또판매점",
+      "address": "충남 아산시 충무로 1810 둔포로또판매점",
+      "method": "manual",
+      "lat": 36.930553,
+      "lng": 127.038376
+    },
+    {
+      "rank": 1,
+      "name": "로또천안성남점",
+      "address": "충남 천안시 동남구 신사대화로 148",
+      "method": "manual",
+      "lat": 36.742165,
+      "lng": 127.23655
+    },
+    {
+      "rank": 1,
+      "name": "미래유통",
+      "address": "전남 목포시 영산로 623",
+      "method": "auto",
+      "lat": 34.82103,
+      "lng": 126.42085
+    },
+    {
+      "rank": 1,
+      "name": "외동복권",
+      "address": "경남 김해시 동남로49번길 83 GS25 김해대동점",
+      "method": "auto",
+      "lat": 35.236355,
+      "lng": 128.98598
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "round": 699,
+  "date": "2016-04-23",
+  "nums": [
+    4,
+    5,
+    8,
+    16,
+    21,
+    29
+  ],
+  "bonus": 3,
+  "firstWinAmount": 1995411375,
+  "firstWinners": 8,
+  "totalSales": 66743146000,
+  "prizes": {
+    "first": {
+      "amount": 1995411375,
+      "winners": 8
+    },
+    "second": {
+      "amount": 53210970,
+      "winners": 50
+    },
+    "third": {
+      "amount": 1478905,
+      "winners": 1799
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 90504
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1512397
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또사랑점",
+      "address": "서울 강남구 역삼동 706-20번지 한화진넥스빌제1층106호",
+      "method": "auto",
+      "lat": 37.501945,
+      "lng": 127.04422
+    },
+    {
+      "rank": 1,
+      "name": "교통카드충전",
+      "address": "서울 서초구 서초대로77길 3",
+      "method": "auto",
+      "lat": 37.497936,
+      "lng": 127.02651
+    },
+    {
+      "rank": 1,
+      "name": "구포라인점",
+      "address": "부산 북구 구포동 700-148번지",
+      "method": "auto",
+      "lat": 35.202557,
+      "lng": 129.00429
+    },
+    {
+      "rank": 1,
+      "name": "풍인식품",
+      "address": "인천 남동구 남동대로934번길 13 2호",
+      "method": "mixed",
+      "lat": 37.465904,
+      "lng": 126.70883
+    },
+    {
+      "rank": 1,
+      "name": "복권전문점",
+      "address": "인천 부평구 원적로 437",
+      "method": "auto",
+      "lat": 37.50383,
+      "lng": 126.7151
+    },
+    {
+      "rank": 1,
+      "name": "정우",
+      "address": "경기 용인시 처인구 백옥대로 574 C동상가",
+      "method": "manual",
+      "lat": 37.18781,
+      "lng": 127.20619
+    },
+    {
+      "rank": 1,
+      "name": "건강마트",
+      "address": "경기 하남시 신장2동 315-2번지",
+      "method": "auto",
+      "lat": 37.547123,
+      "lng": 127.211426
+    },
+    {
+      "rank": 1,
+      "name": "천하명당",
+      "address": "충남 천안시 서북구 직산읍 수헐리 85-4 미니스탑 내",
+      "method": "auto",
+      "lat": 36.889416,
+      "lng": 127.13991
+    }
+  ]
+}

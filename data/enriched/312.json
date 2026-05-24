@@ -1,0 +1,165 @@
+{
+  "round": 312,
+  "date": "2008-11-22",
+  "nums": [
+    2,
+    3,
+    5,
+    6,
+    12,
+    20
+  ],
+  "bonus": 25,
+  "firstWinAmount": 629017820,
+  "firstWinners": 15,
+  "totalSales": 42255391000,
+  "prizes": {
+    "first": {
+      "amount": 629017820,
+      "winners": 15
+    },
+    "second": {
+      "amount": 27112838,
+      "winners": 58
+    },
+    "third": {
+      "amount": 761892,
+      "winners": 2064
+    },
+    "fourth": {
+      "amount": 34211,
+      "winners": 91934
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1080450
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 12,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(삼성역)",
+      "address": "서울 강남구 삼성동  168번지",
+      "method": "manual",
+      "lat": 37.510536,
+      "lng": 127.06286
+    },
+    {
+      "rank": 1,
+      "name": "뉴골드나라",
+      "address": "서울 광진구 광나루로 521",
+      "method": "manual",
+      "lat": 37.545128,
+      "lng": 127.08744
+    },
+    {
+      "rank": 1,
+      "name": "주택복권사랑방",
+      "address": "서울 구로구 경인로53길 15 중앙유통지하B55-02호",
+      "method": "auto",
+      "lat": 37.500893,
+      "lng": 126.874565
+    },
+    {
+      "rank": 1,
+      "name": "구포라인점",
+      "address": "부산 북구 구포동  700-148",
+      "method": "manual",
+      "lat": 35.202557,
+      "lng": 129.00429
+    },
+    {
+      "rank": 1,
+      "name": "스파편의점",
+      "address": "부산 사상구 가야대로 288 창조상가106호",
+      "method": "manual",
+      "lat": 35.15001,
+      "lng": 129.00414
+    },
+    {
+      "rank": 1,
+      "name": "동인마트",
+      "address": "대구 중구 태평로 266",
+      "method": "manual",
+      "lat": 35.87241,
+      "lng": 128.60635
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "인천 동구 송현동  67-78",
+      "method": "manual",
+      "lat": 37.478172,
+      "lng": 126.63461
+    },
+    {
+      "rank": 1,
+      "name": "용두천하",
+      "address": "광주 북구 하서로 373",
+      "method": "manual",
+      "lat": 35.20835,
+      "lng": 126.87351
+    },
+    {
+      "rank": 1,
+      "name": "대한복권",
+      "address": "경기 부천시 부천로 52",
+      "method": "auto",
+      "lat": 37.489605,
+      "lng": 126.7842
+    },
+    {
+      "rank": 1,
+      "name": "대호상사",
+      "address": "경기 성남시 분당구 야탑동 355-1세화2001빌딩107",
+      "method": "manual",
+      "lat": 37.411163,
+      "lng": 127.12681
+    },
+    {
+      "rank": 1,
+      "name": "성광복권방",
+      "address": "경기 수원시 팔달구 인계동 인계동 968",
+      "method": "manual",
+      "lat": 37.27159,
+      "lng": 127.02644
+    },
+    {
+      "rank": 1,
+      "name": "119복권방",
+      "address": "경기 안양시 만안구 안양2동 823-15",
+      "method": "manual",
+      "lat": 37.40586,
+      "lng": 126.911835
+    },
+    {
+      "rank": 1,
+      "name": "진안로또",
+      "address": "전북 진안군 진안읍 군상리 군상리 403-102",
+      "method": "auto",
+      "lat": 35.791924,
+      "lng": 127.42988
+    },
+    {
+      "rank": 1,
+      "name": "북마산복권전문점",
+      "address": "경남 창원시 마산합포구 북성로 98",
+      "method": "manual",
+      "lat": 35.215973,
+      "lng": 128.5708
+    },
+    {
+      "rank": 1,
+      "name": "GS25(서귀중문)",
+      "address": "제주 서귀포시 천제연로 210",
+      "method": "manual",
+      "lat": 33.25145,
+      "lng": 126.42701
+    }
+  ]
+}

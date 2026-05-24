@@ -1,0 +1,101 @@
+{
+  "round": 334,
+  "date": "2009-04-25",
+  "nums": [
+    13,
+    15,
+    21,
+    29,
+    39,
+    43
+  ],
+  "bonus": 33,
+  "firstWinAmount": 1523002972,
+  "firstWinners": 7,
+  "totalSales": 44439656000,
+  "prizes": {
+    "first": {
+      "amount": 1523002972,
+      "winners": 7
+    },
+    "second": {
+      "amount": 57317317,
+      "winners": 31
+    },
+    "third": {
+      "amount": 1684206,
+      "winners": 1055
+    },
+    "fourth": {
+      "amount": 67934,
+      "winners": 52311
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 890292
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "종합가판점",
+      "address": "서울 동대문구 왕산로40길 6 건물 앞쪽 가판점 청량리역 5번출구 앞쪽",
+      "method": "auto",
+      "lat": 37.579697,
+      "lng": 127.04497
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트(신당6동점)",
+      "address": "서울 중구 신당동  52-299 1층",
+      "method": "auto",
+      "lat": 37.56379,
+      "lng": 127.01674
+    },
+    {
+      "rank": 1,
+      "name": "슈퍼복권나라수정점",
+      "address": "부산 동구 고관로 95,(수정동)",
+      "method": "auto",
+      "lat": 35.127537,
+      "lng": 129.04518
+    },
+    {
+      "rank": 1,
+      "name": "신탄복권방",
+      "address": "대전 대덕구 목상동  866-3",
+      "method": "manual",
+      "lat": 36.443733,
+      "lng": 127.410934
+    },
+    {
+      "rank": 1,
+      "name": "해든복권나라",
+      "address": "경기 부천시 소향로 239 대야하이빌투 106호",
+      "method": "manual",
+      "lat": 37.50082,
+      "lng": 126.77432
+    },
+    {
+      "rank": 1,
+      "name": "로또명당인주점",
+      "address": "충남 아산시 서해로 519-2",
+      "method": "auto",
+      "lat": 36.87784,
+      "lng": 126.89828
+    },
+    {
+      "rank": 1,
+      "name": "알짜마트왕지점",
+      "address": "전남 순천시 왕궁길 60 중흥파크상가 309-101호",
+      "method": "auto",
+      "lat": 34.956314,
+      "lng": 127.53233
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "round": 98,
+  "date": "2004-10-16",
+  "nums": [
+    6,
+    9,
+    16,
+    23,
+    24,
+    32
+  ],
+  "bonus": 43,
+  "firstWinAmount": 3177972300,
+  "firstWinners": 4,
+  "totalSales": 56231084000,
+  "prizes": {
+    "first": {
+      "amount": 3177972300,
+      "winners": 4
+    },
+    "second": {
+      "amount": 47081072,
+      "winners": 45
+    },
+    "third": {
+      "amount": 1126941,
+      "winners": 1880
+    },
+    "fourth": {
+      "amount": 48251,
+      "winners": 87818
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1385812
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

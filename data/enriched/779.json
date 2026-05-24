@@ -1,0 +1,133 @@
+{
+  "round": 779,
+  "date": "2017-11-04",
+  "nums": [
+    6,
+    12,
+    19,
+    24,
+    34,
+    41
+  ],
+  "bonus": 4,
+  "firstWinAmount": 1527709296,
+  "firstWinners": 11,
+  "totalSales": 73773676000,
+  "prizes": {
+    "first": {
+      "amount": 1527709296,
+      "winners": 11
+    },
+    "second": {
+      "amount": 42436370,
+      "winners": 66
+    },
+    "third": {
+      "amount": 1118978,
+      "winners": 2503
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 114464
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1751447
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "돈벼락맞는곳",
+      "address": "부산 동구 조방로49번길 18-1",
+      "method": "auto",
+      "lat": 35.139168,
+      "lng": 129.05995
+    },
+    {
+      "rank": 1,
+      "name": "제이지컴퍼니(JGC)",
+      "address": "부산 부산진구 연수로 43 1층",
+      "method": "manual",
+      "lat": 35.17507,
+      "lng": 129.07489
+    },
+    {
+      "rank": 1,
+      "name": "원바이원",
+      "address": "부산 중구 흑교로 18",
+      "method": "mixed",
+      "lat": 35.10113,
+      "lng": 129.02533
+    },
+    {
+      "rank": 1,
+      "name": "복권명당(서부점)",
+      "address": "대구 달서구 월배로 452",
+      "method": "manual",
+      "lat": 35.833633,
+      "lng": 128.55486
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "인천 서구 장고개로 333",
+      "method": "auto",
+      "lat": 37.492275,
+      "lng": 126.68656
+    },
+    {
+      "rank": 1,
+      "name": "행복세상",
+      "address": "대전 대덕구 중리로 52",
+      "method": "auto",
+      "lat": 36.363663,
+      "lng": 127.42535
+    },
+    {
+      "rank": 1,
+      "name": "천사로또방",
+      "address": "경기 남양주시 사릉로34번길 24 1층 7호",
+      "method": "auto",
+      "lat": 37.63618,
+      "lng": 127.21105
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "충북 음성군 신내로 443 1층",
+      "method": "manual",
+      "lat": 36.966633,
+      "lng": 127.49071
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "충남 계룡시 엄사면 엄사리 184-4",
+      "method": "manual",
+      "lat": 36.28952,
+      "lng": 127.24185
+    },
+    {
+      "rank": 1,
+      "name": "씨유 목포세진점",
+      "address": "전남 목포시 해안로249번길 17 CU편의점",
+      "method": "manual",
+      "lat": 34.787647,
+      "lng": 126.38714
+    },
+    {
+      "rank": 1,
+      "name": "복권왕국",
+      "address": "전남 여수시 중앙로 24-1",
+      "method": "auto",
+      "lat": 34.740177,
+      "lng": 127.73026
+    }
+  ]
+}

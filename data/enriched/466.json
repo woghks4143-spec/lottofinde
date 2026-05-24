@@ -1,0 +1,117 @@
+{
+  "round": 466,
+  "date": "2011-11-05",
+  "nums": [
+    4,
+    10,
+    13,
+    23,
+    32,
+    44
+  ],
+  "bonus": 20,
+  "firstWinAmount": 1530313459,
+  "firstWinners": 9,
+  "totalSales": 58314753000,
+  "prizes": {
+    "first": {
+      "amount": 1530313459,
+      "winners": 9
+    },
+    "second": {
+      "amount": 41735822,
+      "winners": 55
+    },
+    "third": {
+      "amount": 1314703,
+      "winners": 1746
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 83132
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1327403
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "우리은행금호동지점앞가판",
+      "address": "서울 성동구 장터길 46",
+      "method": "auto",
+      "lat": 37.54814,
+      "lng": 127.02097
+    },
+    {
+      "rank": 1,
+      "name": "하이로또복권방",
+      "address": "서울 양천구 신정동  1182-2",
+      "method": "auto",
+      "lat": 37.51867,
+      "lng": 126.85318
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "인천 중구 제물량로 84-3",
+      "method": "manual",
+      "lat": 37.467392,
+      "lng": 126.63372
+    },
+    {
+      "rank": 1,
+      "name": "조은복권방",
+      "address": "울산 남구 수암로 124",
+      "method": "auto",
+      "lat": 35.527668,
+      "lng": 129.32079
+    },
+    {
+      "rank": 1,
+      "name": "GS25(하안연서)",
+      "address": "경기 광명시 안현로 52",
+      "method": "auto",
+      "lat": 37.465557,
+      "lng": 126.877495
+    },
+    {
+      "rank": 1,
+      "name": "로또명당가두판매점",
+      "address": "경기 안양시 동안구 경수대로 848-2 동안구가로판매대2005-00065",
+      "method": "manual",
+      "lat": 37.393017,
+      "lng": 126.94313
+    },
+    {
+      "rank": 1,
+      "name": "현텔레콤",
+      "address": "전북 전주시 덕진구 아중로 142",
+      "method": "auto",
+      "lat": 35.825504,
+      "lng": 127.16533
+    },
+    {
+      "rank": 1,
+      "name": "보물섬",
+      "address": "전남 목포시 산정로 268-3 근화상가 110호",
+      "method": "auto",
+      "lat": 34.81154,
+      "lng": 126.38701
+    },
+    {
+      "rank": 1,
+      "name": "복권세상",
+      "address": "전남 목포시 청호로 139 1층 복권세상",
+      "method": "manual",
+      "lat": 34.8039,
+      "lng": 126.37585
+    }
+  ]
+}

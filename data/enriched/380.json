@@ -1,0 +1,77 @@
+{
+  "round": 380,
+  "date": "2010-03-13",
+  "nums": [
+    1,
+    2,
+    8,
+    17,
+    26,
+    37
+  ],
+  "bonus": 27,
+  "firstWinAmount": 2684274825,
+  "firstWinners": 4,
+  "totalSales": 47164371000,
+  "prizes": {
+    "first": {
+      "amount": 2684274825,
+      "winners": 4
+    },
+    "second": {
+      "amount": 42607537,
+      "winners": 42
+    },
+    "third": {
+      "amount": 1222348,
+      "winners": 1464
+    },
+    "fourth": {
+      "amount": 46132,
+      "winners": 77583
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1137404
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "패밀리마트전포점",
+      "address": "부산 부산진구 전포동  337-3",
+      "method": "auto",
+      "lat": 35.164185,
+      "lng": 129.03937
+    },
+    {
+      "rank": 1,
+      "name": "이플러스",
+      "address": "경기 수원시 영통구 매탄동 153-14",
+      "method": "auto",
+      "lat": 37.274273,
+      "lng": 127.04432
+    },
+    {
+      "rank": 1,
+      "name": "백만장자",
+      "address": "경기 용인시 기흥구 흥덕2로105번길 6 흥덕U프라자 흥덕유프라자111호",
+      "method": "auto",
+      "lat": 37.27728,
+      "lng": 127.07333
+    },
+    {
+      "rank": 1,
+      "name": "율암25시편의점",
+      "address": "경기 화성시 시청로 822-10",
+      "method": "manual",
+      "lat": 37.166355,
+      "lng": 126.88175
+    }
+  ]
+}

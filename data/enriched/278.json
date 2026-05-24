@@ -1,0 +1,69 @@
+{
+  "round": 278,
+  "date": "2008-03-29",
+  "nums": [
+    3,
+    11,
+    37,
+    39,
+    41,
+    43
+  ],
+  "bonus": 13,
+  "firstWinAmount": 3186530000,
+  "firstWinners": 3,
+  "totalSales": 41088180000,
+  "prizes": {
+    "first": {
+      "amount": 3186530000,
+      "winners": 3
+    },
+    "second": {
+      "amount": 59009815,
+      "winners": 27
+    },
+    "third": {
+      "amount": 1463054,
+      "winners": 1089
+    },
+    "fourth": {
+      "amount": 57268,
+      "winners": 55643
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 922288
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또복권판매",
+      "address": "서울 강북구 솔샘로67길 71",
+      "method": "auto",
+      "lat": 37.620274,
+      "lng": 127.02744
+    },
+    {
+      "rank": 1,
+      "name": "플러스 복권",
+      "address": "대전 서구 대덕대로168번길 82 웰리움 편의점 내",
+      "method": "auto",
+      "lat": 36.34499,
+      "lng": 127.37875
+    },
+    {
+      "rank": 1,
+      "name": "천하제일복권명당",
+      "address": "대전 중구 태평동  377-4번지",
+      "method": "auto",
+      "lat": 36.326427,
+      "lng": 127.394844
+    }
+  ]
+}

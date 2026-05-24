@@ -1,0 +1,43 @@
+{
+  "round": 2,
+  "date": "2002-12-14",
+  "nums": [
+    9,
+    13,
+    21,
+    25,
+    32,
+    42
+  ],
+  "bonus": 2,
+  "firstWinAmount": 2002006800,
+  "firstWinners": 1,
+  "totalSales": 4904274000,
+  "prizes": {
+    "first": {
+      "amount": 2002006800,
+      "winners": 1
+    },
+    "second": {
+      "amount": 94866800,
+      "winners": 2
+    },
+    "third": {
+      "amount": 1842000,
+      "winners": 103
+    },
+    "fourth": {
+      "amount": 100800,
+      "winners": 3763
+    },
+    "fifth": {
+      "amount": 10000,
+      "winners": 55480
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

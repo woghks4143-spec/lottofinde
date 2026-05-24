@@ -1,0 +1,109 @@
+{
+  "round": 425,
+  "date": "2011-01-22",
+  "nums": [
+    8,
+    10,
+    14,
+    27,
+    33,
+    38
+  ],
+  "bonus": 3,
+  "firstWinAmount": 1534833000,
+  "firstWinners": 8,
+  "totalSales": 50459694000,
+  "prizes": {
+    "first": {
+      "amount": 1534833000,
+      "winners": 8
+    },
+    "second": {
+      "amount": 49913269,
+      "winners": 41
+    },
+    "third": {
+      "amount": 1577829,
+      "winners": 1297
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 66071
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1110949
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "제일식품",
+      "address": "서울 서대문구 증가로 143,(남가좌동)",
+      "method": "manual",
+      "lat": 37.57747,
+      "lng": 126.92169
+    },
+    {
+      "rank": 1,
+      "name": "노다지로또",
+      "address": "서울 중랑구 겸재로 217,(면목동)",
+      "method": "manual",
+      "lat": 37.58949,
+      "lng": 127.09177
+    },
+    {
+      "rank": 1,
+      "name": "세원로또복권방",
+      "address": "부산 수영구 수영로725번길 53 수영 엔스타Ⅱ 101호",
+      "method": "auto",
+      "lat": 35.16832,
+      "lng": 129.11609
+    },
+    {
+      "rank": 1,
+      "name": "GS25(중촌현대)",
+      "address": "대전 중구 중촌동  17-2",
+      "method": "auto",
+      "lat": 36.337418,
+      "lng": 127.4125
+    },
+    {
+      "rank": 1,
+      "name": "각골할인마트",
+      "address": "경기 안산시 상록구 각골로 37",
+      "method": "auto",
+      "lat": 37.292725,
+      "lng": 126.87227
+    },
+    {
+      "rank": 1,
+      "name": "복권왕국",
+      "address": "충북 제천시 풍양로 108 중앙시장상가 지하145",
+      "method": "auto",
+      "lat": 37.136654,
+      "lng": 128.2113
+    },
+    {
+      "rank": 1,
+      "name": "일레븐마트무선점",
+      "address": "전남 여수시 성산로 19",
+      "method": "auto",
+      "lat": 34.77387,
+      "lng": 127.63973
+    },
+    {
+      "rank": 1,
+      "name": "왕대박복권방",
+      "address": "경북 문경시 중앙로 15,(모전동)",
+      "method": "manual",
+      "lat": 36.588123,
+      "lng": 128.19293
+    }
+  ]
+}

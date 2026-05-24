@@ -1,0 +1,69 @@
+{
+  "round": 285,
+  "date": "2008-05-17",
+  "nums": [
+    13,
+    33,
+    37,
+    40,
+    41,
+    45
+  ],
+  "bonus": 2,
+  "firstWinAmount": 3164370100,
+  "firstWinners": 3,
+  "totalSales": 40364871000,
+  "prizes": {
+    "first": {
+      "amount": 3164370100,
+      "winners": 3
+    },
+    "second": {
+      "amount": 60853272,
+      "winners": 26
+    },
+    "third": {
+      "amount": 1555738,
+      "winners": 1017
+    },
+    "fourth": {
+      "amount": 61705,
+      "winners": 51283
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 872117
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대박찬스",
+      "address": "충북 청주시 흥덕구 가경로161번길 3",
+      "method": "auto",
+      "lat": 36.628975,
+      "lng": 127.43644
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트(포항제일)",
+      "address": "경북 포항시 북구 죽도동 죽도동 618-2",
+      "method": "auto",
+      "lat": 36.023617,
+      "lng": 129.35837
+    },
+    {
+      "rank": 1,
+      "name": "운수대통",
+      "address": "경남 거제시 능포동  727-2 동헌상가  가-111",
+      "method": "auto",
+      "lat": 34.873497,
+      "lng": 128.73126
+    }
+  ]
+}

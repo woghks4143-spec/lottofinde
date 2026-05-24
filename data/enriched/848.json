@@ -1,0 +1,101 @@
+{
+  "round": 848,
+  "date": "2019-03-02",
+  "nums": [
+    1,
+    2,
+    16,
+    22,
+    38,
+    39
+  ],
+  "bonus": 34,
+  "firstWinAmount": 3011580858,
+  "firstWinners": 7,
+  "totalSales": 84523266000,
+  "prizes": {
+    "first": {
+      "amount": 3011580858,
+      "winners": 7
+    },
+    "second": {
+      "amount": 83655024,
+      "winners": 42
+    },
+    "third": {
+      "amount": 1665961,
+      "winners": 2109
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 103845
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1792259
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "한일로또",
+      "address": "인천 남동구 경인로 664-1 1층점포101호",
+      "method": "auto",
+      "lat": 37.469135,
+      "lng": 126.70827
+    },
+    {
+      "rank": 1,
+      "name": "행운슈퍼",
+      "address": "대전 대덕구 오정로100번길 37",
+      "method": "auto",
+      "lat": 36.35597,
+      "lng": 127.40929
+    },
+    {
+      "rank": 1,
+      "name": "천동마트",
+      "address": "대전 동구 천동(효동) 119-4",
+      "method": "auto",
+      "lat": 36.311916,
+      "lng": 127.44233
+    },
+    {
+      "rank": 1,
+      "name": "우리로또복권",
+      "address": "경기 연천군 청산면 청신로 91,(초성리)",
+      "method": "manual",
+      "lat": 37.982903,
+      "lng": 127.06913
+    },
+    {
+      "rank": 1,
+      "name": "근대화온천슈퍼",
+      "address": "충남 아산시 삼동로 94-1",
+      "method": "auto",
+      "lat": 36.788322,
+      "lng": 127.012794
+    },
+    {
+      "rank": 1,
+      "name": "현대마트휴게실",
+      "address": "전북 군산시 경포천동길 26",
+      "method": "auto",
+      "lat": 35.9758,
+      "lng": 126.7267
+    },
+    {
+      "rank": 1,
+      "name": "북마산복권전문점",
+      "address": "경남 창원시 마산합포구 북성로 98",
+      "method": "auto",
+      "lat": 35.215973,
+      "lng": 128.5708
+    }
+  ]
+}

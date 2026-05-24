@@ -1,0 +1,53 @@
+{
+  "round": 365,
+  "date": "2009-11-28",
+  "nums": [
+    5,
+    15,
+    21,
+    25,
+    26,
+    30
+  ],
+  "bonus": 31,
+  "firstWinAmount": 10697716800,
+  "firstWinners": 1,
+  "totalSales": 45806066000,
+  "prizes": {
+    "first": {
+      "amount": 10697716800,
+      "winners": 1
+    },
+    "second": {
+      "amount": 50941509,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1509698,
+      "winners": 1181
+    },
+    "fourth": {
+      "amount": 57081,
+      "winners": 62472
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1014701
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "시네마복권방",
+      "address": "광주 북구 두암동  894-1",
+      "method": "auto",
+      "lat": 35.169147,
+      "lng": 126.92977
+    }
+  ]
+}

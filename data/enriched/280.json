@@ -1,0 +1,101 @@
+{
+  "round": 280,
+  "date": "2008-04-12",
+  "nums": [
+    10,
+    11,
+    23,
+    24,
+    36,
+    37
+  ],
+  "bonus": 35,
+  "firstWinAmount": 1355258529,
+  "firstWinners": 7,
+  "totalSales": 40673999000,
+  "prizes": {
+    "first": {
+      "amount": 1355258529,
+      "winners": 7
+    },
+    "second": {
+      "amount": 58560554,
+      "winners": 27
+    },
+    "third": {
+      "amount": 1380904,
+      "winners": 1145
+    },
+    "fourth": {
+      "amount": 58653,
+      "winners": 53915
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 905130
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "현대",
+      "address": "서울 도봉구 도봉로110길 74",
+      "method": "manual",
+      "lat": 37.64619,
+      "lng": 127.037636
+    },
+    {
+      "rank": 1,
+      "name": "서재강변로또",
+      "address": "대구 달성군 다사읍 서재로 172,(서재리)",
+      "method": "auto",
+      "lat": 35.878708,
+      "lng": 128.49748
+    },
+    {
+      "rank": 1,
+      "name": "풍년로또",
+      "address": "인천 남동구 구월4동  1265-10",
+      "method": "auto",
+      "lat": 37.45295,
+      "lng": 126.71929
+    },
+    {
+      "rank": 1,
+      "name": "로또명당점",
+      "address": "대전 서구 관저로129번길 3",
+      "method": "auto",
+      "lat": 36.299126,
+      "lng": 127.33612
+    },
+    {
+      "rank": 1,
+      "name": "로또명당매화점",
+      "address": "충북 옥천군 옥천읍 매화리 매화리 36-6",
+      "method": "manual",
+      "lat": 36.29921,
+      "lng": 127.59752
+    },
+    {
+      "rank": 1,
+      "name": "GS25(마산상남)",
+      "address": "경남 마산시 상남동  230-25",
+      "method": "auto",
+      "lat": 35.209637,
+      "lng": 128.57639
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "경남 창원시 의창구 서상로12번길 9-5",
+      "method": "manual",
+      "lat": 35.262417,
+      "lng": 128.61536
+    }
+  ]
+}

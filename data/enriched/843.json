@@ -1,0 +1,85 @@
+{
+  "round": 843,
+  "date": "2019-01-26",
+  "nums": [
+    19,
+    21,
+    30,
+    33,
+    34,
+    42
+  ],
+  "bonus": 4,
+  "firstWinAmount": 4012970100,
+  "firstWinners": 5,
+  "totalSales": 81857498000,
+  "prizes": {
+    "first": {
+      "amount": 4012970100,
+      "winners": 5
+    },
+    "second": {
+      "amount": 64310419,
+      "winners": 52
+    },
+    "third": {
+      "amount": 1670401,
+      "winners": 2002
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 105717
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1777953
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "싱글벙글6/45",
+      "address": "부산 연제구 중앙대로 1041 좌측 싱글벙글복권방",
+      "method": "manual",
+      "lat": 35.181576,
+      "lng": 129.07777
+    },
+    {
+      "rank": 1,
+      "name": "하늘과바다",
+      "address": "인천 부평구 부개동 67-9번지",
+      "method": "auto",
+      "lat": 37.49801,
+      "lng": 126.7352
+    },
+    {
+      "rank": 1,
+      "name": "둔포로또판매점",
+      "address": "충남 아산시 충무로 1810 둔포로또판매점",
+      "method": "auto",
+      "lat": 36.930553,
+      "lng": 127.038376
+    },
+    {
+      "rank": 1,
+      "name": "씨유 영주 가흥대로점",
+      "address": "경북 영주시 가흥동 1821 CU가흥대로점",
+      "method": "auto",
+      "lat": 36.814716,
+      "lng": 128.60829
+    },
+    {
+      "rank": 1,
+      "name": "대박찬스",
+      "address": "경남 창원시 마산합포구 자산삼거리로 16",
+      "method": "auto",
+      "lat": 35.202923,
+      "lng": 128.56621
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "round": 446,
+  "date": "2011-06-18",
+  "nums": [
+    1,
+    11,
+    12,
+    14,
+    26,
+    35
+  ],
+  "bonus": 6,
+  "firstWinAmount": 4051247625,
+  "firstWinners": 3,
+  "totalSales": 50595241000,
+  "prizes": {
+    "first": {
+      "amount": 4051247625,
+      "winners": 3
+    },
+    "second": {
+      "amount": 49405459,
+      "winners": 41
+    },
+    "third": {
+      "amount": 1473181,
+      "winners": 1375
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 68198
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1136546
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "훼미리마트(망우점)",
+      "address": "서울 중랑구 망우동  470-10",
+      "method": "manual",
+      "lat": 37.598965,
+      "lng": 127.0976
+    },
+    {
+      "rank": 1,
+      "name": "하나열쇠",
+      "address": "부산 남구 용호로 179",
+      "method": "auto",
+      "lat": 35.116257,
+      "lng": 129.11122
+    },
+    {
+      "rank": 1,
+      "name": "토큰박스(서문5지구)",
+      "address": "대구 중구 큰장로26길 5",
+      "method": "auto",
+      "lat": 35.868572,
+      "lng": 128.57845
+    }
+  ]
+}

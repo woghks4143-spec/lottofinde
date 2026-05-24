@@ -1,0 +1,85 @@
+{
+  "round": 803,
+  "date": "2018-04-21",
+  "nums": [
+    5,
+    9,
+    14,
+    26,
+    30,
+    43
+  ],
+  "bonus": 2,
+  "firstWinAmount": 3663810225,
+  "firstWinners": 5,
+  "totalSales": 75670793000,
+  "prizes": {
+    "first": {
+      "amount": 3663810225,
+      "winners": 5
+    },
+    "second": {
+      "amount": 61063504,
+      "winners": 50
+    },
+    "third": {
+      "amount": 1458059,
+      "winners": 2094
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 102413
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1657869
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "씨스페이스(흑석중대점)",
+      "address": "서울 동작구 흑석동 52-1번지",
+      "method": "auto",
+      "lat": 37.50771,
+      "lng": 126.96327
+    },
+    {
+      "rank": 1,
+      "name": "대박천하",
+      "address": "인천 연수구 새말로 37 103호",
+      "method": "auto",
+      "lat": 37.42203,
+      "lng": 126.67539
+    },
+    {
+      "rank": 1,
+      "name": "패밀리복권방",
+      "address": "경기 남양주시 늘을2로 20 CH리베로원 103호",
+      "method": "manual",
+      "lat": 37.654453,
+      "lng": 127.24409
+    },
+    {
+      "rank": 1,
+      "name": "로또방",
+      "address": "경기 용인시 기흥구 고매동 485-16번지 CU(기흥IC점)",
+      "method": "auto",
+      "lat": 37.220036,
+      "lng": 127.1035
+    },
+    {
+      "rank": 1,
+      "name": "녹동하나로마트로또방",
+      "address": "전남 고흥군 녹동남촌1길 13 이마트24녹동점옆",
+      "method": "auto",
+      "lat": 34.525757,
+      "lng": 127.14047
+    }
+  ]
+}

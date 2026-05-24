@@ -1,0 +1,101 @@
+{
+  "round": 537,
+  "date": "2013-03-16",
+  "nums": [
+    12,
+    23,
+    26,
+    30,
+    36,
+    43
+  ],
+  "bonus": 11,
+  "firstWinAmount": 2104038911,
+  "firstWinners": 7,
+  "totalSales": 59453323000,
+  "prizes": {
+    "first": {
+      "amount": 2104038911,
+      "winners": 7
+    },
+    "second": {
+      "amount": 70134631,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1699940,
+      "winners": 1444
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 75265
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1265143
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또구포점",
+      "address": "부산 북구 덕천2길 23-3 1층",
+      "method": "manual",
+      "lat": 35.209282,
+      "lng": 129.00656
+    },
+    {
+      "rank": 1,
+      "name": "주공24시편의방",
+      "address": "대전 동구 옥천로180번길 19 판암주공아파트2차상가",
+      "method": "auto",
+      "lat": 36.316658,
+      "lng": 127.46117
+    },
+    {
+      "rank": 1,
+      "name": "복권왕국",
+      "address": "경기 부천시 경인로216번길 7 1층",
+      "method": "manual",
+      "lat": 37.48298,
+      "lng": 126.779526
+    },
+    {
+      "rank": 1,
+      "name": "은미복권방",
+      "address": "경기 부천시 소사로794번길 6",
+      "method": "auto",
+      "lat": 37.52689,
+      "lng": 126.80513
+    },
+    {
+      "rank": 1,
+      "name": "복권마을",
+      "address": "강원 강릉시 주문진읍  교항리 118",
+      "method": "auto",
+      "lat": 37.885292,
+      "lng": 128.8254
+    },
+    {
+      "rank": 1,
+      "name": "돼지복권",
+      "address": "충북 청주시 흥덕구 사직동 236-17 청주대교 앞",
+      "method": "manual",
+      "lat": 36.63657,
+      "lng": 127.48265
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방공단오거리점",
+      "address": "충북 청주시 흥덕구 산단로 4",
+      "method": "auto",
+      "lat": 36.63463,
+      "lng": 127.4476
+    }
+  ]
+}

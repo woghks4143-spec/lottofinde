@@ -1,0 +1,77 @@
+{
+  "round": 460,
+  "date": "2011-09-24",
+  "nums": [
+    8,
+    11,
+    28,
+    30,
+    43,
+    45
+  ],
+  "bonus": 41,
+  "firstWinAmount": 3180895782,
+  "firstWinners": 4,
+  "totalSales": 51917635000,
+  "prizes": {
+    "first": {
+      "amount": 3180895782,
+      "winners": 4
+    },
+    "second": {
+      "amount": 70686573,
+      "winners": 30
+    },
+    "third": {
+      "amount": 1622493,
+      "winners": 1307
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 66799
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1130818
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대원슈퍼마켓",
+      "address": "부산 수영구 수영로 524",
+      "method": "auto",
+      "lat": 35.152473,
+      "lng": 129.112
+    },
+    {
+      "rank": 1,
+      "name": "대박복권방",
+      "address": "인천 서구 대평로 3",
+      "method": "auto",
+      "lat": 37.547123,
+      "lng": 126.67662
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "경기 가평군 가평읍  읍내리    448-3",
+      "method": "auto",
+      "lat": 37.831,
+      "lng": 127.512695
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "충남 예산군 예산로 241",
+      "method": "auto",
+      "lat": 36.680298,
+      "lng": 126.85137
+    }
+  ]
+}

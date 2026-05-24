@@ -1,0 +1,173 @@
+{
+  "round": 1123,
+  "date": "2024-06-08",
+  "nums": [
+    13,
+    19,
+    21,
+    24,
+    34,
+    35
+  ],
+  "bonus": 26,
+  "firstWinAmount": 1731310711,
+  "firstWinners": 16,
+  "totalSales": 113142957000,
+  "prizes": {
+    "first": {
+      "amount": 1731310711,
+      "winners": 16
+    },
+    "second": {
+      "amount": 59958813,
+      "winners": 77
+    },
+    "third": {
+      "amount": 1567684,
+      "winners": 2945
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 147087
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2456500
+    }
+  },
+  "methodCounts": {
+    "auto": 13,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "교통카드충전소",
+      "address": "서울 강동구 양재대로 1317",
+      "method": "auto",
+      "lat": 37.524006,
+      "lng": 127.13426
+    },
+    {
+      "rank": 1,
+      "name": "명당복권방",
+      "address": "서울 강동구 양재대로124길 57 103호",
+      "method": "auto",
+      "lat": 37.542553,
+      "lng": 127.14518
+    },
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "manual",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "가판14호",
+      "address": "서울 중구 퇴계로 37",
+      "method": "auto",
+      "lat": 37.557816,
+      "lng": 126.97671
+    },
+    {
+      "rank": 1,
+      "name": "서원복권방",
+      "address": "부산 강서구 공항로811번길 9",
+      "method": "auto",
+      "lat": 35.17945,
+      "lng": 128.9573
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "부산 동래구 온천장로 99",
+      "method": "auto",
+      "lat": 35.219944,
+      "lng": 129.08359
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권",
+      "address": "대구 북구 동북로 152",
+      "method": "auto",
+      "lat": 35.899677,
+      "lng": 128.60947
+    },
+    {
+      "rank": 1,
+      "name": "차부상회",
+      "address": "경기 김포시 조강로 50",
+      "method": "auto",
+      "lat": 37.690342,
+      "lng": 126.60031
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방 곡반한솔점",
+      "address": "경기 수원시 권선구 곡반정로65번길 37 102호",
+      "method": "auto",
+      "lat": 37.23504,
+      "lng": 127.026726
+    },
+    {
+      "rank": 1,
+      "name": "주택복권방",
+      "address": "강원 원주시 우산초교길 29 1층",
+      "method": "auto",
+      "lat": 37.36735,
+      "lng": 127.937904
+    },
+    {
+      "rank": 1,
+      "name": "평창로또",
+      "address": "강원 평창군 평창중앙로 42",
+      "method": "auto",
+      "lat": 37.36792,
+      "lng": 128.3956
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "충북 청주시 상당구 중고개로 344 103호",
+      "method": "manual",
+      "lat": 36.630768,
+      "lng": 127.50273
+    },
+    {
+      "rank": 1,
+      "name": "돈나무 복권",
+      "address": "전북 군산시 공단대로 609",
+      "method": "auto",
+      "lat": 35.97376,
+      "lng": 126.67834
+    },
+    {
+      "rank": 1,
+      "name": "홈런복권방",
+      "address": "경북 영덕군 남석길 57",
+      "method": "auto",
+      "lat": 36.409187,
+      "lng": 129.3682
+    },
+    {
+      "rank": 1,
+      "name": "로또행운마트",
+      "address": "경남 김해시 능동로 177 복권판매점",
+      "method": "manual",
+      "lat": 35.203793,
+      "lng": 128.81001
+    },
+    {
+      "rank": 1,
+      "name": "캠퍼트리 스토어",
+      "address": "제주 제주시 해안마을서4길 100",
+      "method": "auto",
+      "lat": 33.45168,
+      "lng": 126.44838
+    }
+  ]
+}

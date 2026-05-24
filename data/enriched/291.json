@@ -1,0 +1,101 @@
+{
+  "round": 291,
+  "date": "2008-06-28",
+  "nums": [
+    3,
+    7,
+    8,
+    18,
+    20,
+    42
+  ],
+  "bonus": 45,
+  "firstWinAmount": 1450585200,
+  "firstWinners": 7,
+  "totalSales": 44143418000,
+  "prizes": {
+    "first": {
+      "amount": 1450585200,
+      "winners": 7
+    },
+    "second": {
+      "amount": 43393575,
+      "winners": 39
+    },
+    "third": {
+      "amount": 1379258,
+      "winners": 1227
+    },
+    "fourth": {
+      "amount": 54144,
+      "winners": 62513
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1029643
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "바이복",
+      "address": "서울 강남구 일원로5길 19",
+      "method": "manual",
+      "lat": 37.491383,
+      "lng": 127.082275
+    },
+    {
+      "rank": 1,
+      "name": "신명",
+      "address": "서울 강서구 방화동로3길 1",
+      "method": "auto",
+      "lat": 37.562435,
+      "lng": 126.80841
+    },
+    {
+      "rank": 1,
+      "name": "월드사진관",
+      "address": "부산 사하구 윤공단로14번길 53",
+      "method": "auto",
+      "lat": 35.057266,
+      "lng": 128.96973
+    },
+    {
+      "rank": 1,
+      "name": "찬스센타 백운점",
+      "address": "인천 부평구 신촌로7번길 3",
+      "method": "auto",
+      "lat": 37.484802,
+      "lng": 126.708786
+    },
+    {
+      "rank": 1,
+      "name": "행운방",
+      "address": "경기 용인시 기흥구 보정동 1804-4엔림프라자101호",
+      "method": "auto",
+      "lat": 37.320713,
+      "lng": 127.115105
+    },
+    {
+      "rank": 1,
+      "name": "선경로또",
+      "address": "충북 제천시 용두대로 59 1층",
+      "method": "auto",
+      "lat": 37.13622,
+      "lng": 128.19936
+    },
+    {
+      "rank": 1,
+      "name": "k마트",
+      "address": "경북 포항시 북구 득량동 득량동 170-1",
+      "method": "auto",
+      "lat": 36.029087,
+      "lng": 129.34732
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "round": 529,
+  "date": "2013-01-19",
+  "nums": [
+    18,
+    20,
+    24,
+    27,
+    31,
+    42
+  ],
+  "bonus": 39,
+  "firstWinAmount": 1749114797,
+  "firstWinners": 8,
+  "totalSales": 57645779000,
+  "prizes": {
+    "first": {
+      "amount": 1749114797,
+      "winners": 8
+    },
+    "second": {
+      "amount": 70671305,
+      "winners": 33
+    },
+    "third": {
+      "amount": 1552699,
+      "winners": 1502
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 75069
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1282443
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "이수복권방",
+      "address": "서울 동작구 사당동  145-12",
+      "method": "auto",
+      "lat": 37.48601,
+      "lng": 126.980965
+    },
+    {
+      "rank": 1,
+      "name": "평화슈퍼",
+      "address": "서울 은평구 연서로 198-1,(대조동)",
+      "method": "manual",
+      "lat": 37.61628,
+      "lng": 126.919014
+    },
+    {
+      "rank": 1,
+      "name": "제이복권방",
+      "address": "서울 종로구 종로 225-1 평창빌딩 1층 103호",
+      "method": "auto",
+      "lat": 37.571293,
+      "lng": 127.00283
+    },
+    {
+      "rank": 1,
+      "name": "명동역5번출구가판",
+      "address": "서울 중구 퇴계로 115",
+      "method": "manual",
+      "lat": 37.561043,
+      "lng": 126.9845
+    },
+    {
+      "rank": 1,
+      "name": "디딤슈퍼",
+      "address": "경기 부천시 도약로 279",
+      "method": "manual",
+      "lat": 37.510635,
+      "lng": 126.78055
+    },
+    {
+      "rank": 1,
+      "name": "가판점",
+      "address": "경기 부천시 자유로 33 이마트앞 지하도입구",
+      "method": "auto",
+      "lat": 37.483967,
+      "lng": 126.77988
+    },
+    {
+      "rank": 1,
+      "name": "CU(횡성점)",
+      "address": "강원 횡성군 횡성읍  읍하리    118-1",
+      "method": "auto",
+      "lat": 37.48886,
+      "lng": 127.9855
+    },
+    {
+      "rank": 1,
+      "name": "공주복권방",
+      "address": "충남 공주시 웅진로 210-2",
+      "method": "auto",
+      "lat": 36.45911,
+      "lng": 127.1251
+    }
+  ]
+}

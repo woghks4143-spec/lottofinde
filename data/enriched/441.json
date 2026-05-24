@@ -1,0 +1,77 @@
+{
+  "round": 441,
+  "date": "2011-05-14",
+  "nums": [
+    1,
+    23,
+    28,
+    30,
+    34,
+    35
+  ],
+  "bonus": 9,
+  "firstWinAmount": 3170417063,
+  "firstWinners": 4,
+  "totalSales": 50272122000,
+  "prizes": {
+    "first": {
+      "amount": 3170417063,
+      "winners": 4
+    },
+    "second": {
+      "amount": 50324081,
+      "winners": 42
+    },
+    "third": {
+      "amount": 1875432,
+      "winners": 1127
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 60027
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1045164
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권왕국",
+      "address": "인천 동구 화평동  449-2",
+      "method": "auto",
+      "lat": 37.477715,
+      "lng": 126.63101
+    },
+    {
+      "rank": 1,
+      "name": "오천억복권방",
+      "address": "광주 서구 상무대로 1087",
+      "method": "auto",
+      "lat": 35.15296,
+      "lng": 126.880745
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "경기 군포시 곡란로 24 매화아파트상가 108호",
+      "method": "auto",
+      "lat": 37.374775,
+      "lng": 126.93609
+    },
+    {
+      "rank": 1,
+      "name": "로또복권대박",
+      "address": "경북 상주시 상산로 338",
+      "method": "auto",
+      "lat": 36.42098,
+      "lng": 128.15923
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "round": 275,
+  "date": "2008-03-08",
+  "nums": [
+    14,
+    19,
+    20,
+    35,
+    38,
+    40
+  ],
+  "bonus": 26,
+  "firstWinAmount": 10044066900,
+  "firstWinners": 1,
+  "totalSales": 42329813000,
+  "prizes": {
+    "first": {
+      "amount": 10044066900,
+      "winners": 1
+    },
+    "second": {
+      "amount": 88105850,
+      "winners": 19
+    },
+    "third": {
+      "amount": 1689215,
+      "winners": 991
+    },
+    "fourth": {
+      "amount": 64813,
+      "winners": 51657
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 884959
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "혹시나도",
+      "address": "충북 음성군 감곡면 왕장리 왕장리 521-9",
+      "method": "auto",
+      "lat": 37.119133,
+      "lng": 127.63936
+    }
+  ]
+}

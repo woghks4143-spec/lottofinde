@@ -1,0 +1,125 @@
+{
+  "round": 1096,
+  "date": "2023-12-02",
+  "nums": [
+    1,
+    12,
+    16,
+    19,
+    23,
+    43
+  ],
+  "bonus": 34,
+  "firstWinAmount": 2539391175,
+  "firstWinners": 10,
+  "totalSales": 105753078000,
+  "prizes": {
+    "first": {
+      "amount": 2539391175,
+      "winners": 10
+    },
+    "second": {
+      "amount": 49791984,
+      "winners": 85
+    },
+    "third": {
+      "amount": 1447442,
+      "winners": 2924
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 141700
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2386598
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "또와식품",
+      "address": "서울 강서구 양천로 694",
+      "method": "auto",
+      "lat": 37.55008,
+      "lng": 126.872826
+    },
+    {
+      "rank": 1,
+      "name": "알리바이",
+      "address": "광주 광산구 수등로 253 1층 알리바이",
+      "method": "auto",
+      "lat": 35.185387,
+      "lng": 126.83668
+    },
+    {
+      "rank": 1,
+      "name": "씨유 대전반석역점",
+      "address": "대전 유성구 반석로 10 반석역프라자",
+      "method": "auto",
+      "lat": 36.39211,
+      "lng": 127.313446
+    },
+    {
+      "rank": 1,
+      "name": "주몽동명",
+      "address": "경기 용인시 수지구 포은대로 319 중앙빌딩 104호",
+      "method": "auto",
+      "lat": 37.315742,
+      "lng": 127.08753
+    },
+    {
+      "rank": 1,
+      "name": "용꿈돼지꿈복권전문점",
+      "address": "강원 동해시 중앙로 234 이주민상가1층15호",
+      "method": "auto",
+      "lat": 37.52171,
+      "lng": 129.115
+    },
+    {
+      "rank": 1,
+      "name": "횡성터미널로또",
+      "address": "강원 횡성군 앞들서로19번길 10 1층 101호",
+      "method": "auto",
+      "lat": 37.487843,
+      "lng": 127.98256
+    },
+    {
+      "rank": 1,
+      "name": "여기있었네복권방",
+      "address": "전북 김제시 남북로 171",
+      "method": "auto",
+      "lat": 35.79936,
+      "lng": 126.88456
+    },
+    {
+      "rank": 1,
+      "name": "진우복권명당",
+      "address": "경북 경산시 경산로15길 1-11",
+      "method": "auto",
+      "lat": 35.815308,
+      "lng": 128.7312
+    },
+    {
+      "rank": 1,
+      "name": "로그인복권방",
+      "address": "경북 구미시 상사동로 149-4 사곡동",
+      "method": "auto",
+      "lat": 36.09796,
+      "lng": 128.35878
+    },
+    {
+      "rank": 1,
+      "name": "로또GS송림점",
+      "address": "경남 밀양시 삼문중앙로 48 GS편의점 내",
+      "method": "auto",
+      "lat": 35.48572,
+      "lng": 128.7571
+    }
+  ]
+}

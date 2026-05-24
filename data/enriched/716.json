@@ -1,0 +1,141 @@
+{
+  "round": 716,
+  "date": "2016-08-20",
+  "nums": [
+    2,
+    6,
+    13,
+    16,
+    29,
+    30
+  ],
+  "bonus": 21,
+  "firstWinAmount": 1358752157,
+  "firstWinners": 12,
+  "totalSales": 67040169000,
+  "prizes": {
+    "first": {
+      "amount": 1358752157,
+      "winners": 12
+    },
+    "second": {
+      "amount": 77642981,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1559096,
+      "winners": 1743
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 88628
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1469730
+    }
+  },
+  "methodCounts": {
+    "auto": 12,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "베스토아",
+      "address": "서울 강남구 역삼로 166 세현빌딩",
+      "method": "auto",
+      "lat": 37.494987,
+      "lng": 127.03726
+    },
+    {
+      "rank": 1,
+      "name": "행복공간",
+      "address": "서울 강동구 풍성로 115",
+      "method": "auto",
+      "lat": 37.532127,
+      "lng": 127.12511
+    },
+    {
+      "rank": 1,
+      "name": "로또판매점",
+      "address": "서울 관악구 관천로10길 20 1층",
+      "method": "auto",
+      "lat": 37.485016,
+      "lng": 126.92646
+    },
+    {
+      "rank": 1,
+      "name": "로또하우스",
+      "address": "서울 양천구 목동 907-10번지 현대파리지앙107호",
+      "method": "auto",
+      "lat": 37.536663,
+      "lng": 126.87982
+    },
+    {
+      "rank": 1,
+      "name": "엑스트라(우주점)",
+      "address": "부산 사상구 모라로110번길 121 주공아파트1단지 가상가106호",
+      "method": "auto",
+      "lat": 35.183853,
+      "lng": 128.99643
+    },
+    {
+      "rank": 1,
+      "name": "로또슈퍼",
+      "address": "인천 부평구 경인로 1106",
+      "method": "auto",
+      "lat": 37.48543,
+      "lng": 126.74269
+    },
+    {
+      "rank": 1,
+      "name": "송내매표소",
+      "address": "경기 부천시 송내대로 37,(송내동) 버스정류장",
+      "method": "auto",
+      "lat": 37.48689,
+      "lng": 126.75283
+    },
+    {
+      "rank": 1,
+      "name": "운수대통",
+      "address": "경기 수원시 권선구 매실로 73",
+      "method": "auto",
+      "lat": 37.269012,
+      "lng": 126.95872
+    },
+    {
+      "rank": 1,
+      "name": "복권사랑",
+      "address": "경기 양주시 평화로 1444,(덕계동)",
+      "method": "auto",
+      "lat": 37.81949,
+      "lng": 127.047104
+    },
+    {
+      "rank": 1,
+      "name": "GS25(천안장미점)",
+      "address": "충남 천안시 서북구 쌍용동 1194번지",
+      "method": "auto",
+      "lat": 36.80115,
+      "lng": 127.1296
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방 보생당건강원",
+      "address": "전북 익산시 무왕로 1268",
+      "method": "auto",
+      "lat": 35.960304,
+      "lng": 126.99727
+    },
+    {
+      "rank": 1,
+      "name": "드림마트",
+      "address": "경북 구미시 진평동 416-7번지 DC마트내",
+      "method": "auto",
+      "lat": 36.104507,
+      "lng": 128.41792
+    }
+  ]
+}

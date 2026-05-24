@@ -1,0 +1,77 @@
+{
+  "round": 351,
+  "date": "2009-08-22",
+  "nums": [
+    5,
+    25,
+    27,
+    29,
+    34,
+    36
+  ],
+  "bonus": 33,
+  "firstWinAmount": 2583357150,
+  "firstWinners": 4,
+  "totalSales": 43947492000,
+  "prizes": {
+    "first": {
+      "amount": 2583357150,
+      "winners": 4
+    },
+    "second": {
+      "amount": 59387521,
+      "winners": 29
+    },
+    "third": {
+      "amount": 1514722,
+      "winners": 1137
+    },
+    "fourth": {
+      "amount": 62094,
+      "winners": 55472
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 950273
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "제이복권방",
+      "address": "서울 종로구 종로 225-1 평창빌딩 1층 103호",
+      "method": "manual",
+      "lat": 37.571293,
+      "lng": 127.00283
+    },
+    {
+      "rank": 1,
+      "name": "로또토토",
+      "address": "울산 남구 꽃대나리로 37",
+      "method": "auto",
+      "lat": 35.53398,
+      "lng": 129.33388
+    },
+    {
+      "rank": 1,
+      "name": "복권세상",
+      "address": "경기 남양주시 청학로 97",
+      "method": "auto",
+      "lat": 37.707882,
+      "lng": 127.11624
+    },
+    {
+      "rank": 1,
+      "name": "보령복권방",
+      "address": "충남 보령시 중앙로 48",
+      "method": "manual",
+      "lat": 36.349045,
+      "lng": 126.59824
+    }
+  ]
+}

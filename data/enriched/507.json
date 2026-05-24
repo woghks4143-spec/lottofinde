@@ -1,0 +1,117 @@
+{
+  "round": 507,
+  "date": "2012-08-18",
+  "nums": [
+    12,
+    13,
+    32,
+    33,
+    40,
+    41
+  ],
+  "bonus": 4,
+  "firstWinAmount": 1416438875,
+  "firstWinners": 9,
+  "totalSales": 53638773000,
+  "prizes": {
+    "first": {
+      "amount": 1416438875,
+      "winners": 9
+    },
+    "second": {
+      "amount": 73264080,
+      "winners": 29
+    },
+    "third": {
+      "amount": 1442403,
+      "winners": 1473
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 73411
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1230314
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행복만들기",
+      "address": "서울 관악구 신사로10길 6",
+      "method": "manual",
+      "lat": 37.487255,
+      "lng": 126.914345
+    },
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 상계주공아파트(10단지) 주공10단지종합상가111",
+      "method": "auto",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "제이복권방",
+      "address": "서울 종로구 종로 225-1 평창빌딩 1층 103호",
+      "method": "manual",
+      "lat": 37.571293,
+      "lng": 127.00283
+    },
+    {
+      "rank": 1,
+      "name": "국세청앞센타",
+      "address": "부산 동구 진성로 23 세무서옆가판",
+      "method": "auto",
+      "lat": 35.130405,
+      "lng": 129.04683
+    },
+    {
+      "rank": 1,
+      "name": "진플러스안경",
+      "address": "대전 중구 대종로 301-1",
+      "method": "auto",
+      "lat": 36.3128,
+      "lng": 127.43504
+    },
+    {
+      "rank": 1,
+      "name": "행운슈퍼 복권사는날",
+      "address": "경기 부천시 경인로 148,(송내동)",
+      "method": "auto",
+      "lat": 37.48377,
+      "lng": 126.77174
+    },
+    {
+      "rank": 1,
+      "name": "SK@24시편의점",
+      "address": "경기 파주시 야동동  589-10",
+      "method": "auto",
+      "lat": 37.773052,
+      "lng": 126.75124
+    },
+    {
+      "rank": 1,
+      "name": "해수로또",
+      "address": "충북 청주시 상당구 산성로 22-1",
+      "method": "auto",
+      "lat": 36.62615,
+      "lng": 127.49938
+    },
+    {
+      "rank": 1,
+      "name": "로또나라",
+      "address": "전남 광양시 중마중앙로 126 1층",
+      "method": "auto",
+      "lat": 34.941517,
+      "lng": 127.69835
+    }
+  ]
+}

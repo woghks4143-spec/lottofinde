@@ -1,0 +1,85 @@
+{
+  "round": 279,
+  "date": "2008-04-05",
+  "nums": [
+    7,
+    16,
+    31,
+    36,
+    37,
+    38
+  ],
+  "bonus": 11,
+  "firstWinAmount": 1914205320,
+  "firstWinners": 5,
+  "totalSales": 41130542000,
+  "prizes": {
+    "first": {
+      "amount": 1914205320,
+      "winners": 5
+    },
+    "second": {
+      "amount": 59080412,
+      "winners": 27
+    },
+    "third": {
+      "amount": 1466150,
+      "winners": 1088
+    },
+    "fourth": {
+      "amount": 57566,
+      "winners": 55421
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 922712
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "서울 강서구 등촌1동  654-44",
+      "method": "auto",
+      "lat": 37.554955,
+      "lng": 126.85592
+    },
+    {
+      "rank": 1,
+      "name": "영광정보통신",
+      "address": "서울 성북구 화랑로 92 1층 우측1호",
+      "method": "auto",
+      "lat": 37.602676,
+      "lng": 127.0425
+    },
+    {
+      "rank": 1,
+      "name": "원당역복권방",
+      "address": "경기 고양시 덕양구 성사동 410-17",
+      "method": "manual",
+      "lat": 37.653427,
+      "lng": 126.843094
+    },
+    {
+      "rank": 1,
+      "name": "천복당",
+      "address": "경기 오산시 대원로 52,(원동)",
+      "method": "auto",
+      "lat": 37.14621,
+      "lng": 127.07414
+    },
+    {
+      "rank": 1,
+      "name": "찬스복권방",
+      "address": "전북 전주시 덕진구 태진로 120,(진북동)",
+      "method": "auto",
+      "lat": 35.831657,
+      "lng": 127.13599
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "round": 671,
+  "date": "2015-10-10",
+  "nums": [
+    7,
+    9,
+    10,
+    13,
+    31,
+    35
+  ],
+  "bonus": 24,
+  "firstWinAmount": 3722322844,
+  "firstWinners": 4,
+  "totalSales": 63940807000,
+  "prizes": {
+    "first": {
+      "amount": 3722322844,
+      "winners": 4
+    },
+    "second": {
+      "amount": 51698929,
+      "winners": 48
+    },
+    "third": {
+      "amount": 1395697,
+      "winners": 1778
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 90364
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1519963
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "황금로또",
+      "address": "강원 원주시 현충로318번길 35 1층",
+      "method": "manual",
+      "lat": 37.381992,
+      "lng": 127.950325
+    },
+    {
+      "rank": 1,
+      "name": "천금복권방",
+      "address": "충북 청주시 상당구 쇠내로 150-1",
+      "method": "auto",
+      "lat": 36.620747,
+      "lng": 127.50797
+    },
+    {
+      "rank": 1,
+      "name": "중앙복권방",
+      "address": "전북 전주시 완산구 공북로 95",
+      "method": "mixed",
+      "lat": 35.826454,
+      "lng": 127.14215
+    },
+    {
+      "rank": 1,
+      "name": "목화휴게소",
+      "address": "경남 사천시 사천대로 912",
+      "method": "auto",
+      "lat": 35.0018,
+      "lng": 128.05415
+    }
+  ]
+}

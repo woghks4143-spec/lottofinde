@@ -1,0 +1,93 @@
+{
+  "round": 1177,
+  "date": "2025-06-21",
+  "nums": [
+    3,
+    7,
+    15,
+    16,
+    19,
+    43
+  ],
+  "bonus": 21,
+  "firstWinAmount": 4576672000,
+  "firstWinners": 6,
+  "totalSales": 115411832000,
+  "prizes": {
+    "first": {
+      "amount": 4576672000,
+      "winners": 6
+    },
+    "second": {
+      "amount": 61022294,
+      "winners": 75
+    },
+    "third": {
+      "amount": 1471126,
+      "winners": 3111
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 157438
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2644128
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "온누리복권",
+      "address": "서울 동작구 동작대로 65 1층",
+      "method": "auto",
+      "lat": 37.48237,
+      "lng": 126.98159
+    },
+    {
+      "rank": 1,
+      "name": "행운로또",
+      "address": "부산 동래구 충렬대로428번길 30 102호 1호",
+      "method": "auto",
+      "lat": 35.1952,
+      "lng": 129.1042
+    },
+    {
+      "rank": 1,
+      "name": "주택복권방",
+      "address": "경기 안양시 만안구 장내로 106 102호",
+      "method": "auto",
+      "lat": 37.39598,
+      "lng": 126.92003
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권",
+      "address": "강원 삼척시 중앙시장길 48-49",
+      "method": "auto",
+      "lat": 37.44239,
+      "lng": 129.16716
+    },
+    {
+      "rank": 1,
+      "name": "럭키로또복권판매점",
+      "address": "충북 청주시 상당구 무농정로 10-1",
+      "method": "auto",
+      "lat": 36.605873,
+      "lng": 127.50429
+    },
+    {
+      "rank": 1,
+      "name": "돈보따리",
+      "address": "경남 양산시 서창로 104 복권판매점",
+      "method": "auto",
+      "lat": 35.409954,
+      "lng": 129.16673
+    }
+  ]
+}

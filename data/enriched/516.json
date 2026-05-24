@@ -1,0 +1,133 @@
+{
+  "round": 516,
+  "date": "2012-10-20",
+  "nums": [
+    2,
+    8,
+    23,
+    41,
+    43,
+    44
+  ],
+  "bonus": 30,
+  "firstWinAmount": 1294190182,
+  "firstWinners": 11,
+  "totalSales": 56385762000,
+  "prizes": {
+    "first": {
+      "amount": 1294190182,
+      "winners": 11
+    },
+    "second": {
+      "amount": 74146313,
+      "winners": 32
+    },
+    "third": {
+      "amount": 1773305,
+      "winners": 1338
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 67233
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1169955
+    }
+  },
+  "methodCounts": {
+    "auto": 11,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "한마음",
+      "address": "서울 관악구 관악로 211 봉천중앙시장라열4호",
+      "method": "auto",
+      "lat": 37.48357,
+      "lng": 126.95407
+    },
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 상계주공아파트(10단지) 주공10단지종합상가111",
+      "method": "auto",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "정평복권",
+      "address": "서울 양천구 목동중앙본로7길 30 101호",
+      "method": "auto",
+      "lat": 37.539677,
+      "lng": 126.86694
+    },
+    {
+      "rank": 1,
+      "name": "부일카서비스",
+      "address": "부산 동구 자성로133번길 35",
+      "method": "auto",
+      "lat": 35.140015,
+      "lng": 129.06306
+    },
+    {
+      "rank": 1,
+      "name": "노다지로또판매점",
+      "address": "부산 영도구 남항동2가  248-7",
+      "method": "auto",
+      "lat": 35.089134,
+      "lng": 129.0392
+    },
+    {
+      "rank": 1,
+      "name": "대박복권방",
+      "address": "울산 울주군 구영로 162 1층 102호",
+      "method": "auto",
+      "lat": 35.56802,
+      "lng": 129.24457
+    },
+    {
+      "rank": 1,
+      "name": "씨스페이스 중동점",
+      "address": "경기 부천시 원미구 중동 1152상록쎈트럴 109호",
+      "method": "auto",
+      "lat": 37.50152,
+      "lng": 126.76903
+    },
+    {
+      "rank": 1,
+      "name": "올인(allin)",
+      "address": "경기 화성시 3.1만세로 1147",
+      "method": "auto",
+      "lat": 37.135284,
+      "lng": 126.910614
+    },
+    {
+      "rank": 1,
+      "name": "로또복권두정점",
+      "address": "충남 천안시 서북구 두정로 251 대원빌딩104호",
+      "method": "auto",
+      "lat": 36.833515,
+      "lng": 127.14499
+    },
+    {
+      "rank": 1,
+      "name": "복조리복권방",
+      "address": "전북 장수군 장계면 장계천변길 55-4",
+      "method": "auto",
+      "lat": 35.731014,
+      "lng": 127.58352
+    },
+    {
+      "rank": 1,
+      "name": "에버빌마트",
+      "address": "경북 안동시 강남5길 102 에버빌마트 1층",
+      "method": "auto",
+      "lat": 36.551132,
+      "lng": 128.73126
+    }
+  ]
+}

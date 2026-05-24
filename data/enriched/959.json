@@ -1,0 +1,109 @@
+{
+  "round": 959,
+  "date": "2021-04-17",
+  "nums": [
+    1,
+    14,
+    15,
+    24,
+    40,
+    41
+  ],
+  "bonus": 35,
+  "firstWinAmount": 3015312891,
+  "firstWinners": 8,
+  "totalSales": 97435835000,
+  "prizes": {
+    "first": {
+      "amount": 3015312891,
+      "winners": 8
+    },
+    "second": {
+      "amount": 53605563,
+      "winners": 75
+    },
+    "third": {
+      "amount": 1606882,
+      "winners": 2502
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 123802
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2072896
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "교통카드판매대",
+      "address": "서울 강동구 상일로15길 18 1층",
+      "method": "auto",
+      "lat": 37.557686,
+      "lng": 127.17006
+    },
+    {
+      "rank": 1,
+      "name": "캐논종합",
+      "address": "서울 용산구 청파로 101 나진10동가125호",
+      "method": "auto",
+      "lat": 37.533337,
+      "lng": 126.962296
+    },
+    {
+      "rank": 1,
+      "name": "중구-가로가판대-37",
+      "address": "서울 중구 남대문로 20-2,(남대문로3가)",
+      "method": "auto",
+      "lat": 37.56083,
+      "lng": 126.97805
+    },
+    {
+      "rank": 1,
+      "name": "수천하명당",
+      "address": "부산 부산진구 대학로 20-1 1층 복권방",
+      "method": "auto",
+      "lat": 35.153778,
+      "lng": 129.03671
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "대전 대덕구 신탄진동로 1",
+      "method": "manual",
+      "lat": 36.447586,
+      "lng": 127.4299
+    },
+    {
+      "rank": 1,
+      "name": "골든박스",
+      "address": "경기 광명시 하안로288번길 19 103호(하안동, 부림코아)",
+      "method": "auto",
+      "lat": 37.472168,
+      "lng": 126.8512
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "경북 경산시 경안로 214",
+      "method": "auto",
+      "lat": 35.82663,
+      "lng": 128.73682
+    },
+    {
+      "rank": 1,
+      "name": "나우리고현점",
+      "address": "경남 거제시 거제중앙로 1904",
+      "method": "auto",
+      "lat": 34.88801,
+      "lng": 128.62357
+    }
+  ]
+}

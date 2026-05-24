@@ -1,0 +1,61 @@
+{
+  "round": 554,
+  "date": "2013-07-13",
+  "nums": [
+    13,
+    14,
+    17,
+    32,
+    41,
+    42
+  ],
+  "bonus": 6,
+  "firstWinAmount": 6813893625,
+  "firstWinners": 2,
+  "totalSales": 56124466000,
+  "prizes": {
+    "first": {
+      "amount": 6813893625,
+      "winners": 2
+    },
+    "second": {
+      "amount": 55397510,
+      "winners": 41
+    },
+    "third": {
+      "amount": 1530525,
+      "winners": 1484
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 74436
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1234010
+    }
+  },
+  "methodCounts": {
+    "auto": 1,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "현대서점",
+      "address": "서울 동작구 등용로 127 대방동현대아파트 103동 2호",
+      "method": "manual",
+      "lat": 37.513,
+      "lng": 126.931
+    },
+    {
+      "rank": 1,
+      "name": "신봉",
+      "address": "충북 청주시 흥덕구 신봉동 168-8번지신봉삼성아파트3단지 앞도로변",
+      "method": "auto",
+      "lat": 36.655724,
+      "lng": 127.469376
+    }
+  ]
+}

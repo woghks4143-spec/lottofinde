@@ -1,0 +1,109 @@
+{
+  "round": 420,
+  "date": "2010-12-18",
+  "nums": [
+    4,
+    9,
+    10,
+    29,
+    31,
+    34
+  ],
+  "bonus": 27,
+  "firstWinAmount": 1424856375,
+  "firstWinners": 8,
+  "totalSales": 47345476000,
+  "prizes": {
+    "first": {
+      "amount": 1424856375,
+      "winners": 8
+    },
+    "second": {
+      "amount": 54280243,
+      "winners": 35
+    },
+    "third": {
+      "amount": 1600513,
+      "winners": 1187
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 62929
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1065564
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "까치(소식5)",
+      "address": "서울 도봉구 도봉로 733",
+      "method": "auto",
+      "lat": 37.669926,
+      "lng": 127.043236
+    },
+    {
+      "rank": 1,
+      "name": "25시슈퍼",
+      "address": "부산 사상구 백양대로 964",
+      "method": "auto",
+      "lat": 35.191975,
+      "lng": 128.99263
+    },
+    {
+      "rank": 1,
+      "name": "포시즌마전점",
+      "address": "인천 서구 완정로10번길 6-6 검단2지구37블록1롯트",
+      "method": "auto",
+      "lat": 37.59451,
+      "lng": 126.67347
+    },
+    {
+      "rank": 1,
+      "name": "천하명당",
+      "address": "경기 시흥시 신천3길 26-1 1층1호",
+      "method": "manual",
+      "lat": 37.438892,
+      "lng": 126.783295
+    },
+    {
+      "rank": 1,
+      "name": "일등복권방",
+      "address": "경기 의정부시 회룡로 138 대명빌딩 1층",
+      "method": "auto",
+      "lat": 37.72573,
+      "lng": 127.04921
+    },
+    {
+      "rank": 1,
+      "name": "서정천하명당",
+      "address": "경기 평택시 송탄로 160",
+      "method": "auto",
+      "lat": 37.058094,
+      "lng": 127.05932
+    },
+    {
+      "rank": 1,
+      "name": "잉크와복권방",
+      "address": "충남 천안시 동남구 차돌로 84",
+      "method": "auto",
+      "lat": 36.802128,
+      "lng": 127.139435
+    },
+    {
+      "rank": 1,
+      "name": "로또낚시",
+      "address": "경남 하동군 섬진강대로 968 지리산빅마트 내",
+      "method": "auto",
+      "lat": 34.997063,
+      "lng": 127.80977
+    }
+  ]
+}

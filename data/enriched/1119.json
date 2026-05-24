@@ -1,0 +1,197 @@
+{
+  "round": 1119,
+  "date": "2024-05-11",
+  "nums": [
+    1,
+    9,
+    12,
+    13,
+    20,
+    45
+  ],
+  "bonus": 3,
+  "firstWinAmount": 1396028764,
+  "firstWinners": 19,
+  "totalSales": 111840714000,
+  "prizes": {
+    "first": {
+      "amount": 1396028764,
+      "winners": 19
+    },
+    "second": {
+      "amount": 45574823,
+      "winners": 97
+    },
+    "third": {
+      "amount": 1422381,
+      "winners": 3108
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 155000
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2560859
+    }
+  },
+  "methodCounts": {
+    "auto": 15,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "롯데무역",
+      "address": "부산 영도구 꿈나무길 197 1층 복권방",
+      "method": "auto",
+      "lat": 35.087284,
+      "lng": 129.04375
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권",
+      "address": "대구 북구 칠곡중앙대로 545",
+      "method": "manual",
+      "lat": 35.94432,
+      "lng": 128.55064
+    },
+    {
+      "rank": 1,
+      "name": "탑로또",
+      "address": "인천 남동구 서창남로 81 1층 105호",
+      "method": "auto",
+      "lat": 37.426414,
+      "lng": 126.748024
+    },
+    {
+      "rank": 1,
+      "name": "대박스타",
+      "address": "인천 미추홀구 경인로 348 1층",
+      "method": "auto",
+      "lat": 37.458347,
+      "lng": 126.678635
+    },
+    {
+      "rank": 1,
+      "name": "청라복권방",
+      "address": "인천 서구 중봉대로 587 B1층 X9, YB호",
+      "method": "manual",
+      "lat": 37.53246,
+      "lng": 126.64879
+    },
+    {
+      "rank": 1,
+      "name": "로또100",
+      "address": "인천 서구 청라커낼로 264 1층 101-A호(청라동, 청라두손중앙프라자)",
+      "method": "auto",
+      "lat": 37.5323,
+      "lng": 126.644775
+    },
+    {
+      "rank": 1,
+      "name": "프렌드24시",
+      "address": "광주 광산구 첨단중앙로 164 빌리오네2  제1층 106호",
+      "method": "auto",
+      "lat": 35.219975,
+      "lng": 126.84232
+    },
+    {
+      "rank": 1,
+      "name": "보람복권방",
+      "address": "울산 남구 화합로194번길 18-1 1층",
+      "method": "auto",
+      "lat": 35.541855,
+      "lng": 129.34157
+    },
+    {
+      "rank": 1,
+      "name": "찐대박복권방",
+      "address": "경기 부천시 삼작로 110",
+      "method": "auto",
+      "lat": 37.520004,
+      "lng": 126.77328
+    },
+    {
+      "rank": 1,
+      "name": "효도복권",
+      "address": "경기 수원시 권선구 세권로 215 1층 1호(권선동, Home Town)",
+      "method": "manual",
+      "lat": 37.25492,
+      "lng": 127.02784
+    },
+    {
+      "rank": 1,
+      "name": "주택복권방",
+      "address": "경기 안양시 동안구 흥안대로145번길 77 77",
+      "method": "auto",
+      "lat": 37.374123,
+      "lng": 126.95816
+    },
+    {
+      "rank": 1,
+      "name": "희망로또",
+      "address": "경기 양주시 고암길 142",
+      "method": "auto",
+      "lat": 37.832382,
+      "lng": 127.073975
+    },
+    {
+      "rank": 1,
+      "name": "중고폰브라더스(로또토토)",
+      "address": "경기 양주시 고읍남로191번길 84",
+      "method": "manual",
+      "lat": 37.791546,
+      "lng": 127.079765
+    },
+    {
+      "rank": 1,
+      "name": "올인(allin)",
+      "address": "경기 화성시 3.1만세로 1147",
+      "method": "auto",
+      "lat": 37.135284,
+      "lng": 126.910614
+    },
+    {
+      "rank": 1,
+      "name": "콕콕로또명당옥천점",
+      "address": "충북 옥천군 서대구일로 265-19 옥천하휴게소",
+      "method": "auto",
+      "lat": 36.29677,
+      "lng": 127.59518
+    },
+    {
+      "rank": 1,
+      "name": "로또명당 수곡점",
+      "address": "충북 청주시 서원구 구룡산로 341",
+      "method": "auto",
+      "lat": 36.61853,
+      "lng": 127.482315
+    },
+    {
+      "rank": 1,
+      "name": "봉황로또",
+      "address": "전북 임실군 운수로 6",
+      "method": "auto",
+      "lat": 35.616184,
+      "lng": 127.28901
+    },
+    {
+      "rank": 1,
+      "name": "남평로또점",
+      "address": "전남 나주시 남평1로 12 파평회관 1층",
+      "method": "auto",
+      "lat": 35.046345,
+      "lng": 126.8391
+    },
+    {
+      "rank": 1,
+      "name": "옥좌로또점",
+      "address": "경북 경주시 내외로 10 좌측4번째상가",
+      "method": "auto",
+      "lat": 35.727047,
+      "lng": 129.32066
+    }
+  ]
+}

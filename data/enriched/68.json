@@ -1,0 +1,43 @@
+{
+  "round": 68,
+  "date": "2004-03-20",
+  "nums": [
+    10,
+    12,
+    15,
+    16,
+    26,
+    39
+  ],
+  "bonus": 38,
+  "firstWinAmount": 2945882100,
+  "firstWinners": 5,
+  "totalSales": 63813236000,
+  "prizes": {
+    "first": {
+      "amount": 2945882100,
+      "winners": 5
+    },
+    "second": {
+      "amount": 122745000,
+      "winners": 20
+    },
+    "third": {
+      "amount": 3255800,
+      "winners": 754
+    },
+    "fourth": {
+      "amount": 113400,
+      "winners": 43265
+    },
+    "fifth": {
+      "amount": 10000,
+      "winners": 735760
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

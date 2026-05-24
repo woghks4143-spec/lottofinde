@@ -1,0 +1,133 @@
+{
+  "round": 1088,
+  "date": "2023-10-07",
+  "nums": [
+    11,
+    21,
+    22,
+    30,
+    39,
+    44
+  ],
+  "bonus": 31,
+  "firstWinAmount": 2434697898,
+  "firstWinners": 11,
+  "totalSales": 109089305000,
+  "prizes": {
+    "first": {
+      "amount": 2434697898,
+      "winners": 11
+    },
+    "second": {
+      "amount": 47485243,
+      "winners": 94
+    },
+    "third": {
+      "amount": 1492348,
+      "winners": 2991
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 141487
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2352280
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "종로3가1호선역2번출구가로판매점82호",
+      "address": "서울 종로구 돈화문로 23 가판",
+      "method": "auto",
+      "lat": 37.5707,
+      "lng": 126.991875
+    },
+    {
+      "rank": 1,
+      "name": "뉴빅마트",
+      "address": "부산 기장군 정관중앙로 48 106호",
+      "method": "auto",
+      "lat": 35.321114,
+      "lng": 129.17929
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "부산 중구 구덕로 47",
+      "method": "auto",
+      "lat": 35.09806,
+      "lng": 129.03053
+    },
+    {
+      "rank": 1,
+      "name": "좋은터",
+      "address": "인천 계양구 효서로 204 1층",
+      "method": "auto",
+      "lat": 37.527794,
+      "lng": 126.71853
+    },
+    {
+      "rank": 1,
+      "name": "용꿈돼지꿈",
+      "address": "인천 부평구 동암남로 11",
+      "method": "auto",
+      "lat": 37.470974,
+      "lng": 126.70482
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "경기 수원시 팔달구 매산로 2",
+      "method": "auto",
+      "lat": 37.26661,
+      "lng": 127.00185
+    },
+    {
+      "rank": 1,
+      "name": "씨유(CU)포천호국로점",
+      "address": "경기 포천시 호국로 1382 CU편의점",
+      "method": "manual",
+      "lat": 37.882088,
+      "lng": 127.18887
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "강원 속초시 중앙로 28",
+      "method": "auto",
+      "lat": 38.198734,
+      "lng": 128.58014
+    },
+    {
+      "rank": 1,
+      "name": "로또복권명당방",
+      "address": "전남 무안군 삼향읍 남악3로82번길 20 백석프라자 104호 GS편의점 내",
+      "method": "auto",
+      "lat": 34.812634,
+      "lng": 126.46242
+    },
+    {
+      "rank": 1,
+      "name": "지-아트",
+      "address": "경남 김해시 율하2로 98-1 복권판매점",
+      "method": "auto",
+      "lat": 35.170395,
+      "lng": 128.81201
+    },
+    {
+      "rank": 1,
+      "name": "매물도 복권",
+      "address": "경남 통영시 통영해안로 225-1",
+      "method": "auto",
+      "lat": 34.841072,
+      "lng": 128.42075
+    }
+  ]
+}

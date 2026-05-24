@@ -1,0 +1,125 @@
+{
+  "round": 911,
+  "date": "2020-05-16",
+  "nums": [
+    4,
+    5,
+    12,
+    14,
+    32,
+    42
+  ],
+  "bonus": 35,
+  "firstWinAmount": 2113538625,
+  "firstWinners": 10,
+  "totalSales": 89332410000,
+  "prizes": {
+    "first": {
+      "amount": 2113538625,
+      "winners": 10
+    },
+    "second": {
+      "amount": 60733869,
+      "winners": 58
+    },
+    "third": {
+      "amount": 1370115,
+      "winners": 2571
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 123236
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2064778
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "평안당",
+      "address": "서울 종로구 종로 219",
+      "method": "auto",
+      "lat": 37.57123,
+      "lng": 127.00219
+    },
+    {
+      "rank": 1,
+      "name": "애니타임",
+      "address": "부산 금정구 서동로175번길 7",
+      "method": "manual",
+      "lat": 35.214806,
+      "lng": 129.10612
+    },
+    {
+      "rank": 1,
+      "name": "영미연산로또복권점",
+      "address": "부산 연제구 반송로 12 CU마트내 별도부스",
+      "method": "manual",
+      "lat": 35.18666,
+      "lng": 129.08276
+    },
+    {
+      "rank": 1,
+      "name": "CU(참미소점)",
+      "address": "대구 달서구 감삼동 170-7번지",
+      "method": "manual",
+      "lat": 35.847263,
+      "lng": 128.53748
+    },
+    {
+      "rank": 1,
+      "name": "알리바이",
+      "address": "광주 광산구 수등로 253 1층 알리바이",
+      "method": "auto",
+      "lat": 35.185387,
+      "lng": 126.83668
+    },
+    {
+      "rank": 1,
+      "name": "서정로또",
+      "address": "경기 고양시 덕양구 중앙로 450 1층 105호",
+      "method": "manual",
+      "lat": 37.618458,
+      "lng": 126.84541
+    },
+    {
+      "rank": 1,
+      "name": "복드림슈퍼",
+      "address": "경기 안양시 동안구 경수대로 515 정우빌딩 1층",
+      "method": "manual",
+      "lat": 37.368633,
+      "lng": 126.95772
+    },
+    {
+      "rank": 1,
+      "name": "동문그린복권방",
+      "address": "경기 파주시 조리읍 대원리 221-8 동문상가 CU",
+      "method": "mixed",
+      "lat": 37.728317,
+      "lng": 126.814865
+    },
+    {
+      "rank": 1,
+      "name": "영스타",
+      "address": "경기 평택시 팽성읍 팽성로 90 103호",
+      "method": "auto",
+      "lat": 36.94493,
+      "lng": 127.051765
+    },
+    {
+      "rank": 1,
+      "name": "GS25(청주수곡점)",
+      "address": "충북 청주시 서원구 수곡동 910",
+      "method": "auto",
+      "lat": 36.61605,
+      "lng": 127.47295
+    }
+  ]
+}

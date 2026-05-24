@@ -1,0 +1,133 @@
+{
+  "round": 309,
+  "date": "2008-11-01",
+  "nums": [
+    1,
+    2,
+    5,
+    11,
+    18,
+    36
+  ],
+  "bonus": 22,
+  "firstWinAmount": 901622946,
+  "firstWinners": 11,
+  "totalSales": 44157528000,
+  "prizes": {
+    "first": {
+      "amount": 901622946,
+      "winners": 11
+    },
+    "second": {
+      "amount": 66119016,
+      "winners": 25
+    },
+    "third": {
+      "amount": 1189191,
+      "winners": 1390
+    },
+    "fourth": {
+      "amount": 47826,
+      "winners": 69125
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1109802
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "신명",
+      "address": "서울 강서구 방화동로3길 1",
+      "method": "auto",
+      "lat": 37.562435,
+      "lng": 126.80841
+    },
+    {
+      "rank": 1,
+      "name": "경성식품",
+      "address": "서울 동대문구 망우로21길 52",
+      "method": "auto",
+      "lat": 37.590435,
+      "lng": 127.06028
+    },
+    {
+      "rank": 1,
+      "name": "부일카서비스",
+      "address": "부산 동구 자성로133번길 35",
+      "method": "auto",
+      "lat": 35.140015,
+      "lng": 129.06306
+    },
+    {
+      "rank": 1,
+      "name": "꿈의나라",
+      "address": "부산 동래구 명륜동  533-49",
+      "method": "manual",
+      "lat": 35.205193,
+      "lng": 129.07956
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "대구 수성구 천을로 180 동서1차아파트상가108-112호",
+      "method": "auto",
+      "lat": 35.842495,
+      "lng": 128.71007
+    },
+    {
+      "rank": 1,
+      "name": "미니슈퍼",
+      "address": "인천 남동구 호구포로 874",
+      "method": "auto",
+      "lat": 37.460365,
+      "lng": 126.720314
+    },
+    {
+      "rank": 1,
+      "name": "로또복권벽산블루밍",
+      "address": "대전 서구 갈마로 262",
+      "method": "auto",
+      "lat": 36.33321,
+      "lng": 127.38101
+    },
+    {
+      "rank": 1,
+      "name": "복권왕국",
+      "address": "대전 서구 동서대로1047번길 2",
+      "method": "auto",
+      "lat": 36.330875,
+      "lng": 127.37787
+    },
+    {
+      "rank": 1,
+      "name": "행운방",
+      "address": "경기 용인시 기흥구 보정동 1804-4엔림프라자101호",
+      "method": "auto",
+      "lat": 37.320713,
+      "lng": 127.115105
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "경기 의정부시 장암동  20-9",
+      "method": "manual",
+      "lat": 37.726334,
+      "lng": 127.05454
+    },
+    {
+      "rank": 1,
+      "name": "홈짱",
+      "address": "충북 청주시 흥덕구 서경로28번길 19 휴대폰매장내",
+      "method": "auto",
+      "lat": 36.617184,
+      "lng": 127.44338
+    }
+  ]
+}

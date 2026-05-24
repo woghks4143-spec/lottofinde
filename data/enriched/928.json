@@ -1,0 +1,101 @@
+{
+  "round": 928,
+  "date": "2020-09-12",
+  "nums": [
+    3,
+    4,
+    10,
+    20,
+    28,
+    44
+  ],
+  "bonus": 30,
+  "firstWinAmount": 3134591358,
+  "firstWinners": 7,
+  "totalSales": 90818982000,
+  "prizes": {
+    "first": {
+      "amount": 3134591358,
+      "winners": 7
+    },
+    "second": {
+      "amount": 45148436,
+      "winners": 81
+    },
+    "third": {
+      "amount": 1385761,
+      "winners": 2639
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 121873
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2011931
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "미소마트",
+      "address": "서울 강남구 밤고개로 219 강남블루지움 105호",
+      "method": "auto",
+      "lat": 37.474785,
+      "lng": 127.10712
+    },
+    {
+      "rank": 1,
+      "name": "우리은행금호동지점앞가판",
+      "address": "서울 성동구 장터길 46",
+      "method": "mixed",
+      "lat": 37.54814,
+      "lng": 127.02097
+    },
+    {
+      "rank": 1,
+      "name": "경동플러스",
+      "address": "부산 해운대구 세실로 30 경동G-PLUS아파트상가103",
+      "method": "auto",
+      "lat": 35.168427,
+      "lng": 129.17944
+    },
+    {
+      "rank": 1,
+      "name": "계대마트",
+      "address": "대구 달서구 계대동문로 26 1층",
+      "method": "manual",
+      "lat": 35.855164,
+      "lng": 128.49506
+    },
+    {
+      "rank": 1,
+      "name": "나눔로또 스포츠토토(김포장기점)",
+      "address": "경기 김포시 김포한강1로78번길 7 장기음식주차타운 1층 110호",
+      "method": "manual",
+      "lat": 37.64487,
+      "lng": 126.67066
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "경남 거제시 옥포성안로 60",
+      "method": "auto",
+      "lat": 34.891693,
+      "lng": 128.69492
+    },
+    {
+      "rank": 1,
+      "name": "수퍼복권나라",
+      "address": "경남 김해시 율하1로 110 101호 복권판매점",
+      "method": "manual",
+      "lat": 35.17281,
+      "lng": 128.81566
+    }
+  ]
+}

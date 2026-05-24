@@ -1,0 +1,77 @@
+{
+  "round": 317,
+  "date": "2008-12-27",
+  "nums": [
+    3,
+    10,
+    11,
+    22,
+    36,
+    39
+  ],
+  "bonus": 8,
+  "firstWinAmount": 2576258550,
+  "firstWinners": 4,
+  "totalSales": 44135114000,
+  "prizes": {
+    "first": {
+      "amount": 2576258550,
+      "winners": 4
+    },
+    "second": {
+      "amount": 68700228,
+      "winners": 25
+    },
+    "third": {
+      "amount": 1517232,
+      "winners": 1132
+    },
+    "fourth": {
+      "amount": 59672,
+      "winners": 57565
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 978500
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "토큰박스(아카데미)",
+      "address": "대구 중구 중앙대로 390 승강장옆",
+      "method": "auto",
+      "lat": 35.86778,
+      "lng": 128.59392
+    },
+    {
+      "rank": 1,
+      "name": "삽교복권방",
+      "address": "충남 예산군 삽교로2길 2 CU편의점내",
+      "method": "auto",
+      "lat": 36.686195,
+      "lng": 126.73935
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방",
+      "address": "전북 정읍시 충정로 442 CU편의점 내",
+      "method": "auto",
+      "lat": 35.584843,
+      "lng": 126.85508
+    },
+    {
+      "rank": 1,
+      "name": "하당제과",
+      "address": "전남 목포시 통일대로75번길 10 부영아파트상가109호",
+      "method": "manual",
+      "lat": 34.80206,
+      "lng": 126.43256
+    }
+  ]
+}

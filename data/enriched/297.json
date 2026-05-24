@@ -1,0 +1,61 @@
+{
+  "round": 297,
+  "date": "2008-08-09",
+  "nums": [
+    6,
+    11,
+    19,
+    20,
+    28,
+    32
+  ],
+  "bonus": 34,
+  "firstWinAmount": 5056668750,
+  "firstWinners": 2,
+  "totalSales": 43641475000,
+  "prizes": {
+    "first": {
+      "amount": 5056668750,
+      "winners": 2
+    },
+    "second": {
+      "amount": 60198438,
+      "winners": 28
+    },
+    "third": {
+      "amount": 1322005,
+      "winners": 1275
+    },
+    "fourth": {
+      "amount": 55032,
+      "winners": 61258
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 993035
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(명륜중앙)",
+      "address": "부산 동래구 온천동  473-12",
+      "method": "auto",
+      "lat": 35.21257,
+      "lng": 129.07867
+    },
+    {
+      "rank": 1,
+      "name": "행운로또복권",
+      "address": "경기 오산시 오산동  876-2",
+      "method": "auto",
+      "lat": 37.14875,
+      "lng": 127.068886
+    }
+  ]
+}

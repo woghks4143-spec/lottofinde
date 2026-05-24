@@ -1,0 +1,125 @@
+{
+  "round": 860,
+  "date": "2019-05-25",
+  "nums": [
+    4,
+    8,
+    18,
+    25,
+    27,
+    32
+  ],
+  "bonus": 42,
+  "firstWinAmount": 1879899825,
+  "firstWinners": 10,
+  "totalSales": 81846672000,
+  "prizes": {
+    "first": {
+      "amount": 1879899825,
+      "winners": 10
+    },
+    "second": {
+      "amount": 50534942,
+      "winners": 62
+    },
+    "third": {
+      "amount": 1339533,
+      "winners": 2339
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 128867
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1882931
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "버스카드판매대",
+      "address": "서울 관악구 신림로 145-2",
+      "method": "auto",
+      "lat": 37.47187,
+      "lng": 126.93328
+    },
+    {
+      "rank": 1,
+      "name": "다모아복권",
+      "address": "서울 구로구 경인로19길 4",
+      "method": "auto",
+      "lat": 37.495926,
+      "lng": 126.84278
+    },
+    {
+      "rank": 1,
+      "name": "로또온천장점",
+      "address": "부산 동래구 중앙대로 1520 북쪽출구 빵집",
+      "method": "mixed",
+      "lat": 35.213894,
+      "lng": 129.08134
+    },
+    {
+      "rank": 1,
+      "name": "영재서적해강점",
+      "address": "부산 해운대구 해운대로 428 올림픽타운상가101호",
+      "method": "auto",
+      "lat": 35.166252,
+      "lng": 129.13992
+    },
+    {
+      "rank": 1,
+      "name": "로또명당",
+      "address": "대구 북구 동천동 878-4번지",
+      "method": "manual",
+      "lat": 35.93204,
+      "lng": 128.55652
+    },
+    {
+      "rank": 1,
+      "name": "GS로또(호계수성)",
+      "address": "울산 북구 호계동(농소1동) 277-2 GS편의점",
+      "method": "auto",
+      "lat": 35.62844,
+      "lng": 129.35345
+    },
+    {
+      "rank": 1,
+      "name": "한아름 복권판매점",
+      "address": "경기 광주시 광동로 50",
+      "method": "auto",
+      "lat": 37.470287,
+      "lng": 127.308075
+    },
+    {
+      "rank": 1,
+      "name": "복권닷컴",
+      "address": "강원 양양군 양양로 62",
+      "method": "manual",
+      "lat": 38.075512,
+      "lng": 128.62233
+    },
+    {
+      "rank": 1,
+      "name": "봉황로또",
+      "address": "전북 임실군 운수로 6",
+      "method": "manual",
+      "lat": 35.616184,
+      "lng": 127.28901
+    },
+    {
+      "rank": 1,
+      "name": "이마트24구미황상점",
+      "address": "경북 구미시 수출대로 555",
+      "method": "auto",
+      "lat": 36.110912,
+      "lng": 128.42572
+    }
+  ]
+}

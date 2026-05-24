@@ -1,0 +1,85 @@
+{
+  "round": 649,
+  "date": "2015-05-09",
+  "nums": [
+    3,
+    21,
+    22,
+    33,
+    41,
+    42
+  ],
+  "bonus": 20,
+  "firstWinAmount": 2948042100,
+  "firstWinners": 5,
+  "totalSales": 60473178000,
+  "prizes": {
+    "first": {
+      "amount": 2948042100,
+      "winners": 5
+    },
+    "second": {
+      "amount": 54593373,
+      "winners": 45
+    },
+    "third": {
+      "amount": 1454531,
+      "winners": 1689
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 80347
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1313125
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권천국",
+      "address": "서울 서초구 서초대로 97 1층",
+      "method": "auto",
+      "lat": 37.48771,
+      "lng": 126.99283
+    },
+    {
+      "rank": 1,
+      "name": "GS25(서면새싹)",
+      "address": "부산 부산진구 새싹로14번길 13",
+      "method": "auto",
+      "lat": 35.159702,
+      "lng": 129.05853
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "경기 가평군 청평중앙로 35 프라자약국 1층",
+      "method": "auto",
+      "lat": 37.73741,
+      "lng": 127.418495
+    },
+    {
+      "rank": 1,
+      "name": "마두5번출구가판로또",
+      "address": "경기 고양시 일산동구 중앙로 1200",
+      "method": "auto",
+      "lat": 37.65387,
+      "lng": 126.77711
+    },
+    {
+      "rank": 1,
+      "name": "다니엘사",
+      "address": "경기 안산시 단원구 원선1로 38 두산위브아파트 101호",
+      "method": "auto",
+      "lat": 37.326073,
+      "lng": 126.80417
+    }
+  ]
+}

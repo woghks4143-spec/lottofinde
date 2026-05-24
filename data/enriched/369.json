@@ -1,0 +1,93 @@
+{
+  "round": 369,
+  "date": "2009-12-26",
+  "nums": [
+    17,
+    20,
+    35,
+    36,
+    41,
+    43
+  ],
+  "bonus": 21,
+  "firstWinAmount": 1842177750,
+  "firstWinners": 6,
+  "totalSales": 46716275000,
+  "prizes": {
+    "first": {
+      "amount": 1842177750,
+      "winners": 6
+    },
+    "second": {
+      "amount": 59425089,
+      "winners": 31
+    },
+    "third": {
+      "amount": 1592203,
+      "winners": 1157
+    },
+    "fourth": {
+      "amount": 62044,
+      "winners": 59383
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 987272
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가로판매대",
+      "address": "서울 강동구 올림픽로 648 천호역 3번 출구 앞(가판점)",
+      "method": "auto",
+      "lat": 37.538975,
+      "lng": 127.12444
+    },
+    {
+      "rank": 1,
+      "name": "알리바이평동베팅샵",
+      "address": "광주 광산구 사암로340번길 31 부광빌딩 102호",
+      "method": "auto",
+      "lat": 35.175247,
+      "lng": 126.81066
+    },
+    {
+      "rank": 1,
+      "name": "ALWAYSMART",
+      "address": "경기 고양시 일산동구 백마로 501-2",
+      "method": "auto",
+      "lat": 37.663174,
+      "lng": 126.803696
+    },
+    {
+      "rank": 1,
+      "name": "행운의명당로-토토",
+      "address": "충북 청주시 서원구 모충로 36",
+      "method": "auto",
+      "lat": 36.62487,
+      "lng": 127.46841
+    },
+    {
+      "rank": 1,
+      "name": "일마트",
+      "address": "전남 순천시 중앙시장길 20 일마트",
+      "method": "auto",
+      "lat": 34.953197,
+      "lng": 127.48504
+    },
+    {
+      "rank": 1,
+      "name": "스포츠복권방",
+      "address": "경남 양산시 물금읍 황산로 675",
+      "method": "manual",
+      "lat": 35.330875,
+      "lng": 129.0067
+    }
+  ]
+}

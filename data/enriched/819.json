@@ -1,0 +1,101 @@
+{
+  "round": 819,
+  "date": "2018-08-11",
+  "nums": [
+    16,
+    25,
+    33,
+    38,
+    40,
+    45
+  ],
+  "bonus": 15,
+  "firstWinAmount": 2594534840,
+  "firstWinners": 7,
+  "totalSales": 74578907000,
+  "prizes": {
+    "first": {
+      "amount": 2594534840,
+      "winners": 7
+    },
+    "second": {
+      "amount": 61774640,
+      "winners": 49
+    },
+    "third": {
+      "amount": 1527995,
+      "winners": 1981
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 97667
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1638089
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대박로또",
+      "address": "서울 관악구 은천로 177 103호",
+      "method": "auto",
+      "lat": 37.48605,
+      "lng": 126.954895
+    },
+    {
+      "rank": 1,
+      "name": "헬로마트",
+      "address": "서울 도봉구 도봉로170길 8,(도봉동)",
+      "method": "auto",
+      "lat": 37.680374,
+      "lng": 127.04596
+    },
+    {
+      "rank": 1,
+      "name": "가판점",
+      "address": "서울 서초구 효령로 283 가판",
+      "method": "auto",
+      "lat": 37.4851,
+      "lng": 127.01497
+    },
+    {
+      "rank": 1,
+      "name": "아트슈퍼",
+      "address": "부산 부산진구 가야대로 490",
+      "method": "auto",
+      "lat": 35.15293,
+      "lng": 129.0256
+    },
+    {
+      "rank": 1,
+      "name": "씨스페이스(덕천점)",
+      "address": "부산 북구 덕천동 379-27번지",
+      "method": "manual",
+      "lat": 35.21228,
+      "lng": 129.01314
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "세종  조치원읍 죽림리 234-5",
+      "method": "manual",
+      "lat": 36.591988,
+      "lng": 127.29835
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "경기 용인시 기흥구 신갈로68번길 24",
+      "method": "manual",
+      "lat": 37.273155,
+      "lng": 127.10815
+    }
+  ]
+}

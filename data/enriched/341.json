@@ -1,0 +1,101 @@
+{
+  "round": 341,
+  "date": "2009-06-13",
+  "nums": [
+    1,
+    8,
+    19,
+    34,
+    39,
+    43
+  ],
+  "bonus": 41,
+  "firstWinAmount": 1497207772,
+  "firstWinners": 7,
+  "totalSales": 44722448000,
+  "prizes": {
+    "first": {
+      "amount": 1497207772,
+      "winners": 7
+    },
+    "second": {
+      "amount": 52931588,
+      "winners": 33
+    },
+    "third": {
+      "amount": 1414367,
+      "winners": 1235
+    },
+    "fourth": {
+      "amount": 59458,
+      "winners": 58756
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 978760
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "부일카서비스",
+      "address": "부산 동구 자성로133번길 35",
+      "method": "auto",
+      "lat": 35.140015,
+      "lng": 129.06306
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트관음점",
+      "address": "대구 북구 칠곡중앙대로 475",
+      "method": "manual",
+      "lat": 35.938194,
+      "lng": 128.54906
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "대구 수성구 들안로 243",
+      "method": "manual",
+      "lat": 35.851864,
+      "lng": 128.6167
+    },
+    {
+      "rank": 1,
+      "name": "GS25(수원삼성)",
+      "address": "경기 수원시 영통구 매탄동 매탄동 1267-7중앙프라자1층104",
+      "method": "auto",
+      "lat": 37.259037,
+      "lng": 127.04512
+    },
+    {
+      "rank": 1,
+      "name": "재우텔레콤",
+      "address": "경기 하남시 신평로 74",
+      "method": "manual",
+      "lat": 37.539894,
+      "lng": 127.20607
+    },
+    {
+      "rank": 1,
+      "name": "드림복권",
+      "address": "전북 익산시 무왕로20길 20-2",
+      "method": "manual",
+      "lat": 35.957024,
+      "lng": 126.97992
+    },
+    {
+      "rank": 1,
+      "name": "GS25(창원극동)",
+      "address": "경남 창원시 팔용동  104-1",
+      "method": "auto",
+      "lat": 35.254997,
+      "lng": 128.61241
+    }
+  ]
+}

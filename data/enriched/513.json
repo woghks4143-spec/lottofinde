@@ -1,0 +1,69 @@
+{
+  "round": 513,
+  "date": "2012-09-29",
+  "nums": [
+    5,
+    8,
+    21,
+    23,
+    27,
+    33
+  ],
+  "bonus": 12,
+  "firstWinAmount": 4589624750,
+  "firstWinners": 3,
+  "totalSales": 58317548000,
+  "prizes": {
+    "first": {
+      "amount": 4589624750,
+      "winners": 3
+    },
+    "second": {
+      "amount": 42496526,
+      "winners": 54
+    },
+    "third": {
+      "amount": 1411324,
+      "winners": 1626
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 82270
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1337355
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "마두5번출구가판로또",
+      "address": "경기 고양시 일산동구 중앙로 1200",
+      "method": "auto",
+      "lat": 37.65387,
+      "lng": 126.77711
+    },
+    {
+      "rank": 1,
+      "name": "그린마트",
+      "address": "경기 성남시 분당구 대왕판교로 255 107호",
+      "method": "auto",
+      "lat": 37.366467,
+      "lng": 127.10083
+    },
+    {
+      "rank": 1,
+      "name": "희망복권방",
+      "address": "강원 홍천군 홍천로 409 1층",
+      "method": "manual",
+      "lat": 37.690258,
+      "lng": 127.88947
+    }
+  ]
+}

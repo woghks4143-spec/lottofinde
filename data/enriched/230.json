@@ -1,0 +1,43 @@
+{
+  "round": 230,
+  "date": "2007-04-28",
+  "nums": [
+    5,
+    11,
+    14,
+    29,
+    32,
+    33
+  ],
+  "bonus": 12,
+  "firstWinAmount": 1292929163,
+  "firstWinners": 8,
+  "totalSales": 44191351000,
+  "prizes": {
+    "first": {
+      "amount": 1292929163,
+      "winners": 8
+    },
+    "second": {
+      "amount": 68956222,
+      "winners": 25
+    },
+    "third": {
+      "amount": 1662397,
+      "winners": 1037
+    },
+    "fourth": {
+      "amount": 61190,
+      "winners": 56346
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 971324
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

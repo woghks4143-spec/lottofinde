@@ -1,0 +1,93 @@
+{
+  "round": 326,
+  "date": "2009-02-28",
+  "nums": [
+    16,
+    23,
+    25,
+    33,
+    36,
+    39
+  ],
+  "bonus": 40,
+  "firstWinAmount": 1832134550,
+  "firstWinners": 6,
+  "totalSales": 47224551000,
+  "prizes": {
+    "first": {
+      "amount": 1832134550,
+      "winners": 6
+    },
+    "second": {
+      "amount": 59101115,
+      "winners": 31
+    },
+    "third": {
+      "amount": 1372386,
+      "winners": 1335
+    },
+    "fourth": {
+      "amount": 57177,
+      "winners": 64087
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1058186
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "셀프카메라",
+      "address": "부산 부산진구 가야대로443번길 30",
+      "method": "auto",
+      "lat": 35.154446,
+      "lng": 129.02167
+    },
+    {
+      "rank": 1,
+      "name": "대림서점",
+      "address": "대구 남구 중앙대로 158 대림서점",
+      "method": "auto",
+      "lat": 35.847366,
+      "lng": 128.59087
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권",
+      "address": "대구 북구 칠곡중앙대로 545,(읍내동)",
+      "method": "manual",
+      "lat": 35.94432,
+      "lng": 128.55064
+    },
+    {
+      "rank": 1,
+      "name": "아이러브복권방",
+      "address": "울산 중구 유곡로 19-1",
+      "method": "auto",
+      "lat": 35.55638,
+      "lng": 129.30725
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "경기 용인시 처인구 용문로 142 1층",
+      "method": "manual",
+      "lat": 37.23621,
+      "lng": 127.20159
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트함양한주점",
+      "address": "경남 함양군 고운로 80-1",
+      "method": "auto",
+      "lat": 35.520874,
+      "lng": 127.73024
+    }
+  ]
+}

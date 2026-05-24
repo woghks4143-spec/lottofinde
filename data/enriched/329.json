@@ -1,0 +1,93 @@
+{
+  "round": 329,
+  "date": "2009-03-21",
+  "nums": [
+    9,
+    17,
+    19,
+    30,
+    35,
+    42
+  ],
+  "bonus": 4,
+  "firstWinAmount": 1830391200,
+  "firstWinners": 6,
+  "totalSales": 47198504000,
+  "prizes": {
+    "first": {
+      "amount": 1830391200,
+      "winners": 6
+    },
+    "second": {
+      "amount": 55466400,
+      "winners": 33
+    },
+    "third": {
+      "amount": 1506495,
+      "winners": 1215
+    },
+    "fourth": {
+      "amount": 58376,
+      "winners": 62711
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1059068
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대성복권방",
+      "address": "서울 금천구 독산동  1008-11층대성식품내",
+      "method": "auto",
+      "lat": 37.47889,
+      "lng": 126.90353
+    },
+    {
+      "rank": 1,
+      "name": "광명식품",
+      "address": "서울 중구 만리동1가  50-2",
+      "method": "auto",
+      "lat": 37.557186,
+      "lng": 126.96827
+    },
+    {
+      "rank": 1,
+      "name": "가로판매대제18호",
+      "address": "서울 중구 소공로 51",
+      "method": "auto",
+      "lat": 37.559227,
+      "lng": 126.98148
+    },
+    {
+      "rank": 1,
+      "name": "복권판매소(서문큰장네거리)",
+      "address": "대구 서구 국채보상로 438,(내당동)",
+      "method": "manual",
+      "lat": 35.870575,
+      "lng": 128.5788
+    },
+    {
+      "rank": 1,
+      "name": "종합복권나라",
+      "address": "경기 양평군 북한강로 12 1층",
+      "method": "auto",
+      "lat": 37.54495,
+      "lng": 127.32051
+    },
+    {
+      "rank": 1,
+      "name": "로또복권방동백점",
+      "address": "경기 용인시 기흥구 동백동 동백동 2205-1월드프라자101서진슈퍼내",
+      "method": "auto",
+      "lat": 37.27663,
+      "lng": 127.15243
+    }
+  ]
+}

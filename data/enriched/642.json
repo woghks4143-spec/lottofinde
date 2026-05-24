@@ -1,0 +1,141 @@
+{
+  "round": 642,
+  "date": "2015-03-21",
+  "nums": [
+    8,
+    17,
+    18,
+    24,
+    39,
+    45
+  ],
+  "bonus": 32,
+  "firstWinAmount": 1251460438,
+  "firstWinners": 12,
+  "totalSales": 63544224000,
+  "prizes": {
+    "first": {
+      "amount": 1251460438,
+      "winners": 12
+    },
+    "second": {
+      "amount": 40369692,
+      "winners": 62
+    },
+    "third": {
+      "amount": 1379020,
+      "winners": 1815
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 88406
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1465689
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대박로또",
+      "address": "서울 성동구 용답19길 11",
+      "method": "manual",
+      "lat": 37.56328,
+      "lng": 127.052055
+    },
+    {
+      "rank": 1,
+      "name": "우일",
+      "address": "서울 송파구 마천로 235",
+      "method": "auto",
+      "lat": 37.49996,
+      "lng": 127.14397
+    },
+    {
+      "rank": 1,
+      "name": "잠실매점",
+      "address": "서울 송파구 올림픽로 269 잠실역 8번출구 앞 가판",
+      "method": "auto",
+      "lat": 37.514446,
+      "lng": 127.10071
+    },
+    {
+      "rank": 1,
+      "name": "CU(신길도림점)",
+      "address": "서울 영등포구  신길동 289-6번지",
+      "method": "mixed",
+      "lat": 37.508198,
+      "lng": 126.905426
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "부산 사하구 하단동  589-1번지 강서할인마트 내",
+      "method": "auto",
+      "lat": 35.105904,
+      "lng": 128.96559
+    },
+    {
+      "rank": 1,
+      "name": "태양슈퍼마켓",
+      "address": "부산 해운대구 신반송로 171 삼한115호",
+      "method": "auto",
+      "lat": 35.227863,
+      "lng": 129.1608
+    },
+    {
+      "rank": 1,
+      "name": "프랜드리",
+      "address": "대구 동구 아양로7길 12 신암뜨랜채상가111호",
+      "method": "auto",
+      "lat": 35.883347,
+      "lng": 128.61774
+    },
+    {
+      "rank": 1,
+      "name": "왕대박복권",
+      "address": "인천 부평구 동수천로 108 1층",
+      "method": "manual",
+      "lat": 37.495102,
+      "lng": 126.73705
+    },
+    {
+      "rank": 1,
+      "name": "대광슈퍼",
+      "address": "경기 군포시 고산로 679 미성프라자106호",
+      "method": "auto",
+      "lat": 37.371067,
+      "lng": 126.93395
+    },
+    {
+      "rank": 1,
+      "name": "알뜰슈퍼",
+      "address": "경기 동두천시 평화로 2436-1 4/6",
+      "method": "manual",
+      "lat": 37.90527,
+      "lng": 127.05821
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "강원 정선군 정선로 1333-1 복권방",
+      "method": "auto",
+      "lat": 37.379654,
+      "lng": 128.66212
+    },
+    {
+      "rank": 1,
+      "name": "도깨비 복권 전문점",
+      "address": "충북 증평군 광장로 119",
+      "method": "manual",
+      "lat": 36.78428,
+      "lng": 127.585045
+    }
+  ]
+}

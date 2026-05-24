@@ -1,0 +1,133 @@
+{
+  "round": 774,
+  "date": "2017-09-30",
+  "nums": [
+    12,
+    15,
+    18,
+    28,
+    34,
+    42
+  ],
+  "bonus": 9,
+  "firstWinAmount": 1709721512,
+  "firstWinners": 11,
+  "totalSales": 77347021000,
+  "prizes": {
+    "first": {
+      "amount": 1709721512,
+      "winners": 11
+    },
+    "second": {
+      "amount": 52241491,
+      "winners": 60
+    },
+    "third": {
+      "amount": 1602500,
+      "winners": 1956
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 101524
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1704279
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "비디오카페(성수점)",
+      "address": "서울 성동구 성덕정길 84 1층",
+      "method": "auto",
+      "lat": 37.53776,
+      "lng": 127.052765
+    },
+    {
+      "rank": 1,
+      "name": "꿈의나라",
+      "address": "부산 동래구 명륜동 533-49번지 세븐일레븐마트 내",
+      "method": "auto",
+      "lat": 35.205193,
+      "lng": 129.07956
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "부산 북구 덕천로 287",
+      "method": "mixed",
+      "lat": 35.20986,
+      "lng": 129.03535
+    },
+    {
+      "rank": 1,
+      "name": "천하복권방",
+      "address": "울산 동구 전하로 29",
+      "method": "auto",
+      "lat": 35.512436,
+      "lng": 129.4275
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "울산 동구 바드래2길 1",
+      "method": "auto",
+      "lat": 35.51749,
+      "lng": 129.43167
+    },
+    {
+      "rank": 1,
+      "name": "복받는복권방",
+      "address": "울산 중구 중앙길 77-1",
+      "method": "auto",
+      "lat": 35.555424,
+      "lng": 129.318
+    },
+    {
+      "rank": 1,
+      "name": "마두역상행선가판대",
+      "address": "경기 고양시 일산동구 중앙로 1181 교보생명 일산사옥 마두역상행선가판대",
+      "method": "auto",
+      "lat": 37.65222,
+      "lng": 126.77706
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "경기 군포시 대야1로 3 현대팰리스 1동",
+      "method": "auto",
+      "lat": 37.32638,
+      "lng": 126.91891
+    },
+    {
+      "rank": 1,
+      "name": "에이원",
+      "address": "경기 안양시 동안구 관평로319번길 29",
+      "method": "auto",
+      "lat": 37.40511,
+      "lng": 126.95588
+    },
+    {
+      "rank": 1,
+      "name": "복권백화점",
+      "address": "경기 여주시 세종로 41 1층",
+      "method": "auto",
+      "lat": 37.294037,
+      "lng": 127.63629
+    },
+    {
+      "rank": 1,
+      "name": "유방매표소",
+      "address": "경기 용인시 처인구 백옥대로 1388",
+      "method": "auto",
+      "lat": 37.25881,
+      "lng": 127.21292
+    }
+  ]
+}

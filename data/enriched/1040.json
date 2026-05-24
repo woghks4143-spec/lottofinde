@@ -1,0 +1,101 @@
+{
+  "round": 1040,
+  "date": "2022-11-05",
+  "nums": [
+    8,
+    16,
+    26,
+    29,
+    31,
+    36
+  ],
+  "bonus": 11,
+  "firstWinAmount": 3660482625,
+  "firstWinners": 7,
+  "totalSales": 104007239000,
+  "prizes": {
+    "first": {
+      "amount": 3660482625,
+      "winners": 7
+    },
+    "second": {
+      "amount": 67786716,
+      "winners": 63
+    },
+    "third": {
+      "amount": 1653335,
+      "winners": 2583
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 133245
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2235373
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "소리창고",
+      "address": "서울 강서구 강서로 306",
+      "method": "manual",
+      "lat": 37.552868,
+      "lng": 126.83675
+    },
+    {
+      "rank": 1,
+      "name": "로그인편의점",
+      "address": "서울 성동구 천호대로 430 103호 로그인편의점",
+      "method": "manual",
+      "lat": 37.5608,
+      "lng": 127.06653
+    },
+    {
+      "rank": 1,
+      "name": "뉴빅마트",
+      "address": "부산 기장군 정관중앙로 48 106호",
+      "method": "auto",
+      "lat": 35.321114,
+      "lng": 129.17929
+    },
+    {
+      "rank": 1,
+      "name": "새상무복권",
+      "address": "광주 서구 치평로 30 수암빌딩 1층 102호",
+      "method": "auto",
+      "lat": 35.149944,
+      "lng": 126.84769
+    },
+    {
+      "rank": 1,
+      "name": "온천로또방",
+      "address": "대전 유성구 계룡로 92 유성CJ나인파크 1층 101-3호",
+      "method": "auto",
+      "lat": 36.353638,
+      "lng": 127.34119
+    },
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "경기 군포시 대야1로 3 현대팰리스 1동",
+      "method": "auto",
+      "lat": 37.32638,
+      "lng": 126.91891
+    },
+    {
+      "rank": 1,
+      "name": "드림복권방",
+      "address": "경기 의정부시 청사로5번길 8-17 1층 112호(신곡동,센타프라자)",
+      "method": "auto",
+      "lat": 37.74958,
+      "lng": 127.070015
+    }
+  ]
+}

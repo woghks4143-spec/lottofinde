@@ -1,0 +1,77 @@
+{
+  "round": 771,
+  "date": "2017-09-09",
+  "nums": [
+    6,
+    10,
+    17,
+    18,
+    21,
+    29
+  ],
+  "bonus": 30,
+  "firstWinAmount": 4362644907,
+  "firstWinners": 4,
+  "totalSales": 73545939000,
+  "prizes": {
+    "first": {
+      "amount": 4362644907,
+      "winners": 4
+    },
+    "second": {
+      "amount": 59355714,
+      "winners": 49
+    },
+    "third": {
+      "amount": 1415984,
+      "winners": 2054
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 102013
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1680976
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "가로판매소",
+      "address": "서울 구로구 새말로 117-24 (신도림역2번출구)(구로동)",
+      "method": "manual",
+      "lat": 37.50696,
+      "lng": 126.8903
+    },
+    {
+      "rank": 1,
+      "name": "해피+24시편의점",
+      "address": "광주 북구 하서로 330",
+      "method": "auto",
+      "lat": 35.2045,
+      "lng": 126.8739
+    },
+    {
+      "rank": 1,
+      "name": "영화복권(버들점)",
+      "address": "광주 서구 상무버들로 32",
+      "method": "auto",
+      "lat": 35.164616,
+      "lng": 126.86002
+    },
+    {
+      "rank": 1,
+      "name": "행운나라복권방",
+      "address": "경기 안양시 만안구 충훈로 95",
+      "method": "auto",
+      "lat": 37.40742,
+      "lng": 126.89791
+    }
+  ]
+}

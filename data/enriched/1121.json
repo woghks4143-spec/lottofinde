@@ -1,0 +1,133 @@
+{
+  "round": 1121,
+  "date": "2024-05-25",
+  "nums": [
+    6,
+    24,
+    31,
+    32,
+    38,
+    44
+  ],
+  "bonus": 8,
+  "firstWinAmount": 2524513262,
+  "firstWinners": 11,
+  "totalSales": 113898519000,
+  "prizes": {
+    "first": {
+      "amount": 2524513262,
+      "winners": 11
+    },
+    "second": {
+      "amount": 60898347,
+      "winners": 76
+    },
+    "third": {
+      "amount": 1565723,
+      "winners": 2956
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 148984
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2494773
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "차오르다",
+      "address": "서울 강서구 강서로54길 11 가동1층",
+      "method": "auto",
+      "lat": 37.559307,
+      "lng": 126.83932
+    },
+    {
+      "rank": 1,
+      "name": "스파",
+      "address": "서울 노원구 동일로 1493 주공10단지종합상가111",
+      "method": "auto",
+      "lat": 37.66166,
+      "lng": 127.05787
+    },
+    {
+      "rank": 1,
+      "name": "인터넷 복권판매사이트",
+      "address": "동행복권(dhlottery.co.kr)",
+      "method": "auto",
+      "lat": 37.482063,
+      "lng": 127.015785
+    },
+    {
+      "rank": 1,
+      "name": "프로토베팅샵",
+      "address": "부산 중구 국제시장2길 5 4호",
+      "method": "auto",
+      "lat": 35.099678,
+      "lng": 129.0284
+    },
+    {
+      "rank": 1,
+      "name": "대복",
+      "address": "인천 남동구 남동대로239번길 68 116호",
+      "method": "auto",
+      "lat": 37.408127,
+      "lng": 126.69581
+    },
+    {
+      "rank": 1,
+      "name": "좋은열매복권방",
+      "address": "광주 북구 비엔날레로 68 105호(용봉동)",
+      "method": "manual",
+      "lat": 35.178017,
+      "lng": 126.88973
+    },
+    {
+      "rank": 1,
+      "name": "다다복권",
+      "address": "세종   충현로 52 A동 9호",
+      "method": "manual",
+      "lat": 36.653557,
+      "lng": 127.267136
+    },
+    {
+      "rank": 1,
+      "name": "담경",
+      "address": "경기 성남시 중원구 은이로 12",
+      "method": "auto",
+      "lat": 37.45734,
+      "lng": 127.1653
+    },
+    {
+      "rank": 1,
+      "name": "복권판매점(행운명당)",
+      "address": "경기 시흥시 수인로3312번길 16 제티동 T140호",
+      "method": "auto",
+      "lat": 37.441856,
+      "lng": 126.78943
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "경기 용인시 처인구 금령로 130",
+      "method": "auto",
+      "lat": 37.23509,
+      "lng": 127.2105
+    },
+    {
+      "rank": 1,
+      "name": "로또카페",
+      "address": "경기 평택시 관광특구로 13 1층102호",
+      "method": "manual",
+      "lat": 37.06724,
+      "lng": 127.06053
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "round": 469,
+  "date": "2011-11-26",
+  "nums": [
+    4,
+    21,
+    22,
+    34,
+    37,
+    38
+  ],
+  "bonus": 33,
+  "firstWinAmount": 3330131250,
+  "firstWinners": 4,
+  "totalSales": 53364940000,
+  "prizes": {
+    "first": {
+      "amount": 3330131250,
+      "winners": 4
+    },
+    "second": {
+      "amount": 67275379,
+      "winners": 33
+    },
+    "third": {
+      "amount": 1738519,
+      "winners": 1277
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 65880
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1125554
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "천하명당",
+      "address": "서울 관악구 난우길 18 1층",
+      "method": "auto",
+      "lat": 37.47456,
+      "lng": 126.91871
+    },
+    {
+      "rank": 1,
+      "name": "GS25구로상지",
+      "address": "서울 구로구 부일로15길 29",
+      "method": "manual",
+      "lat": 37.494125,
+      "lng": 126.832985
+    },
+    {
+      "rank": 1,
+      "name": "국민은행앞가판점",
+      "address": "서울 중구 남대문로 84",
+      "method": "auto",
+      "lat": 37.564636,
+      "lng": 126.98267
+    },
+    {
+      "rank": 1,
+      "name": "복권전문점",
+      "address": "경북 구미시 선산읍  완전리   11-3",
+      "method": "manual",
+      "lat": 36.242,
+      "lng": 128.3013
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "round": 804,
+  "date": "2018-04-28",
+  "nums": [
+    1,
+    10,
+    13,
+    26,
+    32,
+    36
+  ],
+  "bonus": 9,
+  "firstWinAmount": 1631996523,
+  "firstWinners": 11,
+  "totalSales": 74557028000,
+  "prizes": {
+    "first": {
+      "amount": 1631996523,
+      "winners": 11
+    },
+    "second": {
+      "amount": 61061095,
+      "winners": 49
+    },
+    "third": {
+      "amount": 1460935,
+      "winners": 2048
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 100907
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1659443
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 5,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "제일슈퍼",
+      "address": "서울 서대문구 응암로 79",
+      "method": "manual",
+      "lat": 37.58027,
+      "lng": 126.911255
+    },
+    {
+      "rank": 1,
+      "name": "대박로또",
+      "address": "대구 남구 봉덕동 632-16 대구 남구 봉덕동 632-16 이마트24",
+      "method": "auto",
+      "lat": 35.844673,
+      "lng": 128.59785
+    },
+    {
+      "rank": 1,
+      "name": "씨스페이스(만촌희망점)",
+      "address": "대구 수성구 만촌동(만촌1동) 1327-14 씨스페이스(만촌희망점)",
+      "method": "auto",
+      "lat": 35.872562,
+      "lng": 128.6373
+    },
+    {
+      "rank": 1,
+      "name": "메트로센터점",
+      "address": "대구 중구 달구벌대로 지하 2100 메트로센터C412호",
+      "method": "manual",
+      "lat": 35.86582,
+      "lng": 128.59314
+    },
+    {
+      "rank": 1,
+      "name": "그린편의점",
+      "address": "광주 서구 매월2로 53 광주산업용재유통센터 23동 103호",
+      "method": "manual",
+      "lat": 35.115864,
+      "lng": 126.86289
+    },
+    {
+      "rank": 1,
+      "name": "싱글벙글할인마트",
+      "address": "경기 광명시 광명로 884 1층 좌측호(광명동)",
+      "method": "manual",
+      "lat": 37.477818,
+      "lng": 126.85391
+    },
+    {
+      "rank": 1,
+      "name": "행복미니슈퍼",
+      "address": "경기 부천시 부일로 409",
+      "method": "mixed",
+      "lat": 37.487118,
+      "lng": 126.77558
+    },
+    {
+      "rank": 1,
+      "name": "GS25(상동현해점)",
+      "address": "경기 부천시 원미구 상동 534-5번지 현해프라자109호",
+      "method": "manual",
+      "lat": 37.506676,
+      "lng": 126.752785
+    },
+    {
+      "rank": 1,
+      "name": "현대할인마트",
+      "address": "경기 이천시 경충대로 3142",
+      "method": "auto",
+      "lat": 37.306847,
+      "lng": 127.403114
+    },
+    {
+      "rank": 1,
+      "name": "KS마트",
+      "address": "경기 포천시 가산로 112",
+      "method": "auto",
+      "lat": 37.83789,
+      "lng": 127.165504
+    },
+    {
+      "rank": 1,
+      "name": "파란만장복권방",
+      "address": "경기 화성시 진안동 878-4 101호",
+      "method": "auto",
+      "lat": 37.21241,
+      "lng": 127.038826
+    }
+  ]
+}

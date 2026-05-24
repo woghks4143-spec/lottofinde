@@ -1,0 +1,141 @@
+{
+  "round": 633,
+  "date": "2015-01-17",
+  "nums": [
+    9,
+    12,
+    19,
+    20,
+    39,
+    41
+  ],
+  "bonus": 13,
+  "firstWinAmount": 1217257094,
+  "firstWinners": 12,
+  "totalSales": 62015797000,
+  "prizes": {
+    "first": {
+      "amount": 1217257094,
+      "winners": 12
+    },
+    "second": {
+      "amount": 51798175,
+      "winners": 47
+    },
+    "third": {
+      "amount": 1360825,
+      "winners": 1789
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 87613
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1430227
+    }
+  },
+  "methodCounts": {
+    "auto": 8,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "안목마트",
+      "address": "서울 강북구 한천로 1024,(번동)",
+      "method": "auto",
+      "lat": 37.639324,
+      "lng": 127.02814
+    },
+    {
+      "rank": 1,
+      "name": "형제상회",
+      "address": "서울 동대문구 무학로 92",
+      "method": "manual",
+      "lat": 37.57249,
+      "lng": 127.03075
+    },
+    {
+      "rank": 1,
+      "name": "경성식품",
+      "address": "서울 동대문구 망우로21길 52",
+      "method": "auto",
+      "lat": 37.590435,
+      "lng": 127.06028
+    },
+    {
+      "rank": 1,
+      "name": "종로3가1호선역2번출구가로판매점82호",
+      "address": "서울 종로구 돈화문로 23 가판",
+      "method": "manual",
+      "lat": 37.5707,
+      "lng": 126.991875
+    },
+    {
+      "rank": 1,
+      "name": "GS25(대전송촌)",
+      "address": "대전 대덕구  송촌동 456-9번지",
+      "method": "auto",
+      "lat": 36.364956,
+      "lng": 127.43884
+    },
+    {
+      "rank": 1,
+      "name": "선봉로또",
+      "address": "울산 남구  삼산동 1468-6번지CU판매점 내",
+      "method": "manual",
+      "lat": 35.543747,
+      "lng": 129.33267
+    },
+    {
+      "rank": 1,
+      "name": "복권왕국",
+      "address": "경기 부천시 경인로216번길 7 1층",
+      "method": "auto",
+      "lat": 37.48298,
+      "lng": 126.779526
+    },
+    {
+      "rank": 1,
+      "name": "수일매표소",
+      "address": "경기 수원시 장안구 경수대로 1003 대명빌딩",
+      "method": "auto",
+      "lat": 37.305878,
+      "lng": 127.00165
+    },
+    {
+      "rank": 1,
+      "name": "로또명당인주점",
+      "address": "충남 아산시 서해로 519-2",
+      "method": "auto",
+      "lat": 36.87784,
+      "lng": 126.89828
+    },
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "전북 익산시 마동  358-5번지",
+      "method": "manual",
+      "lat": 35.93612,
+      "lng": 126.96561
+    },
+    {
+      "rank": 1,
+      "name": "세븐일레븐광양시청점",
+      "address": "전남 광양시 행정2길 2",
+      "method": "auto",
+      "lat": 34.941307,
+      "lng": 127.69642
+    },
+    {
+      "rank": 1,
+      "name": "소답시내버스매표소",
+      "address": "경남 창원시 의창구 의안로2번길 17 가판",
+      "method": "auto",
+      "lat": 35.261776,
+      "lng": 128.62564
+    }
+  ]
+}

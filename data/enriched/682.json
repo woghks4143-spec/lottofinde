@@ -1,0 +1,77 @@
+{
+  "round": 682,
+  "date": "2015-12-26",
+  "nums": [
+    17,
+    23,
+    27,
+    35,
+    38,
+    43
+  ],
+  "bonus": 2,
+  "firstWinAmount": 4063713563,
+  "firstWinners": 4,
+  "totalSales": 66757858000,
+  "prizes": {
+    "first": {
+      "amount": 4063713563,
+      "winners": 4
+    },
+    "second": {
+      "amount": 48377543,
+      "winners": 56
+    },
+    "third": {
+      "amount": 1463611,
+      "winners": 1851
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 87618
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1464978
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "대박",
+      "address": "서울 강남구 일원로3길 55",
+      "method": "auto",
+      "lat": 37.49274,
+      "lng": 127.08436
+    },
+    {
+      "rank": 1,
+      "name": "복권명당(서부점)",
+      "address": "대구 달서구 월배로 452",
+      "method": "auto",
+      "lat": 35.833633,
+      "lng": 128.55486
+    },
+    {
+      "rank": 1,
+      "name": "김포로또",
+      "address": "경기 김포시 돌문로 48 한솔프라자101",
+      "method": "auto",
+      "lat": 37.619404,
+      "lng": 126.71802
+    },
+    {
+      "rank": 1,
+      "name": "버스표가판점",
+      "address": "경기 안양시 동안구 동안로 125-2 범계역4-1출구앞 버스표가판점",
+      "method": "auto",
+      "lat": 37.389736,
+      "lng": 126.95106
+    }
+  ]
+}

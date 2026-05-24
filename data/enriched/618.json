@@ -1,0 +1,85 @@
+{
+  "round": 618,
+  "date": "2014-10-04",
+  "nums": [
+    8,
+    16,
+    25,
+    30,
+    42,
+    43
+  ],
+  "bonus": 15,
+  "firstWinAmount": 2881326225,
+  "firstWinners": 5,
+  "totalSales": 58550803000,
+  "prizes": {
+    "first": {
+      "amount": 2881326225,
+      "winners": 5
+    },
+    "second": {
+      "amount": 53357894,
+      "winners": 45
+    },
+    "third": {
+      "amount": 1518726,
+      "winners": 1581
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 75243
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1260882
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "일등복권편의점",
+      "address": "대구 달서구 대명천로 220 1층",
+      "method": "auto",
+      "lat": 35.84214,
+      "lng": 128.53621
+    },
+    {
+      "rank": 1,
+      "name": "충남상회",
+      "address": "인천 미추홀구 석정로 78 10호",
+      "method": "auto",
+      "lat": 37.466232,
+      "lng": 126.64562
+    },
+    {
+      "rank": 1,
+      "name": "일죽휴게소복권",
+      "address": "경기 안성시 일죽면  월정리  481-4번지 일죽휴게소내 세븐일레븐 일죽휴게소점",
+      "method": "auto",
+      "lat": 37.088207,
+      "lng": 127.46024
+    },
+    {
+      "rank": 1,
+      "name": "현대할인마트",
+      "address": "경기 이천시 경충대로 3142",
+      "method": "auto",
+      "lat": 37.306847,
+      "lng": 127.403114
+    },
+    {
+      "rank": 1,
+      "name": "삼거리상회",
+      "address": "전남 신안군 압해읍 복룡로 2 삼거리상회",
+      "method": "auto",
+      "lat": 34.865288,
+      "lng": 126.3121
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "round": 890,
+  "date": "2019-12-21",
+  "nums": [
+    1,
+    4,
+    14,
+    18,
+    29,
+    37
+  ],
+  "bonus": 6,
+  "firstWinAmount": 2335486167,
+  "firstWinners": 9,
+  "totalSales": 86693498000,
+  "prizes": {
+    "first": {
+      "amount": 2335486167,
+      "winners": 9
+    },
+    "second": {
+      "amount": 60400505,
+      "winners": 58
+    },
+    "third": {
+      "amount": 1474424,
+      "winners": 2376
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 114859
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1915593
+    }
+  },
+  "methodCounts": {
+    "auto": 9,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "GS25(수영광안점)",
+      "address": "부산 수영구 광안동(광안제3동) 75-1",
+      "method": "auto",
+      "lat": 35.166866,
+      "lng": 129.11656
+    },
+    {
+      "rank": 1,
+      "name": "성광복권명당",
+      "address": "부산 연제구 과정로 335",
+      "method": "auto",
+      "lat": 35.19,
+      "lng": 129.0911
+    },
+    {
+      "rank": 1,
+      "name": "GS25(대구교대점)",
+      "address": "대구 남구 대명동(대명2동) 2007-6 GS25 대구교대점",
+      "method": "auto",
+      "lat": 35.852573,
+      "lng": 128.5909
+    },
+    {
+      "rank": 1,
+      "name": "대박복권방",
+      "address": "경기 연천군 전곡읍 온골로 57-1,(전곡리)",
+      "method": "auto",
+      "lat": 38.02602,
+      "lng": 127.06766
+    },
+    {
+      "rank": 1,
+      "name": "CU(강릉내곡점)",
+      "address": "강원 강릉시 내곡동 471-6번지",
+      "method": "auto",
+      "lat": 37.744522,
+      "lng": 128.8819
+    },
+    {
+      "rank": 1,
+      "name": "복슈퍼",
+      "address": "경남 김해시 가야로 19 푸르지오상가 111호 복권판매점",
+      "method": "auto",
+      "lat": 35.27011,
+      "lng": 128.86241
+    },
+    {
+      "rank": 1,
+      "name": "명당로또",
+      "address": "경남 창원시 성산구 가양로 54,(가음동)",
+      "method": "auto",
+      "lat": 35.20658,
+      "lng": 128.70035
+    },
+    {
+      "rank": 1,
+      "name": "제주대림점",
+      "address": "제주 제주시 과원북2길 48",
+      "method": "auto",
+      "lat": 33.478714,
+      "lng": 126.487656
+    },
+    {
+      "rank": 1,
+      "name": "로또명당목련",
+      "address": "제주 제주시 삼무로 77",
+      "method": "auto",
+      "lat": 33.48999,
+      "lng": 126.495056
+    }
+  ]
+}

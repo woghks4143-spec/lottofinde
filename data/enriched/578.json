@@ -1,0 +1,77 @@
+{
+  "round": 578,
+  "date": "2013-12-28",
+  "nums": [
+    5,
+    12,
+    14,
+    32,
+    34,
+    42
+  ],
+  "bonus": 16,
+  "firstWinAmount": 2796466575,
+  "firstWinners": 5,
+  "totalSales": 58584741000,
+  "prizes": {
+    "first": {
+      "amount": 2796466575,
+      "winners": 5
+    },
+    "second": {
+      "amount": 54195089,
+      "winners": 43
+    },
+    "third": {
+      "amount": 1442966,
+      "winners": 1615
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 80303
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1326822
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "서울 종로구 숭인동  228-6번지",
+      "method": "auto",
+      "lat": 37.569702,
+      "lng": 127.00117
+    },
+    {
+      "rank": 1,
+      "name": "썬마트",
+      "address": "대전 서구 관저동  1109번지 신선타워105호 GS25편의점",
+      "method": "auto",
+      "lat": 36.300804,
+      "lng": 127.33443
+    },
+    {
+      "rank": 1,
+      "name": "복권천하문화점",
+      "address": "대전 중구 천근로 23",
+      "method": "manual",
+      "lat": 36.309734,
+      "lng": 127.40282
+    },
+    {
+      "rank": 1,
+      "name": "와이마트",
+      "address": "전북 전주시 완산구 유연로 268 101, 102, 103호",
+      "method": "manual",
+      "lat": 35.82515,
+      "lng": 127.11479
+    }
+  ]
+}

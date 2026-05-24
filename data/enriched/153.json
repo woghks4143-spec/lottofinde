@@ -1,0 +1,43 @@
+{
+  "round": 153,
+  "date": "2005-11-05",
+  "nums": [
+    3,
+    8,
+    11,
+    12,
+    13,
+    36
+  ],
+  "bonus": 33,
+  "firstWinAmount": 2730526125,
+  "firstWinners": 4,
+  "totalSales": 47777735000,
+  "prizes": {
+    "first": {
+      "amount": 2730526125,
+      "winners": 4
+    },
+    "second": {
+      "amount": 35006746,
+      "winners": 52
+    },
+    "third": {
+      "amount": 1258888,
+      "winners": 1446
+    },
+    "fourth": {
+      "amount": 50875,
+      "winners": 71562
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1137072
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

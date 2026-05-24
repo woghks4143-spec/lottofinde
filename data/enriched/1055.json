@@ -1,0 +1,133 @@
+{
+  "round": 1055,
+  "date": "2023-02-18",
+  "nums": [
+    4,
+    7,
+    12,
+    14,
+    22,
+    33
+  ],
+  "bonus": 31,
+  "firstWinAmount": 2362815205,
+  "firstWinners": 11,
+  "totalSales": 112488256000,
+  "prizes": {
+    "first": {
+      "amount": 2362815205,
+      "winners": 11
+    },
+    "second": {
+      "amount": 47085086,
+      "winners": 92
+    },
+    "third": {
+      "amount": 1269215,
+      "winners": 3413
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 165590
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2662001
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 6,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또복권",
+      "address": "서울 관악구 장군봉1길 29",
+      "method": "manual",
+      "lat": 37.48181,
+      "lng": 126.94167
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방",
+      "address": "부산 북구 덕천로 287",
+      "method": "manual",
+      "lat": 35.20986,
+      "lng": 129.03535
+    },
+    {
+      "rank": 1,
+      "name": "수퍼복권대박",
+      "address": "인천 연수구 용담로 60 1층",
+      "method": "auto",
+      "lat": 37.418648,
+      "lng": 126.67362
+    },
+    {
+      "rank": 1,
+      "name": "북문복권방",
+      "address": "경기 수원시 장안구 정조로 927-1",
+      "method": "manual",
+      "lat": 37.29028,
+      "lng": 127.01279
+    },
+    {
+      "rank": 1,
+      "name": "해피마트",
+      "address": "경기 의왕시 부곡중앙로 3-2 의왕역로터리앞",
+      "method": "auto",
+      "lat": 37.321228,
+      "lng": 126.949326
+    },
+    {
+      "rank": 1,
+      "name": "신나는복권방",
+      "address": "경기 파주시 문향로 51-1",
+      "method": "auto",
+      "lat": 37.856716,
+      "lng": 126.78506
+    },
+    {
+      "rank": 1,
+      "name": "썬마트",
+      "address": "충북 청주시 흥덕구 진재로23번길 25",
+      "method": "manual",
+      "lat": 36.632607,
+      "lng": 127.42811
+    },
+    {
+      "rank": 1,
+      "name": "여기있었네복권방",
+      "address": "전북 김제시 남북로 171",
+      "method": "manual",
+      "lat": 35.79936,
+      "lng": 126.88456
+    },
+    {
+      "rank": 1,
+      "name": "소라복권방",
+      "address": "전북 익산시 인북로 327-4",
+      "method": "auto",
+      "lat": 35.957634,
+      "lng": 126.96065
+    },
+    {
+      "rank": 1,
+      "name": "NG24",
+      "address": "경북 칠곡군 북중리3길 59",
+      "method": "manual",
+      "lat": 36.079823,
+      "lng": 128.41183
+    },
+    {
+      "rank": 1,
+      "name": "포항오거리CU복권",
+      "address": "경북 포항시 북구 죽도로 33 CU포항오거리점내",
+      "method": "auto",
+      "lat": 36.033836,
+      "lng": 129.36467
+    }
+  ]
+}

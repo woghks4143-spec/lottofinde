@@ -1,0 +1,43 @@
+{
+  "round": 186,
+  "date": "2006-06-24",
+  "nums": [
+    4,
+    10,
+    14,
+    19,
+    21,
+    45
+  ],
+  "bonus": 9,
+  "firstWinAmount": 1187882600,
+  "firstWinners": 9,
+  "totalSales": 45484428000,
+  "prizes": {
+    "first": {
+      "amount": 1187882600,
+      "winners": 9
+    },
+    "second": {
+      "amount": 38735303,
+      "winners": 46
+    },
+    "third": {
+      "amount": 1524230,
+      "winners": 1169
+    },
+    "fourth": {
+      "amount": 60849,
+      "winners": 58566
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 984795
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

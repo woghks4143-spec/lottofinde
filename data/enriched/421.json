@@ -1,0 +1,85 @@
+{
+  "round": 421,
+  "date": "2010-12-25",
+  "nums": [
+    6,
+    11,
+    26,
+    27,
+    28,
+    44
+  ],
+  "bonus": 30,
+  "firstWinAmount": 2321144325,
+  "firstWinners": 5,
+  "totalSales": 47752021000,
+  "prizes": {
+    "first": {
+      "amount": 2321144325,
+      "winners": 5
+    },
+    "second": {
+      "amount": 53730193,
+      "winners": 36
+    },
+    "third": {
+      "amount": 1607887,
+      "winners": 1203
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 62947
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1050873
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "금강식품",
+      "address": "서울 강서구 강서로 207 영신빌딩",
+      "method": "auto",
+      "lat": 37.544373,
+      "lng": 126.837364
+    },
+    {
+      "rank": 1,
+      "name": "천하명당복권방",
+      "address": "서울 광진구 능동로 413",
+      "method": "manual",
+      "lat": 37.565952,
+      "lng": 127.08408
+    },
+    {
+      "rank": 1,
+      "name": "세진전자통신",
+      "address": "대구 서구 서대구로 156",
+      "method": "auto",
+      "lat": 35.8719,
+      "lng": 128.5552
+    },
+    {
+      "rank": 1,
+      "name": "복권세상",
+      "address": "인천 계양구 작전시장로 11",
+      "method": "auto",
+      "lat": 37.532715,
+      "lng": 126.72392
+    },
+    {
+      "rank": 1,
+      "name": "주엽간판점",
+      "address": "경기 고양시 일산서구 중앙로 1437 화성프라자 도로",
+      "method": "auto",
+      "lat": 37.670036,
+      "lng": 126.76048
+    }
+  ]
+}

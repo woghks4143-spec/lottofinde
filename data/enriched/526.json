@@ -1,0 +1,117 @@
+{
+  "round": 526,
+  "date": "2012-12-29",
+  "nums": [
+    7,
+    14,
+    17,
+    20,
+    35,
+    39
+  ],
+  "bonus": 31,
+  "firstWinAmount": 1491031959,
+  "firstWinners": 9,
+  "totalSales": 56527807000,
+  "prizes": {
+    "first": {
+      "amount": 1491031959,
+      "winners": 9
+    },
+    "second": {
+      "amount": 45643836,
+      "winners": 49
+    },
+    "third": {
+      "amount": 1453248,
+      "winners": 1539
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 78325
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1291054
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "인동상회",
+      "address": "서울 노원구 한글비석로 396 벽산아파트상가108-116",
+      "method": "manual",
+      "lat": 37.661465,
+      "lng": 127.07279
+    },
+    {
+      "rank": 1,
+      "name": "제일슈퍼",
+      "address": "서울 동대문구 회기로 194",
+      "method": "manual",
+      "lat": 37.58983,
+      "lng": 127.05734
+    },
+    {
+      "rank": 1,
+      "name": "복권방하단스마일",
+      "address": "부산 사하구 낙동대로 191 2층",
+      "method": "manual",
+      "lat": 35.100925,
+      "lng": 128.99582
+    },
+    {
+      "rank": 1,
+      "name": "로또복권신매체인점",
+      "address": "대구 수성구 달구벌대로 3233 신매동 효성백년가약상가 401동7호",
+      "method": "auto",
+      "lat": 35.8391,
+      "lng": 128.71039
+    },
+    {
+      "rank": 1,
+      "name": "까치복권방",
+      "address": "경기 시흥시 중심상가로 326 1층102",
+      "method": "auto",
+      "lat": 37.336678,
+      "lng": 126.74821
+    },
+    {
+      "rank": 1,
+      "name": "로또점",
+      "address": "강원 원주시 송림길 48-22 102호",
+      "method": "auto",
+      "lat": 37.331318,
+      "lng": 127.95185
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "강원 원주시 관설동  1702-1",
+      "method": "auto",
+      "lat": 37.318775,
+      "lng": 127.965
+    },
+    {
+      "rank": 1,
+      "name": "월드마트",
+      "address": "충북 청주시 흥덕구 장구봉로129번길 2",
+      "method": "auto",
+      "lat": 36.62477,
+      "lng": 127.44766
+    },
+    {
+      "rank": 1,
+      "name": "제일복권",
+      "address": "제주 제주시 서광로 257",
+      "method": "auto",
+      "lat": 33.5001,
+      "lng": 126.524055
+    }
+  ]
+}

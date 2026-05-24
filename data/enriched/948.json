@@ -1,0 +1,133 @@
+{
+  "round": 948,
+  "date": "2021-01-30",
+  "nums": [
+    13,
+    18,
+    30,
+    31,
+    38,
+    41
+  ],
+  "bonus": 5,
+  "firstWinAmount": 2188548716,
+  "firstWinners": 11,
+  "totalSales": 100519459000,
+  "prizes": {
+    "first": {
+      "amount": 2188548716,
+      "winners": 11
+    },
+    "second": {
+      "amount": 44581548,
+      "winners": 90
+    },
+    "third": {
+      "amount": 1381184,
+      "winners": 2905
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 137929
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2252913
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 7,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "하이로또",
+      "address": "서울 금천구 금하로 686",
+      "method": "auto",
+      "lat": 37.451874,
+      "lng": 126.906334
+    },
+    {
+      "rank": 1,
+      "name": "팬시겔러리",
+      "address": "서울 서대문구 통일로 153-1",
+      "method": "manual",
+      "lat": 37.567715,
+      "lng": 126.96443
+    },
+    {
+      "rank": 1,
+      "name": "행운의사랑방",
+      "address": "서울 영등포구 도림로 465",
+      "method": "manual",
+      "lat": 37.51568,
+      "lng": 126.891594
+    },
+    {
+      "rank": 1,
+      "name": "평안당",
+      "address": "서울 종로구 종로 219",
+      "method": "auto",
+      "lat": 37.57123,
+      "lng": 127.00219
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권",
+      "address": "인천 계양구 장제로 916 계양병원 1층, 일부호",
+      "method": "mixed",
+      "lat": 37.548107,
+      "lng": 126.74157
+    },
+    {
+      "rank": 1,
+      "name": "가온복권",
+      "address": "인천 서구 서로3로 50 상가2동B215호(당하동, 검단신도시 모아미래도 엘리트파크)",
+      "method": "auto",
+      "lat": 37.583225,
+      "lng": 126.70628
+    },
+    {
+      "rank": 1,
+      "name": "1등복권방",
+      "address": "인천 연수구 해돋이로 168 혜인프라자 104호",
+      "method": "manual",
+      "lat": 37.395416,
+      "lng": 126.64522
+    },
+    {
+      "rank": 1,
+      "name": "현암꽃플라워",
+      "address": "대전 동구 태전로 167",
+      "method": "manual",
+      "lat": 36.342148,
+      "lng": 127.419106
+    },
+    {
+      "rank": 1,
+      "name": "대광복권방",
+      "address": "전남 화순군 칠충로 55 대광로제비앙 대광그린상가동 1층109호",
+      "method": "manual",
+      "lat": 35.05548,
+      "lng": 126.97712
+    },
+    {
+      "rank": 1,
+      "name": "성심상회",
+      "address": "경북 포항시 북구 불종로 78",
+      "method": "manual",
+      "lat": 36.038174,
+      "lng": 129.36801
+    },
+    {
+      "rank": 1,
+      "name": "합천우리복권방",
+      "address": "경남 합천군 핫들2로 8 1층",
+      "method": "manual",
+      "lat": 35.56843,
+      "lng": 128.16539
+    }
+  ]
+}

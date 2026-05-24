@@ -1,0 +1,109 @@
+{
+  "round": 641,
+  "date": "2015-03-14",
+  "nums": [
+    11,
+    18,
+    21,
+    36,
+    37,
+    43
+  ],
+  "bonus": 12,
+  "firstWinAmount": 1990074563,
+  "firstWinners": 8,
+  "totalSales": 63773134000,
+  "prizes": {
+    "first": {
+      "amount": 1990074563,
+      "winners": 8
+    },
+    "second": {
+      "amount": 53068655,
+      "winners": 50
+    },
+    "third": {
+      "amount": 1695485,
+      "winners": 1565
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 79145
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1340371
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "안동슈퍼",
+      "address": "대구 중구 중앙대로 463",
+      "method": "auto",
+      "lat": 35.87457,
+      "lng": 128.59447
+    },
+    {
+      "rank": 1,
+      "name": "호반할인마트",
+      "address": "광주 광산구 도산로9번길 40",
+      "method": "auto",
+      "lat": 35.127934,
+      "lng": 126.790115
+    },
+    {
+      "rank": 1,
+      "name": "월드이동통신",
+      "address": "대전 중구 충무로 169 1층 슈퍼",
+      "method": "auto",
+      "lat": 36.320896,
+      "lng": 127.43496
+    },
+    {
+      "rank": 1,
+      "name": "현대사",
+      "address": "경기 성남시 분당구 미금일로 77 구미제2조합상가 102호",
+      "method": "manual",
+      "lat": 37.3456,
+      "lng": 127.111084
+    },
+    {
+      "rank": 1,
+      "name": "현대사",
+      "address": "경기 성남시 분당구 미금일로 77 구미제2조합상가 102호",
+      "method": "manual",
+      "lat": 37.3456,
+      "lng": 127.111084
+    },
+    {
+      "rank": 1,
+      "name": "현대사",
+      "address": "경기 성남시 분당구 미금일로 77 구미제2조합상가 102호",
+      "method": "manual",
+      "lat": 37.3456,
+      "lng": 127.111084
+    },
+    {
+      "rank": 1,
+      "name": "준",
+      "address": "경기 평택시 서동대로 1152",
+      "method": "auto",
+      "lat": 36.982677,
+      "lng": 126.882225
+    },
+    {
+      "rank": 1,
+      "name": "복권나라동성점",
+      "address": "전남 순천시 연향번영길 94 동성아파트 상가113호",
+      "method": "auto",
+      "lat": 34.950096,
+      "lng": 127.51894
+    }
+  ]
+}

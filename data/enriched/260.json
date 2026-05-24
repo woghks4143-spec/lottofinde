@@ -1,0 +1,43 @@
+{
+  "round": 260,
+  "date": "2007-11-24",
+  "nums": [
+    7,
+    12,
+    15,
+    24,
+    37,
+    40
+  ],
+  "bonus": 43,
+  "firstWinAmount": 2310085575,
+  "firstWinners": 4,
+  "totalSales": 40140211000,
+  "prizes": {
+    "first": {
+      "amount": 2310085575,
+      "winners": 4
+    },
+    "second": {
+      "amount": 59232964,
+      "winners": 26
+    },
+    "third": {
+      "amount": 1199422,
+      "winners": 1284
+    },
+    "fourth": {
+      "amount": 52871,
+      "winners": 58258
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 933907
+    }
+  },
+  "methodCounts": {
+    "auto": 0,
+    "manual": 0,
+    "mixed": 0
+  }
+}

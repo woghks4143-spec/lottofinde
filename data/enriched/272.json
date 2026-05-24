@@ -1,0 +1,117 @@
+{
+  "round": 272,
+  "date": "2008-02-16",
+  "nums": [
+    7,
+    9,
+    12,
+    27,
+    39,
+    43
+  ],
+  "bonus": 28,
+  "firstWinAmount": 1104622800,
+  "firstWinners": 9,
+  "totalSales": 43310674000,
+  "prizes": {
+    "first": {
+      "amount": 1104622800,
+      "winners": 9
+    },
+    "second": {
+      "amount": 42485493,
+      "winners": 39
+    },
+    "third": {
+      "amount": 1209442,
+      "winners": 1370
+    },
+    "fourth": {
+      "amount": 52419,
+      "winners": 63219
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1017199
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 4,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "Yes할인마트",
+      "address": "서울 강남구 개포로 202 1층 이마트 24",
+      "method": "auto",
+      "lat": 37.478157,
+      "lng": 127.04497
+    },
+    {
+      "rank": 1,
+      "name": "대창",
+      "address": "서울 강동구 상암로 211 1층",
+      "method": "auto",
+      "lat": 37.546654,
+      "lng": 127.14613
+    },
+    {
+      "rank": 1,
+      "name": "오거리마트",
+      "address": "서울 은평구 응암로14길 6,(응암동)",
+      "method": "manual",
+      "lat": 37.590076,
+      "lng": 126.9179
+    },
+    {
+      "rank": 1,
+      "name": "훼밀리복권",
+      "address": "부산 금정구 중앙대로1719번길 37 우측 복권판매점",
+      "method": "auto",
+      "lat": 35.237713,
+      "lng": 129.09015
+    },
+    {
+      "rank": 1,
+      "name": "청솔서점",
+      "address": "부산 사하구 하신번영로 195",
+      "method": "auto",
+      "lat": 35.098824,
+      "lng": 128.95897
+    },
+    {
+      "rank": 1,
+      "name": "승리 로또당리점",
+      "address": "부산 사하구 당리동  324-19",
+      "method": "manual",
+      "lat": 35.096386,
+      "lng": 128.994
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "대구 동구 효동로 45,(효목동)",
+      "method": "auto",
+      "lat": 35.881493,
+      "lng": 128.6462
+    },
+    {
+      "rank": 1,
+      "name": "대박복권방",
+      "address": "울산 동구 진성8길 133",
+      "method": "manual",
+      "lat": 35.511425,
+      "lng": 129.42975
+    },
+    {
+      "rank": 1,
+      "name": "로또판매업",
+      "address": "경남 양산시 북정로 31 CU편의점 내",
+      "method": "manual",
+      "lat": 35.35902,
+      "lng": 129.04372
+    }
+  ]
+}

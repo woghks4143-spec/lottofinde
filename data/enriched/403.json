@@ -1,0 +1,85 @@
+{
+  "round": 403,
+  "date": "2010-08-21",
+  "nums": [
+    10,
+    14,
+    22,
+    24,
+    28,
+    37
+  ],
+  "bonus": 26,
+  "firstWinAmount": 2122396875,
+  "firstWinners": 5,
+  "totalSales": 44911335000,
+  "prizes": {
+    "first": {
+      "amount": 2122396875,
+      "winners": 5
+    },
+    "second": {
+      "amount": 41131723,
+      "winners": 43
+    },
+    "third": {
+      "amount": 1338883,
+      "winners": 1321
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 63122
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1030051
+    }
+  },
+  "methodCounts": {
+    "auto": 4,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "경방필백화점라이츠21호",
+      "address": "서울 은평구 갈현동  396-11",
+      "method": "auto",
+      "lat": 37.61931,
+      "lng": 126.92036
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트(달동초이스점)",
+      "address": "울산 남구 달동  1309-1",
+      "method": "auto",
+      "lat": 35.535606,
+      "lng": 129.33926
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트(원주명륜점)",
+      "address": "강원 원주시 명륜동  751",
+      "method": "manual",
+      "lat": 37.33302,
+      "lng": 127.941826
+    },
+    {
+      "rank": 1,
+      "name": "양산노다지복권방",
+      "address": "경남 양산시 북안남2길 52 복권판매점",
+      "method": "auto",
+      "lat": 35.348255,
+      "lng": 129.03783
+    },
+    {
+      "rank": 1,
+      "name": "로또공항점",
+      "address": "제주 제주시 용담2동  2002여객청사1층",
+      "method": "auto",
+      "lat": 33.507763,
+      "lng": 126.49319
+    }
+  ]
+}

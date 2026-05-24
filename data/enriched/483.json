@@ -1,0 +1,85 @@
+{
+  "round": 483,
+  "date": "2012-03-03",
+  "nums": [
+    12,
+    15,
+    19,
+    22,
+    28,
+    34
+  ],
+  "bonus": 5,
+  "firstWinAmount": 2567196675,
+  "firstWinners": 5,
+  "totalSales": 55582659000,
+  "prizes": {
+    "first": {
+      "amount": 2567196675,
+      "winners": 5
+    },
+    "second": {
+      "amount": 40364728,
+      "winners": 53
+    },
+    "third": {
+      "amount": 1134322,
+      "winners": 1886
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 83480
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1300537
+    }
+  },
+  "methodCounts": {
+    "auto": 2,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "부산 사하구 장림번영로 25",
+      "method": "auto",
+      "lat": 35.081005,
+      "lng": 128.96823
+    },
+    {
+      "rank": 1,
+      "name": "서재강변로또",
+      "address": "대구 달성군 다사읍 서재로 172,(서재리)",
+      "method": "auto",
+      "lat": 35.878708,
+      "lng": 128.49748
+    },
+    {
+      "rank": 1,
+      "name": "대박복권방",
+      "address": "경기 연천군 전곡읍 온골로 57-1,(전곡리)",
+      "method": "manual",
+      "lat": 38.02602,
+      "lng": 127.06766
+    },
+    {
+      "rank": 1,
+      "name": "행운로또복권방",
+      "address": "전남 광양시 대림오성로 146-1",
+      "method": "manual",
+      "lat": 34.964733,
+      "lng": 127.57778
+    },
+    {
+      "rank": 1,
+      "name": "삼삼마트",
+      "address": "경남 진주시 진주대로 1165-1",
+      "method": "manual",
+      "lat": 35.19521,
+      "lng": 128.07565
+    }
+  ]
+}

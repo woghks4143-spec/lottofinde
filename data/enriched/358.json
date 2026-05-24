@@ -1,0 +1,69 @@
+{
+  "round": 358,
+  "date": "2009-10-10",
+  "nums": [
+    1,
+    9,
+    10,
+    12,
+    21,
+    40
+  ],
+  "bonus": 37,
+  "firstWinAmount": 3472654900,
+  "firstWinners": 3,
+  "totalSales": 45651829000,
+  "prizes": {
+    "first": {
+      "amount": 3472654900,
+      "winners": 3
+    },
+    "second": {
+      "amount": 39461988,
+      "winners": 44
+    },
+    "third": {
+      "amount": 1256388,
+      "winners": 1382
+    },
+    "fourth": {
+      "amount": 50884,
+      "winners": 68247
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1092528
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "큰마을복권방",
+      "address": "대전 서구 만년로67번길 36 디지털타운1층64호 홍삼판매점",
+      "method": "auto",
+      "lat": 36.36931,
+      "lng": 127.38057
+    },
+    {
+      "rank": 1,
+      "name": "한샘행운복권방",
+      "address": "경기 양주시 가래비길 57-1",
+      "method": "auto",
+      "lat": 37.82315,
+      "lng": 126.98549
+    },
+    {
+      "rank": 1,
+      "name": "복권명당",
+      "address": "경북 영천시 호국로 31",
+      "method": "auto",
+      "lat": 35.972477,
+      "lng": 128.94151
+    }
+  ]
+}

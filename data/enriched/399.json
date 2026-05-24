@@ -1,0 +1,109 @@
+{
+  "round": 399,
+  "date": "2010-07-24",
+  "nums": [
+    1,
+    2,
+    9,
+    17,
+    19,
+    42
+  ],
+  "bonus": 20,
+  "firstWinAmount": 1276854975,
+  "firstWinners": 8,
+  "totalSales": 45551786000,
+  "prizes": {
+    "first": {
+      "amount": 1276854975,
+      "winners": 8
+    },
+    "second": {
+      "amount": 42561833,
+      "winners": 40
+    },
+    "third": {
+      "amount": 1164483,
+      "winners": 1462
+    },
+    "fourth": {
+      "amount": 44222,
+      "winners": 76998
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1150232
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "영훈슈퍼마켓",
+      "address": "서울 도봉구 덕릉로 222,(창동)",
+      "method": "auto",
+      "lat": 37.63781,
+      "lng": 127.03763
+    },
+    {
+      "rank": 1,
+      "name": "만복당",
+      "address": "서울 성동구 행당로 1 신한은행 앞",
+      "method": "auto",
+      "lat": 37.554836,
+      "lng": 127.020294
+    },
+    {
+      "rank": 1,
+      "name": "로또복권판매업",
+      "address": "서울 송파구 삼전동  181-6해광빌딩108",
+      "method": "auto",
+      "lat": 37.498604,
+      "lng": 127.098946
+    },
+    {
+      "rank": 1,
+      "name": "부일카서비스",
+      "address": "부산 동구 자성로133번길 35",
+      "method": "auto",
+      "lat": 35.140015,
+      "lng": 129.06306
+    },
+    {
+      "rank": 1,
+      "name": "고향슈퍼",
+      "address": "대구 달서구 이곡동  1000-147",
+      "method": "auto",
+      "lat": 35.83864,
+      "lng": 128.55267
+    },
+    {
+      "rank": 1,
+      "name": "동수원매표소",
+      "address": "경기 수원시 팔달구 인계동 953주택은행옆",
+      "method": "auto",
+      "lat": 37.27622,
+      "lng": 127.02981
+    },
+    {
+      "rank": 1,
+      "name": "일등로또방",
+      "address": "전북 전주시 완산구 장승배기로 203",
+      "method": "manual",
+      "lat": 35.796608,
+      "lng": 127.13483
+    },
+    {
+      "rank": 1,
+      "name": "재운로또복권",
+      "address": "경북 포항시 북구 아치로 46 8호 1층",
+      "method": "manual",
+      "lat": 36.05116,
+      "lng": 129.35692
+    }
+  ]
+}

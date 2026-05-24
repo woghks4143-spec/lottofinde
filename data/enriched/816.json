@@ -1,0 +1,109 @@
+{
+  "round": 816,
+  "date": "2018-07-21",
+  "nums": [
+    12,
+    18,
+    19,
+    29,
+    31,
+    39
+  ],
+  "bonus": 7,
+  "firstWinAmount": 2128107938,
+  "firstWinners": 8,
+  "totalSales": 72397826000,
+  "prizes": {
+    "first": {
+      "amount": 2128107938,
+      "winners": 8
+    },
+    "second": {
+      "amount": 42350407,
+      "winners": 67
+    },
+    "third": {
+      "amount": 1374747,
+      "winners": 2064
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 102402
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1675799
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "소리창고",
+      "address": "서울 강서구 강서로 306",
+      "method": "manual",
+      "lat": 37.552868,
+      "lng": 126.83675
+    },
+    {
+      "rank": 1,
+      "name": "반여상회",
+      "address": "부산 해운대구 선수촌로 190 1층",
+      "method": "auto",
+      "lat": 35.209423,
+      "lng": 129.12465
+    },
+    {
+      "rank": 1,
+      "name": "노다지복권방서정지점",
+      "address": "경기 평택시 서정역로 23",
+      "method": "auto",
+      "lat": 37.0562,
+      "lng": 127.05544
+    },
+    {
+      "rank": 1,
+      "name": "행운의시작복권전문점",
+      "address": "강원 삼척시 사대안길 5 8통1반",
+      "method": "manual",
+      "lat": 37.444267,
+      "lng": 129.16542
+    },
+    {
+      "rank": 1,
+      "name": "행운로또",
+      "address": "충북 진천군 덕금로 792 편의점 내",
+      "method": "auto",
+      "lat": 36.854416,
+      "lng": 127.44796
+    },
+    {
+      "rank": 1,
+      "name": "한아름매점",
+      "address": "충남 홍성군 광천로 330",
+      "method": "auto",
+      "lat": 36.503197,
+      "lng": 126.62555
+    },
+    {
+      "rank": 1,
+      "name": "미니풀 복권판매점",
+      "address": "경북 구미시 상사서로 81",
+      "method": "auto",
+      "lat": 36.08981,
+      "lng": 128.35498
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방(야사점)",
+      "address": "경북 영천시 호국로 55-3",
+      "method": "auto",
+      "lat": 35.97355,
+      "lng": 128.9439
+    }
+  ]
+}

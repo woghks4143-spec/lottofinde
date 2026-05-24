@@ -1,0 +1,133 @@
+{
+  "round": 695,
+  "date": "2016-03-26",
+  "nums": [
+    4,
+    18,
+    26,
+    33,
+    34,
+    38
+  ],
+  "bonus": 14,
+  "firstWinAmount": 1450214830,
+  "firstWinners": 11,
+  "totalSales": 67672085000,
+  "prizes": {
+    "first": {
+      "amount": 1450214830,
+      "winners": 11
+    },
+    "second": {
+      "amount": 40283746,
+      "winners": 66
+    },
+    "third": {
+      "amount": 1343471,
+      "winners": 1979
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 95436
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1558885
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행복나눔복권방",
+      "address": "서울 강서구 가양동 155-8번지",
+      "method": "auto",
+      "lat": 37.56886,
+      "lng": 126.84109
+    },
+    {
+      "rank": 1,
+      "name": "충무로또",
+      "address": "부산 서구 구덕로 115-2",
+      "method": "mixed",
+      "lat": 35.096386,
+      "lng": 129.02332
+    },
+    {
+      "rank": 1,
+      "name": "복권명당(영남점)",
+      "address": "대구 달서구 월배로 122,(진천동)",
+      "method": "manual",
+      "lat": 35.814716,
+      "lng": 128.52782
+    },
+    {
+      "rank": 1,
+      "name": "토큰박스",
+      "address": "대구 동구 해동로 49 1층  CU편의점",
+      "method": "auto",
+      "lat": 35.8937,
+      "lng": 128.63759
+    },
+    {
+      "rank": 1,
+      "name": "버스매표소",
+      "address": "인천 부평구 부평대로 3 가판",
+      "method": "mixed",
+      "lat": 37.49181,
+      "lng": 126.722725
+    },
+    {
+      "rank": 1,
+      "name": "포시즌마전점",
+      "address": "인천 서구 완정로10번길 6-6 검단2지구37블록1롯트",
+      "method": "auto",
+      "lat": 37.59451,
+      "lng": 126.67347
+    },
+    {
+      "rank": 1,
+      "name": "1등복권방",
+      "address": "울산 울주군 동문길 84",
+      "method": "auto",
+      "lat": 35.564198,
+      "lng": 129.1246
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "경기 안산시 단원구 원본로 38,(원곡동)",
+      "method": "manual",
+      "lat": 37.329906,
+      "lng": 126.79361
+    },
+    {
+      "rank": 1,
+      "name": "영일종합장식",
+      "address": "경기 안산시 단원구 고잔로 112 신광프라자102호",
+      "method": "manual",
+      "lat": 37.318695,
+      "lng": 126.83853
+    },
+    {
+      "rank": 1,
+      "name": "로또휴게실",
+      "address": "경기 용인시 기흥구 용구대로 1885",
+      "method": "auto",
+      "lat": 37.256386,
+      "lng": 127.10432
+    },
+    {
+      "rank": 1,
+      "name": "HX복권방",
+      "address": "경기 이천시 부발읍 아미리 726-9 현대시티플라자106호",
+      "method": "auto",
+      "lat": 37.25275,
+      "lng": 127.48955
+    }
+  ]
+}

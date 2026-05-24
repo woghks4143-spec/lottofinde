@@ -1,0 +1,85 @@
+{
+  "round": 775,
+  "date": "2017-10-07",
+  "nums": [
+    11,
+    12,
+    29,
+    33,
+    38,
+    42
+  ],
+  "bonus": 17,
+  "firstWinAmount": 3470437650,
+  "firstWinners": 5,
+  "totalSales": 70795452000,
+  "prizes": {
+    "first": {
+      "amount": 3470437650,
+      "winners": 5
+    },
+    "second": {
+      "amount": 78163011,
+      "winners": 37
+    },
+    "third": {
+      "amount": 1682392,
+      "winners": 1719
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 91297
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1539325
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "보경식품",
+      "address": "서울 강북구 도봉로 211,(미아동)",
+      "method": "auto",
+      "lat": 37.627495,
+      "lng": 127.02538
+    },
+    {
+      "rank": 1,
+      "name": "행운복권방",
+      "address": "서울 성북구 삼선교로 20-1 1층",
+      "method": "auto",
+      "lat": 37.587494,
+      "lng": 127.00815
+    },
+    {
+      "rank": 1,
+      "name": "복권나라",
+      "address": "서울 중구 남대문로5가(회현동) 21-1",
+      "method": "auto",
+      "lat": 37.55862,
+      "lng": 126.975
+    },
+    {
+      "rank": 1,
+      "name": "GS25(서대신점)",
+      "address": "부산 서구 서대신동3가(서대신제3동) 271-2",
+      "method": "auto",
+      "lat": 35.1139,
+      "lng": 129.01424
+    },
+    {
+      "rank": 1,
+      "name": "장원로또",
+      "address": "경기 수원시 영통구 중부대로246번길 10 1층 3호",
+      "method": "auto",
+      "lat": 37.27466,
+      "lng": 127.04233
+    }
+  ]
+}

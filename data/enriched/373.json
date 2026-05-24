@@ -1,0 +1,77 @@
+{
+  "round": 373,
+  "date": "2010-01-23",
+  "nums": [
+    15,
+    26,
+    37,
+    42,
+    43,
+    45
+  ],
+  "bonus": 9,
+  "firstWinAmount": 2791801125,
+  "firstWinners": 4,
+  "totalSales": 47095065000,
+  "prizes": {
+    "first": {
+      "amount": 2791801125,
+      "winners": 4
+    },
+    "second": {
+      "amount": 64179337,
+      "winners": 29
+    },
+    "third": {
+      "amount": 1666250,
+      "winners": 1117
+    },
+    "fourth": {
+      "amount": 64559,
+      "winners": 57659
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 987105
+    }
+  },
+  "methodCounts": {
+    "auto": 3,
+    "manual": 1,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "Today",
+      "address": "서울 광진구 광나루로56길 85 테크노마트9층판매동24호",
+      "method": "auto",
+      "lat": 37.53569,
+      "lng": 127.09574
+    },
+    {
+      "rank": 1,
+      "name": "GS25(안산산호)",
+      "address": "경기 안산시 단원구 선부동 1081산호한양상가101호",
+      "method": "manual",
+      "lat": 37.336678,
+      "lng": 126.81326
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트(광탄개나리)",
+      "address": "경기 파주시 광탄면 신산리 358-10",
+      "method": "auto",
+      "lat": 37.78273,
+      "lng": 126.84627
+    },
+    {
+      "rank": 1,
+      "name": "행운의집",
+      "address": "경북 안동시 북문동  23-7",
+      "method": "auto",
+      "lat": 36.566982,
+      "lng": 128.7295
+    }
+  ]
+}

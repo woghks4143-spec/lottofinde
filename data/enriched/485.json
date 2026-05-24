@@ -1,0 +1,117 @@
+{
+  "round": 485,
+  "date": "2012-03-17",
+  "nums": [
+    17,
+    22,
+    26,
+    27,
+    36,
+    39
+  ],
+  "bonus": 20,
+  "firstWinAmount": 1501474917,
+  "firstWinners": 9,
+  "totalSales": 55692878000,
+  "prizes": {
+    "first": {
+      "amount": 1501474917,
+      "winners": 9
+    },
+    "second": {
+      "amount": 68248860,
+      "winners": 33
+    },
+    "third": {
+      "amount": 1601859,
+      "winners": 1406
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 72785
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1237898
+    }
+  },
+  "methodCounts": {
+    "auto": 7,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "한마음",
+      "address": "서울 관악구 관악로 211 봉천중앙시장라열4호",
+      "method": "manual",
+      "lat": 37.48357,
+      "lng": 126.95407
+    },
+    {
+      "rank": 1,
+      "name": "오복복권방",
+      "address": "서울 용산구 이태원동  225-60",
+      "method": "auto",
+      "lat": 37.539364,
+      "lng": 126.989716
+    },
+    {
+      "rank": 1,
+      "name": "영화유통(1등복권방)",
+      "address": "울산 남구 신정로 19 삼성아파트 상가 204-101",
+      "method": "auto",
+      "lat": 35.533833,
+      "lng": 129.32205
+    },
+    {
+      "rank": 1,
+      "name": "금도깨비복권전문점",
+      "address": "경기 김포시 하성면 월하로 721",
+      "method": "auto",
+      "lat": 37.709766,
+      "lng": 126.634705
+    },
+    {
+      "rank": 1,
+      "name": "태안로또복권방",
+      "address": "충남 태안군 독샘로 57",
+      "method": "auto",
+      "lat": 36.75318,
+      "lng": 126.29935
+    },
+    {
+      "rank": 1,
+      "name": "올인로또복권",
+      "address": "전북 전주시 완산구 효자동2가 203-5 코끼리마트 상가 내",
+      "method": "auto",
+      "lat": 35.804657,
+      "lng": 127.10798
+    },
+    {
+      "rank": 1,
+      "name": "금강로또",
+      "address": "전남 목포시 용당로 151 금강서점",
+      "method": "auto",
+      "lat": 34.800865,
+      "lng": 126.40066
+    },
+    {
+      "rank": 1,
+      "name": "훼미리마트(옥산사랑점)",
+      "address": "경북 경산시 옥산동  742-7",
+      "method": "auto",
+      "lat": 35.826077,
+      "lng": 128.7274
+    },
+    {
+      "rank": 1,
+      "name": "복권방",
+      "address": "경남 창원시 마산합포구 3·15대로 391-1",
+      "method": "manual",
+      "lat": 35.209633,
+      "lng": 128.57443
+    }
+  ]
+}

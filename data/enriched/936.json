@@ -1,0 +1,157 @@
+{
+  "round": 936,
+  "date": "2020-11-07",
+  "nums": [
+    7,
+    11,
+    13,
+    17,
+    18,
+    29
+  ],
+  "bonus": 43,
+  "firstWinAmount": 1492069179,
+  "firstWinners": 14,
+  "totalSales": 92246146000,
+  "prizes": {
+    "first": {
+      "amount": 1492069179,
+      "winners": 14
+    },
+    "second": {
+      "amount": 45214218,
+      "winners": 77
+    },
+    "third": {
+      "amount": 1215606,
+      "winners": 2864
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 140160
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2252623
+    }
+  },
+  "methodCounts": {
+    "auto": 10,
+    "manual": 3,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "행운복권",
+      "address": "서울 강북구 솔샘로 212 신영빌딩 1층",
+      "method": "mixed",
+      "lat": 37.619926,
+      "lng": 127.01622
+    },
+    {
+      "rank": 1,
+      "name": "일등복권",
+      "address": "서울 강서구 초원로 83 101호",
+      "method": "auto",
+      "lat": 37.567688,
+      "lng": 126.814766
+    },
+    {
+      "rank": 1,
+      "name": "해태식품",
+      "address": "서울 금천구 시흥대로50길 9",
+      "method": "manual",
+      "lat": 37.45144,
+      "lng": 126.902534
+    },
+    {
+      "rank": 1,
+      "name": "프로통신",
+      "address": "인천 남동구 구월로 366",
+      "method": "auto",
+      "lat": 37.45477,
+      "lng": 126.73128
+    },
+    {
+      "rank": 1,
+      "name": "알뜰슈퍼",
+      "address": "경기 동두천시 평화로 2436-1 4/6",
+      "method": "auto",
+      "lat": 37.90527,
+      "lng": 127.05821
+    },
+    {
+      "rank": 1,
+      "name": "일등복권방",
+      "address": "경기 부천시 삼작로 481 영미빌딩",
+      "method": "manual",
+      "lat": 37.51886,
+      "lng": 126.81512
+    },
+    {
+      "rank": 1,
+      "name": "성진마트",
+      "address": "경기 부천시 수도로 123,(내동)",
+      "method": "auto",
+      "lat": 37.516987,
+      "lng": 126.77924
+    },
+    {
+      "rank": 1,
+      "name": "천하명당",
+      "address": "경기 시흥시 신천3길 26-1 1층1호",
+      "method": "auto",
+      "lat": 37.438892,
+      "lng": 126.783295
+    },
+    {
+      "rank": 1,
+      "name": "1등 복권",
+      "address": "경기 시흥시 배곧4로 32-27 광장프라자 105호",
+      "method": "manual",
+      "lat": 37.3777,
+      "lng": 126.72552
+    },
+    {
+      "rank": 1,
+      "name": "지우시스템",
+      "address": "경기 안성시 덕봉서원로 37",
+      "method": "auto",
+      "lat": 37.007587,
+      "lng": 127.16985
+    },
+    {
+      "rank": 1,
+      "name": "미래유통",
+      "address": "전남 목포시 영산로 623",
+      "method": "auto",
+      "lat": 34.82103,
+      "lng": 126.42085
+    },
+    {
+      "rank": 1,
+      "name": "세방매점",
+      "address": "경북 경주시 산업로 4447 (용강동)",
+      "method": "auto",
+      "lat": 35.877205,
+      "lng": 129.22649
+    },
+    {
+      "rank": 1,
+      "name": "로또복권판매",
+      "address": "경북 상주시 삼백로 159",
+      "method": "auto",
+      "lat": 36.41895,
+      "lng": 128.16113
+    },
+    {
+      "rank": 1,
+      "name": "정우빌딩",
+      "address": "경남 진주시 평거로 38 세븐일레븐 내",
+      "method": "auto",
+      "lat": 35.17355,
+      "lng": 128.06485
+    }
+  ]
+}

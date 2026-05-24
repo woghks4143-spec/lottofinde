@@ -1,0 +1,93 @@
+{
+  "round": 809,
+  "date": "2018-06-02",
+  "nums": [
+    6,
+    11,
+    15,
+    17,
+    23,
+    40
+  ],
+  "bonus": 39,
+  "firstWinAmount": 2921372750,
+  "firstWinners": 6,
+  "totalSales": 74214104000,
+  "prizes": {
+    "first": {
+      "amount": 2921372750,
+      "winners": 6
+    },
+    "second": {
+      "amount": 52167371,
+      "winners": 56
+    },
+    "third": {
+      "amount": 1340695,
+      "winners": 2179
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 104350
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 1703714
+    }
+  },
+  "methodCounts": {
+    "auto": 6,
+    "manual": 0,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "복권광장",
+      "address": "인천 부평구 백범로 500 1층(십정동)",
+      "method": "auto",
+      "lat": 37.47005,
+      "lng": 126.696396
+    },
+    {
+      "rank": 1,
+      "name": "SoundWave",
+      "address": "경기 광명시 오리로 956",
+      "method": "auto",
+      "lat": 37.47889,
+      "lng": 126.85691
+    },
+    {
+      "rank": 1,
+      "name": "프로피스",
+      "address": "경기 구리시 이문안로 11,(교문동)",
+      "method": "auto",
+      "lat": 37.592052,
+      "lng": 127.13251
+    },
+    {
+      "rank": 1,
+      "name": "로또또",
+      "address": "경기 김포시 봉수대로 1704 102호",
+      "method": "auto",
+      "lat": 37.62097,
+      "lng": 126.63304
+    },
+    {
+      "rank": 1,
+      "name": "풍전슈퍼",
+      "address": "경기 부천시 조마루로 428,(원미동)",
+      "method": "auto",
+      "lat": 37.49708,
+      "lng": 126.79113
+    },
+    {
+      "rank": 1,
+      "name": "대박복권방",
+      "address": "경기 양주시 가래비길 33",
+      "method": "auto",
+      "lat": 37.82246,
+      "lng": 126.986694
+    }
+  ]
+}
