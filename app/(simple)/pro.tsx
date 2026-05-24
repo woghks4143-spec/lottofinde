@@ -188,15 +188,6 @@ function PremiumHero({ scheme }: { scheme: 'light' | 'dark' }) {
         </View>
       </View>
 
-      {/* 핵심 통계 강조 — PRO 답게 (1년 백테스트 실측) */}
-      <View style={[styles.heroStatRow, { borderTopColor: dividerColor, borderBottomColor: dividerColor }]}>
-        <HeroStat number="2회" label="1년 1등 적중" goldText={goldText} bodyColor={bodyColor} />
-        <View style={[styles.heroStatDivider, { backgroundColor: dividerColor }]} />
-        <HeroStat number="2회" label="1년 2등 적중" goldText={goldText} bodyColor={bodyColor} />
-        <View style={[styles.heroStatDivider, { backgroundColor: dividerColor }]} />
-        <HeroStat number="실측" label="자체 검증" goldText={goldText} bodyColor={bodyColor} />
-      </View>
-
       {/* 하단: 기능 칩 */}
       <View style={styles.valueChipsCompact}>
         <ValueChip emoji="📊" label="정밀" lightMode={isLight} />
@@ -204,24 +195,6 @@ function PremiumHero({ scheme }: { scheme: 'light' | 'dark' }) {
         <ValueChip emoji="🔍" label="회차자유" lightMode={isLight} />
         <ValueChip emoji="🎯" label="백테스트" lightMode={isLight} />
       </View>
-    </View>
-  );
-}
-
-function HeroStat({ number, label, goldText, bodyColor }: {
-  number: string;
-  label: string;
-  goldText: string;
-  bodyColor: string;
-}) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center' }}>
-      <T variant="title3" allowFontScaling={false} style={{ color: goldText, fontWeight: '900', fontSize: 18 }}>
-        {number}
-      </T>
-      <T variant="caption2" allowFontScaling={false} style={{ color: bodyColor, marginTop: 2, fontSize: 10, fontWeight: '600' }}>
-        {label}
-      </T>
     </View>
   );
 }

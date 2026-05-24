@@ -212,9 +212,10 @@ export async function fetchWeeklyPool(round: number): Promise<WeeklyPool | null>
 /**
  * 사전 계산된 백테스트 결과를 GitHub raw에서 fetch.
  * 매주 월요일 GitHub Actions가 갱신함. 클라이언트 계산 불필요 → 즉시 표시.
+ * 시간 기반 query로 CDN 캐시 회피 (1시간 단위로 새 URL).
  */
 export async function fetchPrecomputedBacktest(): Promise<BacktestStats | null> {
-  const url = `${GITHUB_RAW_BASE}/backtest.json`;
+  const url = `${GITHUB_RAW_BASE}/backtest.json?t=${Math.floor(Date.now() / 3600_000)}`;
   try {
     const ctrl = new AbortController();
     const timer = setTimeout(() => ctrl.abort(), 10000);
