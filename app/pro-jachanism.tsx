@@ -521,7 +521,7 @@ export default function ProJachanism() {
         <Card padding={16}>
           <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 6 }}>
             <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
-              📊 {BACKTEST_BASE_LABEL}({BACKTEST_BASE_N}회) 분석 결과
+              📊 {BACKTEST_BASE_LABEL} 분석 결과 ({BACKTEST_BASE_N}회)
             </T>
             {backtestStats && (
               <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10.5 }}>

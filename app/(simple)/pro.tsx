@@ -148,51 +148,80 @@ export default function Pro() {
 function PremiumHero({ scheme }: { scheme: 'light' | 'dark' }) {
   const isLight = scheme === 'light';
 
-  // 라이트 모드: 샴페인 크림 (고급 초대장 같은 따뜻한 톤)
-  // 다크 모드:  웜 차콜 (오크 골드 케이스 같은 따뜻한 어두움)
+  // 라이트 모드: 샴페인 크림 / 다크 모드: 웜 차콜
   const heroBg = isLight ? '#f4ead4' : '#1c1814';
   const titleColor = isLight ? '#2c2316' : '#ffffff';
-  const bodyColor = isLight ? 'rgba(58, 47, 30, 0.78)' : 'rgba(255,255,255,0.72)';
+  const bodyColor = isLight ? 'rgba(58, 47, 30, 0.72)' : 'rgba(255,255,255,0.65)';
   const goldText = isLight ? '#a37116' : GOLD;
+  const dividerColor = isLight ? 'rgba(163,113,22,0.18)' : 'rgba(232,176,78,0.18)';
 
   return (
     <View style={[styles.hero, { backgroundColor: heroBg }]}>
-      {/* 정적 골드 워시 — 왕관 뒤를 은은하게 비추는 라운드 그라데이션 */}
+      {/* 정적 골드 워시 */}
       <View
         style={[
           styles.heroGoldWash,
-          { backgroundColor: GOLD, opacity: isLight ? 0.12 : 0.08 },
+          { backgroundColor: GOLD, opacity: isLight ? 0.10 : 0.07 },
         ]}
       />
 
-      <View
-        style={[
-          styles.crownWrap,
-          isLight && {
-            backgroundColor: 'rgba(232,176,78,0.22)',
-            borderColor: 'rgba(163,113,22,0.45)',
-          },
-        ]}
-      >
-        <Icon.crown color={isLight ? '#a37116' : GOLD} size={36} weight={2} />
+      {/* 상단: PREMIUM 배지 + 타이틀 */}
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+        <View
+          style={[
+            styles.crownWrapCompact,
+            isLight && {
+              backgroundColor: 'rgba(232,176,78,0.22)',
+              borderColor: 'rgba(163,113,22,0.45)',
+            },
+          ]}
+        >
+          <Icon.crown color={isLight ? '#a37116' : GOLD} size={20} weight={2} />
+        </View>
+        <View style={{ flex: 1 }}>
+          <T variant="caption2" allowFontScaling={false} style={{ color: goldText, letterSpacing: 2.5, fontWeight: '800', fontSize: 9.5 }}>
+            PREMIUM
+          </T>
+          <T variant="headline1" style={{ color: titleColor, fontWeight: '900', marginTop: 1, letterSpacing: -0.3 }}>
+            전문가용 분석 스튜디오
+          </T>
+        </View>
       </View>
-      <T variant="caption1" allowFontScaling={false} style={{ color: goldText, letterSpacing: 3, fontWeight: '800', marginTop: 14, fontSize: 10.5 }}>
-        PREMIUM
-      </T>
-      <T variant="title1" style={{ color: titleColor, fontWeight: '900', marginTop: 6, textAlign: 'center', letterSpacing: -0.3 }}>
-        전문가용 분석 스튜디오
-      </T>
-      <T variant="body2r" style={{ color: bodyColor, marginTop: 8, textAlign: 'center', lineHeight: 22 }}>
-        통계 분석 기반 10가지 도구로{'\n'}
-        더 깊이 있는 회차별 분석.
-      </T>
 
-      <View style={styles.valueChips}>
-        <ValueChip emoji="📊" label="정밀 분석" lightMode={isLight} />
-        <ValueChip emoji="∞" label="무제한" lightMode={isLight} />
-        <ValueChip emoji="🔍" label="회차 자유" lightMode={isLight} />
-        <ValueChip emoji="🎯" label="실측 백테스트" lightMode={isLight} />
+      {/* 핵심 통계 강조 — PRO 답게 (1년 백테스트 실측) */}
+      <View style={[styles.heroStatRow, { borderTopColor: dividerColor, borderBottomColor: dividerColor }]}>
+        <HeroStat number="2회" label="1년 1등 적중" goldText={goldText} bodyColor={bodyColor} />
+        <View style={[styles.heroStatDivider, { backgroundColor: dividerColor }]} />
+        <HeroStat number="2회" label="1년 2등 적중" goldText={goldText} bodyColor={bodyColor} />
+        <View style={[styles.heroStatDivider, { backgroundColor: dividerColor }]} />
+        <HeroStat number="실측" label="자체 검증" goldText={goldText} bodyColor={bodyColor} />
       </View>
+
+      {/* 하단: 기능 칩 */}
+      <View style={styles.valueChipsCompact}>
+        <ValueChip emoji="📊" label="정밀" lightMode={isLight} />
+        <ValueChip emoji="∞" label="무제한" lightMode={isLight} />
+        <ValueChip emoji="🔍" label="회차자유" lightMode={isLight} />
+        <ValueChip emoji="🎯" label="백테스트" lightMode={isLight} />
+      </View>
+    </View>
+  );
+}
+
+function HeroStat({ number, label, goldText, bodyColor }: {
+  number: string;
+  label: string;
+  goldText: string;
+  bodyColor: string;
+}) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center' }}>
+      <T variant="title3" allowFontScaling={false} style={{ color: goldText, fontWeight: '900', fontSize: 18 }}>
+        {number}
+      </T>
+      <T variant="caption2" allowFontScaling={false} style={{ color: bodyColor, marginTop: 2, fontSize: 10, fontWeight: '600' }}>
+        {label}
+      </T>
     </View>
   );
 }
@@ -508,19 +537,19 @@ const styles = StyleSheet.create({
   // ── Premium Hero ───────────────────────────────────────────
   hero: {
     borderRadius: radius.xl + 4,
-    paddingVertical: 28,
-    paddingHorizontal: 24,
-    alignItems: 'center',
+    paddingVertical: 14,
+    paddingHorizontal: 14,
     overflow: 'hidden',
     position: 'relative',
   },
-  /** 정적 골드 워시 — 왕관 뒤에서 은은하게 비추는 라운드 그라데이션. */
+  /** 정적 골드 워시 — 우측 상단에 은은하게 비추는 라운드 그라데이션. */
   heroGoldWash: {
     position: 'absolute',
-    top: -60,
-    width: 240,
-    height: 240,
-    borderRadius: 120,
+    top: -80,
+    right: -80,
+    width: 200,
+    height: 200,
+    borderRadius: 100,
   },
   crownWrap: {
     width: 78,
@@ -537,12 +566,40 @@ const styles = StyleSheet.create({
     shadowRadius: 18,
     elevation: 10,
   },
+  crownWrapCompact: {
+    width: 42,
+    height: 42,
+    borderRadius: 12,
+    backgroundColor: 'rgba(232,176,78,0.18)',
+    borderWidth: 1,
+    borderColor: 'rgba(232,176,78,0.4)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  heroStatRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
+    marginTop: 12,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+  },
+  heroStatDivider: {
+    width: 1,
+    height: 24,
+  },
   valueChips: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 6,
     marginTop: 18,
     justifyContent: 'center',
+  },
+  valueChipsCompact: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 5,
+    marginTop: 10,
   },
   valueChip: {
     flexDirection: 'row',

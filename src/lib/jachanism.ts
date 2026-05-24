@@ -16,8 +16,8 @@ import type { Draw } from '@/src/data/lotto';
 export const POOL_SIZE = 85000;              // 내부 계산용 (디스플레이는 "약 8~9만개")
 export const POOL_SIZE_DISPLAY = '약 8~9만개'; // UI 공통 표기
 export const USER_LIMIT = 50;
-export const BACKTEST_BASE_N = 100;           // 최근 약 2년 (100주, 검증력 ↑)
-export const BACKTEST_BASE_LABEL = '최근 100회';
+export const BACKTEST_BASE_N = 52;            // 최근 1년 (52주)
+export const BACKTEST_BASE_LABEL = '최근 1년';  // UI 라벨
 
 export type JachanismStatus = 'locked' | 'active' | 'drawing' | 'done';
 

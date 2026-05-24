@@ -3,7 +3,7 @@
  *
  * PRO 조합 생성 영역의 카탈로그 페이지. 각 카드는 풍부한 미리보기 + 디테일 페이지 연결.
  */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -18,6 +18,9 @@ import { Disclaimer } from '@/src/components/Disclaimer';
 import { Icon } from '@/src/components/Icons';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
+import { useHistory } from '@/src/data/historyStore';
+import { fetchPoolState, type PoolState } from '@/src/lib/firebase';
+import { getDayStatus, POOL_SIZE_DISPLAY } from '@/src/lib/jachanism';
 
 const GOLD = '#e8b04e';
 const GOLD_SOFT = '#fff4dc';
@@ -41,24 +44,23 @@ export default function ProGen() {
       />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
 
-        {/* Hero — 라이트/다크 자동 분기 */}
+        {/* Hero — 콤팩트 */}
         <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
-          <View style={[styles.heroBadge, { backgroundColor: GOLD }]}>
-            <Icon.crown color="#fff" size={14} weight={2.5} />
-            <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 10.5, marginLeft: 4, letterSpacing: 0.4 }}>
-              PRO
-            </T>
-          </View>
-          <T variant="title2" style={{ color: t.fgOnHero, fontWeight: '800', marginTop: 14 }}>
-            프로페셔널 조합 엔진
-          </T>
-          <T variant="body2r" style={{ color: t.fgOnHeroMuted, marginTop: 8, lineHeight: 22 }}>
-            일반 조합 필터링으로는 불가능한 다차원 + 회차 관계 + 패턴 조건까지.
-          </T>
-          <View style={styles.heroChips}>
-            <Chip label="🎛️ 다중 필터" tone="invert" />
-            <Chip label="📊 깔때기 시각화" tone="invert" />
-            <Chip label="∞ 프리셋 저장" tone="invert" />
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+            <View style={{ flex: 1 }}>
+              <View style={[styles.heroBadge, { backgroundColor: GOLD, alignSelf: 'flex-start' }]}>
+                <Icon.crown color="#fff" size={12} weight={2.5} />
+                <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 10, marginLeft: 4, letterSpacing: 0.4 }}>
+                  PRO
+                </T>
+              </View>
+              <T variant="headline2" style={{ color: t.fgOnHero, fontWeight: '800', marginTop: 8 }}>
+                프로페셔널 조합 엔진
+              </T>
+              <T variant="caption1" style={{ color: t.fgOnHeroMuted, marginTop: 4, fontSize: 12 }}>
+                다중 필터 · 회차 관계 · 패턴 조건
+              </T>
+            </View>
           </View>
         </View>
 
@@ -120,6 +122,24 @@ export default function ProGen() {
 
 function PreviewJachanism() {
   const t = useTheme();
+  const latestRound = useHistory((s) => s.latestRound);
+  const targetRound = latestRound + 1;
+
+  // 요일 기반 상태 — 수요일 이전(locked)이면 풀 정보 표시 안 함
+  const dayStatus = getDayStatus();
+  const canShowPool = dayStatus !== 'locked';
+
+  // 실시간 풀 상태 (수요일 이후만 fetch)
+  const [poolState, setPoolState] = useState<PoolState | null>(null);
+  useEffect(() => {
+    if (!targetRound || !canShowPool) return;
+    let cancelled = false;
+    fetchPoolState(targetRound)
+      .then((s) => { if (!cancelled && s) setPoolState(s); })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [targetRound, canShowPool]);
+
   const days = [
     { d: '일', state: '분석', color: palette.purple500 },
     { d: '월', state: '대기', color: '#999' },
@@ -129,6 +149,13 @@ function PreviewJachanism() {
     { d: '금', state: '받기', color: palette.green700, active: true },
     { d: '토', state: '추첨', color: palette.red500 },
   ];
+
+  const total = poolState?.total ?? 0;
+  const consumed = poolState?.consumed ?? 0;
+  const remaining = Math.max(0, total - consumed);
+  const pct = total > 0 ? Math.min(100, (consumed / total) * 100) : 0;
+  const isHot = total > 0 && remaining < total * 0.5;
+
   return (
     <View>
       <View style={{ flexDirection: 'row', gap: 4, marginBottom: 10 }}>
@@ -161,13 +188,47 @@ function PreviewJachanism() {
           </View>
         ))}
       </View>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-        <T allowFontScaling={false} style={{ fontSize: 14 }}>✨</T>
+
+      {/* 풀 정보 — 수요일 이후만 실시간 표시 */}
+      {canShowPool && total > 0 ? (
+        <View style={[styles.poolPreview, { backgroundColor: GOLD + '12', borderColor: GOLD }]}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10.5, color: GOLD_DARK, fontWeight: '800' }}>
+              🎁 이번주 남은 조합
+            </T>
+            {isHot && (
+              <View style={{ backgroundColor: 'rgba(255,66,66,0.15)', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 99 }}>
+                <T variant="caption2" allowFontScaling={false} style={{ color: palette.red500, fontWeight: '800', fontSize: 9 }}>
+                  ⚡ 빠르게 발급 중
+                </T>
+              </View>
+            )}
+          </View>
+          <View style={{ flexDirection: 'row', alignItems: 'baseline', marginTop: 4 }}>
+            <T variant="label1n" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '900', fontSize: 20 }}>
+              {remaining.toLocaleString('ko')}
+            </T>
+            <T variant="caption2" allowFontScaling={false} style={{ color: GOLD_DARK, opacity: 0.6, marginLeft: 4, fontSize: 11 }}>
+              / {total.toLocaleString('ko')}
+            </T>
+            <T variant="caption2" allowFontScaling={false} style={{ marginLeft: 'auto', color: GOLD_DARK, fontSize: 10, opacity: 0.7 }}>
+              {consumed.toLocaleString('ko')}개 발급
+            </T>
+          </View>
+          {/* Progress bar */}
+          <View style={{ marginTop: 6, height: 4, borderRadius: 2, backgroundColor: GOLD + '30', overflow: 'hidden' }}>
+            <View style={{ width: `${Math.max(2, pct)}%`, height: '100%', backgroundColor: GOLD, borderRadius: 2 }} />
+          </View>
+        </View>
+      ) : null}
+
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 8 }}>
+        <T allowFontScaling={false} style={{ fontSize: 13 }}>✨</T>
         <T variant="caption2" allowFontScaling={false} style={{ fontSize: 11, color: GOLD_DARK, fontWeight: '800' }}>
           50조합 / 주
         </T>
         <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10.5, color: '#888' }}>
-          · 약 84,253조합 풀에서
+          · {canShowPool ? '사람마다 다른 조합 보장' : `${POOL_SIZE_DISPLAY} 조합 풀에서`}
         </T>
       </View>
     </View>
@@ -415,7 +476,7 @@ const styles = StyleSheet.create({
 
   hero: {
     borderRadius: radius.xl + 2,
-    padding: 22,
+    padding: 14,
   },
   heroBadge: {
     flexDirection: 'row',
@@ -426,6 +487,14 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   heroChips: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 16 },
+
+  // 귀찮이즘 풀 미리보기 — FOMO 카드
+  poolPreview: {
+    marginTop: 4,
+    padding: 10,
+    borderRadius: radius.md,
+    borderWidth: 1,
+  },
 
   sectionHead: {
     flexDirection: 'row',
