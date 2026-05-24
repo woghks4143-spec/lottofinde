@@ -51,6 +51,11 @@ google-services.json
 GoogleService-Info.plist
 firebase-debug.log
 
+# Python 캐시
+__pycache__/
+*.pyc
+*.pyo
+
 # 빌드 산출물
 build/
 
