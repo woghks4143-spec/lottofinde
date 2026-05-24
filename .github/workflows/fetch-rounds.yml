@@ -1,20 +1,28 @@
-name: Fetch round data
+name: Fetch lottery data (mirror)
 
-# 매주 토요일 22:00 KST (= UTC 13:00) 자동 실행 + 수동 실행 가능.
-# 추첨 21:30 후 +30분 여유로 등위/판매점 정보가 완전히 올라온 후 수집.
+# 매주 토요일 자동 실행 + 수동 실행 가능
+# 동행복권 본사이트는 WAF로 자동화 차단 → smok95/lotto 미러에서 가져옴.
+# smok95이 매주 토 20:43, 20:51, 21:03 KST 업데이트.
+# 우리는 충분히 늦게 시도해서 데이터 안정화 후 fetch.
 on:
   schedule:
-    - cron: '0 13 * * 6'
+    - cron: '30 13 * * 6'  # 토 22:30 KST — 첫 시도 (smok95 업데이트 후 90분)
+    - cron: '30 14 * * 6'  # 토 23:30 KST — 재시도
+    - cron: '0 16 * * 6'   # 일 01:00 KST — 최종 시도
   workflow_dispatch:
     inputs:
       round:
-        description: '특정 회차 번호 (비우면 최신 회차 자동)'
+        description: '특정 회차 번호 (비우면 최근 N회차)'
         required: false
         default: ''
       recent:
-        description: '최근 N회차 일괄 (예: 10)'
+        description: '최근 N회차 (기본 5)'
         required: false
-        default: ''
+        default: '5'
+
+concurrency:
+  group: fetch-lottery
+  cancel-in-progress: false
 
 jobs:
   fetch:
@@ -22,37 +30,32 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Install Playwright + Chromium
-        run: |
-          npm install --no-save playwright
-          npx playwright install --with-deps chromium
-
-      - name: Run Playwright enrich script
+      - name: Run mirror fetcher
         run: |
           if [ -n "${{ github.event.inputs.round }}" ]; then
-            node scripts/fetch-playwright.mjs --round=${{ github.event.inputs.round }}
-          elif [ -n "${{ github.event.inputs.recent }}" ]; then
-            node scripts/fetch-playwright.mjs --recent=${{ github.event.inputs.recent }}
+            node scripts/fetch-from-mirror.mjs --round=${{ github.event.inputs.round }}
           else
-            node scripts/fetch-playwright.mjs
+            node scripts/fetch-from-mirror.mjs --recent=${{ github.event.inputs.recent || '5' }}
           fi
 
-      - name: Commit and push
+      - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/enriched/
           if git diff --cached --quiet; then
-            echo "No changes to commit"
+            echo "✅ No changes (data already up to date)"
           else
-            git commit -m "데이터 자동 갱신 ($(date -u +'%Y-%m-%d %H:%MZ'))"
+            LATEST=$(ls data/enriched/*.json 2>/dev/null | grep -v index.json | sort -V | tail -1 | xargs basename .json)
+            git commit -m "[auto] 회차 데이터 갱신 (~${LATEST}회, $(date -u +'%Y-%m-%d %H:%M UTC'))"
             git push
+            echo "✅ Pushed updated data"
           fi

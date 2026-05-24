@@ -148,8 +148,8 @@ export const useHistory = create<HistoryState>()(
       enrichRound: async (n) => {
         if (Platform.OS === 'web') return false;
         const existing = get().draws[n];
-        // 이미 등위·판매점 둘 다 있으면 스킵
-        if (existing?.prizes && existing.topStores && existing.topStores.length > 0) {
+        // 이미 방법별 개수가 있으면 스킵 (1등 정보 + 방법 개수가 모두 채워진 상태)
+        if (existing?.methodCounts) {
           return true;
         }
         const st = get().enrichState[n];
@@ -181,7 +181,7 @@ export const useHistory = create<HistoryState>()(
           const latest = get().getLatest();
           const expectedLatest = expectedLatestRound();
           const isBehind = latest && latest.round < expectedLatest;
-          const needsEnrich = latest && (!latest.prizes || !latest.topStores || latest.topStores.length === 0);
+          const needsEnrich = latest && !latest.methodCounts;
 
           if (!isBehind && !needsEnrich) {
             return { added: 0, enriched: 0, skipped: 'window' };
@@ -223,9 +223,9 @@ export const useHistory = create<HistoryState>()(
           }
         } else {
           // 새 회차는 없었지만 추첨 윈도우 안이므로 최신 회차 부가 정보 재확인
-          // (당첨번호만 먼저 올라오고 등위/판매점이 뒤따라 올라오는 케이스 대응)
+          // (당첨번호만 먼저 올라오고 방법별 개수가 뒤따라 올라오는 케이스 대응)
           const latest = get().getLatest();
-          if (latest && (!latest.prizes || !latest.topStores || latest.topStores.length === 0)) {
+          if (latest && !latest.methodCounts) {
             const ok = await get().enrichRound(latest.round);
             if (ok) enriched++;
           }

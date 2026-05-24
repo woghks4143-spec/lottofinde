@@ -439,4 +439,10 @@ export type Draw = {
   };
   /** 1·2등 당첨 판매점 목록. */
   topStores?: WinningStore[];
+  /** 1등 당첨 방법별 개수 (자동/수동/반자동). 합계는 firstWinners와 같아야 함. */
+  methodCounts?: {
+    auto: number;
+    manual: number;
+    mixed: number; // 반자동
+  };
 };

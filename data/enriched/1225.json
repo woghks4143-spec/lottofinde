@@ -1,0 +1,43 @@
+{
+  "round": 1225,
+  "date": "2026-05-23",
+  "nums": [
+    8,
+    9,
+    19,
+    25,
+    41,
+    42
+  ],
+  "bonus": 33,
+  "firstWinAmount": 2228133087,
+  "firstWinners": 13,
+  "totalSales": 120402887000,
+  "prizes": {
+    "first": {
+      "amount": 2228133087,
+      "winners": 13
+    },
+    "second": {
+      "amount": 63521338,
+      "winners": 76
+    },
+    "third": {
+      "amount": 1448432,
+      "winners": 3333
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 161090
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2705194
+    }
+  },
+  "methodCounts": {
+    "auto": 12,
+    "manual": 1,
+    "mixed": 0
+  }
+}

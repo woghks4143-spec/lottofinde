@@ -14,7 +14,7 @@
  * 라우팅: `/round/1223` → useLocalSearchParams<{round: string}>()
  */
 import React, { useEffect, useMemo, useState } from 'react';
-import { ActivityIndicator, Modal, Platform, Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
+import { ActivityIndicator, Linking, Modal, Platform, Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeBack } from '@/src/lib/navigation';
@@ -32,7 +32,7 @@ import {
   intersect, lastThreeSum, multiplesOf, neighborsOf, oddEven, oddEvenLabel,
   perfectSquaresIn, primesIn, stdDev, tailDigitDupes, tailSum, tensSum, total,
 } from '@/src/data/lotto';
-import type { Draw, WinningStore } from '@/src/data/lotto';
+import type { Draw } from '@/src/data/lotto';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
 
@@ -52,15 +52,14 @@ export default function RoundDetail() {
   const enrichState = useHistory((s) => s.enrichState[round]);
   const enrichRound = useHistory((s) => s.enrichRound);
 
-  // 회차 진입 시 등위/판매점 정보가 없으면 백그라운드로 페치 (네이티브만).
+  // 회차 진입 시 방법별 개수 정보가 없으면 백그라운드로 페치 (네이티브만).
   // failed 상태에서도 재시도 — 사용자가 페이지 들어왔다 나갔다 하면 자동 재시도.
   useEffect(() => {
     if (!draw) return;
     if (Platform.OS === 'web') return;
-    const hasFull = !!draw.prizes && !!draw.topStores && draw.topStores.length > 0;
-    if (hasFull) return;
+    if (draw.methodCounts) return; // 이미 있음
     enrichRound(round).catch(() => {});
-  }, [round, draw?.prizes, draw?.topStores, enrichRound]);
+  }, [round, draw?.methodCounts, enrichRound]);
 
   // 사용자가 직접 새로고침 — 추첨 직후 등위/판매점이 늦게 올라온 경우 수동 갱신용.
   const handleRefresh = () => {
@@ -229,11 +228,8 @@ export default function RoundDetail() {
           ) : null}
         </View>
 
-        {/* ───── 등위별 당첨 정보 (1~5등) ───── */}
-        <PrizeBreakdownCard draw={draw} loading={enrichState === 'loading'} failed={enrichState === 'failed'} />
-
-        {/* ───── 1·2등 당첨 판매점 ───── */}
-        <TopStoresCard draw={draw} loading={enrichState === 'loading'} failed={enrichState === 'failed'} />
+        {/* ───── 1등 정보 카드 (당첨금 + 당첨자 수 + 방법별 개수) ───── */}
+        <FirstPrizeCard draw={draw} loading={enrichState === 'loading'} />
 
         {/* ───── 당첨 번호 요약 ───── */}
         <Card padding={16}>
@@ -544,177 +540,111 @@ export default function RoundDetail() {
 
 // ─── Subcomponents ───────────────────────────────────────────────────────────
 
-/** 등위별 당첨 정보 카드 (1~5등 표). */
-function PrizeBreakdownCard({ draw, loading, failed }: { draw: Draw; loading: boolean; failed: boolean }) {
+/**
+ * 1등 정보 카드 — 당첨금 + 당첨자 수 + 방법별 개수 (자동/수동/반자동).
+ * 자세한 2~5등 정보 / 판매점 명단은 동행복권 공식 사이트에서 확인.
+ */
+function FirstPrizeCard({ draw, loading }: { draw: Draw; loading: boolean }) {
   const t = useTheme();
-  const p = draw.prizes;
-  // 시드 데이터(첫 1등 정보만)도 표시할 수 있도록 폴백
-  const rows: Array<{ label: string; key: keyof NonNullable<Draw['prizes']> | 'firstFromSeed'; amount?: number; winners?: number; tone: string }> = [
-    {
-      label: '1등',
-      key: 'first',
-      amount: p?.first?.amount ?? draw.firstWinAmount,
-      winners: p?.first?.winners ?? draw.firstWinners,
-      tone: palette.blue700,
-    },
-    { label: '2등', key: 'second', amount: p?.second?.amount, winners: p?.second?.winners, tone: palette.green700 },
-    { label: '3등', key: 'third',  amount: p?.third?.amount,  winners: p?.third?.winners,  tone: palette.purple500 },
-    { label: '4등', key: 'fourth', amount: p?.fourth?.amount, winners: p?.fourth?.winners, tone: t.fgSecondary },
-    { label: '5등', key: 'fifth',  amount: p?.fifth?.amount,  winners: p?.fifth?.winners,  tone: t.fgTertiary },
-  ];
-  const hasAnySecondPlus = !!(p?.second || p?.third || p?.fourth || p?.fifth);
+  const amount = draw.firstWinAmount;
+  const winners = draw.firstWinners;
+  const counts = draw.methodCounts;
+
+  // 동행복권 공식 결과 페이지 (모바일)
+  const dhUrl = `https://m.dhlottery.co.kr/gameResult.do?method=byWin&drwNo=${draw.round}`;
+
+  const handleOpenDh = () => {
+    Linking.openURL(dhUrl).catch(() => {});
+  };
 
   return (
     <Card padding={16}>
       <View style={styles.cardHeadRow}>
         <View style={{ flex: 1 }}>
           <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
-            등위별 당첨 정보
+            1등 당첨 정보
           </T>
           <T variant="caption1" color="tertiary" style={{ marginTop: 2 }}>
-            1게임당 당첨금 × 당첨 게임 수
+            당첨금 · 당첨자 수 · 구매 방법
           </T>
         </View>
         {loading && <ActivityIndicator size="small" color={palette.blue500} />}
       </View>
 
-      {!hasAnySecondPlus && !loading && !failed && Platform.OS === 'web' && (
-        <View style={[styles.noticeBox, { backgroundColor: palette.softFill }]}>
-          <T variant="caption1" color="tertiary" style={{ lineHeight: 17 }}>
-            웹 미리보기에서는 1등 정보만 표시됩니다. 모바일 앱에서는 2~5등과 판매점 정보까지 자동으로 가져와요.
+      {/* 1등 당첨금 — 큰 텍스트 */}
+      <View style={[styles.firstAmountBox, { backgroundColor: palette.softFill, marginTop: 14 }]}>
+        <T variant="caption1" style={{ color: palette.blue700, fontWeight: '800', fontSize: 11 }} allowFontScaling={false}>
+          1등 1게임당 당첨금
+        </T>
+        {amount && amount > 0 ? (
+          <T variant="display2" color="primary" style={{ fontWeight: '900', marginTop: 4 }} allowFontScaling={false}>
+            {formatWon(amount)}
           </T>
-        </View>
-      )}
-      {failed && (
-        <View style={[styles.noticeBox, { backgroundColor: 'rgba(255,66,66,0.08)' }]}>
-          <T variant="caption1" style={{ color: palette.red500, lineHeight: 17 }}>
-            동행복권에서 정보를 가져오지 못했어요. 잠시 후 다시 시도됩니다.
+        ) : (
+          <T variant="label1r" color="tertiary" style={{ fontStyle: 'italic', marginTop: 6 }}>
+            {loading ? '가져오는 중…' : '정보 없음'}
           </T>
-        </View>
-      )}
+        )}
+        {winners != null && winners > 0 ? (
+          <T variant="caption1" color="secondary" style={{ marginTop: 4 }} allowFontScaling={false}>
+            {winners.toLocaleString('ko')}명 당첨
+          </T>
+        ) : null}
+      </View>
 
-      <View style={{ marginTop: 12 }}>
-        {rows.map((r, i) => (
-          <View
-            key={r.label}
-            style={[
-              styles.prizeRow,
-              i < rows.length - 1 && { borderBottomWidth: 1, borderBottomColor: t.borderDivider },
-            ]}
-          >
-            <View style={[styles.prizeBadge, { backgroundColor: palette.softFill }]}>
-              <T variant="label1n" style={{ color: r.tone, fontWeight: '800', fontSize: 13 }} allowFontScaling={false}>
-                {r.label}
-              </T>
-            </View>
-            <View style={{ flex: 1 }}>
-              {r.amount && r.amount > 0 ? (
-                <T variant="label1n" color="primary" style={{ fontWeight: '800' }} allowFontScaling={false}>
-                  {formatWon(r.amount)}
-                </T>
-              ) : (
-                <T variant="label1r" color="tertiary" style={{ fontStyle: 'italic' }}>
-                  {loading ? '가져오는 중…' : '—'}
-                </T>
-              )}
-              {r.winners != null && r.winners >= 0 ? (
-                <T variant="caption1" color="tertiary" style={{ marginTop: 2 }} allowFontScaling={false}>
-                  {r.winners.toLocaleString('ko')}명 당첨
-                </T>
-              ) : null}
-            </View>
+      {/* 방법별 개수 (자동/수동/반자동) */}
+      <View style={{ marginTop: 14 }}>
+        <T variant="caption1" color="tertiary" style={{ fontWeight: '600', marginBottom: 8 }}>
+          구매 방법별 당첨 개수
+        </T>
+        {counts ? (
+          <View style={styles.methodRow}>
+            <MethodCountBox label="자동" count={counts.auto} fg={palette.blue700} bg="rgba(0,102,255,0.10)" />
+            <MethodCountBox label="수동" count={counts.manual} fg={palette.purple500} bg="rgba(101,65,242,0.10)" />
+            <MethodCountBox label="반자동" count={counts.mixed} fg={palette.green700} bg="rgba(0,191,64,0.10)" />
           </View>
-        ))}
-      </View>
-    </Card>
-  );
-}
-
-/** 1·2등 당첨 판매점 카드. */
-function TopStoresCard({ draw, loading, failed }: { draw: Draw; loading: boolean; failed: boolean }) {
-  const t = useTheme();
-  const stores = draw.topStores ?? [];
-  const firsts = stores.filter((s) => s.rank === 1);
-  const seconds = stores.filter((s) => s.rank === 2);
-
-  return (
-    <Card padding={16}>
-      <View style={styles.cardHeadRow}>
-        <View style={{ flex: 1 }}>
-          <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
-            당첨 판매점
-          </T>
-          <T variant="caption1" color="tertiary" style={{ marginTop: 2 }}>
-            1·2등 배출점 (자동/수동/반자동 표시)
-          </T>
-        </View>
-        {loading && <ActivityIndicator size="small" color={palette.blue500} />}
-      </View>
-
-      {stores.length === 0 ? (
-        <View style={[styles.noticeBox, { backgroundColor: palette.softFill, marginTop: 12 }]}>
-          <T variant="caption1" color="tertiary" style={{ lineHeight: 18 }}>
-            {Platform.OS === 'web'
-              ? '웹 미리보기에서는 판매점 정보를 가져올 수 없어요. 모바일 앱에서 확인해 주세요.'
-              : loading
-                ? '동행복권에서 판매점 정보를 가져오는 중…'
-                : failed
-                  ? '판매점 정보를 가져오지 못했어요.'
-                  : '판매점 정보가 아직 없어요.'}
-          </T>
-        </View>
-      ) : (
-        <View style={{ marginTop: 12, gap: 14 }}>
-          {firsts.length > 0 && <StoreSection rank={1} stores={firsts} />}
-          {seconds.length > 0 && <StoreSection rank={2} stores={seconds} />}
-        </View>
-      )}
-    </Card>
-  );
-}
-
-function StoreSection({ rank, stores }: { rank: 1 | 2; stores: WinningStore[] }) {
-  const t = useTheme();
-  return (
-    <View>
-      <View style={styles.storeHead}>
-        <View style={[styles.storeRankPill, { backgroundColor: rank === 1 ? 'rgba(0,102,255,0.12)' : 'rgba(0,191,64,0.12)' }]}>
-          <T variant="caption1" style={{ color: rank === 1 ? palette.blue700 : palette.green700, fontWeight: '800', fontSize: 11 }} allowFontScaling={false}>
-            {rank}등
-          </T>
-        </View>
-        <T variant="caption1" color="tertiary">{stores.length}곳 배출</T>
-      </View>
-      <View style={{ gap: 8, marginTop: 8 }}>
-        {stores.map((s, i) => (
-          <View key={i} style={[styles.storeItem, { borderColor: t.borderDivider }]}>
-            <View style={styles.storeNameRow}>
-              <T variant="label1n" color="primary" style={{ fontWeight: '700', flex: 1 }} numberOfLines={1}>
-                {s.name}
-              </T>
-              {s.method !== 'unknown' && <MethodChip method={s.method} />}
-            </View>
-            <T variant="caption1" color="tertiary" style={{ marginTop: 4, lineHeight: 17 }} numberOfLines={2}>
-              {s.address || '주소 미상'}
+        ) : (
+          <View style={[styles.noticeBox, { backgroundColor: palette.softFill }]}>
+            <T variant="caption1" color="tertiary" style={{ lineHeight: 17 }}>
+              {loading ? '구매 방법별 정보를 가져오는 중…' : '구매 방법 정보가 아직 없어요. 새로고침해 보세요.'}
             </T>
           </View>
-        ))}
+        )}
       </View>
-    </View>
+
+      {/* 동행복권에서 자세히 보기 */}
+      <Pressable
+        onPress={handleOpenDh}
+        style={({ pressed }) => [
+          styles.dhLinkBtn,
+          { borderColor: t.borderWeak, opacity: pressed ? 0.7 : 1 },
+        ]}
+      >
+        <View style={{ flex: 1 }}>
+          <T variant="label1n" color="primary" style={{ fontWeight: '700' }} allowFontScaling={false}>
+            동행복권에서 자세히 보기
+          </T>
+          <T variant="caption1" color="tertiary" style={{ marginTop: 2 }}>
+            2~5등 당첨금 · 1·2등 판매점 위치
+          </T>
+        </View>
+        <Icon.chev size={18} color={t.fgTertiary} />
+      </Pressable>
+    </Card>
   );
 }
 
-function MethodChip({ method }: { method: WinningStore['method'] }) {
-  const config = {
-    auto:    { label: '자동', fg: palette.blue700,    bg: 'rgba(0,102,255,0.12)' },
-    manual:  { label: '수동', fg: palette.purple500,  bg: 'rgba(101,65,242,0.12)' },
-    mixed:   { label: '반자동', fg: palette.green700, bg: 'rgba(0,191,64,0.12)' },
-    unknown: { label: '미상', fg: '#888',             bg: 'rgba(112,115,124,0.10)' },
-  }[method];
+function MethodCountBox({ label, count, fg, bg }: { label: string; count: number; fg: string; bg: string }) {
   return (
-    <View style={[styles.methodChip, { backgroundColor: config.bg }]}>
-      <T variant="caption2" style={{ color: config.fg, fontWeight: '800', fontSize: 10 }} allowFontScaling={false}>
-        {config.label}
+    <View style={[styles.methodCountBox, { backgroundColor: bg }]}>
+      <T variant="caption1" style={{ color: fg, fontWeight: '700', fontSize: 12 }} allowFontScaling={false}>
+        {label}
+      </T>
+      <T variant="label1n" style={{ color: fg, fontWeight: '900', marginTop: 4, fontSize: 22 }} allowFontScaling={false}>
+        {count}
+      </T>
+      <T variant="caption2" style={{ color: fg, fontSize: 10, opacity: 0.7 }} allowFontScaling={false}>
+        명
       </T>
     </View>
   );
@@ -971,47 +901,31 @@ const styles = StyleSheet.create({
     borderRadius: radius.md,
   },
 
-  // ── 등위별 당첨 정보
-  prizeRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 12,
-    gap: 14,
-  },
-  prizeBadge: {
-    width: 40,
-    height: 40,
+  // ── 1등 정보 카드
+  firstAmountBox: {
+    padding: 14,
     borderRadius: radius.md,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
   },
-
-  // ── 당첨 판매점
-  storeHead: {
+  methodRow: {
     flexDirection: 'row',
-    alignItems: 'center',
     gap: 8,
   },
-  storeRankPill: {
-    paddingHorizontal: 10,
-    paddingVertical: 3,
-    borderRadius: radius.pill,
+  methodCountBox: {
+    flex: 1,
+    paddingVertical: 14,
+    borderRadius: radius.md,
+    alignItems: 'center',
   },
-  storeItem: {
-    paddingVertical: 10,
-    paddingHorizontal: 12,
+  dhLinkBtn: {
+    marginTop: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
     borderRadius: radius.md,
     borderWidth: 1,
-  },
-  storeNameRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  methodChip: {
-    paddingHorizontal: 7,
-    paddingVertical: 3,
-    borderRadius: radius.pill,
   },
 
   // ── 요약 그리드: 4 columns × 2 rows
