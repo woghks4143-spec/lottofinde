@@ -474,18 +474,21 @@ export default function Simulator() {
               label="총합"
               min={21} max={255}
               value={[rule.sumMin, rule.sumMax]}
+              editable
               onChange={([lo, hi]) => set({ sumMin: lo, sumMax: hi })}
             />
             <RangeRow
               label="끝수합"
               min={6} max={45}
               value={[rule.tailSumMin, rule.tailSumMax]}
+              editable
               onChange={([lo, hi]) => set({ tailSumMin: lo, tailSumMax: hi })}
             />
             <RangeRow
               label="AC값"
               min={0} max={10}
               value={[rule.acMin, rule.acMax]}
+              editable
               onChange={([lo, hi]) => set({ acMin: lo, acMax: hi })}
             />
           </Card>

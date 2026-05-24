@@ -16,5 +16,573 @@
     1183,
     1194
   ],
-  "computedAt": 1779611899958
+  "roundsWithRank3": [
+    {
+      "round": 1174,
+      "count": 4
+    },
+    {
+      "round": 1177,
+      "count": 3
+    },
+    {
+      "round": 1178,
+      "count": 4
+    },
+    {
+      "round": 1179,
+      "count": 1
+    },
+    {
+      "round": 1180,
+      "count": 3
+    },
+    {
+      "round": 1182,
+      "count": 4
+    },
+    {
+      "round": 1183,
+      "count": 3
+    },
+    {
+      "round": 1184,
+      "count": 2
+    },
+    {
+      "round": 1190,
+      "count": 4
+    },
+    {
+      "round": 1191,
+      "count": 1
+    },
+    {
+      "round": 1192,
+      "count": 4
+    },
+    {
+      "round": 1194,
+      "count": 16
+    },
+    {
+      "round": 1195,
+      "count": 1
+    },
+    {
+      "round": 1196,
+      "count": 1
+    },
+    {
+      "round": 1197,
+      "count": 2
+    },
+    {
+      "round": 1198,
+      "count": 1
+    },
+    {
+      "round": 1199,
+      "count": 1
+    },
+    {
+      "round": 1201,
+      "count": 5
+    },
+    {
+      "round": 1202,
+      "count": 13
+    },
+    {
+      "round": 1205,
+      "count": 3
+    },
+    {
+      "round": 1206,
+      "count": 6
+    },
+    {
+      "round": 1207,
+      "count": 6
+    },
+    {
+      "round": 1209,
+      "count": 2
+    },
+    {
+      "round": 1210,
+      "count": 1
+    },
+    {
+      "round": 1211,
+      "count": 4
+    },
+    {
+      "round": 1213,
+      "count": 2
+    },
+    {
+      "round": 1214,
+      "count": 3
+    },
+    {
+      "round": 1215,
+      "count": 4
+    },
+    {
+      "round": 1216,
+      "count": 5
+    },
+    {
+      "round": 1217,
+      "count": 7
+    },
+    {
+      "round": 1218,
+      "count": 2
+    },
+    {
+      "round": 1219,
+      "count": 6
+    },
+    {
+      "round": 1220,
+      "count": 5
+    },
+    {
+      "round": 1221,
+      "count": 2
+    },
+    {
+      "round": 1222,
+      "count": 2
+    },
+    {
+      "round": 1223,
+      "count": 5
+    },
+    {
+      "round": 1224,
+      "count": 3
+    }
+  ],
+  "roundDetails": [
+    {
+      "round": 1174,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 4,
+      "rank4": 131,
+      "rank5": 1850
+    },
+    {
+      "round": 1175,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 0,
+      "rank4": 46,
+      "rank5": 872
+    },
+    {
+      "round": 1176,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 0,
+      "rank4": 38,
+      "rank5": 1127
+    },
+    {
+      "round": 1177,
+      "rank1": 1,
+      "rank2": 0,
+      "rank3": 3,
+      "rank4": 153,
+      "rank5": 2782
+    },
+    {
+      "round": 1178,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 4,
+      "rank4": 145,
+      "rank5": 2106
+    },
+    {
+      "round": 1179,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 1,
+      "rank4": 40,
+      "rank5": 1006
+    },
+    {
+      "round": 1180,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 3,
+      "rank4": 139,
+      "rank5": 2128
+    },
+    {
+      "round": 1181,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 0,
+      "rank4": 42,
+      "rank5": 972
+    },
+    {
+      "round": 1182,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 4,
+      "rank4": 192,
+      "rank5": 2917
+    },
+    {
+      "round": 1183,
+      "rank1": 0,
+      "rank2": 1,
+      "rank3": 3,
+      "rank4": 153,
+      "rank5": 2048
+    },
+    {
+      "round": 1184,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 2,
+      "rank4": 140,
+      "rank5": 1888
+    },
+    {
+      "round": 1185,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 0,
+      "rank4": 47,
+      "rank5": 1043
+    },
+    {
+      "round": 1186,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 0,
+      "rank4": 32,
+      "rank5": 855
+    },
+    {
+      "round": 1187,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 0,
+      "rank4": 167,
+      "rank5": 2251
+    },
+    {
+      "round": 1188,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 0,
+      "rank4": 143,
+      "rank5": 2551
+    },
+    {
+      "round": 1189,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 0,
+      "rank4": 60,
+      "rank5": 1977
+    },
+    {
+      "round": 1190,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 4,
+      "rank4": 122,
+      "rank5": 2332
+    },
+    {
+      "round": 1191,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 1,
+      "rank4": 70,
+      "rank5": 1599
+    },
+    {
+      "round": 1192,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 4,
+      "rank4": 129,
+      "rank5": 2041
+    },
+    {
+      "round": 1193,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 0,
+      "rank4": 83,
+      "rank5": 2110
+    },
+    {
+      "round": 1194,
+      "rank1": 0,
+      "rank2": 1,
+      "rank3": 16,
+      "rank4": 789,
+      "rank5": 6011
+    },
+    {
+      "round": 1195,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 1,
+      "rank4": 54,
+      "rank5": 1552
+    },
+    {
+      "round": 1196,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 1,
+      "rank4": 55,
+      "rank5": 1387
+    },
+    {
+      "round": 1197,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 2,
+      "rank4": 56,
+      "rank5": 1146
+    },
+    {
+      "round": 1198,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 1,
+      "rank4": 54,
+      "rank5": 1590
+    },
+    {
+      "round": 1199,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 1,
+      "rank4": 168,
+      "rank5": 2723
+    },
+    {
+      "round": 1200,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 0,
+      "rank4": 14,
+      "rank5": 649
+    },
+    {
+      "round": 1201,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 5,
+      "rank4": 139,
+      "rank5": 2112
+    },
+    {
+      "round": 1202,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 13,
+      "rank4": 476,
+      "rank5": 4413
+    },
+    {
+      "round": 1203,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 0,
+      "rank4": 11,
+      "rank5": 787
+    },
+    {
+      "round": 1204,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 0,
+      "rank4": 10,
+      "rank5": 457
+    },
+    {
+      "round": 1205,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 3,
+      "rank4": 136,
+      "rank5": 1979
+    },
+    {
+      "round": 1206,
+      "rank1": 1,
+      "rank2": 0,
+      "rank3": 6,
+      "rank4": 110,
+      "rank5": 2149
+    },
+    {
+      "round": 1207,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 6,
+      "rank4": 139,
+      "rank5": 2265
+    },
+    {
+      "round": 1208,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 0,
+      "rank4": 0,
+      "rank5": 430
+    },
+    {
+      "round": 1209,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 2,
+      "rank4": 38,
+      "rank5": 1124
+    },
+    {
+      "round": 1210,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 1,
+      "rank4": 176,
+      "rank5": 2946
+    },
+    {
+      "round": 1211,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 4,
+      "rank4": 141,
+      "rank5": 2411
+    },
+    {
+      "round": 1212,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 0,
+      "rank4": 39,
+      "rank5": 1130
+    },
+    {
+      "round": 1213,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 2,
+      "rank4": 48,
+      "rank5": 1514
+    },
+    {
+      "round": 1214,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 3,
+      "rank4": 149,
+      "rank5": 2574
+    },
+    {
+      "round": 1215,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 4,
+      "rank4": 129,
+      "rank5": 1865
+    },
+    {
+      "round": 1216,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 5,
+      "rank4": 185,
+      "rank5": 3259
+    },
+    {
+      "round": 1217,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 7,
+      "rank4": 142,
+      "rank5": 2151
+    },
+    {
+      "round": 1218,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 2,
+      "rank4": 134,
+      "rank5": 1985
+    },
+    {
+      "round": 1219,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 6,
+      "rank4": 147,
+      "rank5": 1925
+    },
+    {
+      "round": 1220,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 5,
+      "rank4": 139,
+      "rank5": 1886
+    },
+    {
+      "round": 1221,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 2,
+      "rank4": 151,
+      "rank5": 2401
+    },
+    {
+      "round": 1222,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 2,
+      "rank4": 136,
+      "rank5": 1883
+    },
+    {
+      "round": 1223,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 5,
+      "rank4": 120,
+      "rank5": 1840
+    },
+    {
+      "round": 1224,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 3,
+      "rank4": 139,
+      "rank5": 2277
+    },
+    {
+      "round": 1225,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 0,
+      "rank4": 7,
+      "rank5": 451
+    }
+  ],
+  "computedAt": 1779613289134
 }

@@ -11,7 +11,9 @@
 import React, { useRef, useState } from 'react';
 import {
   PanResponder,
+  Pressable,
   StyleSheet,
+  TextInput,
   View,
   type GestureResponderEvent,
   type LayoutChangeEvent,
@@ -37,6 +39,7 @@ export function RangeRow({
   hideHeader,
   hideMinMax,
   singleThumb,
+  editable,
 }: {
   label: string;
   unit?: string;
@@ -52,6 +55,8 @@ export function RangeRow({
   hideMinMax?: boolean;
   /** Treat as single-value slider: only the `hi` thumb drags. */
   singleThumb?: boolean;
+  /** 헤더의 값 텍스트(예: "122 ~ 191")를 누르면 TextInput으로 변신해 정밀 입력. */
+  editable?: boolean;
 }) {
   const t = useTheme();
   const [w, setW] = useState(0);
@@ -119,14 +124,73 @@ export function RangeRow({
   const loX = w * toRatio(lo);
   const hiX = w * toRatio(hi);
 
+  // 직접 입력 모드 — editable=true일 때만 활성화.
+  const [editing, setEditing] = useState(false);
+  const [loInput, setLoInput] = useState('');
+  const [hiInput, setHiInput] = useState('');
+  const clamp = (v: number) => Math.max(min, Math.min(max, Math.round(v / step) * step));
+  const commit = () => {
+    const lN = Number(loInput);
+    const hN = Number(hiInput);
+    let nextLo = Number.isFinite(lN) ? clamp(lN) : lo;
+    let nextHi = Number.isFinite(hN) ? clamp(hN) : hi;
+    if (nextLo > nextHi) [nextLo, nextHi] = [nextHi, nextLo];
+    onChange([nextLo, nextHi]);
+    setEditing(false);
+  };
+  const openEditor = () => {
+    setLoInput(String(lo));
+    setHiInput(String(hi));
+    setEditing(true);
+  };
+
   return (
     <View style={[styles.row, style]}>
       {!hideHeader && (
         <View style={styles.header}>
           <T variant="label1n" color="primary">{label}</T>
-          <T variant="label1n" style={{ color: palette.blue700, fontWeight: '700' }} allowFontScaling={false}>
-            {singleThumb ? hi : `${lo} ~ ${hi}`}{unit ? ` ${unit}` : ''}
-          </T>
+          {editable && editing ? (
+            <View style={styles.editorWrap}>
+              {!singleThumb && (
+                <>
+                  <TextInput
+                    value={loInput}
+                    onChangeText={setLoInput}
+                    keyboardType="number-pad"
+                    autoFocus
+                    onSubmitEditing={commit}
+                    onBlur={commit}
+                    style={[styles.editorInput, { color: palette.blue700, borderColor: t.borderDivider, backgroundColor: t.bgSurface }]}
+                    selectTextOnFocus
+                    maxLength={4}
+                  />
+                  <T variant="label1n" allowFontScaling={false} style={{ color: t.fgTertiary, marginHorizontal: 4 }}>~</T>
+                </>
+              )}
+              <TextInput
+                value={hiInput}
+                onChangeText={setHiInput}
+                keyboardType="number-pad"
+                autoFocus={!!singleThumb}
+                onSubmitEditing={commit}
+                onBlur={commit}
+                style={[styles.editorInput, { color: palette.blue700, borderColor: t.borderDivider, backgroundColor: t.bgSurface }]}
+                selectTextOnFocus
+                maxLength={4}
+              />
+              {unit && <T variant="caption1" style={{ color: t.fgTertiary, marginLeft: 4 }}>{unit}</T>}
+            </View>
+          ) : editable ? (
+            <Pressable onPress={openEditor} hitSlop={8} style={({ pressed }) => ({ opacity: pressed ? 0.6 : 1 })}>
+              <T variant="label1n" style={{ color: palette.blue700, fontWeight: '700', textDecorationLine: 'underline', textDecorationStyle: 'dotted' }} allowFontScaling={false}>
+                {singleThumb ? hi : `${lo} ~ ${hi}`}{unit ? ` ${unit}` : ''}
+              </T>
+            </Pressable>
+          ) : (
+            <T variant="label1n" style={{ color: palette.blue700, fontWeight: '700' }} allowFontScaling={false}>
+              {singleThumb ? hi : `${lo} ~ ${hi}`}{unit ? ` ${unit}` : ''}
+            </T>
+          )}
         </View>
       )}
       <View style={styles.trackArea} onLayout={onLayout} {...responder.panHandlers}>
@@ -204,5 +268,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: -4,
+  },
+  editorWrap: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  editorInput: {
+    minWidth: 56,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderWidth: 1,
+    borderRadius: radius.sm,
+    fontSize: 14,
+    fontWeight: '700',
+    textAlign: 'center',
   },
 });

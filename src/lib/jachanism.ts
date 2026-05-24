@@ -190,10 +190,29 @@ export type WeeklyPool = {
 };
 
 /**
+ * 회차별 셔플된 풀 캐시 — 같은 라운드 fetch 시 재계산 X.
+ * (HMR/리프레시 시에는 모듈 캐시도 날아가 다시 셔플하지만 결과는 동일 — 시드 고정.)
+ */
+const shuffledPoolCache: Record<number, WeeklyPool> = {};
+
+/**
  * 회차의 주간 풀을 GitHub에서 가져온다.
- * 네트워크 실패/파일 없음 시 null 반환 → 호출 측이 로컬 폴백 사용.
+ *
+ * ⭐ 중요: GitHub raw `pool_<round>.json`은 알고리즘 점수 순으로 정렬되어 있어
+ *     슬롯 [0,49]를 받는 사용자나 [50,99]를 받는 사용자나 비슷한 톤의 조합을
+ *     받게 된다. 이를 막기 위해 fetch 직후 **round 시드로 deterministic
+ *     Fisher-Yates 셔플**을 적용한다.
+ *
+ *     - 모든 클라이언트가 같은 시드(`shuffle_<round>`)를 쓰므로 결과 순서가 동일
+ *     - 따라서 unique 슬롯 분배(`allocateSlots`의 from/to)는 그대로 유지
+ *     - 사용자가 받는 50개는 풀 전역에서 흩어진 다양한 조합
+ *
+ *     동일 round 재호출은 모듈 캐시에서 즉시 반환(셔플 1회만).
+ *     네트워크 실패/파일 없음 시 null 반환 → 호출 측이 로컬 폴백 사용.
  */
 export async function fetchWeeklyPool(round: number): Promise<WeeklyPool | null> {
+  if (shuffledPoolCache[round]) return shuffledPoolCache[round];
+
   const url = `${GITHUB_RAW_BASE}/pool_${round}.json`;
   try {
     const ctrl = new AbortController();
@@ -203,7 +222,19 @@ export async function fetchWeeklyPool(round: number): Promise<WeeklyPool | null>
     if (!res.ok) return null;
     const json = (await res.json()) as WeeklyPool;
     if (!json?.combos || !Array.isArray(json.combos) || json.combos.length === 0) return null;
-    return json;
+
+    // Deterministic Fisher-Yates shuffle — round 시드 고정
+    const seed = hashString(`shuffle_${round}`);
+    const rng = mulberry32(seed);
+    const shuffled = [...json.combos];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(rng() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    const result: WeeklyPool = { ...json, combos: shuffled };
+    shuffledPoolCache[round] = result;
+    return result;
   } catch {
     return null;
   }

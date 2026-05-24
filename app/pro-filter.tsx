@@ -20,6 +20,7 @@ import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
 import { BallRow } from '@/src/components/BallRow';
 import { Card } from '@/src/components/Card';
+import { CombinationCard } from '@/src/components/CombinationCard';
 import { Disclaimer } from '@/src/components/Disclaimer';
 import { Icon } from '@/src/components/Icons';
 import { RangeRow } from '@/src/components/RangeRow';
@@ -369,6 +370,9 @@ export default function ProFilter() {
     const p = presets.find((x) => x.id === id);
     if (p) { setFilter(p.filter); setResults([]); }
   };
+  const deletePreset = (id: string) => {
+    setPresets((p) => p.filter((x) => x.id !== id));
+  };
   const saveResult = (i: number) => {
     const nums = results[i];
     if (!nums) return;
@@ -461,6 +465,60 @@ export default function ProFilter() {
           <Icon.chev color="rgba(255,255,255,0.9)" size={16} weight={2.2} />
         </Pressable>
 
+        {/* 💾 저장된 프리셋 — 평균치 카드 바로 아래 노출해서 발견성↑ */}
+        {presets.length > 0 && (
+          <Card padding={14}>
+            <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 6 }}>
+              <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
+                💾 내 프리셋 {presets.length}개
+              </T>
+              <T variant="caption1" color="tertiary" allowFontScaling={false} style={{ fontSize: 11 }}>
+                탭하면 불러오기
+              </T>
+            </View>
+            <View style={{ gap: 6, marginTop: 8 }}>
+              {presets.map((p) => (
+                <View
+                  key={p.id}
+                  style={[styles.presetRow, { backgroundColor: t.bgSurface2, borderColor: t.borderDivider }]}
+                >
+                  <T allowFontScaling={false} style={{ fontSize: 14 }}>💾</T>
+                  <Pressable
+                    onPress={() => loadPreset(p.id)}
+                    style={({ pressed }) => ({ flex: 1, marginLeft: 8, opacity: pressed ? 0.6 : 1 })}
+                    hitSlop={4}
+                  >
+                    <T variant="label1n" color="primary" style={{ fontWeight: '700' }} numberOfLines={1}>
+                      {p.name}
+                    </T>
+                  </Pressable>
+                  <Pressable
+                    onPress={() => loadPreset(p.id)}
+                    hitSlop={6}
+                    style={({ pressed }) => ({
+                      paddingHorizontal: 10, paddingVertical: 5,
+                      borderRadius: radius.pill,
+                      backgroundColor: GOLD,
+                      opacity: pressed ? 0.85 : 1,
+                    })}
+                  >
+                    <T variant="caption1" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 11 }}>
+                      불러오기
+                    </T>
+                  </Pressable>
+                  <Pressable
+                    onPress={() => deletePreset(p.id)}
+                    hitSlop={6}
+                    style={({ pressed }) => ({ marginLeft: 6, padding: 4, opacity: pressed ? 0.5 : 1 })}
+                  >
+                    <T allowFontScaling={false} style={{ fontSize: 14, color: palette.red500 }}>🗑</T>
+                  </Pressable>
+                </View>
+              ))}
+            </View>
+          </Card>
+        )}
+
         {/* 5개 그룹 아코디언 */}
         {GROUPS.map((g) => (
           <Card key={g.id} padding={0}>
@@ -548,72 +606,21 @@ export default function ProFilter() {
                 </Pressable>
               </View>
 
-              {/* 조합 행 — 단일 Card 내부에서 recRow Views로 구분 */}
-              <View style={{ marginTop: 12, gap: 8 }}>
+              {/* 조합 카드 — CombinationCard로 일관 UX (저장 버튼·자세히 보기 포함) */}
+              <View style={{ marginTop: 12, gap: 10 }}>
                 {results.map((nums, i) => (
-                  <View
+                  <CombinationCard
                     key={i}
-                    style={[
-                      styles.recRow,
-                      { backgroundColor: t.bgSurface2, borderColor: t.borderDivider },
-                    ]}
-                  >
-                    <View style={styles.labelBox}>
-                      <T variant="caption2" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 11 }}>
-                        #{i + 1}
-                      </T>
-                    </View>
-                    <View style={{ flex: 1 }}>
-                      <BallRow nums={nums} size="sm" hits={filter.fixed} />
-                      <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ marginTop: 4, fontSize: 10 }}>
-                        합 {total(nums)} · 끝수 {tailSum(nums)} · AC {ac(nums)} · {oddEvenLabel(nums)} · 연속 {longestConsecutive(nums)}
-                      </T>
-                    </View>
-                    <Pressable
-                      onPress={() => saveResult(i)}
-                      disabled={savedSet[i]}
-                      style={({ pressed }) => [
-                        styles.saveDot,
-                        { backgroundColor: savedSet[i] ? palette.green500 : 'rgba(232,176,78,0.18)', opacity: pressed ? 0.85 : 1 },
-                      ]}
-                    >
-                      {savedSet[i]
-                        ? <Icon.check color="#fff" size={12} weight={3} />
-                        : <Icon.plus color={GOLD_DARK} size={12} weight={2.5} />}
-                    </Pressable>
-                  </View>
+                    nums={nums}
+                    label={`#${i + 1}`}
+                    saved={!!savedSet[i]}
+                    onSave={() => saveResult(i)}
+                  />
                 ))}
               </View>
             </Card>
           );
         })()}
-
-        {/* 프리셋 목록 */}
-        {presets.length > 0 && (
-          <Card padding={14}>
-            <T variant="label1n" color="primary" style={{ fontWeight: '800', marginBottom: 8 }}>
-              💾 저장된 프리셋 {presets.length}개
-            </T>
-            <View style={{ gap: 6 }}>
-              {presets.map((p) => (
-                <Pressable
-                  key={p.id}
-                  onPress={() => loadPreset(p.id)}
-                  style={({ pressed }) => [
-                    styles.presetRow,
-                    { backgroundColor: t.bgSurface2, borderColor: t.borderDivider, opacity: pressed ? 0.85 : 1 },
-                  ]}
-                >
-                  <T allowFontScaling={false} style={{ fontSize: 14 }}>💾</T>
-                  <T variant="label1n" color="primary" style={{ flex: 1, fontWeight: '700', marginLeft: 8 }} numberOfLines={1}>
-                    {p.name}
-                  </T>
-                  <Icon.chev color={GOLD} size={14} />
-                </Pressable>
-              ))}
-            </View>
-          </Card>
-        )}
 
         <Disclaimer />
       </ScrollView>
@@ -752,7 +759,13 @@ function NumGroup({ filter, setFilter, t }: {
   };
   const clearNums = () => setFilter((f) => ({ ...f, pool: [], fixed: [], exclude: [] }));
 
-  const cells = Array.from({ length: 45 }, (_, i) => i + 1);
+  // 일반모드 NumPicker와 동일한 7×7 그리드 (45 + 빈 4칸 = 49)
+  const NUM_COLS = 7;
+  const NUM_GAP = 6;
+  const [gridW, setGridW] = useState(0);
+  const cellSize = gridW > 0
+    ? Math.floor((gridW - (NUM_COLS - 1) * NUM_GAP) / NUM_COLS)
+    : 38;
 
   return (
     <View>
@@ -770,8 +783,20 @@ function NumGroup({ filter, setFilter, t }: {
         </T>
       </View>
 
-      <View style={styles.grid}>
-        {cells.map((n) => {
+      <View
+        style={styles.grid}
+        onLayout={(e) => setGridW(e.nativeEvent.layout.width)}
+      >
+        {Array.from({ length: NUM_COLS * NUM_COLS }, (_, i) => i + 1).map((n) => {
+          // 46~49는 빈 자리 — 시각적 균형을 위한 placeholder
+          if (n > 45) {
+            return (
+              <View
+                key={n}
+                style={[styles.cellEmpty, { width: cellSize, height: cellSize }]}
+              />
+            );
+          }
           const s =
             filter.pool.includes(n) ? 'pool' :
             filter.fixed.includes(n) ? 'fixed' :
@@ -786,6 +811,7 @@ function NumGroup({ filter, setFilter, t }: {
               style={({ pressed }) => [
                 styles.cell,
                 {
+                  width: cellSize, height: cellSize,
                   backgroundColor: bg,
                   borderColor: s ? 'transparent' : t.borderWeak,
                   borderWidth: s ? 0 : 1,
@@ -798,7 +824,8 @@ function NumGroup({ filter, setFilter, t }: {
                 variant="label1n"
                 allowFontScaling={false}
                 style={{
-                  color: fg, fontWeight: '800', fontSize: 14,
+                  color: fg, fontWeight: '800',
+                  fontSize: Math.max(12, Math.min(15, cellSize * 0.36)),
                   textDecorationLine: s === 'exclude' ? 'line-through' : 'none',
                 }}
               >
@@ -839,9 +866,9 @@ function SumGroup({ filter, setFilter, t }: {
 }) {
   return (
     <View style={{ gap: 12 }}>
-      <RangeRow label="합계" min={21} max={255} value={[filter.sumMin, filter.sumMax]}
+      <RangeRow label="합계" min={21} max={255} value={[filter.sumMin, filter.sumMax]} editable
         onChange={([lo, hi]) => setFilter((f) => ({ ...f, sumMin: lo, sumMax: hi }))} />
-      <RangeRow label="끝수합" min={6} max={45} value={[filter.tailMin, filter.tailMax]}
+      <RangeRow label="끝수합" min={6} max={45} value={[filter.tailMin, filter.tailMax]} editable
         onChange={([lo, hi]) => setFilter((f) => ({ ...f, tailMin: lo, tailMax: hi }))} />
       <MultiCheck
         title="홀짝 비율"
@@ -1261,12 +1288,13 @@ function ModeBtn({ label, count, active, color, onPress, t }: {
 }
 
 function Funnel({ label, value, pct, final }: { label: string; value: number; pct: number; final?: boolean }) {
+  const t = useTheme();
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-      <T variant="caption2" allowFontScaling={false} style={{ width: 80, fontSize: 10, fontWeight: '700', color: 'rgba(255,255,255,0.65)' }}>
+      <T variant="caption2" allowFontScaling={false} style={{ width: 80, fontSize: 10.5, fontWeight: '800', color: t.fgOnHeroMuted }}>
         {label}
       </T>
-      <View style={[styles.funnelTrack, { backgroundColor: 'rgba(255,255,255,0.10)' }]}>
+      <View style={[styles.funnelTrack, { backgroundColor: t.borderDivider }]}>
         <View
           style={{
             width: `${Math.max(2, pct * 100)}%`,
@@ -1279,7 +1307,7 @@ function Funnel({ label, value, pct, final }: { label: string; value: number; pc
       <T
         variant="caption2"
         allowFontScaling={false}
-        style={{ minWidth: 80, textAlign: 'right', fontSize: 10, fontWeight: '800', color: final ? '#fff' : 'rgba(255,255,255,0.78)' }}
+        style={{ minWidth: 80, textAlign: 'right', fontSize: 10.5, fontWeight: '900', color: final ? palette.green700 : t.fgOnHero }}
       >
         {value.toLocaleString()}
       </T>
@@ -1668,11 +1696,16 @@ const styles = StyleSheet.create({
 
   hintBox: { marginTop: 10, padding: 10, borderRadius: radius.md, borderWidth: 1 },
 
-  grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 12 },
+  grid: {
+    flexDirection: 'row', flexWrap: 'wrap',
+    gap: 6, marginTop: 12,
+    justifyContent: 'center',
+  },
   cell: {
-    width: 38, height: 38, borderRadius: radius.md,
+    borderRadius: radius.md,
     alignItems: 'center', justifyContent: 'center', position: 'relative',
   },
+  cellEmpty: { backgroundColor: 'transparent', opacity: 0 },
   dot: {
     position: 'absolute', top: 4, right: 4,
     width: 6, height: 6, borderRadius: 3, opacity: 0.7,

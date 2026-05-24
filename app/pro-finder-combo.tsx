@@ -19,14 +19,16 @@ import { useSafeBack } from '@/src/lib/navigation';
 import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
 import { Ball } from '@/src/components/Ball';
+import { BallRow } from '@/src/components/BallRow';
 import { Card } from '@/src/components/Card';
+import { CombinationCard } from '@/src/components/CombinationCard';
 import { Disclaimer } from '@/src/components/Disclaimer';
 import { Icon } from '@/src/components/Icons';
 import { useHistory } from '@/src/data/historyStore';
 import type { Draw } from '@/src/data/lotto';
 import { useSavedNumbers } from '@/src/store/savedNumbers';
 import { useTheme } from '@/src/design/theme';
-import { palette, radius } from '@/src/design/tokens';
+import { ballColor, palette, radius } from '@/src/design/tokens';
 import { computeAllNumberStats } from '@/src/lib/appearanceStats';
 import { computeAllJhFilters } from '@/src/lib/jhFilters';
 import { computeExclusionPicks } from '@/src/lib/exclusionFilter';
@@ -34,6 +36,10 @@ import { predict10, METHOD_META, type MethodId } from '@/src/lib/predict10';
 
 const GOLD = '#e8b04e';
 const GOLD_DARK = '#a37116';
+// 번호 선택 3-mode 색 (조합 필터링과 동일)
+const POOL_COLOR = palette.blue500;
+const FIXED_COLOR = '#7c3aed';
+const EXCLUDE_COLOR = palette.red500;
 
 const COMBO_COUNT_OPTIONS = [5, 10, 20] as const;
 type ComboCount = typeof COMBO_COUNT_OPTIONS[number];
@@ -102,9 +108,20 @@ export default function ProFinderCombo() {
   const [pickerInput, setPickerInput] = useState('');
 
   const [selectedIds, setSelectedIds] = useState<Set<SourceId>>(new Set());
-  const [excludeOn, setExcludeOn] = useState(true);
+  // 제외수는 기본 OFF — 사용자가 명시적으로 선택해야 풀에서 제거됨.
+  const [excludeOn, setExcludeOn] = useState(false);
+
+  // 사용자가 직접 고르는 번호 — 조합 필터링과 동일한 3-mode (예상수/고정수/제외수)
+  // 예상수 비어있으면 1~45 전체가 풀.
+  const [filterPool, setFilterPool] = useState<number[]>([]);
+  const [filterFixed, setFilterFixed] = useState<number[]>([]);
+  const [filterExclude, setFilterExclude] = useState<number[]>([]);
+  const [numberMode, setNumberMode] = useState<'pool' | 'fixed' | 'exclude'>('pool');
   const [comboCount, setComboCount] = useState<ComboCount>(5);
   const [generated, setGenerated] = useState<number[][]>([]);
+  // 한 번이라도 generateCombos를 호출했는지 — 0개여도 결과 카드 표시 여부 판단.
+  const [hasAttempted, setHasAttempted] = useState(false);
+  const [lastError, setLastError] = useState<string | null>(null);
   const [savedSet, setSavedSet] = useState<Record<number, boolean>>({});
   const [toast, setToast] = useState<string | null>(null);
   /** source 별 min/max 필터. 미설정 시 무제한 (min=0, max=6). */
@@ -212,6 +229,17 @@ export default function ProFinderCombo() {
     showToast('전체 범위 적용 완료');
   };
 
+  /** 모든 분석 선택/해제 토글 — 한 번에 모든 source를 켜거나 끔. */
+  const toggleAllSources = () => {
+    if (selectedIds.size === allSourceItems.length) {
+      setSelectedIds(new Set());
+      showToast('모든 분석 선택 해제');
+    } else {
+      setSelectedIds(new Set(allSourceItems.map((it) => it.id)));
+      showToast('모든 분석 선택 완료');
+    }
+  };
+
   /** 개별 source 평균 적용. */
   const applyOneAvg = (item: SourceItem) => {
     const a = item.recent.avg;
@@ -239,74 +267,120 @@ export default function ProFinderCombo() {
     });
   };
 
-  /** 2) 선택된 source들의 합집합 + 가중치. */
+  /**
+   * 2) 풀 계산 — 사용자가 직접 선택한 예상수/고정수/제외수 기반.
+   *
+   *   - 예상수가 있으면: 그 안에서만 추출 (조합 필터링과 동일)
+   *   - 예상수 비어있으면: 1~45 전체
+   *   - 고정수는 풀에 항상 포함 (없어도 추가)
+   *   - 제외수와 (excludeOn일 때) 분석 제외수는 풀에서 제거
+   *
+   * 분석은 더 이상 풀에 합쳐지지 않고, 아래 generateCombos에서 필터(min/max) 역할만.
+   */
   const pool = useMemo(() => {
-    const weights = new Map<number, number>();
-    for (const cat of sources.categories) {
-      for (const item of cat.items) {
-        if (!selectedIds.has(item.id)) continue;
-        for (const n of item.numbers) {
-          weights.set(n, (weights.get(n) ?? 0) + 1);
-        }
-      }
-    }
-    // 제외수 적용
+    // base = 예상수 또는 1~45
+    const nums = new Set<number>(
+      filterPool.length > 0 ? filterPool : Array.from({ length: 45 }, (_, i) => i + 1),
+    );
+    // 고정수는 항상 포함
+    for (const n of filterFixed) nums.add(n);
+    // 제외수 빼기
+    for (const n of filterExclude) nums.delete(n);
     if (excludeOn) {
-      for (const n of sources.excludePicks) weights.delete(n);
+      for (const n of sources.excludePicks) nums.delete(n);
     }
-    return weights;
-  }, [selectedIds, sources, excludeOn]);
+    return nums;
+  }, [filterPool, filterFixed, filterExclude, excludeOn, sources.excludePicks]);
 
   const poolNumbers = useMemo(
-    () => [...pool.keys()].sort((a, b) => a - b),
+    () => [...pool].sort((a, b) => a - b),
     [pool],
   );
 
   /** 3) 조합 생성 — 가중 랜덤 추출 + 선택된 source의 min/max 제약 검증. */
   const generateCombos = () => {
-    if (pool.size < 6) {
-      showToast('풀이 6개 미만이에요. 더 많이 선택해주세요');
+    setHasAttempted(true);
+    setSavedSet({});
+
+    // 고정수 검증 — 풀에 들어있어야 함 (제외수와 충돌하면 풀에서 빠짐)
+    const validFixed = filterFixed.filter((n) => pool.has(n));
+    if (validFixed.length > 6) {
+      setGenerated([]);
+      setLastError(`고정수가 ${validFixed.length}개로 6개를 초과합니다. 일부 고정수를 해제해주세요.`);
+      showToast('고정수가 6개를 초과해요');
       return;
     }
-    const entries = [...pool.entries()]; // [n, weight]
-    const combos: number[][] = [];
-    const seen = new Set<string>();
+    if (validFixed.length !== filterFixed.length) {
+      const conflict = filterFixed.filter((n) => !pool.has(n));
+      setGenerated([]);
+      setLastError(`고정수 ${conflict.join(', ')}이(가) 제외수와 충돌해요. 충돌을 해소해주세요.`);
+      showToast('고정수와 제외수 충돌');
+      return;
+    }
+    if (pool.size < 6) {
+      setGenerated([]);
+      setLastError(`풀이 ${pool.size}개에요. 예상수를 줄이거나 제외수를 해제해서 6개 이상으로 만들어주세요.`);
+      showToast('풀이 6개 미만');
+      return;
+    }
 
-    // 활성 필터 — 선택된 source 중 min/max 제약이 있는 것들
-    const activeFilters: { numbers: number[]; min: number; max: number }[] = [];
+    // 활성 필터 — 선택된 분석 중 min/max 제약이 있는 것들 (필터 역할)
+    //   "이 분석의 번호가 결과 조합에 min~max개 포함되어야 한다"
+    const activeFilters: { label: string; numbers: number[]; min: number; max: number }[] = [];
     for (const cat of sources.categories) {
       for (const item of cat.items) {
         if (!selectedIds.has(item.id)) continue;
         const f = filters[item.id];
         if (!f) continue;
         const maxBound = Math.min(6, item.numbers.length);
-        // 무제한이 아닐 때만 검증 대상
         if (f.min > 0 || f.max < maxBound) {
-          activeFilters.push({ numbers: item.numbers, min: f.min, max: f.max });
+          activeFilters.push({ label: item.label, numbers: item.numbers, min: f.min, max: f.max });
         }
       }
     }
 
-    const MAX_ATTEMPTS = comboCount * 200;
-    for (let attempt = 0; attempt < MAX_ATTEMPTS && combos.length < comboCount; attempt++) {
-      const pickPool = [...entries];
-      const combo: number[] = [];
-      for (let i = 0; i < 6 && pickPool.length > 0; i++) {
-        const total = pickPool.reduce((sum, [, w]) => sum + w, 0);
-        if (total <= 0) break;
-        let r = Math.random() * total;
-        let picked = 0;
-        for (let j = 0; j < pickPool.length; j++) {
-          r -= pickPool[j][1];
-          if (r <= 0) { picked = j; break; }
-        }
-        combo.push(pickPool[picked][0]);
-        pickPool.splice(picked, 1);
+    // 사전 가능성 검사
+    const minSum = activeFilters.reduce((s, f) => s + f.min, 0);
+    if (minSum > 6) {
+      setGenerated([]);
+      setLastError(`활성 필터의 최소 개수 합이 ${minSum}개로 6개를 초과합니다. 일부 필터의 최소값을 낮추거나 분석을 줄여주세요.`);
+      showToast('필터 조건이 너무 엄격해요');
+      return;
+    }
+    // 고정수가 활성 필터의 min/max를 이미 위반하면 추출 불가
+    for (const f of activeFilters) {
+      const fixedHits = validFixed.filter((n) => f.numbers.includes(n)).length;
+      if (fixedHits > f.max) {
+        setGenerated([]);
+        setLastError(`고정수가 "${f.label}" 필터의 최대값(${f.max}개)을 이미 초과했어요. 고정수를 줄이거나 필터의 최대값을 늘려주세요.`);
+        showToast('고정수가 필터 최대 초과');
+        return;
       }
-      if (combo.length !== 6) continue;
-      combo.sort((a, b) => a - b);
+    }
 
-      // 필터 검증
+    // 추출 — 풀에서 (6 - 고정수.length)개를 uniform random pick
+    const needsRandom = 6 - validFixed.length;
+    const restPool = [...pool].filter((n) => !validFixed.includes(n));
+    if (needsRandom > 0 && restPool.length < needsRandom) {
+      setGenerated([]);
+      setLastError(`고정수 ${validFixed.length}개 + 풀에 남은 ${restPool.length}개로는 6개 조합을 만들 수 없어요.`);
+      showToast('풀 부족');
+      return;
+    }
+
+    const combos: number[][] = [];
+    const seen = new Set<string>();
+    const MAX_ATTEMPTS = Math.min(50000, Math.max(2000, comboCount * 1000));
+    for (let attempt = 0; attempt < MAX_ATTEMPTS && combos.length < comboCount; attempt++) {
+      // uniform random 픽 — Fisher-Yates 부분 셔플
+      const candidates = [...restPool];
+      for (let i = 0; i < needsRandom; i++) {
+        const j = i + Math.floor(Math.random() * (candidates.length - i));
+        [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
+      }
+      const combo = [...validFixed, ...candidates.slice(0, needsRandom)].sort((a, b) => a - b);
+
+      // 활성 필터 검증 (고정수까지 포함된 최종 조합 기준)
       let satisfied = true;
       for (const f of activeFilters) {
         const hits = combo.filter((n) => f.numbers.includes(n)).length;
@@ -323,13 +397,18 @@ export default function ProFinderCombo() {
         combos.push(combo);
       }
     }
+
     setGenerated(combos);
-    setSavedSet({});
     if (combos.length === 0) {
-      showToast('조건을 만족하는 조합 없음. 필터를 완화해 보세요');
+      setLastError(
+        `${MAX_ATTEMPTS.toLocaleString()}번 시도했지만 모든 활성 필터(${activeFilters.length}개)를 동시에 만족하는 6개 조합을 찾지 못했어요. 필터를 완화하거나 분석 선택을 줄여보세요.`,
+      );
+      showToast('조건을 만족하는 조합 없음');
     } else if (combos.length < comboCount) {
+      setLastError(`목표 ${comboCount}개 중 ${combos.length}개만 찾았어요. 더 많이 만들려면 필터를 완화하세요.`);
       showToast(`${combos.length}개만 생성됨 (필터 제약)`);
     } else {
+      setLastError(null);
       showToast(`${combos.length}개 조합 생성 완료`);
     }
   };
@@ -402,7 +481,8 @@ export default function ProFinderCombo() {
   };
 
   const isUpcoming = round === upcomingRound;
-  const targetDate = drawsMap[round]?.date;
+  const targetDraw = drawsMap[round];
+  const targetDate = targetDraw?.date;
 
   const titleNode = (
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
@@ -416,7 +496,7 @@ export default function ProFinderCombo() {
       <AppBar title={titleNode} onBack={goBack} />
 
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
-        {/* 회차 네비 (라이트/다크 자동 분기) */}
+        {/* 분석 대상 hero — 일반모드 "분석법 비교" 디자인과 통일 */}
         <View style={[styles.heroCard, { backgroundColor: t.bgHero }]}>
           <View style={styles.targetHead}>
             <Pressable
@@ -424,22 +504,22 @@ export default function ProFinderCombo() {
               disabled={round <= earliestRound + 1}
               style={({ pressed }) => [styles.navArrow, {
                 backgroundColor: t.bgOnHeroPill,
-                opacity: round <= earliestRound + 1 ? 0.3 : pressed ? 0.6 : 1,
+                opacity: round <= earliestRound + 1 ? 0.3 : pressed ? 0.7 : 1,
               }]}
             >
-              <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }} allowFontScaling={false}>‹</T>
+              <Icon.chevLeft color={t.fgOnHero} size={20} weight={2.5} />
             </Pressable>
             <View style={{ flex: 1, alignItems: 'center' }}>
               {isUpcoming ? (
                 <View style={styles.upcomingPill}>
-                  <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 10.5, fontWeight: '800' }}>
+                  <T variant="caption2" style={{ color: '#fff', fontSize: 10.5, fontWeight: '800', letterSpacing: 0.4 }} allowFontScaling={false}>
                     🔮 추첨 예정
                   </T>
                 </View>
               ) : (
                 <T variant="caption1" style={{ color: t.fgOnHeroMuted }}>분석 대상</T>
               )}
-              <T variant="title2" style={{ color: t.fgOnHero, fontWeight: '900', marginTop: 4 }}>
+              <T variant="title3" style={{ color: t.fgOnHero, fontWeight: '800', marginTop: 4 }}>
                 제 {round}회
               </T>
               <T variant="caption1" style={{ color: t.fgOnHeroFaint, marginTop: 2 }}>
@@ -451,11 +531,24 @@ export default function ProFinderCombo() {
               disabled={round >= upcomingRound}
               style={({ pressed }) => [styles.navArrow, {
                 backgroundColor: t.bgOnHeroPill,
-                opacity: round >= upcomingRound ? 0.3 : pressed ? 0.6 : 1,
+                opacity: round >= upcomingRound ? 0.3 : pressed ? 0.7 : 1,
               }]}
             >
-              <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }} allowFontScaling={false}>›</T>
+              <View style={{ transform: [{ rotate: '180deg' }] }}>
+                <Icon.chevLeft color={t.fgOnHero} size={20} weight={2.5} />
+              </View>
             </Pressable>
+          </View>
+          <View style={{ marginTop: 14, alignItems: 'center' }}>
+            {isUpcoming || !targetDraw ? (
+              <View style={[styles.upcomingNumsBox, { backgroundColor: t.bgOnHeroPill, borderColor: t.borderOnHero }]}>
+                <T variant="label1n" style={{ color: t.fgOnHero, textAlign: 'center', fontWeight: '700' }}>
+                  당첨번호 발표 전
+                </T>
+              </View>
+            ) : (
+              <BallRow nums={targetDraw.nums} bonus={targetDraw.bonus} size="sm" style={{ gap: 4 }} />
+            )}
           </View>
         </View>
 
@@ -466,19 +559,84 @@ export default function ProFinderCombo() {
           <JumpBtn label="회차 입력" active={false} onPress={() => { setPickerInput(String(round)); setPickerOpen(true); }} tone="input" />
         </View>
 
-        {/* 안내 */}
+        {/* 안내 — 새 모델 설명 */}
         <View style={[styles.tipCard, { backgroundColor: t.bgSurface2, borderColor: t.borderWeak }]}>
           <T allowFontScaling={false} style={{ fontSize: 16, marginRight: 8 }}>💡</T>
           <T variant="caption1" color="secondary" style={{ flex: 1, fontSize: 12, lineHeight: 17 }}>
-            원하는 분석 결과를 골라 선택하면, 그 번호들로 조합을 만들어요. 여러 분석에 함께 나오는 번호는 자동으로 가중치가 올라가요.
+            ① 1~45 중 예상수를 고르고 (비우면 전체), ② 분석을 선택해 "이 분석 번호가 N~M개 포함" 필터로 활용하면 조합이 추출돼요.
           </T>
         </View>
 
-        {/* 선택된 풀 미리보기 */}
+        {/* ① 번호 선택 — 예상수/고정수/제외수 (조합 필터링과 동일한 7x7) */}
+        <Card padding={14}>
+          <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 6 }}>
+            <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
+              🎯 번호 선택
+            </T>
+            <T variant="caption1" color="tertiary" allowFontScaling={false} style={{ fontSize: 11 }}>
+              비우면 1~45 전체
+            </T>
+          </View>
+          <View style={[styles.modeBar, { backgroundColor: t.bgSurface2, borderColor: t.borderDivider }]}>
+            <NumModeBtn label="예상수" count={filterPool.length} active={numberMode === 'pool'} color={POOL_COLOR} onPress={() => setNumberMode('pool')} t={t} />
+            <NumModeBtn label="고정수" count={filterFixed.length} active={numberMode === 'fixed'} color={FIXED_COLOR} onPress={() => setNumberMode('fixed')} t={t} />
+            <NumModeBtn label="제외수" count={filterExclude.length} active={numberMode === 'exclude'} color={EXCLUDE_COLOR} onPress={() => setNumberMode('exclude')} t={t} />
+          </View>
+          <View style={[styles.hintBox, { backgroundColor: hintBg(numberMode), borderColor: hintBorder(numberMode) }]}>
+            <T variant="caption1" allowFontScaling={false} style={{ color: hintFg(numberMode), fontWeight: '700', lineHeight: 17, fontSize: 12 }}>
+              {numberMode === 'pool'    && '🎯 예상수 · 선택한 번호들 중에서만 조합이 추출됩니다 (비우면 1~45 전체)'}
+              {numberMode === 'fixed'   && '📌 고정수 · 모든 조합에 무조건 포함됩니다 (6개 미만 권장)'}
+              {numberMode === 'exclude' && '🚫 제외수 · 모든 조합에서 제외됩니다'}
+            </T>
+          </View>
+          <NumberTriGrid
+            pool={filterPool} fixed={filterFixed} exclude={filterExclude}
+            mode={numberMode}
+            onTap={(n) => {
+              const currentState =
+                filterPool.includes(n) ? 'pool' :
+                filterFixed.includes(n) ? 'fixed' :
+                filterExclude.includes(n) ? 'exclude' : null;
+              // 같은 모드에 있는 번호 다시 누르면 해제
+              if (currentState === numberMode) {
+                if (numberMode === 'pool')    setFilterPool((p) => p.filter((x) => x !== n));
+                if (numberMode === 'fixed')   setFilterFixed((p) => p.filter((x) => x !== n));
+                if (numberMode === 'exclude') setFilterExclude((p) => p.filter((x) => x !== n));
+                return;
+              }
+              // 다른 모드에 있던 번호는 그 모드에서 제거 후 현재 모드에 추가
+              if (currentState === 'pool')    setFilterPool((p) => p.filter((x) => x !== n));
+              if (currentState === 'fixed')   setFilterFixed((p) => p.filter((x) => x !== n));
+              if (currentState === 'exclude') setFilterExclude((p) => p.filter((x) => x !== n));
+              if (numberMode === 'pool')    setFilterPool((p) => [...p, n].sort((a, b) => a - b));
+              if (numberMode === 'fixed')   setFilterFixed((p) => [...p, n].sort((a, b) => a - b));
+              if (numberMode === 'exclude') setFilterExclude((p) => [...p, n].sort((a, b) => a - b));
+            }}
+            t={t}
+          />
+          <View style={styles.summaryRow}>
+            <NumSummaryPill label="예상수" count={filterPool.length} color={POOL_COLOR} />
+            <NumSummaryPill label="고정수" count={filterFixed.length} color={FIXED_COLOR} />
+            <NumSummaryPill label="제외수" count={filterExclude.length} color={EXCLUDE_COLOR} />
+            {(filterPool.length + filterFixed.length + filterExclude.length) > 0 && (
+              <Pressable
+                onPress={() => { setFilterPool([]); setFilterFixed([]); setFilterExclude([]); }}
+                hitSlop={6}
+                style={{ paddingHorizontal: 8 }}
+              >
+                <T variant="caption1" allowFontScaling={false} style={{ color: palette.blue700, fontWeight: '800' }}>
+                  전체 해제
+                </T>
+              </Pressable>
+            )}
+          </View>
+        </Card>
+
+        {/* ② 추출 풀 미리보기 — 최종 풀 (예상수 ± 제외수 ± 분석 제외수) */}
         <Card padding={14}>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
             <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
-              🎱 선택된 풀
+              🎱 추출 풀
             </T>
             <T variant="caption1" color="tertiary" style={{ fontSize: 11.5 }}>
               {pool.size}개
@@ -486,25 +644,25 @@ export default function ProFinderCombo() {
             <View style={{ flex: 1 }} />
             {excludeOn && sources.excludePicks.length > 0 && (
               <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10, color: palette.red500, fontWeight: '700' }}>
-                제외수 {sources.excludePicks.length}개 적용
+                분석 제외수 적용
               </T>
             )}
           </View>
           {pool.size === 0 ? (
             <T variant="caption1" color="tertiary" style={{ fontSize: 11.5, marginTop: 8, fontStyle: 'italic' }}>
-              아래에서 분석을 선택해 주세요
+              예상수를 줄이거나 제외수를 해제해서 풀을 6개 이상으로 만들어주세요
             </T>
           ) : (
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 4, marginTop: 10 }}>
               {poolNumbers.map((n) => {
-                const w = pool.get(n) ?? 1;
+                const isFixed = filterFixed.includes(n);
                 return (
                   <View key={n} style={{ position: 'relative' }}>
                     <Ball n={n} size="sm" />
-                    {w > 1 && (
+                    {isFixed && (
                       <View style={styles.weightBadge}>
                         <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 8, fontWeight: '900' }}>
-                          ×{w}
+                          📌
                         </T>
                       </View>
                     )}
@@ -515,7 +673,7 @@ export default function ProFinderCombo() {
           )}
         </Card>
 
-        {/* 빠른 필터 적용 — 모든 분석에 통계 기반 자동 설정 */}
+        {/* 빠른 필터 적용 — 모든 분석 선택 + 통계 기반 자동 설정 */}
         <Card padding={12}>
           <T variant="caption1" color="primary" allowFontScaling={false} style={{ fontSize: 12, fontWeight: '700' }}>
             ⚡ 빠른 필터 적용
@@ -523,7 +681,39 @@ export default function ProFinderCombo() {
           <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10, marginTop: 2 }}>
             최근 {RECENT_WINDOW}회 통계 기반으로 모든 분석에 자동 설정
           </T>
-          <View style={{ flexDirection: 'row', gap: 6, marginTop: 10 }}>
+          {/* 1행: 모든 분석 선택 (전체 폭) */}
+          <Pressable
+            onPress={toggleAllSources}
+            style={({ pressed }) => [
+              styles.bulkBtn,
+              {
+                backgroundColor: selectedIds.size === allSourceItems.length
+                  ? 'rgba(248,72,79,0.10)'
+                  : 'rgba(101,65,242,0.10)',
+                borderColor: selectedIds.size === allSourceItems.length
+                  ? palette.red500
+                  : palette.purple500,
+                marginTop: 10,
+                opacity: pressed ? 0.85 : 1,
+              },
+            ]}
+          >
+            <T
+              variant="caption1"
+              allowFontScaling={false}
+              style={{
+                color: selectedIds.size === allSourceItems.length ? palette.red500 : palette.purple500,
+                fontWeight: '800',
+                fontSize: 12,
+              }}
+            >
+              {selectedIds.size === allSourceItems.length
+                ? `✓ 모두 선택됨 (${selectedIds.size}개) — 탭하면 해제`
+                : `🎯 모든 분석 선택 (${allSourceItems.length}개)`}
+            </T>
+          </Pressable>
+          {/* 2행: 통계 자동 적용 (평균 / 범위) */}
+          <View style={{ flexDirection: 'row', gap: 6, marginTop: 6 }}>
             <Pressable
               onPress={applyAllAvg}
               style={({ pressed }) => [
@@ -603,6 +793,10 @@ export default function ProFinderCombo() {
             style={({ pressed }) => [
               styles.sourceRow,
               {
+                // SourceToggle과 동일하게 row 레이아웃 — 체크박스가 왼쪽, 라벨이 오른쪽
+                flexDirection: 'row',
+                alignItems: 'flex-start',
+                gap: 10,
                 backgroundColor: excludeOn ? 'rgba(248,72,79,0.10)' : t.bgSurface2,
                 borderColor: excludeOn ? palette.red500 : t.borderDivider,
                 opacity: pressed ? 0.85 : 1,
@@ -675,17 +869,39 @@ export default function ProFinderCombo() {
           </T>
         </Pressable>
 
-        {/* 결과 */}
-        {generated.length > 0 && (() => {
+        {/* 결과 — 한 번이라도 시도했으면 항상 표시 (0개여도 빈 상태 안내) */}
+        {hasAttempted && (() => {
           const savedCount = Object.values(savedSet).filter(Boolean).length;
-          const allSaved = savedCount === generated.length;
+          const allSaved = generated.length > 0 && savedCount === generated.length;
+          const isEmpty = generated.length === 0;
           return (
-            <Card padding={14}>
-              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+            <Card padding={16}>
+              {/* 제목 + 부제 */}
+              <View>
                 <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
-                  ✨ 추천 조합 {generated.length}개
+                  {isEmpty ? '⚠️ 추천 조합 0개' : `✨ 추천 조합 ${generated.length}개`}
                 </T>
-                <View style={{ flex: 1 }} />
+                <T variant="caption1" color="tertiary" style={{ marginTop: 2, fontSize: 11.5 }}>
+                  {isEmpty
+                    ? '조건을 만족하는 조합을 찾지 못했어요'
+                    : savedCount > 0
+                      ? `${savedCount} / ${generated.length} 저장됨 · 모든 조합 보관함 저장 가능`
+                      : '선택한 분석 풀 기반 · 가중 랜덤 추출'}
+                </T>
+              </View>
+
+              {/* 빈 상태 — 명확한 안내 메시지 박스 */}
+              {isEmpty && lastError && (
+                <View style={[styles.emptyHint, { backgroundColor: 'rgba(248,72,79,0.08)', borderColor: palette.red500 }]}>
+                  <T allowFontScaling={false} style={{ fontSize: 16, marginRight: 8 }}>💡</T>
+                  <T variant="caption1" color="primary" style={{ flex: 1, fontSize: 12, lineHeight: 17 }}>
+                    {lastError}
+                  </T>
+                </View>
+              )}
+
+              {/* 액션 버튼 묶음 — 다시 추출 + 모두 저장 (1:1 분할) */}
+              <View style={styles.recActions}>
                 <Pressable
                   onPress={generateCombos}
                   style={({ pressed }) => [
@@ -693,58 +909,42 @@ export default function ProFinderCombo() {
                     { borderColor: GOLD, backgroundColor: t.bgSurface, opacity: pressed ? 0.8 : 1 },
                   ]}
                 >
-                  <T allowFontScaling={false} style={{ fontSize: 12, marginRight: 4 }}>🔄</T>
-                  <T variant="caption1" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 11 }}>
-                    다시
+                  <T allowFontScaling={false} style={{ fontSize: 13, marginRight: 4 }}>🔄</T>
+                  <T variant="caption1" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 12 }}>
+                    다시 추출
                   </T>
                 </Pressable>
                 <Pressable
                   onPress={saveAll}
-                  disabled={allSaved}
+                  disabled={allSaved || isEmpty}
                   style={({ pressed }) => [
                     styles.saveAllBtn,
                     {
-                      backgroundColor: allSaved ? palette.green500 : GOLD,
-                      opacity: pressed && !allSaved ? 0.85 : 1,
+                      backgroundColor: isEmpty ? '#aaa' : allSaved ? palette.green500 : GOLD,
+                      opacity: (isEmpty || allSaved) ? 0.6 : pressed ? 0.85 : 1,
                     },
                   ]}
                 >
-                  <Icon.check color="#fff" size={12} weight={2.8} />
-                  <T variant="caption1" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 11, marginLeft: 4 }}>
-                    {allSaved ? '저장 완료' : '모두 저장'}
+                  <Icon.check color="#fff" size={13} weight={2.8} />
+                  <T variant="caption1" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 12, marginLeft: 5 }}>
+                    {isEmpty ? '저장 불가' : allSaved ? '저장 완료' : '모두 저장'}
                   </T>
                 </Pressable>
               </View>
 
-              <View style={{ marginTop: 12, gap: 8 }}>
-                {generated.map((c, i) => (
-                  <View key={i} style={[styles.comboRow, { backgroundColor: t.bgSurface2, borderColor: t.borderDivider }]}>
-                    <View style={styles.labelBox}>
-                      <T variant="caption2" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 11 }}>
-                        #{i + 1}
-                      </T>
-                    </View>
-                    <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: 4 }}>
-                      {c.map((n) => <Ball key={n} n={n} size="sm" />)}
-                    </View>
-                    <Pressable
-                      onPress={() => saveOne(i)}
-                      disabled={savedSet[i]}
-                      style={({ pressed }) => [
-                        styles.saveDot,
-                        {
-                          backgroundColor: savedSet[i] ? palette.green500 : 'rgba(232,176,78,0.18)',
-                          opacity: pressed ? 0.85 : 1,
-                        },
-                      ]}
-                    >
-                      {savedSet[i]
-                        ? <Icon.check color="#fff" size={12} weight={3} />
-                        : <Icon.plus color={GOLD_DARK} size={12} weight={2.5} />}
-                    </Pressable>
-                  </View>
-                ))}
-              </View>
+              {!isEmpty && (
+                <View style={{ marginTop: 12, gap: 10 }}>
+                  {generated.map((c, i) => (
+                    <CombinationCard
+                      key={i}
+                      nums={c}
+                      label={`#${i + 1}`}
+                      saved={!!savedSet[i]}
+                      onSave={() => saveOne(i)}
+                    />
+                  ))}
+                </View>
+              )}
             </Card>
           );
         })()}
@@ -955,20 +1155,147 @@ function JumpBtn({ label, active, onPress, tone }: {
   );
 }
 
+/* ─── 번호 선택 helper들 (조합 필터링과 동일한 디자인) ──────── */
+function NumModeBtn({ label, count, active, color, onPress, t }: {
+  label: string; count: number; active: boolean; color: string;
+  onPress: () => void; t: ReturnType<typeof useTheme>;
+}) {
+  return (
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.modeBtn,
+        {
+          backgroundColor: active ? color : 'transparent',
+          opacity: pressed ? 0.85 : 1,
+        },
+      ]}
+    >
+      <T variant="caption1" allowFontScaling={false} style={{ color: active ? '#fff' : t.fgSecondary, fontWeight: '800', fontSize: 12 }}>
+        {label}
+      </T>
+      <View style={[styles.modeCountBubble, { backgroundColor: active ? 'rgba(255,255,255,0.25)' : t.bgSurface }]}>
+        <T variant="caption2" allowFontScaling={false} style={{ color: active ? '#fff' : t.fgTertiary, fontSize: 10, fontWeight: '800' }}>
+          {count}
+        </T>
+      </View>
+    </Pressable>
+  );
+}
+
+function NumSummaryPill({ label, count, color }: { label: string; count: number; color: string }) {
+  const on = count > 0;
+  return (
+    <View style={[styles.summaryPill, { backgroundColor: on ? color : 'rgba(150,150,150,0.15)' }]}>
+      <T variant="caption2" allowFontScaling={false} style={{ color: on ? '#fff' : '#888', fontWeight: '800', fontSize: 11 }}>
+        {label} {count}
+      </T>
+    </View>
+  );
+}
+
+function NumberTriGrid({ pool, fixed, exclude, mode, onTap, t }: {
+  pool: number[]; fixed: number[]; exclude: number[];
+  mode: 'pool' | 'fixed' | 'exclude';
+  onTap: (n: number) => void;
+  t: ReturnType<typeof useTheme>;
+}) {
+  const NUM_COLS = 7;
+  const NUM_GAP = 6;
+  const [gridW, setGridW] = useState(0);
+  const cellSize = gridW > 0 ? Math.floor((gridW - (NUM_COLS - 1) * NUM_GAP) / NUM_COLS) : 38;
+  return (
+    <View
+      style={styles.triGrid}
+      onLayout={(e) => setGridW(e.nativeEvent.layout.width)}
+    >
+      {Array.from({ length: NUM_COLS * NUM_COLS }, (_, i) => i + 1).map((n) => {
+        if (n > 45) {
+          return <View key={n} style={[styles.cellEmpty, { width: cellSize, height: cellSize }]} />;
+        }
+        const s = pool.includes(n) ? 'pool' : fixed.includes(n) ? 'fixed' : exclude.includes(n) ? 'exclude' : null;
+        const bg = s === 'pool' ? POOL_COLOR : s === 'fixed' ? FIXED_COLOR : s === 'exclude' ? EXCLUDE_COLOR : t.bgSurface;
+        const fg = s ? '#fff' : t.fgSecondary;
+        const ring = !s ? ballColor(n) : undefined;
+        return (
+          <Pressable
+            key={n}
+            onPress={() => onTap(n)}
+            style={({ pressed }) => [
+              styles.triCell,
+              {
+                width: cellSize, height: cellSize,
+                backgroundColor: bg,
+                borderColor: s ? 'transparent' : t.borderWeak,
+                borderWidth: s ? 0 : 1,
+                opacity: pressed ? 0.85 : 1,
+              },
+            ]}
+          >
+            {ring && <View pointerEvents="none" style={[styles.triDot, { backgroundColor: ring }]} />}
+            <T
+              variant="label1n"
+              allowFontScaling={false}
+              style={{
+                color: fg, fontWeight: '800',
+                fontSize: Math.max(12, Math.min(15, cellSize * 0.36)),
+                textDecorationLine: s === 'exclude' ? 'line-through' : 'none',
+              }}
+            >
+              {n}
+            </T>
+            {s === 'fixed' && (
+              <View pointerEvents="none" style={styles.triFixedPin}>
+                <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 8, fontWeight: '800' }}>📌</T>
+              </View>
+            )}
+          </Pressable>
+        );
+      })}
+    </View>
+  );
+}
+
+function hintBg(m: 'pool' | 'fixed' | 'exclude'): string {
+  if (m === 'pool')  return 'rgba(0,102,255,0.08)';
+  if (m === 'fixed') return 'rgba(124,58,237,0.08)';
+  return 'rgba(248,72,79,0.08)';
+}
+function hintBorder(m: 'pool' | 'fixed' | 'exclude'): string {
+  if (m === 'pool')  return 'rgba(0,102,255,0.30)';
+  if (m === 'fixed') return 'rgba(124,58,237,0.30)';
+  return 'rgba(248,72,79,0.30)';
+}
+function hintFg(m: 'pool' | 'fixed' | 'exclude'): string {
+  if (m === 'pool')  return palette.blue700;
+  if (m === 'fixed') return FIXED_COLOR;
+  return palette.red500;
+}
+
 /* ─── Styles ─────────────────────────────────────────── */
 const styles = StyleSheet.create({
   root: { flex: 1 },
 
-  heroCard: { borderRadius: radius.xl, padding: 14 },
+  heroCard: { borderRadius: radius.xl, padding: 18 },
   targetHead: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  // 회차 이동 버튼 — 둥근 사각형 + Icon.chevLeft (일반모드 분석법 비교와 동일)
   navArrow: {
-    width: 36, height: 36, borderRadius: 18,
+    width: 40, height: 40, borderRadius: 12,
     alignItems: 'center', justifyContent: 'center',
   },
   upcomingPill: {
     backgroundColor: palette.purple500,
     paddingHorizontal: 10, paddingVertical: 4,
     borderRadius: 99,
+  },
+  // "당첨번호 발표 전" 박스 — 예정 회차 또는 데이터 없을 때
+  upcomingNumsBox: {
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    width: '100%',
   },
 
   jumpRow: { flexDirection: 'row', gap: 6 },
@@ -1077,15 +1404,87 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
 
-  refreshBtn: {
-    flexDirection: 'row', alignItems: 'center',
-    paddingHorizontal: 10, paddingVertical: 6,
-    borderRadius: radius.pill,
+  // 결과 카드 액션 행 — 다시 추출 + 모두 저장을 1:1 분할로 크게
+  recActions: {
+    flexDirection: 'row',
+    gap: 8,
+    marginTop: 12,
+  },
+  // 번호 선택 3-mode UI (조합 필터링과 동일)
+  modeBar: {
+    flexDirection: 'row',
+    marginTop: 10,
+    padding: 4,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    gap: 4,
+  },
+  modeBtn: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    paddingVertical: 7,
+    borderRadius: radius.sm,
+  },
+  modeCountBubble: {
+    paddingHorizontal: 6, paddingVertical: 1,
+    borderRadius: 99,
+    minWidth: 18, alignItems: 'center',
+  },
+  hintBox: { marginTop: 10, padding: 10, borderRadius: radius.md, borderWidth: 1 },
+  triGrid: {
+    flexDirection: 'row', flexWrap: 'wrap',
+    gap: 6, marginTop: 12,
+    justifyContent: 'center',
+  },
+  triCell: {
+    borderRadius: radius.md,
+    alignItems: 'center', justifyContent: 'center',
+    position: 'relative',
+  },
+  cellEmpty: { backgroundColor: 'transparent', opacity: 0 },
+  triDot: {
+    position: 'absolute', top: 4, right: 4,
+    width: 6, height: 6, borderRadius: 3, opacity: 0.7,
+  },
+  triFixedPin: {
+    position: 'absolute', top: -4, right: -4,
+    width: 16, height: 16, borderRadius: 8, backgroundColor: GOLD,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  summaryRow: {
+    flexDirection: 'row', flexWrap: 'wrap', gap: 6,
+    marginTop: 14, alignItems: 'center',
+  },
+  summaryPill: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: radius.pill },
+
+  // 빈 결과 안내 박스 — "왜 조합이 안 나오는지" 명확히 설명
+  emptyHint: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    padding: 10,
+    marginTop: 10,
+    borderRadius: radius.md,
     borderWidth: 1,
   },
+  refreshBtn: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 12, paddingVertical: 9,
+    borderRadius: radius.pill,
+    borderWidth: 1.5,
+  },
   saveAllBtn: {
-    flexDirection: 'row', alignItems: 'center',
-    paddingHorizontal: 10, paddingVertical: 6,
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 10,
     borderRadius: radius.pill,
   },
   comboRow: {

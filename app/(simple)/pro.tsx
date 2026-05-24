@@ -9,10 +9,10 @@
  * 카드 탭 → 해당 기능의 디테일 페이지 (/pro-ai 등)
  * 섹션 헤더 우상단 "자세히 보기 →" → 카탈로그 깊이 페이지 (/pro-gen, /pro-analysis)
  */
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
+import { useRouter, useFocusEffect } from 'expo-router';
 import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
 import { Card } from '@/src/components/Card';
@@ -22,10 +22,11 @@ import { useHistory } from '@/src/data/historyStore';
 import { useJachanism } from '@/src/store/jachanism';
 import {
   POOL_SIZE_DISPLAY, USER_LIMIT, BACKTEST_BASE_N,
-  computeBacktest,
+  fetchPrecomputedBacktest,
   getDayStatus, msToNextReceive, formatCountdown, fmtCount,
   type JachanismStatus,
 } from '@/src/lib/jachanism';
+import { fetchPoolState, type PoolState } from '@/src/lib/firebase';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
 
@@ -281,33 +282,62 @@ function JachanismCard({ onPress }: { onPress: () => void }) {
   const targetRound = latestRound + 1;
   const entry = useJachanism((s) => s.weekly[targetRound]);
   const backtest = useJachanism((s) => s.backtest);
-  const computing = useJachanism((s) => s.computing);
   const setBacktest = useJachanism((s) => s.setBacktest);
-  const setComputing = useJachanism((s) => s.setComputing);
 
-  // 캐시가 없으면 카탈로그에서도 백테스트 트리거 (computing 플래그로 중복 방지)
+  // 사전 계산된 백테스트 fetch (서버에서 매주 월요일 갱신)
   useEffect(() => {
     if (!latestRound) return;
-    if (backtest && backtest.latestRound === latestRound) return;
-    if (computing) return;
+    if (
+      backtest &&
+      backtest.latestRound === latestRound &&
+      backtest.roundsTested === BACKTEST_BASE_N
+    ) return;
     let cancelled = false;
     (async () => {
-      setComputing(true);
-      try {
-        const stats = await computeBacktest(drawsMap, latestRound, BACKTEST_BASE_N);
-        if (!cancelled) setBacktest({ latestRound, ...stats });
-      } catch {
-        if (!cancelled) setComputing(false);
-      }
+      const stats = await fetchPrecomputedBacktest();
+      if (cancelled) return;
+      if (stats) setBacktest({ latestRound, ...stats });
     })();
     return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [latestRound]);
 
-  const status: JachanismStatus = useMemo(() => {
+  const realStatus: JachanismStatus = useMemo(() => {
     if (drawsMap[targetRound]) return 'done';
     return getDayStatus();
   }, [drawsMap, targetRound]);
+  // 개발 모드에서는 잠금 우회 — 테스트로 받기 가능
+  const status: JachanismStatus = __DEV__ && realStatus === 'locked' ? 'active' : realStatus;
+
+  // 풀 상태 (Firebase) — 받기 가능 구간에서만 fetch
+  const canShowPool = status !== 'locked';
+  const [poolState, setPoolState] = useState<PoolState | null>(null);
+
+  // 마운트 시 1회 fetch
+  useEffect(() => {
+    if (!targetRound || !canShowPool) return;
+    let cancelled = false;
+    fetchPoolState(targetRound)
+      .then((s) => { if (!cancelled && s) setPoolState(s); })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [targetRound, canShowPool]);
+
+  // 화면 포커스마다 재fetch (받기 완료 후 카탈로그로 돌아왔을 때 새 값 반영)
+  useFocusEffect(
+    React.useCallback(() => {
+      if (!targetRound || !canShowPool) return;
+      let cancelled = false;
+      fetchPoolState(targetRound)
+        .then((s) => { if (!cancelled && s) setPoolState(s); })
+        .catch(() => {});
+      return () => { cancelled = true; };
+    }, [targetRound, canShowPool]),
+  );
+
+  const poolTotal = poolState?.total ?? 0;
+  const poolRemaining = Math.max(0, poolTotal - (poolState?.consumed ?? 0));
+  const showDynamicPool = canShowPool && poolTotal > 0;
 
   const countdown = useMemo(() => {
     if (status !== 'locked') return null;
@@ -403,7 +433,7 @@ function JachanismCard({ onPress }: { onPress: () => void }) {
           )}
         </View>
 
-        {/* 풀 정보 — 한 줄 */}
+        {/* 풀 정보 — 한 줄 (active 시 동적 X/Y, 잠금 시 정적 표기) */}
         <View style={styles.jachanInfo}>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, flex: 1 }}>
             <T allowFontScaling={false} style={{ fontSize: 11 }}>👤</T>
@@ -411,15 +441,30 @@ function JachanismCard({ onPress }: { onPress: () => void }) {
               최대 {USER_LIMIT}조합/주
             </T>
           </View>
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-            <T allowFontScaling={false} style={{ fontSize: 11 }}>📦</T>
-            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10.5, color: GOLD_DARK, fontWeight: '800' }}>
-              {POOL_SIZE_DISPLAY}
-            </T>
-            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 9.5, color: t.fgTertiary, marginLeft: 2 }}>
-              조합 풀
-            </T>
-          </View>
+          {showDynamicPool ? (
+            <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 3 }}>
+              <T allowFontScaling={false} style={{ fontSize: 11 }}>🎁</T>
+              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 11, color: GOLD_DARK, fontWeight: '900' }}>
+                {poolRemaining.toLocaleString('ko')}
+              </T>
+              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 9.5, color: GOLD_DARK, opacity: 0.6 }}>
+                / {poolTotal.toLocaleString('ko')}
+              </T>
+              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 9.5, color: t.fgTertiary, marginLeft: 2 }}>
+                남음
+              </T>
+            </View>
+          ) : (
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+              <T allowFontScaling={false} style={{ fontSize: 11 }}>📦</T>
+              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10.5, color: GOLD_DARK, fontWeight: '800' }}>
+                {POOL_SIZE_DISPLAY}
+              </T>
+              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 9.5, color: t.fgTertiary, marginLeft: 2 }}>
+                조합 풀
+              </T>
+            </View>
+          )}
         </View>
       </View>
     </Pressable>

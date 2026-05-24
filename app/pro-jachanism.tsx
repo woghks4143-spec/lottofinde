@@ -18,6 +18,7 @@ import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
 import { Ball } from '@/src/components/Ball';
 import { Card } from '@/src/components/Card';
+import { CombinationCard } from '@/src/components/CombinationCard';
 import { Disclaimer } from '@/src/components/Disclaimer';
 import { Icon } from '@/src/components/Icons';
 import { useHistory } from '@/src/data/historyStore';
@@ -56,6 +57,7 @@ export default function ProJachanism() {
   const deviceSeed = useJachanism((s) => s.deviceSeed);
   const entry = useJachanism((s) => s.weekly[targetRound]);
   const receive = useJachanism((s) => s.receive);
+  const clearRound = useJachanism((s) => s.clear);
   const backtestCache = useJachanism((s) => s.backtest);
   const setBacktest = useJachanism((s) => s.setBacktest);
   const computing = useJachanism((s) => s.computing);
@@ -112,11 +114,14 @@ export default function ProJachanism() {
     };
   }, [backtestCache, latestRound]);
 
-  /** 상태 판정: 요일 + 데이터 보유 여부 기반. */
-  const status: Status = useMemo(() => {
+  /** 상태 판정: 요일 + 데이터 보유 여부 기반.
+   *  개발 모드(__DEV__)에서는 항상 'active'로 강제 — 요일 무관 테스트 가능.
+   *  Production 빌드에선 정상 요일 로직 작동. */
+  const realStatus: Status = useMemo(() => {
     if (drawsMap[targetRound]) return 'done';
     return getDayStatus();
   }, [drawsMap, targetRound]);
+  const status: Status = __DEV__ && realStatus === 'locked' ? 'active' : realStatus;
 
 
   /** 현재까지 받은 조합 수 / 남은 수령 가능 수. */
@@ -157,10 +162,14 @@ export default function ProJachanism() {
     try {
       // 1) Firebase에서 atomic 슬롯 할당 (전 세계 unique)
       const allocation = await allocateSlots(targetRound, deviceSeed, take);
+      console.log('[jachanism] allocateSlots result:', allocation);
 
       // 2) 풀이 준비 안 됐거나 슬롯 부족 → 로컬 폴백
       let combos: number[][];
       const pool = await fetchWeeklyPool(targetRound);
+      console.log('[jachanism] fetchWeeklyPool result:',
+        pool ? `combos.length=${pool.combos.length}` : 'null');
+
       if (allocation && pool && pool.combos.length > allocation.to) {
         // ✅ 글로벌 슬롯 할당 성공 — 받은 슬롯 번호의 조합 사용
         combos = pool.combos.slice(
@@ -173,14 +182,18 @@ export default function ProJachanism() {
           consumed: allocation.consumed,
           updatedAt: Date.now(),
         });
+        console.log('[jachanism] ✅ Firebase 슬롯 할당 성공:',
+          `from=${allocation.to - take + 1}, to=${allocation.to}, consumed→${allocation.consumed}`);
       } else if (pool && pool.combos.length >= USER_LIMIT) {
         // GitHub 풀은 있지만 Firebase 못 받음 → 기존 deviceSeed 방식
         const offset = receivedCount;
         combos = pickUserCombosFromPool(pool, targetRound, deviceSeed, offset, take);
+        console.warn('[jachanism] ⚠️ Firebase 실패, deviceSeed 폴백 사용');
       } else {
         // 풀 자체가 없음 → 로컬 알고리즘 폴백
         const offset = receivedCount;
         combos = generateUserCombosRange(targetRound, deviceSeed, offset, take);
+        console.warn('[jachanism] ⚠️ 풀 없음, 로컬 알고리즘 폴백 사용');
       }
 
       // 3) 회차 기록에 저장
@@ -244,6 +257,48 @@ export default function ProJachanism() {
       />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
 
+        {/* 테스트 모드 배너 (개발 빌드에서만) */}
+        {__DEV__ && (
+          <View style={{
+            padding: 10,
+            borderRadius: radius.md,
+            backgroundColor: 'rgba(101,65,242,0.10)',
+            borderWidth: 1,
+            borderColor: palette.purple500,
+          }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+              <T variant="caption1" allowFontScaling={false} style={{ color: palette.purple500, fontWeight: '800', fontSize: 11 }}>
+                🧪 개발 테스트 모드
+              </T>
+              <Pressable
+                onPress={() => {
+                  clearRound(targetRound);
+                  showToast(`${targetRound}회 로컬 받기 기록 초기화 — 다시 받을 수 있음`);
+                }}
+                style={({ pressed }) => ({
+                  paddingHorizontal: 10,
+                  paddingVertical: 5,
+                  borderRadius: 6,
+                  backgroundColor: palette.purple500,
+                  opacity: pressed ? 0.7 : 1,
+                })}
+              >
+                <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 10 }}>
+                  내 받기 기록 초기화
+                </T>
+              </Pressable>
+            </View>
+            <T variant="caption2" color="tertiary" style={{ marginTop: 4, fontSize: 10.5 }}>
+              {realStatus === 'locked'
+                ? '원래 일요일은 잠금 상태(분석 중)지만, 개발 빌드라 받기 활성화됨. Production 빌드에선 수요일 00:00부터만 받기 가능.'
+                : '받기 누른 후 콘솔 로그(Metro)에서 [firebase] / [jachanism] 메시지 확인.'}
+            </T>
+            <T variant="caption2" color="tertiary" style={{ marginTop: 4, fontSize: 9.5, fontFamily: 'monospace' }}>
+              현재: 받음 {receivedCount}/50 · Firebase consumed {thisWeekConsumed}/{thisWeekPoolSize ?? '?'}
+            </T>
+          </View>
+        )}
+
         {/* Hero — 상태별 메인 카드 (라이트/다크 자동 분기) */}
         <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
           <View style={styles.heroTopRow}>
@@ -261,10 +316,10 @@ export default function ProJachanism() {
           {status === 'locked' && (
             <View style={styles.heroBody}>
               <T allowFontScaling={false} style={styles.heroEmoji}>🔒</T>
-              <T variant="title2" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900' }}>
+              <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900', fontSize: 16 }}>
                 분석 진행 중
               </T>
-              <T variant="body2r" style={{ color: t.fgOnHeroMuted, marginTop: 6, textAlign: 'center' }}>
+              <T variant="caption1" style={{ color: t.fgOnHeroMuted, marginTop: 3, textAlign: 'center', fontSize: 11.5 }}>
                 수요일 00:00부터 받을 수 있어요
               </T>
               {countdown && (
@@ -280,11 +335,11 @@ export default function ProJachanism() {
           {status === 'active' && remainingCount > 0 && (
             <View style={styles.heroBody}>
               <T allowFontScaling={false} style={styles.heroEmoji}>{receivedCount === 0 ? '✨' : '🎁'}</T>
-              <T variant="title2" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900' }}>
+              <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900', fontSize: 16 }}>
                 {receivedCount === 0 ? '이번 주 분석 완료' : `${receivedCount}개 받음 · ${remainingCount}개 더 받기 가능`}
               </T>
-              <T variant="body2r" style={{ color: t.fgOnHeroMuted, marginTop: 6, textAlign: 'center' }}>
-                받고 싶은 개수를 골라주세요 (이번 주 최대 50개)
+              <T variant="caption1" style={{ color: t.fgOnHeroMuted, marginTop: 3, textAlign: 'center', fontSize: 11.5 }}>
+                받고 싶은 개수를 골라주세요 (최대 50개)
               </T>
               <ReceiveCountPicker
                 remaining={remainingCount}
@@ -303,8 +358,8 @@ export default function ProJachanism() {
                   },
                 ]}
               >
-                <Icon.sparkle color="#fff" size={16} weight={2.5} />
-                <T variant="label1n" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', marginLeft: 6, fontSize: 15 }}>
+                <Icon.sparkle color="#fff" size={14} weight={2.5} />
+                <T variant="label1n" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', marginLeft: 5, fontSize: 13.5 }}>
                   {receiving
                     ? '받는 중...'
                     : selectedCount != null
@@ -318,11 +373,11 @@ export default function ProJachanism() {
           {status === 'active' && remainingCount === 0 && (
             <View style={styles.heroBody}>
               <T allowFontScaling={false} style={styles.heroEmoji}>✅</T>
-              <T variant="title2" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900' }}>
+              <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900', fontSize: 16 }}>
                 이번 주 50조합 받기 완료
               </T>
-              <T variant="body2r" style={{ color: t.fgOnHeroMuted, marginTop: 6, textAlign: 'center' }}>
-                아래에서 50조합 확인 · 보관함 저장 가능
+              <T variant="caption1" style={{ color: t.fgOnHeroMuted, marginTop: 3, textAlign: 'center', fontSize: 11.5 }}>
+                아래에서 50조합 확인 · 보관함 자동 저장
               </T>
             </View>
           )}
@@ -330,10 +385,10 @@ export default function ProJachanism() {
           {status === 'drawing' && (
             <View style={styles.heroBody}>
               <T allowFontScaling={false} style={styles.heroEmoji}>⏳</T>
-              <T variant="title2" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900' }}>
+              <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900', fontSize: 16 }}>
                 추첨 진행 중
               </T>
-              <T variant="body2r" style={{ color: t.fgOnHeroMuted, marginTop: 6, textAlign: 'center' }}>
+              <T variant="caption1" style={{ color: t.fgOnHeroMuted, marginTop: 3, textAlign: 'center', fontSize: 11.5 }}>
                 토요일 20:35 추첨 후 결과 공개
               </T>
             </View>
@@ -342,10 +397,10 @@ export default function ProJachanism() {
           {status === 'done' && (
             <View style={styles.heroBody}>
               <T allowFontScaling={false} style={styles.heroEmoji}>🎉</T>
-              <T variant="title2" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900' }}>
+              <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900', fontSize: 16 }}>
                 {targetRound}회 추첨 완료
               </T>
-              <T variant="body2r" style={{ color: t.fgOnHeroMuted, marginTop: 6, textAlign: 'center' }}>
+              <T variant="caption1" style={{ color: t.fgOnHeroMuted, marginTop: 3, textAlign: 'center', fontSize: 11.5 }}>
                 받은 조합의 등수 결과를 확인하세요
               </T>
             </View>
@@ -383,48 +438,29 @@ export default function ProJachanism() {
               </T>
             </View>
 
-            <View style={{ marginTop: 12, gap: 8 }}>
+            <View style={{ marginTop: 12, gap: 10 }}>
               {entry.combos.map((c, i) => {
-                // 추첨 완료 시 등수 표시
+                // 추첨 완료 시 등수 + 일치 번호 표시
                 const drawn = status === 'done' ? drawsMap[targetRound] : null;
                 const r = drawn ? computeRank(c, drawn.nums, drawn.bonus) : null;
+                const allHits = drawn
+                  ? c.filter((n) => drawn.nums.includes(n) || drawn.bonus === n)
+                  : undefined;
+                const rankColor =
+                  r === 1 ? palette.red500
+                  : r === 2 ? '#ea580c'
+                  : r === 3 ? GOLD_DARK
+                  : r === 4 ? palette.blue700
+                  : r === 5 ? palette.green700
+                  : '#888';
                 return (
-                  <View
+                  <CombinationCard
                     key={i}
-                    style={[styles.comboRow, {
-                      backgroundColor: t.bgSurface2,
-                      borderColor: r != null && r <= 3 ? GOLD : t.borderDivider,
-                      borderWidth: r != null && r <= 3 ? 2 : 1,
-                    }]}
-                  >
-                    <View style={styles.labelBox}>
-                      <T variant="caption2" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 11 }}>
-                        #{i + 1}
-                      </T>
-                    </View>
-                    <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: 4 }}>
-                      {c.map((n) => {
-                        const isMain = drawn?.nums.includes(n);
-                        const isBonus = !isMain && drawn?.bonus === n;
-                        return (
-                          <Ball
-                            key={n}
-                            n={n}
-                            size="sm"
-                            dashedRing={isMain || isBonus}
-                            dashedRingColor={isMain ? palette.red500 : isBonus ? palette.purple500 : undefined}
-                          />
-                        );
-                      })}
-                    </View>
-                    {r != null && (
-                      <View style={[styles.rankPill, { backgroundColor: r === 1 ? palette.red500 : r === 2 ? '#ea580c' : r === 3 ? GOLD_DARK : r === 4 ? palette.blue700 : palette.green700 }]}>
-                        <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 10 }}>
-                          {r}등
-                        </T>
-                      </View>
-                    )}
-                  </View>
+                    nums={c}
+                    label={`#${i + 1}`}
+                    hits={allHits}
+                    rankBadge={r != null ? { rank: r, color: rankColor } : undefined}
+                  />
                 );
               })}
             </View>
@@ -450,7 +486,7 @@ export default function ProJachanism() {
             )}
           </View>
           <T variant="caption1" color="tertiary" style={{ marginTop: 2, fontSize: 11.5 }}>
-            평균 {POOL_SIZE_DISPLAY} · 한 사람당 최대 {USER_LIMIT}조합 · 전 세계 중복 X
+            평균 {POOL_SIZE_DISPLAY} · 한 사람당 최대 {USER_LIMIT}조합 · 중복 X
           </T>
 
           {/* 큰 숫자: 남은 조합 강조 (FOMO) */}
@@ -501,7 +537,7 @@ export default function ProJachanism() {
           {/* 내 한도 (작게) */}
           <View style={[styles.myLimitBox, { backgroundColor: 'rgba(0,102,255,0.08)', borderColor: 'rgba(0,102,255,0.3)' }]}>
             <T variant="caption1" allowFontScaling={false} style={{ color: palette.blue700, fontWeight: '700', fontSize: 12 }}>
-              내가 받은
+              받은 조합
             </T>
             <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
               <T variant="label1n" allowFontScaling={false} style={{ color: palette.blue700, fontWeight: '900', fontSize: 18 }}>
@@ -521,7 +557,7 @@ export default function ProJachanism() {
         <Card padding={16}>
           <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 6 }}>
             <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
-              📊 {BACKTEST_BASE_LABEL} 분석 결과 ({BACKTEST_BASE_N}회)
+              📊 최근 {BACKTEST_BASE_N}회(1년) 분석 결과
             </T>
             {backtestStats && (
               <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10.5 }}>
@@ -657,6 +693,7 @@ function ReceiveCountPicker({
   disabled: boolean;
   onSelect: (count: number) => void;
 }) {
+  const t = useTheme();
   // 기본 옵션: 5, 10, 20, 남은 전체 (중복/한도 초과는 자동 제거)
   const presets = Array.from(new Set([5, 10, 20, remaining]))
     .filter((n) => n >= 1 && n <= remaining)
@@ -667,8 +704,10 @@ function ReceiveCountPicker({
       {presets.map((n) => {
         const isMax = n === remaining;
         const on = selected === n;
-        const baseBg = isMax ? 'rgba(232,176,78,0.15)' : 'rgba(255,255,255,0.10)';
-        const baseBorder = isMax ? 'rgba(232,176,78,0.5)' : 'rgba(255,255,255,0.20)';
+        // 라이트모드(연한 보라 hero)에서도 또렷이 보이도록 GOLD 톤으로 통일
+        const baseBg = isMax ? 'rgba(232,176,78,0.18)' : 'rgba(232,176,78,0.10)';
+        const baseBorder = isMax ? GOLD : 'rgba(232,176,78,0.45)';
+        const textColor = on ? '#fff' : GOLD_DARK;
         return (
           <Pressable
             key={n}
@@ -686,7 +725,7 @@ function ReceiveCountPicker({
             <T
               variant="label1n"
               allowFontScaling={false}
-              style={{ color: '#fff', fontWeight: '800', fontSize: 14 }}
+              style={{ color: textColor, fontWeight: '800', fontSize: 13 }}
             >
               {isMax && n > 1 ? `남은 ${n}개 전체` : `${n}개`}
             </T>
@@ -700,7 +739,7 @@ function ReceiveCountPicker({
 const styles = StyleSheet.create({
   root: { flex: 1 },
 
-  hero: { borderRadius: radius.xl + 2, padding: 22, alignItems: 'center' },
+  hero: { borderRadius: radius.xl + 2, padding: 14, alignItems: 'center' },
   heroTopRow: {
     flexDirection: 'row', justifyContent: 'space-between',
     alignItems: 'center', alignSelf: 'stretch',
@@ -711,25 +750,25 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
   },
   heroBody: {
-    alignItems: 'center', paddingVertical: 20,
+    alignItems: 'center', paddingVertical: 10,
   },
   /** emoji는 lineHeight = fontSize × 1.2로 명시해서 텍스트와 겹침 방지. */
   heroEmoji: {
-    fontSize: 38,
-    lineHeight: 50,
-    marginBottom: 8,
+    fontSize: 24,
+    lineHeight: 32,
+    marginBottom: 2,
     textAlign: 'center',
   },
   countdownPill: {
-    marginTop: 14,
+    marginTop: 10,
     paddingHorizontal: 14, paddingVertical: 8,
     borderRadius: radius.pill,
     borderWidth: 1.5,
   },
   receiveBtn: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
-    marginTop: 16,
-    paddingHorizontal: 28, paddingVertical: 14,
+    marginTop: 10,
+    paddingHorizontal: 24, paddingVertical: 11,
     borderRadius: radius.pill,
     shadowColor: GOLD,
     shadowOpacity: 0.4,
@@ -743,15 +782,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    gap: 8,
-    marginTop: 18,
+    gap: 6,
+    marginTop: 10,
   },
   pickerBtn: {
-    paddingHorizontal: 16,
-    paddingVertical: 10,
+    paddingHorizontal: 14,
+    paddingVertical: 7,
     borderRadius: radius.pill,
     borderWidth: 1.5,
-    minWidth: 70,
+    minWidth: 64,
     alignItems: 'center',
   },
 

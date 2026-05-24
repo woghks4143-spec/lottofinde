@@ -156,6 +156,8 @@ def compute_backtest(draws, latest_round: int, n_backtest: int):
     start_r = max(1, latest_round - n_backtest + 1)
     wins_1st = []
     wins_2nd = []
+    rounds_with_rank3 = []  # 3등이 1개라도 나온 회차
+    round_details = []      # 모든 회차의 등수별 결과 (분포 분석용)
     t0 = time.time()
 
     for r in range(start_r, latest_round + 1):
@@ -181,6 +183,16 @@ def compute_backtest(draws, latest_round: int, n_backtest: int):
             wins_1st.append(r)
         if round_counts[2] > 0:
             wins_2nd.append(r)
+        if round_counts[3] > 0:
+            rounds_with_rank3.append({'round': r, 'count': round_counts[3]})
+        round_details.append({
+            'round': r,
+            'rank1': round_counts[1],
+            'rank2': round_counts[2],
+            'rank3': round_counts[3],
+            'rank4': round_counts[4],
+            'rank5': round_counts[5],
+        })
 
         elapsed = time.time() - t0
         marker = ''
@@ -212,6 +224,8 @@ def compute_backtest(draws, latest_round: int, n_backtest: int):
         'rank5': counts[5],
         'wins1st': wins_1st,
         'wins2nd': wins_2nd,
+        'roundsWithRank3': rounds_with_rank3,  # [{round, count}] — 3등이 1개라도 나온 회차
+        'roundDetails': round_details,         # 모든 회차의 등수 분포
         'computedAt': int(time.time() * 1000),
     }
     out_file = OUT_DIR / 'backtest.json'

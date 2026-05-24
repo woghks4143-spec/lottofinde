@@ -237,56 +237,78 @@ export default function ProWeekly() {
       />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
 
-        {/* 히어로 — 상황 한 줄로 요약 (라이트/다크 자동 분기) */}
+        {/* 히어로 — PRO 답게 강조된 디자인 (라이트/다크 자동 분기) */}
         <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
-          <View style={[styles.proPill, { backgroundColor: GOLD }]}>
-            <Icon.crown color="#fff" size={12} weight={2.5} />
-            <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 10, marginLeft: 3 }}>PRO</T>
+          {/* 상단 — PRO 칩 + 회차 정보 */}
+          <View style={styles.heroTopRow}>
+            <View style={[styles.proPill, { backgroundColor: GOLD }]}>
+              <Icon.crown color="#fff" size={12} weight={2.5} />
+              <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 10, marginLeft: 3, letterSpacing: 0.4 }}>
+                PRO 멤버십
+              </T>
+            </View>
+            {latestRound != null && (
+              <T variant="caption1" allowFontScaling={false} style={{ color: t.fgOnHeroMuted, fontSize: 11, fontWeight: '700' }}>
+                ~ {latestRound}회 기준
+              </T>
+            )}
           </View>
-          <T variant="title3" style={{ color: t.fgOnHero, fontWeight: '800', marginTop: 12 }}>
-            최근 {weeks}회차에서…
-          </T>
-          <T variant="caption1" style={{ color: t.fgOnHeroMuted, marginTop: 2 }}>
-            {slices.recentRange[0]}회 ~ {slices.recentRange[1]}회 분석 결과
+
+          {/* 메인 타이틀 — 회차 수를 큰 숫자로 강조 */}
+          <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 6, marginTop: 14 }}>
+            <T variant="caption1" allowFontScaling={false} style={{ color: t.fgOnHeroMuted, fontSize: 12, fontWeight: '700' }}>
+              최근
+            </T>
+            <T allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900', fontSize: 28, letterSpacing: -0.5 }}>
+              {weeks}
+            </T>
+            <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontSize: 16, fontWeight: '800' }}>
+              회차
+            </T>
+          </View>
+          <T variant="caption1" style={{ color: t.fgOnHeroMuted, marginTop: 2, fontSize: 11.5 }}>
+            {slices.recentRange[0]}회 ~ {slices.recentRange[1]}회 · 총 {slices.recent.length * 6}개 번호 분석
           </T>
 
-          {/* Top / Bottom 하이라이트 */}
-          <View style={styles.heroHighlight}>
-            <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-              <T allowFontScaling={false} style={{ fontSize: 22 }}>🔥</T>
-              <View style={{ flex: 1 }}>
-                <T variant="caption2" allowFontScaling={false} style={{ color: t.fgOnHeroMuted, fontSize: 10.5 }}>
-                  가장 자주 나온 번호
+          {/* Hot / Cold 하이라이트 — 좌측 컬러 띠 + 이모지 */}
+          <View style={[styles.heroHighlight, { backgroundColor: 'rgba(249,115,22,0.10)', borderColor: 'rgba(249,115,22,0.30)' }]}>
+            <View style={[styles.heroSideBar, { backgroundColor: '#f97316' }]} />
+            <T allowFontScaling={false} style={{ fontSize: 22 }}>🔥</T>
+            <View style={{ flex: 1 }}>
+              <T variant="caption2" allowFontScaling={false} style={{ color: t.fgOnHeroMuted, fontSize: 10.5, fontWeight: '700' }}>
+                가장 자주 나온 번호
+              </T>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 4 }}>
+                <Ball n={analysis.topNum} size="sm" />
+                <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900', fontSize: 14 }}>
+                  {analysis.topCount}회 출현
                 </T>
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 4 }}>
-                  <Ball n={analysis.topNum} size="sm" />
-                  <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }}>
-                    {analysis.topCount}회 출현
-                  </T>
-                </View>
               </View>
             </View>
           </View>
-          <View style={styles.heroHighlight}>
-            <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-              <T allowFontScaling={false} style={{ fontSize: 22 }}>🧊</T>
-              <View style={{ flex: 1 }}>
-                <T variant="caption2" allowFontScaling={false} style={{ color: t.fgOnHeroMuted, fontSize: 10.5 }}>
-                  가장 안 나온 번호
+          <View style={[styles.heroHighlight, { backgroundColor: 'rgba(56,189,248,0.10)', borderColor: 'rgba(56,189,248,0.30)' }]}>
+            <View style={[styles.heroSideBar, { backgroundColor: '#38bdf8' }]} />
+            <T allowFontScaling={false} style={{ fontSize: 22 }}>🧊</T>
+            <View style={{ flex: 1 }}>
+              <T variant="caption2" allowFontScaling={false} style={{ color: t.fgOnHeroMuted, fontSize: 10.5, fontWeight: '700' }}>
+                가장 안 나온 번호
+              </T>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 4, flexWrap: 'wrap' }}>
+                {analysis.minNums.slice(0, 5).map((n) => <Ball key={n} n={n} size="sm" />)}
+                <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900', fontSize: 14 }}>
+                  {analysis.minCount}회 {analysis.minCount === 0 ? '(한 번도 안 나옴)' : ''}
                 </T>
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 4, flexWrap: 'wrap' }}>
-                  {analysis.minNums.slice(0, 5).map((n) => <Ball key={n} n={n} size="sm" />)}
-                  <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }}>
-                    {analysis.minCount}회 {analysis.minCount === 0 ? '(한 번도 안 나옴)' : ''}
-                  </T>
-                </View>
               </View>
             </View>
           </View>
 
-          <T variant="caption2" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.5)', marginTop: 14, fontSize: 10.5 }}>
-            💡 6개씩 {weeks}회 = 총 {slices.recent.length * 6}개 번호가 나왔고, 한 번호당 평균 {analysis.mean.toFixed(1)}회 출현이에요
-          </T>
+          {/* 안내 */}
+          <View style={[styles.heroTip, { backgroundColor: t.bgOnHeroPill }]}>
+            <T allowFontScaling={false} style={{ fontSize: 12, marginRight: 5 }}>💡</T>
+            <T variant="caption2" allowFontScaling={false} style={{ color: t.fgOnHeroMuted, fontSize: 10.5, flex: 1, lineHeight: 15, fontWeight: '600' }}>
+              한 번호당 평균 <T allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900' }}>{analysis.mean.toFixed(1)}회</T> 출현
+            </T>
+          </View>
         </View>
 
         {/* 회차 범위 선택 */}
@@ -373,61 +395,32 @@ export default function ProWeekly() {
           </Card>
         )}
 
-        {/* 범례 + 그리드 */}
+        {/* 1~45 번호 분포 — 7x7 그리드 (NumPicker 패턴) */}
         <Card padding={14}>
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 }}>
             <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
-              🎯 1~45 번호 분포
+              1~45 번호 분포
             </T>
             <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10.5 }}>
               탭하면 상세
             </T>
           </View>
-          {/* 범례 */}
+          {/* 범례 — 컬러 닷 + 라벨 (이모티콘 없음) */}
           <View style={styles.legend}>
             {(['hot', 'warm', 'cold', 'frozen'] as Tier[]).map((tier) => (
-              <View key={tier} style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+              <View key={tier} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
                 <View style={[styles.legendDot, { backgroundColor: TIER_META[tier].color }]} />
-                <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10 }}>
+                <T variant="caption2" color="secondary" allowFontScaling={false} style={{ fontSize: 10.5, fontWeight: '700' }}>
                   {TIER_META[tier].label}
                 </T>
               </View>
             ))}
           </View>
-          <View style={styles.grid}>
-            {Array.from({ length: 45 }, (_, i) => i + 1).map((n) => {
-              const tierName = analysis.tier.get(n)!;
-              const tierColor = TIER_META[tierName].color;
-              const count = analysis.freq.count[n];
-              return (
-                <Pressable
-                  key={n}
-                  onPress={() => setSelectedNum(n)}
-                  style={({ pressed }) => [
-                    styles.gridCell,
-                    {
-                      backgroundColor: tierColor,
-                      opacity: pressed ? 0.85 : 1,
-                    },
-                  ]}
-                >
-                  <T variant="label1n" compact allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 13 }}>
-                    {n}
-                  </T>
-                  <T variant="caption2" compact allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.85)', fontSize: 8.5, marginTop: 1, fontWeight: '700' }}>
-                    {count}회
-                  </T>
-                  {compareMode && (
-                    <View style={styles.changeBadge}>
-                      <T variant="caption2" compact allowFontScaling={false} style={{ color: '#fff', fontSize: 7.5, fontWeight: '800' }}>
-                        {fmtChange(analysis.changeMap.get(n) || 0)}
-                      </T>
-                    </View>
-                  )}
-                </Pressable>
-              );
-            })}
-          </View>
+          <NumberDistGrid
+            analysis={analysis}
+            compareMode={compareMode}
+            onTapNum={setSelectedNum}
+          />
           <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ marginTop: 10, fontSize: 10.5, lineHeight: 14 }}>
             셀 안의 숫자는 {weeks}회차 동안 출현 횟수 · 색상은 4단계 그룹
             {compareMode ? ' · 우상단 작은 숫자는 이전 기간 대비 변화량' : ''}
@@ -437,7 +430,7 @@ export default function ProWeekly() {
         {/* 4단계 그룹별 분포 */}
         <Card padding={14}>
           <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
-            🌡 4단계 그룹
+            4단계 그룹
           </T>
           <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ marginTop: 2, marginBottom: 10, fontSize: 10.5 }}>
             각 그룹의 회차당 평균 출현 수 — 통계적으로 안정된 추천 풀 만들 때 참고
@@ -449,10 +442,11 @@ export default function ProWeekly() {
               const stat = analysis.tierStats[tier];
               return (
                 <View key={tier} style={[styles.tierCard, { backgroundColor: meta.soft, borderColor: meta.color + '33' }]}>
+                  {/* 좌측 컬러 띠 — 이모티콘 대신 시각적 식별 */}
+                  <View style={[styles.tierSideBar, { backgroundColor: meta.color }]} />
                   {/* 헤더 — 라벨 + 평균 stat pill */}
                   <View style={styles.tierHead}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flex: 1 }}>
-                      <T allowFontScaling={false} style={{ fontSize: 16 }}>{meta.emoji}</T>
                       <T variant="label1n" allowFontScaling={false} style={{ fontWeight: '800', color: meta.color, fontSize: 13 }}>
                         {meta.full}
                       </T>
@@ -462,7 +456,7 @@ export default function ProWeekly() {
                     </View>
                     <View style={[styles.tierAvgPill, { backgroundColor: meta.color }]}>
                       <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 10.5 }}>
-                        회차당 평균 {stat.avgPerRound.toFixed(1)}개
+                        평균 {stat.avgPerRound.toFixed(1)}개/회
                       </T>
                     </View>
                   </View>
@@ -646,18 +640,122 @@ function fmtChange(n: number): string {
   return '0';
 }
 
+type AnalysisLike = {
+  tier: Map<number, Tier>;
+  freq: { count: Record<number, number> };
+  changeMap: Map<number, number>;
+};
+
+/** 1~45 번호 분포 그리드 — 7x7 (NumPicker 패턴, 동적 셀 사이즈) */
+function NumberDistGrid({
+  analysis, compareMode, onTapNum,
+}: {
+  analysis: AnalysisLike;
+  compareMode: boolean;
+  onTapNum: (n: number) => void;
+}) {
+  const NUM_COLS = 7;
+  const NUM_GAP = 5;
+  const [gridW, setGridW] = useState(0);
+  const cellSize = gridW > 0
+    ? Math.floor((gridW - (NUM_COLS - 1) * NUM_GAP) / NUM_COLS)
+    : 42;
+
+  return (
+    <View
+      style={styles.numGrid}
+      onLayout={(e) => setGridW(e.nativeEvent.layout.width)}
+    >
+      {Array.from({ length: NUM_COLS * NUM_COLS }, (_, i) => i + 1).map((n) => {
+        if (n > 45) {
+          return <View key={n} style={[styles.numCellEmpty, { width: cellSize, height: cellSize }]} />;
+        }
+        const tierName = analysis.tier.get(n)!;
+        const tierColor = TIER_META[tierName].color;
+        const count = analysis.freq.count[n];
+        return (
+          <Pressable
+            key={n}
+            onPress={() => onTapNum(n)}
+            style={({ pressed }) => [
+              styles.numCell,
+              {
+                width: cellSize, height: cellSize,
+                backgroundColor: tierColor,
+                opacity: pressed ? 0.85 : 1,
+              },
+            ]}
+          >
+            <T
+              variant="label1n"
+              allowFontScaling={false}
+              style={{
+                color: '#fff', fontWeight: '900',
+                fontSize: Math.max(13, Math.min(16, cellSize * 0.36)),
+                lineHeight: Math.max(15, Math.min(18, cellSize * 0.42)),
+              }}
+            >
+              {n}
+            </T>
+            <T
+              variant="caption2"
+              allowFontScaling={false}
+              style={{
+                color: 'rgba(255,255,255,0.92)',
+                fontSize: Math.max(9, Math.min(10, cellSize * 0.23)),
+                marginTop: 1, fontWeight: '700',
+              }}
+            >
+              {count}회
+            </T>
+            {compareMode && (
+              <View style={styles.numChangeBadge}>
+                <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 8, fontWeight: '800' }}>
+                  {fmtChange(analysis.changeMap.get(n) || 0)}
+                </T>
+              </View>
+            )}
+          </Pressable>
+        );
+      })}
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
   root: { flex: 1 },
 
-  hero: { borderRadius: radius.xl + 2, padding: 22 },
+  hero: { borderRadius: radius.xl + 2, padding: 18 },
+  heroTopRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   proPill: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 8, paddingVertical: 3, borderRadius: radius.pill, alignSelf: 'flex-start' },
+  // 하이라이트 박스 — 좌측 컬러 띠 + 톤 일치 배경
   heroHighlight: {
     flexDirection: 'row',
     alignItems: 'center',
+    gap: 10,
     paddingVertical: 12,
     paddingHorizontal: 12,
+    marginTop: 10,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  heroSideBar: {
+    position: 'absolute',
+    left: 0, top: 0, bottom: 0,
+    width: 4,
+  },
+  heroTip: {
+    flexDirection: 'row',
+    alignItems: 'center',
     marginTop: 12,
-    backgroundColor: 'rgba(255,255,255,0.06)',
+    paddingHorizontal: 10,
+    paddingVertical: 8,
     borderRadius: radius.md,
   },
 
@@ -693,25 +791,27 @@ const styles = StyleSheet.create({
     width: 10, height: 10, borderRadius: 3,
   },
 
-  grid: {
+  // 1~45 7x7 그리드 — NumPicker 패턴
+  numGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 4,
+    gap: 5,
+    justifyContent: 'center',
   },
-  gridCell: {
-    width: '10.5%',
-    aspectRatio: 1,
-    borderRadius: radius.sm,
+  numCell: {
+    borderRadius: radius.md,
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
   },
-  changeBadge: {
+  numCellEmpty: { backgroundColor: 'transparent', opacity: 0 },
+  numChangeBadge: {
     position: 'absolute',
     top: 2,
     right: 2,
-    backgroundColor: 'rgba(0,0,0,0.45)',
-    paddingHorizontal: 3,
+    backgroundColor: 'rgba(0,0,0,0.50)',
+    paddingHorizontal: 4,
+    paddingVertical: 1,
     borderRadius: 4,
   },
 
@@ -725,9 +825,17 @@ const styles = StyleSheet.create({
   },
   tierCard: {
     paddingVertical: 12,
-    paddingHorizontal: 12,
+    paddingLeft: 16,        // 좌측 띠 자리 (4px 띠 + 12px 콘텐츠 여백)
+    paddingRight: 12,
     borderRadius: radius.md,
     borderWidth: 1,
+    position: 'relative',
+    overflow: 'hidden',
+  },
+  tierSideBar: {
+    position: 'absolute',
+    left: 0, top: 0, bottom: 0,
+    width: 4,
   },
   tierHead: {
     flexDirection: 'row',

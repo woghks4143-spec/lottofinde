@@ -126,7 +126,9 @@ function PreviewJachanism() {
   const targetRound = latestRound + 1;
 
   // 요일 기반 상태 — 수요일 이전(locked)이면 풀 정보 표시 안 함
-  const dayStatus = getDayStatus();
+  // 개발 모드는 잠금 우회 (테스트용)
+  const realDayStatus = getDayStatus();
+  const dayStatus = __DEV__ && realDayStatus === 'locked' ? 'active' : realDayStatus;
   const canShowPool = dayStatus !== 'locked';
 
   // 실시간 풀 상태 (수요일 이후만 fetch)

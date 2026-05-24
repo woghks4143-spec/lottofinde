@@ -91,78 +91,105 @@ export async function allocateSlots(
 ): Promise<AllocationResult | null> {
   if (count <= 0) return null;
   const poolRef = ref(db, `pools/${round}`);
-  try {
-    const result = await runTransaction(poolRef, (current) => {
-      // 풀이 아직 생성 안 됨 → transaction 중단 (월요일 분석 전)
-      if (!current || typeof current.total !== 'number') {
-        return; // abort
-      }
-      const total = current.total;
-      const consumed = current.consumed ?? 0;
-      const remaining = Math.max(0, total - consumed);
-      if (remaining <= 0) {
-        // 풀 소진 → 더 이상 할당 불가
-        return; // abort
-      }
 
-      // 이 사용자가 이미 받았는지 체크
-      const allocations = current.allocations || {};
-      const existing = allocations[deviceSeed];
-      if (existing && typeof existing.from === 'number' && typeof existing.to === 'number') {
-        // 이미 받음 → 추가 할당 (이어서 받기)
+  // Step 1) Warm up — runTransaction이 첫 호출에서 current=null로 들어와
+  //         abort하면 재시도하지 않는 RN 캐시 이슈를 우회.
+  let serverSnapshot: any = null;
+  try {
+    const snap = await get(poolRef);
+    if (!snap.exists()) {
+      console.warn('[firebase] allocateSlots: pool does not exist at /pools/' + round);
+      return null;
+    }
+    serverSnapshot = snap.val();
+    if (!serverSnapshot || typeof serverSnapshot.total !== 'number') {
+      console.warn('[firebase] allocateSlots: pool exists but missing/invalid total', serverSnapshot);
+      return null;
+    }
+  } catch (e) {
+    console.warn('[firebase] allocateSlots warmup get error:', (e as Error)?.message);
+    return null;
+  }
+
+  // Step 2) 최대 3회 재시도로 transaction 실행
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const result = await runTransaction(poolRef, (current) => {
+        // 첫 호출에서 null인 경우 warmup으로 받은 서버 스냅샷을 fallback으로 사용.
+        // (이는 single-client 환경에서만 안전 — race가 있으면 다음 retry에서 정정됨.)
+        const data = current ?? serverSnapshot;
+        if (!data || typeof data.total !== 'number') {
+          return; // abort
+        }
+        const total: number = data.total;
+        const consumed: number = data.consumed ?? 0;
+        const remaining = Math.max(0, total - consumed);
+        if (remaining <= 0) {
+          return; // 풀 소진 → abort
+        }
+
+        const allocations = data.allocations ? { ...data.allocations } : {};
+        const existing = allocations[deviceSeed];
+        const isExisting = existing && typeof existing.from === 'number' && typeof existing.to === 'number';
+
         const newFrom = consumed;
         const newTo = Math.min(newFrom + count - 1, total - 1);
         const allocCount = newTo - newFrom + 1;
-        allocations[deviceSeed] = {
-          from: existing.from,
-          to: newTo, // 끝점만 갱신
-          totalReceived: (existing.totalReceived || (existing.to - existing.from + 1)) + allocCount,
-          lastAllocAt: Date.now(),
-        };
+
+        if (isExisting) {
+          allocations[deviceSeed] = {
+            from: existing.from,
+            to: newTo,
+            totalReceived: (existing.totalReceived || (existing.to - existing.from + 1)) + allocCount,
+            firstAllocAt: existing.firstAllocAt || Date.now(),
+            lastAllocAt: Date.now(),
+          };
+        } else {
+          allocations[deviceSeed] = {
+            from: newFrom,
+            to: newTo,
+            totalReceived: allocCount,
+            firstAllocAt: Date.now(),
+            lastAllocAt: Date.now(),
+          };
+        }
+
         return {
           total,
           consumed: consumed + allocCount,
           allocations,
           updatedAt: Date.now(),
         };
+      });
+
+      if (result.committed && result.snapshot.exists()) {
+        const v = result.snapshot.val();
+        const alloc = v.allocations?.[deviceSeed];
+        if (!alloc) {
+          console.warn('[firebase] allocateSlots: committed but no allocation entry');
+          return null;
+        }
+        return {
+          from: alloc.from,
+          to: alloc.to,
+          total: v.total,
+          consumed: v.consumed,
+        };
       }
 
-      // 새 사용자 → 새 슬롯 할당
-      const newFrom = consumed;
-      const newTo = Math.min(newFrom + count - 1, total - 1);
-      const allocCount = newTo - newFrom + 1;
-      allocations[deviceSeed] = {
-        from: newFrom,
-        to: newTo,
-        totalReceived: allocCount,
-        firstAllocAt: Date.now(),
-        lastAllocAt: Date.now(),
-      };
-      return {
-        total,
-        consumed: consumed + allocCount,
-        allocations,
-        updatedAt: Date.now(),
-      };
-    });
-
-    if (!result.committed || !result.snapshot.exists()) {
-      console.warn('[firebase] allocateSlots: transaction not committed (pool not ready or exhausted)');
-      return null;
+      // not committed — 재시도 전 서버 스냅샷 갱신
+      console.warn(`[firebase] allocateSlots attempt ${attempt + 1}: not committed, refreshing snapshot`);
+      try {
+        const snap = await get(poolRef);
+        if (snap.exists()) serverSnapshot = snap.val();
+      } catch {}
+    } catch (e) {
+      console.warn(`[firebase] allocateSlots attempt ${attempt + 1} error:`, (e as Error)?.message);
     }
-    const v = result.snapshot.val();
-    const alloc = v.allocations?.[deviceSeed];
-    if (!alloc) return null;
-    return {
-      from: alloc.from,
-      to: alloc.to,
-      total: v.total,
-      consumed: v.consumed,
-    };
-  } catch (e) {
-    console.warn('[firebase] allocateSlots error:', (e as Error)?.message);
-    return null;
   }
+
+  console.warn('[firebase] allocateSlots: all retries exhausted');
+  return null;
 }
 
 /**

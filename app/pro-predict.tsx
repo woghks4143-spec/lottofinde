@@ -14,6 +14,7 @@ import { useSafeBack } from '@/src/lib/navigation';
 import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
 import { Ball } from '@/src/components/Ball';
+import { BallRow } from '@/src/components/BallRow';
 import { Card } from '@/src/components/Card';
 import { Disclaimer } from '@/src/components/Disclaimer';
 import { Icon } from '@/src/components/Icons';
@@ -595,7 +596,7 @@ export default function ProPredict() {
 
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
 
-        {/* Hero — 분석 대상 회차 네비게이터 (라이트/다크 자동 분기) */}
+        {/* 분석 대상 hero — 일반모드 "분석법 비교" 디자인과 통일 */}
         <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
           <View style={styles.heroNav}>
             <Pressable
@@ -603,10 +604,10 @@ export default function ProPredict() {
               disabled={round <= earliestRound}
               style={({ pressed }) => [styles.navArrow, {
                 backgroundColor: t.bgOnHeroPill,
-                opacity: round <= earliestRound ? 0.3 : pressed ? 0.6 : 1,
+                opacity: round <= earliestRound ? 0.3 : pressed ? 0.7 : 1,
               }]}
             >
-              <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '800' }}>‹</T>
+              <Icon.chevLeft color={t.fgOnHero} size={20} weight={2.5} />
             </Pressable>
             <View style={{ flex: 1, alignItems: 'center' }}>
               {isUpcoming ? (
@@ -630,11 +631,24 @@ export default function ProPredict() {
               disabled={round >= upcomingRound}
               style={({ pressed }) => [styles.navArrow, {
                 backgroundColor: t.bgOnHeroPill,
-                opacity: round >= upcomingRound ? 0.3 : pressed ? 0.6 : 1,
+                opacity: round >= upcomingRound ? 0.3 : pressed ? 0.7 : 1,
               }]}
             >
-              <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '800' }}>›</T>
+              <View style={{ transform: [{ rotate: '180deg' }] }}>
+                <Icon.chevLeft color={t.fgOnHero} size={20} weight={2.5} />
+              </View>
             </Pressable>
+          </View>
+          <View style={{ marginTop: 14, alignItems: 'center' }}>
+            {isUpcoming || !targetInfo.nums ? (
+              <View style={[styles.upcomingNumsBox, { backgroundColor: t.bgOnHeroPill, borderColor: t.borderOnHero }]}>
+                <T variant="label1n" style={{ color: t.fgOnHero, textAlign: 'center', fontWeight: '700' }}>
+                  당첨번호 발표 전
+                </T>
+              </View>
+            ) : (
+              <BallRow nums={targetInfo.nums} bonus={targetInfo.bonus} size="sm" style={{ gap: 4 }} />
+            )}
           </View>
         </View>
 
@@ -935,14 +949,24 @@ const styles = StyleSheet.create({
 
   hero: { borderRadius: radius.xl, padding: 18 },
   heroNav: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  // 회차 이동 버튼 — 둥근 사각형 + Icon.chevLeft (일반모드 분석법 비교와 동일)
   navArrow: {
-    width: 36, height: 36, borderRadius: 18,
+    width: 40, height: 40, borderRadius: 12,
     alignItems: 'center', justifyContent: 'center',
   },
   upcomingPill: {
     backgroundColor: palette.purple500,
     paddingHorizontal: 10, paddingVertical: 4,
     borderRadius: 99,
+  },
+  // "당첨번호 발표 전" 박스 — 예정 회차 또는 데이터 없을 때
+  upcomingNumsBox: {
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    width: '100%',
   },
 
   jumpRow: { flexDirection: 'row', gap: 6 },
