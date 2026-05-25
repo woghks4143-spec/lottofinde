@@ -151,7 +151,7 @@ export default function ProAnalysisMethods() {
 
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
 
-        {/* 분석 대상 hero (라이트/다크 자동 분기) */}
+        {/* 분석 대상 hero — 다른 PRO 화면들과 통일 디자인 */}
         <View style={[styles.targetCard, { backgroundColor: t.bgHero }]}>
           <View style={styles.targetHead}>
             <Pressable
@@ -159,10 +159,10 @@ export default function ProAnalysisMethods() {
               disabled={round <= earliestRound}
               style={({ pressed }) => [styles.navArrow, {
                 backgroundColor: t.bgOnHeroPill,
-                opacity: round <= earliestRound ? 0.3 : pressed ? 0.6 : 1,
+                opacity: round <= earliestRound ? 0.3 : pressed ? 0.7 : 1,
               }]}
             >
-              <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }} allowFontScaling={false}>‹</T>
+              <Icon.chevLeft color={t.fgOnHero} size={20} weight={2.5} />
             </Pressable>
             <View style={{ flex: 1, alignItems: 'center' }}>
               {isUpcoming ? (
@@ -186,21 +186,23 @@ export default function ProAnalysisMethods() {
               disabled={round >= upcomingRound}
               style={({ pressed }) => [styles.navArrow, {
                 backgroundColor: t.bgOnHeroPill,
-                opacity: round >= upcomingRound ? 0.3 : pressed ? 0.6 : 1,
+                opacity: round >= upcomingRound ? 0.3 : pressed ? 0.7 : 1,
               }]}
             >
-              <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }} allowFontScaling={false}>›</T>
+              <View style={{ transform: [{ rotate: '180deg' }] }}>
+                <Icon.chevLeft color={t.fgOnHero} size={20} weight={2.5} />
+              </View>
             </Pressable>
           </View>
           <View style={{ marginTop: 14, alignItems: 'center' }}>
             {isUpcoming ? (
-              <View style={styles.upcomingNumsBox}>
-                <T variant="caption1" style={{ color: t.fgOnHeroMuted, textAlign: 'center', lineHeight: 18 }}>
-                  당첨번호 발표 전 — 직전 {latestRound}회 기반 예상 후보 분석
+              <View style={[styles.upcomingNumsBox, { backgroundColor: t.bgOnHeroPill, borderColor: t.borderOnHero }]}>
+                <T variant="label1n" style={{ color: t.fgOnHero, textAlign: 'center', fontWeight: '700' }}>
+                  당첨번호 발표 전
                 </T>
               </View>
             ) : (
-              <BallRow nums={target.nums} bonus={target.bonus} size="md" />
+              <BallRow nums={target.nums} bonus={target.bonus} size="sm" style={{ gap: 4 }} />
             )}
           </View>
         </View>
@@ -1241,8 +1243,9 @@ const styles = StyleSheet.create({
 
   targetCard: { borderRadius: radius.xl, padding: 18 },
   targetHead: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  // 회차 이동 버튼 — 둥근 사각형 (분석법 비교/핀더 예상 제외수와 통일)
   navArrow: {
-    width: 36, height: 36, borderRadius: 18,
+    width: 40, height: 40, borderRadius: 12,
     alignItems: 'center', justifyContent: 'center',
   },
   upcomingPill: {
@@ -1251,13 +1254,12 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     borderRadius: 99,
   },
+  // "당첨번호 발표 전" 박스 — bg/border는 인라인으로 t.bgOnHeroPill/borderOnHero 적용
   upcomingNumsBox: {
     paddingHorizontal: 14,
-    paddingVertical: 16,
+    paddingVertical: 14,
     borderRadius: radius.md,
-    backgroundColor: 'rgba(255,255,255,0.05)',
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.10)',
     borderStyle: 'dashed',
     width: '100%',
   },

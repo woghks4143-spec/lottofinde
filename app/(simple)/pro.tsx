@@ -194,7 +194,7 @@ function PremiumHero({ scheme }: { scheme: 'light' | 'dark' }) {
         <ValueChip emoji="📊" label="정밀" lightMode={isLight} />
         <ValueChip emoji="∞" label="무제한" lightMode={isLight} />
         <ValueChip emoji="🔍" label="회차자유" lightMode={isLight} />
-        <ValueChip emoji="🎯" label="백테스트" lightMode={isLight} />
+        <ValueChip emoji="🎯" label="정밀분석" lightMode={isLight} />
       </View>
     </View>
   );
@@ -404,7 +404,7 @@ function JachanismCard({ onPress }: { onPress: () => void }) {
         {/* 30회 결과 — 실측 또는 분석 중 */}
         <View style={[styles.jachanStats, { borderTopColor: t.borderDivider }]}>
           <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10, fontWeight: '700', marginBottom: 6 }}>
-            📊 최근 {BACKTEST_BASE_N}회 분석 결과 {statsReady ? '(실측)' : ''}
+            📊 최근 1년 PRO 분석 결과 {statsReady ? '(실측)' : ''}
           </T>
           {statsReady && backtest ? (
             <View style={styles.rankMiniRow}>
@@ -428,7 +428,7 @@ function JachanismCard({ onPress }: { onPress: () => void }) {
             </View>
           ) : (
             <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10.5, paddingVertical: 8 }}>
-              과거 회차 백테스트 분석 중... 페이지 진입 시 자동 완료
+              분석 결과 불러오는 중... 페이지 진입 시 자동 완료
             </T>
           )}
         </View>
@@ -513,11 +513,11 @@ function CompareTable({ t }: { t: ReturnType<typeof useTheme> }) {
     { label: '번호 분석 도구',    free: '5개',          pro: '7개' },
     { label: '귀찮이즘 조합',     free: '✗',           pro: '주간 50조합' },
     { label: '핀더분석 조합',     free: '✗',           pro: '다중 분석 합성' },
-    { label: '회귀 분석 범위',    free: '1~100',        pro: '1~500' },
+    { label: '회귀 분석 범위',    free: '제한',         pro: '광범위' },
     { label: '회차 이동 분석',    free: '제한',         pro: '전 회차 자유' },
     { label: '예상 제외수',       free: '✗',           pro: '✓' },
-    { label: 'JH필터 패턴',       free: '✗',           pro: '10종' },
-    { label: '실측 백테스트',     free: '제한',         pro: '30~100회' },
+    { label: '패턴 분석 종류',    free: '기본',         pro: '다양' },
+    { label: '정밀 분석',         free: '제한',         pro: '✓' },
   ];
 
   return (

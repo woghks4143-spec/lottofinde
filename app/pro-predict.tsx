@@ -730,10 +730,10 @@ export default function ProPredict() {
             </T>
           )}
 
-          {/* 최근 30회 평균 매칭 — 백테스트 결과 */}
+          {/* 최근 회차 평균 매칭 */}
           <View style={styles.exclusionStatBox}>
             <T variant="caption1" color="primary" style={{ fontWeight: '700', fontSize: 11.5, marginBottom: 8 }}>
-              📊 최근 {overallAccuracy.rounds}회 평균 매칭 (백테스트)
+              📊 최근 회차 평균 매칭
             </T>
             <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
               <T
@@ -817,11 +817,11 @@ export default function ProPredict() {
             )}
           </View>
 
-          {/* 백테스트 분포 — 최근 30회 적중 개수별 카운트 */}
+          {/* 최근 회차 적중 분포 */}
           {exclusionBacktest.windowSize > 0 && (
             <View style={styles.exclusionStatBox}>
               <T variant="caption1" color="primary" style={{ fontWeight: '700', fontSize: 11.5, marginBottom: 8 }}>
-                최근 {exclusionBacktest.windowSize}회 적중 분포 (실측)
+                최근 회차 적중 분포
               </T>
               <View style={styles.exclusionStatRow}>
                 <StatChip label="0개" count={exclusionBacktest.hit0} total={exclusionBacktest.windowSize} tone="success" />

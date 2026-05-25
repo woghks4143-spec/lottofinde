@@ -25,6 +25,7 @@ export function Ball({
   dashedRing,
   dashedRingColor,
   ringPad: ringPadProp,
+  noShadow,
   style,
 }: {
   n: number;
@@ -40,6 +41,12 @@ export function Ball({
   dashedRingColor?: string;
   /** 공 바깥쪽 패딩 (px). 기본 4. 좁은 공간에선 0~2로 줄여서 콤팩트하게. */
   ringPad?: number;
+  /**
+   * Android elevation shadow가 borderRadius를 무시하고 정사각형으로 그리는
+   * RN 버그 회피용. 좁은 ringPad나 행 안에서 ball이 일부만 filled일 때
+   * 사각형 그림자가 도드라져 보이는 케이스에서 사용.
+   */
+  noShadow?: boolean;
   style?: StyleProp<ViewStyle>;
 }) {
   const { d, f } = SIZE[size];
@@ -63,6 +70,7 @@ export function Ball({
           shadowOpacity: 0,
           elevation: 0,
         },
+        noShadow && { shadowOpacity: 0, elevation: 0 },
         !dashedRing && style,
       ]}
     >

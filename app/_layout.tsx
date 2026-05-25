@@ -18,6 +18,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider, useTheme } from '@/src/design/theme';
 import { FONT_ASSETS } from '@/src/design/fonts';
 import { useHistory } from '@/src/data/historyStore';
+import { prewarmRegression } from '@/src/lib/regressionCache';
 import { isDrawWindow } from '@/src/data/dhlottery';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
@@ -45,7 +46,26 @@ export default function RootLayout() {
   useEffect(() => {
     useHistory.getState().hydrate();
     const t = setTimeout(() => { useHistory.getState().autoUpdate().catch(() => {}); }, 200);
-    return () => clearTimeout(t);
+
+    // 회귀분석 ranking prewarm — 부트 후 1.5초쯤 백그라운드로 계산.
+    // 사용자가 PRO → 회귀분석 진입했을 때 이미 캐시 hit → 즉시 표시.
+    const prewarmTimer = setTimeout(() => {
+      const { latestRound, earliestRound, draws } = useHistory.getState();
+      if (!latestRound || !earliestRound) return;
+      const drawArr = [];
+      for (let r = latestRound; r >= earliestRound; r--) {
+        const d = draws[r];
+        if (d) drawArr.push(d);
+      }
+      if (drawArr.length >= 20) {
+        prewarmRegression(latestRound, drawArr).catch(() => {});
+      }
+    }, 1500);
+
+    return () => {
+      clearTimeout(t);
+      clearTimeout(prewarmTimer);
+    };
   }, []);
 
   // 앱이 백그라운드 → 포그라운드로 돌아올 때 자동 최신화.

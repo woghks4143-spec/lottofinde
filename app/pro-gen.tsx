@@ -58,7 +58,7 @@ export default function ProGen() {
                 프로페셔널 조합 엔진
               </T>
               <T variant="caption1" style={{ color: t.fgOnHeroMuted, marginTop: 4, fontSize: 12 }}>
-                다중 필터 · 회차 관계 · 패턴 조건
+                자동 분석 · 다중 필터 · 분석 합성
               </T>
             </View>
           </View>
@@ -80,7 +80,10 @@ export default function ProGen() {
           tag="PRO"
           title="귀찮이즘 조합"
           fromFree="— (PRO 전용)"
-          desc="분석이 귀찮은 분을 위한 PRO 멤버십 전용 기능. 매주 일요일 통계 분석 자동 실행 → 수요일 00:00부터 분석 결과 50조합 받기 → 토요일 추첨 후 등수 결과 자동 확인. (참고용 — 당첨 보장 X)"
+          desc={
+            "분석이 귀찮은 분을 위한 PRO 멤버십 전용 기능. 매주 자동 분석으로 50조합을 받을 수 있어요. " +
+            "수~토 00:00~20:00 받기 가능 · 전 세계 사용자 중복 X · 토요일 추첨 후 등수 자동 표시. (참고용 — 당첨 보장 X)"
+          }
           preview={<PreviewJachanism />}
           onPress={() => router.push('/pro-jachanism' as any)}
         />
@@ -91,7 +94,11 @@ export default function ProGen() {
           tag="PRO"
           title="조합 필터링"
           fromFree="조합 필터링"
-          desc="5그룹(번호·합계·연속·수학 속성·회차 관계)의 다중 필터를 조합해 정밀한 조건의 조합만 추출. 필터별 후보 감소를 깔때기로 시각화하고 프리셋으로 저장·재사용."
+          desc={
+            "다양한 PRO 필터를 그룹(번호·합계와 비율·연속과 끝수·수학 속성·회차 관계)으로 묶어 정밀하게 조합 추출. " +
+            "단계별 후보 감소를 깔때기로 시각화하고, 합계/끝수합 범위는 슬라이더 또는 직접 입력으로 정밀 설정. " +
+            "평균치 자동 적용 + 무제한 프리셋 저장으로 매주 같은 조건 즉시 재사용."
+          }
           preview={<PreviewFilter />}
           onPress={() => router.push('/pro-filter' as any)}
         />
@@ -102,7 +109,10 @@ export default function ProGen() {
           tag="PRO"
           title="핀더분석 조합"
           fromFree="— (PRO 전용)"
-          desc="PRO 모드의 번호 분석 결과(출현 분석·패턴 분석·예상수 분석법)에서 원하는 항목만 골라서 조합 추출. 여러 분석에 공통으로 나오는 번호는 자동으로 가중치가 올라가요. 예상 제외수도 토글로 제외 가능."
+          desc={
+            "사용자가 직접 1~45 번호에서 예상수/고정수/제외수를 고르고, PRO 분석 결과(출현·패턴·예상수·궁합·회귀)를 필터(N~M개 포함) 조건으로 적용해 추출. " +
+            "분석을 풀에 합치는 게 아니라 정밀한 조건 필터로 사용하기 때문에 결과가 매번 일관됨."
+          }
           preview={<PreviewFinderCombo />}
           onPress={() => router.push('/pro-finder-combo' as any)}
         />

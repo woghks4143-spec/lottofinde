@@ -21,6 +21,7 @@ import { useSafeBack } from '@/src/lib/navigation';
 import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
 import { Ball } from '@/src/components/Ball';
+import { BallRow } from '@/src/components/BallRow';
 import { Card } from '@/src/components/Card';
 import { Disclaimer } from '@/src/components/Disclaimer';
 import { Icon } from '@/src/components/Icons';
@@ -132,7 +133,7 @@ export default function ProAppearanceStats() {
       <AppBar title={titleNode} onBack={goBack} />
 
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 24 }}>
-        {/* 헤더 카드 — 회차 네비게이션 (라이트/다크 자동 분기) */}
+        {/* 헤더 카드 — 다른 PRO 화면들과 통일 디자인 */}
         <View style={[styles.heroCard, { backgroundColor: t.bgHero }]}>
           <View style={styles.heroTopRow}>
             <View style={[styles.heroBadge, { backgroundColor: GOLD }]}>
@@ -152,18 +153,18 @@ export default function ProAppearanceStats() {
               disabled={round <= earliestRound}
               style={({ pressed }) => [styles.navArrow, {
                 backgroundColor: t.bgOnHeroPill,
-                opacity: round <= earliestRound ? 0.3 : pressed ? 0.6 : 1,
+                opacity: round <= earliestRound ? 0.3 : pressed ? 0.7 : 1,
               }]}
             >
-              <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }} allowFontScaling={false}>‹</T>
+              <Icon.chevLeft color={t.fgOnHero} size={20} weight={2.5} />
             </Pressable>
             <View style={{ flex: 1, alignItems: 'center' }}>
               <T variant="caption1" style={{ color: t.fgOnHeroMuted }}>분석 기준 회차</T>
-              <T variant="title2" style={{ color: t.fgOnHero, fontWeight: '900', marginTop: 4 }}>
+              <T variant="title3" style={{ color: t.fgOnHero, fontWeight: '800', marginTop: 4 }}>
                 제 {round}회
               </T>
               <T variant="caption1" style={{ color: t.fgOnHeroFaint, marginTop: 2 }}>
-                {targetDraw ? `${targetDraw.date} · ` : ''}1회 ~ {round}회 ({totalRoundsAnalyzed}회 데이터)
+                {targetDraw ? targetDraw.date : ''}{targetDraw ? ' · ' : ''}1~{round}회 ({totalRoundsAnalyzed}회 분석)
               </T>
             </View>
             <Pressable
@@ -171,32 +172,39 @@ export default function ProAppearanceStats() {
               disabled={round >= latestRound}
               style={({ pressed }) => [styles.navArrow, {
                 backgroundColor: t.bgOnHeroPill,
-                opacity: round >= latestRound ? 0.3 : pressed ? 0.6 : 1,
+                opacity: round >= latestRound ? 0.3 : pressed ? 0.7 : 1,
               }]}
             >
-              <T variant="label1n" style={{ color: t.fgOnHero, fontWeight: '800' }} allowFontScaling={false}>›</T>
+              <View style={{ transform: [{ rotate: '180deg' }] }}>
+                <Icon.chevLeft color={t.fgOnHero} size={20} weight={2.5} />
+              </View>
             </Pressable>
           </View>
 
-          {/* 다음 회차 적중 검증 안내 */}
+          {/* 분석 회차 본번호 — 파란 라벨 */}
+          {targetDraw && (
+            <View style={styles.heroDrawRow}>
+              <View style={[styles.heroDrawLabel, { backgroundColor: palette.blue500 }]}>
+                <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 10, letterSpacing: 0.3 }}>
+                  분석 {targetDraw.round}회
+                </T>
+              </View>
+              <View style={{ marginTop: 8, alignItems: 'center' }}>
+                <BallRow nums={targetDraw.nums} bonus={targetDraw.bonus} size="sm" style={{ gap: 4 }} />
+              </View>
+            </View>
+          )}
+
+          {/* 다음 회차 본번호 — 빨간 라벨 + Ball 컬러 (적중 비교) */}
           {nextDraw && (
-            <View style={styles.nextDrawBox}>
-              <T variant="caption2" allowFontScaling={false} style={{ color: t.fgOnHeroFaint, fontSize: 10.5, marginBottom: 4 }}>
-                ⏭ 다음 {nextDraw.round}회 본번호 (적중 검증용)
-              </T>
-              <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 4 }}>
-                {nextDraw.nums.map((n) => (
-                  <View key={n} style={styles.nextNumChip}>
-                    <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 11, fontWeight: '900' }}>
-                      {n}
-                    </T>
-                  </View>
-                ))}
-                <View style={[styles.nextNumChip, { backgroundColor: 'rgba(149,76,233,0.4)' }]}>
-                  <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 11, fontWeight: '900' }}>
-                    +{nextDraw.bonus}
-                  </T>
-                </View>
+            <View style={[styles.heroDrawRow, { borderTopWidth: 1, borderTopColor: t.borderOnHero, paddingTop: 12, marginTop: 12 }]}>
+              <View style={[styles.heroDrawLabel, { backgroundColor: palette.red500 }]}>
+                <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 10, letterSpacing: 0.3 }}>
+                  다음 {nextDraw.round}회 · 적중 비교
+                </T>
+              </View>
+              <View style={{ marginTop: 8, alignItems: 'center' }}>
+                <BallRow nums={nextDraw.nums} bonus={nextDraw.bonus} size="sm" style={{ gap: 4 }} />
               </View>
             </View>
           )}
@@ -264,9 +272,9 @@ export default function ProAppearanceStats() {
           </View>
         </Card>
 
-        {/* 추천 TOP 10 */}
+        {/* 추천 TOP 10 — 5×2 정렬 그리드 + 1~3등 GOLD 강조 */}
         <Card padding={14}>
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+          <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 8 }}>
             <View style={{ flex: 1 }}>
               <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
                 🏆 추천 TOP 10
@@ -279,18 +287,19 @@ export default function ProAppearanceStats() {
             {nextSet && (() => {
               const mainHits = recommendTop10.filter((s) => nextSet.has(s.n)).length;
               const bonusHit = recommendTop10.some((s) => nextBonus === s.n);
+              const bg =
+                mainHits >= 3 ? palette.red500 :
+                mainHits === 2 ? '#ea580c' :
+                mainHits === 1 ? GOLD :
+                bonusHit ? palette.purple500 :
+                '#9aa0a6';
               return (
-                <View style={[styles.hitSummary, {
-                  backgroundColor:
-                    mainHits >= 3 ? palette.red500 :
-                    mainHits === 2 ? '#ea580c' :
-                    mainHits === 1 ? GOLD :
-                    '#888',
-                }]}>
-                  <T variant="label1n" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 14 }}>
-                    {mainHits}{bonusHit ? '+B' : ''}
+                <View style={[styles.hitSummary, { backgroundColor: bg }]}>
+                  <T variant="label1n" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 16, lineHeight: 18 }}>
+                    {mainHits}
+                    {bonusHit ? <T allowFontScaling={false} style={{ fontSize: 11, fontWeight: '800' }}>+B</T> : null}
                   </T>
-                  <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 9, fontWeight: '700', opacity: 0.85, marginTop: -2 }}>
+                  <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 9.5, fontWeight: '700', opacity: 0.92, marginTop: 1 }}>
                     적중
                   </T>
                 </View>
@@ -301,24 +310,41 @@ export default function ProAppearanceStats() {
             {recommendTop10.map((s, idx) => {
               const isMain = nextSet?.has(s.n) ?? false;
               const isBonus = !isMain && nextBonus === s.n;
-              const hit = isMain || isBonus;
+              const isTopTier = idx < 3;
+              // 적중 컬러: 본번호=빨강, 보너스=보라, 미적중=투명
+              const hitColor = isMain ? palette.red500 : isBonus ? palette.purple500 : null;
               return (
-                <View key={s.n} style={styles.top10Cell}>
-                  <View style={styles.rankBadge}>
-                    <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 9, fontWeight: '900' }}>
+                <View
+                  key={s.n}
+                  style={[
+                    styles.top10Cell,
+                    {
+                      backgroundColor: t.bgSurface2,
+                      borderColor: hitColor ?? t.borderDivider,
+                      borderWidth: hitColor ? 2 : 1,
+                    },
+                  ]}
+                >
+                  {/* 순위 배지 — TOP 3는 GOLD, 4~10은 회색 */}
+                  <View style={[styles.rankBadge, {
+                    backgroundColor: isTopTier ? GOLD : '#9aa0a6',
+                  }]}>
+                    <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 10, fontWeight: '900' }}>
                       {idx + 1}
                     </T>
                   </View>
-                  <Ball
-                    n={s.n}
-                    size="md"
-                    dashedRing={hit}
-                    dashedRingColor={isMain ? palette.red500 : isBonus ? palette.purple500 : undefined}
-                  />
-                  {hit && (
-                    <T variant="caption2" allowFontScaling={false} style={{ color: palette.red500, fontSize: 9, fontWeight: '900', marginTop: 4 }}>
-                      {isBonus ? '보너스' : '출현'}
-                    </T>
+                  {/* 적중 시 우상단 컬러 점 */}
+                  {hitColor && (
+                    <View style={[styles.hitDot, { backgroundColor: hitColor }]} />
+                  )}
+                  <Ball n={s.n} size="md" noShadow />
+                  {/* 적중 라벨 — 작은 캡슐 */}
+                  {hitColor && (
+                    <View style={[styles.hitLabelPill, { backgroundColor: hitColor }]}>
+                      <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 9, fontWeight: '900', letterSpacing: 0.2 }}>
+                        {isBonus ? '보너스' : '적중'}
+                      </T>
+                    </View>
                   )}
                 </View>
               );
@@ -326,17 +352,28 @@ export default function ProAppearanceStats() {
           </View>
         </Card>
 
-        {/* 번호 구간 추천 */}
+        {/* 번호 구간 추천 — 구간별 다음 회차 적중 개수 표시 */}
         <Card padding={14}>
-          <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
-            📊 번호 구간 추천
-          </T>
-          <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10.5, marginTop: 2 }}>
-            구간별 통계 점수 비교
-          </T>
+          <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 8 }}>
+            <View style={{ flex: 1 }}>
+              <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
+                📊 번호 구간 추천
+              </T>
+              <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10.5, marginTop: 2 }}>
+                {nextDraw ? `1위 추천 구간이 다음 ${nextDraw.round}회에 몇 개 나왔는지 확인` : '구간별 통계 점수 비교'}
+              </T>
+            </View>
+          </View>
           <View style={{ gap: 8, marginTop: 12 }}>
             {rangeBands.map((b, idx) => (
-              <RangeBandRow key={b.label} band={b} rank={idx + 1} maxScore={rangeBands[0].avgScore} />
+              <RangeBandRow
+                key={b.label}
+                band={b}
+                rank={idx + 1}
+                maxScore={rangeBands[0].avgScore}
+                nextSet={nextSet}
+                nextBonus={nextBonus}
+              />
             ))}
           </View>
         </Card>
@@ -453,10 +490,12 @@ function JumpBtn({ label, active, onPress, tone }: {
 }
 
 /* ─── 번호 구간 추천 행 ──────────────────────────────────── */
-function RangeBandRow({ band, rank, maxScore }: {
+function RangeBandRow({ band, rank, maxScore, nextSet, nextBonus }: {
   band: { label: string; from: number; to: number; avgScore: number; totalRecentAppearances: number; avgOverdue: number };
   rank: number;
   maxScore: number;
+  nextSet: Set<number> | null;
+  nextBonus: number | null;
 }) {
   const t = useTheme();
   const ratio = maxScore > 0 ? band.avgScore / maxScore : 0;
@@ -467,6 +506,19 @@ function RangeBandRow({ band, rank, maxScore }: {
     band.from === 11 ? '#3aa1ff' :
     band.from === 21 ? '#ff6c7a' :
     /* 31~45 */       '#666';
+
+  // 다음 회차 적중 개수 — 이 구간 안의 본번호 N개, 보너스가 이 구간이면 별도 표시
+  let mainHits = 0;
+  let bonusHit = false;
+  if (nextSet) {
+    nextSet.forEach((n) => {
+      if (n >= band.from && n <= band.to) mainHits++;
+    });
+  }
+  if (nextBonus != null && nextBonus >= band.from && nextBonus <= band.to) {
+    bonusHit = true;
+  }
+  const hasHit = mainHits > 0 || bonusHit;
 
   return (
     <View style={[styles.rangeBandRow, isTop && { backgroundColor: 'rgba(232,176,78,0.08)', borderColor: GOLD }]}>
@@ -485,6 +537,22 @@ function RangeBandRow({ band, rank, maxScore }: {
           <T variant="label1n" color="primary" allowFontScaling={false} style={{ fontSize: 13, fontWeight: '800' }}>
             {band.label}
           </T>
+          <View style={{ flex: 1 }} />
+          {/* 다음 회차 적중 칩 — 1위 추천 구간에만 표시 */}
+          {isTop && nextSet && (
+            <View style={[
+              styles.rangeBandHitPill,
+              { backgroundColor: hasHit ? palette.red500 : 'rgba(150,150,150,0.18)' },
+            ]}>
+              <T variant="caption2" allowFontScaling={false} style={{
+                color: hasHit ? '#fff' : '#888',
+                fontWeight: '800',
+                fontSize: 10.5,
+              }}>
+                {mainHits}{bonusHit ? '+B' : ''}개 출현
+              </T>
+            </View>
+          )}
         </View>
         {/* 막대 — 상대적 강도만 표시 */}
         <View style={[styles.rangeBarTrack, { marginTop: 6 }]}>
@@ -663,7 +731,7 @@ const styles = StyleSheet.create({
 
   heroCard: {
     borderRadius: radius.xl,
-    padding: 16,
+    padding: 18,
   },
   heroTopRow: {
     flexDirection: 'row',
@@ -679,30 +747,39 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
 
-  // 다음 회차 본번호 표시 (적중 검증)
+  // 두 회차(분석/다음) 본번호 행 — 라벨 + BallRow 묶음
+  heroDrawRow: {
+    marginTop: 14,
+    alignItems: 'center',
+  },
+  // 회차 식별 라벨 — 컬러 캡슐 (파랑=분석, 빨강=다음 적중 비교)
+  heroDrawLabel: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 99,
+  },
+  // 다음 회차 본번호 표시 (적중 검증) — 옛 디자인 (호환 유지, 사용 X)
   nextDrawBox: {
     marginTop: 14,
     paddingTop: 12,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(255,255,255,0.10)',
   },
+  // 다음 회차 본번호 칩 — bg/borderColor는 인라인 (t.bgOnHeroPill / t.borderOnHero)
   nextNumChip: {
     paddingHorizontal: 9,
     paddingVertical: 4,
     borderRadius: radius.pill,
-    backgroundColor: 'rgba(255,255,255,0.10)',
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.20)',
   },
 
-  // 추천 TOP 10 적중 요약 배지
+  // 추천 TOP 10 적중 요약 배지 — 가로:세로 약 1.4:1 비율로 정확한 캡슐
   hitSummary: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: radius.md,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
-    minWidth: 56,
+    minWidth: 64,
   },
 
   // 회차 네비게이션
@@ -711,8 +788,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 10,
   },
+  // 회차 이동 버튼 — 둥근 사각형 + Icon.chevLeft (다른 PRO 화면들과 통일)
   navArrow: {
-    width: 36, height: 36, borderRadius: 18,
+    width: 40, height: 40, borderRadius: 12,
     alignItems: 'center', justifyContent: 'center',
   },
   jumpRow: { flexDirection: 'row', gap: 6 },
@@ -775,32 +853,51 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(127,127,127,0.06)',
   },
 
-  // 추천 TOP 10 그리드
+  // 추천 TOP 10 그리드 — 5×2 균등 분포
   top10Grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 8,
+    justifyContent: 'space-between',
+    rowGap: 8,
     marginTop: 12,
   },
   top10Cell: {
-    width: '18.4%',  // 5열 × 8px gap 균등
+    width: '19%',           // 5열 (남는 1%는 space-between으로 분배)
+    minHeight: 78,
     alignItems: 'center',
-    paddingVertical: 8,
-    backgroundColor: 'rgba(232,176,78,0.06)',
+    justifyContent: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 4,
     borderRadius: radius.md,
+    borderWidth: 1,
     position: 'relative',
   },
   rankBadge: {
     position: 'absolute',
-    top: 4,
-    left: 4,
-    width: 16,
-    height: 16,
-    borderRadius: 8,
-    backgroundColor: '#666',
+    top: 4, left: 4,
+    minWidth: 18, height: 18,
+    paddingHorizontal: 4,
+    borderRadius: 9,
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 1,
+  },
+  // 적중 시 우상단 컬러 점
+  hitDot: {
+    position: 'absolute',
+    top: 5, right: 5,
+    width: 8, height: 8,
+    borderRadius: 4,
+    zIndex: 1,
+  },
+  // 적중 시 ball 아래 작은 캡슐 라벨
+  hitLabelPill: {
+    marginTop: 6,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 8,
+    minWidth: 32,
+    alignItems: 'center',
   },
 
   // 구간 추천
@@ -832,6 +929,14 @@ const styles = StyleSheet.create({
   rangeBarFill: {
     height: '100%',
     borderRadius: 3,
+  },
+  // 구간 추천 — 다음 회차 적중 칩 (헤더 우측)
+  rangeBandHitPill: {
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 99,
+    minWidth: 52,
+    alignItems: 'center',
   },
 
 

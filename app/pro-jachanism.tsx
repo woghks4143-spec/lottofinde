@@ -553,11 +553,11 @@ export default function ProJachanism() {
           </View>
         </Card>
 
-        {/* 최근 1년(52회) 백테스트 결과 — 실측 데이터 */}
+        {/* 최근 1년 PRO 분석 결과 */}
         <Card padding={16}>
           <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 6 }}>
             <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
-              📊 최근 {BACKTEST_BASE_N}회(1년) 분석 결과
+              📊 최근 1년 PRO 분석 결과
             </T>
             {backtestStats && (
               <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10.5 }}>
@@ -580,16 +580,13 @@ export default function ProJachanism() {
           ) : (
             <View style={{ marginTop: 16, paddingVertical: 24, alignItems: 'center', gap: 8 }}>
               <T variant="caption1" color="primary" style={{ fontWeight: '700' }}>
-                분석 중...
+                분석 결과 불러오는 중...
               </T>
               {progress && (
                 <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 11 }}>
                   {progress.done} / {progress.total} 회차
                 </T>
               )}
-              <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10.5, marginTop: 4 }}>
-                실제 과거 회차에 대해 백테스트 진행 중 (1회만 계산 후 캐시)
-              </T>
             </View>
           )}
         </Card>

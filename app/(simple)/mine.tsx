@@ -271,10 +271,19 @@ export default function Mine() {
                     style={[styles.groupHeader, { flex: 1 }]}
                   >
                     <View style={{ flex: 1 }}>
-                      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
                         <T variant="label1n" color="primary" style={{ fontWeight: '700' }}>
-                          {round == null ? '다음 회차' : `${round}회`}
+                          {round == null
+                            ? (historyLatest ? `${historyLatest + 1}회차` : '다음 회차')
+                            : `${round}회`}
                         </T>
+                        {round == null && (
+                          <View style={{ backgroundColor: '#6541f2', paddingHorizontal: 7, paddingVertical: 2, borderRadius: 99 }}>
+                            <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 10, fontWeight: '800', letterSpacing: 0.3 }}>
+                              추첨예정
+                            </T>
+                          </View>
+                        )}
                         {draw && (
                           <T variant="caption1" color="tertiary">{short(draw.date)}</T>
                         )}
@@ -364,7 +373,9 @@ export default function Mine() {
                 {confirm?.kind === 'all'
                   ? '보관함 전체 삭제'
                   : confirm?.kind === 'round'
-                  ? (confirm.round == null ? '다음 회차' : `${confirm.round}회`) + ' 전체 삭제'
+                  ? (confirm.round == null
+                      ? (historyLatest ? `${historyLatest + 1}회차 (추첨예정)` : '다음 회차')
+                      : `${confirm.round}회`) + ' 전체 삭제'
                   : ''}
               </T>
               <T variant="body2r" color="secondary" style={{ marginTop: 6, lineHeight: 21 }}>

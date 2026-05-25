@@ -13,18 +13,23 @@
  *
  *   3. 📋 회차별 상세 리스트 — 무료 버전과 동일
  */
-import React, { useMemo, useState } from 'react';
-import { Modal, Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
+import React, { useEffect, useMemo, useState } from 'react';
+import { InteractionManager, Modal, Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSafeBack } from '@/src/lib/navigation';
 import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
 import { Ball } from '@/src/components/Ball';
+import { BallRow } from '@/src/components/BallRow';
 import { Card } from '@/src/components/Card';
 import { Disclaimer } from '@/src/components/Disclaimer';
 import { Icon } from '@/src/components/Icons';
 import { useHistory } from '@/src/data/historyStore';
 import type { Draw } from '@/src/data/lotto';
+import {
+  computeRegressionRanking, getMemCached, setCached, loadPersistedRanking,
+  type StreakItem, type RateItem,
+} from '@/src/lib/regressionCache';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
 
@@ -58,7 +63,11 @@ export default function ProRegression() {
   // 기본값: latestRound (가장 최근 데이터). 사용자가 과거 회차로 이동하면
   // 그 회차 시점의 회귀률 / 최근 연속 회귀 / 회차별 상세가 재계산됨.
   const upcomingRound = latestRound + 1;
-  const [round, setRound] = useState<number>(latestRound);
+  const [round, setRound] = useState<number>(0);
+  // 첫 진입 시 latestRound가 hydrate되면 즉시 round 세팅 (분석 회차 바로 표시)
+  useEffect(() => {
+    if (round === 0 && latestRound > 0) setRound(latestRound);
+  }, [latestRound, round]);
   const [roundPickerOpen, setRoundPickerOpen] = useState(false);
   const [roundPickerInput, setRoundPickerInput] = useState('');
   const isUpcoming = round === upcomingRound;
@@ -137,67 +146,53 @@ export default function ProRegression() {
    *
    *   K=1 streak=4 → "직전 회차와 비교한 이월이 최근 4회차 연속 발생 중"
    */
-  const kStreakRanking = useMemo(() => {
-    type Item = { k: number; streak: number; totalOverlap: number };
-    const items: Item[] = [];
-    for (let kx = 1; kx <= RATE_RANK_RANGE; kx++) {
-      let streak = 0;
-      let totalOverlap = 0;
-      for (let i = 0; i < draws.length - kx; i++) {
-        const target = draws[i];
-        const source = draws[i + kx];
-        if (!target || !source) break;
-        const sourceSet = new Set(source.nums);
-        let cnt = 0;
-        for (const n of target.nums) if (sourceSet.has(n)) cnt++;
-        if (cnt > 0) {
-          streak++;
-          totalOverlap += cnt;
-        } else {
-          break;
-        }
-      }
-      items.push({ k: kx, streak, totalOverlap });
-    }
-    items.sort((a, b) => b.streak - a.streak || b.totalOverlap - a.totalOverlap);
-    return items;
-  }, [draws]);
+  // 무거운 ranking 계산 — 3단계 캐시 (mem → AsyncStorage → compute).
+  // 같은 회차 재진입 시 0ms, 앱 재시작 후에도 AsyncStorage hit으로 즉시 표시.
+  const [kStreakRanking, setKStreakRanking] = useState<StreakItem[]>([]);
+  const [kRateRanking, setKRateRanking] = useState<RateItem[]>([]);
+  const [rankingReady, setRankingReady] = useState(false);
 
-  /**
-   * 📊 K값 전체 출현률 TOP 10.
-   *
-   * K=1..RATE_RANK_RANGE 각각에 대해 평균 이월 개수를 계산하고,
-   * 출현률(%) = 평균 이월 / 6 × 100 기준으로 정렬.
-   *
-   * 행을 탭하면 해당 K가 즉시 선택됨.
-   */
-  const kRateRanking = useMemo(() => {
-    type Item = { k: number; avg: number; rate: number; lift: number; pairs: number };
-    const items: Item[] = [];
-    for (let kx = 1; kx <= RATE_RANK_RANGE; kx++) {
-      let total = 0;
-      let pairs = 0;
-      for (let i = 0; i < draws.length - kx; i++) {
-        const target = draws[i];
-        const source = draws[i + kx];
-        if (!target || !source) continue;
-        const sourceSet = new Set(source.nums);
-        for (const n of target.nums) if (sourceSet.has(n)) total++;
-        pairs++;
-      }
-      if (pairs === 0) continue;
-      const avg = total / pairs;
-      items.push({
-        k: kx,
-        avg,
-        rate: (avg / 6) * 100,
-        lift: avg / EXPECTED_OVERLAP,
-        pairs,
-      });
+  useEffect(() => {
+    if (draws.length === 0) return;
+
+    // L1: memCache 즉시 확인 (동기, 0ms)
+    const cached = getMemCached(effectiveRound);
+    if (cached) {
+      setKStreakRanking(cached.streak);
+      setKRateRanking(cached.rate);
+      setRankingReady(true);
+      return;
     }
-    items.sort((a, b) => b.rate - a.rate);
-    return items;
-  }, [draws]);
+
+    setRankingReady(false);
+    let cancelled = false;
+
+    (async () => {
+      // L2: AsyncStorage 비동기 확인 (50ms 정도)
+      const persisted = await loadPersistedRanking(effectiveRound);
+      if (cancelled) return;
+      if (persisted) {
+        setCached(effectiveRound, persisted); // mem cache에도 hydrate
+        setKStreakRanking(persisted.streak);
+        setKRateRanking(persisted.rate);
+        setRankingReady(true);
+        return;
+      }
+
+      // L3: 계산 — InteractionManager로 frame 후
+      InteractionManager.runAfterInteractions(() => {
+        if (cancelled) return;
+        const data = computeRegressionRanking(draws);
+        setCached(effectiveRound, data); // mem + AsyncStorage 동시 저장
+        if (cancelled) return;
+        setKStreakRanking(data.streak);
+        setKRateRanking(data.rate);
+        setRankingReady(true);
+      });
+    })();
+
+    return () => { cancelled = true; };
+  }, [draws, effectiveRound]);
 
   const pickK = (n: number) => {
     setK(n);
@@ -222,31 +217,18 @@ export default function ProRegression() {
       />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
 
-        {/* Hero — 분석 대상 회차 + K 요약 (라이트/다크 자동 분기) */}
+        {/* Hero — 일반 분석법 비교 / 핀더 예상 제외수 디자인과 통일 */}
         <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
-          <View style={styles.heroTopRow}>
-            <View style={[styles.heroBadge, { backgroundColor: GOLD }]}>
-              <Icon.crown color="#fff" size={12} weight={2.5} />
-              <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 10, marginLeft: 4, letterSpacing: 0.4 }}>
-                PRO
-              </T>
-            </View>
-            <T variant="caption1" allowFontScaling={false} style={{ color: t.fgOnHeroFaint, fontSize: 11 }}>
-              {earliestRound}~{latestRound}회 · 분석 {draws.length}회차
-            </T>
-          </View>
-
-          {/* 회차 네비게이터 */}
-          <View style={[styles.heroNavRow, { marginTop: 12 }]}>
+          <View style={styles.heroNavRow}>
             <Pressable
               onPress={goPrev}
               disabled={round <= earliestRound}
               style={({ pressed }) => [styles.navArrow, {
                 backgroundColor: t.bgOnHeroPill,
-                opacity: round <= earliestRound ? 0.3 : pressed ? 0.6 : 1,
+                opacity: round <= earliestRound ? 0.3 : pressed ? 0.7 : 1,
               }]}
             >
-              <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '800' }}>‹</T>
+              <Icon.chevLeft color={t.fgOnHero} size={20} weight={2.5} />
             </Pressable>
             <View style={{ flex: 1, alignItems: 'center' }}>
               {isUpcoming ? (
@@ -256,9 +238,7 @@ export default function ProRegression() {
                   </T>
                 </View>
               ) : (
-                <T variant="caption1" allowFontScaling={false} style={{ color: t.fgOnHeroMuted }}>
-                  분석 대상
-                </T>
+                <T variant="caption1" style={{ color: t.fgOnHeroMuted }}>분석 대상</T>
               )}
               <T variant="title3" style={{ color: t.fgOnHero, fontWeight: '800', marginTop: 4 }}>
                 제 {round}회
@@ -272,35 +252,25 @@ export default function ProRegression() {
               disabled={round >= upcomingRound}
               style={({ pressed }) => [styles.navArrow, {
                 backgroundColor: t.bgOnHeroPill,
-                opacity: round >= upcomingRound ? 0.3 : pressed ? 0.6 : 1,
+                opacity: round >= upcomingRound ? 0.3 : pressed ? 0.7 : 1,
               }]}
             >
-              <T variant="label1n" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '800' }}>›</T>
+              <View style={{ transform: [{ rotate: '180deg' }] }}>
+                <Icon.chevLeft color={t.fgOnHero} size={20} weight={2.5} />
+              </View>
             </Pressable>
           </View>
-
-          {/* K 요약 — 선택한 회차 시점의 K-회귀 통계 */}
-          <View style={styles.heroKBlock}>
-            <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
-              <T variant="title2" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900', fontSize: 24 }}>
-                {k}회귀
-              </T>
-              <T variant="caption1" style={{ color: t.fgOnHeroFaint }}>
-                · {k}회차 전과 비교
-              </T>
-            </View>
-            <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8, marginTop: 6 }}>
-              <T variant="caption1" allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '700', fontSize: 12 }}>
-                평균 {kAnalysis.avg.toFixed(2)}개 이월
-              </T>
-              <T variant="caption1" allowFontScaling={false} style={{
-                color: kAnalysis.lift >= 1.05 ? GOLD : kAnalysis.lift < 0.95 ? t.fgOnHeroFaint : t.fgOnHeroMuted,
-                fontWeight: '800',
-                fontSize: 12,
-              }}>
-                · 출현률 {((kAnalysis.avg / 6) * 100).toFixed(1)}%
-              </T>
-            </View>
+          {/* 당첨번호 BallRow (분석법 비교/핀더 예상 제외수와 동일) */}
+          <View style={{ marginTop: 14, alignItems: 'center' }}>
+            {isUpcoming || !drawsMap[round] ? (
+              <View style={[styles.upcomingNumsBox, { backgroundColor: t.bgOnHeroPill, borderColor: t.borderOnHero }]}>
+                <T variant="label1n" style={{ color: t.fgOnHero, textAlign: 'center', fontWeight: '700' }}>
+                  당첨번호 발표 전
+                </T>
+              </View>
+            ) : (
+              <BallRow nums={drawsMap[round].nums} bonus={drawsMap[round].bonus} size="sm" style={{ gap: 4 }} />
+            )}
           </View>
         </View>
 
@@ -324,6 +294,29 @@ export default function ProRegression() {
             tone="input"
           />
         </View>
+
+        {/* K 요약 카드 — 현재 선택한 K의 통계 */}
+        <Card padding={14}>
+          <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
+            <T variant="title2" color="primary" allowFontScaling={false} style={{ fontWeight: '900', fontSize: 24 }}>
+              {k}회귀
+            </T>
+            <T variant="caption1" color="tertiary" allowFontScaling={false} style={{ fontSize: 11.5 }}>
+              {k}회차 전과 비교
+            </T>
+          </View>
+          <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8, marginTop: 6 }}>
+            <T variant="caption1" color="secondary" allowFontScaling={false} style={{ fontWeight: '700', fontSize: 12 }}>
+              평균 {kAnalysis.avg.toFixed(2)}개 이월
+            </T>
+            <T variant="caption1" allowFontScaling={false} style={{
+              color: kAnalysis.lift >= 1.05 ? GOLD_DARK : '#888',
+              fontWeight: '800', fontSize: 12,
+            }}>
+              · 출현률 {((kAnalysis.avg / 6) * 100).toFixed(1)}%
+            </T>
+          </View>
+        </Card>
 
         {/* K 선택 chips */}
         <Card padding={14}>
@@ -364,8 +357,8 @@ export default function ProRegression() {
             </T>
             <T variant="caption1" color="tertiary" style={{ marginTop: 2, fontSize: 11.5 }}>
               {rankTab === 'rate'
-                ? `${round}회 기준 · 1~${RATE_RANK_RANGE}회귀 중 평균 이월률이 가장 높은 K (탭해서 선택)`
-                : `${round}회 기준 · 1~${RATE_RANK_RANGE}회귀 중 가장 길게 연속 이월 중인 K (탭해서 선택)`}
+                ? `${round}회 기준 · 평균 이월률이 가장 높은 K (탭해서 선택)`
+                : `${round}회 기준 · 가장 길게 연속 이월 중인 K (탭해서 선택)`}
             </T>
           </View>
 
@@ -476,7 +469,6 @@ export default function ProRegression() {
                 <DetailRow
                   key={row.round}
                   round={row.round}
-                  date={row.date}
                   nums={row.nums}
                   overlap={row.overlap}
                   isLast={idx === detailRows.length - 1}
@@ -551,7 +543,7 @@ export default function ProRegression() {
               </Pressable>
             </View>
             <T variant="caption1" color="tertiary" style={{ marginTop: 4, marginBottom: 12 }}>
-              1 ~ {MAX_K}회귀 중 선택 (PRO 전용)
+              광범위한 회귀 범위 중 선택 (PRO 전용)
             </T>
 
             {/* 100단위 페이지 탭 */}
@@ -772,10 +764,9 @@ function KRankRow({
  *   - isLatest (최신 회차, 첫 행) → 6개 모두 풀 컬러 ("아직 어떤 게 다시 나올지 모름")
  */
 function DetailRow({
-  round, date, nums, overlap, isLast, isLatest,
+  round, nums, overlap, isLast, isLatest,
 }: {
   round: number;
-  date: string;
   nums: number[];
   overlap: number[];
   isLast: boolean;
@@ -786,22 +777,18 @@ function DetailRow({
   const count = overlap.length;
   return (
     <View style={[styles.detailRow, !isLast && { borderBottomWidth: 1, borderBottomColor: t.borderDivider }]}>
-      <View style={{ width: 64 }}>
-        <T variant="label2" color="primary" allowFontScaling={false} style={{ fontWeight: '800' }}>
+      <View style={{ width: 52 }}>
+        <T variant="label2" color="primary" allowFontScaling={false} style={{ fontWeight: '800', fontSize: 13 }}>
           {round}
-        </T>
-        <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10, marginTop: 1 }}>
-          {date.slice(2)}
         </T>
       </View>
       <View style={styles.detailMid}>
         {nums.map((n) => {
-          // 최신 회차는 전부 풀 컬러, 그 외에는 이월된 번호만 풀 컬러
-          const opacity = isLatest || overlapSet.has(n) ? 1 : 0.25;
+          // 이월된 번호 = filled (풀 컬러). 그 외 = muted (흰 배경 + 컬러 보더/글자)
+          // 최신 회차는 전부 filled (다음 회차에 무엇이 이월될지 모름).
+          const isFilled = isLatest || overlapSet.has(n);
           return (
-            <View key={n} style={{ opacity }}>
-              <Ball n={n} size="sm" />
-            </View>
+            <Ball key={n} n={n} size="sm" muted={!isFilled} ringPad={1} noShadow />
           );
         })}
       </View>
@@ -818,7 +805,12 @@ function DetailRow({
           </T>
         </View>
       ) : (
-        <View style={[styles.countPill, { backgroundColor: 'transparent' }]} />
+        // count=0 — 회색 작은 dash "—"로 의도적 빈 상태 (직각 빈 박스보다 깔끔)
+        <View style={[styles.countPill, { backgroundColor: 'rgba(150,150,150,0.12)' }]}>
+          <T variant="caption2" allowFontScaling={false} style={{ color: '#aaa', fontWeight: '700', fontSize: 11 }}>
+            —
+          </T>
+        </View>
       )}
     </View>
   );
@@ -841,8 +833,9 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill, alignSelf: 'flex-start',
   },
   heroNavRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  // 회차 이동 버튼 — 둥근 사각형 (분석법 비교/핀더 예상 제외수와 통일)
   navArrow: {
-    width: 36, height: 36, borderRadius: 18,
+    width: 40, height: 40, borderRadius: 12,
     alignItems: 'center', justifyContent: 'center',
   },
   upcomingPill: {
@@ -850,6 +843,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 99,
+  },
+  // "당첨번호 발표 전" 박스 — 예정 회차 또는 데이터 없을 때
+  upcomingNumsBox: {
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    width: '100%',
   },
   heroKBlock: {
     alignItems: 'center',
@@ -978,14 +980,17 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    flexWrap: 'wrap',
+    flexWrap: 'nowrap',     // 한 줄 강제 (줄 안 맞는 wrap 제거)
     gap: 2,
   },
+  // 적중 개수 칩 — 명시적 캡슐 모양 (가로 36, 세로 22로 약 1.6:1 비율 보장)
   countPill: {
-    minWidth: 28,
-    paddingHorizontal: 8, paddingVertical: 4,
-    borderRadius: radius.pill,
+    minWidth: 36,
+    height: 22,
+    paddingHorizontal: 10,
+    borderRadius: 11,
     alignItems: 'center',
+    justifyContent: 'center',
   },
 
   // K picker modal

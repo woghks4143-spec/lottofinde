@@ -401,7 +401,7 @@ export default function ProFinderCombo() {
     setGenerated(combos);
     if (combos.length === 0) {
       setLastError(
-        `${MAX_ATTEMPTS.toLocaleString()}번 시도했지만 모든 활성 필터(${activeFilters.length}개)를 동시에 만족하는 6개 조합을 찾지 못했어요. 필터를 완화하거나 분석 선택을 줄여보세요.`,
+        `충분히 시도했지만 모든 활성 필터(${activeFilters.length}개)를 동시에 만족하는 6개 조합을 찾지 못했어요. 필터를 완화하거나 분석 선택을 줄여보세요.`,
       );
       showToast('조건을 만족하는 조합 없음');
     } else if (combos.length < comboCount) {

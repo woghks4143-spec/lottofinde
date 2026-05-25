@@ -42,8 +42,17 @@ export default function ProCompat() {
   const latestRound = useHistory((s) => s.latestRound);
   const earliestRound = useHistory((s) => s.earliestRound);
 
-  const [picked, setPicked] = useState<number[]>([7, 13, 27]);
+  const [picked, setPicked] = useState<number[]>([]);
   const [range, setRange] = useState<Range>('all');
+  // 분석 탭 — 궁합수(선택한 번호 분석) / 당첨 궁합(회차 적중 확인)
+  const [tab, setTab] = useState<'mine' | 'winning'>('mine');
+  // 당첨 궁합 — 분석 기준 회차 (직전 회차의 본번호 짝궁 → 이 회차에 적중 강조)
+  // 기본값: 추첨 예정 회차 (가장 최근 추첨 다음 회차 = latestRound + 1)
+  const upcomingRound = latestRound != null ? latestRound + 1 : null;
+  const [winRound, setWinRound] = useState<number | null>(null);
+  useEffect(() => {
+    if (winRound == null && upcomingRound != null) setWinRound(upcomingRound);
+  }, [upcomingRound, winRound]);
 
   // newest-first 회차 배열
   const allDraws = useMemo(() => {
@@ -139,6 +148,212 @@ export default function ProCompat() {
     return items.slice(0, 10);
   }, [draws]);
 
+  /**
+   * 당첨 궁합 — 분석 기준 회차(winRound)의 직전 회차(winRound-1) 본번호 6개
+   * 각각에 대한 짝궁 TOP N. 본번호 짝궁 중 winRound에 실제 적중한 번호는 강조.
+   *
+   * 짝궁 계산: 같은 lift 공식, 단 단일 picked 기준.
+   * 분석 데이터: winRound 미포함, winRound-1 이전까지만 사용 (no-future-leakage).
+   */
+  const winningCompat = useMemo(() => {
+    if (winRound == null) return null;
+    const prev = drawsMap[winRound - 1];
+    const cur = drawsMap[winRound];
+    if (!prev) return null;
+    // winRound 직전 회차까지의 데이터만 사용 (분석에 적중 회차 자체가 들어가면 leakage)
+    const historyDraws = allDraws.filter((d) => d.round < winRound);
+    if (historyDraws.length < 20) return null;
+
+    const totalDraws = historyDraws.length;
+    // 전체 빈도
+    const freq = new Array(46).fill(0);
+    for (const d of historyDraws) for (const n of d.nums) freq[n]++;
+    // 동시출현 매트릭스
+    const co = coOccurrence(historyDraws);
+
+    // 각 본번호별 짝궁 TOP 10 (lift 기준)
+    const TOP_N = 10;
+    const partnersOf: { sourceNum: number; items: { n: number; lift: number; hit: boolean; bonusHit: boolean }[] }[] = [];
+    const curMainSet = cur ? new Set(cur.nums) : new Set<number>();
+    const curBonus = cur?.bonus ?? -1;
+
+    // 짝궁 union — 6개 본번호의 TOP10 짝궁을 합집합 (중복 제거)
+    const unionSet = new Set<number>();
+
+    for (const src of prev.nums) {
+      const items: { n: number; lift: number; hit: boolean; bonusHit: boolean }[] = [];
+      for (let n = 1; n <= 45; n++) {
+        if (n === src) continue;
+        const actual = co[n][src];
+        const expected = (freq[n] * freq[src]) / totalDraws;
+        const lift = (actual + 1) / (expected + 1);
+        items.push({
+          n,
+          lift,
+          hit: curMainSet.has(n),
+          bonusHit: n === curBonus,
+        });
+      }
+      items.sort((a, b) => b.lift - a.lift);
+      const top = items.slice(0, TOP_N);
+      partnersOf.push({ sourceNum: src, items: top });
+      // union 누적
+      for (const it of top) unionSet.add(it.n);
+    }
+
+    /**
+     * 적중 점수 (사용자 정의):
+     *   - 다음 회차 6개 본번호 중 짝궁 union에 포함된 개수 × 1.0
+     *   - 다음 회차 보너스가 짝궁 union에 포함되면 +0.5
+     *   - max = 6.0 (본번호 전부) + 0.5 (보너스) = 6.5
+     *
+     * 예: 다음 회차 본번호 6개 중 4개가 짝궁 union에 있고 보너스도 포함 → 4.5 / 6.5
+     */
+    let hitScore = 0;
+    let hitMain = 0;     // 본번호 적중 개수
+    let hitBonus = false; // 보너스 적중 여부
+    if (cur) {
+      for (const n of cur.nums) {
+        if (unionSet.has(n)) { hitScore += 1; hitMain += 1; }
+      }
+      if (unionSet.has(cur.bonus)) { hitScore += 0.5; hitBonus = true; }
+    }
+    const maxScore = 6.5;
+
+    /**
+     * 다음 회차 출현 예상 TOP — 6개 본번호 짝궁을 종합 점수로 랭크.
+     *
+     * score(n) = appearCount(n) × avgLift(n)
+     *   - appearCount: 6개 본번호 중 몇 명의 TOP10 짝궁에 들어갔는가 (1~6)
+     *   - avgLift: 그 본번호들과의 lift 평균
+     *
+     * 여러 본번호의 짝궁으로 동시에 등장 + lift 높으면 강력 추천.
+     * 추첨 완료된 회차면 적중 표시.
+     */
+    const predictMap = new Map<number, { count: number; liftSum: number; sources: number[] }>();
+    for (const row of partnersOf) {
+      for (const it of row.items) {
+        const cur = predictMap.get(it.n) ?? { count: 0, liftSum: 0, sources: [] };
+        cur.count += 1;
+        cur.liftSum += it.lift;
+        cur.sources.push(row.sourceNum);
+        predictMap.set(it.n, cur);
+      }
+    }
+    const TOP_PREDICT = 10;
+    const predictions: { n: number; count: number; avgLift: number; score: number; sources: number[]; hit: boolean; bonusHit: boolean }[] = [];
+    predictMap.forEach((v, n) => {
+      const avgLift = v.liftSum / v.count;
+      predictions.push({
+        n,
+        count: v.count,
+        avgLift,
+        score: v.count * avgLift,
+        sources: v.sources,
+        hit: curMainSet.has(n),
+        bonusHit: n === curBonus,
+      });
+    });
+    predictions.sort((a, b) => b.score - a.score || b.count - a.count);
+    const topPredictions = predictions.slice(0, TOP_PREDICT);
+    const predictHit = topPredictions.filter((p) => p.hit).length;
+    const predictBonus = topPredictions.some((p) => p.bonusHit);
+
+    return {
+      prev,
+      cur, // null이면 아직 추첨 안 됨 (분석 가능하지만 적중 표시 X)
+      partnersOf,
+      hitScore,
+      hitMain,
+      hitBonus,
+      maxScore,
+      unionSize: unionSet.size,
+      historyCount: totalDraws,
+      topPredictions,
+      predictHit,
+      predictBonus,
+    };
+  }, [drawsMap, allDraws, winRound]);
+
+  /**
+   * 백테스트 — 같은 분석법(직전 회차 본번호별 짝궁 TOP10 종합 → 출현 예상 TOP10)을
+   * 최근 30회차에 적용했을 때 평균 적중 개수. winRound와 무관하게 latestRound 기준.
+   * 무거운 계산이라 useMemo로 캐싱, latestRound 변경 시만 재계산.
+   */
+  const backtest = useMemo(() => {
+    if (latestRound == null || earliestRound == null) return null;
+    const BACKTEST_N = 30;
+    let totalHit = 0;
+    let totalCount = 0;
+    let bonusHits = 0;
+    for (let i = 0; i < BACKTEST_N; i++) {
+      const r = latestRound - i;
+      if (r - 1 <= earliestRound) break;
+      const prev = drawsMap[r - 1];
+      const cur = drawsMap[r];
+      if (!prev || !cur) continue;
+      // history < r
+      const hist = allDraws.filter((d) => d.round < r);
+      if (hist.length < 20) continue;
+      const td = hist.length;
+      const fq = new Array(46).fill(0);
+      for (const d of hist) for (const n of d.nums) fq[n]++;
+      const co = coOccurrence(hist);
+
+      const predMap = new Map<number, { count: number; liftSum: number }>();
+      for (const src of prev.nums) {
+        const items: { n: number; lift: number }[] = [];
+        for (let n = 1; n <= 45; n++) {
+          if (n === src) continue;
+          const actual = co[n][src];
+          const expected = (fq[n] * fq[src]) / td;
+          items.push({ n, lift: (actual + 1) / (expected + 1) });
+        }
+        items.sort((a, b) => b.lift - a.lift);
+        for (const it of items.slice(0, 10)) {
+          const e = predMap.get(it.n) ?? { count: 0, liftSum: 0 };
+          e.count += 1; e.liftSum += it.lift;
+          predMap.set(it.n, e);
+        }
+      }
+      const preds: { n: number; score: number }[] = [];
+      predMap.forEach((v, n) => preds.push({ n, score: v.count * (v.liftSum / v.count) }));
+      preds.sort((a, b) => b.score - a.score);
+      const top10 = preds.slice(0, 10).map((p) => p.n);
+      const curMain = new Set(cur.nums);
+      const curBonus = cur.bonus;
+      let hits = 0;
+      let bHit = 0;
+      for (const n of top10) {
+        if (curMain.has(n)) hits++;
+        if (n === curBonus) bHit = 1;
+      }
+      totalHit += hits;
+      bonusHits += bHit;
+      totalCount += 1;
+    }
+    if (totalCount === 0) return null;
+    return {
+      rounds: totalCount,
+      avgMainHit: totalHit / totalCount,
+      bonusHitRate: bonusHits / totalCount,
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [latestRound, earliestRound]);
+
+  // 회차 점프 — 이전/다음/예정
+  const goPrevWinRound = () => {
+    if (winRound == null || earliestRound == null) return;
+    if (winRound - 1 > earliestRound) setWinRound(winRound - 1);
+  };
+  const goNextWinRound = () => {
+    if (winRound == null || upcomingRound == null) return;
+    if (winRound + 1 <= upcomingRound) setWinRound(winRound + 1);
+  };
+  const goUpcomingRound = () => {
+    if (upcomingRound != null) setWinRound(upcomingRound);
+  };
+
   // ─── 핸들러 ─────────────────────────────────────────────
   const toggleNumber = (n: number) => {
     if (picked.includes(n)) {
@@ -176,7 +391,106 @@ export default function ProCompat() {
         }
         onBack={goBack}
       />
+      {/* 탭 바 + (winning 탭이면) 회차 네비 — sticky 위치 (ScrollView 밖) */}
+      <View style={{ paddingHorizontal: 16, paddingTop: 12, gap: 8, backgroundColor: t.bgCanvas }}>
+        <View style={[styles.tabBar, { backgroundColor: t.bgSurface2, borderColor: t.borderDivider }]}>
+          <Pressable
+            onPress={() => setTab('mine')}
+            style={({ pressed }) => [
+              styles.tabBtn,
+              tab === 'mine' && { backgroundColor: t.bgSurface },
+              { opacity: pressed ? 0.85 : 1 },
+            ]}
+          >
+            <T
+              variant="label1n"
+              allowFontScaling={false}
+              style={{
+                color: tab === 'mine' ? GOLD_DARK : t.fgSecondary,
+                fontWeight: tab === 'mine' ? '800' : '600',
+                fontSize: 13,
+              }}
+            >
+              궁합수
+            </T>
+          </Pressable>
+          <Pressable
+            onPress={() => setTab('winning')}
+            style={({ pressed }) => [
+              styles.tabBtn,
+              tab === 'winning' && { backgroundColor: t.bgSurface },
+              { opacity: pressed ? 0.85 : 1 },
+            ]}
+          >
+            <T
+              variant="label1n"
+              allowFontScaling={false}
+              style={{
+                color: tab === 'winning' ? GOLD_DARK : t.fgSecondary,
+                fontWeight: tab === 'winning' ? '800' : '600',
+                fontSize: 13,
+              }}
+            >
+              당첨 궁합
+            </T>
+          </Pressable>
+        </View>
+
+        {/* 회차 네비 — 당첨 궁합 탭일 때만 sticky 표시 */}
+        {tab === 'winning' && winRound != null && (
+          <View style={[styles.winNav, { backgroundColor: t.bgSurface, borderColor: t.borderDivider }]}>
+            <Pressable
+              onPress={goPrevWinRound}
+              disabled={winRound - 1 <= (earliestRound ?? 0)}
+              style={({ pressed }) => [
+                styles.winNavBtn,
+                { backgroundColor: t.bgSurface2, opacity: (winRound - 1 <= (earliestRound ?? 0)) ? 0.3 : pressed ? 0.7 : 1 },
+              ]}
+            >
+              <Icon.chevLeft color={t.fgPrimary} size={18} weight={2.5} />
+            </Pressable>
+            <View style={{ flex: 1, alignItems: 'center' }}>
+              <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10 }}>
+                {winRound === upcomingRound ? '추첨 예정' : '분석 회차'}
+              </T>
+              <T variant="label1n" color="primary" allowFontScaling={false} style={{ fontWeight: '900', fontSize: 18, marginTop: 2 }}>
+                {winRound}회
+              </T>
+            </View>
+            <Pressable
+              onPress={goNextWinRound}
+              disabled={winRound + 1 > (upcomingRound ?? 0)}
+              style={({ pressed }) => [
+                styles.winNavBtn,
+                { backgroundColor: t.bgSurface2, opacity: (winRound + 1 > (upcomingRound ?? 0)) ? 0.3 : pressed ? 0.7 : 1 },
+              ]}
+            >
+              <View style={{ transform: [{ rotate: '180deg' }] }}>
+                <Icon.chevLeft color={t.fgPrimary} size={18} weight={2.5} />
+              </View>
+            </Pressable>
+            <Pressable
+              onPress={goUpcomingRound}
+              disabled={winRound === upcomingRound}
+              style={({ pressed }) => [
+                styles.upcomingJumpBtn,
+                {
+                  backgroundColor: winRound === upcomingRound ? palette.purple500 + '50' : palette.purple500,
+                  opacity: pressed ? 0.85 : 1,
+                },
+              ]}
+            >
+              <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 11, letterSpacing: 0.3 }}>
+                예정
+              </T>
+            </Pressable>
+          </View>
+        )}
+      </View>
+
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 32 }}>
+
+        {tab === 'mine' && (<>
 
         {/* Hero — 선택한 번호 + 분석 범위 (라이트/다크 자동 분기) */}
         <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
@@ -282,7 +596,7 @@ export default function ProCompat() {
                 🤝 짝궁 TOP 10
               </T>
               <T variant="caption1" color="tertiary" style={{ marginTop: 2, fontSize: 11.5 }}>
-                선택한 {picked.length}개 번호와 우연보다 자주 같이 나온 정도 (배수) 기준
+                선택한 {picked.length}개 번호와 가장 잘 어울리는 짝궁 순위
               </T>
             </View>
             <View style={{ marginTop: 12, gap: 8 }}>
@@ -350,9 +664,248 @@ export default function ProCompat() {
           </View>
         </Card>
 
+        </>)}
+
+        {tab === 'winning' && winningCompat && (
+          <>
+            {/* Hero — 분석 회차 정보 */}
+            <View style={[styles.hero, { backgroundColor: t.bgHero }]}>
+              <View style={styles.heroTopRow}>
+                <View style={[styles.heroBadge, { backgroundColor: GOLD }]}>
+                  <Icon.crown color="#fff" size={12} weight={2.5} />
+                  <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 10, marginLeft: 4, letterSpacing: 0.4 }}>
+                    PRO
+                  </T>
+                </View>
+                <T variant="caption1" allowFontScaling={false} style={{ color: t.fgOnHeroFaint, fontSize: 11 }}>
+                  {winningCompat.historyCount}회차 분석
+                </T>
+              </View>
+              <T variant="caption1" style={{ color: t.fgOnHeroMuted, fontWeight: '600', marginTop: 10 }}>
+                {winRound}회 적중 분석
+              </T>
+              {winningCompat.cur ? (
+                <>
+                  <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8, marginTop: 8 }}>
+                    <T allowFontScaling={false} style={{ color: t.fgOnHero, fontWeight: '900', fontSize: 28, letterSpacing: -0.5 }}>
+                      {winningCompat.hitScore.toFixed(1)}
+                    </T>
+                    <T variant="caption1" style={{ color: t.fgOnHeroMuted, fontSize: 12 }}>
+                      / {winningCompat.maxScore} 적중
+                    </T>
+                  </View>
+                  <T variant="caption2" style={{ color: t.fgOnHeroFaint, marginTop: 4, fontSize: 10.5 }}>
+                    본번호 {winningCompat.hitMain}개 + 보너스 {winningCompat.hitBonus ? 'O' : 'X'}
+                  </T>
+                </>
+              ) : (
+                <T variant="caption2" style={{ color: t.fgOnHeroFaint, marginTop: 8, fontSize: 11 }}>
+                  토요일 추첨 후 적중 결과 표시
+                </T>
+              )}
+            </View>
+
+            {/* 직전 회차 본번호 카드 */}
+            <Card padding={14}>
+              <View style={styles.roundCardHead}>
+                <View style={[styles.roundBadge, { backgroundColor: palette.blue500 }]}>
+                  <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 11, letterSpacing: 0.3 }}>
+                    직전회차 {(winRound ?? 0) - 1}회
+                  </T>
+                </View>
+              </View>
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 10 }}>
+                {winningCompat.prev.nums.map((n) => (
+                  <Ball key={n} n={n} size="md" />
+                ))}
+              </View>
+            </Card>
+
+            {/* 다음 회차 본번호 (적중 비교 기준) — 추첨 후 표시 */}
+            {winningCompat.cur ? (
+              <Card padding={14}>
+                <View style={styles.roundCardHead}>
+                  <View style={[styles.roundBadge, { backgroundColor: palette.red500 }]}>
+                    <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 11, letterSpacing: 0.3 }}>
+                      다음회차 {winRound}회
+                    </T>
+                  </View>
+                </View>
+                <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 10, alignItems: 'center' }}>
+                  {winningCompat.cur.nums.map((n) => (
+                    <Ball key={n} n={n} size="md" />
+                  ))}
+                  <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 11, marginLeft: 4 }}>
+                    + 보너스
+                  </T>
+                  <Ball n={winningCompat.cur.bonus} size="md" />
+                </View>
+              </Card>
+            ) : (
+              <Card padding={14}>
+                <View style={styles.roundCardHead}>
+                  <View style={[styles.roundBadge, { backgroundColor: palette.purple500 }]}>
+                    <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 11, letterSpacing: 0.3 }}>
+                      다음회차 {winRound}회 · 추첨 예정
+                    </T>
+                  </View>
+                </View>
+                <T variant="caption1" color="tertiary" style={{ marginTop: 10, fontSize: 11.5 }}>
+                  토요일 20:35 추첨 후 적중 결과가 표시됩니다
+                </T>
+              </Card>
+            )}
+
+            {/* 🎯 다음 회차 출현 예상 TOP 10 */}
+            <Card padding={14}>
+              <View style={styles.predictHead}>
+                <T variant="label1n" color="primary" allowFontScaling={false} style={{ fontWeight: '800', flex: 1 }}>
+                  🎯 다음 회차 출현 예상 TOP 10
+                </T>
+                {winningCompat.cur && (
+                  <View style={[styles.predictHitPill, { backgroundColor: winningCompat.predictHit > 0 ? palette.red500 : '#888' }]}>
+                    <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 11 }}>
+                      적중 {winningCompat.predictHit}/10
+                    </T>
+                  </View>
+                )}
+              </View>
+              {backtest && (
+                <View style={[styles.backtestPill, { backgroundColor: 'rgba(232,176,78,0.10)', borderColor: GOLD }]}>
+                  <T variant="caption2" allowFontScaling={false} style={{ color: GOLD_DARK, fontSize: 11, fontWeight: '700' }}>
+                    최근 {backtest.rounds}회차 평균 적중{' '}
+                    <T allowFontScaling={false} style={{ fontWeight: '900', fontSize: 13 }}>
+                      {backtest.avgMainHit.toFixed(2)}개
+                    </T>
+                  </T>
+                </View>
+              )}
+              <View style={{ marginTop: 12, gap: 6 }}>
+                {winningCompat.topPredictions.map((p, i) => (
+                  <View
+                    key={p.n}
+                    style={[
+                      styles.predictRow,
+                      {
+                        backgroundColor: p.hit ? 'rgba(255,66,66,0.08)' : t.bgSurface2,
+                        borderColor: p.hit ? palette.red500 : p.bonusHit ? palette.purple500 : t.borderDivider,
+                        borderWidth: (p.hit || p.bonusHit) ? 2 : 1,
+                      },
+                    ]}
+                  >
+                    <View style={[styles.predictRank, { backgroundColor: i < 3 ? GOLD : t.bgSurface }]}>
+                      <T variant="caption2" allowFontScaling={false} style={{ color: i < 3 ? '#fff' : t.fgSecondary, fontWeight: '900', fontSize: 11 }}>
+                        {i + 1}
+                      </T>
+                    </View>
+                    <Ball n={p.n} size="md" />
+                    <View style={{ flex: 1 }} />
+                    {p.hit && (
+                      <View style={[styles.predictBadge, { backgroundColor: palette.red500 }]}>
+                        <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 10 }}>
+                          본번호
+                        </T>
+                      </View>
+                    )}
+                    {p.bonusHit && (
+                      <View style={[styles.predictBadge, { backgroundColor: palette.purple500 }]}>
+                        <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', fontSize: 10 }}>
+                          보너스
+                        </T>
+                      </View>
+                    )}
+                  </View>
+                ))}
+              </View>
+            </Card>
+
+            {/* 본번호별 짝궁 TOP 10 — 5×2 정렬 그리드 */}
+            <Card padding={14}>
+              <T variant="label1n" color="primary" style={{ fontWeight: '800' }}>
+                🤝 본번호별 짝궁 TOP 10
+              </T>
+              <T variant="caption1" color="tertiary" style={{ marginTop: 2, fontSize: 11.5 }}>
+                {winningCompat.cur ? `${winRound}회 본번호 적중은 빨간 테두리, 보너스 적중은 보라 테두리` : '적중 비교는 회차 추첨 후 표시'}
+              </T>
+              <View style={{ marginTop: 12, gap: 10 }}>
+                {winningCompat.partnersOf.map((row) => {
+                  const mainHits = row.items.filter((it) => it.hit).length;
+                  const bonusHit = row.items.some((it) => it.bonusHit);
+                  // 5×2 그리드 — 행마다 5개씩 정확히 정렬
+                  const r1 = row.items.slice(0, 5);
+                  const r2 = row.items.slice(5, 10);
+                  return (
+                    <View
+                      key={row.sourceNum}
+                      style={[styles.winRow, { backgroundColor: t.bgSurface2, borderColor: t.borderDivider }]}
+                    >
+                      <View style={styles.winRowHead}>
+                        <Ball n={row.sourceNum} size="md" />
+                        <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 11, fontWeight: '700', marginLeft: 8 }}>
+                          의 짝궁
+                        </T>
+                        <View style={{ flex: 1 }} />
+                        {winningCompat.cur && (
+                          <View style={[
+                            styles.winHitPill,
+                            { backgroundColor: (mainHits > 0 || bonusHit) ? palette.red500 + '20' : 'rgba(150,150,150,0.15)' },
+                          ]}>
+                            <T variant="caption2" allowFontScaling={false} style={{
+                              color: (mainHits > 0 || bonusHit) ? palette.red500 : '#888',
+                              fontWeight: '800', fontSize: 11,
+                            }}>
+                              {mainHits > 0 ? `적중 ${mainHits}` : ''}
+                              {mainHits > 0 && bonusHit ? ' + 보너스' : bonusHit ? '보너스' : (mainHits === 0 ? '적중 0' : '')}
+                            </T>
+                          </View>
+                        )}
+                      </View>
+                      <View style={{ marginTop: 8, gap: 8 }}>
+                        <View style={styles.winRowGrid}>
+                          {r1.map((it, idx) => (
+                            <PartnerBall key={it.n} item={it} rank={idx + 1} />
+                          ))}
+                        </View>
+                        <View style={styles.winRowGrid}>
+                          {r2.map((it, idx) => (
+                            <PartnerBall key={it.n} item={it} rank={idx + 6} />
+                          ))}
+                        </View>
+                      </View>
+                    </View>
+                  );
+                })}
+              </View>
+            </Card>
+          </>
+        )}
+
+        {tab === 'winning' && !winningCompat && (
+          <Card padding={20}>
+            <T variant="body2r" color="tertiary" style={{ textAlign: 'center' }}>
+              분석할 데이터가 부족해요 (직전 회차 데이터 필요)
+            </T>
+          </Card>
+        )}
+
         <Disclaimer />
       </ScrollView>
     </SafeAreaView>
+  );
+}
+
+/* ─── 당첨 궁합 짝궁 ball — 1~10위 순번 + 적중(red) / 보너스(purple) 테두리 강조 ─── */
+function PartnerBall({ item, rank }: { item: { n: number; hit: boolean; bonusHit: boolean }; rank: number }) {
+  const ring = item.hit ? palette.red500 : item.bonusHit ? palette.purple500 : 'transparent';
+  return (
+    <View style={styles.partnerBallCol}>
+      <View style={[styles.partnerBallSlot, ring !== 'transparent' && { borderColor: ring, borderWidth: 2 }]}>
+        <Ball n={item.n} size="sm" />
+      </View>
+      <T variant="caption2" allowFontScaling={false} style={[styles.partnerRankLabel, { color: rank <= 3 ? GOLD_DARK : '#888' }]}>
+        {rank}위
+      </T>
+    </View>
   );
 }
 
@@ -453,6 +1006,126 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill, alignSelf: 'flex-start',
   },
   heroBalls: { minHeight: 44 },
+
+  // 탭 바 — 내 궁합수 / 당첨 궁합
+  tabBar: {
+    flexDirection: 'row',
+    padding: 4,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    gap: 2,
+  },
+  tabBtn: {
+    flex: 1,
+    height: 38,
+    borderRadius: radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  // 당첨 궁합 — 회차 네비
+  winNav: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    gap: 10,
+  },
+  winNavBtn: {
+    width: 36, height: 36,
+    borderRadius: 10,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  upcomingJumpBtn: {
+    paddingHorizontal: 12,
+    height: 36,
+    borderRadius: 10,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  backtestPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: radius.md,
+    borderWidth: 1,
+  },
+
+  // 당첨 궁합 — 본번호별 짝궁 행
+  winRow: {
+    padding: 12,
+    borderRadius: radius.md,
+    borderWidth: 1,
+  },
+  winRowHead: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  winHitPill: {
+    paddingHorizontal: 10, paddingVertical: 4,
+    borderRadius: radius.pill,
+  },
+  // 5×2 정렬 그리드 — 한 행에 5개 정확히 균등 분포
+  winRowGrid: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  // 짝궁 ball + 순위 라벨 컬럼
+  partnerBallCol: {
+    alignItems: 'center',
+  },
+  partnerBallSlot: {
+    width: 36, height: 36,
+    borderRadius: 18,
+    alignItems: 'center', justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: 'transparent',
+  },
+  partnerRankLabel: {
+    fontSize: 9.5,
+    fontWeight: '800',
+    marginTop: 3,
+    letterSpacing: -0.3,
+  },
+
+  // 회차 강조 카드 헤더
+  roundCardHead: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  roundBadge: {
+    paddingHorizontal: 8, paddingVertical: 3,
+    borderRadius: radius.pill,
+  },
+
+  // 출현 예상 TOP
+  predictHead: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  predictHitPill: {
+    paddingHorizontal: 10, paddingVertical: 5,
+    borderRadius: radius.pill,
+  },
+  predictRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    borderRadius: radius.md,
+    gap: 8,
+  },
+  predictRank: {
+    width: 26, height: 26,
+    borderRadius: 13,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  predictBadge: {
+    paddingHorizontal: 7, paddingVertical: 3,
+    borderRadius: radius.pill,
+  },
 
   segWrap: {
     flexDirection: 'row',
