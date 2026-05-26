@@ -175,13 +175,10 @@ export default function Mine() {
           </Pressable>
         )}
 
-        {/* 출처별 segmented 탭 — 전체 / 앱 생성 / QR 스캔 / 귀찮이즘(있을 때만) */}
+        {/* 출처별 segmented 탭 — 전체 / 앱 생성 / QR 스캔 / 귀찮이즘 (항상 표시) */}
         {games.length > 0 && (
           <View style={[styles.segWrap, { backgroundColor: t.bgSurface2 }]}>
-            {(counts.jachanism > 0
-              ? (['all', 'app', 'qr', 'jachanism'] as const)
-              : (['all', 'app', 'qr'] as const)
-            ).map((k) => {
+            {(['all', 'app', 'qr', 'jachanism'] as const).map((k) => {
               const on = sourceFilter === k;
               const label = k === 'all' ? '전체' : k === 'app' ? '앱 생성' : k === 'qr' ? 'QR 스캔' : '✨ 귀찮이즘';
               const count = counts[k];
@@ -318,35 +315,70 @@ export default function Mine() {
                   <View style={styles.groupBody}>
                     {draw && (
                       <View style={[styles.winningRow, { borderColor: t.borderDivider }]}>
-                        <T variant="caption1" color="tertiary">당첨</T>
-                        <BallRow nums={draw.nums} bonus={draw.bonus} size="xs" />
+                        <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10, fontWeight: '800', letterSpacing: 0.3 }}>
+                          🎯 {draw.round}회 당첨번호
+                        </T>
+                        <View style={{ marginTop: 6 }}>
+                          <BallRow nums={draw.nums} bonus={draw.bonus} size="xs" style={{ gap: 3 }} />
+                        </View>
                       </View>
                     )}
-                    {items.map((g) => (
-                      <View key={g.id} style={[styles.gameRow, { borderColor: t.borderDivider }]}>
-                        <View style={{ flex: 1, gap: 6 }}>
-                          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                            {g.label && (
-                              <View style={[styles.label, { backgroundColor: palette.softFill }]}>
-                                <T variant="caption2" color="secondary" style={{ fontWeight: '700' }}>{g.label}</T>
-                              </View>
-                            )}
-                            <T variant="caption1" color="tertiary">{sourceLabel(g.source)}</T>
-                            {g.result?.rank != null && (
-                              <Chip label={`${g.result.rank}등`} tone={g.result.rank <= 3 ? 'accent' : 'success'} compact />
-                            )}
+                    {items.map((g) => {
+                      const r = g.result?.rank ?? null;
+                      const isWin = r != null;
+                      // 등수별 컬러 토큰 (scan.tsx와 통일)
+                      const tone: { color: string; bg: string; label: string } | null =
+                        r === 1 ? { color: palette.red500,    bg: 'rgba(255,66,66,0.10)', label: '1등' }
+                      : r === 2 ? { color: '#ea580c',          bg: 'rgba(234,88,12,0.10)', label: '2등' }
+                      : r === 3 ? { color: '#a37116',          bg: 'rgba(232,176,78,0.12)', label: '3등' }
+                      : r === 4 ? { color: palette.blue700,    bg: 'rgba(0,102,255,0.08)', label: '4등' }
+                      : r === 5 ? { color: palette.green700,   bg: 'rgba(0,191,64,0.08)', label: '5등' }
+                      : null;
+                      return (
+                        <View
+                          key={g.id}
+                          style={[
+                            styles.gameRow,
+                            {
+                              backgroundColor: tone ? tone.bg : 'transparent',
+                              borderColor: tone ? tone.color : t.borderDivider,
+                              borderWidth: tone ? 2 : 1,
+                            },
+                          ]}
+                        >
+                          <View style={{ flex: 1, gap: 6 }}>
+                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                              {g.label && (
+                                <View style={[styles.label, { backgroundColor: palette.softFill }]}>
+                                  <T variant="caption2" color="secondary" style={{ fontWeight: '800' }} allowFontScaling={false}>
+                                    {g.label}
+                                  </T>
+                                </View>
+                              )}
+                              <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10.5, fontWeight: '600' }}>
+                                {sourceLabel(g.source)}
+                              </T>
+                              <View style={{ flex: 1 }} />
+                              {tone && (
+                                <View style={[styles.rankBadge, { backgroundColor: tone.color }]}>
+                                  <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 11, letterSpacing: 0.3 }}>
+                                    {tone.label}
+                                  </T>
+                                </View>
+                              )}
+                            </View>
+                            <BallRow
+                              nums={g.nums}
+                              size="sm"
+                              hits={g.result?.hits}
+                            />
                           </View>
-                          <BallRow
-                            nums={g.nums}
-                            size="sm"
-                            hits={g.result?.hits}
-                          />
+                          <Pressable onPress={() => remove(g.id)} hitSlop={8}>
+                            <Icon.close color={t.fgTertiary} />
+                          </Pressable>
                         </View>
-                        <Pressable onPress={() => remove(g.id)} hitSlop={8}>
-                          <Icon.close color={t.fgTertiary} />
-                        </Pressable>
-                      </View>
-                    ))}
+                      );
+                    })}
                   </View>
                 )}
               </Card>
@@ -545,23 +577,34 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     gap: 8,
   },
-  groupBody: { paddingHorizontal: 14, paddingBottom: 12 },
+  groupBody: { paddingHorizontal: 14, paddingBottom: 14, gap: 8 },
+  // 그룹 상단 당첨번호 — 2줄 구조 (라벨 위, BallRow 아래) — 좁은 폰에서도 안 잘림
   winningRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-    paddingVertical: 8,
-    borderTopWidth: 1,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    marginBottom: 4,
   },
+  // 게임 카드 — 컨테이너 카드 (당첨이면 컬러 보더 + 톤 배경)
   gameRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 12,
-    borderTopWidth: 1,
+    paddingVertical: 11,
+    paddingHorizontal: 12,
+    borderRadius: radius.md,
     gap: 12,
   },
   label: {
-    width: 22, height: 22, borderRadius: 6,
+    width: 24, height: 24, borderRadius: 6,
     alignItems: 'center', justifyContent: 'center',
+  },
+  // 등수 칩 (우측)
+  rankBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 99,
+    minWidth: 40,
+    alignItems: 'center',
   },
 });

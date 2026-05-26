@@ -106,8 +106,11 @@ export const useSavedNumbers = create<SavedNumbersState>()(
       addMany: (gs) => {
         const reasons: Array<'limit' | 'duplicate'> = [];
         let added = 0;
-        for (const g of gs) {
-          const res = get().add(g);
+        // add()는 prepend(newest-first)이므로, 입력 순서 [A, B, C, D, E]를
+        // 그대로 보존하려면 역순으로 호출해야 한다. (E 먼저 → ... → A 마지막
+        // → store: [A, B, C, D, E])
+        for (let i = gs.length - 1; i >= 0; i--) {
+          const res = get().add(gs[i]);
           if (res.ok) added++;
           else reasons.push(res.reason);
         }

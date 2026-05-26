@@ -6,7 +6,8 @@
  *   - BallRow
  *   - 미니 요약 (합 · 홀짝 · AC) — 한 줄
  *
- * 카드 자체를 탭하면 `/combo?nums=...`로 push → 풍부한 분석 화면.
+ * "자세히" 칩만 탭하면 `/combo?nums=...`로 push → 풍부한 분석 화면.
+ * 카드의 다른 영역(BallRow, 메타 칩 등)은 클릭해도 아무 일도 안 일어남.
  * 우측에 "+" 버튼이 있으면 onSave로 보관함에 저장.
  *
  * 가중치 뽑기 / 번호 받기 / 시뮬레이터 결과 등 어디서나 일관된 UX로 재사용.
@@ -62,7 +63,7 @@ export function CombinationCard({
   const isWin = !!rankBadge && rankBadge.rank <= 3;
 
   return (
-    <Pressable onPress={goDetail} style={style}>
+    <View style={style}>
       <Card padding={14} style={isWin ? { borderWidth: 2, borderColor: '#e8b04e' } : undefined}>
         {/* 1행: 라벨 + (당첨 시) 등수 badge + 저장 버튼 */}
         <View style={styles.topRow}>
@@ -85,7 +86,7 @@ export function CombinationCard({
           )}
           {onSave && (
             <Pressable
-              onPress={(e) => { e.stopPropagation?.(); onSave(); }}
+              onPress={onSave}
               disabled={saved}
               hitSlop={6}
               style={({ pressed }) => [
@@ -116,14 +117,21 @@ export function CombinationCard({
           <MetaPill label="홀짝" value={oe} tone="purple" />
           <MetaPill label="저고" value={hl} tone="green" />
           <MetaPill label="AC" value={String(acV)} tone="amber" />
-          <View style={[styles.detailChip, { backgroundColor: palette.blue50 }]}>
+          <Pressable
+            onPress={goDetail}
+            hitSlop={6}
+            style={({ pressed }) => [
+              styles.detailChip,
+              { backgroundColor: palette.blue50, opacity: pressed ? 0.7 : 1 },
+            ]}
+          >
             <T variant="caption1" allowFontScaling={false} style={{ color: palette.blue700, fontWeight: '800', fontSize: 10.5 }}>
               자세히
             </T>
-          </View>
+          </Pressable>
         </View>
       </Card>
-    </Pressable>
+    </View>
   );
 }
 

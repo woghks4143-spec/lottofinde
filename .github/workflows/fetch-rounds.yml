@@ -46,11 +46,14 @@ jobs:
             node scripts/fetch-from-mirror.mjs --recent=${{ github.event.inputs.recent || '5' }}
           fi
 
+      - name: Aggregate stores (1등/2등 배출점 누적)
+        run: node scripts/aggregate-stores.mjs
+
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/enriched/
+          git add data/enriched/ src/data/stores.json
           if git diff --cached --quiet; then
             echo "✅ No changes (data already up to date)"
           else

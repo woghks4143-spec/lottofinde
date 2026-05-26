@@ -15,8 +15,10 @@ export type NotificationPrefs = {
   drawingReminder: boolean;
   /** 토요일 21:00 — 추첨 결과 발표 (8:35 추첨 직후 ~ 20분). */
   resultReminder: boolean;
-  /** 수요일 00:00 — 귀찮이즘 받기 시작 알림 (PRO 멤버용). */
+  /** 수요일 10:00 — 귀찮이즘 받기 시작 알림 (PRO 멤버용). */
   weeklyReceive: boolean;
+  /** 보관함 게임 회차 추첨 후 당첨번호 알림 (당첨/미당첨 결과 자동 표시). */
+  savedGameResult: boolean;
 };
 
 type NotificationState = NotificationPrefs & {
@@ -28,6 +30,7 @@ const initial: NotificationPrefs = {
   drawingReminder: true,
   resultReminder: true,
   weeklyReceive: true,
+  savedGameResult: true,
 };
 
 export const useNotifications = create<NotificationState>()(

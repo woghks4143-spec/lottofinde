@@ -18,7 +18,10 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider, useTheme } from '@/src/design/theme';
 import { FONT_ASSETS } from '@/src/design/fonts';
 import { useHistory } from '@/src/data/historyStore';
+import { useSavedNumbers } from '@/src/store/savedNumbers';
+import { useNotifications } from '@/src/store/notifications';
 import { prewarmRegression } from '@/src/lib/regressionCache';
+import { notifySavedGameResults, seedNotifiedRoundsFromExisting } from '@/src/lib/savedGameNotifier';
 import { isDrawWindow } from '@/src/data/dhlottery';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
@@ -45,7 +48,28 @@ export default function RootLayout() {
   // enrich만 시도한다. 일~금 + 토 새벽엔 네트워크 0회.
   useEffect(() => {
     useHistory.getState().hydrate();
-    const t = setTimeout(() => { useHistory.getState().autoUpdate().catch(() => {}); }, 200);
+
+    // 부트 후 1회: 현재 시점까지 이미 추첨된 회차들을 "알림 보낸 것"으로 시드.
+    // → 앱 설치 시점 이전의 결과는 알림 X. 추첨예정이었던 회차가 새로 추첨됐을 때만 알림.
+    const seedTimer = setTimeout(() => {
+      const { draws } = useHistory.getState();
+      const { games } = useSavedNumbers.getState();
+      seedNotifiedRoundsFromExisting(games, draws).catch(() => {});
+    }, 300);
+
+    // 추첨 데이터 자동 업데이트 — 끝나면 보관함 게임 결과 알림 검사
+    const t = setTimeout(async () => {
+      try {
+        await useHistory.getState().autoUpdate();
+      } catch {}
+      // autoUpdate 직후 알림 검사 — 새 회차가 hydrate됐으면 알림 발송
+      try {
+        const { draws } = useHistory.getState();
+        const { games } = useSavedNumbers.getState();
+        const prefs = useNotifications.getState();
+        await notifySavedGameResults(games, draws, prefs);
+      } catch {}
+    }, 200);
 
     // 회귀분석 ranking prewarm — 부트 후 1.5초쯤 백그라운드로 계산.
     // 사용자가 PRO → 회귀분석 진입했을 때 이미 캐시 hit → 즉시 표시.
@@ -65,6 +89,7 @@ export default function RootLayout() {
     return () => {
       clearTimeout(t);
       clearTimeout(prewarmTimer);
+      clearTimeout(seedTimer);
     };
   }, []);
 
@@ -75,13 +100,22 @@ export default function RootLayout() {
   // 여기 쿨다운은 단순히 호출 빈도를 더 줄이는 보조 가드 역할이다.
   const lastFocusTopUpAt = useRef<number>(0);
   useEffect(() => {
-    const handler = (next: AppStateStatus) => {
+    const handler = async (next: AppStateStatus) => {
       if (next !== 'active') return;
       const now = Date.now();
       const cooldownMs = isDrawWindow() ? 10 * 60_000 : 6 * 3600_000;
       if (now - lastFocusTopUpAt.current < cooldownMs) return;
       lastFocusTopUpAt.current = now;
-      useHistory.getState().autoUpdate().catch(() => {});
+      try {
+        await useHistory.getState().autoUpdate();
+      } catch {}
+      // 포그라운드 복귀 + autoUpdate 후 보관함 결과 알림 검사
+      try {
+        const { draws } = useHistory.getState();
+        const { games } = useSavedNumbers.getState();
+        const prefs = useNotifications.getState();
+        await notifySavedGameResults(games, draws, prefs);
+      } catch {}
     };
     const sub = AppState.addEventListener('change', handler);
     return () => sub.remove();
@@ -128,6 +162,7 @@ export default function RootLayout() {
           <Stack.Screen name="pro-predict" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="pro-jachanism" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="notifications" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="store-finder" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="data-backup" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="responsible-purchase" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="contact" options={{ animation: 'slide_from_right' }} />

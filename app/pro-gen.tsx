@@ -82,7 +82,7 @@ export default function ProGen() {
           fromFree="— (PRO 전용)"
           desc={
             "분석이 귀찮은 분을 위한 PRO 멤버십 전용 기능. 매주 자동 분석으로 50조합을 받을 수 있어요. " +
-            "수~토 00:00~20:00 받기 가능 · 전 세계 사용자 중복 X · 토요일 추첨 후 등수 자동 표시. (참고용 — 당첨 보장 X)"
+            "수 10시 ~ 토 20시 받기 가능 · 전 세계 사용자 중복 X · 토요일 추첨 후 등수 자동 표시. (참고용 — 당첨 보장 X)"
           }
           preview={<PreviewJachanism />}
           onPress={() => router.push('/pro-jachanism' as any)}

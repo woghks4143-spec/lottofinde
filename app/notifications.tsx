@@ -18,6 +18,7 @@ import {
   rescheduleAll,
   sendTestNotification,
   clearScheduledNotifications,
+  isExpoGo,
 } from '@/src/lib/scheduleNotifications';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
@@ -32,10 +33,13 @@ export default function NotificationsSettings() {
   const [permStatus, setPermStatus] = useState<PermStatus>('unknown');
   const [toast, setToast] = useState<string | null>(null);
   const isWeb = Platform.OS === 'web';
+  const inExpoGo = !isWeb && isExpoGo();
 
   const showToast = (msg: string) => {
     setToast(msg);
-    setTimeout(() => setToast(null), 2500);
+    // 긴 메시지는 길게, 짧은 메시지는 짧게
+    const duration = msg.length > 30 ? 4500 : 2500;
+    setTimeout(() => setToast(null), duration);
   };
 
   // 권한 상태 조회
@@ -83,8 +87,12 @@ export default function NotificationsSettings() {
       showToast('먼저 알림을 켜주세요');
       return;
     }
-    const ok = await sendTestNotification();
-    showToast(ok ? '2초 후 테스트 알림이 옵니다' : '테스트 알림 발송 실패');
+    const result = await sendTestNotification();
+    if (result.ok) {
+      showToast('2초 후 테스트 알림이 옵니다');
+    } else {
+      showToast(result.reason ?? '테스트 알림 발송 실패');
+    }
   };
 
   const openSystemSettings = () => {
@@ -111,6 +119,24 @@ export default function NotificationsSettings() {
                 </T>
                 <T variant="caption1" color="tertiary" style={{ fontSize: 11.5, marginTop: 2 }}>
                   웹 미리보기에서는 알림 기능이 동작하지 않습니다.
+                </T>
+              </View>
+            </View>
+          </Card>
+        )}
+
+        {/* Expo Go 안내 */}
+        {inExpoGo && (
+          <Card padding={14}>
+            <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 8 }}>
+              <T allowFontScaling={false} style={{ fontSize: 20 }}>⚠️</T>
+              <View style={{ flex: 1 }}>
+                <T variant="label1n" style={{ color: palette.red500, fontWeight: '800' }}>
+                  Expo Go에서는 알림이 동작하지 않아요
+                </T>
+                <T variant="caption1" color="tertiary" style={{ fontSize: 11.5, marginTop: 4, lineHeight: 17 }}>
+                  Expo SDK 53+부터 Expo Go에서 알림 기능을 지원하지 않습니다.{'\n'}
+                  Dev Client 또는 정식 빌드(APK/IPA)에서 테스트해주세요.
                 </T>
               </View>
             </View>
@@ -183,10 +209,18 @@ export default function NotificationsSettings() {
             <NotificationRow
               icon="✨"
               title="귀찮이즘 받기 시작"
-              desc="매주 수요일 00:00 · 50조합 받기 시작 (PRO)"
+              desc="매주 수요일 10:00 · 50조합 받기 시작 (PRO)"
               on={prefs.weeklyReceive}
               disabled={!prefs.enabled}
               onToggle={() => prefs.set({ weeklyReceive: !prefs.weeklyReceive })}
+            />
+            <NotificationRow
+              icon="🎯"
+              title="내 번호 당첨 결과"
+              desc="보관함의 추첨예정 회차가 추첨되면 결과 자동 알림"
+              on={prefs.savedGameResult}
+              disabled={!prefs.enabled}
+              onToggle={() => prefs.set({ savedGameResult: !prefs.savedGameResult })}
             />
           </View>
         </Card>
@@ -222,7 +256,11 @@ export default function NotificationsSettings() {
 
       {toast && (
         <View style={[styles.toast, { backgroundColor: t.bgInverse }]} pointerEvents="none">
-          <T variant="label1n" style={{ color: t.bgCanvas, fontWeight: '700' }} allowFontScaling={false}>
+          <T
+            variant="label1n"
+            style={{ color: t.bgCanvas, fontWeight: '700', textAlign: 'center', lineHeight: 19 }}
+            allowFontScaling={false}
+          >
             {toast}
           </T>
         </View>

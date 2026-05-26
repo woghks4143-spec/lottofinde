@@ -14,7 +14,8 @@
       "infoPlist": {
         "NSCameraUsageDescription": "로또 영수증의 QR 코드를 스캔해 번호를 저장하고 당첨 여부를 확인합니다.",
         "NSLocationWhenInUseUsageDescription": "근처 로또 판매점을 찾아드리기 위해 사용됩니다.",
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "LSApplicationQueriesSchemes": ["kakaomap", "nmap"]
       }
     },
     "android": {

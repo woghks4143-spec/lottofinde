@@ -26,14 +26,15 @@ export type JachanismStatus = 'locked' | 'active' | 'drawing' | 'done';
 /**
  * 운영 사이클:
  *   - 월(1) 09:00 KST: 새 조합 자동 생성 (GitHub Actions or 실행.bat)
- *   - 수(3) 00:00 ~ 토(6) 20:00: 받기 가능 ('active')
+ *   - 수(3) 10:00 ~ 토(6) 20:00: 받기 가능 ('active')
+ *   - 수(3) 10시 이전 + 일(0)·월(1)·화(2): 잠금 ('locked')
  *   - 토(6) 20:00 ~ 추첨 결과 수신 전: 추첨 대기 ('drawing')
- *   - 일(0)·월(1)·화(2): 잠금 ('locked')
  *
  * 로또 구매 마감: 매주 토요일 20:00 (KST)
  * 추첨: 매주 토요일 20:35 (KST)
  */
-export const RECEIVE_END_HOUR = 20; // 토요일 20시 구매 마감
+export const RECEIVE_START_HOUR = 10; // 수요일 10시 받기 시작
+export const RECEIVE_END_HOUR = 20;   // 토요일 20시 구매 마감
 
 export function getDayStatus(now: Date = new Date()): JachanismStatus {
   const day = now.getDay();
@@ -42,24 +43,30 @@ export function getDayStatus(now: Date = new Date()): JachanismStatus {
     // 토요일: 20시 전까지 받기, 20시부터 추첨 대기
     return hour < RECEIVE_END_HOUR ? 'active' : 'drawing';
   }
-  if (day >= 3 && day <= 5) return 'active'; // 수·목·금
-  return 'locked';                            // 일·월·화
+  if (day === 3) {
+    // 수요일: 10시 이전이면 잠금, 10시부터 받기 가능
+    return hour < RECEIVE_START_HOUR ? 'locked' : 'active';
+  }
+  if (day === 4 || day === 5) return 'active'; // 목·금
+  return 'locked';                              // 일·월·화
 }
 
 /**
- * 다음 받기 시작(=다음 수요일 00:00)까지 남은 ms.
+ * 다음 받기 시작(=다음 수요일 10:00)까지 남은 ms.
  * 잠금 상태가 아닐 때는 null.
  */
 export function msToNextReceive(now: Date = new Date()): number | null {
   const day = now.getDay();
+  const hour = now.getHours();
   let daysToWed: number;
   if (day === 0) daysToWed = 3;       // 일 → 3일 후 수요일
   else if (day === 1) daysToWed = 2;  // 월 → 2일 후 수요일
   else if (day === 2) daysToWed = 1;  // 화 → 1일 후 수요일
+  else if (day === 3 && hour < RECEIVE_START_HOUR) daysToWed = 0;  // 수 10시 이전
   else return null;
   const target = new Date(now);
   target.setDate(now.getDate() + daysToWed);
-  target.setHours(0, 0, 0, 0);
+  target.setHours(RECEIVE_START_HOUR, 0, 0, 0);
   return target.getTime() - now.getTime();
 }
 

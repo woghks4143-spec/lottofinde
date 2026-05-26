@@ -5,7 +5,7 @@
  * 2) 기능 — 판매점, 알림, 데이터 백업, 책임 있는 구매
  */
 import React from 'react';
-import { Linking, Pressable, ScrollView, StyleSheet, Switch, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Switch, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { T } from '@/src/components/Text';
@@ -37,21 +37,15 @@ export default function Features() {
   const entries: Entry[] = [
     {
       emoji: '📍',
-      title: '판매점 찾기',
-      desc: '동행복권 공식 판매점 안내',
-      onPress: () => Linking.openURL('https://dhlottery.co.kr/store.do?method=topStore').catch(() => {}),
+      title: '당첨 판매점 찾기',
+      desc: '내 위치에서 가까운 1등 배출점',
+      onPress: () => router.push('/store-finder' as any),
     },
     {
       emoji: '🔔',
       title: '알림 설정',
       desc: '추첨 임박·당첨 결과 등 주간 알림',
       onPress: () => router.push('/notifications' as any),
-    },
-    {
-      emoji: '💾',
-      title: '데이터 백업',
-      desc: '내 번호·룰을 JSON 파일로 백업/복원',
-      onPress: () => router.push('/data-backup' as any),
     },
     {
       emoji: '🛡️',

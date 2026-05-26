@@ -2,7 +2,7 @@
  * 귀찮이즘 조합 PRO — /pro-jachanism
  *
  * 주간 운영 사이클:
- *   토요일 추첨 → 월요일 09:00 자동 분석 → 수요일 00:00 받기 시작 → 토요일 20:00 받기 마감
+ *   토요일 추첨 → 월요일 09:00 자동 분석 → 수요일 10:00 받기 시작 → 토요일 20:00 받기 마감
  *   → 토요일 추첨 → 결과 확인 → 다시 일요일 사이클 시작
  *
  * 사용자는 회차당 50조합을 받을 수 있고, 받은 조합은 영속 저장되어 추첨 후
@@ -290,7 +290,7 @@ export default function ProJachanism() {
             </View>
             <T variant="caption2" color="tertiary" style={{ marginTop: 4, fontSize: 10.5 }}>
               {realStatus === 'locked'
-                ? '원래 일요일은 잠금 상태(분석 중)지만, 개발 빌드라 받기 활성화됨. Production 빌드에선 수요일 00:00부터만 받기 가능.'
+                ? '원래 일요일은 잠금 상태(분석 중)지만, 개발 빌드라 받기 활성화됨. Production 빌드에선 수요일 10:00부터만 받기 가능.'
                 : '받기 누른 후 콘솔 로그(Metro)에서 [firebase] / [jachanism] 메시지 확인.'}
             </T>
             <T variant="caption2" color="tertiary" style={{ marginTop: 4, fontSize: 9.5, fontFamily: 'monospace' }}>
@@ -320,7 +320,7 @@ export default function ProJachanism() {
                 분석 진행 중
               </T>
               <T variant="caption1" style={{ color: t.fgOnHeroMuted, marginTop: 3, textAlign: 'center', fontSize: 11.5 }}>
-                수요일 00:00부터 받을 수 있어요
+                수요일 10:00부터 받을 수 있어요
               </T>
               {countdown && (
                 <View style={[styles.countdownPill, { backgroundColor: 'rgba(232,176,78,0.18)', borderColor: GOLD }]}>
@@ -598,7 +598,7 @@ export default function ProJachanism() {
           </T>
           <View style={{ gap: 6 }}>
             <InfoLine icon="📊" text={`매주 일요일 통계 분석 자동 실행 (${POOL_SIZE_DISPLAY} 조합 풀)`} />
-            <InfoLine icon="📅" text="수요일 00:00 ~ 토요일 20:00까지 50조합 받기" />
+            <InfoLine icon="📅" text="수요일 10:00 ~ 토요일 20:00까지 50조합 받기" />
             <InfoLine icon="🎉" text="토요일 추첨 후 등수 결과 자동 확인" />
             <InfoLine icon="💎" text="PRO 멤버십 가입 시 모든 PRO 분석 기능 무제한" />
           </View>

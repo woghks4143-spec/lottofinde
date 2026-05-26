@@ -116,6 +116,10 @@ function WebHint() {
 function QrTab() {
   const t = useTheme();
   const addMany = useSavedNumbers((s) => s.addMany);
+  // 추첨 완료 회차면 즉시 당첨 결과 표시
+  const drawsMap = useHistory((s) => s.draws);
+  const latestRound = useHistory((s) => s.latestRound);
+  const getRound = useHistory((s) => s.getRound);
   const [parsed, setParsed] = useState<ParsedReceipt | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [permission, setPermission] = useState<'undetermined' | 'granted' | 'denied'>('undetermined');
@@ -177,24 +181,115 @@ function QrTab() {
   }
 
   if (parsed) {
+    // 추첨 완료된 회차인지 — getRound로 안전 조회 (drawsMap 직접 접근보다 robust)
+    const drawn = getRound(parsed.round) ?? drawsMap[parsed.round] ?? null;
+    // 회차 상태 판단 — 추첨 완료/예정 명확히 구분
+    const isCompletedRound = latestRound != null && parsed.round <= latestRound;
+    const ranks = drawn
+      ? parsed.games.map((g) => rank(g.nums, drawn.nums, drawn.bonus))
+      : null;
+    // 통계 — 1~5등 카운트
+    const winCount = ranks ? ranks.filter((r) => r != null).length : 0;
+    const bestRank = ranks ? ranks.reduce<number | null>((m, r) => (r != null && (m == null || r < m)) ? r : m, null) : null;
+
     return (
       <Card padding={14}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 8 }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
           <T variant="heading2" color="primary">영수증 인식 완료</T>
           <Chip label={`${parsed.round}회`} tone="accent" />
         </View>
-        <View style={{ gap: 10 }}>
-          {parsed.games.map((g) => (
-            <View key={g.label} style={[styles.gameLine, { borderColor: t.borderDivider }]}>
-              <View style={[styles.label, { backgroundColor: palette.softFill }]}>
-                <T variant="caption2" color="secondary" style={{ fontWeight: '700' }}>{g.label}</T>
-              </View>
-              <Chip label={g.type === 'auto' ? '자동' : '수동'} compact tone={g.type === 'auto' ? 'accent' : 'neutral'} />
-              <View style={{ flex: 1 }}>
-                <BallRow nums={g.nums} size="sm" />
-              </View>
+
+        {/* 추첨 완료 회차면 당첨번호 + 결과 요약 표시 */}
+        {drawn ? (
+          <View style={[styles.resultHero, {
+            backgroundColor: bestRank != null && bestRank <= 3
+              ? 'rgba(255,66,66,0.10)'
+              : bestRank != null
+                ? 'rgba(0,191,64,0.10)'
+                : palette.softFill,
+            borderColor: bestRank != null && bestRank <= 3
+              ? palette.red500
+              : bestRank != null
+                ? palette.green500
+                : 'transparent',
+          }]}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <T variant="caption1" allowFontScaling={false} style={{
+                color: bestRank != null && bestRank <= 3 ? palette.red500 : bestRank != null ? palette.green700 : t.fgTertiary,
+                fontWeight: '800', fontSize: 12, letterSpacing: 0.3,
+              }}>
+                {bestRank != null
+                  ? `🎉 ${bestRank}등 ${winCount > 1 ? `포함 ${winCount}게임 당첨!` : '당첨!'}`
+                  : winCount === 0
+                    ? '아쉽지만 모두 미당첨'
+                    : ''}
+              </T>
             </View>
-          ))}
+            <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ fontSize: 10.5, marginBottom: 6, fontWeight: '700' }}>
+              {parsed.round}회 당첨번호
+            </T>
+            <BallRow nums={drawn.nums} bonus={drawn.bonus} size="sm" style={{ gap: 4 }} />
+          </View>
+        ) : isCompletedRound ? (
+          // 추첨 완료 회차인데 데이터가 store에 없음 — drop된 옛 회차거나 hydrate 지연
+          <View style={[styles.resultHero, { backgroundColor: palette.softFill, borderColor: 'transparent' }]}>
+            <T variant="caption2" allowFontScaling={false} style={{ color: t.fgSecondary, fontSize: 11.5, fontWeight: '700' }}>
+              ⏳ {parsed.round}회 데이터를 불러오는 중... (잠시 후 다시 시도하거나 보관함에 저장 후 확인)
+            </T>
+            {__DEV__ && (
+              <T variant="caption2" allowFontScaling={false} style={{ color: '#888', fontSize: 9.5, marginTop: 4 }}>
+                [DEV] round={parsed.round}, latest={latestRound}, mapSize={Object.keys(drawsMap).length}
+              </T>
+            )}
+          </View>
+        ) : (
+          <View style={[styles.resultHero, { backgroundColor: palette.softFill, borderColor: 'transparent' }]}>
+            <T variant="caption2" allowFontScaling={false} style={{ color: t.fgSecondary, fontSize: 11.5, fontWeight: '700' }}>
+              ⏳ 아직 추첨 전이에요 ({parsed.round}회 추첨 후 보관함에서 결과 확인)
+            </T>
+          </View>
+        )}
+
+        <View style={{ gap: 10, marginTop: 12 }}>
+          {parsed.games.map((g, i) => {
+            const r = ranks ? ranks[i] : null;
+            const isWin = r != null;
+            return (
+              <View key={g.label} style={[
+                styles.gameLine,
+                {
+                  borderColor: isWin && r <= 3 ? palette.red500 : isWin ? palette.green500 : t.borderDivider,
+                  borderWidth: isWin ? 2 : 1,
+                },
+              ]}>
+                <View style={[styles.label, { backgroundColor: palette.softFill }]}>
+                  <T variant="caption2" color="secondary" style={{ fontWeight: '700' }}>{g.label}</T>
+                </View>
+                <Chip label={g.type === 'auto' ? '자동' : '수동'} compact tone={g.type === 'auto' ? 'accent' : 'neutral'} />
+                <View style={{ flex: 1 }}>
+                  <BallRow
+                    nums={g.nums}
+                    size="sm"
+                    hits={drawn ? g.nums.filter((n) => drawn.nums.includes(n) || drawn.bonus === n) : undefined}
+                  />
+                </View>
+                {r != null && (
+                  <View style={[styles.rankBadge, {
+                    backgroundColor:
+                      r === 1 ? palette.red500
+                      : r === 2 ? '#ea580c'
+                      : r === 3 ? '#a37116'
+                      : r === 4 ? palette.blue700
+                      : palette.green700,
+                  }]}>
+                    <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 10 }}>
+                      {r}등
+                    </T>
+                  </View>
+                )}
+              </View>
+            );
+          })}
         </View>
         <View style={{ flexDirection: 'row', gap: 8, marginTop: 14 }}>
           <Button title="다시 스캔" variant="outline" size="md" onPress={() => { setParsed(null); setHasScanned(false); }} />
@@ -440,11 +535,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 10,
     paddingVertical: 8,
+    paddingHorizontal: 8,
+    borderRadius: radius.md,
     borderTopWidth: 1,
   },
   label: {
     width: 22, height: 22, borderRadius: 6,
     alignItems: 'center', justifyContent: 'center',
+  },
+  // QR 결과 — 추첨 완료 회차의 당첨번호 + 결과 요약
+  resultHero: {
+    padding: 12,
+    borderRadius: radius.md,
+    borderWidth: 1,
+  },
+  // 게임별 등수 칩
+  rankBadge: {
+    paddingHorizontal: 8, paddingVertical: 4,
+    borderRadius: 99,
+    minWidth: 32, alignItems: 'center',
   },
   roundRow: {
     flexDirection: 'row',

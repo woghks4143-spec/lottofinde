@@ -2,7 +2,7 @@
  * Simple home — dark "latest round" banner + 4 big tiles + weekly summary.
  * Source: prototype/flow-h1.jsx → H1_SimpleHome
  */
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, Easing, Platform, Pressable, ScrollView, StyleSheet, ToastAndroid, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -14,10 +14,13 @@ import { Disclaimer } from '@/src/components/Disclaimer';
 import { Icon } from '@/src/components/Icons';
 import { useHistory } from '@/src/data/historyStore';
 import { useSavedNumbers } from '@/src/store/savedNumbers';
+import { useLotteryStores } from '@/src/store/lotteryStores';
+import { useUserLocation } from '@/src/store/userLocation';
 import {
   ac, firstThreeSum, highLowLabel, lastThreeSum, oddEvenLabel,
-  tailSum, tensSum, total,
+  rank as computeRank, tailSum, tensSum, total,
 } from '@/src/data/lotto';
+import { regionKey, detectUserRegion } from '@/src/lib/storeDistance';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
 
@@ -25,12 +28,95 @@ export default function SimpleHome() {
   const t = useTheme();
   const router = useRouter();
   const draw = useHistory((s) => s.getLatest());
+  const drawsMap = useHistory((s) => s.draws);
+  const latestRound = useHistory((s) => s.latestRound);
   const isMockData = useHistory((s) => s.isMock);
-  const savedCount = useSavedNumbers((s) => s.games.length);
-  const [expanded, setExpanded] = useState(false);
+  const games = useSavedNumbers((s) => s.games);
+
+  // 명당 카드용 — 위치(캐시) + 판매점 데이터
+  const stores = useLotteryStores((s) => s.stores);
+  const userCoords = useUserLocation((s) => s.coords);
+  const userPerm = useUserLocation((s) => s.permission);
+  const ensureLocation = useUserLocation((s) => s.ensure);
+
+  // 홈 진입 시 한 번만 위치 확보 (캐시 hit이면 즉시 noop)
+  useEffect(() => { ensureLocation(); }, [ensureLocation]);
+
+  // 추첨 예정 — 가장 가까운 다음 회차 = latestRound + 1
+  // 보관함에서 그 회차에 저장된 조합 개수 표시 (round == null이면 "다음 회차"라
+  // 간주해 같은 회차로 묶음). 여러 회차 분포면 추가 정보 표시.
+  const upcoming = useMemo(() => {
+    if (!games.length || latestRound == null) return null;
+    const nextRound = latestRound + 1;
+    // 다음 회차(가장 가까운) 게임 수
+    const nextRoundGames = games.filter(
+      (g) => g.round == null || g.round === nextRound,
+    );
+    // 그 이상 미래 회차들도 따로 카운트
+    const futureRounds = new Set<number>();
+    for (const g of games) {
+      if (g.round != null && g.round > nextRound) futureRounds.add(g.round);
+    }
+    return {
+      round: nextRound,
+      combos: nextRoundGames.length,
+      otherRounds: futureRounds.size,
+    };
+  }, [games, latestRound]);
+
+  // 이전 회차 결과 — 가장 최근 추첨 완료된 회차 + 등수별 분포
+  const prevRoundResult = useMemo(() => {
+    if (!games.length || latestRound == null) return null;
+    const drawnGames = games.filter((g) => g.round != null && g.round <= latestRound);
+    if (drawnGames.length === 0) return null;
+    // 가장 큰 round 찾기
+    let maxRound = -1;
+    for (const g of drawnGames) {
+      if (g.round! > maxRound) maxRound = g.round!;
+    }
+    const targetDraw = drawsMap[maxRound];
+    if (!targetDraw) return null;
+    const inRound = drawnGames.filter((g) => g.round === maxRound);
+    // 등수별 카운트 (1~5등)
+    const byRank: Record<number, number> = {};
+    let winCount = 0;
+    for (const g of inRound) {
+      const r = computeRank(g.nums, targetDraw.nums, targetDraw.bonus);
+      if (r != null) {
+        byRank[r] = (byRank[r] ?? 0) + 1;
+        winCount++;
+      }
+    }
+    return { round: maxRound, total: inRound.length, winCount, byRank };
+  }, [games, latestRound, drawsMap]);
+
+  // 우리 동네 1등 명당 — 우리 시/군/구 + 직전 회차에 1등 나온 판매점들
+  // (있으면 가장 흥미로운 정보) + 일반 최다 배출점 (없으면 fallback)
+  const localStores = useMemo(() => {
+    if (!userCoords || !stores.length) return null;
+    const detected = detectUserRegion(stores, userCoords.lat, userCoords.lng);
+    if (!detected || detected.nearestKm > 30) return null;
+    const region = detected.region;
+    const inRegion = stores.filter(
+      (s) => regionKey(s.address) === region && s.count1st > 0,
+    );
+    if (inRegion.length === 0) return null;
+    // 직전 회차에 1등 나온 우리 동네 가게들
+    const recentWinners = latestRound
+      ? inRegion.filter((s) => s.lastWin1st?.round === latestRound)
+      : [];
+    // 우리 동네 최다 명당 (count1st 기준)
+    const topStore = inRegion.reduce(
+      (best, s) => (s.count1st > best.count1st ? s : best),
+      inRegion[0],
+    );
+    return { region, recentWinners, topStore };
+  }, [stores, userCoords, latestRound]);
 
   // 새로고침 버튼 상태 — 페치 중에는 아이콘이 회전한다.
   const [refreshing, setRefreshing] = useState(false);
+  // 배너 분석 메트릭 펼치기 토글
+  const [expanded, setExpanded] = useState(false);
   const spin = useRef(new Animated.Value(0)).current;
   useEffect(() => {
     if (!refreshing) { spin.stopAnimation(); spin.setValue(0); return; }
@@ -120,7 +206,7 @@ export default function SimpleHome() {
           </>
         }
       />
-      <ScrollView contentContainerStyle={{ padding: 16, gap: 12 }}>
+      <ScrollView contentContainerStyle={{ padding: 14, gap: 8, paddingBottom: 16 }}>
         {/* Latest-round banner */}
         <View style={[styles.banner, { backgroundColor: bn.bg, borderWidth: isLight ? 1 : 0, borderColor: bn.border }]}>
           <View style={styles.bannerHead}>
@@ -138,7 +224,26 @@ export default function SimpleHome() {
             <BallRow nums={draw.nums} bonus={draw.bonus} size="sm" style={{ gap: 3 }} />
           </View>
 
-          {/* 1~3등 당첨금 + 당첨자 수 — 가장 핵심 정보 3열 카드 */}
+          {/* 회차 한눈에: 합·끝수·홀짝·저고·AC (펼치면 십합·앞세수·뒷세수 추가)
+              당첨번호 바로 밑이 가장 자연스러운 위치 — 번호의 패턴을 먼저 본 뒤
+              당첨금/당첨자 수로 시선이 이어짐. */}
+          <View style={[styles.analysisRow, { borderTopColor: bn.divider }]}>
+            <Metric label="합" value={String(total(draw.nums))} hint={sumHint(total(draw.nums))} bn={bn} />
+            <Metric label="끝수" value={String(tailSum(draw.nums))} bn={bn} />
+            <Metric label="홀짝" value={oddEvenLabel(draw.nums)} bn={bn} />
+            <Metric label="저고" value={highLowLabel(draw.nums)} bn={bn} />
+            <Metric label="AC" value={String(ac(draw.nums))} hint={acHint(ac(draw.nums))} bn={bn} />
+          </View>
+
+          {expanded && (
+            <View style={[styles.analysisRowExtra, { borderTopColor: bn.divider }]}>
+              <Metric label="십합" value={String(tensSum(draw.nums))} bn={bn} />
+              <Metric label="앞세수합" value={String(firstThreeSum(draw.nums))} bn={bn} />
+              <Metric label="뒷세수합" value={String(lastThreeSum(draw.nums))} bn={bn} />
+            </View>
+          )}
+
+          {/* 1~3등 당첨금 + 당첨자 수 — 분석 메트릭 아래 */}
           <View style={[styles.prizeTopRow, { borderTopColor: bn.divider }]}>
             <PrizeMini
               label="1등"
@@ -164,23 +269,6 @@ export default function SimpleHome() {
               bn={bn}
             />
           </View>
-
-          {/* 회차 한눈에: 합·끝수·홀짝·저고·AC (펼치면 십합·앞세수·뒷세수 추가) */}
-          <View style={[styles.analysisRow, { borderTopColor: bn.divider }]}>
-            <Metric label="합" value={String(total(draw.nums))} hint={sumHint(total(draw.nums))} bn={bn} />
-            <Metric label="끝수" value={String(tailSum(draw.nums))} bn={bn} />
-            <Metric label="홀짝" value={oddEvenLabel(draw.nums)} bn={bn} />
-            <Metric label="저고" value={highLowLabel(draw.nums)} bn={bn} />
-            <Metric label="AC" value={String(ac(draw.nums))} hint={acHint(ac(draw.nums))} bn={bn} />
-          </View>
-
-          {expanded && (
-            <View style={[styles.analysisRowExtra, { borderTopColor: bn.divider }]}>
-              <Metric label="십합" value={String(tensSum(draw.nums))} bn={bn} />
-              <Metric label="앞세수합" value={String(firstThreeSum(draw.nums))} bn={bn} />
-              <Metric label="뒷세수합" value={String(lastThreeSum(draw.nums))} bn={bn} />
-            </View>
-          )}
 
           {/* "자세히 보기" 펼침 토글 + 회차 상세 페이지로 가는 링크 */}
           <View style={styles.detailRow}>
@@ -224,45 +312,130 @@ export default function SimpleHome() {
           />
         </View>
 
-        {/* 내 번호 — wide hero 카드. 큰 숫자로 시각 강조 */}
+        {/* 내 번호 — wide hero (칸 안의 칸 구조).
+            윗 칸: 추첨 예정 회차 + 조합 수 / 아랫 칸: 이전 회차 등수별 결과 */}
         <Pressable
           onPress={() => router.push('/(simple)/mine' as any)}
           style={({ pressed }) => [styles.savedHero, { backgroundColor: palette.purple500, opacity: pressed ? 0.92 : 1 }]}
         >
-          <View style={styles.savedIconWrap}>
-            <Icon.history color="#fff" size={26} weight={1.8} />
-          </View>
-          <View style={{ flex: 1, marginLeft: 14 }}>
-            <T variant="caption1" style={{ color: 'rgba(255,255,255,0.7)', letterSpacing: 1.1, fontWeight: '600' }} allowFontScaling={false}>
-              SAVED
-            </T>
-            {savedCount > 0 ? (
-              <>
-                <View style={styles.savedCountRow}>
-                  <T variant="title1" style={{ color: '#fff', fontWeight: '900', letterSpacing: -0.5 }} allowFontScaling={false}>
-                    {savedCount}
+          {games.length === 0 ? (
+            <View style={styles.savedRow}>
+              <View style={styles.savedIconWrap}>
+                <Icon.history color="#fff" size={22} weight={1.8} />
+              </View>
+              <View style={{ flex: 1, marginLeft: 12 }}>
+                <T variant="caption1" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.75)', letterSpacing: 1.1, fontWeight: '700' }}>
+                  MY NUMBERS
+                </T>
+                <T variant="headline2" style={{ color: '#fff', fontWeight: '800', marginTop: 2 }}>
+                  내 번호 추가하기
+                </T>
+                <T variant="caption1" style={{ color: 'rgba(255,255,255,0.75)', marginTop: 1, fontSize: 11.5 }}>
+                  QR 스캔 또는 직접 입력으로
+                </T>
+              </View>
+              <Icon.chev color="rgba(255,255,255,0.9)" />
+            </View>
+          ) : (
+            <>
+              {/* 윗 칸 — 추첨 예정 */}
+              <View style={styles.savedRow}>
+                <View style={styles.savedIconWrap}>
+                  <Icon.history color="#fff" size={22} weight={1.8} />
+                </View>
+                <View style={{ flex: 1, marginLeft: 12 }}>
+                  <T variant="caption1" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.75)', letterSpacing: 1.1, fontWeight: '700' }}>
+                    MY NUMBERS
                   </T>
-                  <T variant="headline2" style={{ color: '#fff', fontWeight: '700', marginLeft: 4 }} allowFontScaling={false}>
-                    건 저장
+                  {upcoming && upcoming.combos > 0 ? (
+                    <>
+                      <View style={styles.upcomingRow}>
+                        <T variant="headline2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 16 }}>
+                          {upcoming.round}회차
+                        </T>
+                        <T variant="headline2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 16, marginLeft: 6 }}>
+                          {upcoming.combos}개 조합
+                        </T>
+                        <T variant="caption1" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.9)', fontWeight: '700', marginLeft: 5, fontSize: 12.5 }}>
+                          추첨 예정
+                        </T>
+                      </View>
+                      {upcoming.otherRounds > 0 && (
+                        <T variant="caption2" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.7)', fontSize: 10.5, marginTop: 1 }}>
+                          + 미래 {upcoming.otherRounds}개 회차 더
+                        </T>
+                      )}
+                    </>
+                  ) : (
+                    <T variant="headline2" style={{ color: '#fff', fontWeight: '800', marginTop: 2, fontSize: 14.5 }}>
+                      추첨 예정 조합 없음
+                    </T>
+                  )}
+                </View>
+                <Icon.chev color="rgba(255,255,255,0.9)" />
+              </View>
+
+              {/* 칸 안의 칸 — 이전 회차 결과 */}
+              {prevRoundResult && (
+                <View style={styles.innerBox}>
+                  <T variant="caption1" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.95)', fontSize: 12, lineHeight: 17 }} numberOfLines={2}>
+                    {formatPrevResult(prevRoundResult)}
                   </T>
                 </View>
-                <T variant="caption1" style={{ color: 'rgba(255,255,255,0.75)', marginTop: 2 }}>
-                  회차별 당첨 결과 확인하기
-                </T>
-              </>
-            ) : (
-              <>
-                <T variant="headline2" style={{ color: '#fff', fontWeight: '800', marginTop: 2 }}>
-                  내 번호
-                </T>
-                <T variant="caption1" style={{ color: 'rgba(255,255,255,0.75)', marginTop: 2 }}>
-                  QR 스캔 또는 직접 입력으로 추가
-                </T>
-              </>
-            )}
-          </View>
-          <Icon.chev color="rgba(255,255,255,0.9)" />
+              )}
+            </>
+          )}
         </Pressable>
+
+        {/* 우리 동네 1등 명당 — 칸 안의 칸 구조 */}
+        <Pressable
+          onPress={() => router.push('/store-finder' as any)}
+          style={({ pressed }) => [
+            styles.storeCard,
+            {
+              backgroundColor: t.bgSurface,
+              borderColor: t.borderWeak,
+              opacity: pressed ? 0.92 : 1,
+            },
+          ]}
+        >
+          {/* 윗 칸 — 카드 제목/소제목 */}
+          <View style={styles.storeRow}>
+            <View style={styles.storeIconBox}>
+              <T allowFontScaling={false} style={{ fontSize: 22 }}>📍</T>
+            </View>
+            <View style={{ flex: 1, marginLeft: 12 }}>
+              <T variant="caption1" allowFontScaling={false} style={{ color: '#d97706', letterSpacing: 1.1, fontWeight: '700' }}>
+                NEAR ME
+              </T>
+              <T variant="headline2" style={{ color: t.fgPrimary, fontWeight: '800', marginTop: 2, fontSize: 15 }}>
+                우리 동네 1등 명당
+              </T>
+              <T variant="caption1" color="tertiary" style={{ marginTop: 1, fontSize: 11.5 }}>
+                {userPerm === 'denied' ? '위치 권한 허용 시 우리 동네 확인 가능' : '가까운 판매점 찾기'}
+              </T>
+            </View>
+            <Icon.chev color={t.fgTertiary} />
+          </View>
+
+          {/* 칸 안의 칸 — 직전 회차 우리 동네 1등 배출점 정보 */}
+          {localStores && (localStores.recentWinners.length > 0 || localStores.topStore) && (
+            <View style={[styles.innerBoxLight, { borderTopColor: t.borderDivider }]}>
+              {localStores.recentWinners.length > 0 ? (
+                <T variant="caption1" allowFontScaling={false} style={{ color: t.fgPrimary, fontSize: 12, fontWeight: '700', lineHeight: 17 }} numberOfLines={2}>
+                  🎉 {formatRecentWinners(localStores.recentWinners.map((s) => s.name), latestRound)}
+                </T>
+              ) : (
+                <T variant="caption1" allowFontScaling={false} style={{ color: t.fgSecondary, fontSize: 11.5, lineHeight: 16 }} numberOfLines={2}>
+                  🏆 {localStores.region} 최다 명당: {localStores.topStore.name} (1등 {localStores.topStore.count1st}회)
+                </T>
+              )}
+            </View>
+          )}
+        </Pressable>
+
+        {/* 통계 면책 — 하단 탭 위로 자연스럽게 노출 */}
+        <Disclaimer short />
 
         {isMockData && (
           <View style={[styles.warn, { backgroundColor: t.bgWarnSoft, borderColor: t.borderWarn }]}>
@@ -271,9 +444,6 @@ export default function SimpleHome() {
             </T>
           </View>
         )}
-
-        <Disclaimer short />
-        <View style={{ height: 4 }} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -394,6 +564,44 @@ function PrizeMini({
   );
 }
 
+/**
+ * 이전 회차 결과 한 줄 표시.
+ * 1·2등은 단독 강조, 4·5등은 묶어서. 미당첨이면 그렇게 표시.
+ */
+function formatPrevResult(r: { round: number; total: number; winCount: number; byRank: Record<number, number> }): string {
+  if (r.winCount === 0) {
+    return `${r.round}회 · ${r.total}게임 모두 미당첨`;
+  }
+  // 상위 등수부터 표시 (1, 2, 3등 단독), 4·5등은 묶어서
+  const parts: string[] = [];
+  const high = [1, 2, 3].filter((rk) => r.byRank[rk] > 0);
+  for (const rk of high) parts.push(`${rk}등 ${r.byRank[rk]}개`);
+  const lowSum = (r.byRank[4] ?? 0) + (r.byRank[5] ?? 0);
+  if (lowSum > 0) {
+    // 4·5등 둘 다 있으면 묶기, 한 쪽만 있으면 개별 표시
+    if (r.byRank[4] > 0 && r.byRank[5] > 0) {
+      parts.push(`4·5등 ${lowSum}개`);
+    } else if (r.byRank[4] > 0) {
+      parts.push(`4등 ${r.byRank[4]}개`);
+    } else if (r.byRank[5] > 0) {
+      parts.push(`5등 ${r.byRank[5]}개`);
+    }
+  }
+  return `🎉 ${r.round}회 · ${parts.join(' · ')} 당첨!`;
+}
+
+/**
+ * 우리 동네 직전 회차 1등 배출점 한 줄 표시.
+ * 1곳: "행운복권방에서 1225회 1등이 나왔어요!"
+ * 여러 곳: "행운복권방 외 N곳에서 1225회 1등이 나왔어요!"
+ */
+function formatRecentWinners(names: string[], round: number | null): string {
+  if (names.length === 0) return '';
+  const first = names[0];
+  if (names.length === 1) return `${first}에서 ${round}회 1등이 나왔어요!`;
+  return `${first} 외 ${names.length - 1}곳에서 ${round}회 1등이 나왔어요!`;
+}
+
 /** 짧은 당첨금 표기: 1등은 "22억", 2등은 "6,352만", 3등은 "144만" */
 function formatWonShort(n: number): string {
   const eok = Math.floor(n / 100_000_000);
@@ -494,6 +702,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 2,
   },
+  detailLinkOnly: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    gap: 2,
+    marginTop: 10,
+    paddingVertical: 4,
+  },
   metric: {
     flex: 1,
     alignItems: 'center',
@@ -502,28 +718,29 @@ const styles = StyleSheet.create({
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 10,
+    gap: 8,
   },
   tile: {
     width: '48%',
-    height: 132,
-    padding: 18,
-    borderRadius: 18,
+    height: 96,
+    padding: 14,
+    borderRadius: 16,
     justifyContent: 'space-between',
   },
 
-  // 내 번호 wide hero
+  // 내 번호 wide hero — 컴팩트, 칸 안의 칸 구조 지원 (column layout)
   savedHero: {
+    padding: 14,
+    borderRadius: 16,
+  },
+  savedRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 18,
-    borderRadius: 18,
-    minHeight: 96,
   },
   savedIconWrap: {
-    width: 52,
-    height: 52,
-    borderRadius: 16,
+    width: 44,
+    height: 44,
+    borderRadius: 13,
     backgroundColor: 'rgba(255,255,255,0.15)',
     alignItems: 'center',
     justifyContent: 'center',
@@ -531,7 +748,33 @@ const styles = StyleSheet.create({
   savedCountRow: {
     flexDirection: 'row',
     alignItems: 'baseline',
+  },
+  upcomingRow: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
     marginTop: 2,
+    flexWrap: 'wrap',
+  },
+  // 칸 안의 칸 — 보라색 hero 내부의 살짝 어두운 영역
+  innerBox: {
+    marginTop: 10,
+    paddingTop: 9,
+    paddingHorizontal: 10,
+    paddingBottom: 9,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: 'rgba(255,255,255,0.25)',
+    backgroundColor: 'rgba(0,0,0,0.08)',
+    borderRadius: 8,
+  },
+  // 칸 안의 칸 — 라이트 카드 내부의 구분선 (보더만)
+  innerBoxLight: {
+    marginTop: 10,
+    paddingTop: 9,
+    borderTopWidth: StyleSheet.hairlineWidth,
+  },
+  storeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   checkIcon: {
     width: 44, height: 44, borderRadius: 12,
@@ -541,6 +784,18 @@ const styles = StyleSheet.create({
     width: 44, height: 44, borderRadius: 12,
     alignItems: 'center', justifyContent: 'center',
   },
+  // 우리 동네 판매점 카드 — SAVED hero보다 한 단계 부드러운 톤
+  storeCard: {
+    padding: 12,
+    borderRadius: 16,
+    borderWidth: 1,
+  },
+  storeIconBox: {
+    width: 40, height: 40, borderRadius: 12,
+    backgroundColor: '#fef3c7',
+    alignItems: 'center', justifyContent: 'center',
+  },
+
   warn: {
     padding: 10,
     borderRadius: radius.sm,
