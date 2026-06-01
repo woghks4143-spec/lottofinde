@@ -1,7 +1,8 @@
 {
-  "updatedAt": 1779719105696,
+  "updatedAt": 1780342665791,
   "algorithm": "JACKPOT_UNION_v1",
   "pools": [
+    1227,
     1226
   ]
 }
