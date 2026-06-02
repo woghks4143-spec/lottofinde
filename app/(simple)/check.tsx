@@ -25,6 +25,7 @@ import { useHistory } from '@/src/data/historyStore';
 import { useSavedNumbers } from '@/src/store/savedNumbers';
 import { rank, hits as hitsFn } from '@/src/data/lotto';
 import { parseReceiptUrl, type ParsedReceipt } from '@/src/lib/qrParse';
+import { markRoundsAsNotified } from '@/src/lib/savedGameNotifier';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
 
@@ -171,6 +172,10 @@ function QrTab() {
         receiptId,
       })),
     );
+    // 이미 추첨된 회차면 알림 중복 방지 (사용자가 이 화면에서 결과 확인함)
+    if (res.added > 0 && latestRound != null && parsed.round <= latestRound) {
+      markRoundsAsNotified([parsed.round]).catch(() => {});
+    }
     setParsed(null);
     setHasScanned(false);
     setError(res.added > 0 ? null : '이미 저장한 영수증이에요.');
@@ -396,6 +401,9 @@ function ManualTab() {
     if (selected.length !== 6) return;
     const res = add({ nums: selected, round, source: 'manual' });
     if (res.ok) {
+      // 수동 입력은 항상 추첨 완료된 회차 (round picker가 latestRound로 제한됨) →
+      // 사용자가 이미 결과를 확인했으므로 백그라운드 알림 중복 방지.
+      markRoundsAsNotified([round]).catch(() => {});
       setToast(result?.rank != null ? `${result.rank}등 당첨! 보관함에 저장됨` : '보관함에 저장했어요');
       setSelected([]);
     } else if (res.reason === 'duplicate') {

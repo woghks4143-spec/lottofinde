@@ -17,6 +17,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { InteractionManager, Modal, Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSafeBack } from '@/src/lib/navigation';
+import { useProGuard } from '@/src/lib/useProGuard';
 import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
 import { Ball } from '@/src/components/Ball';
@@ -47,6 +48,7 @@ const DETAIL_LIMIT = 100;         // 회차별 상세 — 최근 100회 (perf �
 const EXPECTED_OVERLAP = 6 * 6 / 45;
 
 export default function ProRegression() {
+  const isPro = useProGuard();
   const t = useTheme();
   const goBack = useSafeBack('/pro-analysis');
 

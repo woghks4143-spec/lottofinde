@@ -43,6 +43,31 @@ async function saveNotifiedRounds(set: Set<number>): Promise<void> {
 }
 
 /**
+ * 특정 회차들을 "알림 보낸 것"으로 마킹.
+ *
+ * 호출 시점:
+ *   - QR 스캔/수동 입력으로 "이미 추첨된 회차"의 영수증을 저장할 때.
+ *     사용자가 그 화면에서 이미 당첨 결과를 봤으므로, 백그라운드 알림이
+ *     "당신이 N등 당첨!" 라며 중복으로 알리는 걸 방지.
+ *
+ * 사용 예:
+ *   await markRoundsAsNotified([1225]);  // 1225회는 이미 결과 봤음
+ */
+export async function markRoundsAsNotified(rounds: number[]): Promise<void> {
+  if (rounds.length === 0) return;
+  const set = await loadNotifiedRounds();
+  let changed = false;
+  for (const r of rounds) {
+    if (typeof r !== 'number') continue;
+    if (!set.has(r)) {
+      set.add(r);
+      changed = true;
+    }
+  }
+  if (changed) await saveNotifiedRounds(set);
+}
+
+/**
  * 첫 실행 시 — 현재 시점까지의 보관함 회차 중 이미 추첨된 회차를 모두 "알림 보낸 것"으로
  * 기록만 해둠 (실제 알림 X). 이렇게 하면 사용자가 앱을 설치한 후 이미 결과를 본 회차에
  * 대해서는 알림이 가지 않음. "추첨예정이었던 회차가 추첨되는 시점"만 잡음.

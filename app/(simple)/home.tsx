@@ -2,12 +2,57 @@
  * Simple home — dark "latest round" banner + 4 big tiles + weekly summary.
  * Source: prototype/flow-h1.jsx → H1_SimpleHome
  */
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { Animated, Easing, Platform, Pressable, ScrollView, StyleSheet, ToastAndroid, View } from 'react-native';
+import { useEffect, useMemo, useState } from 'react';
+import { Platform, Pressable, RefreshControl, ScrollView, StyleSheet, ToastAndroid, View } from 'react-native';
+
+/**
+ * 홈 상단 인사말 후보 — 로또·운세 테마, 부드럽고 친근한 톤.
+ * 도박/당첨 보장 뉘앙스는 피하고 "오늘도 화이팅" 같은 일반 응원 위주.
+ */
+const GREETINGS: string[] = [
+  '안녕하세요 👋',
+  '어서오세요 ✨',
+  '다시 만나서 반가워요 ✨',
+  '오늘도 파이팅! 💪',
+  '오늘이 그날일까요? 🍀',
+  '행운이 가까이 있어요 🍀',
+  '이번 주 번호는 정하셨나요? 🤔',
+  '꿈에서 좋은 숫자 보셨어요? 💫',
+  '행운을 빌어요 🍀',
+  '토요일이 기다려져요 🎲',
+  '대박나세요! 💥',
+  '복덩이 출근! 🐷',
+  '혹시 모르잖아요? 😉',
+  '오늘은 어떤 번호일까요? 🎯',
+  '행운 충전 완료! 🔋',
+  '꿈은 이루어진다 💫',
+  '1등 명당 어디일까요? 📍',
+  '오늘도 좋은 하루! 🌟',
+  '반가워요 ✋',
+  '오늘 한 번 가보시죠? 🚀',
+  '운명의 6숫자... 👀',
+  '1등의 향기가 솔솔 ✨',
+  '주말이 더 즐거워질지도? 🎲',
+  '복권은 사야 당첨돼요 🎟',
+  '오늘은 운수 좋은 날 🌟',
+  '지갑이 행복해질지도? 💰',
+  '어디 한번 가볼까요? 🎲',
+  '오늘도 화이팅! 🚀',
+  '돈복이 들어오는 중 💸',
+  '주말 응원해요 ✨',
+];
+
+/** 직전 인덱스와 다른 새 인덱스 선택 (즉시 반복 방지). */
+function pickGreetingIdx(prev: number): number {
+  if (GREETINGS.length <= 1) return 0;
+  let next = Math.floor(Math.random() * GREETINGS.length);
+  while (next === prev) next = Math.floor(Math.random() * GREETINGS.length);
+  return next;
+}
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { T } from '@/src/components/Text';
-import { AppBar, IconBtn } from '@/src/components/AppBar';
+import { AppBar } from '@/src/components/AppBar';
 import { BallRow } from '@/src/components/BallRow';
 import { Card } from '@/src/components/Card';
 import { Disclaimer } from '@/src/components/Disclaimer';
@@ -113,25 +158,12 @@ export default function SimpleHome() {
     return { region, recentWinners, topStore };
   }, [stores, userCoords, latestRound]);
 
-  // 새로고침 버튼 상태 — 페치 중에는 아이콘이 회전한다.
+  // 당겨서 새로고침 상태 — RefreshControl이 사용
   const [refreshing, setRefreshing] = useState(false);
   // 배너 분석 메트릭 펼치기 토글
   const [expanded, setExpanded] = useState(false);
-  const spin = useRef(new Animated.Value(0)).current;
-  useEffect(() => {
-    if (!refreshing) { spin.stopAnimation(); spin.setValue(0); return; }
-    spin.setValue(0);
-    const loop = Animated.loop(
-      Animated.timing(spin, {
-        toValue: 1,
-        duration: 900,
-        easing: Easing.linear,
-        useNativeDriver: true,
-      }),
-    );
-    loop.start();
-    return () => loop.stop();
-  }, [refreshing, spin]);
+  // 인사말 — 마운트 시 랜덤 선택, 새로고침할 때마다 다른 걸로 교체.
+  const [greetingIdx, setGreetingIdx] = useState(() => pickGreetingIdx(-1));
 
   const showToast = (msg: string) => {
     if (Platform.OS === 'android') ToastAndroid.show(msg, ToastAndroid.SHORT);
@@ -144,6 +176,8 @@ export default function SimpleHome() {
   const onRefresh = async () => {
     if (refreshing) return;
     setRefreshing(true);
+    // 새로고침 트리거 시점에 인사말도 새로 뽑음
+    setGreetingIdx((prev) => pickGreetingIdx(prev));
     try {
       const res = await useHistory.getState().autoUpdate({ force: true });
       if (res.skipped === 'web') {
@@ -182,31 +216,28 @@ export default function SimpleHome() {
 
   return (
     <SafeAreaView style={[styles.root, { backgroundColor: t.bgCanvas }]} edges={['top']}>
+      {/* 인사말 — heading1 대신 heading2 + 700 weight로 부드러운 personal 톤.
+          AppBar의 표준 paddingBottom(12)에 맞춰 배너와 간격이 자연스럽게 이어짐. */}
       <AppBar
-        title="안녕하세요 👋"
-        trailing={
-          <>
-            <IconBtn onPress={onRefresh}>
-              <Animated.View
-                style={{
-                  transform: [{
-                    rotate: spin.interpolate({
-                      inputRange: [0, 1],
-                      outputRange: ['0deg', '360deg'],
-                    }),
-                  }],
-                }}
-              >
-                <Icon.refresh color={refreshing ? palette.purple500 : t.fgSecondary} />
-              </Animated.View>
-            </IconBtn>
-            <IconBtn onPress={() => router.push('/(simple)/features' as any)}>
-              <Icon.cog color={t.fgSecondary} />
-            </IconBtn>
-          </>
+        title={
+          <T variant="heading2" color="primary" style={{ fontWeight: '800', letterSpacing: -0.2 }}>
+            {GREETINGS[greetingIdx]}
+          </T>
         }
       />
-      <ScrollView contentContainerStyle={{ padding: 14, gap: 8, paddingBottom: 16 }}>
+      <ScrollView
+        contentContainerStyle={{ paddingHorizontal: 14, paddingTop: 4, paddingBottom: 16, gap: 8 }}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor={palette.purple500}
+            colors={[palette.purple500]}
+            // 약간 더 당겨야 트리거되도록 (iOS는 자동, Android는 progressViewOffset)
+            progressViewOffset={8}
+          />
+        }
+      >
         {/* Latest-round banner */}
         <View style={[styles.banner, { backgroundColor: bn.bg, borderWidth: isLight ? 1 : 0, borderColor: bn.border }]}>
           <View style={styles.bannerHead}>
@@ -228,11 +259,11 @@ export default function SimpleHome() {
               당첨번호 바로 밑이 가장 자연스러운 위치 — 번호의 패턴을 먼저 본 뒤
               당첨금/당첨자 수로 시선이 이어짐. */}
           <View style={[styles.analysisRow, { borderTopColor: bn.divider }]}>
-            <Metric label="합" value={String(total(draw.nums))} hint={sumHint(total(draw.nums))} bn={bn} />
+            <Metric label="합" value={String(total(draw.nums))} bn={bn} />
             <Metric label="끝수" value={String(tailSum(draw.nums))} bn={bn} />
             <Metric label="홀짝" value={oddEvenLabel(draw.nums)} bn={bn} />
             <Metric label="저고" value={highLowLabel(draw.nums)} bn={bn} />
-            <Metric label="AC" value={String(ac(draw.nums))} hint={acHint(ac(draw.nums))} bn={bn} />
+            <Metric label="AC" value={String(ac(draw.nums))} bn={bn} />
           </View>
 
           {expanded && (
@@ -349,27 +380,23 @@ export default function SimpleHome() {
                   </T>
                   {upcoming && upcoming.combos > 0 ? (
                     <>
-                      <View style={styles.upcomingRow}>
-                        <T variant="headline2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 16 }}>
-                          {upcoming.round}회차
-                        </T>
-                        <T variant="headline2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '900', fontSize: 16, marginLeft: 6 }}>
-                          {upcoming.combos}개 조합
-                        </T>
-                        <T variant="caption1" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.9)', fontWeight: '700', marginLeft: 5, fontSize: 12.5 }}>
-                          추첨 예정
-                        </T>
-                      </View>
-                      {upcoming.otherRounds > 0 && (
-                        <T variant="caption2" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.7)', fontSize: 10.5, marginTop: 1 }}>
-                          + 미래 {upcoming.otherRounds}개 회차 더
-                        </T>
-                      )}
+                      <T variant="headline2" allowFontScaling={false} style={{ color: '#fff', fontWeight: '800', marginTop: 2, fontSize: 15 }}>
+                        {upcoming.round}회차 추첨 예정
+                      </T>
+                      <T variant="caption1" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.85)', marginTop: 1, fontSize: 11.5 }}>
+                        보관함 {upcoming.combos}개 조합
+                        {upcoming.otherRounds > 0 ? ` · 미래 ${upcoming.otherRounds}개 회차 더` : ''}
+                      </T>
                     </>
                   ) : (
-                    <T variant="headline2" style={{ color: '#fff', fontWeight: '800', marginTop: 2, fontSize: 14.5 }}>
-                      추첨 예정 조합 없음
-                    </T>
+                    <>
+                      <T variant="headline2" style={{ color: '#fff', fontWeight: '800', marginTop: 2, fontSize: 15 }}>
+                        추첨 예정 조합 없음
+                      </T>
+                      <T variant="caption1" allowFontScaling={false} style={{ color: 'rgba(255,255,255,0.85)', marginTop: 1, fontSize: 11.5 }}>
+                        새 조합을 보관함에 추가해보세요
+                      </T>
+                    </>
                   )}
                 </View>
                 <Icon.chev color="rgba(255,255,255,0.9)" />
@@ -613,20 +640,6 @@ function formatWonShort(n: number): string {
   return `${n.toLocaleString('ko')}원`;
 }
 
-/** 합계가 "낮음/평범/높음" 어느 구간인지 한 단어로. */
-function sumHint(sum: number): string {
-  if (sum < 100) return '낮음';
-  if (sum > 175) return '높음';
-  return '평범';
-}
-
-/** AC값의 "흩어진 정도"를 한 단어로 (0~3 낮음, 4~6 보통, 7~10 흩어짐). */
-function acHint(ac: number): string {
-  if (ac <= 3) return '뭉침';
-  if (ac >= 7) return '흩어짐';
-  return '보통';
-}
-
 function koreanDate(iso: string): string {
   // '2025-05-09' → '5월 9일 (토)'
   const d = new Date(iso + 'T00:00:00');
@@ -749,22 +762,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'baseline',
   },
-  upcomingRow: {
-    flexDirection: 'row',
-    alignItems: 'baseline',
-    marginTop: 2,
-    flexWrap: 'wrap',
-  },
-  // 칸 안의 칸 — 보라색 hero 내부의 살짝 어두운 영역
+  // 칸 안의 칸 — 보라 hero 내부, 우리 동네 카드의 innerBoxLight와 동일한 톤
+  // (배경 없음, 흰색 hairline 구분선만)
   innerBox: {
     marginTop: 10,
     paddingTop: 9,
-    paddingHorizontal: 10,
-    paddingBottom: 9,
     borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: 'rgba(255,255,255,0.25)',
-    backgroundColor: 'rgba(0,0,0,0.08)',
-    borderRadius: 8,
+    borderTopColor: 'rgba(255,255,255,0.22)',
   },
   // 칸 안의 칸 — 라이트 카드 내부의 구분선 (보더만)
   innerBoxLight: {

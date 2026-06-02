@@ -11,6 +11,7 @@ import React, { useMemo, useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSafeBack } from '@/src/lib/navigation';
+import { useProGuard } from '@/src/lib/useProGuard';
 import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
 import { Ball } from '@/src/components/Ball';
@@ -59,6 +60,7 @@ const FILTER_TONES = [
 // ─── 메인 ────────────────────────────────────────────────────────────────────
 
 export default function ProPatternAnalysis() {
+  const isPro = useProGuard();
   const t = useTheme();
   const goBack = useSafeBack('/pro-analysis');
 

@@ -1,7 +1,7 @@
 name: Weekly jachanism (Python algorithm)
 
 # 매주 월요일 09:00 KST (= UTC 일요일 00:00) 자동 실행
-# 실제 JACKPOT_UNION_v1 Python 알고리즘으로 풀+백테스트 사전 계산
+# 실제 JACKPOT_UNION_v3 Python 알고리즘으로 풀+백테스트 사전 계산
 # 결과는 data/jachanism/에 저장 → 앱은 fetch만 (사용자 대기시간 0)
 on:
   schedule:
@@ -47,7 +47,7 @@ jobs:
       - name: Install numpy
         run: pip install numpy
 
-      - name: Run JACKPOT_UNION_v1 algorithm
+      - name: Run JACKPOT_UNION_v3 algorithm
         run: |
           ARGS=""
           if [ -n "${{ github.event.inputs.round }}" ]; then
@@ -73,7 +73,7 @@ jobs:
             echo "✅ No changes (already computed)"
           else
             POOLS_COUNT=$(ls data/jachanism/pool_*.json 2>/dev/null | wc -l | tr -d ' ')
-            git commit -m "[auto] 귀찮이즘 풀+백테스트 갱신 — JACKPOT_UNION_v1 (풀 ${POOLS_COUNT}개, $(date -u +'%Y-%m-%d %H:%M UTC'))"
+            git commit -m "[auto] 귀찮이즘 풀+백테스트 갱신 — JACKPOT_UNION_v3 (풀 ${POOLS_COUNT}개, $(date -u +'%Y-%m-%d %H:%M UTC'))"
             git push
             echo "✅ Pushed jachanism data"
           fi

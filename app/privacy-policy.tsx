@@ -16,8 +16,8 @@ import { Card } from '@/src/components/Card';
 import { useTheme } from '@/src/design/theme';
 import { radius } from '@/src/design/tokens';
 
-const VERSION = 'v1.0';
-const EFFECTIVE_DATE = '2026-05-20';
+const VERSION = 'v1.1';
+const EFFECTIVE_DATE = '2026-05-29';
 const CONTACT_EMAIL = 'finde4143@gmail.com';
 
 export default function PrivacyPolicy() {
@@ -50,10 +50,22 @@ export default function PrivacyPolicy() {
           <Bullet>저장한 룰·필터·프리셋</Bullet>
           <Bullet>귀찮이즘 받기 기록(PRO 사용자)</Bullet>
           <Bullet>알림 설정(켜기/끄기)</Bullet>
+          <Bullet>기기 무작위 식별자(deviceSeed) — 자동 분석 풀 분배용, 개인 식별 불가</Bullet>
           <P>
             위 정보는 모두 이용자의 기기 내부에만 저장되며, 운영자 또는 제3자에게 자동
             전송되지 않습니다.
           </P>
+          <P style={{ marginTop: 8, fontWeight: '700' }}>
+            선택적으로 사용하는 OS 권한:
+          </P>
+          <Bullet>
+            위치(선택): "가까운 판매점 찾기" 기능 사용 시에만 OS에 요청. 좌표는
+            기기 내에서 거리 계산에만 사용되며 서버로 전송되지 않습니다.
+          </Bullet>
+          <Bullet>
+            카메라(선택): "QR 영수증 스캔" 기능 사용 시에만 OS에 요청. 이미지·QR 데이터는
+            기기 내에서만 처리되며 외부로 전송되지 않습니다.
+          </Bullet>
         </Section>
 
         <Section title="2. 개인정보의 수집 및 이용 목적">
@@ -82,6 +94,18 @@ export default function PrivacyPolicy() {
             유료 결제 처리(개인정보는 구글이 직접 처리하며, 본 앱은 결제 상태만 수신).
           </Bullet>
           <Bullet>
+            <T variant="caption1" style={{ fontWeight: '700' }}>Google Firebase (Google LLC)</T>:
+            회차별 글로벌 분석 풀 카운터 운영. 저장 항목은 기기 무작위 식별자(deviceSeed),
+            할당된 슬롯 번호, 타임스탬프이며, 개인을 식별할 수 없습니다.
+            보유 기간은 회차 종료 후 자동 삭제됩니다(최대 14일).
+            데이터는 아시아 남동부(싱가포르) 리전 서버에 저장될 수 있습니다.
+          </Bullet>
+          <Bullet>
+            <T variant="caption1" style={{ fontWeight: '700' }}>RevenueCat (RevenueCat Inc.)</T>:
+            PRO 멤버십 구독 상태 검증 및 영수증 관리. Google Play의 익명 구매 토큰만
+            전달되며, 개인 식별 정보는 포함되지 않습니다.
+          </Bullet>
+          <Bullet>
             <T variant="caption1" style={{ fontWeight: '700' }}>GitHub (raw.githubusercontent.com)</T>:
             주간 분석 조합 데이터를 다운로드받는 용도. IP 주소 등 일반적 인터넷 접속
             정보가 GitHub 서버 로그에 남을 수 있습니다.
@@ -99,10 +123,16 @@ export default function PrivacyPolicy() {
           <Bullet>외부 통신은 HTTPS로 암호화하여 통신 구간을 보호합니다.</Bullet>
         </Section>
 
-        <Section title="8. 14세 미만 아동의 개인정보 처리">
+        <Section title="8. 만 14세 미만 아동의 개인정보 처리">
           <P>
-            본 앱은 만 19세 이상만 이용 가능한 복권 관련 통계 분석 도구로, 만 14세 미만
-            아동의 개인정보를 의도적으로 수집하지 않습니다.
+            본 앱은 복권 관련 통계 분석 도구로서 「국민체육진흥법」 및 동행복권 이용
+            지침에 따라 만 19세 이상 이용을 권장합니다.
+          </P>
+          <P>
+            운영자는 만 14세 미만 아동의 개인정보를 의도적으로 수집하지 않으며,
+            회원가입이 없고 모든 데이터가 기기 내부에만 저장되므로 별도의
+            법정대리인 동의 절차를 두지 않습니다. 만 14세 미만 아동이 본 앱을
+            이용한 사실이 확인될 경우, 즉시 해당 기기 내 데이터 삭제를 요청할 수 있습니다.
           </P>
         </Section>
 
@@ -112,10 +142,35 @@ export default function PrivacyPolicy() {
           <Bullet>이메일: {CONTACT_EMAIL}</Bullet>
         </Section>
 
-        <Section title="10. 정책 변경">
+        <Section title="10. 자동 수집 정보">
+          <P>본 앱은 다음의 정보가 외부 서비스 이용 중 자동 발생할 수 있습니다:</P>
+          <Bullet>
+            인터넷 접속 정보(IP 주소, OS·앱 버전): GitHub raw URL에서 회차 데이터
+            다운로드 시 GitHub 서버 로그에 기록될 수 있습니다.
+          </Bullet>
+          <Bullet>
+            Firebase·RevenueCat 접속 시 동일하게 IP·기기 정보가 Google·RevenueCat
+            서버 로그에 기록될 수 있습니다.
+          </Bullet>
+          <P>
+            이 정보는 운영자가 별도 수집·이용하지 않으며, 각 서비스 제공자의
+            개인정보처리방침을 따릅니다.
+          </P>
+        </Section>
+
+        <Section title="11. 권익침해 구제방법">
+          <P>이용자는 개인정보 침해에 대해 다음 기관에 분쟁 해결을 신청할 수 있습니다:</P>
+          <Bullet>개인정보분쟁조정위원회: 1833-6972 (www.kopico.go.kr)</Bullet>
+          <Bullet>개인정보침해신고센터: 118 (privacy.kisa.or.kr)</Bullet>
+          <Bullet>대검찰청 사이버수사과: 1301</Bullet>
+          <Bullet>경찰청 사이버수사국: 182</Bullet>
+        </Section>
+
+        <Section title="12. 정책 변경">
           <P>
             본 처리방침은 법령 또는 서비스 변경에 따라 수정될 수 있으며, 변경 시 앱
-            업데이트를 통해 공지합니다.
+            업데이트를 통해 공지합니다. 이용자에게 불리한 변경의 경우 변경 효력일
+            최소 30일 전에 안내합니다.
           </P>
         </Section>
 
@@ -141,9 +196,9 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   );
 }
 
-function P({ children }: { children: React.ReactNode }) {
+function P({ children, style }: { children: React.ReactNode; style?: any }) {
   return (
-    <T variant="caption1" color="secondary" style={{ lineHeight: 19, fontSize: 12.5 }}>
+    <T variant="caption1" color="secondary" style={[{ lineHeight: 19, fontSize: 12.5 }, style]}>
       {children}
     </T>
   );

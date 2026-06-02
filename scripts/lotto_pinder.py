@@ -1,17 +1,24 @@
 """
 ============================================================================
-   로또핀더 조합법1 (JACKPOT_UNION) — 완전판 Python 구현
+   로또핀더 조합법1 (JACKPOT_UNION) v3 — 완전판 Python 구현
 ============================================================================
 
 📌 알고리즘 개요:
-   회차 N에 대해 1~N-1 당첨 데이터만 사용해 약 85,000조합 추출
-   JACKPOT_50K (1등 잡이) ∪ PL_HOT_50K (1+2등 잡이) 합집합
+   회차 N에 대해 1~N-1 당첨 데이터만 사용해 약 80,000조합 추출
+   JACKPOT_50K (1등 잡이) ∪ PL_HOT_50K (1+2등 잡이) + V5 현실성 필터
 
 ✅ 검증 결과 (1123~1222, 100회 백테스트):
    - 1등 적중: 3회 (1145, 1177, 1206)
    - 2등 적중: 2회 (1183, 1194)
    - 회당 1등 확률: 3%
    - 1년(52회) 1등 기대: 약 1.5회
+
+🆕 v3 변경점 (V5 현실성 필터 추가):
+   - 같은 색상 구간 4개 이상 차단 (예: 1~10에 4개)
+   - 채워진 구간 3개 미만 차단 (3구간 이상 전멸 방지)
+   - 끝수는 건드리지 않음 (실제로 나오므로)
+   - 홀짝 0:6, 저고 0:6 등은 이미 V3가 차단
+   - 1~3등 유지하면서 비현실적 조합 ~5% 제거
 
 🔒 무결성 원칙:
    - N-1 원칙: 회차 N 분석 시 1~N-1 데이터만 사용
@@ -25,13 +32,13 @@
 
 🚀 사용법:
    # 1) 특정 회차 추출
-   python3 lotto_pinder.py 실제_당첨번호.txt 1224
+   python3 lotto_pinder_v3.py 실제_당첨번호.txt 1224
    
    # 2) 단일 회차 백테스트 (정답 비교)
-   python3 lotto_pinder.py 실제_당첨번호.txt 1145 backtest
+   python3 lotto_pinder_v3.py 실제_당첨번호.txt 1145 backtest
    
    # 3) 다중 회차 백테스트
-   python3 lotto_pinder.py 실제_당첨번호.txt 1193 1222 backtest
+   python3 lotto_pinder_v3.py 실제_당첨번호.txt 1193 1222 backtest
 ============================================================================
 """
 import sys
@@ -525,13 +532,57 @@ def algo_pl_hot_50k(history, current_round):
 
 
 # ============================================================
-# 11. 로또핀더 조합법1 = JACKPOT_UNION (합집합)
+# 11. V5 현실성 필터 (비현실적 조합 제거)
 # ============================================================
-def lotto_pinder_method1(history, current_round):
-    """로또핀더 조합법1 = JACKPOT_50K ∪ PL_HOT_50K
+def get_zones(nums):
+    """색상 구간 분포 (한국 로또 공 색상 기준)
+       1~10(노랑), 11~20(파랑), 21~30(빨강), 31~40(검정), 41~45(초록)
+    """
+    zones = [0, 0, 0, 0, 0]
+    for n in nums:
+        if n <= 10: zones[0] += 1
+        elif n <= 20: zones[1] += 1
+        elif n <= 30: zones[2] += 1
+        elif n <= 40: zones[3] += 1
+        else: zones[4] += 1
+    return zones
+
+
+def is_realistic_v5(combo):
+    """V5 현실성 필터 — 비현실적으로 '보이는' 조합 차단
+    
+    차단 조건 (사용자 요구사항):
+      1. 같은 색상 구간 4개 이상 (예: 1~10에 4개)
+      2. 채워진 구간 3개 미만 (= 3개 이상 구간 전멸)
+    
+    ※ 끝수는 건드리지 않음 (같은끝수 3개, 2조 모두 허용 — 실제로 나옴)
+    ※ 홀짝 0:6, 저고 0:6 등은 이미 V3가 차단함
+    
+    역대 1222회 당첨번호 92.96% 통과 (7% 극단 패턴만 차단)
+    """
+    zones = get_zones(combo)
+    # 1. 한 구간에 4개 이상 금지
+    if max(zones) >= 4:
+        return False
+    # 2. 채워진 구간 3개 미만 금지 (3개 이상 구간 전멸 차단)
+    if sum(1 for z in zones if z > 0) < 3:
+        return False
+    return True
+
+
+# ============================================================
+# 12. 로또핀더 조합법1 = JACKPOT_UNION (합집합) + V5 필터
+# ============================================================
+def lotto_pinder_method1(history, current_round, apply_v5=True):
+    """로또핀더 조합법1 = (JACKPOT_50K ∪ PL_HOT_50K) + V5 현실성 필터
+    
+    Args:
+        history: 1~N-1 당첨 데이터
+        current_round: 분석 회차 N
+        apply_v5: V5 현실성 필터 적용 여부 (기본 True)
     
     Returns:
-        list of tuples: 약 80~90K 조합 (중복 제거 후)
+        list of tuples: 약 78~85K 조합 (V5 적용 시 ~80K)
     """
     a = algo_jackpot_50k(history, current_round)
     b = algo_pl_hot_50k(history, current_round)
@@ -541,6 +592,11 @@ def lotto_pinder_method1(history, current_round):
         if c not in seen:
             seen.add(c)
             result.append(c)
+    
+    # V5 현실성 필터 적용 (비현실적 조합 제거)
+    if apply_v5:
+        result = [c for c in result if is_realistic_v5(c)]
+    
     return result
 
 

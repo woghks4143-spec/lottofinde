@@ -23,6 +23,8 @@ import { useNotifications } from '@/src/store/notifications';
 import { prewarmRegression } from '@/src/lib/regressionCache';
 import { notifySavedGameResults, seedNotifiedRoundsFromExisting } from '@/src/lib/savedGameNotifier';
 import { isDrawWindow } from '@/src/data/dhlottery';
+import { init as initRevenueCat } from '@/src/lib/revenuecat';
+import { useMembership } from '@/src/store/membership';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
@@ -48,6 +50,12 @@ export default function RootLayout() {
   // enrich만 시도한다. 일~금 + 토 새벽엔 네트워크 0회.
   useEffect(() => {
     useHistory.getState().hydrate();
+
+    // RevenueCat 초기화 + PRO 멤버십 상태 동기화 (부팅 시 1회)
+    (async () => {
+      await initRevenueCat();
+      void useMembership.getState().refresh();
+    })();
 
     // 부트 후 1회: 현재 시점까지 이미 추첨된 회차들을 "알림 보낸 것"으로 시드.
     // → 앱 설치 시점 이전의 결과는 알림 X. 추첨예정이었던 회차가 새로 추첨됐을 때만 알림.
@@ -163,6 +171,7 @@ export default function RootLayout() {
           <Stack.Screen name="pro-jachanism" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="notifications" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="store-finder" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="pro-membership" options={{ animation: 'slide_from_right', presentation: 'modal' }} />
           <Stack.Screen name="data-backup" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="responsible-purchase" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="contact" options={{ animation: 'slide_from_right' }} />

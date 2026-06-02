@@ -14,6 +14,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSafeBack } from '@/src/lib/navigation';
+import { useProGuard } from '@/src/lib/useProGuard';
 import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
 import { Ball } from '@/src/components/Ball';
@@ -48,6 +49,7 @@ type Status = JachanismStatus;
    ═══════════════════════════════════════════════════════════════════════════ */
 
 export default function ProJachanism() {
+  const isPro = useProGuard();
   const t = useTheme();
   const goBack = useSafeBack('/pro-gen');
   const latestRound = useHistory((s) => s.latestRound);

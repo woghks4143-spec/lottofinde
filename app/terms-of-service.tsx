@@ -16,8 +16,8 @@ import { Card } from '@/src/components/Card';
 import { useTheme } from '@/src/design/theme';
 import { radius } from '@/src/design/tokens';
 
-const VERSION = 'v1.0';
-const EFFECTIVE_DATE = '2026-05-20';
+const VERSION = 'v1.1';
+const EFFECTIVE_DATE = '2026-05-29';
 const CONTACT_EMAIL = 'finde4143@gmail.com';
 
 export default function TermsOfService() {
@@ -84,29 +84,43 @@ export default function TermsOfService() {
         </Section>
 
         <Section title="제6조 (PRO 멤버십 결제)">
+          <P>
+            PRO 멤버십은 다음 두 가지 요금제로 제공됩니다 (부가세 포함):
+          </P>
+          <Bullet>월 구독: ₩7,900 / 월</Bullet>
+          <Bullet>연 구독: ₩79,000 / 년 (월 환산 ₩6,583, 약 17% 할인)</Bullet>
           <Bullet>
-            PRO 멤버십 결제는 Google Play 결제 시스템을 통해 처리되며, 결제·환불 정책은
-            Google Play 정책을 따릅니다.
-          </Bullet>
-          <Bullet>
-            신규 가입자에게는 PRO 멤버십을 2주간 무료로 체험할 수 있는 기간이 제공될
-            수 있습니다. 무료 체험 기간이 끝나면 자동으로 정기 결제로 전환되며, 무료
-            기간 중에는 언제든지 취소할 수 있습니다.
+            모든 신규 구독자에게 14일 무료 체험 기간이 제공됩니다.
+            무료 체험 기간이 끝나면 자동으로 정기 결제로 전환되며, 무료 체험 중에는
+            언제든 Google Play 구독 관리 화면에서 취소할 수 있습니다.
           </Bullet>
           <Bullet>
             정기 결제는 결제 주기(월/연)에 따라 자동으로 갱신되며, 이용자가 Google Play
             구독 관리 화면에서 직접 취소할 수 있습니다.
           </Bullet>
+          <Bullet>
+            결제는 Google Play 결제 시스템을 통해 처리되며, 결제 정보는 Google이
+            직접 처리합니다. 본 앱은 결제 상태(활성/만료/취소)만 수신합니다.
+          </Bullet>
         </Section>
 
-        <Section title="제7조 (환불 정책)">
+        <Section title="제7조 (환불 및 청약철회)">
           <P>
-            본 앱의 유료 결제는 Google Play 환불 정책을 따릅니다. 환불은 Google Play
-            결제 내역에서 직접 신청하시거나, Google Play 고객센터를 통해 요청할 수
-            있습니다.
+            「전자상거래 등에서의 소비자보호에 관한 법률」 제17조에 따라,
+            결제일로부터 7일 이내에 청약을 철회할 수 있습니다.
           </P>
-          <Bullet>구매 후 48시간 이내: Google Play에서 자동 환불 가능</Bullet>
-          <Bullet>그 이후: Google Play 정책에 따라 사안별로 처리</Bullet>
+          <Bullet>
+            다만 결제 즉시 PRO 기능을 사용한 경우(자동 분석 조합 수령 등)는
+            같은 법 제17조 제2항 제5호에 따라 청약철회가 제한될 수 있습니다.
+          </Bullet>
+          <Bullet>
+            환불 신청은 Google Play 결제 내역에서 직접 신청하시거나,
+            운영자 이메일({CONTACT_EMAIL})로 요청할 수 있습니다.
+          </Bullet>
+          <Bullet>
+            앱의 결함으로 정상적 이용이 불가능한 경우 사용 기간과 무관하게
+            환불받을 수 있습니다.
+          </Bullet>
         </Section>
 
         <Section title="제8조 (서비스 이용 제한)">

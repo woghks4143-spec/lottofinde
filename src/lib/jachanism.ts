@@ -13,8 +13,8 @@
 import { rank as computeRank } from '@/src/data/lotto';
 import type { Draw } from '@/src/data/lotto';
 
-export const POOL_SIZE = 85000;              // 내부 계산용 (디스플레이는 "약 8~9만개")
-export const POOL_SIZE_DISPLAY = '약 8~9만개'; // UI 공통 표기
+export const POOL_SIZE = 80000;              // 내부 계산용 (디스플레이는 "약 7~8만개")
+export const POOL_SIZE_DISPLAY = '약 7~8만개'; // UI 공통 표기
 export const USER_LIMIT = 50;
 export const BACKTEST_BASE_N = 52;            // 최근 1년 (52주)
 export const BACKTEST_BASE_LABEL = '최근 1년';  // UI 라벨
@@ -179,7 +179,7 @@ export function generateUserCombos(round: number, deviceSeed: string): number[][
 /* ─── GitHub 주간 풀 fetch ─────────────────────────── */
 
 /**
- * 매주 일요일 Python 스크립트가 업로드한 회차별 ~85K 풀을 GitHub raw URL에서 가져옴.
+ * 매주 일요일 Python 스크립트가 업로드한 회차별 ~80K 풀을 GitHub raw URL에서 가져옴.
  * 캐시 우선 → 실패 시 로컬 알고리즘 폴백.
  *
  * URL: https://raw.githubusercontent.com/{owner}/{repo}/main/weekly_combos/round_NNNN.json

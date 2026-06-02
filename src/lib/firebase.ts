@@ -1,7 +1,7 @@
 /**
  * Firebase 설정 + 글로벌 풀 카운터.
  *
- * 동행복권 자동 분석 풀(85,000조합)을 전 세계 사용자 간에 unique하게 분배.
+ * 동행복권 자동 분석 풀(약 80,000조합)을 전 세계 사용자 간에 unique하게 분배.
  * 한 사용자가 N개 받으면, 다음 사용자는 그 다음 N개부터 받음.
  *
  * 핵심: Firebase Realtime Database의 transaction을 사용해 race condition 없이

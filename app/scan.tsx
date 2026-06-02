@@ -30,6 +30,7 @@ import { useHistory } from '@/src/data/historyStore';
 import { useSavedNumbers } from '@/src/store/savedNumbers';
 import { rank } from '@/src/data/lotto';
 import { parseReceiptUrl, type ParsedReceipt } from '@/src/lib/qrParse';
+import { markRoundsAsNotified } from '@/src/lib/savedGameNotifier';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
 
@@ -99,6 +100,11 @@ export default function Scan() {
     );
     if (res.added > 0) {
       setToast(`${res.added}게임 저장됨${res.skipped > 0 ? ` · ${res.skipped}개 중복 건너뜀` : ''}`);
+      // 이미 추첨된 회차의 영수증이면 → 사용자가 스캔 화면에서 결과를 봤으므로
+      // 백그라운드 알림 중복 방지 위해 그 회차를 "알림 보낸 것"으로 마킹.
+      if (latestRound != null && parsed.round <= latestRound) {
+        markRoundsAsNotified([parsed.round]).catch(() => {});
+      }
       // 짧은 딜레이 뒤 /내 번호로 이동 (사용자가 토스트 확인 후)
       setTimeout(() => router.replace('/(simple)/mine' as any), 800);
     } else {

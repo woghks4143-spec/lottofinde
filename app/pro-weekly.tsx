@@ -15,6 +15,7 @@ import { Modal, Pressable, ScrollView, StyleSheet, TextInput, View } from 'react
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Circle, Line as SvgLine } from 'react-native-svg';
 import { useSafeBack } from '@/src/lib/navigation';
+import { useProGuard } from '@/src/lib/useProGuard';
 import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
 import { Ball } from '@/src/components/Ball';
@@ -41,6 +42,7 @@ const TIER_META: Record<Tier, { emoji: string; label: string; full: string; colo
 };
 
 export default function ProWeekly() {
+  const isPro = useProGuard();
   const t = useTheme();
   const goBack = useSafeBack('/pro-analysis');
   const latestRound = useHistory((s) => s.latestRound);

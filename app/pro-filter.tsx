@@ -16,6 +16,7 @@ import React, { useMemo, useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSafeBack } from '@/src/lib/navigation';
+import { useProGuard } from '@/src/lib/useProGuard';
 import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
 import { BallRow } from '@/src/components/BallRow';
@@ -264,6 +265,7 @@ type Preset = { id: string; name: string; filter: Filter; savedAt: number };
 const MAX_RESULTS = 500;
 
 export default function ProFilter() {
+  const isPro = useProGuard();
   const t = useTheme();
   const goBack = useSafeBack('/pro-gen');
   const latestDraw = useHistory((s) => s.getLatest());

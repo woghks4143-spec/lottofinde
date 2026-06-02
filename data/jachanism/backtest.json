@@ -1,13 +1,13 @@
 {
   "latestRound": 1225,
-  "algorithm": "JACKPOT_UNION_v1",
+  "algorithm": "JACKPOT_UNION_v3",
   "roundsTested": 52,
-  "totalCombosTested": 4400995,
+  "totalCombosTested": 4180571,
   "rank1": 2,
   "rank2": 2,
-  "rank3": 141,
-  "rank4": 6303,
-  "rank5": 99727,
+  "rank3": 133,
+  "rank4": 5990,
+  "rank5": 94721,
   "wins1st": [
     1177,
     1206
@@ -19,11 +19,11 @@
   "roundsWithRank3": [
     {
       "round": 1174,
-      "count": 4
+      "count": 2
     },
     {
       "round": 1177,
-      "count": 3
+      "count": 2
     },
     {
       "round": 1178,
@@ -91,7 +91,7 @@
     },
     {
       "round": 1202,
-      "count": 13
+      "count": 12
     },
     {
       "round": 1205,
@@ -103,7 +103,7 @@
     },
     {
       "round": 1207,
-      "count": 6
+      "count": 4
     },
     {
       "round": 1209,
@@ -159,7 +159,7 @@
     },
     {
       "round": 1223,
-      "count": 5
+      "count": 3
     },
     {
       "round": 1224,
@@ -171,33 +171,33 @@
       "round": 1174,
       "rank1": 0,
       "rank2": 0,
-      "rank3": 4,
-      "rank4": 131,
-      "rank5": 1850
+      "rank3": 2,
+      "rank4": 118,
+      "rank5": 1690
     },
     {
       "round": 1175,
       "rank1": 0,
       "rank2": 0,
       "rank3": 0,
-      "rank4": 46,
-      "rank5": 872
+      "rank4": 42,
+      "rank5": 859
     },
     {
       "round": 1176,
       "rank1": 0,
       "rank2": 0,
       "rank3": 0,
-      "rank4": 38,
-      "rank5": 1127
+      "rank4": 36,
+      "rank5": 1046
     },
     {
       "round": 1177,
       "rank1": 1,
       "rank2": 0,
-      "rank3": 3,
-      "rank4": 153,
-      "rank5": 2782
+      "rank3": 2,
+      "rank4": 128,
+      "rank5": 2515
     },
     {
       "round": 1178,
@@ -205,23 +205,23 @@
       "rank2": 0,
       "rank3": 4,
       "rank4": 145,
-      "rank5": 2106
+      "rank5": 2077
     },
     {
       "round": 1179,
       "rank1": 0,
       "rank2": 0,
       "rank3": 1,
-      "rank4": 40,
-      "rank5": 1006
+      "rank4": 38,
+      "rank5": 977
     },
     {
       "round": 1180,
       "rank1": 0,
       "rank2": 0,
       "rank3": 3,
-      "rank4": 139,
-      "rank5": 2128
+      "rank4": 135,
+      "rank5": 2034
     },
     {
       "round": 1181,
@@ -229,31 +229,31 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 42,
-      "rank5": 972
+      "rank5": 939
     },
     {
       "round": 1182,
       "rank1": 0,
       "rank2": 0,
       "rank3": 4,
-      "rank4": 192,
-      "rank5": 2917
+      "rank4": 174,
+      "rank5": 2744
     },
     {
       "round": 1183,
       "rank1": 0,
       "rank2": 1,
       "rank3": 3,
-      "rank4": 153,
-      "rank5": 2048
+      "rank4": 148,
+      "rank5": 1969
     },
     {
       "round": 1184,
       "rank1": 0,
       "rank2": 0,
       "rank3": 2,
-      "rank4": 140,
-      "rank5": 1888
+      "rank4": 134,
+      "rank5": 1786
     },
     {
       "round": 1185,
@@ -261,7 +261,7 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 47,
-      "rank5": 1043
+      "rank5": 1004
     },
     {
       "round": 1186,
@@ -269,55 +269,55 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 32,
-      "rank5": 855
+      "rank5": 826
     },
     {
       "round": 1187,
       "rank1": 0,
       "rank2": 0,
       "rank3": 0,
-      "rank4": 167,
-      "rank5": 2251
+      "rank4": 164,
+      "rank5": 2188
     },
     {
       "round": 1188,
       "rank1": 0,
       "rank2": 0,
       "rank3": 0,
-      "rank4": 143,
-      "rank5": 2551
+      "rank4": 140,
+      "rank5": 2348
     },
     {
       "round": 1189,
       "rank1": 0,
       "rank2": 0,
       "rank3": 0,
-      "rank4": 60,
-      "rank5": 1977
+      "rank4": 55,
+      "rank5": 1873
     },
     {
       "round": 1190,
       "rank1": 0,
       "rank2": 0,
       "rank3": 4,
-      "rank4": 122,
-      "rank5": 2332
+      "rank4": 119,
+      "rank5": 2278
     },
     {
       "round": 1191,
       "rank1": 0,
       "rank2": 0,
       "rank3": 1,
-      "rank4": 70,
-      "rank5": 1599
+      "rank4": 66,
+      "rank5": 1483
     },
     {
       "round": 1192,
       "rank1": 0,
       "rank2": 0,
       "rank3": 4,
-      "rank4": 129,
-      "rank5": 2041
+      "rank4": 126,
+      "rank5": 1943
     },
     {
       "round": 1193,
@@ -325,23 +325,23 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 83,
-      "rank5": 2110
+      "rank5": 1926
     },
     {
       "round": 1194,
       "rank1": 0,
       "rank2": 1,
       "rank3": 16,
-      "rank4": 789,
-      "rank5": 6011
+      "rank4": 730,
+      "rank5": 5451
     },
     {
       "round": 1195,
       "rank1": 0,
       "rank2": 0,
       "rank3": 1,
-      "rank4": 54,
-      "rank5": 1552
+      "rank4": 53,
+      "rank5": 1526
     },
     {
       "round": 1196,
@@ -349,15 +349,15 @@
       "rank2": 0,
       "rank3": 1,
       "rank4": 55,
-      "rank5": 1387
+      "rank5": 1258
     },
     {
       "round": 1197,
       "rank1": 0,
       "rank2": 0,
       "rank3": 2,
-      "rank4": 56,
-      "rank5": 1146
+      "rank4": 55,
+      "rank5": 1132
     },
     {
       "round": 1198,
@@ -365,15 +365,15 @@
       "rank2": 0,
       "rank3": 1,
       "rank4": 54,
-      "rank5": 1590
+      "rank5": 1530
     },
     {
       "round": 1199,
       "rank1": 0,
       "rank2": 0,
       "rank3": 1,
-      "rank4": 168,
-      "rank5": 2723
+      "rank4": 161,
+      "rank5": 2539
     },
     {
       "round": 1200,
@@ -381,23 +381,23 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 14,
-      "rank5": 649
+      "rank5": 633
     },
     {
       "round": 1201,
       "rank1": 0,
       "rank2": 0,
       "rank3": 5,
-      "rank4": 139,
-      "rank5": 2112
+      "rank4": 136,
+      "rank5": 2047
     },
     {
       "round": 1202,
       "rank1": 0,
       "rank2": 0,
-      "rank3": 13,
-      "rank4": 476,
-      "rank5": 4413
+      "rank3": 12,
+      "rank4": 435,
+      "rank5": 4123
     },
     {
       "round": 1203,
@@ -405,7 +405,7 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 11,
-      "rank5": 787
+      "rank5": 768
     },
     {
       "round": 1204,
@@ -413,7 +413,7 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 10,
-      "rank5": 457
+      "rank5": 446
     },
     {
       "round": 1205,
@@ -421,23 +421,23 @@
       "rank2": 0,
       "rank3": 3,
       "rank4": 136,
-      "rank5": 1979
+      "rank5": 1937
     },
     {
       "round": 1206,
       "rank1": 1,
       "rank2": 0,
       "rank3": 6,
-      "rank4": 110,
-      "rank5": 2149
+      "rank4": 106,
+      "rank5": 2095
     },
     {
       "round": 1207,
       "rank1": 0,
       "rank2": 0,
-      "rank3": 6,
-      "rank4": 139,
-      "rank5": 2265
+      "rank3": 4,
+      "rank4": 126,
+      "rank5": 2163
     },
     {
       "round": 1208,
@@ -445,15 +445,15 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 0,
-      "rank5": 430
+      "rank5": 426
     },
     {
       "round": 1209,
       "rank1": 0,
       "rank2": 0,
       "rank3": 2,
-      "rank4": 38,
-      "rank5": 1124
+      "rank4": 36,
+      "rank5": 1037
     },
     {
       "round": 1210,
@@ -461,15 +461,15 @@
       "rank2": 0,
       "rank3": 1,
       "rank4": 176,
-      "rank5": 2946
+      "rank5": 2900
     },
     {
       "round": 1211,
       "rank1": 0,
       "rank2": 0,
       "rank3": 4,
-      "rank4": 141,
-      "rank5": 2411
+      "rank4": 123,
+      "rank5": 2221
     },
     {
       "round": 1212,
@@ -477,7 +477,7 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 39,
-      "rank5": 1130
+      "rank5": 1124
     },
     {
       "round": 1213,
@@ -485,39 +485,39 @@
       "rank2": 0,
       "rank3": 2,
       "rank4": 48,
-      "rank5": 1514
+      "rank5": 1444
     },
     {
       "round": 1214,
       "rank1": 0,
       "rank2": 0,
       "rank3": 3,
-      "rank4": 149,
-      "rank5": 2574
+      "rank4": 144,
+      "rank5": 2404
     },
     {
       "round": 1215,
       "rank1": 0,
       "rank2": 0,
       "rank3": 4,
-      "rank4": 129,
-      "rank5": 1865
+      "rank4": 116,
+      "rank5": 1752
     },
     {
       "round": 1216,
       "rank1": 0,
       "rank2": 0,
       "rank3": 5,
-      "rank4": 185,
-      "rank5": 3259
+      "rank4": 179,
+      "rank5": 3144
     },
     {
       "round": 1217,
       "rank1": 0,
       "rank2": 0,
       "rank3": 7,
-      "rank4": 142,
-      "rank5": 2151
+      "rank4": 139,
+      "rank5": 2073
     },
     {
       "round": 1218,
@@ -525,7 +525,7 @@
       "rank2": 0,
       "rank3": 2,
       "rank4": 134,
-      "rank5": 1985
+      "rank5": 1966
     },
     {
       "round": 1219,
@@ -533,23 +533,23 @@
       "rank2": 0,
       "rank3": 6,
       "rank4": 147,
-      "rank5": 1925
+      "rank5": 1902
     },
     {
       "round": 1220,
       "rank1": 0,
       "rank2": 0,
       "rank3": 5,
-      "rank4": 139,
-      "rank5": 1886
+      "rank4": 132,
+      "rank5": 1799
     },
     {
       "round": 1221,
       "rank1": 0,
       "rank2": 0,
       "rank3": 2,
-      "rank4": 151,
-      "rank5": 2401
+      "rank4": 146,
+      "rank5": 2246
     },
     {
       "round": 1222,
@@ -557,23 +557,23 @@
       "rank2": 0,
       "rank3": 2,
       "rank4": 136,
-      "rank5": 1883
+      "rank5": 1832
     },
     {
       "round": 1223,
       "rank1": 0,
       "rank2": 0,
-      "rank3": 5,
-      "rank4": 120,
-      "rank5": 1840
+      "rank3": 3,
+      "rank4": 98,
+      "rank5": 1638
     },
     {
       "round": 1224,
       "rank1": 0,
       "rank2": 0,
       "rank3": 3,
-      "rank4": 139,
-      "rank5": 2277
+      "rank4": 136,
+      "rank5": 2217
     },
     {
       "round": 1225,
@@ -581,8 +581,8 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 7,
-      "rank5": 451
+      "rank5": 443
     }
   ],
-  "computedAt": 1779613289134
+  "computedAt": 1779972949277
 }

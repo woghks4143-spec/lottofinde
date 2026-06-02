@@ -13,6 +13,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSafeBack } from '@/src/lib/navigation';
+import { useProGuard } from '@/src/lib/useProGuard';
 import { T } from '@/src/components/Text';
 import { AppBar } from '@/src/components/AppBar';
 import { Ball } from '@/src/components/Ball';
@@ -35,6 +36,7 @@ type Range = 'all' | 500 | 300 | 100 | 50;
 const RANGES: Range[] = [50, 100, 300, 500, 'all'];
 
 export default function ProCompat() {
+  const isPro = useProGuard();
   const t = useTheme();
   const goBack = useSafeBack('/pro-analysis');
 

@@ -45,7 +45,7 @@ APP_ROOT = Path(__file__).parent.parent
 ENRICHED_DIR = APP_ROOT / 'data' / 'enriched'
 OUT_DIR = APP_ROOT / 'data' / 'jachanism'
 
-ALGORITHM = 'JACKPOT_UNION_v1'
+ALGORITHM = 'JACKPOT_UNION_v3'
 
 
 def convert_enriched_to_txt(output_path: Path):
