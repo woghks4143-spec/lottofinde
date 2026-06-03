@@ -85,8 +85,15 @@ export default function ProMembership() {
         let monthly: PurchasesPackage | null = null;
         let yearly: PurchasesPackage | null = null;
         for (const pkg of offering.availablePackages) {
-          if (pkg.product.identifier === PRODUCT_ID_MONTHLY) monthly = pkg;
-          if (pkg.product.identifier === PRODUCT_ID_YEARLY) yearly = pkg;
+          // product.identifier는 'pro_monthly' 또는 'pro_monthly:monthly' 형식일 수 있어
+          // startsWith로 안전하게 매칭. packageType(MONTHLY/ANNUAL)도 보조로 사용.
+          const id = pkg.product.identifier;
+          if (id === PRODUCT_ID_MONTHLY || id.startsWith(PRODUCT_ID_MONTHLY + ':') || pkg.packageType === 'MONTHLY') {
+            monthly = pkg;
+          }
+          if (id === PRODUCT_ID_YEARLY || id.startsWith(PRODUCT_ID_YEARLY + ':') || pkg.packageType === 'ANNUAL') {
+            yearly = pkg;
+          }
         }
         setOfferings({ monthly, yearly });
       } catch (e) {
