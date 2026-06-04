@@ -86,8 +86,13 @@ export const useMembership = create<MembershipState>()(
 
       isProActive: () => {
         const s = get();
-        // 만료일 확인 — 만료됐으면 false
-        if (s.expiresAt != null && s.expiresAt < Date.now()) return false;
+        // 만료일 확인 — 만료 후 6시간 grace 부여 (RevenueCat 갱신 지연·테스트 모드
+        // 짧은 주기 대응). grace 안에서는 PRO 유지하고 백그라운드 재검증만.
+        const GRACE_MS = 6 * 60 * 60_000;
+        if (s.expiresAt != null && s.expiresAt + GRACE_MS < Date.now()) {
+          // grace까지 완전히 지남 → 확실히 만료
+          return false;
+        }
         // 캐시 신뢰 기간 안이면 isPro 그대로 신뢰
         if (Date.now() - s.lastVerifiedAt < CACHE_TTL_MS) {
           return s.isPro;

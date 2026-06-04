@@ -18,17 +18,26 @@ import { useRouter } from 'expo-router';
 import { useMembership } from '@/src/store/membership';
 
 export function useProGuard(): boolean {
-  const isPro = useMembership((s) => s.isProActive());
+  // 상태값(isPro/expiresAt/lastVerifiedAt)을 직접 구독해서, 값이 바뀌면 재평가.
+  // selector 안에서 isProActive() 함수를 호출하면 화면 전환 타이밍에 따라
+  // 흔들릴 수 있어, 원시 상태를 구독하고 isProActive()는 effect에서만 호출.
+  const isPro = useMembership((s) => s.isPro);
+  const expiresAt = useMembership((s) => s.expiresAt);
+  const lastVerifiedAt = useMembership((s) => s.lastVerifiedAt);
   const loading = useMembership((s) => s.loading);
   const router = useRouter();
+
+  // 실제 PRO 판정은 store의 isProActive()로 일원화 (grace·캐시 로직 공유).
+  const active = useMembership.getState().isProActive();
 
   useEffect(() => {
     // 부팅 직후 RevenueCat 검증 중일 땐 잠시 기다림
     if (loading) return;
-    if (!isPro) {
+    if (!useMembership.getState().isProActive()) {
       router.replace('/pro-membership' as any);
     }
-  }, [isPro, loading, router]);
+    // isPro/expiresAt/lastVerifiedAt 변화 시 재평가
+  }, [isPro, expiresAt, lastVerifiedAt, loading, router]);
 
-  return isPro;
+  return active;
 }
