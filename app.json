@@ -21,10 +21,8 @@
     "android": {
       "package": "com.ahn.lottofinder",
       "adaptiveIcon": {
-        "backgroundColor": "#0066ff",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "backgroundColor": "#5b21d6",
+        "foregroundImage": "./assets/images/android-icon-foreground.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
@@ -47,9 +45,9 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff",
+          "backgroundColor": "#5b21d6",
           "dark": {
-            "backgroundColor": "#0a0b0d"
+            "backgroundColor": "#5b21d6"
           }
         }
       ],
