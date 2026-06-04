@@ -27,6 +27,7 @@ import {
   type JachanismStatus,
 } from '@/src/lib/jachanism';
 import { fetchPoolState, type PoolState } from '@/src/lib/firebase';
+import { useMembership } from '@/src/store/membership';
 import { useTheme } from '@/src/design/theme';
 import { palette, radius } from '@/src/design/tokens';
 
@@ -63,6 +64,7 @@ const ANALYSIS_FEATURES: Feature[] = [
 export default function Pro() {
   const t = useTheme();
   const router = useRouter();
+  const isPro = useMembership((s) => s.isProActive());
 
   return (
     <SafeAreaView style={[styles.root, { backgroundColor: t.bgCanvas }]} edges={['top']}>
@@ -71,11 +73,13 @@ export default function Pro() {
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
             <Icon.crown color={GOLD} size={20} weight={2} />
             <T variant="heading1" color="primary">PRO</T>
-            <View style={[styles.previewPill, { backgroundColor: palette.green500 }]}>
-              <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 9.5, fontWeight: '800' }}>
-                미리보기
-              </T>
-            </View>
+            {isPro && (
+              <View style={[styles.previewPill, { backgroundColor: GOLD }]}>
+                <T variant="caption2" allowFontScaling={false} style={{ color: '#fff', fontSize: 9.5, fontWeight: '800' }}>
+                  멤버
+                </T>
+              </View>
+            )}
           </View>
         }
       />
@@ -84,13 +88,29 @@ export default function Pro() {
         {/* Premium Hero */}
         <PremiumHero scheme={t.scheme} />
 
-        {/* 활성화 상태 배너 */}
-        <View style={[styles.statusBanner, { backgroundColor: 'rgba(0,191,64,0.08)', borderColor: 'rgba(0,191,64,0.3)' }]}>
-          <Icon.check color={palette.green700} size={14} weight={2.8} />
-          <T variant="caption1" style={{ color: palette.green700, fontWeight: '800', marginLeft: 6 }} allowFontScaling={false}>
-            모든 PRO 기능 활성화됨 · 미리보기 모드
-          </T>
-        </View>
+        {/* 상태 배너 — PRO 멤버면 활성화, 아니면 구독 유도 */}
+        {isPro ? (
+          <View style={[styles.statusBanner, { backgroundColor: 'rgba(0,191,64,0.08)', borderColor: 'rgba(0,191,64,0.3)' }]}>
+            <Icon.check color={palette.green700} size={14} weight={2.8} />
+            <T variant="caption1" style={{ color: palette.green700, fontWeight: '800', marginLeft: 6 }} allowFontScaling={false}>
+              모든 PRO 기능 이용 중
+            </T>
+          </View>
+        ) : (
+          <Pressable
+            onPress={() => router.push('/pro-membership' as any)}
+            style={({ pressed }) => [
+              styles.statusBanner,
+              { backgroundColor: 'rgba(232,176,78,0.10)', borderColor: 'rgba(232,176,78,0.4)', opacity: pressed ? 0.85 : 1 },
+            ]}
+          >
+            <Icon.crown color={GOLD_DARK} size={14} weight={2.4} />
+            <T variant="caption1" style={{ color: t.fgGold, fontWeight: '800', marginLeft: 6, flex: 1 }} allowFontScaling={false}>
+              2주 무료 체험으로 모든 PRO 기능 시작하기
+            </T>
+            <Icon.chev color={GOLD_DARK} size={14} weight={2.2} />
+          </Pressable>
+        )}
 
         {/* ─── 조합 생성 섹션 ─────────────────────────────────── */}
         <SectionHeader
@@ -210,6 +230,7 @@ function SectionHeader({ emoji, title, count, onMore }: {
   count: number;
   onMore: () => void;
 }) {
+  const t = useTheme();
   return (
     <View style={styles.sectionHead}>
       <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
@@ -217,12 +238,12 @@ function SectionHeader({ emoji, title, count, onMore }: {
         <T variant="heading2" color="primary" style={{ fontWeight: '800' }}>
           {title}
         </T>
-        <T variant="caption1" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 11 }}>
+        <T variant="caption1" allowFontScaling={false} style={{ color: t.fgGold, fontWeight: '800', fontSize: 11 }}>
           {count}개 기능
         </T>
       </View>
       <Pressable onPress={onMore} hitSlop={8} style={({ pressed }) => [{ opacity: pressed ? 0.6 : 1 }]}>
-        <T variant="caption1" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800' }}>
+        <T variant="caption1" allowFontScaling={false} style={{ color: t.fgGold, fontWeight: '800' }}>
           자세히 →
         </T>
       </Pressable>
@@ -444,10 +465,10 @@ function JachanismCard({ onPress }: { onPress: () => void }) {
           {showDynamicPool ? (
             <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 3 }}>
               <T allowFontScaling={false} style={{ fontSize: 11 }}>🎁</T>
-              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 11, color: GOLD_DARK, fontWeight: '900' }}>
+              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 11, color: t.fgGold, fontWeight: '900' }}>
                 {poolRemaining.toLocaleString('ko')}
               </T>
-              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 9.5, color: GOLD_DARK, opacity: 0.6 }}>
+              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 9.5, color: t.fgGold, opacity: 0.6 }}>
                 / {poolTotal.toLocaleString('ko')}
               </T>
               <T variant="caption2" allowFontScaling={false} style={{ fontSize: 9.5, color: t.fgTertiary, marginLeft: 2 }}>
@@ -457,7 +478,7 @@ function JachanismCard({ onPress }: { onPress: () => void }) {
           ) : (
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
               <T allowFontScaling={false} style={{ fontSize: 11 }}>📦</T>
-              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10.5, color: GOLD_DARK, fontWeight: '800' }}>
+              <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10.5, color: t.fgGold, fontWeight: '800' }}>
                 {POOL_SIZE_DISPLAY}
               </T>
               <T variant="caption2" allowFontScaling={false} style={{ fontSize: 9.5, color: t.fgTertiary, marginLeft: 2 }}>
@@ -525,7 +546,7 @@ function CompareTable({ t }: { t: ReturnType<typeof useTheme> }) {
       <View style={[styles.compHead, { borderBottomColor: t.borderDivider }]}>
         <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ flex: 2, fontSize: 11 }}>기능</T>
         <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', fontSize: 11 }}>무료</T>
-        <T variant="caption2" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', fontSize: 11, color: GOLD_DARK, fontWeight: '800' }}>
+        <T variant="caption2" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', fontSize: 11, color: t.fgGold, fontWeight: '800' }}>
           PRO
         </T>
       </View>
@@ -536,7 +557,7 @@ function CompareTable({ t }: { t: ReturnType<typeof useTheme> }) {
         >
           <T variant="caption1" color="primary" style={{ flex: 2, fontWeight: '600' }}>{r.label}</T>
           <T variant="caption1" color="tertiary" allowFontScaling={false} style={{ flex: 1, textAlign: 'center' }}>{r.free}</T>
-          <T variant="caption1" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', color: GOLD_DARK, fontWeight: '800' }}>{r.pro}</T>
+          <T variant="caption1" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', color: t.fgGold, fontWeight: '800' }}>{r.pro}</T>
         </View>
       ))}
     </View>

@@ -774,7 +774,7 @@ export default function ProCompat() {
               </View>
               {backtest && (
                 <View style={[styles.backtestPill, { backgroundColor: 'rgba(232,176,78,0.10)', borderColor: GOLD }]}>
-                  <T variant="caption2" allowFontScaling={false} style={{ color: GOLD_DARK, fontSize: 11, fontWeight: '700' }}>
+                  <T variant="caption2" allowFontScaling={false} style={{ color: t.fgGold, fontSize: 11, fontWeight: '700' }}>
                     최근 {backtest.rounds}회차 평균 적중{' '}
                     <T allowFontScaling={false} style={{ fontWeight: '900', fontSize: 13 }}>
                       {backtest.avgMainHit.toFixed(2)}개

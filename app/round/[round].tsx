@@ -692,10 +692,6 @@ function FirstPrizeStoresCard({ draw }: { draw: Draw }) {
   const stores = (draw.topStores ?? []).filter((s) => s.rank === 1);
   if (stores.length === 0) return null;
 
-  // 동행복권 공식 데스크톱 페이지 (www. 도메인이 m.보다 안정)
-  const dhUrl = `https://www.dhlottery.co.kr/store.do?method=topStore&pageGubun=L645&drwNo=${draw.round}`;
-  const handleOpenDh = () => Linking.openURL(dhUrl).catch(() => {});
-
   return (
     <Card padding={16}>
       <View style={styles.cardHeadRow}>
@@ -724,25 +720,6 @@ function FirstPrizeStoresCard({ draw }: { draw: Draw }) {
           </View>
         ))}
       </View>
-
-      {/* 2등 판매점은 외부 링크로 */}
-      <Pressable
-        onPress={handleOpenDh}
-        style={({ pressed }) => [
-          styles.dhLinkBtn,
-          { borderColor: t.borderWeak, opacity: pressed ? 0.7 : 1, marginTop: 14 },
-        ]}
-      >
-        <View style={{ flex: 1 }}>
-          <T variant="label1n" color="primary" style={{ fontWeight: '700' }} allowFontScaling={false}>
-            2등 판매점 보기
-          </T>
-          <T variant="caption1" color="tertiary" style={{ marginTop: 2 }}>
-            동행복권 공식 사이트로 이동
-          </T>
-        </View>
-        <Icon.chev size={18} color={t.fgTertiary} />
-      </Pressable>
     </Card>
   );
 }

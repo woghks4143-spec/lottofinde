@@ -410,7 +410,7 @@ export default function ProFilter() {
               </T>
             </Pressable>
             <Pressable onPress={() => setPresetModalOpen(true)} hitSlop={6} style={{ paddingHorizontal: 8 }}>
-              <T variant="caption1" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800' }}>
+              <T variant="caption1" allowFontScaling={false} style={{ color: t.fgGold, fontWeight: '800' }}>
                 💾 프리셋
               </T>
             </Pressable>
@@ -586,7 +586,7 @@ export default function ProFilter() {
                   ]}
                 >
                   <T allowFontScaling={false} style={{ fontSize: 13, marginRight: 4 }}>🗑</T>
-                  <T variant="caption1" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 12 }}>
+                  <T variant="caption1" allowFontScaling={false} style={{ color: t.fgGold, fontWeight: '800', fontSize: 12 }}>
                     결과 초기화
                   </T>
                 </Pressable>

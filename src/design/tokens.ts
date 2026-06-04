@@ -84,6 +84,8 @@ export type SemanticTheme = {
   fgStrong: string; fgPrimary: string; fgSecondary: string; fgTertiary: string; fgDisabled: string;
   fgOnAccent: string; fgAccent: string; fgAccentStrong: string;
   fgDanger: string; fgSuccess: string; fgWarn: string; fgLink: string;
+  /** PRO 골드 텍스트 — 라이트: 어두운 골드, 다크: 밝은 골드 (가독성 분기). */
+  fgGold: string;
   /** Hero 카드 위에 올라가는 텍스트 색상 — 라이트/다크에 따라 자동 분기. */
   fgOnHero: string; fgOnHeroMuted: string; fgOnHeroFaint: string;
   /** Hero 카드 내부 sub-pill 배경 — 라이트: 더 진한 보라, 다크: 흰색 알파. */
@@ -119,6 +121,7 @@ export const light: SemanticTheme = {
   fgDanger: palette.red500,
   fgSuccess: palette.green500,
   fgWarn: '#7a5800',
+  fgGold: '#a37116',  // 라이트: 어두운 골드 (밝은 배경 위 가독)
   fgLink: palette.blue500,
   // hero 위 텍스트 — 라이트 모드 hero가 밝아서 어두운 텍스트가 필요.
   fgOnHero: palette.neutral900,
@@ -150,6 +153,8 @@ export const dark: SemanticTheme = {
   fgSecondary: 'rgba(247,247,248,0.78)',
   fgTertiary: 'rgba(247,247,248,0.50)',
   fgDisabled: 'rgba(247,247,248,0.28)',
+  fgWarn: '#f0c674',  // 다크: 밝은 골드 (어두운 배경 위 가독)
+  fgGold: '#f0c674',  // 다크: 밝은 골드
   fgOnHero: '#ffffff',
   fgOnHeroMuted: 'rgba(255,255,255,0.70)',
   fgOnHeroFaint: 'rgba(255,255,255,0.50)',

@@ -723,7 +723,7 @@ export default function ProFinderCombo() {
                 { backgroundColor: 'rgba(232,176,78,0.15)', borderColor: GOLD, opacity: pressed ? 0.85 : 1 },
               ]}
             >
-              <T variant="caption1" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 12 }}>
+              <T variant="caption1" allowFontScaling={false} style={{ color: t.fgGold, fontWeight: '800', fontSize: 12 }}>
                 전체 평균값 적용
               </T>
             </Pressable>
@@ -912,7 +912,7 @@ export default function ProFinderCombo() {
                   ]}
                 >
                   <T allowFontScaling={false} style={{ fontSize: 13, marginRight: 4 }}>🔄</T>
-                  <T variant="caption1" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 12 }}>
+                  <T variant="caption1" allowFontScaling={false} style={{ color: t.fgGold, fontWeight: '800', fontSize: 12 }}>
                     다시 추출
                   </T>
                 </Pressable>
@@ -1113,7 +1113,7 @@ function SourceToggle({
                   onPress={onApplyAvg}
                   style={({ pressed }) => [styles.applyMiniBtn, { backgroundColor: 'rgba(232,176,78,0.18)', borderColor: GOLD, opacity: pressed ? 0.8 : 1 }]}
                 >
-                  <T variant="caption2" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '800', fontSize: 10 }}>
+                  <T variant="caption2" allowFontScaling={false} style={{ color: t.fgGold, fontWeight: '800', fontSize: 10 }}>
                     평균 적용
                   </T>
                 </Pressable>

@@ -205,7 +205,7 @@ function PreviewJachanism() {
       {canShowPool && total > 0 ? (
         <View style={[styles.poolPreview, { backgroundColor: GOLD + '12', borderColor: GOLD }]}>
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10.5, color: GOLD_DARK, fontWeight: '800' }}>
+            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10.5, color: t.fgGold, fontWeight: '800' }}>
               🎁 이번주 남은 조합
             </T>
             {isHot && (
@@ -217,13 +217,13 @@ function PreviewJachanism() {
             )}
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'baseline', marginTop: 4 }}>
-            <T variant="label1n" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '900', fontSize: 20 }}>
+            <T variant="label1n" allowFontScaling={false} style={{ color: t.fgGold, fontWeight: '900', fontSize: 20 }}>
               {remaining.toLocaleString('ko')}
             </T>
-            <T variant="caption2" allowFontScaling={false} style={{ color: GOLD_DARK, opacity: 0.6, marginLeft: 4, fontSize: 11 }}>
+            <T variant="caption2" allowFontScaling={false} style={{ color: t.fgGold, opacity: 0.6, marginLeft: 4, fontSize: 11 }}>
               / {total.toLocaleString('ko')}
             </T>
-            <T variant="caption2" allowFontScaling={false} style={{ marginLeft: 'auto', color: GOLD_DARK, fontSize: 10, opacity: 0.7 }}>
+            <T variant="caption2" allowFontScaling={false} style={{ marginLeft: 'auto', color: t.fgGold, fontSize: 10, opacity: 0.7 }}>
               {consumed.toLocaleString('ko')}개 발급
             </T>
           </View>
@@ -236,7 +236,7 @@ function PreviewJachanism() {
 
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 8 }}>
         <T allowFontScaling={false} style={{ fontSize: 13 }}>✨</T>
-        <T variant="caption2" allowFontScaling={false} style={{ fontSize: 11, color: GOLD_DARK, fontWeight: '800' }}>
+        <T variant="caption2" allowFontScaling={false} style={{ fontSize: 11, color: t.fgGold, fontWeight: '800' }}>
           50조합 / 주
         </T>
         <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10.5, color: '#888' }}>
@@ -467,7 +467,7 @@ function ComparisonTable() {
       <View style={[styles.compHead, { borderBottomColor: t.borderDivider }]}>
         <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ flex: 2, fontSize: 11 }}>기능</T>
         <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', fontSize: 11 }}>무료</T>
-        <T variant="caption2" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', fontSize: 11, color: GOLD_DARK, fontWeight: '800' }}>PRO</T>
+        <T variant="caption2" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', fontSize: 11, color: t.fgGold, fontWeight: '800' }}>PRO</T>
       </View>
       {rows.map((r, i) => (
         <View
@@ -476,7 +476,7 @@ function ComparisonTable() {
         >
           <T variant="caption1" color="primary" style={{ flex: 2, fontWeight: '600' }}>{r.label}</T>
           <T variant="caption1" color="tertiary" allowFontScaling={false} style={{ flex: 1, textAlign: 'center' }}>{r.free}</T>
-          <T variant="caption1" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', color: GOLD_DARK, fontWeight: '800' }}>{r.pro}</T>
+          <T variant="caption1" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', color: t.fgGold, fontWeight: '800' }}>{r.pro}</T>
         </View>
       ))}
     </Card>

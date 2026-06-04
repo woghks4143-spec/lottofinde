@@ -212,6 +212,7 @@ function PreviewWeekly() {
    ═══════════════════════════════════════════════════════════════════════════ */
 
 function PreviewCompat() {
+  const t = useTheme();
   // mock — 선택 3개 + 짝궁 3개 (Lift 기반)
   const picked = [7, 13, 27];
   const partners = [
@@ -239,7 +240,7 @@ function PreviewCompat() {
       {partners.map((p, i) => (
         <View key={p.n} style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
           <View style={{ width: 56 }}>
-            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, color: GOLD_DARK, fontWeight: '700' }}>
+            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, color: t.fgGold, fontWeight: '700' }}>
               짝궁 {i + 1}위
             </T>
           </View>
@@ -260,12 +261,13 @@ function PreviewCompat() {
    ═══════════════════════════════════════════════════════════════════════════ */
 
 function PreviewPredict() {
+  const t = useTheme();
   // mock — 20수 중 상위 10개만 미니 그리드로 표시
   const top10 = [7, 13, 17, 22, 27, 30, 34, 38, 41, 45];
   return (
     <View style={{ gap: 8 }}>
       <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 6 }}>
-        <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, fontWeight: '800', color: GOLD_DARK }}>
+        <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, fontWeight: '800', color: t.fgGold }}>
           🌟 핀더 예상 제외수 TOP 10
         </T>
         <T variant="caption2" allowFontScaling={false} style={{ fontSize: 9, color: '#888', fontWeight: '600' }}>
@@ -292,6 +294,7 @@ function PreviewPredict() {
    ═══════════════════════════════════════════════════════════════════════════ */
 
 function PreviewRegression() {
+  const t = useTheme();
   // mock — 두 가지 K-랭킹 미니 프리뷰 (탭으로 전환되는 모양 암시)
   const rates = [
     { rank: 1, k: 1, rate: 17.3, color: GOLD_DARK },
@@ -322,7 +325,7 @@ function PreviewRegression() {
           </T>
         </View>
       ))}
-      <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, fontWeight: '800', color: GOLD_DARK, marginTop: 2 }}>
+      <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, fontWeight: '800', color: t.fgGold, marginTop: 2 }}>
         🔥 최근 연속 회귀 TOP
       </T>
       {streaks.map((s) => (
@@ -525,7 +528,7 @@ function ComparisonTable() {
       <View style={[styles.compHead, { borderBottomColor: t.borderDivider }]}>
         <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ flex: 2, fontSize: 11 }}>기능</T>
         <T variant="caption2" color="tertiary" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', fontSize: 11 }}>무료</T>
-        <T variant="caption2" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', fontSize: 11, color: GOLD_DARK, fontWeight: '800' }}>PRO</T>
+        <T variant="caption2" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', fontSize: 11, color: t.fgGold, fontWeight: '800' }}>PRO</T>
       </View>
       {rows.map((r, i) => (
         <View
@@ -534,7 +537,7 @@ function ComparisonTable() {
         >
           <T variant="caption1" color="primary" style={{ flex: 2, fontWeight: '600' }}>{r.label}</T>
           <T variant="caption1" color="tertiary" allowFontScaling={false} style={{ flex: 1, textAlign: 'center' }}>{r.free}</T>
-          <T variant="caption1" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', color: GOLD_DARK, fontWeight: '800' }}>{r.pro}</T>
+          <T variant="caption1" allowFontScaling={false} style={{ flex: 1, textAlign: 'center', color: t.fgGold, fontWeight: '800' }}>{r.pro}</T>
         </View>
       ))}
     </Card>

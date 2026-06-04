@@ -493,16 +493,16 @@ export default function ProJachanism() {
 
           {/* 큰 숫자: 남은 조합 강조 (FOMO) */}
           <View style={[styles.poolHero, { backgroundColor: 'rgba(232,176,78,0.10)', borderColor: GOLD }]}>
-            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 11, color: GOLD_DARK, fontWeight: '700' }}>
+            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 11, color: t.fgGold, fontWeight: '700' }}>
               남은 조합
             </T>
             {thisWeekRemaining != null ? (
               <View style={{ flexDirection: 'row', alignItems: 'baseline', marginTop: 4 }}>
-                <T variant="title1" allowFontScaling={false} style={{ color: GOLD_DARK, fontWeight: '900', fontSize: 32 }}>
+                <T variant="title1" allowFontScaling={false} style={{ color: t.fgGold, fontWeight: '900', fontSize: 32 }}>
                   {thisWeekRemaining.toLocaleString('ko')}
                 </T>
                 {thisWeekPoolSize != null && (
-                  <T variant="caption1" allowFontScaling={false} style={{ color: GOLD_DARK, opacity: 0.6, marginLeft: 6, fontSize: 12 }}>
+                  <T variant="caption1" allowFontScaling={false} style={{ color: t.fgGold, opacity: 0.6, marginLeft: 6, fontSize: 12 }}>
                     / {thisWeekPoolSize.toLocaleString('ko')}
                   </T>
                 )}
@@ -512,7 +512,7 @@ export default function ProJachanism() {
                 풀 계산 중...
               </T>
             )}
-            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, color: GOLD_DARK, opacity: 0.7, marginTop: 2 }}>
+            <T variant="caption2" allowFontScaling={false} style={{ fontSize: 10, color: t.fgGold, opacity: 0.7, marginTop: 2 }}>
               지금까지 {thisWeekConsumed.toLocaleString('ko')}개 발급됨
             </T>
 

@@ -226,7 +226,7 @@ export default function ProMembership() {
             </View>
 
             <View style={[styles.tipBox, { backgroundColor: 'rgba(232,176,78,0.08)' }]}>
-              <T variant="caption2" allowFontScaling={false} style={{ color: '#7a5800', fontSize: 11, lineHeight: 16 }}>
+              <T variant="caption2" allowFontScaling={false} style={{ color: t.fgGold, fontSize: 11, lineHeight: 16 }}>
                 💡 회차당 평균 3등 {STATS.avgRank3}개 + 4등 {STATS.avgRank4}개 + 5등 {STATS.avgRank5.toLocaleString('ko')}개 적중
               </T>
             </View>
@@ -407,6 +407,7 @@ function RankCell({ rank, count, color, highlight }: {
   color: string;
   highlight?: boolean;
 }) {
+  const t = useTheme();
   return (
     <View style={[
       styles.rankCell,
@@ -415,7 +416,8 @@ function RankCell({ rank, count, color, highlight }: {
       <T variant="caption1" allowFontScaling={false} style={{ fontSize: 11.5, fontWeight: '700', color }}>
         {rank}
       </T>
-      <T variant="label1n" allowFontScaling={false} style={{ fontSize: highlight ? 16 : 13.5, fontWeight: '900', marginTop: 2, color: highlight ? color : 'inherit' as any }}>
+      {/* highlight면 강조 색, 아니면 테마 primary (다크/라이트 모두 가독) */}
+      <T variant="label1n" allowFontScaling={false} style={{ fontSize: highlight ? 16 : 13.5, fontWeight: '900', marginTop: 2, color: highlight ? color : t.fgPrimary }}>
         {count}
       </T>
     </View>
