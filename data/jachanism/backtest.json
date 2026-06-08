@@ -1,13 +1,13 @@
 {
-  "latestRound": 1225,
+  "latestRound": 1227,
   "algorithm": "JACKPOT_UNION_v3",
   "roundsTested": 52,
-  "totalCombosTested": 4180571,
+  "totalCombosTested": 4177661,
   "rank1": 2,
   "rank2": 2,
-  "rank3": 133,
-  "rank4": 5990,
-  "rank5": 94721,
+  "rank3": 136,
+  "rank4": 6045,
+  "rank5": 95942,
   "wins1st": [
     1177,
     1206
@@ -17,10 +17,6 @@
     1194
   ],
   "roundsWithRank3": [
-    {
-      "round": 1174,
-      "count": 2
-    },
     {
       "round": 1177,
       "count": 2
@@ -164,25 +160,17 @@
     {
       "round": 1224,
       "count": 3
+    },
+    {
+      "round": 1226,
+      "count": 2
+    },
+    {
+      "round": 1227,
+      "count": 3
     }
   ],
   "roundDetails": [
-    {
-      "round": 1174,
-      "rank1": 0,
-      "rank2": 0,
-      "rank3": 2,
-      "rank4": 118,
-      "rank5": 1690
-    },
-    {
-      "round": 1175,
-      "rank1": 0,
-      "rank2": 0,
-      "rank3": 0,
-      "rank4": 42,
-      "rank5": 859
-    },
     {
       "round": 1176,
       "rank1": 0,
@@ -205,7 +193,7 @@
       "rank2": 0,
       "rank3": 4,
       "rank4": 145,
-      "rank5": 2077
+      "rank5": 2078
     },
     {
       "round": 1179,
@@ -213,7 +201,7 @@
       "rank2": 0,
       "rank3": 1,
       "rank4": 38,
-      "rank5": 977
+      "rank5": 975
     },
     {
       "round": 1180,
@@ -221,15 +209,15 @@
       "rank2": 0,
       "rank3": 3,
       "rank4": 135,
-      "rank5": 2034
+      "rank5": 2031
     },
     {
       "round": 1181,
       "rank1": 0,
       "rank2": 0,
       "rank3": 0,
-      "rank4": 42,
-      "rank5": 939
+      "rank4": 43,
+      "rank5": 940
     },
     {
       "round": 1182,
@@ -237,7 +225,7 @@
       "rank2": 0,
       "rank3": 4,
       "rank4": 174,
-      "rank5": 2744
+      "rank5": 2746
     },
     {
       "round": 1183,
@@ -245,7 +233,7 @@
       "rank2": 1,
       "rank3": 3,
       "rank4": 148,
-      "rank5": 1969
+      "rank5": 1967
     },
     {
       "round": 1184,
@@ -261,7 +249,7 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 47,
-      "rank5": 1004
+      "rank5": 1001
     },
     {
       "round": 1186,
@@ -269,7 +257,7 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 32,
-      "rank5": 826
+      "rank5": 827
     },
     {
       "round": 1187,
@@ -277,7 +265,7 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 164,
-      "rank5": 2188
+      "rank5": 2185
     },
     {
       "round": 1188,
@@ -293,7 +281,7 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 55,
-      "rank5": 1873
+      "rank5": 1870
     },
     {
       "round": 1190,
@@ -301,7 +289,7 @@
       "rank2": 0,
       "rank3": 4,
       "rank4": 119,
-      "rank5": 2278
+      "rank5": 2275
     },
     {
       "round": 1191,
@@ -317,7 +305,7 @@
       "rank2": 0,
       "rank3": 4,
       "rank4": 126,
-      "rank5": 1943
+      "rank5": 1942
     },
     {
       "round": 1193,
@@ -325,7 +313,7 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 83,
-      "rank5": 1926
+      "rank5": 1928
     },
     {
       "round": 1194,
@@ -333,7 +321,7 @@
       "rank2": 1,
       "rank3": 16,
       "rank4": 730,
-      "rank5": 5451
+      "rank5": 5453
     },
     {
       "round": 1195,
@@ -349,7 +337,7 @@
       "rank2": 0,
       "rank3": 1,
       "rank4": 55,
-      "rank5": 1258
+      "rank5": 1257
     },
     {
       "round": 1197,
@@ -397,7 +385,7 @@
       "rank2": 0,
       "rank3": 12,
       "rank4": 435,
-      "rank5": 4123
+      "rank5": 4124
     },
     {
       "round": 1203,
@@ -421,7 +409,7 @@
       "rank2": 0,
       "rank3": 3,
       "rank4": 136,
-      "rank5": 1937
+      "rank5": 1936
     },
     {
       "round": 1206,
@@ -501,7 +489,7 @@
       "rank2": 0,
       "rank3": 4,
       "rank4": 116,
-      "rank5": 1752
+      "rank5": 1753
     },
     {
       "round": 1216,
@@ -581,8 +569,24 @@
       "rank2": 0,
       "rank3": 0,
       "rank4": 7,
-      "rank5": 443
+      "rank5": 442
+    },
+    {
+      "round": 1226,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 2,
+      "rank4": 84,
+      "rank5": 1859
+    },
+    {
+      "round": 1227,
+      "rank1": 0,
+      "rank2": 0,
+      "rank3": 3,
+      "rank4": 130,
+      "rank5": 1923
     }
   ],
-  "computedAt": 1779972949277
+  "computedAt": 1780930109196
 }
