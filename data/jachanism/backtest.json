@@ -1,20 +1,21 @@
 {
-  "latestRound": 1227,
+  "latestRound": 1228,
   "algorithm": "JACKPOT_UNION_v3",
   "roundsTested": 52,
-  "totalCombosTested": 4177667,
+  "totalCombosTested": 4176539,
   "rank1": 2,
-  "rank2": 2,
-  "rank3": 136,
-  "rank4": 6044,
-  "rank5": 95954,
+  "rank2": 3,
+  "rank3": 137,
+  "rank4": 6089,
+  "rank5": 96607,
   "wins1st": [
     1177,
     1206
   ],
   "wins2nd": [
     1183,
-    1194
+    1194,
+    1228
   ],
   "roundsWithRank3": [
     {
@@ -168,17 +169,13 @@
     {
       "round": 1227,
       "count": 3
+    },
+    {
+      "round": 1228,
+      "count": 1
     }
   ],
   "roundDetails": [
-    {
-      "round": 1176,
-      "rank1": 0,
-      "rank2": 0,
-      "rank3": 0,
-      "rank4": 36,
-      "rank5": 1046
-    },
     {
       "round": 1177,
       "rank1": 1,
@@ -586,7 +583,15 @@
       "rank3": 3,
       "rank4": 130,
       "rank5": 1923
+    },
+    {
+      "round": 1228,
+      "rank1": 0,
+      "rank2": 1,
+      "rank3": 1,
+      "rank4": 81,
+      "rank5": 1699
     }
   ],
-  "computedAt": 1780938041084
+  "computedAt": 1781495414923
 }
