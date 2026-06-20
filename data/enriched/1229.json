@@ -1,0 +1,109 @@
+{
+  "round": 1229,
+  "date": "2026-06-20",
+  "nums": [
+    12,
+    13,
+    29,
+    34,
+    37,
+    42
+  ],
+  "bonus": 16,
+  "firstWinAmount": 3519759000,
+  "firstWinners": 8,
+  "totalSales": 116155532000,
+  "prizes": {
+    "first": {
+      "amount": 3519759000,
+      "winners": 8
+    },
+    "second": {
+      "amount": 52730472,
+      "winners": 89
+    },
+    "third": {
+      "amount": 1604449,
+      "winners": 2925
+    },
+    "fourth": {
+      "amount": 50000,
+      "winners": 152290
+    },
+    "fifth": {
+      "amount": 5000,
+      "winners": 2583834
+    }
+  },
+  "methodCounts": {
+    "auto": 5,
+    "manual": 2,
+    "mixed": 0
+  },
+  "topStores": [
+    {
+      "rank": 1,
+      "name": "로또킹",
+      "address": "서울 영등포구 영중로 2 1층(영등포동3가)",
+      "method": "auto",
+      "lat": 37.516743,
+      "lng": 126.90673
+    },
+    {
+      "rank": 1,
+      "name": "대박복권",
+      "address": "서울 동작구 동작대로27가길 36 1층",
+      "method": "manual",
+      "lat": 37.486015,
+      "lng": 126.98096
+    },
+    {
+      "rank": 1,
+      "name": "대치럭키 로또",
+      "address": "서울 강남구 선릉로76길 38 1층 3호",
+      "method": "manual",
+      "lat": 37.50213,
+      "lng": 127.0536
+    },
+    {
+      "rank": 1,
+      "name": "거액의꿈",
+      "address": "부산 남구 우암로154번길 54",
+      "method": "mixed",
+      "lat": 35.125572,
+      "lng": 129.08171
+    },
+    {
+      "rank": 1,
+      "name": "인현동지하가판",
+      "address": "인천 중구 참외전로 132-2 동인천역 78번 출구 지하1층 가판대",
+      "method": "auto",
+      "lat": 37.47461,
+      "lng": 126.63176
+    },
+    {
+      "rank": 1,
+      "name": "이마트24 순천산단점",
+      "address": "전남 순천시 산단1길 6",
+      "method": "auto",
+      "lat": 34.987877,
+      "lng": 127.50851
+    },
+    {
+      "rank": 1,
+      "name": "황금노다지",
+      "address": "경남 김해시 경원로 13 1층 삼거리쪽",
+      "method": "auto",
+      "lat": 35.23867,
+      "lng": 128.86224
+    },
+    {
+      "rank": 1,
+      "name": "로또냉동",
+      "address": "경남 김해시 장유로 331-1 좌측 복권판매점",
+      "method": "auto",
+      "lat": 35.197174,
+      "lng": 128.81664
+    }
+  ]
+}
